@@ -309,81 +309,86 @@ function renderStories(data) {
 
 function initExpandButtons() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const expandButtons = document.querySelectorAll(".btn-expand");
+  const buttons = document.querySelectorAll(".btn-expand");
 
-  expandButtons.forEach((button) => {
+  buttons.forEach((button) => {
     const detailsId = button.getAttribute("aria-controls");
     const details = detailsId ? document.getElementById(detailsId) : null;
 
     if (!details) return;
 
-    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    const expanded = button.getAttribute("aria-expanded") === "true";
 
-    if (isExpanded) {
+    if (reduceMotion) {
+      details.hidden = !expanded;
+      details.classList.toggle("is-open", expanded);
+      details.style.maxHeight = "none";
+      details.style.opacity = "1";
+    } else if (expanded) {
       details.hidden = false;
-      details.style.height = "auto";
+      details.classList.add("is-open");
+      details.style.maxHeight = `${details.scrollHeight}px`;
       details.style.opacity = "1";
     } else {
       details.hidden = true;
-      details.style.height = "0px";
+      details.classList.remove("is-open");
+      details.style.maxHeight = "0px";
       details.style.opacity = "0";
     }
 
     button.addEventListener("click", () => {
-      const expanded = button.getAttribute("aria-expanded") === "true";
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
 
       if (reduceMotion) {
-        button.setAttribute("aria-expanded", String(!expanded));
-        details.hidden = expanded;
-        details.style.height = "auto";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        details.hidden = isExpanded;
+        details.classList.toggle("is-open", !isExpanded);
+        details.style.maxHeight = "none";
         details.style.opacity = "1";
         return;
       }
 
-      if (!expanded) {
+      if (isExpanded) {
         details.hidden = false;
-        details.style.height = "0px";
+        details.style.maxHeight = `${details.scrollHeight}px`;
+        details.style.opacity = "1";
+
+        requestAnimationFrame(() => {
+          button.setAttribute("aria-expanded", "false");
+          details.classList.remove("is-open");
+          details.style.maxHeight = "0px";
+          details.style.opacity = "0";
+        });
+
+        const onCloseEnd = (event) => {
+          if (event.propertyName !== "max-height") return;
+          details.hidden = true;
+          details.removeEventListener("transitionend", onCloseEnd);
+        };
+
+        details.addEventListener("transitionend", onCloseEnd);
+      } else {
+        details.hidden = false;
+        details.style.maxHeight = "0px";
         details.style.opacity = "0";
 
         requestAnimationFrame(() => {
           const fullHeight = details.scrollHeight;
           button.setAttribute("aria-expanded", "true");
-          details.style.height = `${fullHeight}px`;
+          details.classList.add("is-open");
+          details.style.maxHeight = `${fullHeight}px`;
           details.style.opacity = "1";
         });
 
         const onOpenEnd = (event) => {
-          if (event.propertyName !== "height") return;
-          details.style.height = "auto";
+          if (event.propertyName !== "max-height") return;
+          details.style.maxHeight = `${details.scrollHeight}px`;
           details.removeEventListener("transitionend", onOpenEnd);
         };
 
         details.addEventListener("transitionend", onOpenEnd);
-           } else {
-        const fullHeight = details.scrollHeight;
-        details.style.height = `${fullHeight}px`;
-        details.style.opacity = "1";
-
-        details.offsetHeight;
-
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            button.setAttribute("aria-expanded", "false");
-            details.style.height = "0px";
-            details.style.opacity = "0";
-          });
-        });
-
-        const onCloseEnd = (event) => {
-          if (event.propertyName !== "height") return;
-          details.hidden = true;
-          details.style.height = "0px";
-          details.removeEventListener("transitionend", onCloseEnd);
-        };
-
-        details.addEventListener("transitionend", onCloseEnd);
       }
-      });
+    });
   });
 }
 
