@@ -1,4 +1,5 @@
 const STORAGE_PREFIX = "dailybrief:";
+let storyData = null;
 
 function storageAvailable() {
   try {
@@ -88,9 +89,7 @@ function activateTab(tab, setFocus = true) {
     panel.hidden = !isMatch;
   });
 
-  if (setFocus) {
-    tab.focus();
-  }
+  if (setFocus) tab.focus();
 }
 
 function onTabKeydown(event) {
@@ -128,35 +127,9 @@ function onTabKeydown(event) {
 
 function initTabs() {
   const tabs = getTabs();
-
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => activateTab(tab, false));
     tab.addEventListener("keydown", onTabKeydown);
-  });
-}
-
-function toggleExpand(btn) {
-  const expanded = btn.getAttribute("aria-expanded") === "true";
-  const nextState = !expanded;
-
-  btn.setAttribute("aria-expanded", String(nextState));
-
-  const panelId = btn.getAttribute("aria-controls");
-  const panel = document.getElementById(panelId);
-  if (panel) {
-    panel.hidden = !nextState;
-  }
-
-  const label = btn.querySelector(".expand-label");
-  if (label) {
-    label.textContent = nextState ? "Read less" : "Read more";
-  }
-}
-
-function initExpandButtons() {
-  const buttons = document.querySelectorAll(".btn-expand");
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => toggleExpand(btn));
   });
 }
 
@@ -177,24 +150,6 @@ function loadNote(storyId) {
   return storageGet(noteKey(storyId)) || "";
 }
 
-function initNotes() {
-  const textareas = document.querySelectorAll(".story-note");
-  textareas.forEach((textarea) => {
-    textarea.addEventListener("input", () => {
-      const storyId = textarea.getAttribute("data-story-id");
-      saveNote(storyId, textarea.value);
-    });
-  });
-}
-
-function restoreNotes() {
-  const textareas = document.querySelectorAll(".story-note");
-  textareas.forEach((textarea) => {
-    const storyId = textarea.getAttribute("data-story-id");
-    textarea.value = loadNote(storyId);
-  });
-}
-
 function bookmarkKey(storyId) {
   return STORAGE_PREFIX + "bookmark:" + storyId;
 }
@@ -210,6 +165,141 @@ function saveBookmark(storyId, isBookmarked) {
 
 function isBookmarked(storyId) {
   return storageGet(bookmarkKey(storyId)) === "1";
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function createStoryMarkup(story, type = "card") {
+  const isHero = type === "hero";
+  const headlineTag = isHero ? "h2" : "h3";
+  const wrapperClass = isHero ? "hero-card" : "story-card";
+  const whyBorderClass = isHero ? "hero" : "card";
+
+  return `
+    <article class="${wrapperClass}" data-story-id="${escapeHtml(story.id)}">
+      ${isHero ? `<span class="story-index" aria-hidden="true">01</span>` : ""}
+      <${headlineTag} class="${isHero ? "hero-headline" : "story-headline"}">
+        ${escapeHtml(story.headline)}
+      </${headlineTag}>
+
+      <p class="story-hook ${isHero ? "" : "story-hook-card"}">
+        ${escapeHtml(story.hook)}
+      </p>
+
+      <button class="btn-expand" type="button" aria-expanded="false" aria-controls="details-${escapeHtml(story.id)}">
+        <span class="expand-label">Read more</span>
+        <svg class="expand-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+
+      <div class="story-details" id="details-${escapeHtml(story.id)}" hidden>
+        <p class="story-summary">${escapeHtml(story.summary)}</p>
+
+        <div class="why-matters ${whyBorderClass}">
+          <p class="why-label">Why it matters</p>
+          <p>${escapeHtml(story.whyItMatters)}</p>
+        </div>
+
+        <div class="story-meta">
+          <span class="story-source">${escapeHtml(story.source)}</span>
+          <span class="story-date">${escapeHtml(story.date)}</span>
+        </div>
+
+        <div class="notes-block">
+          <label class="notes-label" for="note-${escapeHtml(story.id)}">Your note</label>
+          <textarea
+            class="story-note"
+            id="note-${escapeHtml(story.id)}"
+            data-story-id="${escapeHtml(story.id)}"
+            placeholder="Add a note — saved automatically…"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn-bookmark" type="button" data-story-id="${escapeHtml(story.id)}" aria-pressed="false">
+            <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="bookmark-label">Bookmark</span>
+          </button>
+
+          <a class="read-link" href="${escapeHtml(story.url || "#")}" target="_blank" rel="noopener noreferrer">
+            Read source
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderStories(data) {
+  const heroContainer = document.getElementById("hero-container");
+  const legalGrid = document.getElementById("legal-grid");
+  const legalGridPanel = document.getElementById("legal-grid-panel");
+
+  if (heroContainer && data.hero) {
+    heroContainer.innerHTML = createStoryMarkup(data.hero, "hero");
+  }
+
+  if (legalGrid && Array.isArray(data.legal)) {
+    legalGrid.innerHTML = data.legal.map((story) => createStoryMarkup(story, "card")).join("");
+  }
+
+  if (legalGridPanel && Array.isArray(data.legal)) {
+    legalGridPanel.innerHTML = data.legal.map((story) => createStoryMarkup(story, "card")).join("");
+  }
+}
+
+function toggleExpand(btn) {
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  const nextState = !expanded;
+  btn.setAttribute("aria-expanded", String(nextState));
+
+  const panelId = btn.getAttribute("aria-controls");
+  const panel = document.getElementById(panelId);
+  if (panel) panel.hidden = !nextState;
+
+  const label = btn.querySelector(".expand-label");
+  if (label) label.textContent = nextState ? "Read less" : "Read more";
+}
+
+function initExpandButtons() {
+  const buttons = document.querySelectorAll(".btn-expand");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => toggleExpand(btn));
+  });
+}
+
+function initNotes() {
+  const textareas = document.querySelectorAll(".story-note");
+  textareas.forEach((textarea) => {
+    const storyId = textarea.getAttribute("data-story-id");
+    textarea.value = loadNote(storyId);
+
+    textarea.addEventListener("input", () => {
+      saveNote(storyId, textarea.value);
+    });
+  });
 }
 
 function applyBookmarkState(button, bookmarked) {
@@ -232,15 +322,10 @@ function toggleBookmark(button) {
 function initBookmarks() {
   const buttons = document.querySelectorAll(".btn-bookmark");
   buttons.forEach((button) => {
-    button.addEventListener("click", () => toggleBookmark(button));
-  });
-}
-
-function restoreBookmarks() {
-  const buttons = document.querySelectorAll(".btn-bookmark");
-  buttons.forEach((button) => {
     const storyId = button.getAttribute("data-story-id");
     applyBookmarkState(button, isBookmarked(storyId));
+
+    button.addEventListener("click", () => toggleBookmark(button));
   });
 }
 
@@ -268,26 +353,49 @@ function initFocusModeButton() {
   });
 }
 
-function init() {
+async function loadStories() {
+  const response = await fetch("./stories.json", { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error("Failed to load stories.json");
+  }
+  return response.json();
+}
+
+async function initApp() {
   restoreTheme();
   initTabs();
+
+  storyData = await loadStories();
+  renderStories(storyData);
+
   initExpandButtons();
   initNotes();
-  restoreNotes();
   initBookmarks();
-  restoreBookmarks();
+  initArchiveButton();
+  initReadingModeButton();
+  initFocusModeButton();
 
   const themeBtn = document.getElementById("btn-theme");
   if (themeBtn) {
     themeBtn.addEventListener("click", toggleTheme);
   }
-
-  initArchiveButton();
-  initReadingModeButton();
-  initFocusModeButton();
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => {
+  initApp().catch((error) => {
+    console.error(error);
+    const main = document.getElementById("main-content");
+    if (main) {
+      main.innerHTML = `
+        <section class="rail-section">
+          <h2 class="rail-heading">Unable to load stories</h2>
+          <p class="panel-note">Please check that stories.json exists in the repo root and is valid JSON.</p>
+        </section>
+      `;
+    }
+  });
+});
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
