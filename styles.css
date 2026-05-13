@@ -491,11 +491,15 @@ button {
   padding-top: var(--space-4);
   border-top: 1px dashed var(--border-strong);
   overflow: hidden;
-  height: auto;
-  opacity: 1;
+  max-height: 0;
+  opacity: 0;
   transition:
-  height 320ms cubic-bezier(0.22, 1, 0.36, 1),
-  opacity 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    max-height 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.story-details.is-open {
+  opacity: 1;
 }
 
 .story-summary {
@@ -724,8 +728,8 @@ button {
     will-change: auto;
   }
 
-    .story-details {
-    height: auto !important;
+      .story-details {
+    max-height: none !important;
     opacity: 1 !important;
   }
 }
