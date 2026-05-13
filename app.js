@@ -289,11 +289,7 @@ function renderBookmarksPanel() {
   const bookmarksGrid = document.getElementById("bookmarks-grid");
   if (!bookmarksGrid || !storyData) return;
 
-  const bookmarkedIds = getAllStories(storyData)
-    .map((story) => story.id)
-    .filter((storyId) => isBookmarked(storyId));
-
-  const bookmarkedStories = getAllStories(storyData).filter((story) => bookmarkedIds.includes(story.id));
+  const bookmarkedStories = getAllStories(storyData).filter((story) => isBookmarked(story.id));
 
   if (!bookmarkedStories.length) {
     bookmarksGrid.innerHTML = `
