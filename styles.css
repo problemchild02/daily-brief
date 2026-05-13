@@ -493,8 +493,8 @@ button {
   max-height: 0;
   opacity: 0;
   transition:
-    max-height 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 140ms linear;
+    max-height 180ms ease,
+    opacity 100ms linear;
   will-change: max-height, opacity;
 }
 
