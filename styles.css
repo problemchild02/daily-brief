@@ -287,7 +287,6 @@ button {
 .rail-section,
 .rail-section-single {
   margin-bottom: var(--space-10);
-  animation: fade-rise var(--transition-slow);
 }
 
 .hero-card,
@@ -306,16 +305,13 @@ button {
 .story-card {
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
-  transform: translateY(0);
   transition:
-    transform var(--transition),
     box-shadow var(--transition),
     border-color var(--transition),
     background-color var(--transition);
 }
 
 .story-card:hover {
-  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   border-color: var(--border-strong);
 }
@@ -493,9 +489,8 @@ button {
   max-height: 0;
   opacity: 0;
   transition:
-    max-height 180ms ease,
-    opacity 100ms linear;
-  will-change: max-height, opacity;
+    max-height 160ms ease-out,
+    opacity 90ms linear;
 }
 
 .story-details-inner {
