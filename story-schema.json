@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://problemchild02.github.io/daily-brief/story-schema.json",
+  "title": "Daily Brief Edition Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["editionDate", "heroStoryId", "sections"],
+  "properties": {
+    "editionDate": {
+      "type": "string",
+      "description": "Edition date in YYYY-MM-DD format",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "heroStoryId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "legal",
+        "reliance",
+        "retail",
+        "business",
+        "tech",
+        "geopolitics",
+        "sports",
+        "opinion"
+      ],
+      "properties": {
+        "legal": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "reliance": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "retail": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "business": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "tech": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "geopolitics": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "sports": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        },
+        "opinion": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/story" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "section",
+        "headline",
+        "hook",
+        "summary",
+        "source",
+        "sourceUrl",
+        "dateLabel",
+        "tags",
+        "priority"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string",
+          "enum": [
+            "legal",
+            "reliance",
+            "retail",
+            "business",
+            "tech",
+            "geopolitics",
+            "sports",
+            "opinion"
+          ]
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 180
+        },
+        "hook": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 220
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 30,
+          "maxLength": 700
+        },
+        "contextNote": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 500
+        },
+        "source": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "sourceUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dateLabel": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "section": {
+                "enum": ["legal", "reliance", "retail", "business", "tech", "opinion"]
+              }
+            },
+            "required": ["section"]
+          },
+          "then": {
+            "required": ["contextNote"]
+          }
+        }
+      ]
+    }
+  }
+}
