@@ -252,21 +252,41 @@ function createStoryMarkup(story, type = "card") {
   `;
 }
 
+function getAllStories(data) {
+  if (!data || !data.sections) return [];
+  return Object.values(data.sections).flatMap((items) => Array.isArray(items) ? items : []);
+}
+
+function findHeroStory(data) {
+  const allStories = getAllStories(data);
+  return allStories.find((story) => story.id === data.heroStoryId) || null;
+}
+
 function renderStories(data) {
   const heroContainer = document.getElementById("hero-container");
   const legalGrid = document.getElementById("legal-grid");
   const legalGridPanel = document.getElementById("legal-grid-panel");
 
-  if (heroContainer && data.hero) {
-    heroContainer.innerHTML = createStoryMarkup(data.hero, "hero");
+  const heroStory = findHeroStory(data);
+  const legalStories = data?.sections?.legal || [];
+
+  if (heroContainer && heroStory) {
+    heroContainer.innerHTML = createStoryMarkup(heroStory, "hero");
+  } else if (heroContainer) {
+    heroContainer.innerHTML = `
+      <article class="hero-card">
+        <h2 class="hero-headline">No hero story available</h2>
+        <p class="story-hook">Please check that heroStoryId matches one of the story IDs in stories.json.</p>
+      </article>
+    `;
   }
 
-  if (legalGrid && Array.isArray(data.legal)) {
-    legalGrid.innerHTML = data.legal.map((story) => createStoryMarkup(story, "card")).join("");
+  if (legalGrid && Array.isArray(legalStories)) {
+    legalGrid.innerHTML = legalStories.map((story) => createStoryMarkup(story, "card")).join("");
   }
 
-  if (legalGridPanel && Array.isArray(data.legal)) {
-    legalGridPanel.innerHTML = data.legal.map((story) => createStoryMarkup(story, "card")).join("");
+  if (legalGridPanel && Array.isArray(legalStories)) {
+    legalGridPanel.innerHTML = legalStories.map((story) => createStoryMarkup(story, "card")).join("");
   }
 }
 
