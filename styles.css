@@ -383,6 +383,11 @@ button {
   border-color: var(--border-strong);
 }
 
+.btn-refresh:disabled {
+  opacity: 0.82;
+  cursor: wait;
+}
+
 .btn-bookmark[aria-pressed="true"] {
   background: var(--accent-hero);
   border-color: var(--accent-hero);
@@ -600,6 +605,26 @@ button {
 
   .hero-card {
     padding: var(--space-10) 48px;
+  }
+}
+
+.btn-spinner {
+  width: 0.9rem;
+  height: 0.9rem;
+  display: inline-block;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: btn-spin 0.7s linear infinite;
+}
+
+@keyframes btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
