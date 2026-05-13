@@ -399,11 +399,18 @@ async function loadStories() {
 }
 
 async function refreshStories(button = null) {
+  const minDelay = 700;
+  const startTime = Date.now();
+
   if (button) {
     button.disabled = true;
-    const originalText = button.innerHTML;
-    button.dataset.originalHtml = originalText;
-    button.innerHTML = "Refreshing…";
+    const originalHtml = button.innerHTML;
+    button.dataset.originalHtml = originalHtml;
+    button.setAttribute("aria-busy", "true");
+    button.innerHTML = `
+      <span class="btn-spinner" aria-hidden="true"></span>
+      <span>Refreshing…</span>
+    `;
   }
 
   try {
@@ -413,12 +420,21 @@ async function refreshStories(button = null) {
     initExpandButtons();
     initNotes();
     initBookmarks();
+
+    const elapsed = Date.now() - startTime;
+    const remaining = minDelay - elapsed;
+
+    if (remaining > 0) {
+      await new Promise((resolve) => setTimeout(resolve, remaining));
+    }
   } catch (error) {
     console.error("Refresh failed:", error);
     alert("Could not refresh stories. Please try again.");
   } finally {
     if (button) {
       button.disabled = false;
+      button.removeAttribute("aria-busy");
+
       if (button.dataset.originalHtml) {
         button.innerHTML = button.dataset.originalHtml;
       }
