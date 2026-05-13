@@ -316,84 +316,93 @@ function initExpandButtons() {
   buttons.forEach((button) => {
     const detailsId = button.getAttribute("aria-controls");
     const details = detailsId ? document.getElementById(detailsId) : null;
-
     if (!details) return;
 
-    const expanded = button.getAttribute("aria-expanded") === "true";
+    const setClosed = () => {
+      button.setAttribute("aria-expanded", "false");
+      details.classList.remove("is-open");
+      details.style.maxHeight = "0px";
+      details.style.opacity = "0";
+      details.hidden = true;
+    };
 
-    if (reduceMotion) {
-      details.hidden = !expanded;
-      details.classList.toggle("is-open", expanded);
-      details.style.maxHeight = "none";
-      details.style.opacity = "1";
-    } else if (expanded) {
+    const setOpen = () => {
+      button.setAttribute("aria-expanded", "true");
       details.hidden = false;
       details.classList.add("is-open");
       details.style.maxHeight = `${details.scrollHeight}px`;
       details.style.opacity = "1";
+    };
+
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+    if (reduceMotion) {
+      details.hidden = !isExpanded;
+      details.classList.toggle("is-open", isExpanded);
+      details.style.maxHeight = "none";
+      details.style.opacity = "1";
     } else {
-      details.hidden = true;
-      details.classList.remove("is-open");
-      details.style.maxHeight = "0px";
-      details.style.opacity = "0";
+      if (isExpanded) {
+        setOpen();
+      } else {
+        setClosed();
+      }
     }
 
     button.addEventListener("click", () => {
-      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      const expanded = button.getAttribute("aria-expanded") === "true";
 
       if (reduceMotion) {
-        button.setAttribute("aria-expanded", String(!isExpanded));
-        details.hidden = isExpanded;
-        details.classList.toggle("is-open", !isExpanded);
-        details.style.maxHeight = "none";
-        details.style.opacity = "1";
+        if (expanded) {
+          setClosed();
+        } else {
+          setOpen();
+        }
         return;
       }
 
-      if (isExpanded) {
+      if (expanded) {
         details.hidden = false;
         details.style.maxHeight = `${details.scrollHeight}px`;
         details.style.opacity = "1";
 
-        requestAnimationFrame(() => {
-          button.setAttribute("aria-expanded", "false");
-          details.classList.remove("is-open");
-          details.style.maxHeight = "0px";
-          details.style.opacity = "0";
-        });
+        details.offsetHeight;
 
-        const onCloseEnd = (event) => {
+        button.setAttribute("aria-expanded", "false");
+        details.classList.remove("is-open");
+        details.style.maxHeight = "0px";
+        details.style.opacity = "0";
+
+        const onEnd = (event) => {
           if (event.propertyName !== "max-height") return;
           details.hidden = true;
-          details.removeEventListener("transitionend", onCloseEnd);
+          details.removeEventListener("transitionend", onEnd);
         };
 
-        details.addEventListener("transitionend", onCloseEnd);
+        details.addEventListener("transitionend", onEnd);
       } else {
         details.hidden = false;
         details.style.maxHeight = "0px";
         details.style.opacity = "0";
 
         requestAnimationFrame(() => {
-          const fullHeight = details.scrollHeight;
           button.setAttribute("aria-expanded", "true");
           details.classList.add("is-open");
-          details.style.maxHeight = `${fullHeight}px`;
+          details.style.maxHeight = `${details.scrollHeight}px`;
           details.style.opacity = "1";
         });
 
-        const onOpenEnd = (event) => {
+        const onEnd = (event) => {
           if (event.propertyName !== "max-height") return;
           details.style.maxHeight = `${details.scrollHeight}px`;
-          details.removeEventListener("transitionend", onOpenEnd);
+          details.removeEventListener("transitionend", onEnd);
         };
 
-        details.addEventListener("transitionend", onOpenEnd);
+        details.addEventListener("transitionend", onEnd);
       }
     });
   });
 }
-
 function initNotes() {
   const textareas = document.querySelectorAll(".story-note");
   textareas.forEach((textarea) => {
