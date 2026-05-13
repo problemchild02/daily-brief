@@ -204,52 +204,54 @@ function createStoryMarkup(story, type = "card") {
         </svg>
       </button>
 
-      <div class="story-details" id="details-${escapeHtml(story.id)}" hidden>
-        <p class="story-summary">${escapeHtml(story.summary)}</p>
+            <div class="story-details" id="details-${escapeHtml(story.id)}" hidden>
+        <div class="story-details-inner">
+          <p class="story-summary">${escapeHtml(story.summary)}</p>
 
-        ${story.contextNote ? `
-          <div class="why-matters ${isHero ? "hero" : "card"}">
-            <p class="why-label">${escapeHtml(noteLabel)}</p>
-            <p>${escapeHtml(story.contextNote)}</p>
+          ${story.contextNote ? `
+            <div class="why-matters ${isHero ? "hero" : "card"}">
+              <p class="why-label">${escapeHtml(noteLabel)}</p>
+              <p>${escapeHtml(story.contextNote)}</p>
+            </div>
+          ` : ""}
+
+          <div class="story-meta">
+            <span class="story-source">${escapeHtml(story.source)}</span>
+            <span class="story-date">${escapeHtml(story.dateLabel)}</span>
           </div>
-        ` : ""}
 
-        <div class="story-meta">
-          <span class="story-source">${escapeHtml(story.source)}</span>
-          <span class="story-date">${escapeHtml(story.dateLabel)}</span>
-        </div>
+          <div class="notes-block">
+            <label class="notes-label" for="note-${escapeHtml(story.id)}">Your note</label>
+            <textarea
+              class="story-note"
+              id="note-${escapeHtml(story.id)}"
+              data-story-id="${escapeHtml(story.id)}"
+              placeholder="Add a note — saved automatically…"
+              rows="3"
+            ></textarea>
+          </div>
 
-        <div class="notes-block">
-          <label class="notes-label" for="note-${escapeHtml(story.id)}">Your note</label>
-          <textarea
-            class="story-note"
-            id="note-${escapeHtml(story.id)}"
-            data-story-id="${escapeHtml(story.id)}"
-            placeholder="Add a note — saved automatically…"
-            rows="3"
-          ></textarea>
-        </div>
+          <div class="card-footer">
+            <button class="btn-bookmark" type="button" data-story-id="${escapeHtml(story.id)}" aria-pressed="false">
+              <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span class="bookmark-label">Bookmark</span>
+            </button>
 
-        <div class="card-footer">
-          <button class="btn-bookmark" type="button" data-story-id="${escapeHtml(story.id)}" aria-pressed="false">
-            <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <span class="bookmark-label">Bookmark</span>
-          </button>
-
-          <a class="read-link" href="${escapeHtml(story.sourceUrl || "#")}" target="_blank" rel="noopener noreferrer">
-            Read source
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
+            <a class="read-link" href="${escapeHtml(story.sourceUrl || "#")}" target="_blank" rel="noopener noreferrer">
+              Read source
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </article>
