@@ -359,26 +359,31 @@ function initExpandButtons() {
         };
 
         details.addEventListener("transitionend", onOpenEnd);
-      } else {
+           } else {
         const fullHeight = details.scrollHeight;
         details.style.height = `${fullHeight}px`;
         details.style.opacity = "1";
 
+        details.offsetHeight;
+
         requestAnimationFrame(() => {
-          button.setAttribute("aria-expanded", "false");
-          details.style.height = "0px";
-          details.style.opacity = "0";
+          requestAnimationFrame(() => {
+            button.setAttribute("aria-expanded", "false");
+            details.style.height = "0px";
+            details.style.opacity = "0";
+          });
         });
 
         const onCloseEnd = (event) => {
           if (event.propertyName !== "height") return;
           details.hidden = true;
+          details.style.height = "0px";
           details.removeEventListener("transitionend", onCloseEnd);
         };
 
         details.addEventListener("transitionend", onCloseEnd);
       }
-    });
+      });
   });
 }
 
