@@ -307,23 +307,78 @@ function renderStories(data) {
   });
 }
 
-function toggleExpand(btn) {
-  const expanded = btn.getAttribute("aria-expanded") === "true";
-  const nextState = !expanded;
-  btn.setAttribute("aria-expanded", String(nextState));
-
-  const panelId = btn.getAttribute("aria-controls");
-  const panel = document.getElementById(panelId);
-  if (panel) panel.hidden = !nextState;
-
-  const label = btn.querySelector(".expand-label");
-  if (label) label.textContent = nextState ? "Read less" : "Read more";
-}
-
 function initExpandButtons() {
-  const buttons = document.querySelectorAll(".btn-expand");
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => toggleExpand(btn));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const expandButtons = document.querySelectorAll(".btn-expand");
+
+  expandButtons.forEach((button) => {
+    const detailsId = button.getAttribute("aria-controls");
+    const details = detailsId ? document.getElementById(detailsId) : null;
+
+    if (!details) return;
+
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+    if (isExpanded) {
+      details.hidden = false;
+      details.style.height = "auto";
+      details.style.opacity = "1";
+    } else {
+      details.hidden = true;
+      details.style.height = "0px";
+      details.style.opacity = "0";
+    }
+
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+
+      if (reduceMotion) {
+        button.setAttribute("aria-expanded", String(!expanded));
+        details.hidden = expanded;
+        details.style.height = "auto";
+        details.style.opacity = "1";
+        return;
+      }
+
+      if (!expanded) {
+        details.hidden = false;
+        details.style.height = "0px";
+        details.style.opacity = "0";
+
+        requestAnimationFrame(() => {
+          const fullHeight = details.scrollHeight;
+          button.setAttribute("aria-expanded", "true");
+          details.style.height = `${fullHeight}px`;
+          details.style.opacity = "1";
+        });
+
+        const onOpenEnd = (event) => {
+          if (event.propertyName !== "height") return;
+          details.style.height = "auto";
+          details.removeEventListener("transitionend", onOpenEnd);
+        };
+
+        details.addEventListener("transitionend", onOpenEnd);
+      } else {
+        const fullHeight = details.scrollHeight;
+        details.style.height = `${fullHeight}px`;
+        details.style.opacity = "1";
+
+        requestAnimationFrame(() => {
+          button.setAttribute("aria-expanded", "false");
+          details.style.height = "0px";
+          details.style.opacity = "0";
+        });
+
+        const onCloseEnd = (event) => {
+          if (event.propertyName !== "height") return;
+          details.hidden = true;
+          details.removeEventListener("transitionend", onCloseEnd);
+        };
+
+        details.addEventListener("transitionend", onCloseEnd);
+      }
+    });
   });
 }
 
