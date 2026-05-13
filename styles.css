@@ -1,14 +1,17 @@
 :root {
-  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
 
   --bg: #faf8f4;
   --bg-card: #ffffff;
   --bg-subtle: #f3efe7;
+  --bg-elevated: #f8f4ed;
+
   --text: #1a1a1a;
   --text-muted: #6b6560;
   --text-faint: #8d877d;
+
   --border: #e4ded4;
   --border-strong: #c8c0b4;
 
@@ -24,24 +27,32 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
+  --space-12: 48px;
 
   --radius-sm: 8px;
   --radius-md: 14px;
+  --radius-lg: 18px;
   --radius-pill: 999px;
 
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 18px 42px rgba(0, 0, 0, 0.12);
 
-  --transition: 160ms ease;
+  --transition-fast: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 340ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-theme="dark"] {
   --bg: #12100e;
   --bg-card: #1c1a16;
   --bg-subtle: #171411;
+  --bg-elevated: #221f1a;
+
   --text: #e8e4db;
   --text-muted: #b3aca1;
   --text-faint: #8d867b;
+
   --border: rgba(232, 228, 219, 0.12);
   --border-strong: rgba(232, 228, 219, 0.28);
 
@@ -51,6 +62,7 @@
 
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.28);
   --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.4);
 }
 
 *,
@@ -74,7 +86,7 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background var(--transition), color var(--transition);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 img,
@@ -176,13 +188,18 @@ button {
   border-radius: 50%;
   background: var(--bg-card);
   color: var(--text-muted);
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition-fast);
 }
 
 .icon-btn:hover {
   background: var(--bg-subtle);
   color: var(--text);
   border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
 .icon-sun {
@@ -225,12 +242,18 @@ button {
   font-weight: 600;
   color: var(--text-muted);
   white-space: nowrap;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transform: translateY(0);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition-fast);
 }
 
 .tab:hover {
   color: var(--text);
   background: var(--bg-subtle);
+  transform: translateY(-1px);
 }
 
 .tab.active,
@@ -264,6 +287,7 @@ button {
 .rail-section,
 .rail-section-single {
   margin-bottom: var(--space-10);
+  animation: fade-rise var(--transition-slow);
 }
 
 .hero-card,
@@ -276,17 +300,24 @@ button {
 .hero-card {
   padding: var(--space-6);
   border-top: 4px solid var(--accent-hero);
+  box-shadow: var(--shadow-sm);
 }
 
 .story-card {
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transform: translateY(0);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition),
+    background-color var(--transition);
 }
 
 .story-card:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
 }
 
 .story-index {
@@ -335,6 +366,7 @@ button {
   justify-content: space-between;
   gap: var(--space-4);
   margin-bottom: var(--space-4);
+  flex-wrap: wrap;
 }
 
 .rail-title-group {
@@ -365,6 +397,7 @@ button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
   padding: 0 var(--space-4);
   border: 1px solid var(--border);
@@ -373,7 +406,12 @@ button {
   background: transparent;
   font-size: 0.8125rem;
   font-weight: 600;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
 }
 
 .btn-refresh:hover,
@@ -381,11 +419,13 @@ button {
   background: var(--bg-subtle);
   color: var(--text);
   border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
 .btn-refresh:disabled {
   opacity: 0.82;
   cursor: wait;
+  transform: none;
 }
 
 .btn-bookmark[aria-pressed="true"] {
@@ -400,6 +440,17 @@ button {
 
 .btn-bookmark[aria-pressed="true"] .icon-bookmark {
   fill: currentColor;
+}
+
+.btn-spinner {
+  width: 0.9rem;
+  height: 0.9rem;
+  display: inline-block;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: btn-spin 0.7s linear infinite;
 }
 
 .card-grid {
@@ -417,7 +468,9 @@ button {
   color: var(--text-muted);
   font-size: 0.875rem;
   font-weight: 600;
-  transition: color var(--transition);
+  transition:
+    color var(--transition-fast),
+    opacity var(--transition-fast);
 }
 
 .btn-expand:hover {
@@ -426,7 +479,7 @@ button {
 
 .expand-chevron {
   flex-shrink: 0;
-  transition: transform 200ms ease;
+  transition: transform var(--transition);
 }
 
 .btn-expand[aria-expanded="true"] .expand-chevron {
@@ -458,6 +511,7 @@ button {
 .why-matters.hero {
   border-left-color: var(--accent-hero);
 }
+
 .why-matters.card {
   border-left-color: var(--accent-legal);
 }
@@ -524,7 +578,10 @@ button {
   font-size: 0.875rem;
   line-height: 1.55;
   resize: vertical;
-  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .story-note:focus {
@@ -555,11 +612,12 @@ button {
   text-transform: uppercase;
   color: var(--text-muted);
   text-decoration: none;
-  transition: color var(--transition);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .read-link:hover {
   color: var(--text);
+  transform: translateX(1px);
 }
 
 .panel-note {
@@ -577,6 +635,26 @@ button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-faint);
+}
+
+@keyframes btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 640px) {
@@ -605,26 +683,6 @@ button {
 
   .hero-card {
     padding: var(--space-10) 48px;
-  }
-}
-
-.btn-spinner {
-  width: 0.9rem;
-  height: 0.9rem;
-  display: inline-block;
-  flex-shrink: 0;
-  border: 2px solid currentColor;
-  border-right-color: transparent;
-  border-radius: 999px;
-  animation: btn-spin 0.7s linear infinite;
-}
-
-@keyframes btn-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
