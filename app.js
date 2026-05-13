@@ -398,6 +398,43 @@ async function loadStories() {
   return response.json();
 }
 
+async function refreshStories(button = null) {
+  if (button) {
+    button.disabled = true;
+    const originalText = button.innerHTML;
+    button.dataset.originalHtml = originalText;
+    button.innerHTML = "Refreshing…";
+  }
+
+  try {
+    storyData = await loadStories();
+    renderStories(storyData);
+
+    initExpandButtons();
+    initNotes();
+    initBookmarks();
+  } catch (error) {
+    console.error("Refresh failed:", error);
+    alert("Could not refresh stories. Please try again.");
+  } finally {
+    if (button) {
+      button.disabled = false;
+      if (button.dataset.originalHtml) {
+        button.innerHTML = button.dataset.originalHtml;
+      }
+    }
+  }
+}
+
+function initRefreshButtons() {
+  const buttons = document.querySelectorAll("[data-refresh-section]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      refreshStories(button);
+    });
+  });
+}
+
 async function initApp() {
   restoreTheme();
   initTabs();
@@ -408,6 +445,7 @@ async function initApp() {
   initExpandButtons();
   initNotes();
   initBookmarks();
+  initRefreshButtons();
   initArchiveButton();
   initReadingModeButton();
   initFocusModeButton();
