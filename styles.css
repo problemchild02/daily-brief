@@ -494,8 +494,8 @@ button {
   height: auto;
   opacity: 1;
   transition:
-    height 320ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  height 320ms cubic-bezier(0.22, 1, 0.36, 1),
+  opacity 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .story-summary {
