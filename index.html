@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Brief</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-brand">
+      <h1 class="site-title">The Daily Brief</h1>
+      <p class="site-subtitle">Your personal legal &amp; business newsroom</p>
+    </div>
+
+    <div class="header-actions" aria-label="Display controls">
+      <button class="icon-btn" id="btn-archive" type="button" title="Archive" aria-label="Open archive">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <polyline points="21 8 21 21 3 21 3 8"></polyline>
+          <rect x="1" y="3" width="22" height="5"></rect>
+          <line x1="10" y1="12" x2="14" y2="12"></line>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="btn-reading" type="button" title="Reading mode" aria-label="Toggle reading mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="btn-focus" type="button" title="Focus mode" aria-label="Toggle focus mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+
+      <button
+        class="icon-btn"
+        id="btn-theme"
+        type="button"
+        title="Toggle theme"
+        aria-label="Switch to dark theme"
+      >
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav
+    class="tab-bar"
+    aria-label="News sections"
+    role="tablist"
+  >
+    <button
+      class="tab active"
+      id="tab-all"
+      type="button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel-all"
+      tabindex="0"
+      data-target="all"
+    >
+      All Sections
+    </button>
+
+    <button
+      class="tab"
+      id="tab-legal"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-legal"
+      tabindex="-1"
+      data-target="legal"
+    >
+      Legal &amp; Regulatory
+    </button>
+  </nav>
+
+  <main class="main-content" id="main-content">
+    <section
+      id="panel-all"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-all"
+      tabindex="0"
+      data-panel="all"
+    >
+      <section class="hero-section" data-section="hero">
+        <p class="section-eyebrow">Front Page</p>
+
+        <article class="hero-card" data-story-id="hero-1">
+          <span class="story-index" aria-hidden="true">01</span>
+
+          <h2 class="hero-headline">
+            CCI Opens Market Study into Quick Commerce Sector Amid Antitrust Concerns
+          </h2>
+
+          <p class="story-hook">
+            The competition watchdog is examining exclusive arrangements between platforms and
+            dark-store operators as grocery delivery consolidates rapidly.
+          </p>
+
+          <button class="btn-expand" type="button" aria-expanded="false" aria-controls="details-hero-1">
+            <span class="expand-label">Read more</span>
+            <svg class="expand-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="story-details" id="details-hero-1" hidden>
+            <p class="story-summary">
+              The Competition Commission of India announced a suo motu market study into the quick
+              commerce sector, citing concerns over exclusive supply arrangements and potential
+              barriers to entry for smaller players. The study will examine platforms including
+              Blinkit, Zepto, and Instamart, with preliminary findings expected within six months.
+            </p>
+
+            <div class="why-matters">
+              <p class="why-label">Why it matters</p>
+              <p>
+                Reliance Retail's JioMart and associated quick-commerce operations could fall within
+                the study's scope. Any interim CCI guidance on exclusivity clauses may affect ongoing
+                supplier negotiations and dark-store partnership terms.
+              </p>
+            </div>
+
+            <div class="story-meta">
+              <span class="story-source">Bar &amp; Bench</span>
+              <span class="story-date">3h ago</span>
+            </div>
+
+            <div class="notes-block">
+              <label class="notes-label" for="note-hero-1">Your note</label>
+              <textarea
+                class="story-note"
+                id="note-hero-1"
+                data-story-id="hero-1"
+                placeholder="Add a note — saved automatically…"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="card-footer">
+              <button class="btn-bookmark" type="button" data-story-id="hero-1" aria-pressed="false">
+                <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="bookmark-label">Bookmark</span>
+              </button>
+
+              <a class="read-link" href="#" target="_blank" rel="noopener noreferrer">
+                Read source
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="rail-section" data-section="legal">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Legal &amp; Regulatory</h2>
+          </div>
+
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Legal and Regulatory">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
+        </div>
+
+        <div class="card-grid">
+          <article class="story-card" data-story-id="legal-1">
+            <h3 class="story-headline">
+              DPDPA Rules Gazette Notification Expected Before November Deadline
+            </h3>
+
+            <p class="story-hook story-hook-card">
+              MeitY is finalising the rules package; consent manager obligations trigger in November 2026.
+            </p>
+
+            <button class="btn-expand" type="button" aria-expanded="false" aria-controls="details-legal-1">
+              <span class="expand-label">Read more</span>
+              <svg class="expand-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="story-details" id="details-legal-1" hidden>
+              <p class="story-summary">
+                The Ministry of Electronics and Information Technology is expected to gazette the
+                final Data Protection Rules before the November 13 deadline, when consent manager
+                provisions take effect. Organisations face full compliance by May 2027, covering
+                consent notices, privacy policies, and security safeguards.
+              </p>
+
+              <div class="why-matters">
+                <p class="why-label">Why it matters</p>
+                <p>
+                  Reliance Retail handles customer data across physical retail, JioMart, and loyalty
+                  programmes. Consent architecture and privacy notices must be operational well before
+                  the May 2027 deadline — preparation should begin now.
+                </p>
+              </div>
+
+              <div class="story-meta">
+                <span class="story-source">LiveLaw</span>
+                <span class="story-date">Today</span>
+              </div>
+
+              <div class="notes-block">
+                <label class="notes-label" for="note-legal-1">Your note</label>
+                <textarea
+                  class="story-note"
+                  id="note-legal-1"
+                  data-story-id="legal-1"
+                  placeholder="Add a note — saved automatically…"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="card-footer">
+                <button class="btn-bookmark" type="button" data-story-id="legal-1" aria-pressed="false">
+                  <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       aria-hidden="true">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span class="bookmark-label">Bookmark</span>
+                </button>
+
+                <a class="read-link" href="#" target="_blank" rel="noopener noreferrer">
+                  Read source
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-story-id="legal-2">
+            <h3 class="story-headline">
+              NCLAT Upholds CCI's ₹213 Crore Fine on Meta for WhatsApp Data-Sharing Policy
+            </h3>
+
+            <p class="story-hook story-hook-card">
+              Appellate tribunal confirms the penalty but reverses the five-year data-sharing ban.
+            </p>
+
+            <button class="btn-expand" type="button" aria-expanded="false" aria-controls="details-legal-2">
+              <span class="expand-label">Read more</span>
+              <svg class="expand-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="story-details" id="details-legal-2" hidden>
+              <p class="story-summary">
+                The National Company Law Appellate Tribunal upheld the Competition Commission's
+                ₹213 crore penalty against Meta and WhatsApp for abusing WhatsApp's dominant
+                position by compelling users to accept cross-platform data sharing. The tribunal
+                reversed the CCI's additional order banning data sharing between WhatsApp and
+                Facebook for five years, finding it disproportionate.
+              </p>
+
+              <div class="why-matters">
+                <p class="why-label">Why it matters</p>
+                <p>
+                  The ruling confirms that dominant digital platforms face antitrust liability for
+                  bundled data-sharing mandates — a precedent relevant to any Reliance platform
+                  products that share user data across group entities.
+                </p>
+              </div>
+
+              <div class="story-meta">
+                <span class="story-source">Bar &amp; Bench</span>
+                <span class="story-date">Yesterday</span>
+              </div>
+
+              <div class="notes-block">
+                <label class="notes-label" for="note-legal-2">Your note</label>
+                <textarea
+                  class="story-note"
+                  id="note-legal-2"
+                  data-story-id="legal-2"
+                  placeholder="Add a note — saved automatically…"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="card-footer">
+                <button class="btn-bookmark" type="button" data-story-id="legal-2" aria-pressed="false">
+                  <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       aria-hidden="true">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span class="bookmark-label">Bookmark</span>
+                </button>
+
+                <a class="read-link" href="#" target="_blank" rel="noopener noreferrer">
+                  Read source
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-story-id="legal-3">
+            <h3 class="story-headline">
+              Supreme Court Reaffirms Kompetenz-Kompetenz Principle in Standard-Form Arbitration Clauses
+            </h3>
+
+            <p class="story-hook story-hook-card">
+              A five-judge bench rules that arbitral tribunals may determine their own jurisdiction
+              even where arbitrability is disputed at the referral stage.
+            </p>
+
+            <button class="btn-expand" type="button" aria-expanded="false" aria-controls="details-legal-3">
+              <span class="expand-label">Read more</span>
+              <svg class="expand-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="story-details" id="details-legal-3" hidden>
+              <p class="story-summary">
+                The Supreme Court's constitution bench held that courts at the Section 11 stage
+                should adopt a prima facie standard and refer disputes to arbitration unless the
+                arbitration clause is manifestly null and void. The ruling harmonises conflicting
+                High Court decisions on the scope of judicial intervention before arbitration begins.
+              </p>
+
+              <div class="why-matters">
+                <p class="why-label">Why it matters</p>
+                <p>
+                  Standard-form supplier and vendor agreements at Reliance Retail typically include
+                  arbitration clauses. This ruling reduces the risk of courts rejecting referrals at
+                  threshold — reducing litigation risk and shortening the path to dispute resolution.
+                </p>
+              </div>
+
+              <div class="story-meta">
+                <span class="story-source">SCC Online Blog</span>
+                <span class="story-date">2 days ago</span>
+              </div>
+
+              <div class="notes-block">
+                <label class="notes-label" for="note-legal-3">Your note</label>
+                <textarea
+                  class="story-note"
+                  id="note-legal-3"
+                  data-story-id="legal-3"
+                  placeholder="Add a note — saved automatically…"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="card-footer">
+                <button class="btn-bookmark" type="button" data-story-id="legal-3" aria-pressed="false">
+                  <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       aria-hidden="true">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span class="bookmark-label">Bookmark</span>
+                </button>
+
+                <a class="read-link" href="#" target="_blank" rel="noopener noreferrer">
+                  Read source
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section
+      id="panel-legal"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-legal"
+      tabindex="0"
+      data-panel="legal"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Legal &amp; Regulatory</h2>
+          </div>
+        </div>
+
+        <p class="panel-note">
+          This focused view can later show only Legal &amp; Regulatory stories. For now, the All Sections view is the primary dashboard.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>The Daily Brief &nbsp;·&nbsp; v0.1 &nbsp;·&nbsp; Static edition</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
