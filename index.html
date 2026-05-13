@@ -104,6 +104,19 @@
       All Sections
     </button>
 
+<button
+  class="tab"
+  id="tab-bookmarks"
+  type="button"
+  role="tab"
+  aria-selected="false"
+  aria-controls="panel-bookmarks"
+  tabindex="-1"
+  data-target="bookmarks"
+>
+  Bookmarks
+</button>
+    
     <button
       class="tab"
       id="tab-legal"
@@ -221,6 +234,26 @@
       <p class="section-eyebrow">Front Page</p>
       <div id="hero-container"></div>
     </section>
+
+    <section
+  id="panel-bookmarks"
+  class="tab-panel"
+  role="tabpanel"
+  aria-labelledby="tab-bookmarks"
+  tabindex="0"
+  data-panel="bookmarks"
+  hidden
+>
+  <section class="rail-section rail-section-single">
+    <div class="rail-header">
+      <div class="rail-title-group">
+        <span class="category-dot" aria-hidden="true"></span>
+        <h2 class="rail-heading">Bookmarks</h2>
+      </div>
+    </div>
+    <div class="card-grid" id="bookmarks-grid"></div>
+  </section>
+</section>
 
     <section class="rail-section" data-section="legal">
       <div class="rail-header">
