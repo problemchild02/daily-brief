@@ -268,11 +268,7 @@ function findHeroStory(data) {
 
 function renderStories(data) {
   const heroContainer = document.getElementById("hero-container");
-  const legalGrid = document.getElementById("legal-grid");
-  const legalGridPanel = document.getElementById("legal-grid-panel");
-
   const heroStory = findHeroStory(data);
-  const legalStories = data?.sections?.legal || [];
 
   if (heroContainer && heroStory) {
     heroContainer.innerHTML = createStoryMarkup(heroStory, "hero");
@@ -285,13 +281,30 @@ function renderStories(data) {
     `;
   }
 
-  if (legalGrid && Array.isArray(legalStories)) {
-    legalGrid.innerHTML = legalStories.map((story) => createStoryMarkup(story, "card")).join("");
-  }
+  const sectionKeys = [
+    "legal",
+    "reliance",
+    "retail",
+    "business",
+    "tech",
+    "geopolitics",
+    "sports",
+    "opinion"
+  ];
 
-  if (legalGridPanel && Array.isArray(legalStories)) {
-    legalGridPanel.innerHTML = legalStories.map((story) => createStoryMarkup(story, "card")).join("");
-  }
+  sectionKeys.forEach((sectionKey) => {
+    const stories = Array.isArray(data?.sections?.[sectionKey]) ? data.sections[sectionKey] : [];
+
+    const allSectionsGrid = document.getElementById(`${sectionKey}-grid`);
+    if (allSectionsGrid) {
+      allSectionsGrid.innerHTML = stories.map((story) => createStoryMarkup(story, "card")).join("");
+    }
+
+    const panelGrid = document.getElementById(`${sectionKey}-grid-panel`);
+    if (panelGrid) {
+      panelGrid.innerHTML = stories.map((story) => createStoryMarkup(story, "card")).join("");
+    }
+  });
 }
 
 function toggleExpand(btn) {
