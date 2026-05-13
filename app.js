@@ -176,13 +176,15 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function createStoryMarkup(story, type = "card") {
+function createStoryMarkup(story, type = "card", instanceKey = "default") {
   const isHero = type === "hero";
   const headlineTag = isHero ? "h2" : "h3";
   const wrapperClass = isHero ? "hero-card" : "story-card";
   const noteLabel = story.contextNote
     ? (["legal", "reliance", "retail", "opinion"].includes(story.section) ? "Why it matters" : "Why it's relevant")
     : "Context";
+
+  const domIdSuffix = `${story.id}-${instanceKey}`;
 
   return `
     <article class="${wrapperClass}" data-story-id="${escapeHtml(story.id)}">
@@ -195,7 +197,12 @@ function createStoryMarkup(story, type = "card") {
         ${escapeHtml(story.hook)}
       </p>
 
-      <button class="btn-expand" type="button" aria-expanded="false" aria-controls="details-${escapeHtml(story.id)}">
+      <button
+        class="btn-expand"
+        type="button"
+        aria-expanded="false"
+        aria-controls="details-${escapeHtml(domIdSuffix)}"
+      >
         <span class="expand-label">Read more</span>
         <svg class="expand-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
@@ -204,7 +211,7 @@ function createStoryMarkup(story, type = "card") {
         </svg>
       </button>
 
-            <div class="story-details" id="details-${escapeHtml(story.id)}" hidden>
+      <div class="story-details" id="details-${escapeHtml(domIdSuffix)}" hidden>
         <div class="story-details-inner">
           <p class="story-summary">${escapeHtml(story.summary)}</p>
 
@@ -221,10 +228,10 @@ function createStoryMarkup(story, type = "card") {
           </div>
 
           <div class="notes-block">
-            <label class="notes-label" for="note-${escapeHtml(story.id)}">Your note</label>
+            <label class="notes-label" for="note-${escapeHtml(domIdSuffix)}">Your note</label>
             <textarea
               class="story-note"
-              id="note-${escapeHtml(story.id)}"
+              id="note-${escapeHtml(domIdSuffix)}"
               data-story-id="${escapeHtml(story.id)}"
               placeholder="Add a note — saved automatically…"
               rows="3"
@@ -232,7 +239,12 @@ function createStoryMarkup(story, type = "card") {
           </div>
 
           <div class="card-footer">
-            <button class="btn-bookmark" type="button" data-story-id="${escapeHtml(story.id)}" aria-pressed="false">
+            <button
+              class="btn-bookmark"
+              type="button"
+              data-story-id="${escapeHtml(story.id)}"
+              aria-pressed="false"
+            >
               <svg class="icon-bookmark" width="16" height="16" viewBox="0 0 24 24" fill="none"
                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    aria-hidden="true">
@@ -273,7 +285,7 @@ function renderStories(data) {
   const heroStory = findHeroStory(data);
 
   if (heroContainer && heroStory) {
-    heroContainer.innerHTML = createStoryMarkup(heroStory, "hero");
+    heroContainer.innerHTML = createStoryMarkup(heroStory, "hero", "hero");
   } else if (heroContainer) {
     heroContainer.innerHTML = `
       <article class="hero-card">
@@ -299,12 +311,16 @@ function renderStories(data) {
 
     const allSectionsGrid = document.getElementById(`${sectionKey}-grid`);
     if (allSectionsGrid) {
-      allSectionsGrid.innerHTML = stories.map((story) => createStoryMarkup(story, "card")).join("");
+      allSectionsGrid.innerHTML = stories
+        .map((story, index) => createStoryMarkup(story, "card", `${sectionKey}-all-${index}`))
+        .join("");
     }
 
     const panelGrid = document.getElementById(`${sectionKey}-grid-panel`);
     if (panelGrid) {
-      panelGrid.innerHTML = stories.map((story) => createStoryMarkup(story, "card")).join("");
+      panelGrid.innerHTML = stories
+        .map((story, index) => createStoryMarkup(story, "card", `${sectionKey}-panel-${index}`))
+        .join("");
     }
   });
 }
@@ -411,14 +427,30 @@ function initExpandButtons() {
     });
   });
 }
+function syncNoteFields(storyId, value, sourceTextarea = null) {
+  const textareas = document.querySelectorAll(`.story-note[data-story-id="${CSS.escape(storyId)}"]`);
+  textareas.forEach((textarea) => {
+    if (textarea === sourceTextarea) return;
+    textarea.value = value;
+  });
+}
+
+function syncBookmarkButtons(storyId, bookmarked) {
+  const buttons = document.querySelectorAll(`.btn-bookmark[data-story-id="${CSS.escape(storyId)}"]`);
+  buttons.forEach((button) => applyBookmarkState(button, bookmarked));
+}
+
 function initNotes() {
   const textareas = document.querySelectorAll(".story-note");
+
   textareas.forEach((textarea) => {
     const storyId = textarea.getAttribute("data-story-id");
     textarea.value = loadNote(storyId);
 
     textarea.addEventListener("input", () => {
-      saveNote(storyId, textarea.value);
+      const value = textarea.value;
+      saveNote(storyId, value);
+      syncNoteFields(storyId, value, textarea);
     });
   });
 }
@@ -436,12 +468,13 @@ function toggleBookmark(button) {
   const currentlyPressed = button.getAttribute("aria-pressed") === "true";
   const nextState = !currentlyPressed;
 
-  applyBookmarkState(button, nextState);
   saveBookmark(storyId, nextState);
+  syncBookmarkButtons(storyId, nextState);
 }
 
 function initBookmarks() {
   const buttons = document.querySelectorAll(".btn-bookmark");
+
   buttons.forEach((button) => {
     const storyId = button.getAttribute("data-story-id");
     applyBookmarkState(button, isBookmarked(storyId));
