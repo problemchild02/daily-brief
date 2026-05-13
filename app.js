@@ -414,8 +414,9 @@ async function refreshStories(button = null) {
   }
 
   try {
-    storyData = await loadStories();
+     storyData = await loadStories();
     renderStories(storyData);
+    initScrollReveal();
 
     initExpandButtons();
     initNotes();
@@ -451,20 +452,46 @@ function initRefreshButtons() {
   });
 }
 
+function initScrollReveal() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealItems = document.querySelectorAll(".hero-section, .rail-section, .rail-section-single, .story-card, .hero-card");
+
+  if (reduceMotion) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  revealItems.forEach((item) => item.classList.add("reveal-on-scroll"));
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
 async function initApp() {
   restoreTheme();
   initTabs();
 
-  storyData = await loadStories();
+    storyData = await loadStories();
   renderStories(storyData);
+  initScrollReveal();
 
   initExpandButtons();
   initNotes();
   initBookmarks();
   initRefreshButtons();
-  initArchiveButton();
-  initReadingModeButton();
-  initFocusModeButton();
 
   const themeBtn = document.getElementById("btn-theme");
   if (themeBtn) {
