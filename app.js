@@ -318,8 +318,17 @@ function initExpandButtons() {
     const details = detailsId ? document.getElementById(detailsId) : null;
     if (!details) return;
 
-    const setClosed = () => {
+        const label = button.querySelector(".expand-label");
+
+    const updateButtonLabel = (expanded) => {
+      if (label) {
+        label.textContent = expanded ? "Show less" : "Read more";
+      }
+    };
+    
+     const setClosed = () => {
       button.setAttribute("aria-expanded", "false");
+      updateButtonLabel(false);
       details.classList.remove("is-open");
       details.style.maxHeight = "0px";
       details.style.opacity = "0";
@@ -328,6 +337,7 @@ function initExpandButtons() {
 
     const setOpen = () => {
       button.setAttribute("aria-expanded", "true");
+      updateButtonLabel(true);
       details.hidden = false;
       details.classList.add("is-open");
       details.style.maxHeight = `${details.scrollHeight}px`;
@@ -361,17 +371,12 @@ function initExpandButtons() {
         return;
       }
 
-      if (expanded) {
-        details.hidden = false;
-        details.style.maxHeight = `${details.scrollHeight}px`;
-        details.style.opacity = "1";
-
-        details.offsetHeight;
-
+            if (expanded) {
         button.setAttribute("aria-expanded", "false");
+        updateButtonLabel(false);
         details.classList.remove("is-open");
-        details.style.maxHeight = "0px";
         details.style.opacity = "0";
+        details.style.maxHeight = "0px";
 
         const onEnd = (event) => {
           if (event.propertyName !== "max-height") return;
