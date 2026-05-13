@@ -449,8 +449,12 @@ button {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-.hero-card .why-matters {
+.hero-card .why-matters,
+.why-matters.hero {
   border-left-color: var(--accent-hero);
+}
+.why-matters.card {
+  border-left-color: var(--accent-legal);
 }
 
 .why-label {
