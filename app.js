@@ -371,12 +371,15 @@ function initExpandButtons() {
         return;
       }
 
-            if (expanded) {
+                  if (expanded) {
         button.setAttribute("aria-expanded", "false");
         updateButtonLabel(false);
         details.classList.remove("is-open");
         details.style.opacity = "0";
-        details.style.maxHeight = "0px";
+
+        requestAnimationFrame(() => {
+          details.style.maxHeight = "0px";
+        });
 
         const onEnd = (event) => {
           if (event.propertyName !== "max-height") return;
