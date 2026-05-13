@@ -280,6 +280,34 @@ function findHeroStory(data) {
   return allStories.find((story) => story.id === data.heroStoryId) || null;
 }
 
+function getBookmarkedStories(data) {
+  const allStories = getAllStories(data);
+  return allStories.filter((story) => isBookmarked(story.id));
+}
+
+function renderBookmarksPanel(data) {
+  const bookmarksGrid = document.getElementById("bookmarks-grid");
+  if (!bookmarksGrid) return;
+
+  const bookmarkedStories = getBookmarkedStories(data);
+
+  if (!bookmarkedStories.length) {
+    bookmarksGrid.innerHTML = `
+      <article class="story-card">
+        <h3 class="story-headline">No bookmarks yet</h3>
+        <p class="story-hook story-hook-card">
+          Save stories to revisit them later. Bookmarked stories will appear here automatically.
+        </p>
+      </article>
+    `;
+    return;
+  }
+
+  bookmarksGrid.innerHTML = bookmarkedStories
+    .map((story, index) => createStoryMarkup(story, "card", `bookmarks-${index}`))
+    .join("");
+}
+
 function renderStories(data) {
   const heroContainer = document.getElementById("hero-container");
   const heroStory = findHeroStory(data);
@@ -323,6 +351,8 @@ function renderStories(data) {
         .join("");
     }
   });
+  
+    renderBookmarksPanel(data);
 }
 
 function initExpandButtons() {
