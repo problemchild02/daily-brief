@@ -285,11 +285,15 @@ function getBookmarkedStories(data) {
   return allStories.filter((story) => isBookmarked(story.id));
 }
 
-function renderBookmarksPanel(data) {
+function renderBookmarksPanel() {
   const bookmarksGrid = document.getElementById("bookmarks-grid");
-  if (!bookmarksGrid) return;
+  if (!bookmarksGrid || !storyData) return;
 
-  const bookmarkedStories = getBookmarkedStories(data);
+  const bookmarkedIds = getAllStories(storyData)
+    .map((story) => story.id)
+    .filter((storyId) => isBookmarked(storyId));
+
+  const bookmarkedStories = getAllStories(storyData).filter((story) => bookmarkedIds.includes(story.id));
 
   if (!bookmarkedStories.length) {
     bookmarksGrid.innerHTML = `
@@ -352,7 +356,7 @@ function renderStories(data) {
     }
   });
   
-    renderBookmarksPanel(data);
+    renderBookmarksPanel();
 }
 
 function initExpandButtons() {
@@ -500,14 +504,14 @@ function toggleBookmark(button) {
 
   saveBookmark(storyId, nextState);
 
-  if (storyData) {
+    if (storyData) {
     renderStories(storyData);
     initScrollReveal();
     initExpandButtons();
     initNotes();
     initBookmarks();
+    renderBookmarksPanel();
   }
-}
 
 function initBookmarks() {
   const buttons = document.querySelectorAll(".btn-bookmark");
