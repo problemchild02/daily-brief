@@ -180,7 +180,9 @@ function createStoryMarkup(story, type = "card") {
   const isHero = type === "hero";
   const headlineTag = isHero ? "h2" : "h3";
   const wrapperClass = isHero ? "hero-card" : "story-card";
-  const whyBorderClass = isHero ? "hero" : "card";
+  const noteLabel = story.contextNote
+    ? (["legal", "reliance", "retail", "opinion"].includes(story.section) ? "Why it matters" : "Why it's relevant")
+    : "Context";
 
   return `
     <article class="${wrapperClass}" data-story-id="${escapeHtml(story.id)}">
@@ -205,14 +207,16 @@ function createStoryMarkup(story, type = "card") {
       <div class="story-details" id="details-${escapeHtml(story.id)}" hidden>
         <p class="story-summary">${escapeHtml(story.summary)}</p>
 
-        <div class="why-matters ${whyBorderClass}">
-          <p class="why-label">Why it matters</p>
-          <p>${escapeHtml(story.whyItMatters)}</p>
-        </div>
+        ${story.contextNote ? `
+          <div class="why-matters ${isHero ? "hero" : "card"}">
+            <p class="why-label">${escapeHtml(noteLabel)}</p>
+            <p>${escapeHtml(story.contextNote)}</p>
+          </div>
+        ` : ""}
 
         <div class="story-meta">
           <span class="story-source">${escapeHtml(story.source)}</span>
-          <span class="story-date">${escapeHtml(story.date)}</span>
+          <span class="story-date">${escapeHtml(story.dateLabel)}</span>
         </div>
 
         <div class="notes-block">
@@ -236,7 +240,7 @@ function createStoryMarkup(story, type = "card") {
             <span class="bookmark-label">Bookmark</span>
           </button>
 
-          <a class="read-link" href="${escapeHtml(story.url || "#")}" target="_blank" rel="noopener noreferrer">
+          <a class="read-link" href="${escapeHtml(story.sourceUrl || "#")}" target="_blank" rel="noopener noreferrer">
             Read source
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
