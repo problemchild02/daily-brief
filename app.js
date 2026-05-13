@@ -504,7 +504,7 @@ function toggleBookmark(button) {
 
   saveBookmark(storyId, nextState);
 
-    if (storyData) {
+  if (storyData) {
     renderStories(storyData);
     initScrollReveal();
     initExpandButtons();
@@ -512,6 +512,7 @@ function toggleBookmark(button) {
     initBookmarks();
     renderBookmarksPanel();
   }
+}
 
 function initBookmarks() {
   const buttons = document.querySelectorAll(".btn-bookmark");
