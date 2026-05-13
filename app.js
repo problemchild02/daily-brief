@@ -499,7 +499,14 @@ function toggleBookmark(button) {
   const nextState = !currentlyPressed;
 
   saveBookmark(storyId, nextState);
-  syncBookmarkButtons(storyId, nextState);
+
+  if (storyData) {
+    renderStories(storyData);
+    initScrollReveal();
+    initExpandButtons();
+    initNotes();
+    initBookmarks();
+  }
 }
 
 function initBookmarks() {
