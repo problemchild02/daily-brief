@@ -296,7 +296,7 @@ if (!bookmarkedStories.length) {
     <article class="story-card">
       <h3 class="story-headline">No saved stories yet</h3>
       <p class="story-hook story-hook-card">
-        Bookmark stories from any section and they’ll appear here for quick access.
+        Bookmark stories from any section and they'll appear here for quick access.
       </p>
     </article>
   `;
@@ -545,6 +545,197 @@ function initFocusModeButton() {
   });
 }
 
+// ── Offline Download Edition ──────────────────────────────────────────────────
+
+function buildOfflineEditionHtml(data) {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("en-IN", {
+    weekday: "long", year: "numeric", month: "long", day: "numeric"
+  });
+
+  const sectionKeys = ["legal", "reliance", "retail", "business", "tech", "geopolitics", "sports", "opinion"];
+  const sectionLabels = {
+    legal: "Legal & Regulatory",
+    reliance: "Reliance",
+    retail: "Retail",
+    business: "Business",
+    tech: "Tech",
+    geopolitics: "Geopolitics",
+    sports: "Sports",
+    opinion: "Opinion"
+  };
+
+  const heroStory = findHeroStory(data);
+
+  let heroHtml = "";
+  if (heroStory) {
+    heroHtml = `
+      <section class="section">
+        <p class="eyebrow">Front Page</p>
+        <h2>${escapeHtml(heroStory.headline)}</h2>
+        <p class="hook">${escapeHtml(heroStory.hook)}</p>
+        ${heroStory.summary ? `<p>${escapeHtml(heroStory.summary)}</p>` : ""}
+        ${heroStory.contextNote ? `<blockquote>${escapeHtml(heroStory.contextNote)}</blockquote>` : ""}
+        <p class="meta">${escapeHtml(heroStory.sectionLabel || heroStory.section || "")} · ${escapeHtml(heroStory.dateLabel || "")}</p>
+        ${heroStory.sourceUrl ? `<a href="${escapeHtml(heroStory.sourceUrl)}">Read source ↗</a>` : ""}
+      </section>
+    `;
+  }
+
+  let sectionsHtml = "";
+  sectionKeys.forEach((key) => {
+    const stories = Array.isArray(data?.sections?.[key]) ? data.sections[key] : [];
+    if (!stories.length) return;
+
+    const storiesHtml = stories.map((story) => `
+      <div class="story">
+        <h3>${escapeHtml(story.headline)}</h3>
+        <p class="hook">${escapeHtml(story.hook)}</p>
+        ${story.summary ? `<p>${escapeHtml(story.summary)}</p>` : ""}
+        ${story.contextNote ? `<blockquote>${escapeHtml(story.contextNote)}</blockquote>` : ""}
+        <p class="meta">${escapeHtml(story.sectionLabel || story.section || "")} · ${escapeHtml(story.dateLabel || "")}</p>
+        ${story.sourceUrl ? `<a href="${escapeHtml(story.sourceUrl)}">Read source ↗</a>` : ""}
+      </div>
+    `).join("");
+
+    sectionsHtml += `
+      <section class="section">
+        <h2>${escapeHtml(sectionLabels[key] || key)}</h2>
+        ${storiesHtml}
+      </section>
+    `;
+  });
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Brief — ${dateStr}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #faf8f4;
+      color: #1a1917;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      line-height: 1.7;
+    }
+    header {
+      border-bottom: 2px solid #1a1917;
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+    }
+    header h1 { font-size: 2rem; letter-spacing: -0.02em; }
+    header p { color: #6b6a67; font-size: 0.875rem; margin-top: 4px; }
+    .section {
+      border-top: 1px solid #dcdad5;
+      padding-top: 28px;
+      margin-top: 28px;
+    }
+    .eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: 0.625rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b6a67;
+      margin-bottom: 8px;
+    }
+    h2 { font-size: 1.5rem; line-height: 1.2; margin-bottom: 10px; }
+    h3 { font-size: 1.1rem; line-height: 1.3; margin-bottom: 8px; margin-top: 24px; }
+    .hook { font-style: italic; color: #4a4946; margin-bottom: 10px; }
+    blockquote {
+      border-left: 3px solid #c5392a;
+      padding-left: 14px;
+      margin: 12px 0;
+      color: #4a4946;
+      font-size: 0.9375rem;
+    }
+    .meta {
+      font-family: 'Courier New', monospace;
+      font-size: 0.6875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9a9894;
+      margin-top: 10px;
+    }
+    a { color: #1a1917; }
+    .story { margin-bottom: 8px; }
+    footer { margin-top: 48px; border-top: 1px solid #dcdad5; padding-top: 16px; font-size: 0.75rem; color: #9a9894; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Daily Brief</h1>
+    <p>Offline edition · Saved ${dateStr}</p>
+  </header>
+  ${heroHtml}
+  ${sectionsHtml}
+  <footer>
+    <p>The Daily Brief · Offline edition saved on ${dateStr}. Source links open when you're back online.</p>
+  </footer>
+</body>
+</html>`;
+}
+
+function downloadOfflineEdition() {
+  if (!storyData) {
+    alert("Stories are still loading. Please wait a moment and try again.");
+    return;
+  }
+
+  const btn = document.getElementById("btn-download");
+  if (btn) {
+    btn.disabled = true;
+    btn.setAttribute("aria-label", "Saving…");
+    btn.title = "Saving…";
+  }
+
+  try {
+    const html = buildOfflineEditionHtml(storyData);
+    const blob = new Blob([html], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+
+    const now = new Date();
+    const dateStamp = now.toISOString().slice(0, 10);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `daily-brief-${dateStamp}.html`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+
+    if (btn) {
+      btn.setAttribute("aria-label", "Edition saved!");
+      btn.title = "Edition saved!";
+      setTimeout(() => {
+        btn.setAttribute("aria-label", "Download offline edition");
+        btn.title = "Download offline edition";
+        btn.disabled = false;
+      }, 2500);
+    }
+  } catch (err) {
+    console.error("Download failed:", err);
+    alert("Could not generate the offline edition. Please try again.");
+    if (btn) {
+      btn.disabled = false;
+      btn.setAttribute("aria-label", "Download offline edition");
+      btn.title = "Download offline edition";
+    }
+  }
+}
+
+function initDownloadButton() {
+  const btn = document.getElementById("btn-download");
+  if (!btn) return;
+  btn.addEventListener("click", downloadOfflineEdition);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 async function loadStories() {
   const response = await fetch("./stories.json", { cache: "no-store" });
   if (!response.ok) {
@@ -647,6 +838,7 @@ async function initApp() {
   initNotes();
   initBookmarks();
   initRefreshButtons();
+  initDownloadButton();
 
   const themeBtn = document.getElementById("btn-theme");
   if (themeBtn) {
