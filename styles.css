@@ -729,3 +729,14 @@ button {
     opacity: 1 !important;
   }
 }
+
+#bookmarks-grid .story-card {
+  padding: 1rem;
+}
+
+#bookmarks-grid .story-hook {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
