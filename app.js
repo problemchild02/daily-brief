@@ -222,10 +222,10 @@ function createStoryMarkup(story, type = "card", instanceKey = "default") {
             </div>
           ` : ""}
 
-          <div class="story-meta">
-            <span class="story-source">${escapeHtml(story.source)}</span>
-            <span class="story-date">${escapeHtml(story.dateLabel)}</span>
-          </div>
+<div class="story-meta">
+  <span class="story-source">${escapeHtml(story.sectionLabel || story.section || story.source)}</span>
+  <span class="story-date">${escapeHtml(story.dateLabel)}</span>
+</div>
 
           <div class="notes-block">
             <label class="notes-label" for="note-${escapeHtml(domIdSuffix)}">Your note</label>
@@ -291,17 +291,17 @@ function renderBookmarksPanel() {
 
   const bookmarkedStories = getAllStories(storyData).filter((story) => isBookmarked(story.id));
 
-  if (!bookmarkedStories.length) {
-    bookmarksGrid.innerHTML = `
-      <article class="story-card">
-        <h3 class="story-headline">No bookmarks yet</h3>
-        <p class="story-hook story-hook-card">
-          Save stories to revisit them later. Bookmarked stories will appear here automatically.
-        </p>
-      </article>
-    `;
-    return;
-  }
+if (!bookmarkedStories.length) {
+  bookmarksGrid.innerHTML = `
+    <article class="story-card">
+      <h3 class="story-headline">No saved stories yet</h3>
+      <p class="story-hook story-hook-card">
+        Bookmark stories from any section and they’ll appear here for quick access.
+      </p>
+    </article>
+  `;
+  return;
+}
 
   bookmarksGrid.innerHTML = bookmarkedStories
     .map((story, index) => createStoryMarkup(story, "card", `bookmarks-${index}`))
