@@ -16,55 +16,78 @@ from html import unescape
 # Each entry: (url, section, tags, priority)
 FEEDS = [
     # Legal
-    ("https://www.livelaw.in/rss/top-stories", "legal", ["courts", "litigation"], "high"),
-    ("https://www.barandbench.com/feed", "legal", ["bar-and-bench", "India"], "high"),
+    ("https://www.livelaw.in/rss/top-stories",          "legal",      ["courts", "litigation"],        "high"),
+    ("https://www.barandbench.com/feed",                 "legal",      ["bar-and-bench", "India"],      "high"),
 
     # Regulatory / Business
-    ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms", "business", ["markets", "India"], "high"),
-    ("https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms", "business", ["industry", "India"], "medium"),
-    ("https://www.thehindubusinessline.com/feeder/default.rss", "business", ["business-line"], "medium"),
+    ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",  "business", ["markets", "India"],   "high"),
+    ("https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms",   "business", ["industry", "India"],  "medium"),
+    ("https://www.thehindubusinessline.com/feeder/default.rss",               "business", ["business-line"],      "medium"),
+
+    # Reliance — dedicated ET search feed + ET Retail for group news
+    ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
+                                                         "reliance",   ["reliance", "RIL"],             "high"),
+    ("https://retail.economictimes.indiatimes.com/rss/topstories",
+                                                         "reliance",   ["reliance-retail", "retail"],   "medium"),
+
+    # Retail (broader)
+    ("https://retail.economictimes.indiatimes.com/rss/topstories",
+                                                         "retail",     ["retail", "India"],             "medium"),
+    ("https://www.thehindubusinessline.com/feeder/default.rss",
+                                                         "retail",     ["business-line", "retail"],     "low"),
 
     # Tech
-    ("https://techcrunch.com/feed/", "tech", ["startups", "technology"], "medium"),
-    ("https://feeds.feedburner.com/gadgets360-latest", "tech", ["gadgets360", "India-tech"], "medium"),
+    ("https://techcrunch.com/feed/",                     "tech",       ["startups", "technology"],     "medium"),
+    ("https://feeds.feedburner.com/gadgets360-latest",   "tech",       ["gadgets360", "India-tech"],   "medium"),
 
     # Geopolitics
-    ("https://rss.nytimes.com/services/xml/rss/nyt/World.xml", "geopolitics", ["world", "NYT"], "medium"),
-    ("https://feeds.bbci.co.uk/news/world/asia/india/rss.xml", "geopolitics", ["BBC", "India"], "high"),
-
-    # Retail
-    ("https://retail.economictimes.indiatimes.com/rss/topstories", "retail", ["retail", "India"], "medium"),
+    ("https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+                                                         "geopolitics", ["world", "NYT"],              "medium"),
+    ("https://feeds.bbci.co.uk/news/world/asia/india/rss.xml",
+                                                         "geopolitics", ["BBC", "India"],              "high"),
 
     # Sports
-    ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml", "sports", ["cricket", "espncricinfo"], "medium"),
-    ("https://timesofindia.indiatimes.com/rss/4719148.cms", "sports", ["sports", "TOI"], "low"),
+    ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
+                                                         "sports",     ["cricket", "espncricinfo"],    "medium"),
+    ("https://timesofindia.indiatimes.com/rss/4719148.cms",
+                                                         "sports",     ["sports", "TOI"],             "low"),
 
     # Opinion
-    ("https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms", "opinion", ["ET-opinion"], "low"),
+    ("https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms",
+                                                         "opinion",    ["ET-opinion"],                "low"),
 ]
 
+ALL_SECTIONS = ["legal", "reliance", "retail", "business", "tech", "geopolitics", "sports", "opinion"]
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 MAX_PER_SECTION = 6
-MAX_AGE_HOURS = 30
+MAX_AGE_HOURS   = 30
 IST = timezone(timedelta(hours=5, minutes=30))
 
 SOURCE_MAP = {
-    "livelaw": "Live Law", "barandbench": "Bar & Bench",
-    "scconline": "SCC Online", "economictimes": "Economic Times",
-    "hindubusinessline": "Business Line", "techcrunch": "TechCrunch",
-    "gadgets360": "Gadgets 360", "nytimes": "The New York Times",
-    "bbci.co": "BBC News", "espncricinfo": "ESPN Cricinfo",
-    "timesofindia": "Times of India", "thehindubusinessline": "Business Line",
-    "thehindu": "The Hindu", "retail.economictimes": "ET Retail",
+    "livelaw":               "Live Law",
+    "barandbench":           "Bar & Bench",
+    "scconline":             "SCC Online",
+    "retail.economictimes":  "ET Retail",
+    "economictimes":         "Economic Times",
+    "hindubusinessline":     "Business Line",
+    "thehindubusinessline":  "Business Line",
+    "techcrunch":            "TechCrunch",
+    "gadgets360":            "Gadgets 360",
+    "feedburner.com/gadgets": "Gadgets 360",
+    "nytimes":               "The New York Times",
+    "bbci.co":               "BBC News",
+    "espncricinfo":          "ESPN Cricinfo",
+    "timesofindia":          "Times of India",
+    "thehindu":              "The Hindu",
 }
 
 CONTEXT_TEMPLATES = {
     "legal":    "Reported in the legal domain. Verify full judgment or order text via the source link.",
     "business": "Filed under business coverage. Cross-check with official filings or exchange disclosures.",
+    "reliance": "Pertains to Reliance Industries group. Verify via official exchange filings (BSE/NSE).",
     "retail":   "Retail sector development. Impact may vary by geography and segment.",
     "tech":     "Technology sector story. Details may evolve rapidly — check primary source for updates.",
     "opinion":  "This is an opinion or editorial piece and reflects the author's views.",
-    "reliance": "Pertains to Reliance Industries group. Verify via official exchange filings.",
 }
 
 
@@ -74,7 +97,7 @@ def fetch_feed(url):
         with urlopen(req, timeout=15) as r:
             return r.read()
     except Exception as e:
-        print(f"  WARN: {url}: {e}", file=sys.stderr)
+        print(f"  WARN fetch: {url}  →  {e}", file=sys.stderr)
         return None
 
 
@@ -104,8 +127,12 @@ def parse_date(item):
             break
     if not raw:
         return None
-    for fmt in ["%a, %d %b %Y %H:%M:%S %z", "%a, %d %b %Y %H:%M:%S GMT",
-                "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ"]:
+    for fmt in [
+        "%a, %d %b %Y %H:%M:%S %z",
+        "%a, %d %b %Y %H:%M:%S GMT",
+        "%Y-%m-%dT%H:%M:%S%z",
+        "%Y-%m-%dT%H:%M:%SZ",
+    ]:
         try:
             dt = datetime.strptime(raw, fmt)
             if dt.tzinfo is None:
@@ -133,13 +160,13 @@ def build_stories():
     cutoff  = now_utc - timedelta(hours=MAX_AGE_HOURS)
     today   = now_utc.astimezone(IST).strftime("%Y-%m-%d")
 
-    sections = {k: [] for k in ["legal","reliance","retail","business","tech","geopolitics","sports","opinion"]}
+    sections: dict = {s: [] for s in ALL_SECTIONS}
     seen: set = set()
 
     for (feed_url, section, tags, priority) in FEEDS:
         if len(sections[section]) >= MAX_PER_SECTION:
             continue
-        print(f"  [{section}] {feed_url}", file=sys.stderr)
+        print(f"  [{section:>12}] fetching {feed_url}", file=sys.stderr)
         raw = fetch_feed(feed_url)
         if not raw:
             continue
@@ -150,33 +177,41 @@ def build_stories():
             continue
 
         channel = root.find("channel")
-        items = (channel or root).findall("item") or root.findall("{http://www.w3.org/2005/Atom}entry")
+        items = (channel or root).findall("item")
+        if not items:
+            items = root.findall("{http://www.w3.org/2005/Atom}entry")
 
         for item in items:
             if len(sections[section]) >= MAX_PER_SECTION:
                 break
 
+            # URL
             link_el = item.find("link") or item.find("{http://www.w3.org/2005/Atom}link")
             url = ""
             if link_el is not None:
-                url = (link_el.text or link_el.get("href","")).strip()
+                url = (link_el.text or link_el.get("href", "")).strip()
             if not url or url in seen:
                 continue
 
+            # Age filter
             pub_dt = parse_date(item)
             if pub_dt and pub_dt < cutoff:
                 continue
 
+            # Headline
             title_el = item.find("title") or item.find("{http://www.w3.org/2005/Atom}title")
             headline = truncate(strip_html(title_el.text if title_el is not None else ""), 180)
             if len(headline) < 8:
                 continue
 
-            desc_el = (item.find("description") or
-                       item.find("{http://www.w3.org/2005/Atom}summary") or
-                       item.find("{http://www.w3.org/2005/Atom}content"))
+            # Summary / hook
+            desc_el = (
+                item.find("description")
+                or item.find("{http://www.w3.org/2005/Atom}summary")
+                or item.find("{http://www.w3.org/2005/Atom}content")
+            )
             raw_desc = strip_html(desc_el.text if desc_el is not None else "") or headline
-            summary = truncate(raw_desc, 700)
+            summary  = truncate(raw_desc, 700)
             if len(summary) < 30:
                 summary = truncate((summary + " " + headline).strip(), 700)
 
@@ -185,36 +220,44 @@ def build_stories():
             if len(hook) < 12:
                 hook = truncate(summary, 220)
 
-            source = next((v for k,v in SOURCE_MAP.items() if k in feed_url.lower()), "News Feed")
-            dl     = date_label(pub_dt)
-            story  = {
-                "id": make_id(section, url),
-                "section": section,
-                "headline": headline,
-                "hook": hook,
-                "summary": summary,
-                "source": source,
+            # Source name
+            source = "News Feed"
+            feed_lower = feed_url.lower()
+            for key, name in SOURCE_MAP.items():
+                if key in feed_lower:
+                    source = name
+                    break
+
+            story = {
+                "id":        make_id(section, url),
+                "section":   section,
+                "headline":  headline,
+                "hook":      hook,
+                "summary":   summary,
+                "source":    source,
                 "sourceUrl": url,
-                "dateLabel": dl,
-                "tags": tags[:8],
-                "priority": priority,
+                "dateLabel": date_label(pub_dt),
+                "tags":      tags[:8],
+                "priority":  priority,
             }
             if section in CONTEXT_NOTE_REQUIRED:
                 story["contextNote"] = CONTEXT_TEMPLATES.get(section, "See source for full context.")
 
             seen.add(url)
             sections[section].append(story)
+            print(f"    + [{section}] {headline[:80]}", file=sys.stderr)
 
+    # Hero: first high-priority story across priority sections
     hero_id = ""
-    for sec in ["legal","business","geopolitics","tech","retail","sports","opinion","reliance"]:
+    for sec in ["legal", "business", "reliance", "geopolitics", "tech", "retail", "sports", "opinion"]:
         highs = [s for s in sections[sec] if s["priority"] == "high"]
         if highs:
             hero_id = highs[0]["id"]
             break
     if not hero_id:
-        for sec in sections.values():
-            if sec:
-                hero_id = sec[0]["id"]
+        for sec in ALL_SECTIONS:
+            if sections[sec]:
+                hero_id = sections[sec][0]["id"]
                 break
 
     return {"editionDate": today, "heroStoryId": hero_id, "sections": sections}
@@ -224,8 +267,11 @@ if __name__ == "__main__":
     print("Daily Brief — RSS Fetcher", file=sys.stderr)
     data  = build_stories()
     total = sum(len(v) for v in data["sections"].values())
-    print(f"Fetched {total} stories  |  Edition: {data['editionDate']}  Hero: {data['heroStoryId']}", file=sys.stderr)
+    per   = ", ".join(f"{s}: {len(data['sections'][s])}" for s in ALL_SECTIONS)
+    print(f"\nFetched {total} stories  |  {per}", file=sys.stderr)
+    print(f"Edition: {data['editionDate']}   Hero: {data['heroStoryId']}", file=sys.stderr)
+
     out = json.dumps(data, indent=2, ensure_ascii=False)
     with open("stories.json", "w", encoding="utf-8") as f:
         f.write(out)
-    print("Wrote stories.json", file=sys.stderr)
+    print("\nWrote stories.json ✓", file=sys.stderr)
