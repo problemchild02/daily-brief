@@ -3,6 +3,9 @@
 fetch_stories.py — Daily Brief RSS Fetcher
 Pulls from curated RSS feeds, maps items to story-schema.json,
 writes stories.json. Run locally or via GitHub Actions.
+
+Section keys: legal, business, reliance, retail, tech, world, sports, opinion
+Reliance stories are dual-tagged: they appear in both 'reliance' AND 'business' sections.
 """
 
 import json, hashlib, re, sys
@@ -13,55 +16,87 @@ from urllib.error import URLError
 from html import unescape
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
-# Each entry: (url, section, tags, priority)
+# Each entry: (url, primary_section, tags, priority)
+# Stories tagged reliance are ALSO injected into business (dual-tagging).
 FEEDS = [
-    # Legal
-    ("https://www.livelaw.in/rss/top-stories",          "legal",      ["courts", "litigation"],        "high"),
-    ("https://www.barandbench.com/feed",                 "legal",      ["bar-and-bench", "India"],      "high"),
+    # ── Legal ──────────────────────────────────────────────────────────────────
+    ("https://www.livelaw.in/rss/top-stories",
+     "legal", ["courts", "litigation", "India"], "high"),
+    ("https://www.barandbench.com/feed",
+     "legal", ["bar-and-bench", "India"], "high"),
 
-    # Regulatory / Business
-    ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",  "business", ["markets", "India"],   "high"),
-    ("https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms",   "business", ["industry", "India"],  "medium"),
-    ("https://www.thehindubusinessline.com/feeder/default.rss",               "business", ["business-line"],      "medium"),
-
-    # Reliance — dedicated ET search feed + ET Retail for group news
-    ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
-                                                         "reliance",   ["reliance", "RIL"],             "high"),
-    ("https://retail.economictimes.indiatimes.com/rss/topstories",
-                                                         "reliance",   ["reliance-retail", "retail"],   "medium"),
-
-    # Retail (broader)
-    ("https://retail.economictimes.indiatimes.com/rss/topstories",
-                                                         "retail",     ["retail", "India"],             "medium"),
+    # ── Business (general) ────────────────────────────────────────────────────
+    ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+     "business", ["markets", "India"], "high"),
+    ("https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms",
+     "business", ["industry", "India"], "medium"),
     ("https://www.thehindubusinessline.com/feeder/default.rss",
-                                                         "retail",     ["business-line", "retail"],     "low"),
+     "business", ["business-line", "India"], "medium"),
+    ("https://www.business-standard.com/rss/home_page_top_stories.rss",
+     "business", ["business-standard", "India"], "medium"),
 
-    # Tech
-    ("https://techcrunch.com/feed/",                     "tech",       ["startups", "technology"],     "medium"),
-    ("https://feeds.feedburner.com/gadgets360-latest",   "tech",       ["gadgets360", "India-tech"],   "medium"),
+    # ── Reliance (dedicated feeds — also dual-tagged into business) ────────────
+    ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
+     "reliance", ["reliance", "RIL", "Jio"], "high"),
+    ("https://retail.economictimes.indiatimes.com/rss/topstories",
+     "reliance", ["reliance-retail", "retail", "JioMart"], "medium"),
+    # Google News RSS for Reliance — broad catch-all
+    ("https://news.google.com/rss/search?q=Reliance+Industries&hl=en-IN&gl=IN&ceid=IN:en",
+     "reliance", ["reliance", "RIL", "google-news"], "medium"),
 
-    # Geopolitics
+    # ── Retail (broader) ──────────────────────────────────────────────────────
+    ("https://retail.economictimes.indiatimes.com/rss/topstories",
+     "retail", ["retail", "India"], "high"),
+    ("https://www.thehindubusinessline.com/feeder/default.rss",
+     "retail", ["business-line", "retail"], "low"),
+
+    # ── Tech ──────────────────────────────────────────────────────────────────
+    ("https://techcrunch.com/feed/",
+     "tech", ["startups", "technology"], "medium"),
+    ("https://feeds.feedburner.com/gadgets360-latest",
+     "tech", ["gadgets360", "India-tech"], "medium"),
+    ("https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
+     "tech", ["ET-tech", "India-tech"], "high"),
+
+    # ── World (formerly Geopolitics) ──────────────────────────────────────────
     ("https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-                                                         "geopolitics", ["world", "NYT"],              "medium"),
+     "world", ["world", "NYT"], "medium"),
     ("https://feeds.bbci.co.uk/news/world/asia/india/rss.xml",
-                                                         "geopolitics", ["BBC", "India"],              "high"),
+     "world", ["BBC", "India"], "high"),
+    ("https://www.aljazeera.com/xml/rss/all.xml",
+     "world", ["Al-Jazeera", "geopolitics"], "medium"),
+    ("https://feeds.reuters.com/reuters/worldNews",
+     "world", ["Reuters", "world"], "high"),
 
-    # Sports
+    # ── Sports ────────────────────────────────────────────────────────────────
     ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
-                                                         "sports",     ["cricket", "espncricinfo"],    "medium"),
+     "sports", ["cricket", "espncricinfo"], "medium"),
     ("https://timesofindia.indiatimes.com/rss/4719148.cms",
-                                                         "sports",     ["sports", "TOI"],             "low"),
+     "sports", ["sports", "TOI"], "low"),
 
-    # Opinion
+    # ── Opinion ───────────────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms",
-                                                         "opinion",    ["ET-opinion"],                "low"),
+     "opinion", ["ET-opinion"], "low"),
+    ("https://www.thehindu.com/opinion/feeder/default.rss",
+     "opinion", ["the-hindu", "opinion"], "medium"),
 ]
 
-ALL_SECTIONS = ["legal", "reliance", "retail", "business", "tech", "geopolitics", "sports", "opinion"]
+# Canonical section order — mirrors the UI tab order
+ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"]
+
+# Sections that get a contextNote disclaimer in each story card
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
-MAX_PER_SECTION = 6
-MAX_AGE_HOURS   = 30
+
+MAX_PER_SECTION = 8   # max stories kept per section
+MAX_AGE_HOURS   = 30  # ignore items older than this
 IST = timezone(timedelta(hours=5, minutes=30))
+
+# Keywords that mark a Business-feed story as also Reliance-relevant
+RELIANCE_KEYWORDS = [
+    "reliance", "ril", "jio", "mukesh ambani", "ambani",
+    "jiomart", "jio cinema", "jio hotstar", "jio financial",
+    "reliance retail", "reliance jio", "reliance industries",
+]
 
 SOURCE_MAP = {
     "livelaw":               "Live Law",
@@ -71,14 +106,19 @@ SOURCE_MAP = {
     "economictimes":         "Economic Times",
     "hindubusinessline":     "Business Line",
     "thehindubusinessline":  "Business Line",
+    "business-standard":     "Business Standard",
     "techcrunch":            "TechCrunch",
     "gadgets360":            "Gadgets 360",
     "feedburner.com/gadgets": "Gadgets 360",
     "nytimes":               "The New York Times",
     "bbci.co":               "BBC News",
+    "bbc.co":                "BBC News",
+    "aljazeera":             "Al Jazeera",
+    "reuters":               "Reuters",
     "espncricinfo":          "ESPN Cricinfo",
     "timesofindia":          "Times of India",
     "thehindu":              "The Hindu",
+    "news.google":           "Google News",
 }
 
 CONTEXT_TEMPLATES = {
@@ -90,6 +130,8 @@ CONTEXT_TEMPLATES = {
     "opinion":  "This is an opinion or editorial piece and reflects the author's views.",
 }
 
+
+# ── HELPERS ────────────────────────────────────────────────────────────────────
 
 def fetch_feed(url):
     try:
@@ -155,18 +197,52 @@ def date_label(dt):
     return local.strftime("%d %b %Y")
 
 
+def is_reliance_story(headline, summary):
+    """Return True if the text mentions Reliance group keywords."""
+    text = (headline + " " + summary).lower()
+    return any(kw in text for kw in RELIANCE_KEYWORDS)
+
+
+def build_story(section, feed_url, url, pub_dt, headline, hook, summary, tags, priority):
+    """Construct a story dict."""
+    source = "News Feed"
+    feed_lower = feed_url.lower()
+    for key, name in SOURCE_MAP.items():
+        if key in feed_lower:
+            source = name
+            break
+
+    story = {
+        "id":        make_id(section, url),
+        "section":   section,
+        "headline":  headline,
+        "hook":      hook,
+        "summary":   summary,
+        "source":    source,
+        "sourceUrl": url,
+        "dateLabel": date_label(pub_dt),
+        "tags":      tags[:8],
+        "priority":  priority,
+    }
+    if section in CONTEXT_NOTE_REQUIRED:
+        story["contextNote"] = CONTEXT_TEMPLATES.get(section, "See source for full context.")
+    return story
+
+
+# ── MAIN ───────────────────────────────────────────────────────────────────────
+
 def build_stories():
     now_utc = datetime.now(timezone.utc)
     cutoff  = now_utc - timedelta(hours=MAX_AGE_HOURS)
     today   = now_utc.astimezone(IST).strftime("%Y-%m-%d")
 
     sections: dict = {s: [] for s in ALL_SECTIONS}
-    seen: set = set()
+    seen: set = set()  # de-duplicate by URL across ALL sections
 
-    for (feed_url, section, tags, priority) in FEEDS:
-        if len(sections[section]) >= MAX_PER_SECTION:
+    for (feed_url, primary_section, tags, priority) in FEEDS:
+        if len(sections[primary_section]) >= MAX_PER_SECTION:
             continue
-        print(f"  [{section:>12}] fetching {feed_url}", file=sys.stderr)
+        print(f"  [{primary_section:>10}] fetching {feed_url}", file=sys.stderr)
         raw = fetch_feed(feed_url)
         if not raw:
             continue
@@ -182,7 +258,7 @@ def build_stories():
             items = root.findall("{http://www.w3.org/2005/Atom}entry")
 
         for item in items:
-            if len(sections[section]) >= MAX_PER_SECTION:
+            if len(sections[primary_section]) >= MAX_PER_SECTION:
                 break
 
             # URL
@@ -190,7 +266,7 @@ def build_stories():
             url = ""
             if link_el is not None:
                 url = (link_el.text or link_el.get("href", "")).strip()
-            if not url or url in seen:
+            if not url:
                 continue
 
             # Age filter
@@ -220,37 +296,61 @@ def build_stories():
             if len(hook) < 12:
                 hook = truncate(summary, 220)
 
-            # Source name
-            source = "News Feed"
-            feed_lower = feed_url.lower()
-            for key, name in SOURCE_MAP.items():
-                if key in feed_lower:
-                    source = name
-                    break
+            # ── Primary section ───────────────────────────────────────────────
+            if url not in seen:
+                story = build_story(
+                    primary_section, feed_url, url, pub_dt,
+                    headline, hook, summary, tags, priority
+                )
+                sections[primary_section].append(story)
+                seen.add(url)
+                print(f"    + [{primary_section}] {headline[:80]}", file=sys.stderr)
 
-            story = {
-                "id":        make_id(section, url),
-                "section":   section,
-                "headline":  headline,
-                "hook":      hook,
-                "summary":   summary,
-                "source":    source,
-                "sourceUrl": url,
-                "dateLabel": date_label(pub_dt),
-                "tags":      tags[:8],
-                "priority":  priority,
-            }
-            if section in CONTEXT_NOTE_REQUIRED:
-                story["contextNote"] = CONTEXT_TEMPLATES.get(section, "See source for full context.")
+            # ── Dual-tagging: Reliance stories → also Business ─────────────────
+            # If story is from a Reliance feed OR mentions Reliance keywords,
+            # inject a copy into business (up to the business cap), with a
+            # separate id so the card renders independently in the business rail.
+            if primary_section == "reliance" or (
+                primary_section == "business" and is_reliance_story(headline, summary)
+            ):
+                # Add to reliance section if it came from a business feed
+                if primary_section == "business" and is_reliance_story(headline, summary):
+                    rel_url_key = url + "::reliance"  # unique key for dedup within reliance
+                    if (
+                        len(sections["reliance"]) < MAX_PER_SECTION
+                        and rel_url_key not in seen
+                    ):
+                        rel_tags = list(dict.fromkeys(["reliance", "RIL"] + tags))
+                        rel_story = build_story(
+                            "reliance", feed_url, url, pub_dt,
+                            headline, hook, summary, rel_tags, priority
+                        )
+                        rel_story["id"] = make_id("reliance", url + "::reliance")
+                        sections["reliance"].append(rel_story)
+                        seen.add(rel_url_key)
+                        print(f"    ↳ dual-tag [reliance] {headline[:70]}", file=sys.stderr)
 
-            seen.add(url)
-            sections[section].append(story)
-            print(f"    + [{section}] {headline[:80]}", file=sys.stderr)
+                # Add to business section if it came from a reliance feed
+                if primary_section == "reliance":
+                    biz_url_key = url + "::business"
+                    if (
+                        len(sections["business"]) < MAX_PER_SECTION
+                        and biz_url_key not in seen
+                    ):
+                        biz_tags = list(dict.fromkeys(["reliance", "business"] + tags))
+                        biz_story = build_story(
+                            "business", feed_url, url, pub_dt,
+                            headline, hook, summary, biz_tags, priority
+                        )
+                        biz_story["id"] = make_id("business", url + "::business")
+                        sections["business"].append(biz_story)
+                        seen.add(biz_url_key)
+                        print(f"    ↳ dual-tag [business] {headline[:70]}", file=sys.stderr)
 
-    # Hero: first high-priority story across priority sections
+    # ── Hero: first high-priority story across priority sections ──────────────
     hero_id = ""
-    for sec in ["legal", "business", "reliance", "geopolitics", "tech", "retail", "sports", "opinion"]:
-        highs = [s for s in sections[sec] if s["priority"] == "high"]
+    for sec in ["legal", "business", "reliance", "world", "tech", "retail", "sports", "opinion"]:
+        highs = [s for s in sections.get(sec, []) if s["priority"] == "high"]
         if highs:
             hero_id = highs[0]["id"]
             break

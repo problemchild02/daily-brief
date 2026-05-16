@@ -103,6 +103,7 @@
     </div>
   </header>
 
+  <!-- Tab order: All · Legal · Business · Reliance · Retail · Tech · World · Sports · Opinion -->
   <nav
     class="tab-bar"
     aria-label="News sections"
@@ -121,19 +122,19 @@
       All Sections
     </button>
 
-<button
-  class="tab"
-  id="tab-bookmarks"
-  type="button"
-  role="tab"
-  aria-selected="false"
-  aria-controls="panel-bookmarks"
-  tabindex="-1"
-  data-target="bookmarks"
->
-  Bookmarks
-</button>
-    
+    <button
+      class="tab"
+      id="tab-bookmarks"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-bookmarks"
+      tabindex="-1"
+      data-target="bookmarks"
+    >
+      Bookmarks
+    </button>
+
     <button
       class="tab"
       id="tab-legal"
@@ -145,6 +146,19 @@
       data-target="legal"
     >
       Legal &amp; Regulatory
+    </button>
+
+    <button
+      class="tab"
+      id="tab-business"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-business"
+      tabindex="-1"
+      data-target="business"
+    >
+      Business
     </button>
 
     <button
@@ -175,19 +189,6 @@
 
     <button
       class="tab"
-      id="tab-business"
-      type="button"
-      role="tab"
-      aria-selected="false"
-      aria-controls="panel-business"
-      tabindex="-1"
-      data-target="business"
-    >
-      Business
-    </button>
-
-    <button
-      class="tab"
       id="tab-tech"
       type="button"
       role="tab"
@@ -201,15 +202,15 @@
 
     <button
       class="tab"
-      id="tab-geopolitics"
+      id="tab-world"
       type="button"
       role="tab"
       aria-selected="false"
-      aria-controls="panel-geopolitics"
+      aria-controls="panel-world"
       tabindex="-1"
-      data-target="geopolitics"
+      data-target="world"
     >
-      Geopolitics
+      World
     </button>
 
     <button
@@ -238,355 +239,367 @@
       Opinion
     </button>
   </nav>
-<main class="main-content" id="main-content">
-  <section
-    id="panel-all"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-all"
-    tabindex="0"
-    data-panel="all"
-  >
-    <section class="hero-section" data-section="hero">
-      <p class="section-eyebrow">Front Page</p>
-      <div id="hero-container"></div>
-    </section>
 
-    <section class="rail-section" data-section="legal">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Legal &amp; Regulatory</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Legal and Regulatory" data-refresh-section="legal">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="legal-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="reliance">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Reliance</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Reliance" data-refresh-section="reliance">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="reliance-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="retail">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Retail</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Retail" data-refresh-section="retail">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="retail-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="business">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Business</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Business" data-refresh-section="business">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="business-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="tech">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Tech</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Tech" data-refresh-section="tech">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="tech-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="geopolitics">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Geopolitics</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Geopolitics" data-refresh-section="geopolitics">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="geopolitics-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="sports">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Sports</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Sports" data-refresh-section="sports">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="sports-grid"></div>
-    </section>
-
-    <section class="rail-section" data-section="opinion">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Opinion</h2>
-        </div>
-        <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Opinion" data-refresh-section="opinion">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-               aria-hidden="true">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-          </svg>
-          Refresh
-        </button>
-      </div>
-      <div class="card-grid" id="opinion-grid"></div>
-    </section>
+  <main class="main-content" id="main-content">
+    <!-- ── ALL SECTIONS panel ─────────────────────────────────────────────── -->
+    <section
+      id="panel-all"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-all"
+      tabindex="0"
+      data-panel="all"
+    >
+      <section class="hero-section" data-section="hero">
+        <p class="section-eyebrow">Front Page</p>
+        <div id="hero-container"></div>
       </section>
-  
-  <section
-  id="panel-bookmarks"
-  class="tab-panel"
-  role="tabpanel"
-  aria-labelledby="tab-bookmarks"
-  tabindex="0"
-  data-panel="bookmarks"
-  hidden
->
-  <section class="rail-section rail-section-single">
-    <div class="rail-header">
-      <div class="rail-title-group">
-        <span class="category-dot" aria-hidden="true"></span>
-        <h2 class="rail-heading">Bookmarks</h2>
-      </div>
-    </div>
-    <div class="card-grid" id="bookmarks-grid"></div>
-  </section>
-</section>
 
-  <section
-    id="panel-legal"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-legal"
-    tabindex="0"
-    data-panel="legal"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Legal &amp; Regulatory</h2>
+      <section class="rail-section" data-section="legal">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Legal &amp; Regulatory</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Legal and Regulatory" data-refresh-section="legal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="legal-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="legal-grid"></div>
+      </section>
 
-  <section
-    id="panel-reliance"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-reliance"
-    tabindex="0"
-    data-panel="reliance"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Reliance</h2>
+      <section class="rail-section" data-section="business">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Business</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Business" data-refresh-section="business">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="reliance-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="business-grid"></div>
+      </section>
 
-  <section
-    id="panel-retail"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-retail"
-    tabindex="0"
-    data-panel="retail"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Retail</h2>
+      <section class="rail-section" data-section="reliance">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Reliance</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Reliance" data-refresh-section="reliance">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="retail-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="reliance-grid"></div>
+      </section>
 
-  <section
-    id="panel-business"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-business"
-    tabindex="0"
-    data-panel="business"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Business</h2>
+      <section class="rail-section" data-section="retail">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Retail</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Retail" data-refresh-section="retail">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="business-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="retail-grid"></div>
+      </section>
 
-  <section
-    id="panel-tech"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-tech"
-    tabindex="0"
-    data-panel="tech"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Tech</h2>
+      <section class="rail-section" data-section="tech">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Tech</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Tech" data-refresh-section="tech">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="tech-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="tech-grid"></div>
+      </section>
 
-  <section
-    id="panel-geopolitics"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-geopolitics"
-    tabindex="0"
-    data-panel="geopolitics"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Geopolitics</h2>
+      <section class="rail-section" data-section="world">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">World</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh World" data-refresh-section="world">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="geopolitics-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="world-grid"></div>
+      </section>
 
-  <section
-    id="panel-sports"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-sports"
-    tabindex="0"
-    data-panel="sports"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Sports</h2>
+      <section class="rail-section" data-section="sports">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Sports</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Sports" data-refresh-section="sports">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="sports-grid-panel"></div>
-    </section>
-  </section>
+        <div class="card-grid" id="sports-grid"></div>
+      </section>
 
-  <section
-    id="panel-opinion"
-    class="tab-panel"
-    role="tabpanel"
-    aria-labelledby="tab-opinion"
-    tabindex="0"
-    data-panel="opinion"
-    hidden
-  >
-    <section class="rail-section rail-section-single">
-      <div class="rail-header">
-        <div class="rail-title-group">
-          <span class="category-dot" aria-hidden="true"></span>
-          <h2 class="rail-heading">Opinion</h2>
+      <section class="rail-section" data-section="opinion">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Opinion</h2>
+          </div>
+          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Opinion" data-refresh-section="opinion">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+          </button>
         </div>
-      </div>
-      <div class="card-grid" id="opinion-grid-panel"></div>
+        <div class="card-grid" id="opinion-grid"></div>
+      </section>
     </section>
-  </section>
-</main>
+
+    <!-- ── BOOKMARKS panel ───────────────────────────────────────────────── -->
+    <section
+      id="panel-bookmarks"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-bookmarks"
+      tabindex="0"
+      data-panel="bookmarks"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Bookmarks</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="bookmarks-grid"></div>
+      </section>
+    </section>
+
+    <!-- ── LEGAL panel ──────────────────────────────────────────────────── -->
+    <section
+      id="panel-legal"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-legal"
+      tabindex="0"
+      data-panel="legal"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Legal &amp; Regulatory</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="legal-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── BUSINESS panel ───────────────────────────────────────────────── -->
+    <section
+      id="panel-business"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-business"
+      tabindex="0"
+      data-panel="business"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Business</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="business-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── RELIANCE panel ───────────────────────────────────────────────── -->
+    <section
+      id="panel-reliance"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-reliance"
+      tabindex="0"
+      data-panel="reliance"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Reliance</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="reliance-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── RETAIL panel ─────────────────────────────────────────────────── -->
+    <section
+      id="panel-retail"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-retail"
+      tabindex="0"
+      data-panel="retail"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Retail</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="retail-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── TECH panel ───────────────────────────────────────────────────── -->
+    <section
+      id="panel-tech"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-tech"
+      tabindex="0"
+      data-panel="tech"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Tech</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="tech-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── WORLD panel (renamed from Geopolitics) ───────────────────────── -->
+    <section
+      id="panel-world"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-world"
+      tabindex="0"
+      data-panel="world"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">World</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="world-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── SPORTS panel ─────────────────────────────────────────────────── -->
+    <section
+      id="panel-sports"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-sports"
+      tabindex="0"
+      data-panel="sports"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Sports</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="sports-grid-panel"></div>
+      </section>
+    </section>
+
+    <!-- ── OPINION panel ────────────────────────────────────────────────── -->
+    <section
+      id="panel-opinion"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-opinion"
+      tabindex="0"
+      data-panel="opinion"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" aria-hidden="true"></span>
+            <h2 class="rail-heading">Opinion</h2>
+          </div>
+        </div>
+        <div class="card-grid" id="opinion-grid-panel"></div>
+      </section>
+    </section>
+  </main>
+
   <footer class="site-footer">
-    <p>The Daily Brief &nbsp;·&nbsp; v0.1 &nbsp;·&nbsp; Static edition</p>
+    <p>The Daily Brief &nbsp;·&nbsp; v0.2 &nbsp;·&nbsp; Static edition</p>
   </footer>
 
   <script src="app.js" defer></script>
