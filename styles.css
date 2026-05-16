@@ -136,15 +136,17 @@ button {
   outline-offset: 3px;
 }
 
+/* ── Header ── */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-6) var(--space-4);
+  gap: var(--space-3);
+  /* tighter on mobile — was space-6 top/bottom */
+  padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--border);
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(10px);
@@ -157,7 +159,8 @@ button {
 .site-title {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 6vw, 2.75rem);
+  /* floor lowered from 1.75rem → 1.35rem so it breathes at 375px */
+  font-size: clamp(1.35rem, 5vw, 2.75rem);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -166,9 +169,19 @@ button {
 .site-subtitle {
   margin: var(--space-1) 0 0;
   font-family: var(--font-heading);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-style: italic;
   color: var(--text-muted);
+  /* hide on very narrow screens to save vertical space */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 400px) {
+  .site-subtitle {
+    display: none;
+  }
 }
 
 .header-actions {
@@ -225,14 +238,34 @@ button {
   display: none;
 }
 
+/* ── Tab bar — scroll fade affordance ── */
+.tab-bar-wrap {
+  position: relative;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+/* right-edge fade hint that the bar is scrollable */
+.tab-bar-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  pointer-events: none;
+}
+
 .tab-bar {
   display: flex;
   gap: var(--space-2);
   overflow-x: auto;
   padding: var(--space-2) var(--space-4);
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  /* no border-bottom here — moved to .tab-bar-wrap */
+  background: transparent;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tab-bar::-webkit-scrollbar {
@@ -270,10 +303,12 @@ button {
   border-color: var(--text);
 }
 
+/* ── Main content — safe-area aware ── */
 .main-content {
   max-width: 1100px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-4) var(--space-10);
+  padding: var(--space-5) var(--space-4);
+  padding-bottom: calc(var(--space-10) + env(safe-area-inset-bottom, 0px));
 }
 
 .tab-panel {
@@ -304,7 +339,7 @@ button {
 }
 
 .hero-card {
-  padding: var(--space-6);
+  padding: var(--space-5) var(--space-5);
   border-top: 4px solid var(--accent-hero);
   box-shadow: var(--shadow-sm);
 }
@@ -336,7 +371,7 @@ button {
 .hero-headline {
   margin: 0 0 var(--space-4);
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3.5vw, 2.125rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.125rem);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0em;
@@ -366,13 +401,12 @@ button {
   font-size: 0.9375rem;
 }
 
+/* ── Rail header — icon-only Refresh on narrow screens ── */
 .rail-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-3);
   margin-bottom: var(--space-4);
-  flex-wrap: wrap;
 }
 
 .rail-title-group {
@@ -380,6 +414,7 @@ button {
   align-items: center;
   gap: var(--space-3);
   min-width: 0;
+  flex: 1;
 }
 
 .category-dot {
@@ -396,6 +431,9 @@ button {
   font-size: 1.3125rem;
   font-weight: 600;
   letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-refresh,
@@ -412,6 +450,7 @@ button {
   background: transparent;
   font-size: 0.8125rem;
   font-weight: 600;
+  flex-shrink: 0;
   transition:
     background-color var(--transition),
     color var(--transition),
@@ -432,6 +471,18 @@ button {
   opacity: 0.82;
   cursor: wait;
   transform: none;
+}
+
+/* on mobile: show only the icon, hide the "Refresh" label text */
+@media (max-width: 639px) {
+  .btn-refresh {
+    padding: 0 var(--space-3);
+    width: 44px;
+  }
+
+  .btn-refresh .btn-refresh-label {
+    display: none;
+  }
 }
 
 .btn-bookmark[aria-pressed="true"] {
@@ -612,12 +663,13 @@ button {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 18%, transparent);
 }
 
+/* ── Card footer — stay on one line, never wrap ── */
 .card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .read-link {
@@ -631,6 +683,7 @@ button {
   text-transform: uppercase;
   color: var(--text-muted);
   text-decoration: none;
+  white-space: nowrap;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -645,8 +698,10 @@ button {
   color: var(--text-muted);
 }
 
+/* ── Footer — safe area ── */
 .site-footer {
-  padding: var(--space-6) var(--space-4) var(--space-10);
+  padding: var(--space-6) var(--space-4);
+  padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--border);
   text-align: center;
   font-family: var(--font-mono);
@@ -677,12 +732,20 @@ button {
 }
 
 @media (min-width: 640px) {
+  .site-header {
+    padding: var(--space-4) var(--space-6);
+  }
+
   .main-content {
     padding: var(--space-8) var(--space-6) 60px;
   }
 
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-card {
+    padding: var(--space-6);
   }
 }
 
