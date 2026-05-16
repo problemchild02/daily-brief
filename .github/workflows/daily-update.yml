@@ -35,9 +35,11 @@ jobs:
           import json, sys
           d = json.load(open('stories.json'))
           assert d.get('editionDate'), 'Missing editionDate'
-          assert d.get('heroStoryId'), 'Missing heroStoryId'
           total = sum(len(v) for v in d['sections'].values())
-          print(f'Valid — {total} stories, edition {d[\"editionDate\"]}')
+          hero = d.get('heroStoryId', '')
+          if not hero:
+              print(f'WARN: heroStoryId is empty (all feeds may have been empty/blocked)')
+          print(f'Valid — {total} stories, edition {d[\"editionDate\"]}, hero={hero or \"(none)\"}')
           "
 
       - name: Commit updated stories.json
