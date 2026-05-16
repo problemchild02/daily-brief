@@ -58,7 +58,7 @@ FEEDS = [
     ("https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
      "tech", ["ET-tech", "India-tech"], "high"),
 
-    # ── World (formerly Geopolitics) ──────────────────────────────────────────
+    # ── World ─────────────────────────────────────────────────────────────────
     ("https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
      "world", ["world", "NYT"], "medium"),
     ("https://feeds.bbci.co.uk/news/world/asia/india/rss.xml",
@@ -186,14 +186,20 @@ def parse_date(item):
 
 
 def date_label(dt):
+    """Return a human-readable date label. Uses cross-platform strftime (no %-I)."""
     if dt is None:
         return "Today"
     local = dt.astimezone(IST)
     today = datetime.now(IST).date()
+    # Cross-platform hour formatting — avoid %-I (Linux-only)
+    hour = local.hour % 12 or 12
+    minute = local.strftime("%M")
+    ampm = "AM" if local.hour < 12 else "PM"
+    time_str = f"{hour}:{minute} {ampm} IST"
     if local.date() == today:
-        return local.strftime("Today, %-I:%M %p IST")
+        return f"Today, {time_str}"
     elif local.date() == today - timedelta(days=1):
-        return local.strftime("Yesterday, %-I:%M %p IST")
+        return f"Yesterday, {time_str}"
     return local.strftime("%d %b %Y")
 
 
@@ -307,15 +313,11 @@ def build_stories():
                 print(f"    + [{primary_section}] {headline[:80]}", file=sys.stderr)
 
             # ── Dual-tagging: Reliance stories → also Business ─────────────────
-            # If story is from a Reliance feed OR mentions Reliance keywords,
-            # inject a copy into business (up to the business cap), with a
-            # separate id so the card renders independently in the business rail.
             if primary_section == "reliance" or (
                 primary_section == "business" and is_reliance_story(headline, summary)
             ):
-                # Add to reliance section if it came from a business feed
                 if primary_section == "business" and is_reliance_story(headline, summary):
-                    rel_url_key = url + "::reliance"  # unique key for dedup within reliance
+                    rel_url_key = url + "::reliance"
                     if (
                         len(sections["reliance"]) < MAX_PER_SECTION
                         and rel_url_key not in seen
@@ -330,7 +332,6 @@ def build_stories():
                         seen.add(rel_url_key)
                         print(f"    ↳ dual-tag [reliance] {headline[:70]}", file=sys.stderr)
 
-                # Add to business section if it came from a reliance feed
                 if primary_section == "reliance":
                     biz_url_key = url + "::business"
                     if (
