@@ -27,22 +27,26 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch RSS stories
+        id: fetch
         run: python fetch_stories.py
 
       - name: Validate stories.json
+        id: validate
         run: |
-          python -c "
+          python - <<'EOF'
           import json, sys
           d = json.load(open('stories.json'))
           assert d.get('editionDate'), 'Missing editionDate'
           total = sum(len(v) for v in d['sections'].values())
+          hero  = d.get('heroStoryId', '')
+          per_section = ', '.join(f"{k}: {len(v)}" for k, v in d['sections'].items())
+          print(f'Edition : {d["editionDate"]}')
+          print(f'Hero    : {hero or "(none)"}')
+          print(f'Stories : {total} total  [{per_section}]')
           if total == 0:
-              print('ERROR: 0 stories in stories.json — aborting commit to avoid publishing empty edition.')
-              sys.exit(1)
-          hero = d.get('heroStoryId', '')
-          if not hero:
-              print(f'WARN: heroStoryId is empty')
-          print(f'Valid — {total} stories, edition {d[\"editionDate\"]}, hero={hero or \"(none)\"}')"
+              print('ERROR: 0 stories — this is the fallback edition or something is wrong.')
+              print('Committing anyway so the site shows the fallback notice rather than staying blank.')
+          EOF
 
       - name: Commit updated stories.json
         run: |

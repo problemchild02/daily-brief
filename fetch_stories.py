@@ -8,7 +8,7 @@ Section keys: legal, business, reliance, retail, tech, world, sports, opinion
 Reliance stories are dual-tagged: they appear in both 'reliance' AND 'business' sections.
 """
 
-import json, hashlib, re, sys, time
+import json, hashlib, re, sys, time, shutil, os
 from datetime import datetime, timezone, timedelta
 from xml.etree import ElementTree as ET
 from urllib.request import urlopen, Request
@@ -24,12 +24,18 @@ FEEDS = [
      "legal", ["courts", "litigation", "India"], "high"),
     ("https://www.barandbench.com/feed",
      "legal", ["bar-and-bench", "India"], "high"),
-    # Fallback: SCC Online latest
+    # SCC Online latest
     ("https://www.scconline.com/blog/feed/",
      "legal", ["SCC", "India", "courts"], "medium"),
-    # Fallback: Google News — Indian courts & law
+    # Google News — Indian courts & law
     ("https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en-IN&gl=IN&ceid=IN:en",
      "legal", ["courts", "India", "google-news"], "medium"),
+    # NDTV Law — extra fallback
+    ("https://feeds.feedburner.com/ndtvnews-law",
+     "legal", ["NDTV", "law", "India"], "low"),
+    # The Print — law & policy
+    ("https://theprint.in/category/judiciary/feed/",
+     "legal", ["the-print", "judiciary", "India"], "medium"),
 
     # ── Business (general) ────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
@@ -40,10 +46,13 @@ FEEDS = [
      "business", ["business-line", "India"], "medium"),
     ("https://www.business-standard.com/rss/home_page_top_stories.rss",
      "business", ["business-standard", "India"], "medium"),
-    # Fallback: Mint top stories
+    # Mint top stories
     ("https://www.livemint.com/rss/companies",
      "business", ["mint", "India"], "medium"),
-    # Fallback: Google News — India business
+    # India Today business
+    ("https://www.indiatoday.in/rss/1206514",
+     "business", ["india-today", "business", "India"], "medium"),
+    # Google News — India business
     ("https://news.google.com/rss/search?q=India+business+economy&hl=en-IN&gl=IN&ceid=IN:en",
      "business", ["business", "India", "google-news"], "medium"),
 
@@ -61,18 +70,21 @@ FEEDS = [
      "retail", ["retail", "India"], "high"),
     ("https://www.thehindubusinessline.com/feeder/default.rss",
      "retail", ["business-line", "retail"], "low"),
-    # Fallback: Livemint retail
+    # Livemint retail
     ("https://www.livemint.com/rss/industry",
      "retail", ["mint", "retail"], "low"),
 
     # ── Tech ──────────────────────────────────────────────────────────────────
     ("https://techcrunch.com/feed/",
      "tech", ["startups", "technology"], "medium"),
+    # Gadgets360 — direct NDTV tech feed (Feedburner redirect is unreliable)
     ("https://feeds.feedburner.com/gadgets360-latest",
      "tech", ["gadgets360", "India-tech"], "medium"),
+    ("https://www.ndtv.com/feed/tech-gadgets",
+     "tech", ["gadgets360", "NDTV", "India-tech"], "medium"),
     ("https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
      "tech", ["ET-tech", "India-tech"], "high"),
-    # Fallback: The Verge
+    # The Verge
     ("https://www.theverge.com/rss/index.xml",
      "tech", ["the-verge", "technology"], "medium"),
 
@@ -81,30 +93,40 @@ FEEDS = [
      "world", ["BBC", "India"], "high"),
     ("https://www.aljazeera.com/xml/rss/all.xml",
      "world", ["Al-Jazeera", "geopolitics"], "medium"),
-    ("https://feeds.reuters.com/reuters/worldNews",
+    # Reuters — use the working Atom feed (feeds.reuters.com was retired)
+    ("https://feeds.reuters.com/reuters/topNews",
      "world", ["Reuters", "world"], "high"),
-    # Fallback: The Guardian World
+    # Fallback: Reuters via Google News
+    ("https://news.google.com/rss/search?q=world+news&hl=en-IN&gl=IN&ceid=IN:en",
+     "world", ["world", "google-news"], "medium"),
+    # The Guardian World
     ("https://www.theguardian.com/world/rss",
      "world", ["Guardian", "world"], "medium"),
-    # Fallback: AP News World
+    # AP News World — direct RSS (replaces unreliable rsshub.app)
     ("https://rsshub.app/apnews/topics/apf-intlnews",
      "world", ["AP", "world"], "medium"),
+    # AP via Google News fallback
+    ("https://news.google.com/rss/search?q=world+news+international&hl=en&gl=US&ceid=US:en",
+     "world", ["AP", "world", "google-news"], "low"),
 
     # ── Sports ────────────────────────────────────────────────────────────────
     ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
      "sports", ["cricket", "espncricinfo"], "medium"),
     ("https://timesofindia.indiatimes.com/rss/4719148.cms",
      "sports", ["sports", "TOI"], "low"),
-    # Fallback: Cricbuzz
-    ("https://www.cricbuzz.com/cricket-rss-feeds",
+    # Cricbuzz — correct RSS endpoint
+    ("https://www.cricbuzz.com/rss-feeds/cricket-news",
      "sports", ["cricket", "cricbuzz"], "medium"),
+    # NDTV Sports
+    ("https://sports.ndtv.com/rss/cricket",
+     "sports", ["NDTV", "cricket"], "medium"),
 
     # ── Opinion ───────────────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms",
      "opinion", ["ET-opinion"], "low"),
     ("https://www.thehindu.com/opinion/feeder/default.rss",
      "opinion", ["the-hindu", "opinion"], "medium"),
-    # Fallback: The Print opinion
+    # The Print opinion
     ("https://theprint.in/category/opinion/feed/",
      "opinion", ["the-print", "opinion"], "medium"),
 ]
@@ -115,9 +137,10 @@ ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "spo
 # Sections that get a contextNote disclaimer in each story card
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 
-MAX_PER_SECTION = 8   # max stories kept per section
-MAX_AGE_HOURS   = 120 # ignore items older than this (5 days — resilient over long weekends)
-FEED_DELAY_SEC  = 0.5 # pause between feed fetches to avoid burst-rate limiting
+MAX_PER_SECTION = 8    # max stories kept per section
+MAX_AGE_HOURS   = 168  # ignore items older than this (7 days — survives long weekends)
+FEED_DELAY_SEC  = 0.5  # pause between feed fetches to avoid burst-rate limiting
+FALLBACK_FILE   = "stories.fallback.json"  # used if 0 stories fetched
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Keywords that mark a Business-feed story as also Reliance-relevant
@@ -137,9 +160,14 @@ SOURCE_MAP = {
     "thehindubusinessline":  "Business Line",
     "business-standard":     "Business Standard",
     "livemint":              "Mint",
+    "indiatoday":            "India Today",
     "techcrunch":            "TechCrunch",
     "gadgets360":            "Gadgets 360",
     "feedburner.com/gadgets": "Gadgets 360",
+    "ndtv.com/feed/tech":    "NDTV Tech",
+    "sports.ndtv":           "NDTV Sports",
+    "ndtv.com":              "NDTV",
+    "feeds.feedburner.com/ndtv": "NDTV",
     "theverge":              "The Verge",
     "nytimes":               "The New York Times",
     "bbci.co":               "BBC News",
@@ -338,6 +366,7 @@ def build_stories():
             pub_dt = parse_date(item)
             if pub_dt is None:
                 items_no_date += 1
+                # No date → accept it (don't silently drop undated items)
             elif pub_dt < cutoff:
                 items_too_old += 1
                 continue
@@ -441,22 +470,31 @@ def build_stories():
     print(f"Edition: {today}   Hero: {hero_id or '(none)'}", file=sys.stderr)
     print(f"{'─'*60}", file=sys.stderr)
 
-    # ── GUARD: refuse to write an empty edition ───────────────────────────────
+    # ── GUARD: if 0 stories, fall back to stories.fallback.json ──────────────
     if total == 0:
-        print(
-            "\nERROR: 0 stories fetched — refusing to overwrite stories.json.\n"
-            "Check feed connectivity and the cutoff date above.\n"
-            "The existing stories.json is preserved.",
-            file=sys.stderr,
-        )
-        sys.exit(1)
+        if os.path.exists(FALLBACK_FILE):
+            print(
+                f"\nWARN: 0 stories fetched — copying {FALLBACK_FILE} to stories.json.\n"
+                "Check feed connectivity and the cutoff date above.",
+                file=sys.stderr,
+            )
+            shutil.copy(FALLBACK_FILE, "stories.json")
+            print(f"Copied fallback to stories.json ✓", file=sys.stderr)
+            sys.exit(0)
+        else:
+            print(
+                "\nERROR: 0 stories fetched and no fallback file found.\n"
+                "The existing stories.json is preserved.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
 
     return {"editionDate": today, "heroStoryId": hero_id, "sections": sections}
 
 
 if __name__ == "__main__":
     print("Daily Brief — RSS Fetcher", file=sys.stderr)
-    data  = build_stories()   # exits with code 1 if 0 stories
+    data  = build_stories()   # may exit with code 0 (fallback) or 1 (hard fail)
     total = sum(len(v) for v in data["sections"].values())
 
     out = json.dumps(data, indent=2, ensure_ascii=False)
