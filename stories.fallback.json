@@ -1,29 +1,15 @@
 {
   "editionDate": "2026-05-17",
-  "heroStoryId": "legal-fallback-01",
-  "_note": "Fallback edition — live feeds unavailable. Stories will refresh at the next scheduled run.",
+  "heroStoryId": "",
+  "_note": "This is the emergency fallback used when fetch_stories.py fetches 0 stories. Replace with a real edition periodically.",
   "sections": {
-    "legal": [
-      {
-        "id": "legal-fallback-01",
-        "section": "legal",
-        "headline": "Live feeds temporarily unavailable — check back shortly",
-        "hook": "The Daily Brief is having trouble reaching today's news sources.",
-        "summary": "Our automated news fetcher ran into connectivity issues with one or more RSS feeds. This is a temporary fallback edition. Stories will refresh automatically at the next scheduled run (6:00 AM IST), or you can trigger a manual refresh from the GitHub Actions tab.",
-        "contextNote": "This is a system notice, not a legal story.",
-        "source": "The Daily Brief",
-        "sourceUrl": "https://problemchild02.github.io/daily-brief",
-        "dateLabel": "Today",
-        "tags": ["system", "notice"],
-        "priority": "high"
-      }
-    ],
+    "legal":    [],
     "business": [],
     "reliance": [],
-    "retail": [],
-    "tech": [],
-    "world": [],
-    "sports": [],
-    "opinion": []
+    "retail":   [],
+    "tech":     [],
+    "world":    [],
+    "sports":   [],
+    "opinion":  []
   }
 }

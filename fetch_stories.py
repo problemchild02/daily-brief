@@ -6,14 +6,20 @@ writes stories.json. Run locally or via GitHub Actions.
 
 Section keys: legal, business, reliance, retail, tech, world, sports, opinion
 Reliance stories are dual-tagged: they appear in both 'reliance' AND 'business' sections.
+
+Flags:
+  --debug   Run full fetch + print diagnostics, but do NOT write stories.json.
+            Useful for diagnosing feed failures without touching the live file.
 """
 
 import json, hashlib, re, sys, time, shutil, os
 from datetime import datetime, timezone, timedelta
 from xml.etree import ElementTree as ET
 from urllib.request import urlopen, Request
-from urllib.error import URLError
+from urllib.error import URLError, HTTPError
 from html import unescape
+
+DEBUG_MODE = "--debug" in sys.argv
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -137,10 +143,12 @@ ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "spo
 # Sections that get a contextNote disclaimer in each story card
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 
-MAX_PER_SECTION = 8    # max stories kept per section
-MAX_AGE_HOURS   = 168  # ignore items older than this (7 days — survives long weekends)
-FEED_DELAY_SEC  = 0.5  # pause between feed fetches to avoid burst-rate limiting
-FALLBACK_FILE   = "stories.fallback.json"  # used if 0 stories fetched
+MAX_PER_SECTION  = 8    # max stories kept per section
+MAX_AGE_HOURS    = 168  # ignore items older than this (7 days — survives long weekends)
+FEED_TIMEOUT_SEC = 20   # per-feed HTTP timeout (increased from 15)
+FEED_DELAY_SEC   = 0.3  # pause between feed fetches
+FEED_RETRIES     = 2    # number of retry attempts on network errors
+FALLBACK_FILE    = "stories.fallback.json"  # used if 0 stories fetched
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Keywords that mark a Business-feed story as also Reliance-relevant
@@ -196,16 +204,27 @@ CONTEXT_TEMPLATES = {
 
 # ── HELPERS ────────────────────────────────────────────────────────────────────
 
-def fetch_feed(url):
-    try:
-        req = Request(url, headers={"User-Agent": "DailyBriefBot/1.0"})
-        with urlopen(req, timeout=15) as r:
-            data = r.read()
-            print(f"    OK  ({len(data):,} bytes)", file=sys.stderr)
-            return data
-    except Exception as e:
-        print(f"    FAIL  →  {e}", file=sys.stderr)
-        return None
+def fetch_feed(url, retries=FEED_RETRIES):
+    """Fetch a feed URL with retry logic. Returns raw bytes or None."""
+    for attempt in range(1, retries + 1):
+        try:
+            req = Request(url, headers={"User-Agent": "DailyBriefBot/1.1"})
+            with urlopen(req, timeout=FEED_TIMEOUT_SEC) as r:
+                data = r.read()
+                print(f"    OK  ({len(data):,} bytes)", file=sys.stderr)
+                return data
+        except HTTPError as e:
+            print(f"    HTTP {e.code} — skipping  {url}", file=sys.stderr)
+            return None  # 4xx/5xx — don't retry
+        except Exception as e:
+            if attempt < retries:
+                wait = attempt * 2
+                print(f"    FAIL attempt {attempt}/{retries}: {e}  — retry in {wait}s",
+                      file=sys.stderr)
+                time.sleep(wait)
+            else:
+                print(f"    FAIL (all {retries} attempts): {e}", file=sys.stderr)
+                return None
 
 
 def strip_html(text):
@@ -256,7 +275,6 @@ def date_label(dt):
         return "Today"
     local = dt.astimezone(IST)
     today = datetime.now(IST).date()
-    # Cross-platform hour formatting — avoid %-I (Linux-only)
     hour = local.hour % 12 or 12
     minute = local.strftime("%M")
     ampm = "AM" if local.hour < 12 else "PM"
@@ -307,11 +325,14 @@ def build_stories():
     cutoff  = now_utc - timedelta(hours=MAX_AGE_HOURS)
     today   = now_utc.astimezone(IST).strftime("%Y-%m-%d")
 
+    if DEBUG_MODE:
+        print("\n*** DEBUG MODE — stories.json will NOT be written ***", file=sys.stderr)
+
     print(f"\nCutoff: {cutoff.strftime('%Y-%m-%d %H:%M UTC')}  (MAX_AGE_HOURS={MAX_AGE_HOURS})",
           file=sys.stderr)
 
     sections: dict = {s: [] for s in ALL_SECTIONS}
-    seen: set = set()  # de-duplicate by URL across ALL sections
+    seen: set = set()
 
     feeds_ok   = 0
     feeds_fail = 0
@@ -323,7 +344,7 @@ def build_stories():
 
         print(f"  [{primary_section:>10}] fetching {feed_url}", file=sys.stderr)
         raw = fetch_feed(feed_url)
-        time.sleep(FEED_DELAY_SEC)  # be polite to feed servers
+        time.sleep(FEED_DELAY_SEC)
 
         if not raw:
             feeds_fail += 1
@@ -344,7 +365,6 @@ def build_stories():
         if not items:
             items = root.findall("{http://www.w3.org/2005/Atom}entry")
 
-        # ── Per-feed diagnostics ───────────────────────────────────────────
         items_total    = len(items)
         items_no_date  = 0
         items_too_old  = 0
@@ -354,7 +374,6 @@ def build_stories():
             if len(sections[primary_section]) >= MAX_PER_SECTION:
                 break
 
-            # URL
             link_el = item.find("link") or item.find("{http://www.w3.org/2005/Atom}link")
             url = ""
             if link_el is not None:
@@ -362,22 +381,18 @@ def build_stories():
             if not url:
                 continue
 
-            # Age filter
             pub_dt = parse_date(item)
             if pub_dt is None:
                 items_no_date += 1
-                # No date → accept it (don't silently drop undated items)
             elif pub_dt < cutoff:
                 items_too_old += 1
                 continue
 
-            # Headline
             title_el = item.find("title") or item.find("{http://www.w3.org/2005/Atom}title")
             headline = truncate(strip_html(title_el.text if title_el is not None else ""), 180)
             if len(headline) < 8:
                 continue
 
-            # Summary / hook
             desc_el = (
                 item.find("description")
                 or item.find("{http://www.w3.org/2005/Atom}summary")
@@ -393,7 +408,6 @@ def build_stories():
             if len(hook) < 12:
                 hook = truncate(summary, 220)
 
-            # ── Primary section ───────────────────────────────────────────────
             if url not in seen:
                 story = build_story(
                     primary_section, feed_url, url, pub_dt,
@@ -404,7 +418,6 @@ def build_stories():
                 items_accepted += 1
                 print(f"    + [{primary_section}] {headline[:80]}", file=sys.stderr)
 
-            # ── Dual-tagging: Reliance stories → also Business ─────────────────
             if primary_section == "reliance" or (
                 primary_section == "business" and is_reliance_story(headline, summary)
             ):
@@ -422,7 +435,7 @@ def build_stories():
                         rel_story["id"] = make_id("reliance", url + "::reliance")
                         sections["reliance"].append(rel_story)
                         seen.add(rel_url_key)
-                        print(f"    ↳ dual-tag [reliance] {headline[:70]}", file=sys.stderr)
+                        print(f"    \u21b3 dual-tag [reliance] {headline[:70]}", file=sys.stderr)
 
                 if primary_section == "reliance":
                     biz_url_key = url + "::business"
@@ -438,15 +451,15 @@ def build_stories():
                         biz_story["id"] = make_id("business", url + "::business")
                         sections["business"].append(biz_story)
                         seen.add(biz_url_key)
-                        print(f"    ↳ dual-tag [business] {headline[:70]}", file=sys.stderr)
+                        print(f"    \u21b3 dual-tag [business] {headline[:70]}", file=sys.stderr)
 
         print(
-            f"    → {items_total} items: {items_accepted} accepted, "
+            f"    \u2192 {items_total} items: {items_accepted} accepted, "
             f"{items_too_old} too old, {items_no_date} no-date",
             file=sys.stderr,
         )
 
-    # ── Hero: first high-priority story across priority sections ──────────────
+    # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
     for sec in ["legal", "business", "reliance", "world", "tech", "retail", "sports", "opinion"]:
         highs = [s for s in sections.get(sec, []) if s["priority"] == "high"]
@@ -461,7 +474,6 @@ def build_stories():
 
     total = sum(len(v) for v in sections.values())
 
-    # ── Feed summary ──────────────────────────────────────────────────────────
     print(f"\n{'─'*60}", file=sys.stderr)
     print(f"Feeds:   {feeds_ok} OK  /  {feeds_fail} failed", file=sys.stderr)
     print(f"Stories: {total} total  |  "
@@ -469,6 +481,10 @@ def build_stories():
           file=sys.stderr)
     print(f"Edition: {today}   Hero: {hero_id or '(none)'}", file=sys.stderr)
     print(f"{'─'*60}", file=sys.stderr)
+
+    if DEBUG_MODE:
+        print("\n*** DEBUG MODE — exiting without writing stories.json ***", file=sys.stderr)
+        sys.exit(0)
 
     # ── GUARD: if 0 stories, fall back to stories.fallback.json ──────────────
     if total == 0:
@@ -484,7 +500,7 @@ def build_stories():
         else:
             print(
                 "\nERROR: 0 stories fetched and no fallback file found.\n"
-                "The existing stories.json is preserved.",
+                "The existing stories.json is preserved (may be empty).",
                 file=sys.stderr,
             )
             sys.exit(1)
@@ -494,7 +510,7 @@ def build_stories():
 
 if __name__ == "__main__":
     print("Daily Brief — RSS Fetcher", file=sys.stderr)
-    data  = build_stories()   # may exit with code 0 (fallback) or 1 (hard fail)
+    data  = build_stories()   # may exit with code 0 (fallback/debug) or 1 (hard fail)
     total = sum(len(v) for v in data["sections"].values())
 
     out = json.dumps(data, indent=2, ensure_ascii=False)
