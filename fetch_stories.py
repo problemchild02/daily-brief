@@ -88,7 +88,7 @@ ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "spo
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 
 MAX_PER_SECTION = 8   # max stories kept per section
-MAX_AGE_HOURS   = 30  # ignore items older than this
+MAX_AGE_HOURS   = 72  # ignore items older than this
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Keywords that mark a Business-feed story as also Reliance-relevant
