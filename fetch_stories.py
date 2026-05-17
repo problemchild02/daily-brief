@@ -166,9 +166,11 @@ def fetch_feed(url):
     try:
         req = Request(url, headers={"User-Agent": "DailyBriefBot/1.0"})
         with urlopen(req, timeout=15) as r:
-            return r.read()
+            data = r.read()
+            print(f"    OK  ({len(data):,} bytes)", file=sys.stderr)
+            return data
     except Exception as e:
-        print(f"  WARN fetch: {url}  →  {e}", file=sys.stderr)
+        print(f"    FAIL  →  {e}", file=sys.stderr)
         return None
 
 
@@ -271,27 +273,48 @@ def build_stories():
     cutoff  = now_utc - timedelta(hours=MAX_AGE_HOURS)
     today   = now_utc.astimezone(IST).strftime("%Y-%m-%d")
 
+    print(f"\nCutoff: {cutoff.strftime('%Y-%m-%d %H:%M UTC')}  (MAX_AGE_HOURS={MAX_AGE_HOURS})",
+          file=sys.stderr)
+
     sections: dict = {s: [] for s in ALL_SECTIONS}
     seen: set = set()  # de-duplicate by URL across ALL sections
 
+    feeds_ok   = 0
+    feeds_fail = 0
+
     for (feed_url, primary_section, tags, priority) in FEEDS:
         if len(sections[primary_section]) >= MAX_PER_SECTION:
+            print(f"  [{primary_section:>10}] SKIP (section full) {feed_url}", file=sys.stderr)
             continue
+
         print(f"  [{primary_section:>10}] fetching {feed_url}", file=sys.stderr)
         raw = fetch_feed(feed_url)
         time.sleep(FEED_DELAY_SEC)  # be polite to feed servers
+
         if not raw:
+            feeds_fail += 1
             continue
+
+        feeds_ok += 1
+
         try:
             root = ET.fromstring(raw)
         except ET.ParseError as e:
             print(f"  WARN parse: {e}", file=sys.stderr)
+            feeds_fail += 1
+            feeds_ok   -= 1
             continue
 
         channel = root.find("channel")
         items = (channel or root).findall("item")
         if not items:
             items = root.findall("{http://www.w3.org/2005/Atom}entry")
+
+        # ── Per-feed diagnostics ───────────────────────────────────────────
+        items_total    = len(items)
+        items_no_date  = 0
+        items_too_old  = 0
+        items_accepted = 0
 
         for item in items:
             if len(sections[primary_section]) >= MAX_PER_SECTION:
@@ -305,9 +328,12 @@ def build_stories():
             if not url:
                 continue
 
-            # Age filter — items with no date are accepted (can't filter what we can't measure)
+            # Age filter
             pub_dt = parse_date(item)
-            if pub_dt and pub_dt < cutoff:
+            if pub_dt is None:
+                items_no_date += 1
+            elif pub_dt < cutoff:
+                items_too_old += 1
                 continue
 
             # Headline
@@ -340,6 +366,7 @@ def build_stories():
                 )
                 sections[primary_section].append(story)
                 seen.add(url)
+                items_accepted += 1
                 print(f"    + [{primary_section}] {headline[:80]}", file=sys.stderr)
 
             # ── Dual-tagging: Reliance stories → also Business ─────────────────
@@ -378,6 +405,12 @@ def build_stories():
                         seen.add(biz_url_key)
                         print(f"    ↳ dual-tag [business] {headline[:70]}", file=sys.stderr)
 
+        print(
+            f"    → {items_total} items: {items_accepted} accepted, "
+            f"{items_too_old} too old, {items_no_date} no-date",
+            file=sys.stderr,
+        )
+
     # ── Hero: first high-priority story across priority sections ──────────────
     hero_id = ""
     for sec in ["legal", "business", "reliance", "world", "tech", "retail", "sports", "opinion"]:
@@ -391,18 +424,36 @@ def build_stories():
                 hero_id = sections[sec][0]["id"]
                 break
 
+    total = sum(len(v) for v in sections.values())
+
+    # ── Feed summary ──────────────────────────────────────────────────────────
+    print(f"\n{'─'*60}", file=sys.stderr)
+    print(f"Feeds:   {feeds_ok} OK  /  {feeds_fail} failed", file=sys.stderr)
+    print(f"Stories: {total} total  |  "
+          + ", ".join(f"{s}: {len(sections[s])}" for s in ALL_SECTIONS),
+          file=sys.stderr)
+    print(f"Edition: {today}   Hero: {hero_id or '(none)'}", file=sys.stderr)
+    print(f"{'─'*60}", file=sys.stderr)
+
+    # ── GUARD: refuse to write an empty edition ───────────────────────────────
+    if total == 0:
+        print(
+            "\nERROR: 0 stories fetched — refusing to overwrite stories.json.\n"
+            "Check feed connectivity and the cutoff date above.\n"
+            "The existing stories.json is preserved.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     return {"editionDate": today, "heroStoryId": hero_id, "sections": sections}
 
 
 if __name__ == "__main__":
     print("Daily Brief — RSS Fetcher", file=sys.stderr)
-    data  = build_stories()
+    data  = build_stories()   # exits with code 1 if 0 stories
     total = sum(len(v) for v in data["sections"].values())
-    per   = ", ".join(f"{s}: {len(data['sections'][s])}" for s in ALL_SECTIONS)
-    print(f"\nFetched {total} stories  |  {per}", file=sys.stderr)
-    print(f"Edition: {data['editionDate']}   Hero: {data['heroStoryId']}", file=sys.stderr)
 
     out = json.dumps(data, indent=2, ensure_ascii=False)
     with open("stories.json", "w", encoding="utf-8") as f:
         f.write(out)
-    print("\nWrote stories.json ✓", file=sys.stderr)
+    print(f"\nWrote stories.json  ({total} stories) ✓", file=sys.stderr)
