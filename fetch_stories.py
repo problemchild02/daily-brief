@@ -27,6 +27,9 @@ FEEDS = [
     # Fallback: SCC Online latest
     ("https://www.scconline.com/blog/feed/",
      "legal", ["SCC", "India", "courts"], "medium"),
+    # Fallback: Google News — Indian courts & law
+    ("https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en-IN&gl=IN&ceid=IN:en",
+     "legal", ["courts", "India", "google-news"], "medium"),
 
     # ── Business (general) ────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
@@ -40,6 +43,9 @@ FEEDS = [
     # Fallback: Mint top stories
     ("https://www.livemint.com/rss/companies",
      "business", ["mint", "India"], "medium"),
+    # Fallback: Google News — India business
+    ("https://news.google.com/rss/search?q=India+business+economy&hl=en-IN&gl=IN&ceid=IN:en",
+     "business", ["business", "India", "google-news"], "medium"),
 
     # ── Reliance (dedicated feeds — also dual-tagged into business) ────────────
     ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
@@ -110,7 +116,7 @@ ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "spo
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 
 MAX_PER_SECTION = 8   # max stories kept per section
-MAX_AGE_HOURS   = 96  # ignore items older than this (widened for resilience)
+MAX_AGE_HOURS   = 120 # ignore items older than this (5 days — resilient over long weekends)
 FEED_DELAY_SEC  = 0.5 # pause between feed fetches to avoid burst-rate limiting
 IST = timezone(timedelta(hours=5, minutes=30))
 
