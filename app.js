@@ -270,6 +270,48 @@ function createStoryMarkup(story, type = "card", instanceKey = "default") {
   `;
 }
 
+// ── Fix 2 & 3: Empty-state helpers ───────────────────────────────────────────
+
+// Section labels used for empty-state messaging and offline edition
+const SECTION_KEYS = ["legal", "reliance", "retail", "business", "tech", "world", "sports", "opinion"];
+
+const SECTION_LABELS = {
+  legal:    "Legal & Regulatory",
+  reliance: "Reliance",
+  retail:   "Retail",
+  business: "Business",
+  tech:     "Tech",
+  world:    "World",
+  sports:   "Sports",
+  opinion:  "Opinion"
+};
+
+function createSectionEmptyState(sectionKey) {
+  const label = SECTION_LABELS[sectionKey] || sectionKey;
+  return `
+    <article class="story-card story-card--empty">
+      <h3 class="story-headline">No ${label} stories today</h3>
+      <p class="story-hook story-hook-card">
+        Stories update automatically each morning. Check back after 6 AM IST, or trigger a manual refresh from the Actions tab.
+      </p>
+    </article>
+  `;
+}
+
+function createHeroEmptyState() {
+  return `
+    <article class="hero-card hero-card--empty">
+      <span class="story-index" aria-hidden="true">—</span>
+      <h2 class="hero-headline">Today's brief is on its way</h2>
+      <p class="story-hook">
+        Stories are fetched automatically at 6 AM IST each day. If it's past that time, you can trigger a manual run from the GitHub Actions tab — or check back shortly.
+      </p>
+    </article>
+  `;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 function getAllStories(data) {
   if (!data || !data.sections) return [];
   return Object.values(data.sections).flatMap((items) => Array.isArray(items) ? items : []);
@@ -312,47 +354,33 @@ function renderStories(data) {
   const heroContainer = document.getElementById("hero-container");
   const heroStory = findHeroStory(data);
 
+  // Fix 3: meaningful hero empty state
   if (heroContainer && heroStory) {
     heroContainer.innerHTML = createStoryMarkup(heroStory, "hero", "hero");
   } else if (heroContainer) {
-    heroContainer.innerHTML = `
-      <article class="hero-card">
-        <h2 class="hero-headline">No hero story available</h2>
-        <p class="story-hook">Please check that heroStoryId matches one of the story IDs in stories.json.</p>
-      </article>
-    `;
+    heroContainer.innerHTML = createHeroEmptyState();
   }
 
-  const sectionKeys = [
-    "legal",
-    "reliance",
-    "retail",
-    "business",
-    "tech",
-    "geopolitics",
-    "sports",
-    "opinion"
-  ];
-
-  sectionKeys.forEach((sectionKey) => {
+  // Fix 1 & 2: use SECTION_KEYS (world not geopolitics); show empty-state cards
+  SECTION_KEYS.forEach((sectionKey) => {
     const stories = Array.isArray(data?.sections?.[sectionKey]) ? data.sections[sectionKey] : [];
 
     const allSectionsGrid = document.getElementById(`${sectionKey}-grid`);
     if (allSectionsGrid) {
-      allSectionsGrid.innerHTML = stories
-        .map((story, index) => createStoryMarkup(story, "card", `${sectionKey}-all-${index}`))
-        .join("");
+      allSectionsGrid.innerHTML = stories.length
+        ? stories.map((story, index) => createStoryMarkup(story, "card", `${sectionKey}-all-${index}`)).join("")
+        : createSectionEmptyState(sectionKey);
     }
 
     const panelGrid = document.getElementById(`${sectionKey}-grid-panel`);
     if (panelGrid) {
-      panelGrid.innerHTML = stories
-        .map((story, index) => createStoryMarkup(story, "card", `${sectionKey}-panel-${index}`))
-        .join("");
+      panelGrid.innerHTML = stories.length
+        ? stories.map((story, index) => createStoryMarkup(story, "card", `${sectionKey}-panel-${index}`)).join("")
+        : createSectionEmptyState(sectionKey);
     }
   });
   
-    renderBookmarksPanel();
+  renderBookmarksPanel();
 }
 
 function initExpandButtons() {
@@ -553,18 +581,6 @@ function buildOfflineEditionHtml(data) {
     weekday: "long", year: "numeric", month: "long", day: "numeric"
   });
 
-  const sectionKeys = ["legal", "reliance", "retail", "business", "tech", "geopolitics", "sports", "opinion"];
-  const sectionLabels = {
-    legal: "Legal & Regulatory",
-    reliance: "Reliance",
-    retail: "Retail",
-    business: "Business",
-    tech: "Tech",
-    geopolitics: "Geopolitics",
-    sports: "Sports",
-    opinion: "Opinion"
-  };
-
   const heroStory = findHeroStory(data);
 
   let heroHtml = "";
@@ -583,7 +599,8 @@ function buildOfflineEditionHtml(data) {
   }
 
   let sectionsHtml = "";
-  sectionKeys.forEach((key) => {
+  // Fix 1: use SECTION_KEYS and SECTION_LABELS (world not geopolitics)
+  SECTION_KEYS.forEach((key) => {
     const stories = Array.isArray(data?.sections?.[key]) ? data.sections[key] : [];
     if (!stories.length) return;
 
@@ -600,7 +617,7 @@ function buildOfflineEditionHtml(data) {
 
     sectionsHtml += `
       <section class="section">
-        <h2>${escapeHtml(sectionLabels[key] || key)}</h2>
+        <h2>${escapeHtml(SECTION_LABELS[key] || key)}</h2>
         ${storiesHtml}
       </section>
     `;
