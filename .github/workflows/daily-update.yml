@@ -17,12 +17,12 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.6.0
         with:
           python-version: "3.12"
 
@@ -39,8 +39,7 @@ jobs:
           hero = d.get('heroStoryId', '')
           if not hero:
               print(f'WARN: heroStoryId is empty (all feeds may have been empty/blocked)')
-          print(f'Valid — {total} stories, edition {d[\"editionDate\"]}, hero={hero or \"(none)\"}')
-          "
+          print(f'Valid — {total} stories, edition {d[\"editionDate\"]}, hero={hero or \"(none)\"}')"
 
       - name: Commit updated stories.json
         run: |
