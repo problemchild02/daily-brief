@@ -10,6 +10,11 @@ Reliance stories are dual-tagged: they appear in both 'reliance' AND 'business' 
 Flags:
   --debug   Run full fetch + print diagnostics, but do NOT write stories.json.
             Useful for diagnosing feed failures without touching the live file.
+
+Manual refresh:
+  Run at any time via: python fetch_stories.py
+  Or via GitHub Actions → Actions tab → Daily Brief Auto-Update → Run workflow.
+  The site reflects the new stories.json automatically on every commit to main.
 """
 
 import json, hashlib, re, sys, time, shutil, os
@@ -42,6 +47,9 @@ FEEDS = [
     # The Print — law & policy
     ("https://theprint.in/category/judiciary/feed/",
      "legal", ["the-print", "judiciary", "India"], "medium"),
+    # Google News — broader legal fallback
+    ("https://news.google.com/rss/search?q=India+law+legal+court&hl=en-IN&gl=IN&ceid=IN:en",
+     "legal", ["courts", "India", "google-news"], "low"),
 
     # ── Business (general) ────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
@@ -61,6 +69,9 @@ FEEDS = [
     # Google News — India business
     ("https://news.google.com/rss/search?q=India+business+economy&hl=en-IN&gl=IN&ceid=IN:en",
      "business", ["business", "India", "google-news"], "medium"),
+    # Google News — broader business fallback
+    ("https://news.google.com/rss/search?q=India+economy+finance+corporate&hl=en-IN&gl=IN&ceid=IN:en",
+     "business", ["business", "India", "google-news"], "low"),
 
     # ── Reliance (dedicated feeds — also dual-tagged into business) ────────────
     ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
@@ -144,8 +155,8 @@ ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "spo
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 
 MAX_PER_SECTION  = 8    # max stories kept per section
-MAX_AGE_HOURS    = 168  # ignore items older than this (7 days — survives long weekends)
-FEED_TIMEOUT_SEC = 20   # per-feed HTTP timeout (increased from 15)
+MAX_AGE_HOURS    = 240  # 10 days — survives long weekends, holidays, feed outages
+FEED_TIMEOUT_SEC = 20   # per-feed HTTP timeout
 FEED_DELAY_SEC   = 0.3  # pause between feed fetches
 FEED_RETRIES     = 2    # number of retry attempts on network errors
 FALLBACK_FILE    = "stories.fallback.json"  # used if 0 stories fetched
@@ -516,4 +527,10 @@ if __name__ == "__main__":
     out = json.dumps(data, indent=2, ensure_ascii=False)
     with open("stories.json", "w", encoding="utf-8") as f:
         f.write(out)
+
+    # Save a copy as the fallback for future zero-story runs
+    with open(FALLBACK_FILE, "w", encoding="utf-8") as f:
+        f.write(out)
+
     print(f"\nWrote stories.json  ({total} stories) ✓", file=sys.stderr)
+    print(f"Wrote {FALLBACK_FILE} ✓  (fallback updated)", file=sys.stderr)
