@@ -8,7 +8,7 @@ Section keys: legal, business, reliance, retail, tech, world, sports, opinion
 Reliance stories are dual-tagged: they appear in both 'reliance' AND 'business' sections.
 """
 
-import json, hashlib, re, sys
+import json, hashlib, re, sys, time
 from datetime import datetime, timezone, timedelta
 from xml.etree import ElementTree as ET
 from urllib.request import urlopen, Request
@@ -24,6 +24,9 @@ FEEDS = [
      "legal", ["courts", "litigation", "India"], "high"),
     ("https://www.barandbench.com/feed",
      "legal", ["bar-and-bench", "India"], "high"),
+    # Fallback: SCC Online latest
+    ("https://www.scconline.com/blog/feed/",
+     "legal", ["SCC", "India", "courts"], "medium"),
 
     # ── Business (general) ────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
@@ -34,6 +37,9 @@ FEEDS = [
      "business", ["business-line", "India"], "medium"),
     ("https://www.business-standard.com/rss/home_page_top_stories.rss",
      "business", ["business-standard", "India"], "medium"),
+    # Fallback: Mint top stories
+    ("https://www.livemint.com/rss/companies",
+     "business", ["mint", "India"], "medium"),
 
     # ── Reliance (dedicated feeds — also dual-tagged into business) ────────────
     ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
@@ -49,6 +55,9 @@ FEEDS = [
      "retail", ["retail", "India"], "high"),
     ("https://www.thehindubusinessline.com/feeder/default.rss",
      "retail", ["business-line", "retail"], "low"),
+    # Fallback: Livemint retail
+    ("https://www.livemint.com/rss/industry",
+     "retail", ["mint", "retail"], "low"),
 
     # ── Tech ──────────────────────────────────────────────────────────────────
     ("https://techcrunch.com/feed/",
@@ -57,28 +66,41 @@ FEEDS = [
      "tech", ["gadgets360", "India-tech"], "medium"),
     ("https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
      "tech", ["ET-tech", "India-tech"], "high"),
+    # Fallback: The Verge
+    ("https://www.theverge.com/rss/index.xml",
+     "tech", ["the-verge", "technology"], "medium"),
 
     # ── World ─────────────────────────────────────────────────────────────────
-    ("https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-     "world", ["world", "NYT"], "medium"),
     ("https://feeds.bbci.co.uk/news/world/asia/india/rss.xml",
      "world", ["BBC", "India"], "high"),
     ("https://www.aljazeera.com/xml/rss/all.xml",
      "world", ["Al-Jazeera", "geopolitics"], "medium"),
     ("https://feeds.reuters.com/reuters/worldNews",
      "world", ["Reuters", "world"], "high"),
+    # Fallback: The Guardian World
+    ("https://www.theguardian.com/world/rss",
+     "world", ["Guardian", "world"], "medium"),
+    # Fallback: AP News World
+    ("https://rsshub.app/apnews/topics/apf-intlnews",
+     "world", ["AP", "world"], "medium"),
 
     # ── Sports ────────────────────────────────────────────────────────────────
     ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
      "sports", ["cricket", "espncricinfo"], "medium"),
     ("https://timesofindia.indiatimes.com/rss/4719148.cms",
      "sports", ["sports", "TOI"], "low"),
+    # Fallback: Cricbuzz
+    ("https://www.cricbuzz.com/cricket-rss-feeds",
+     "sports", ["cricket", "cricbuzz"], "medium"),
 
     # ── Opinion ───────────────────────────────────────────────────────────────
     ("https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms",
      "opinion", ["ET-opinion"], "low"),
     ("https://www.thehindu.com/opinion/feeder/default.rss",
      "opinion", ["the-hindu", "opinion"], "medium"),
+    # Fallback: The Print opinion
+    ("https://theprint.in/category/opinion/feed/",
+     "opinion", ["the-print", "opinion"], "medium"),
 ]
 
 # Canonical section order — mirrors the UI tab order
@@ -88,7 +110,8 @@ ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "spo
 CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
 
 MAX_PER_SECTION = 8   # max stories kept per section
-MAX_AGE_HOURS   = 72  # ignore items older than this
+MAX_AGE_HOURS   = 96  # ignore items older than this (widened for resilience)
+FEED_DELAY_SEC  = 0.5 # pause between feed fetches to avoid burst-rate limiting
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Keywords that mark a Business-feed story as also Reliance-relevant
@@ -107,17 +130,23 @@ SOURCE_MAP = {
     "hindubusinessline":     "Business Line",
     "thehindubusinessline":  "Business Line",
     "business-standard":     "Business Standard",
+    "livemint":              "Mint",
     "techcrunch":            "TechCrunch",
     "gadgets360":            "Gadgets 360",
     "feedburner.com/gadgets": "Gadgets 360",
+    "theverge":              "The Verge",
     "nytimes":               "The New York Times",
     "bbci.co":               "BBC News",
     "bbc.co":                "BBC News",
     "aljazeera":             "Al Jazeera",
     "reuters":               "Reuters",
+    "theguardian":           "The Guardian",
+    "rsshub.app/apnews":     "AP News",
     "espncricinfo":          "ESPN Cricinfo",
+    "cricbuzz":              "Cricbuzz",
     "timesofindia":          "Times of India",
     "thehindu":              "The Hindu",
+    "theprint":              "The Print",
     "news.google":           "Google News",
 }
 
@@ -250,6 +279,7 @@ def build_stories():
             continue
         print(f"  [{primary_section:>10}] fetching {feed_url}", file=sys.stderr)
         raw = fetch_feed(feed_url)
+        time.sleep(FEED_DELAY_SEC)  # be polite to feed servers
         if not raw:
             continue
         try:
@@ -275,7 +305,7 @@ def build_stories():
             if not url:
                 continue
 
-            # Age filter
+            # Age filter — items with no date are accepted (can't filter what we can't measure)
             pub_dt = parse_date(item)
             if pub_dt and pub_dt < cutoff:
                 continue

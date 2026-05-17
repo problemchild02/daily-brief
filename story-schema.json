@@ -12,8 +12,7 @@
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "heroStoryId": {
-      "type": "string",
-      "minLength": 1
+      "type": "string"
     },
     "sections": {
       "type": "object",
@@ -24,43 +23,19 @@
         "retail",
         "business",
         "tech",
-        "geopolitics",
+        "world",
         "sports",
         "opinion"
       ],
       "properties": {
-        "legal": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "reliance": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "retail": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "business": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "tech": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "geopolitics": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "sports": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        },
-        "opinion": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/story" }
-        }
+        "legal":    { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "reliance": { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "retail":   { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "business": { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "tech":     { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "world":    { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "sports":   { "type": "array", "items": { "$ref": "#/$defs/story" } },
+        "opinion":  { "type": "array", "items": { "$ref": "#/$defs/story" } }
       }
     }
   },
@@ -87,16 +62,7 @@
         },
         "section": {
           "type": "string",
-          "enum": [
-            "legal",
-            "reliance",
-            "retail",
-            "business",
-            "tech",
-            "geopolitics",
-            "sports",
-            "opinion"
-          ]
+          "enum": ["legal", "reliance", "retail", "business", "tech", "world", "sports", "opinion"]
         },
         "headline": {
           "type": "string",
