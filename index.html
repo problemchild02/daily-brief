@@ -103,7 +103,8 @@
     </div>
   </header>
 
-  <!-- Tab order: All · Legal · Business · Reliance · Retail · Tech · World · Sports · Opinion -->
+  <!-- Tab order: All · Legal · Business · Retail · Tech · World · Sports · Opinion -->
+  <!-- Reliance tab intentionally omitted — stories fetched & surface under Business -->
   <nav
     class="tab-bar"
     aria-label="News sections"
@@ -159,19 +160,6 @@
       data-target="business"
     >
       Business
-    </button>
-
-    <button
-      class="tab"
-      id="tab-reliance"
-      type="button"
-      role="tab"
-      aria-selected="false"
-      aria-controls="panel-reliance"
-      tabindex="-1"
-      data-target="reliance"
-    >
-      Reliance
     </button>
 
     <button
@@ -293,24 +281,7 @@
         <div class="card-grid" id="business-grid"></div>
       </section>
 
-      <section class="rail-section" data-section="reliance">
-        <div class="rail-header">
-          <div class="rail-title-group">
-            <span class="category-dot" aria-hidden="true"></span>
-            <h2 class="rail-heading">Reliance</h2>
-          </div>
-          <button class="btn-refresh" type="button" title="Refresh section" aria-label="Refresh Reliance" data-refresh-section="reliance">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-              <polyline points="23 4 23 10 17 10"></polyline>
-              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-            </svg>
-            Refresh
-          </button>
-        </div>
-        <div class="card-grid" id="reliance-grid"></div>
-      </section>
+      <!-- Reliance rail intentionally omitted from All view — stories surface under Business -->
 
       <section class="rail-section" data-section="retail">
         <div class="rail-header">
@@ -471,26 +442,7 @@
       </section>
     </section>
 
-    <!-- ── RELIANCE panel ───────────────────────────────────────────────── -->
-    <section
-      id="panel-reliance"
-      class="tab-panel"
-      role="tabpanel"
-      aria-labelledby="tab-reliance"
-      tabindex="0"
-      data-panel="reliance"
-      hidden
-    >
-      <section class="rail-section rail-section-single">
-        <div class="rail-header">
-          <div class="rail-title-group">
-            <span class="category-dot" aria-hidden="true"></span>
-            <h2 class="rail-heading">Reliance</h2>
-          </div>
-        </div>
-        <div class="card-grid" id="reliance-grid-panel"></div>
-      </section>
-    </section>
+    <!-- Reliance panel intentionally omitted — stories fetched & surface under Business -->
 
     <!-- ── RETAIL panel ─────────────────────────────────────────────────── -->
     <section
