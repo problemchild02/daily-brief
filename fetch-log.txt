@@ -1,76 +1,76 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-12 09:09 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-12 09:18 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (179,496 bytes)
-/home/runner/work/daily-brief/daily-brief/fetch_stories.py:407: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
-  items = (channel or root).findall("item")
-/home/runner/work/daily-brief/daily-brief/fetch_stories.py:420: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
-  link_el = item.find("link") or item.find("{http://www.w3.org/2005/Atom}link")
-    → 100 items: 0 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
-    OK  (84,959 bytes)
-    → 57 items: 0 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.livelaw.in/rss/top-stories
-    HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
-  [     legal] fetching https://www.barandbench.com/feed
-    OK  (152,897 bytes)
-    → 26 items: 0 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (92,147 bytes)
-    → 10 items: 0 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://feeds.feedburner.com/ndtvnews-law
-    HTTP 404 — skipping  https://feeds.feedburner.com/ndtvnews-law
-  [     legal] fetching https://theprint.in/category/judiciary/feed/
-    HTTP 403 — skipping  https://theprint.in/category/judiciary/feed/
+    OK  (182,097 bytes)
+    + [legal] Safety from dog attacks is basic human right, India Supreme Court rules - Animal
+    + [legal] Supreme Court of India | History, Composition, Appointments, Impeachment, Jurisd
+    + [legal] India’s Supreme Court seeks gov response on plea to ban Tetra Pack spirits - The
+    + [legal] Excluding wife, kids does not invalidate Will, says Supreme Court: Why ‘natural 
+    + [legal] Apple moves US Supreme Court after being held in contempt over App store fees - 
+    + [legal] Section 319 CrPC | Supreme Court Says Courts Cannot Conduct “Mini Trial” Before 
+    + [legal] Excluding family from your Will won't make it invalid, Supreme Court rules - The
+    + [legal] False Affidavits & Personal Liberty: Supreme Court Pulls Up Police (Video) - Cri
+    → 100 items: 8 accepted, 2 too old, 0 no-date
+  [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
+  [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
+  [     legal] SKIP (section full) https://www.barandbench.com/feed
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+  [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
+  [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (185,460 bytes)
-    → 90 items: 0 accepted, 0 too old, 0 no-date
+    OK  (184,021 bytes)
+    → 91 items: 0 accepted, 91 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (68,359 bytes)
-    → 38 items: 0 accepted, 0 too old, 0 no-date
+    OK  (74,607 bytes)
+    + [business] Archives 2025 April - The Economic Times
+    ↳ dual-tag [reliance] Archives 2025 April - The Economic Times
+    + [business] Cholamandalam stock (INE121A01024): Finance lender in focus after NSE quote upda
+    + [business] JJ Finance Corp Balance Sheets, Financial Statements - The Economic Times
+    + [business] Share Price Today, Stock Price Live NSE/BSE Updates - The Economic Times
+    + [business] Kirloskar Pneumatic Yearly results, Financial Summary - The Economic Times
+    → 41 items: 5 accepted, 36 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
     OK  (51,611 bytes)
-    → 50 items: 0 accepted, 0 too old, 0 no-date
-  [  business] fetching https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
-    OK  (52,689 bytes)
-    → 50 items: 0 accepted, 0 too old, 0 no-date
-  [  business] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (49,072 bytes)
-    → 60 items: 0 accepted, 0 too old, 0 no-date
-  [  business] fetching https://www.business-standard.com/rss/home_page_top_stories.rss
-    HTTP 403 — skipping  https://www.business-standard.com/rss/home_page_top_stories.rss
-  [  business] fetching https://www.livemint.com/rss/companies
-    OK  (35,342 bytes)
-    → 35 items: 0 accepted, 0 too old, 0 no-date
-  [  business] fetching https://www.indiatoday.in/rss/1206514
-    OK  (18,784 bytes)
-    → 20 items: 0 accepted, 0 too old, 0 no-date
+    + [business] Bernstein initiates coverage on 6 pharma stocks, cites 3 major tailwinds for hea
+    + [business] Bank Nifty near key resistance zone; breakout above 54,300 crucial: Ajit Mishra
+    + [business] Gold import duty hike threatens decade-low volumes for jewellery retailers in FY
+    → 50 items: 3 accepted, 0 too old, 0 no-date
+  [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
+  [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
+  [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
+  [  business] SKIP (section full) https://www.livemint.com/rss/companies
+  [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (202,835 bytes)
-    → 100 items: 0 accepted, 0 too old, 0 no-date
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 0 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,289 bytes)
-    → 10 items: 0 accepted, 0 too old, 0 no-date
+    OK  (206,839 bytes)
+    + [reliance] Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impact - Bloomberg.com
+    + [reliance] Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock - The Economic Times
+    + [reliance] Quote of the day by Mukesh Ambani: 'In today's world, financial resources are le
+    + [reliance] Jio IPO Faces Iran War Hurdles As Reliance Reviews Deal Structure - outlookbusin
+    + [reliance] Reliance Industries share price rises 2.5% despite stock market crash. Do you ow
+    + [reliance] Reliance’s big clean energy push! Mukesh Ambani-led firm in talks with CATL for 
+    + [reliance] Reliance In Talks With China's CATL For Battery Components Amid Beijing's Tech E
+    → 100 items: 7 accepted, 3 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (109,574 bytes)
-    → 65 items: 0 accepted, 0 too old, 0 no-date
+    OK  (100,132 bytes)
+    + [retail] FMCG Logistics Market Outlook: Rising E-commerce Demand and Advancements in Supp
+    → 58 items: 1 accepted, 57 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,289 bytes)
-    → 10 items: 0 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (49,072 bytes)
-    → 60 items: 0 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.livemint.com/rss/industry
-    OK  (35,739 bytes)
-    → 35 items: 0 accepted, 0 too old, 0 no-date
+    + [retail] Varun Beverages, PepsiCo India extend bottling pact till 2049
+    + [retail] As competition hots up, consumer brands step up Q-Comm spends for better screen 
+    + [retail] Walmart’s international sales growth in Q4 driven by Flipkart, China units
+    + [retail] Nykaa Q4 results: Profit soars 4X YoY to Rs 79 crore; revenue climbs 28%
+    + [retail] ITC Q4 Results: Profit rises 5% YoY to Rs 5,113 crore
+    + [retail] Emami's desi portfolio puts up a fight as summer sales melt amid West Asia tensi
+    + [retail] Prestige’s new Bengaluru mall to dedicate one-third space to sports, athleisure
+    → 10 items: 7 accepted, 0 too old, 0 no-date
+  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
+  [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://www.theverge.com/rss/index.xml
     OK  (112,806 bytes)
-/home/runner/work/daily-brief/daily-brief/fetch_stories.py:440: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
-  item.find("description")
     + [tech] Anker’s new earbuds are the first with its AI chip that boosts noise reduction
     + [tech] Anker’s new earbuds have the best call quality I’ve ever heard
     + [tech] States ask judge to break up Live Nation-Ticketmaster
@@ -86,47 +86,44 @@ Cutoff: 2026-05-12 09:09 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [      tech] SKIP (section full) https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (75,539 bytes)
+    OK  (75,538 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 155
   [     world] fetching https://feeds.npr.org/1004/rss.xml
     OK  (14,517 bytes)
-    → 10 items: 0 accepted, 0 too old, 0 no-date
-  [     world] fetching https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
-    OK  (198,119 bytes)
-    → 88 items: 0 accepted, 0 too old, 0 no-date
-  [     world] fetching https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
-    OK  (138,699 bytes)
-    → 100 items: 0 accepted, 0 too old, 0 no-date
-  [     world] fetching https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
-    OK  (17,575 bytes)
-    → 23 items: 0 accepted, 0 too old, 0 no-date
-  [     world] fetching https://www.aljazeera.com/xml/rss/all.xml
-    OK  (17,251 bytes)
-    → 25 items: 0 accepted, 0 too old, 0 no-date
-  [     world] fetching https://feeds.reuters.com/reuters/topNews
-    FAIL attempt 1/2: <urlopen error [Errno -2] Name or service not known>  — retry in 2s
-    FAIL (all 2 attempts): <urlopen error [Errno -2] Name or service not known>
-  [     world] fetching https://www.theguardian.com/world/rss
-    OK  (152,307 bytes)
-    → 45 items: 0 accepted, 0 too old, 0 no-date
+    + [world] Italy's prime minister wants Israel to apologize for treatment of flotilla activ
+    + [world] UN gravely concerned by an Afghan Taliban law that has provisions on child marri
+    + [world] Trump says he's sending 5,000 more troops to Poland
+    + [world] Rubio doubtful of diplomacy with Cuba as Trump raises new threat of military act
+    + [world] Trump's Raúl Castro indictment sends a signal to Cuba
+    + [world] Palestinians drop bid for a senior U.N. role after U.S. pressure
+    + [world] After the sirens: Lebanon's first responders swing between duty and grief
+    + [world] GOP races to fund immigration enforcement. And, U.S. indicts former Cuban presid
+    → 10 items: 8 accepted, 0 too old, 0 no-date
+  [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
+  [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
+  [     world] SKIP (section full) https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
+  [     world] SKIP (section full) https://www.aljazeera.com/xml/rss/all.xml
+  [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
+  [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (145,458 bytes)
-    → 100 items: 0 accepted, 0 too old, 0 no-date
-  [    sports] fetching https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en
-    OK  (84,665 bytes)
-    → 49 items: 0 accepted, 0 too old, 0 no-date
-  [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,974 bytes)
-    → 100 items: 0 accepted, 0 too old, 0 no-date
-  [    sports] fetching https://timesofindia.indiatimes.com/rss/4719148.cms
-    HTTP 404 — skipping  https://timesofindia.indiatimes.com/rss/4719148.cms
-  [    sports] fetching https://www.cricbuzz.com/rss-feeds/cricket-news
-    HTTP 404 — skipping  https://www.cricbuzz.com/rss-feeds/cricket-news
-  [    sports] fetching https://sports.ndtv.com/rss/cricket
-    HTTP 403 — skipping  https://sports.ndtv.com/rss/cricket
+    OK  (156,042 bytes)
+    + [sports] Not IPL, Test cricket for Australia is my priority, says SRH captain Pat Cummins
+    + [sports] Indian Premier League | IPL, WPL, T20, Table, Matches, Score, 2025, 2024, 2023, 
+    + [sports] Virat Kohli up to something big, but doors shut on his return to Test cricket | 
+    + [sports] BCCI Announces Leadership Change In Test Squad, Names New Vice-Captain - NDTV Sp
+    + [sports] India Squad For Afghanistan Series Announced: Shubman Gill Leads Test Side – Che
+    + [sports] India Squad for Afghanistan Test: Gurnoor, Suthar and Harsh get maiden call-ups—
+    + [sports] Rishabh Pant loses Test vice-captaincy, Prince Yadav gets ODI call-up - key poin
+    + [sports] India Squad Announcement For Afghanistan Series: Will Jasprit Bumrah Be Rested? 
+    → 100 items: 8 accepted, 4 too old, 0 no-date
+  [    sports] SKIP (section full) https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en
+  [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+  [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
+  [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
+  [    sports] SKIP (section full) https://sports.ndtv.com/rss/cricket
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
     OK  (107,197 bytes)
-    → 79 items: 0 accepted, 0 too old, 0 no-date
+    → 79 items: 0 accepted, 79 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -134,18 +131,23 @@ Cutoff: 2026-05-12 09:09 UTC  (MAX_AGE_HOURS=240)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
     OK  (48,406 bytes)
-    → 50 items: 0 accepted, 0 too old, 0 no-date
-  [   opinion] fetching https://www.thehindu.com/opinion/feeder/default.rss
-    OK  (37,637 bytes)
-    → 60 items: 0 accepted, 0 too old, 0 no-date
-  [   opinion] fetching https://theprint.in/category/opinion/feed/
-    HTTP 403 — skipping  https://theprint.in/category/opinion/feed/
+    + [opinion] Rise above despair
+    + [opinion] Is India Inc's CSR truly driving systemic change or just shifting funds?
+    + [opinion] India-UAE energy agreement: This Emirati strategy has power
+    + [opinion] Bail’s a given, until proven otherwise
+    + [opinion] Be brand adjacent and boost your co
+    + [opinion] To give, first get to know: Why India’s everyday generosity matters more than ev
+    + [opinion] In a cool room with curtains drawn
+    + [opinion] China isn’t giving up its factory crown
+    → 50 items: 8 accepted, 0 too old, 0 no-date
+  [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
+  [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
 ────────────────────────────────────────────────────────────
-Feeds:   31 OK  /  12 failed
-Stories: 8 total  |  legal: 0, business: 0, reliance: 0, retail: 0, tech: 8, world: 0, sports: 0, opinion: 0
-Edition: 2026-05-22   Hero: tech-56c1a417
+Feeds:   12 OK  /  3 failed
+Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
+Edition: 2026-05-22   Hero: legal-d7a829e8
 ────────────────────────────────────────────────────────────
 
-Wrote stories.json  (8 stories) ✓
+Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
