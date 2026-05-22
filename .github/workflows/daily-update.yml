@@ -28,7 +28,9 @@ jobs:
 
       - name: Fetch RSS stories
         id: fetch
-        run: python fetch_stories.py
+        run: |
+          set -o pipefail
+          python fetch_stories.py 2>&1 | tee fetch-log.txt
 
       - name: Validate stories.json
         id: validate
@@ -52,7 +54,7 @@ jobs:
         run: |
           git config user.name  "daily-brief-bot"
           git config user.email "bot@daily-brief.local"
-          git add stories.json
+          git add stories.json fetch-log.txt
           git diff --cached --quiet && echo "No changes to commit." || \
             git commit -m "chore: stories auto-update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
