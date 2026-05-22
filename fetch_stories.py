@@ -31,6 +31,11 @@ DEBUG_MODE = "--debug" in sys.argv
 # Stories tagged reliance are ALSO injected into business (dual-tagging).
 FEEDS = [
     # ── Legal ──────────────────────────────────────────────────────────────────
+    # Google News first — works reliably from cloud IPs (US locale avoids geo-mismatch)
+    ("https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en",
+     "legal", ["courts", "India", "google-news"], "high"),
+    ("https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en",
+     "legal", ["courts", "India", "google-news"], "medium"),
     ("https://www.livelaw.in/rss/top-stories",
      "legal", ["courts", "litigation", "India"], "high"),
     ("https://www.barandbench.com/feed",
@@ -38,20 +43,19 @@ FEEDS = [
     # SCC Online latest
     ("https://www.scconline.com/blog/feed/",
      "legal", ["SCC", "India", "courts"], "medium"),
-    # Google News — Indian courts & law
-    ("https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en-IN&gl=IN&ceid=IN:en",
-     "legal", ["courts", "India", "google-news"], "medium"),
     # NDTV Law — extra fallback
     ("https://feeds.feedburner.com/ndtvnews-law",
      "legal", ["NDTV", "law", "India"], "low"),
     # The Print — law & policy
     ("https://theprint.in/category/judiciary/feed/",
      "legal", ["the-print", "judiciary", "India"], "medium"),
-    # Google News — broader legal fallback
-    ("https://news.google.com/rss/search?q=India+law+legal+court&hl=en-IN&gl=IN&ceid=IN:en",
-     "legal", ["courts", "India", "google-news"], "low"),
 
     # ── Business (general) ────────────────────────────────────────────────────
+    # Google News first — US locale works from GitHub Actions cloud IPs
+    ("https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en",
+     "business", ["business", "India", "google-news"], "high"),
+    ("https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en",
+     "business", ["business", "India", "google-news"], "medium"),
     ("https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
      "business", ["markets", "India"], "high"),
     ("https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms",
@@ -66,23 +70,19 @@ FEEDS = [
     # India Today business
     ("https://www.indiatoday.in/rss/1206514",
      "business", ["india-today", "business", "India"], "medium"),
-    # Google News — India business
-    ("https://news.google.com/rss/search?q=India+business+economy&hl=en-IN&gl=IN&ceid=IN:en",
-     "business", ["business", "India", "google-news"], "medium"),
-    # Google News — broader business fallback
-    ("https://news.google.com/rss/search?q=India+economy+finance+corporate&hl=en-IN&gl=IN&ceid=IN:en",
-     "business", ["business", "India", "google-news"], "low"),
 
     # ── Reliance (dedicated feeds — also dual-tagged into business) ────────────
+    # Google News with US locale — most reliable from cloud IPs
+    ("https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en",
+     "reliance", ["reliance", "RIL", "google-news"], "high"),
     ("https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms",
      "reliance", ["reliance", "RIL", "Jio"], "high"),
     ("https://retail.economictimes.indiatimes.com/rss/topstories",
      "reliance", ["reliance-retail", "retail", "JioMart"], "medium"),
-    # Google News RSS for Reliance — broad catch-all
-    ("https://news.google.com/rss/search?q=Reliance+Industries&hl=en-IN&gl=IN&ceid=IN:en",
-     "reliance", ["reliance", "RIL", "google-news"], "medium"),
 
     # ── Retail (broader) ──────────────────────────────────────────────────────
+    ("https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en",
+     "retail", ["retail", "India", "google-news"], "high"),
     ("https://retail.economictimes.indiatimes.com/rss/topstories",
      "retail", ["retail", "India"], "high"),
     ("https://www.thehindubusinessline.com/feeder/default.rss",
@@ -92,8 +92,13 @@ FEEDS = [
      "retail", ["mint", "retail"], "low"),
 
     # ── Tech ──────────────────────────────────────────────────────────────────
+    # The Verge + Ars Technica confirmed accessible from cloud IPs
+    ("https://www.theverge.com/rss/index.xml",
+     "tech", ["the-verge", "technology"], "high"),
+    ("https://feeds.arstechnica.com/arstechnica/index",
+     "tech", ["ars-technica", "technology"], "high"),
     ("https://techcrunch.com/feed/",
-     "tech", ["startups", "technology"], "medium"),
+     "tech", ["techcrunch", "startups"], "medium"),
     # Gadgets360 — direct NDTV tech feed (Feedburner redirect is unreliable)
     ("https://feeds.feedburner.com/gadgets360-latest",
      "tech", ["gadgets360", "India-tech"], "medium"),
@@ -101,32 +106,34 @@ FEEDS = [
      "tech", ["gadgets360", "NDTV", "India-tech"], "medium"),
     ("https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
      "tech", ["ET-tech", "India-tech"], "high"),
-    # The Verge
-    ("https://www.theverge.com/rss/index.xml",
-     "tech", ["the-verge", "technology"], "medium"),
 
     # ── World ─────────────────────────────────────────────────────────────────
+    # VOA + NPR: public broadcasters, no bot-blocking, designed for aggregation
+    ("https://feeds.voanews.com/rss/english/news",
+     "world", ["VOA", "world"], "high"),
+    ("https://feeds.npr.org/1004/rss.xml",
+     "world", ["NPR", "world"], "high"),
+    # Google News world — US locale works from cloud IPs
+    ("https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en",
+     "world", ["world", "google-news"], "high"),
+    ("https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en",
+     "world", ["world", "google-news"], "medium"),
+    # These may be blocked from cloud IPs but try anyway
     ("https://feeds.bbci.co.uk/news/world/asia/india/rss.xml",
-     "world", ["BBC", "India"], "high"),
+     "world", ["BBC", "India"], "medium"),
     ("https://www.aljazeera.com/xml/rss/all.xml",
      "world", ["Al-Jazeera", "geopolitics"], "medium"),
-    # Reuters — use the working Atom feed (feeds.reuters.com was retired)
     ("https://feeds.reuters.com/reuters/topNews",
-     "world", ["Reuters", "world"], "high"),
-    # Fallback: Reuters via Google News
-    ("https://news.google.com/rss/search?q=world+news&hl=en-IN&gl=IN&ceid=IN:en",
-     "world", ["world", "google-news"], "medium"),
-    # The Guardian World
+     "world", ["Reuters", "world"], "medium"),
     ("https://www.theguardian.com/world/rss",
-     "world", ["Guardian", "world"], "medium"),
-    # AP News World — direct RSS (replaces unreliable rsshub.app)
-    ("https://rsshub.app/apnews/topics/apf-intlnews",
-     "world", ["AP", "world"], "medium"),
-    # AP via Google News fallback
-    ("https://news.google.com/rss/search?q=world+news+international&hl=en&gl=US&ceid=US:en",
-     "world", ["AP", "world", "google-news"], "low"),
+     "world", ["Guardian", "world"], "low"),
 
     # ── Sports ────────────────────────────────────────────────────────────────
+    # Google News sports — most reliable from cloud IPs
+    ("https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en",
+     "sports", ["cricket", "India", "google-news"], "high"),
+    ("https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en",
+     "sports", ["sports", "India", "google-news"], "medium"),
     ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
      "sports", ["cricket", "espncricinfo"], "medium"),
     ("https://timesofindia.indiatimes.com/rss/4719148.cms",
@@ -139,6 +146,14 @@ FEEDS = [
      "sports", ["NDTV", "cricket"], "medium"),
 
     # ── Opinion ───────────────────────────────────────────────────────────────
+    # Google News opinion — reliable from cloud IPs
+    ("https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en",
+     "opinion", ["opinion", "India", "google-news"], "high"),
+    # Scroll.in and The Wire — independent Indian outlets, tend to be accessible
+    ("https://scroll.in/rss",
+     "opinion", ["scroll", "India", "opinion"], "high"),
+    ("https://thewire.in/feed",
+     "opinion", ["the-wire", "India", "opinion"], "high"),
     ("https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms",
      "opinion", ["ET-opinion"], "low"),
     ("https://www.thehindu.com/opinion/feeder/default.rss",
@@ -188,6 +203,8 @@ SOURCE_MAP = {
     "ndtv.com":              "NDTV",
     "feeds.feedburner.com/ndtv": "NDTV",
     "theverge":              "The Verge",
+    "arstechnica":           "Ars Technica",
+    "techcrunch":            "TechCrunch",
     "nytimes":               "The New York Times",
     "bbci.co":               "BBC News",
     "bbc.co":                "BBC News",
@@ -195,11 +212,15 @@ SOURCE_MAP = {
     "reuters":               "Reuters",
     "theguardian":           "The Guardian",
     "rsshub.app/apnews":     "AP News",
+    "voanews":               "VOA News",
+    "feeds.npr":             "NPR",
     "espncricinfo":          "ESPN Cricinfo",
     "cricbuzz":              "Cricbuzz",
     "timesofindia":          "Times of India",
     "thehindu":              "The Hindu",
     "theprint":              "The Print",
+    "scroll.in":             "Scroll",
+    "thewire":               "The Wire",
     "news.google":           "Google News",
 }
 
