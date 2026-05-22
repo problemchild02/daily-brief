@@ -215,11 +215,22 @@ CONTEXT_TEMPLATES = {
 
 # ── HELPERS ────────────────────────────────────────────────────────────────────
 
+_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (X11; Linux x86_64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+
 def fetch_feed(url, retries=FEED_RETRIES):
     """Fetch a feed URL with retry logic. Returns raw bytes or None."""
     for attempt in range(1, retries + 1):
         try:
-            req = Request(url, headers={"User-Agent": "DailyBriefBot/1.1"})
+            req = Request(url, headers=_HEADERS)
             with urlopen(req, timeout=FEED_TIMEOUT_SEC) as r:
                 data = r.read()
                 print(f"    OK  ({len(data):,} bytes)", file=sys.stderr)
