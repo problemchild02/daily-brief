@@ -213,7 +213,10 @@ function createStoryMarkup(story, type = "card", instanceKey = "default") {
 
       <div class="story-details" id="details-${escapeHtml(domIdSuffix)}" hidden>
         <div class="story-details-inner">
-          <p class="story-summary">${escapeHtml(story.summary)}</p>
+          ${story.summary
+            ? `<p class="story-summary">${escapeHtml(story.summary)}</p>`
+            : `<p class="story-summary story-summary--none">No additional summary available — open the full article for details.</p>`
+          }
 
           ${story.contextNote ? `
             <div class="why-matters ${isHero ? "hero" : "card"}">

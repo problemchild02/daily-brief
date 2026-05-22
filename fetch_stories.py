@@ -287,6 +287,27 @@ _BOILERPLATE_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Domains that should never appear as news stories (encyclopedias, dictionaries, etc.)
+_JUNK_DOMAINS = {
+    "britannica.com", "wikipedia.org", "wikimedia.org",
+    "merriam-webster.com", "dictionary.com", "investopedia.com",
+    "thoughtco.com", "thefreedictionary.com",
+}
+
+
+def is_junk_url(url):
+    try:
+        from urllib.parse import urlparse
+        host = urlparse(url).netloc.lower().lstrip("www.")
+        return any(host == d or host.endswith("." + d) for d in _JUNK_DOMAINS)
+    except Exception:
+        return False
+
+
+def _norm(text):
+    """Lowercase + collapse whitespace + strip trailing ellipsis for comparison."""
+    return re.sub(r"\s+", " ", text.lower().strip()).rstrip("\u2026")
+
 _LEADING_JUNK_RE = re.compile(
     r"^(?:\|\s*)?(?:Image|Photo|Video|Illustration|Screenshot):[^.!?]{0,120}\.?\s*",
     re.IGNORECASE,
@@ -450,6 +471,9 @@ def build_stories():
             if not url:
                 continue
 
+            if is_junk_url(url):
+                continue
+
             pub_dt = parse_date(item)
             if pub_dt is None:
                 items_no_date += 1
@@ -462,6 +486,14 @@ def build_stories():
                 title_el = item.find("{http://www.w3.org/2005/Atom}title")
             headline = truncate(strip_html(title_el.text if title_el is not None else ""), 180)
             if len(headline) < 8:
+                continue
+
+            # Google News appends " - Publication Name" to every headline — strip it
+            if "news.google.com" in feed_url and " - " in headline:
+                headline = headline.rsplit(" - ", 1)[0].strip()
+
+            # Skip encyclopedia / directory entries — their titles contain "|"
+            if "|" in headline:
                 continue
 
             desc_el = item.find("description")
@@ -484,6 +516,11 @@ def build_stories():
                 remaining = " ".join(sentences[1:]).strip()
                 if len(remaining) >= 30:
                     summary = remaining
+
+            # If summary is still essentially the same as the hook, clear it —
+            # an empty summary is better than showing the same sentence twice
+            if _norm(summary) == _norm(hook) or _norm(summary) == _norm(headline):
+                summary = ""
 
             if url not in seen:
                 story = build_story(
