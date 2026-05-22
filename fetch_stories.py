@@ -167,7 +167,8 @@ FEEDS = [
 ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"]
 
 # Sections that get a contextNote disclaimer in each story card
-CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "business", "tech", "opinion"}
+# Only sections where a disclaimer adds genuine value (source verification, editorial bias notice)
+CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "opinion"}
 
 MAX_PER_SECTION  = 8    # max stories kept per section
 MAX_AGE_HOURS    = 240  # 10 days — survives long weekends, holidays, feed outages
@@ -273,6 +274,29 @@ def fetch_feed(url, retries=FEED_RETRIES):
 def strip_html(text):
     text = re.sub(r"<[^>]+>", " ", text or "")
     return re.sub(r"\s+", " ", unescape(text)).strip()
+
+
+_BOILERPLATE_RE = re.compile(
+    r"\s*[\u2026\.]?\s*"
+    r"(?:Read (?:the )?full story\b.*"
+    r"|Read more\b.*"
+    r"|Continue reading\b.*"
+    r"|The post .+? appeared first on .+?"
+    r"|Image:.{0,120}$"
+    r")$",
+    re.IGNORECASE | re.DOTALL,
+)
+
+_LEADING_JUNK_RE = re.compile(
+    r"^(?:\|\s*)?(?:Image|Photo|Video|Illustration|Screenshot):[^.!?]{0,120}\.?\s*",
+    re.IGNORECASE,
+)
+
+
+def clean_boilerplate(text):
+    """Strip leading image captions and trailing RSS boilerplate from description text."""
+    text = _LEADING_JUNK_RE.sub("", text)
+    return _BOILERPLATE_RE.sub("", text).strip()
 
 
 def truncate(text, maxlen):
@@ -445,15 +469,21 @@ def build_stories():
                 desc_el = item.find("{http://www.w3.org/2005/Atom}summary")
             if desc_el is None:
                 desc_el = item.find("{http://www.w3.org/2005/Atom}content")
-            raw_desc = strip_html(desc_el.text if desc_el is not None else "") or headline
-            summary  = truncate(raw_desc, 700)
+            raw_desc = clean_boilerplate(strip_html(desc_el.text if desc_el is not None else "")) or headline
+            summary  = truncate(raw_desc, 900)
             if len(summary) < 30:
-                summary = truncate((summary + " " + headline).strip(), 700)
+                summary = truncate((summary + " " + headline).strip(), 900)
 
             sentences = re.split(r"(?<=[.!?])\s+", summary)
             hook = truncate(sentences[0] if sentences else summary, 220)
             if len(hook) < 12:
                 hook = truncate(summary, 220)
+
+            # Remove the hook sentence from the summary so it doesn't repeat
+            if len(sentences) > 1:
+                remaining = " ".join(sentences[1:]).strip()
+                if len(remaining) >= 30:
+                    summary = remaining
 
             if url not in seen:
                 story = build_story(
