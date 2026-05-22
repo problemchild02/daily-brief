@@ -404,7 +404,7 @@ def build_stories():
             continue
 
         channel = root.find("channel")
-        items = (channel or root).findall("item")
+        items = (channel if channel is not None else root).findall("item")
         if not items:
             items = root.findall("{http://www.w3.org/2005/Atom}entry")
 
@@ -417,7 +417,9 @@ def build_stories():
             if len(sections[primary_section]) >= MAX_PER_SECTION:
                 break
 
-            link_el = item.find("link") or item.find("{http://www.w3.org/2005/Atom}link")
+            link_el = item.find("link")
+            if link_el is None:
+                link_el = item.find("{http://www.w3.org/2005/Atom}link")
             url = ""
             if link_el is not None:
                 url = (link_el.text or link_el.get("href", "")).strip()
@@ -431,16 +433,18 @@ def build_stories():
                 items_too_old += 1
                 continue
 
-            title_el = item.find("title") or item.find("{http://www.w3.org/2005/Atom}title")
+            title_el = item.find("title")
+            if title_el is None:
+                title_el = item.find("{http://www.w3.org/2005/Atom}title")
             headline = truncate(strip_html(title_el.text if title_el is not None else ""), 180)
             if len(headline) < 8:
                 continue
 
-            desc_el = (
-                item.find("description")
-                or item.find("{http://www.w3.org/2005/Atom}summary")
-                or item.find("{http://www.w3.org/2005/Atom}content")
-            )
+            desc_el = item.find("description")
+            if desc_el is None:
+                desc_el = item.find("{http://www.w3.org/2005/Atom}summary")
+            if desc_el is None:
+                desc_el = item.find("{http://www.w3.org/2005/Atom}content")
             raw_desc = strip_html(desc_el.text if desc_el is not None else "") or headline
             summary  = truncate(raw_desc, 700)
             if len(summary) < 30:
