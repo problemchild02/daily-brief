@@ -1,0 +1,151 @@
+Daily Brief — RSS Fetcher
+
+Cutoff: 2026-05-12 09:09 UTC  (MAX_AGE_HOURS=240)
+  [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
+    OK  (179,496 bytes)
+/home/runner/work/daily-brief/daily-brief/fetch_stories.py:407: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  items = (channel or root).findall("item")
+/home/runner/work/daily-brief/daily-brief/fetch_stories.py:420: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  link_el = item.find("link") or item.find("{http://www.w3.org/2005/Atom}link")
+    → 100 items: 0 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
+    OK  (84,959 bytes)
+    → 57 items: 0 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.livelaw.in/rss/top-stories
+    HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
+  [     legal] fetching https://www.barandbench.com/feed
+    OK  (152,897 bytes)
+    → 26 items: 0 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (92,147 bytes)
+    → 10 items: 0 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://feeds.feedburner.com/ndtvnews-law
+    HTTP 404 — skipping  https://feeds.feedburner.com/ndtvnews-law
+  [     legal] fetching https://theprint.in/category/judiciary/feed/
+    HTTP 403 — skipping  https://theprint.in/category/judiciary/feed/
+  [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
+    OK  (185,460 bytes)
+    → 90 items: 0 accepted, 0 too old, 0 no-date
+  [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
+    OK  (68,359 bytes)
+    → 38 items: 0 accepted, 0 too old, 0 no-date
+  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (51,611 bytes)
+    → 50 items: 0 accepted, 0 too old, 0 no-date
+  [  business] fetching https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
+    OK  (52,689 bytes)
+    → 50 items: 0 accepted, 0 too old, 0 no-date
+  [  business] fetching https://www.thehindubusinessline.com/feeder/default.rss
+    OK  (49,072 bytes)
+    → 60 items: 0 accepted, 0 too old, 0 no-date
+  [  business] fetching https://www.business-standard.com/rss/home_page_top_stories.rss
+    HTTP 403 — skipping  https://www.business-standard.com/rss/home_page_top_stories.rss
+  [  business] fetching https://www.livemint.com/rss/companies
+    OK  (35,342 bytes)
+    → 35 items: 0 accepted, 0 too old, 0 no-date
+  [  business] fetching https://www.indiatoday.in/rss/1206514
+    OK  (18,784 bytes)
+    → 20 items: 0 accepted, 0 too old, 0 no-date
+  [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
+    OK  (202,835 bytes)
+    → 100 items: 0 accepted, 0 too old, 0 no-date
+  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+    OK  (1,347 bytes)
+    → 1 items: 0 accepted, 0 too old, 0 no-date
+  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
+    OK  (10,289 bytes)
+    → 10 items: 0 accepted, 0 too old, 0 no-date
+  [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
+    OK  (109,574 bytes)
+    → 65 items: 0 accepted, 0 too old, 0 no-date
+  [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
+    OK  (10,289 bytes)
+    → 10 items: 0 accepted, 0 too old, 0 no-date
+  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
+    OK  (49,072 bytes)
+    → 60 items: 0 accepted, 0 too old, 0 no-date
+  [    retail] fetching https://www.livemint.com/rss/industry
+    OK  (35,739 bytes)
+    → 35 items: 0 accepted, 0 too old, 0 no-date
+  [      tech] fetching https://www.theverge.com/rss/index.xml
+    OK  (112,806 bytes)
+/home/runner/work/daily-brief/daily-brief/fetch_stories.py:440: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  item.find("description")
+    + [tech] Anker’s new earbuds are the first with its AI chip that boosts noise reduction
+    + [tech] Anker’s new earbuds have the best call quality I’ve ever heard
+    + [tech] States ask judge to break up Live Nation-Ticketmaster
+    + [tech] All of the updates from Elon Musk and Sam Altman’s battle over OpenAI
+    + [tech] Firefox is working on a rounded redesign with easy-to-find controls for privacy 
+    + [tech] In desperate times, graduates find hope in humiliating tech CEOs
+    + [tech] Who gets to own the Luigi Mangione story?
+    + [tech] Philips’ new display has a screen on both sides
+    → 10 items: 8 accepted, 0 too old, 8 no-date
+  [      tech] SKIP (section full) https://feeds.arstechnica.com/arstechnica/index
+  [      tech] SKIP (section full) https://techcrunch.com/feed/
+  [      tech] SKIP (section full) https://feeds.feedburner.com/gadgets360-latest
+  [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
+  [      tech] SKIP (section full) https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
+  [     world] fetching https://feeds.voanews.com/rss/english/news
+    OK  (75,539 bytes)
+  WARN parse: not well-formed (invalid token): line 6, column 155
+  [     world] fetching https://feeds.npr.org/1004/rss.xml
+    OK  (14,517 bytes)
+    → 10 items: 0 accepted, 0 too old, 0 no-date
+  [     world] fetching https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
+    OK  (198,119 bytes)
+    → 88 items: 0 accepted, 0 too old, 0 no-date
+  [     world] fetching https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
+    OK  (138,699 bytes)
+    → 100 items: 0 accepted, 0 too old, 0 no-date
+  [     world] fetching https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
+    OK  (17,575 bytes)
+    → 23 items: 0 accepted, 0 too old, 0 no-date
+  [     world] fetching https://www.aljazeera.com/xml/rss/all.xml
+    OK  (17,251 bytes)
+    → 25 items: 0 accepted, 0 too old, 0 no-date
+  [     world] fetching https://feeds.reuters.com/reuters/topNews
+    FAIL attempt 1/2: <urlopen error [Errno -2] Name or service not known>  — retry in 2s
+    FAIL (all 2 attempts): <urlopen error [Errno -2] Name or service not known>
+  [     world] fetching https://www.theguardian.com/world/rss
+    OK  (152,307 bytes)
+    → 45 items: 0 accepted, 0 too old, 0 no-date
+  [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
+    OK  (145,458 bytes)
+    → 100 items: 0 accepted, 0 too old, 0 no-date
+  [    sports] fetching https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en
+    OK  (84,665 bytes)
+    → 49 items: 0 accepted, 0 too old, 0 no-date
+  [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+    OK  (90,974 bytes)
+    → 100 items: 0 accepted, 0 too old, 0 no-date
+  [    sports] fetching https://timesofindia.indiatimes.com/rss/4719148.cms
+    HTTP 404 — skipping  https://timesofindia.indiatimes.com/rss/4719148.cms
+  [    sports] fetching https://www.cricbuzz.com/rss-feeds/cricket-news
+    HTTP 404 — skipping  https://www.cricbuzz.com/rss-feeds/cricket-news
+  [    sports] fetching https://sports.ndtv.com/rss/cricket
+    HTTP 403 — skipping  https://sports.ndtv.com/rss/cricket
+  [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
+    OK  (107,197 bytes)
+    → 79 items: 0 accepted, 0 too old, 0 no-date
+  [   opinion] fetching https://scroll.in/rss
+    HTTP 404 — skipping  https://scroll.in/rss
+  [   opinion] fetching https://thewire.in/feed
+    OK  (8,669 bytes)
+  WARN parse: syntax error: line 1, column 0
+  [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
+    OK  (48,406 bytes)
+    → 50 items: 0 accepted, 0 too old, 0 no-date
+  [   opinion] fetching https://www.thehindu.com/opinion/feeder/default.rss
+    OK  (37,637 bytes)
+    → 60 items: 0 accepted, 0 too old, 0 no-date
+  [   opinion] fetching https://theprint.in/category/opinion/feed/
+    HTTP 403 — skipping  https://theprint.in/category/opinion/feed/
+
+────────────────────────────────────────────────────────────
+Feeds:   31 OK  /  12 failed
+Stories: 8 total  |  legal: 0, business: 0, reliance: 0, retail: 0, tech: 8, world: 0, sports: 0, opinion: 0
+Edition: 2026-05-22   Hero: tech-56c1a417
+────────────────────────────────────────────────────────────
+
+Wrote stories.json  (8 stories) ✓
+Wrote stories.fallback.json ✓  (fallback updated)
