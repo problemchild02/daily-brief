@@ -18,6 +18,7 @@ Manual refresh:
 """
 
 import json, hashlib, re, sys, time, shutil, os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from xml.etree import ElementTree as ET
 from urllib.request import urlopen, Request
@@ -25,6 +26,15 @@ from urllib.error import URLError, HTTPError
 from html import unescape
 
 DEBUG_MODE = "--debug" in sys.argv
+
+# ── AI summarisation config ────────────────────────────────────────────────────
+ANTHROPIC_API_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
+AI_ENABLED          = bool(ANTHROPIC_API_KEY)
+AI_MODEL            = "claude-haiku-4-5-20251001"
+AI_MAX_TOKENS       = 180     # ~2-3 sentences
+AI_ARTICLE_CHARS    = 4000    # how much article text to feed the model
+AI_FETCH_TIMEOUT    = 10      # seconds per article HTTP request
+AI_WORKERS          = 4       # parallel article-fetch + summarise threads
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -331,6 +341,56 @@ def make_id(section, url):
     return f"{section}-{hashlib.sha1(url.encode()).hexdigest()[:8]}"
 
 
+def fetch_article_text(url):
+    """
+    Fetch the real article HTML and extract the main body text.
+    Returns a string (possibly empty) or None if the page is unreachable.
+    Requires the 'trafilatura' package.
+    """
+    try:
+        import trafilatura
+        downloaded = trafilatura.fetch_url(url, no_ssl=True, timeout=AI_FETCH_TIMEOUT)
+        if not downloaded:
+            return None
+        text = trafilatura.extract(
+            downloaded,
+            include_comments=False,
+            include_tables=False,
+            no_fallback=False,
+        )
+        return text or None
+    except Exception as e:
+        print(f"      article-fetch error: {e}", file=sys.stderr)
+        return None
+
+
+def ai_summarise(headline, article_text):
+    """
+    Call Claude Haiku to write a 2-3 sentence summary of the article.
+    Returns the summary string, or None if the call fails.
+    Requires the 'anthropic' package and ANTHROPIC_API_KEY env var.
+    """
+    try:
+        import anthropic
+        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        prompt = (
+            f"Headline: {headline}\n\n"
+            f"Article:\n{article_text[:AI_ARTICLE_CHARS]}\n\n"
+            "Write a 2–3 sentence factual summary of this news article. "
+            "Mention what happened, who is involved, and why it matters. "
+            "Be concise and neutral. Do not start with 'This article' or 'The article'."
+        )
+        msg = client.messages.create(
+            model=AI_MODEL,
+            max_tokens=AI_MAX_TOKENS,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return msg.content[0].text.strip()
+    except Exception as e:
+        print(f"      AI error: {e}", file=sys.stderr)
+        return None
+
+
 def parse_date(item):
     ns = {"dc": "http://purl.org/dc/elements/1.1/"}
     raw = None
@@ -572,6 +632,47 @@ def build_stories():
             f"{items_too_old} too old, {items_no_date} no-date",
             file=sys.stderr,
         )
+
+    # ── AI summarisation pass ─────────────────────────────────────────────────
+    if AI_ENABLED:
+        print(f"\n── AI summarisation (Claude Haiku) ──────────────────────────",
+              file=sys.stderr)
+
+        # Collect stories that have no meaningful summary yet
+        needs_summary = [
+            story
+            for stories in sections.values()
+            for story in stories
+            if not story.get("summary")
+        ]
+        print(f"   {len(needs_summary)} stories need AI summaries", file=sys.stderr)
+
+        def _summarise_one(story):
+            """Fetch article + call AI. Returns (story, summary_or_None)."""
+            text = fetch_article_text(story["sourceUrl"])
+            if not text or len(text) < 80:
+                return story, None
+            summary = ai_summarise(story["headline"], text)
+            return story, summary
+
+        ai_ok = ai_fail = 0
+        with ThreadPoolExecutor(max_workers=AI_WORKERS) as pool:
+            futures = {pool.submit(_summarise_one, s): s for s in needs_summary}
+            for fut in as_completed(futures):
+                story, summary = fut.result()
+                label = story["headline"][:60]
+                if summary:
+                    story["summary"] = summary
+                    ai_ok += 1
+                    print(f"   ✓ {label}", file=sys.stderr)
+                else:
+                    ai_fail += 1
+                    print(f"   ✗ {label}", file=sys.stderr)
+
+        print(f"\n   AI done: {ai_ok} summaries written, {ai_fail} failed/skipped",
+              file=sys.stderr)
+    else:
+        print("\nAI summarisation skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
