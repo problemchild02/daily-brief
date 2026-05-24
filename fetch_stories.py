@@ -345,17 +345,18 @@ def make_id(section, url):
 
 def fetch_article_text(url):
     """
-    Fetch the real article HTML and extract the main body text.
-    Returns a string (possibly empty) or None if the page is unreachable.
-    Requires the 'trafilatura' package.
+    Fetch article HTML via urllib (same method used for RSS feeds) then
+    extract body text with trafilatura. Returns text string or None.
     """
     try:
         import trafilatura
-        downloaded = trafilatura.fetch_url(url)
-        if not downloaded:
+        req = Request(url, headers=_HEADERS)
+        with urlopen(req, timeout=AI_FETCH_TIMEOUT) as resp:
+            html = resp.read().decode("utf-8", errors="ignore")
+        if not html:
             return None
         text = trafilatura.extract(
-            downloaded,
+            html,
             include_comments=False,
             include_tables=False,
             no_fallback=False,
