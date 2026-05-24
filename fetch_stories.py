@@ -28,11 +28,11 @@ from html import unescape
 DEBUG_MODE = "--debug" in sys.argv
 
 # ── AI summarisation config ────────────────────────────────────────────────────
-GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
-AI_ENABLED      = bool(GEMINI_API_KEY)
-AI_MODEL        = "gemini-2.0-flash"   # accessible with this key; requires AI Studio key for free-tier quota
-AI_WORKERS      = 1       # sequential — keeps us comfortably under the 15 RPM free limit
-AI_CALL_DELAY   = 5       # seconds between Gemini calls (~12 RPM; free tier allows 15)
+GROQ_API_KEY    = os.environ.get("GROQ_API_KEY", "")
+AI_ENABLED      = bool(GROQ_API_KEY)
+AI_MODEL        = "llama-3.3-70b-versatile"   # Groq free tier: 14,400 req/day
+AI_WORKERS      = 1       # sequential
+AI_CALL_DELAY   = 3       # seconds between calls (free tier: 30 RPM)
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -368,7 +368,7 @@ _SECTION_HINTS = {
 
 def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    Direct REST call to Gemini API — no SDK, uses only built-in urllib.
+    Groq API (OpenAI-compatible) — free tier, no credit card required.
     Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
     import json as _json
@@ -388,23 +388,24 @@ Return ONLY a raw JSON object — no markdown, no code fences:
   "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
-        url = (
-            "https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{AI_MODEL}:generateContent?key={GEMINI_API_KEY}"
-        )
         payload = {
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"maxOutputTokens": 400, "temperature": 0.3},
+            "model": AI_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 400,
+            "temperature": 0.3,
         }
         req = Request(
-            url,
+            "https://api.groq.com/openai/v1/chat/completions",
             data=_json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {GROQ_API_KEY}",
+            },
             method="POST",
         )
         with urlopen(req, timeout=30) as resp:
             result = _json.loads(resp.read().decode("utf-8"))
-        raw = result["candidates"][0]["content"]["parts"][0]["text"].strip()
+        raw = result["choices"][0]["message"]["content"].strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
         data         = _json.loads(raw)
@@ -666,7 +667,7 @@ def build_stories():
 
     # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
     if AI_ENABLED:
-        print(f"\n── AI enrichment (Gemini {AI_MODEL}) ─────────────────────────────",
+        print(f"\n── AI enrichment (Groq/{AI_MODEL}) ─────────────────────────────",
               file=sys.stderr)
 
         all_stories = [
@@ -702,7 +703,7 @@ def build_stories():
         print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
               file=sys.stderr)
     else:
-        print("\nAI enrichment skipped — GEMINI_API_KEY not set.", file=sys.stderr)
+        print("\nAI enrichment skipped — GROQ_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
