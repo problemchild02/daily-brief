@@ -384,8 +384,8 @@ RSS excerpt: {rss_context[:600] if rss_context else "(none)"}
 
 Return ONLY a raw JSON object — no markdown, no code fences:
 {{
-  "summary": "Comprehensive summary covering ALL major points of the story: what happened, who is involved, the background/context, key details, numbers or facts mentioned, reactions or responses from parties involved, and what happens next. Write in flowing paragraphs, not bullet points. Use your full knowledge of the topic — do not just paraphrase the RSS excerpt. Aim for 150–250 words.",
-  "contextNote": "2–3 sentence explanation of why this matters specifically to an Indian lawyer — be concrete and specific: name the relevant statute, tribunal, or regulatory body; identify the compliance risk, litigation angle, precedent, or client advisory implication; explain what action a lawyer tracking this area might take."
+  "summary": "Strictly what this article reports: summarise every major point actually covered in the piece — what happened, who is involved, key figures/numbers/quotes mentioned, any reactions or responses reported, and what the article says happens next. Do NOT add outside context or your own knowledge here. Write in flowing paragraphs. Aim for 150–200 words.",
+  "contextNote": "Your own analysis — separate from the article: give the broader background and context a reader needs to fully understand this story, draw on your knowledge of the relevant law/sector/players, then explain specifically why this matters to an Indian lawyer: name the statute, tribunal, or regulatory body involved; identify the compliance risk, precedent, litigation angle, or client advisory implication; and state what a lawyer tracking this area should do or watch for. Aim for 100–150 words."
 }}"""
     try:
         payload = {
