@@ -1,8 +1,8 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-14 18:43 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (188,472 bytes)
+    OK  (189,015 bytes)
     + [legal] Safety from dog attacks is basic human right, India Supreme Court rules
     + [legal] India’s ‘Cockroach Janta Party’ began as a joke. Then millions joined in.
     + [legal] Sedition in abeyance, but not in limbo
@@ -10,7 +10,7 @@ Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
     + [legal] No tort law, only tort rulings—India’s liability framework grew case by case thr
     + [legal] Twisha Sharma cremated after second autopsy, 12 days after her death
     + [legal] Twisha Sharma Death: Supreme Court Registers Suo Motu Case; Hearing On Monday Ma
-    + [legal] Plea in SC seeks probe into fake advocates, Cockroach Janta Party-linked activit
+    + [legal] SC’s revival of Section 124A for consenting accused brings back a colonial law t
     → 100 items: 8 accepted, 1 too old, 0 no-date
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
@@ -19,9 +19,8 @@ Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (122,802 bytes)
-    + [business] Licensable picture: India Economy Business
-    → 67 items: 1 accepted, 66 too old, 0 no-date
+    OK  (162,153 bytes)
+    → 84 items: 0 accepted, 84 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
     OK  (74,405 bytes)
     + [business] Archives 2025 December
@@ -34,14 +33,15 @@ Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
     OK  (49,447 bytes)
     + [business] Why India’s next real estate cycle could be driven by retail investors and REITs
     + [business] Ahead of Market: 10 things that will decide stock market action on Monday
-    → 50 items: 2 accepted, 0 too old, 0 no-date
+    + [business] Knowledge Realty Trust to invest Rs 700 cr to build 1.4 mn sq ft office space in
+    → 50 items: 3 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (181,204 bytes)
+    OK  (197,964 bytes)
     + [reliance] Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impact
     + [reliance] Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
     + [reliance] Reliance could USD 4 bn Jio Platforms listing
@@ -50,11 +50,11 @@ Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Reliance Industries becomes first Indian company to surpass $120 bln revenue mar
     + [reliance] Reliance in talks with Chinese battery behemoth CATL & others for big battery sy
     + [reliance] Reliance Industries' stock jumps over 2.5% amid weak trade; possible triggers ex
-    → 100 items: 8 accepted, 12 too old, 0 no-date
+    → 100 items: 8 accepted, 14 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (121,253 bytes)
+    OK  (124,120 bytes)
     + [retail] FMCG Logistics Market Outlook: Rising E-commerce Demand and Advancements in Supp
     → 72 items: 1 accepted, 71 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
@@ -114,21 +114,22 @@ Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
     + [sports] Sachin Tendulkar
     → 100 items: 5 accepted, 93 too old, 0 no-date
   [    sports] fetching https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en
-    OK  (110,650 bytes)
-    → 68 items: 0 accepted, 68 too old, 0 no-date
+    OK  (105,282 bytes)
+    → 60 items: 0 accepted, 60 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,258 bytes)
+    OK  (90,244 bytes)
+    + [sports] Kuldeep and Rahul help DC sign off with big win
     + [sports] Sangakkara: 'Seen very few players criticised like Parag'
     + [sports] Tribe, Mayes notch centuries but South Africa A hone in on victory
-    + [sports] England hopeful James Rew stars in comfortable Somerset win
     → 100 items: 3 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://sports.ndtv.com/rss/cricket
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (95,805 bytes)
+    OK  (83,418 bytes)
+    + [opinion] Pakistan Shows The Way To India-Pakistan Reconciliation – Analysis
     + [opinion] Daily Editorial Analysis 21 May 2026
-    → 72 items: 1 accepted, 71 too old, 0 no-date
+    → 62 items: 2 accepted, 60 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -142,148 +143,339 @@ Cutoff: 2026-05-14 18:27 UTC  (MAX_AGE_HOURS=240)
     + [opinion] To stay shipshape, cut regulatory flab
     + [opinion] Pour some sugar on MeDef Leppard
     + [opinion] This is a peak win for Himalayas
-    + [opinion] Hantavirus scare a wake-up call: Why India must build its disease X defences
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    → 50 items: 6 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── AI enrichment (Gemini gemini-1.5-flash) ─────────────────────────────
+── AI enrichment (Gemini gemini-2.0-flash) ─────────────────────────────
    64 stories to enrich  (sequential, 5s delay → ~12 RPM)
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Safety from dog attacks is basic human right, India Supreme 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ India’s ‘Cockroach Janta Party’ began as a joke. Then millio
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Sedition in abeyance, but not in limbo
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ CBI probe sought in Supreme Court over ‘Cockroach Janta Part
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ No tort law, only tort rulings—India’s liability framework g
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Twisha Sharma cremated after second autopsy, 12 days after h
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Twisha Sharma Death: Supreme Court Registers Suo Motu Case; 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
-   ✗ Plea in SC seeks probe into fake advocates, Cockroach Janta 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
-   ✗ Licensable picture: India Economy Business
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+   ✗ SC’s revival of Section 124A for consenting accused brings b
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Archives 2025 December
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ GOCL Corporation Yearly results, Financial Summary
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Share Price Today, Stock Price Live NSE/BSE Updates
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Shriram Finance Share Price Today, Shriram Finance Stock Pri
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ SK Minerals & Additi Cash Flow, Financial Statements
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Why India’s next real estate cycle could be driven by retail
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Ahead of Market: 10 things that will decide stock market act
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+   ✗ Knowledge Realty Trust to invest Rs 700 cr to build 1.4 mn s
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impa
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Reliance could USD 4 bn Jio Platforms listing
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Jio IPO Faces Iran War Hurdles As Reliance Reviews Deal Stru
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Reliance Industries share price rises 2.5% despite stock mar
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Reliance Industries becomes first Indian company to surpass 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Reliance in talks with Chinese battery behemoth CATL & other
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Reliance Industries' stock jumps over 2.5% amid weak trade; 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ FMCG Logistics Market Outlook: Rising E-commerce Demand and 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ OnePlus, Xiaomi among firms trimming marketing and sales rol
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Colgate-Palmolive India leans on premium products, advertisi
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Delivery platforms deploy cooling cover as orders heat up
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Walmart’s international sales growth in Q4 driven by Flipkar
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Varun Beverages, PepsiCo India extend bottling pact till 204
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ As competition hots up, consumer brands step up Q-Comm spend
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Nykaa Q4 results: Profit soars 4X YoY to Rs 79 crore; revenu
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ The best Memorial Day sales you can shop this weekend
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ On Trails is a wandering tale that blends hiking, science, a
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Apple’s latest MacBook Air is $200 off in both sizes for Mem
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Hackers are learning to exploit chatbot ‘personalities’
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Why Nuro thinks being a robotaxi ‘second mover’ gives it an 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Record Club is trying to be Letterboxd for music nerds
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ The man behind the legendary MPC, Roger Linn, stays focused 
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Here are 38 Memorial Day deals we recommend for $50 or less
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ DR Congo Ebola cases rise amid distrust, armed conflict zone
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ What both sides have said about a U.S.-Iran deal
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ What we know about the status of a U.S.-Iran deal
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Russia pounds Kyiv in powerful drone and missile attack
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Romanian director Cristian Mungiu's 'Fjord' wins top prize a
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Trump touts Iran breakthrough but details remain unclear
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ The squeeze on Cuba now includes compensation lawsuits
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Severe global food crisis could come within the year, says U
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Jacob Bethell injury may force England to pick most inexperi
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Not IPL, Test cricket for Australia is my priority, says SRH
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane s
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Pakistan Tour of England Reportedly Confirmed Ahead of Ashes
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Sachin Tendulkar
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+   ✗ Kuldeep and Rahul help DC sign off with big win
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Sangakkara: 'Seen very few players criticised like Parag'
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Tribe, Mayes notch centuries but South Africa A hone in on v
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
-   ✗ England hopeful James Rew stars in comfortable Somerset win
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+   ✗ Pakistan Shows The Way To India-Pakistan Reconciliation – An
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Daily Editorial Analysis 21 May 2026
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Worldly Dangal
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Club rules need not apply: Reclaiming 'commons' on which Del
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Go on then, make money with money
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ To stay shipshape, cut regulatory flab
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ Pour some sugar on MeDef Leppard
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+      AI error HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
    ✗ This is a peak win for Himalayas
-      AI error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
-   ✗ Hantavirus scare a wake-up call: Why India must build its di
 
    AI done: 0 enriched, 64 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
 Feeds:   14 OK  /  3 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-05-24   Hero: legal-d7a829e8
+Edition: 2026-05-25   Hero: legal-d7a829e8
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
