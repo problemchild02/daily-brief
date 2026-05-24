@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install anthropic trafilatura
+        run: pip install anthropic
 
       - name: Fetch RSS stories + AI summaries
         id: fetch

@@ -387,25 +387,26 @@ _SECTION_HINTS = {
 }
 
 
-def ai_enrich_story(headline, section, article_text):
+def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    One Haiku call → JSON with 'summary' (2-3 sentences, factual) and
-    'contextNote' (1-2 sentences, why this matters to an Indian lawyer).
-    Returns dict or None on failure.
+    One Haiku call using RSS metadata we already have (no article fetching).
+    Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
     import anthropic, json as _json
+    rss_context = " ".join(filter(None, [hook, summary])).strip()
+    tags_str    = ", ".join(tags) if tags else ""
     prompt = f"""{_READER_PROFILE}
 
-Section type: {_SECTION_HINTS.get(section, section)}
+Section: {_SECTION_HINTS.get(section, section)}
+Source: {source}
+Tags: {tags_str}
 Headline: {headline}
+RSS excerpt: {rss_context[:600] if rss_context else "(none)"}
 
-Article:
-{article_text[:AI_ARTICLE_CHARS]}
-
-Return ONLY a raw JSON object — no markdown, no code fences, no commentary:
+Return ONLY a raw JSON object — no markdown, no code fences:
 {{
-  "summary": "2–3 sentence factual summary: what happened, who is involved, and the key development.",
-  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — think: precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
+  "summary": "2–3 sentence factual summary of what happened, who is involved, and the key development. Use your knowledge of the topic and the RSS excerpt above.",
+  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
@@ -418,10 +419,10 @@ Return ONLY a raw JSON object — no markdown, no code fences, no commentary:
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
         data = _json.loads(raw)
-        summary      = str(data.get("summary", "")).strip()
+        summary_out  = str(data.get("summary", "")).strip()
         context_note = str(data.get("contextNote", "")).strip()
-        if summary and context_note:
-            return {"summary": summary, "contextNote": context_note}
+        if summary_out and context_note:
+            return {"summary": summary_out, "contextNote": context_note}
         return None
     except Exception as e:
         print(f"      AI error: {e}", file=sys.stderr)
@@ -683,11 +684,15 @@ def build_stories():
         print(f"   {len(all_stories)} stories to enrich", file=sys.stderr)
 
         def _enrich_one(story):
-            """Fetch article + call AI for summary & contextNote."""
-            text = fetch_article_text(story["sourceUrl"])
-            if not text or len(text) < 80:
-                return story, None
-            result = ai_enrich_story(story["headline"], story["section"], text)
+            """Call AI using RSS metadata we already have — no article fetching."""
+            result = ai_enrich_story(
+                story["headline"],
+                story["section"],
+                story.get("hook", ""),
+                story.get("summary", ""),
+                story.get("source", ""),
+                story.get("tags", []),
+            )
             return story, result
 
         ai_ok = ai_fail = 0
