@@ -1,8 +1,8 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-14 16:50 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-14 16:56 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (189,948 bytes)
+    OK  (190,035 bytes)
     + [legal] Safety from dog attacks is basic human right, India Supreme Court rules
     + [legal] India’s ‘Cockroach Janta Party’ began as a joke. Then millions joined in.
     + [legal] Rubio touts U.S. energy on India trip meant to repair ties
@@ -19,8 +19,8 @@ Cutoff: 2026-05-14 16:50 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (139,809 bytes)
-    → 75 items: 0 accepted, 75 too old, 0 no-date
+    OK  (107,820 bytes)
+    → 60 items: 0 accepted, 60 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
     OK  (74,405 bytes)
     + [business] Archives 2025 December
@@ -41,7 +41,7 @@ Cutoff: 2026-05-14 16:50 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (189,662 bytes)
+    OK  (192,690 bytes)
     + [reliance] Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impact
     + [reliance] Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
     + [reliance] Reliance could USD 4 bn Jio Platforms listing
@@ -50,13 +50,13 @@ Cutoff: 2026-05-14 16:50 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Reliance Industries becomes first Indian company to surpass $120 bln revenue mar
     + [reliance] Reliance in talks with Chinese battery behemoth CATL & others for big battery sy
     + [reliance] Reliance Industries' stock jumps over 2.5% amid weak trade; possible triggers ex
-    → 100 items: 8 accepted, 12 too old, 0 no-date
+    → 100 items: 8 accepted, 15 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (115,881 bytes)
+    OK  (107,925 bytes)
     + [retail] FMCG Logistics Market Outlook: Rising E-commerce Demand and Advancements in Supp
-    → 68 items: 1 accepted, 67 too old, 0 no-date
+    → 63 items: 1 accepted, 62 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,652 bytes)
     + [retail] OnePlus, Xiaomi among firms trimming marketing and sales roles in India amid cos
@@ -106,22 +106,22 @@ Cutoff: 2026-05-14 16:50 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (146,614 bytes)
+    OK  (123,730 bytes)
     + [sports] Jacob Bethell injury may force England to pick most inexperienced top order ever
     + [sports] Not IPL, Test cricket for Australia is my priority, says SRH captain Pat Cummins
     + [sports] Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane shaped his Test prepa
     + [sports] Pakistan Tour of England Reportedly Confirmed Ahead of Ashes 2027
     + [sports] Sachin Tendulkar
-    → 100 items: 5 accepted, 92 too old, 0 no-date
+    + [sports] Rachin Ravindra Prepares for New Zealand Tests via IPL Mentorship
+    → 91 items: 6 accepted, 83 too old, 0 no-date
   [    sports] fetching https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en
-    OK  (110,650 bytes)
-    → 68 items: 0 accepted, 68 too old, 0 no-date
+    OK  (89,239 bytes)
+    → 53 items: 0 accepted, 53 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
     OK  (90,268 bytes)
     + [sports] Willey, Harrison inspire 100-run thrashing of Worcestershire
     + [sports] All-round Archer helps RR secure last playoffs spot
-    + [sports] 'I was not supposed to play today' - Riyan Parag not completely fit but will pla
-    → 100 items: 3 accepted, 0 too old, 0 no-date
+    → 100 items: 2 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://sports.ndtv.com/rss/cricket
@@ -149,134 +149,102 @@ Cutoff: 2026-05-14 16:50 UTC  (MAX_AGE_HOURS=240)
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
+   ✗ Rubio touts U.S. energy on India trip meant to repair ties
    ✗ Safety from dog attacks is basic human right, India Supreme 
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
+   ✗ Sedition in abeyance, but not in limbo
+   ✗ India’s ‘Cockroach Janta Party’ began as a joke. Then millio
    ✗ CBI probe sought in Supreme Court over ‘Cockroach Janta Part
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-   ✗ No tort law, only tort rulings—India’s liability framework g
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
    ✗ Twisha Sharma cremated after second autopsy, 12 days after h
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
    ✗ Twisha Sharma Death: Supreme Court Registers Suo Motu Case; 
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
+   ✗ No tort law, only tort rulings—India’s liability framework g
    ✗ Archives 2025 December
    ✗ GOCL Corporation Yearly results, Financial Summary
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-   ✗ Share Price Today, Stock Price Live NSE/BSE Updates
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
    ✗ Shriram Finance Share Price Today, Shriram Finance Stock Pri
+   ✗ Share Price Today, Stock Price Live NSE/BSE Updates
    ✗ SK Minerals & Additi Cash Flow, Financial Statements
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-   ✗ Sedition in abeyance, but not in limbo
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-      article-fetch error: fetch_url() got an unexpected keyword argument 'timeout'
-   ✗ India’s ‘Cockroach Janta Party’ began as a joke. Then millio
-   ✗ Ahead of Market: 10 things that will decide stock market act
-   ✗ Why India’s next real estate cycle could be driven by retail
    ✗ Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impa
-   ✗ Rubio touts U.S. energy on India trip meant to repair ties
    ✗ Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
-   ✗ Knowledge Realty Trust to invest Rs 700 cr to build 1.4 mn s
    ✗ Reliance could USD 4 bn Jio Platforms listing
    ✗ Jio IPO Faces Iran War Hurdles As Reliance Reviews Deal Stru
    ✗ Reliance Industries share price rises 2.5% despite stock mar
-   ✗ Reliance Industries' stock jumps over 2.5% amid weak trade; 
-   ✗ OnePlus, Xiaomi among firms trimming marketing and sales rol
    ✗ Reliance Industries becomes first Indian company to surpass 
-   ✗ Delivery platforms deploy cooling cover as orders heat up
    ✗ Reliance in talks with Chinese battery behemoth CATL & other
-   ✗ Varun Beverages, PepsiCo India extend bottling pact till 204
+   ✗ Reliance Industries' stock jumps over 2.5% amid weak trade; 
    ✗ FMCG Logistics Market Outlook: Rising E-commerce Demand and 
-   ✗ Nykaa Q4 results: Profit soars 4X YoY to Rs 79 crore; revenu
-   ✗ Walmart’s international sales growth in Q4 driven by Flipkar
-   ✗ The best Memorial Day sales you can shop this weekend
-   ✗ As competition hots up, consumer brands step up Q-Comm spend
-   ✗ Apple’s latest MacBook Air is $200 off in both sizes for Mem
-   ✗ Why Nuro thinks being a robotaxi ‘second mover’ gives it an 
-   ✗ Hackers are learning to exploit chatbot ‘personalities’
-   ✗ The man behind the legendary MPC, Roger Linn, stays focused 
-   ✗ Record Club is trying to be Letterboxd for music nerds
-   ✗ Here are 38 Memorial Day deals we recommend for $50 or less
-   ✗ What we know about the status of a U.S.-Iran deal
-   ✗ What both sides have said about a U.S.-Iran deal
-   ✗ Russia pounds Kyiv in powerful drone and missile attack
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkENMpYvwCSKfD6xWoZ'}
+   ✗ Why India’s next real estate cycle could be driven by retail
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkENMKduBrZYJLiBT4D'}
+   ✗ Ahead of Market: 10 things that will decide stock market act
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkENRnbnFmhxrADGawQ'}
+   ✗ Knowledge Realty Trust to invest Rs 700 cr to build 1.4 mn s
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEQa21qw3Z9WSknvwQ'}
    ✗ Colgate-Palmolive India leans on premium products, advertisi
-   ✗ The squeeze on Cuba now includes compensation lawsuits
-   ✗ Trump touts Iran breakthrough but details remain unclear
-   ✗ Video shows Israeli 'double-tap strike' killed medics and a 
-   ✗ Jacob Bethell injury may force England to pick most inexperi
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkERowG83KoRJVnucMQ'}
+   ✗ Delivery platforms deploy cooling cover as orders heat up
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkERkiDUDPQXJNYuZS3'}
+   ✗ Walmart’s international sales growth in Q4 driven by Flipkar
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkESSt5oWUgSMEVGFPH'}
+   ✗ Varun Beverages, PepsiCo India extend bottling pact till 204
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkETm1XS8hozpDrpexo'}
+   ✗ As competition hots up, consumer brands step up Q-Comm spend
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkETyuMd5jdrAdsaE1y'}
+   ✗ The best Memorial Day sales you can shop this weekend
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEUNicn2TJHRYKnmeg'}
+   ✗ Nykaa Q4 results: Profit soars 4X YoY to Rs 79 crore; revenu
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEUbcVzsmqNfQ78CN7'}
    ✗ On Trails is a wandering tale that blends hiking, science, a
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEUfpvK62UgADDmsJn'}
+   ✗ OnePlus, Xiaomi among firms trimming marketing and sales rol
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEUuDmH2vs2NjUMAup'}
+   ✗ Apple’s latest MacBook Air is $200 off in both sizes for Mem
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEVCKvysZp2gDaD1Gk'}
+   ✗ Hackers are learning to exploit chatbot ‘personalities’
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEVQEMQ7VAx6FqyTLa'}
+   ✗ Why Nuro thinks being a robotaxi ‘second mover’ gives it an 
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEVXvRRMZQ8UgQpgcA'}
+   ✗ Record Club is trying to be Letterboxd for music nerds
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEVfMi6ucAFExZANvb'}
+   ✗ The man behind the legendary MPC, Roger Linn, stays focused 
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEWEqVYmyrdBktisSz'}
+   ✗ Here are 38 Memorial Day deals we recommend for $50 or less
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEXsK9qvfcMiG9GWNv'}
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEXor5vBDZAYNuMByw'}
    ✗ Romanian director Cristian Mungiu's 'Fjord' wins top prize a
-   ✗ Not IPL, Test cricket for Australia is my priority, says SRH
-   ✗ Sachin Tendulkar
-   ✗ Willey, Harrison inspire 100-run thrashing of Worcestershire
-   ✗ Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane s
+   ✗ Russia pounds Kyiv in powerful drone and missile attack
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEYM5ypsuyTZPWeVx5'}
+   ✗ What we know about the status of a U.S.-Iran deal
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEYV2AHoC1YUuTaoSj'}
+   ✗ What both sides have said about a U.S.-Iran deal
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEYxJVh5kobp1Kp9Ur'}
+   ✗ The squeeze on Cuba now includes compensation lawsuits
+   ✗ Jacob Bethell injury may force England to pick most inexperi
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEZaWGXHC5WcRvS8wd'}
+   ✗ Video shows Israeli 'double-tap strike' killed medics and a 
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEZbVhuFBVd65Y433o'}
+   ✗ Trump touts Iran breakthrough but details remain unclear
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEZjgZPr3d18wpcBZq'}
    ✗ Severe global food crisis could come within the year, says U
-   ✗ All-round Archer helps RR secure last playoffs spot
-   ✗ 'I was not supposed to play today' - Riyan Parag not complet
-   ✗ Daily Editorial Analysis 21 May 2026
+   ✗ Not IPL, Test cricket for Australia is my priority, says SRH
+   ✗ Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane s
+   ✗ Sachin Tendulkar
    ✗ Pakistan Tour of England Reportedly Confirmed Ahead of Ashes
+   ✗ Willey, Harrison inspire 100-run thrashing of Worcestershire
+   ✗ All-round Archer helps RR secure last playoffs spot
+   ✗ Rachin Ravindra Prepares for New Zealand Tests via IPL Mento
+   ✗ Daily Editorial Analysis 21 May 2026
    ✗ India just turned strategic oil storage into a geopolitical 
-   ✗ Two old dudes hydrocarbonding: Listening in on a 15-mn-year-
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEd4bsJzr4zJHWSXYQ'}
    ✗ Romance redefined: The rise of dark and unconventional roman
-   ✗ Health insurance works only when everyone contributes
-   ✗ Marco Rubio — The bridge between the Trump–Modi economic doc
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEd6qawCerpzw5TrE8'}
+   ✗ Two old dudes hydrocarbonding: Listening in on a 15-mn-year-
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEdXtBfokipYi7G9wx'}
    ✗ Ministry of questionable questions: Satire on India's press 
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEdh4TZZqyVRd1n4oG'}
    ✗ I know what you'll be talking about while you drink this sum
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEfFp6ghARaUcKdEce'}
+   ✗ Marco Rubio — The bridge between the Trump–Modi economic doc
+      AI error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CbMkEfYRnDpGoYP3nEzPn'}
+   ✗ Health insurance works only when everyone contributes
 
    AI done: 0 enriched, 64 failed/skipped (kept RSS fallback)
 
