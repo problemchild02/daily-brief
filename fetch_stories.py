@@ -351,7 +351,7 @@ def fetch_article_text(url):
     """
     try:
         import trafilatura
-        downloaded = trafilatura.fetch_url(url, no_ssl=True, timeout=AI_FETCH_TIMEOUT)
+        downloaded = trafilatura.fetch_url(url)
         if not downloaded:
             return None
         text = trafilatura.extract(
