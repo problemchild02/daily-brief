@@ -180,9 +180,7 @@ function createStoryMarkup(story, type = "card", instanceKey = "default") {
   const isHero = type === "hero";
   const headlineTag = isHero ? "h2" : "h3";
   const wrapperClass = isHero ? "hero-card" : "story-card";
-  const noteLabel = story.contextNote
-    ? (["legal", "reliance", "retail", "opinion"].includes(story.section) ? "Why it matters" : "Why it's relevant")
-    : "Context";
+  const noteLabel = "Why it matters";
 
   const domIdSuffix = `${story.id}-${instanceKey}`;
 

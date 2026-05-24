@@ -176,9 +176,20 @@ FEEDS = [
 # Canonical section order — mirrors the UI tab order
 ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"]
 
-# Sections that get a contextNote disclaimer in each story card
-# Only sections where a disclaimer adds genuine value (source verification, editorial bias notice)
-CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "opinion"}
+# All sections get a contextNote. AI writes it when the article is reachable;
+# these static strings are the fallback when article fetch fails.
+CONTEXT_NOTE_REQUIRED = {"legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"}
+
+CONTEXT_TEMPLATES = {
+    "legal":    "This ruling or regulatory action may affect litigation strategy, compliance obligations, or precedent applicable to your practice — verify the full order via the source link.",
+    "business": "Corporate developments like this can trigger due diligence, disclosure obligations, or restructuring considerations relevant to transactional and advisory work.",
+    "reliance": "Reliance group moves often signal shifts in regulatory posture, M&A activity, or sector-wide compliance trends worth tracking for corporate and commercial practice.",
+    "retail":   "Retail sector changes can implicate FDI rules, consumer protection law, and e-commerce policy — areas of growing regulatory activity in India.",
+    "tech":     "Technology and data regulation is evolving rapidly in India (DPDP, MeitY, IT Rules) — this development may have compliance or advisory implications.",
+    "world":    "International developments affecting trade, sanctions, or cross-border investment can directly impact Indian law practice and client advisories.",
+    "sports":   "Sports governance and media rights increasingly involve contract, IP, and regulatory disputes — worth tracking for sports law and entertainment practice.",
+    "opinion":  "Editorial perspective — useful for understanding the direction of regulatory discourse and anticipating legislative or policy shifts.",
+}
 
 MAX_PER_SECTION  = 8    # max stories kept per section
 MAX_AGE_HOURS    = 240  # 10 days — survives long weekends, holidays, feed outages
@@ -233,15 +244,6 @@ SOURCE_MAP = {
     "scroll.in":             "Scroll",
     "thewire":               "The Wire",
     "news.google":           "Google News",
-}
-
-CONTEXT_TEMPLATES = {
-    "legal":    "Reported in the legal domain. Verify full judgment or order text via the source link.",
-    "business": "Filed under business coverage. Cross-check with official filings or exchange disclosures.",
-    "reliance": "Pertains to Reliance Industries group. Verify via official exchange filings (BSE/NSE).",
-    "retail":   "Retail sector development. Impact may vary by geography and segment.",
-    "tech":     "Technology sector story. Details may evolve rapidly — check primary source for updates.",
-    "opinion":  "This is an opinion or editorial piece and reflects the author's views.",
 }
 
 
@@ -364,28 +366,62 @@ def fetch_article_text(url):
         return None
 
 
-def ai_summarise(headline, article_text):
+_READER_PROFILE = (
+    "The reader is an Indian lawyer / legal professional who tracks: "
+    "Indian courts and tribunals (Supreme Court, High Courts, NCLT, NCLAT, SEBI, CCI, ED, etc.), "
+    "large Indian corporates especially Reliance Industries and its subsidiaries (Jio, Jio Financial, etc.), "
+    "startup and tech regulation (DPDP Act, MeitY, fintech, edtech, ecommerce policy), "
+    "and global business / geopolitics that affects Indian law, cross-border M&A, or compliance practice."
+)
+
+_SECTION_HINTS = {
+    "legal":    "legal/court story — judgment, order, petition, regulatory action",
+    "business": "business/corporate story — deals, earnings, corporate governance",
+    "reliance": "Reliance Industries group story — RIL, Jio, Jio Financial, Reliance Retail",
+    "retail":   "retail sector story",
+    "tech":     "technology/regulation story",
+    "world":    "global/international story",
+    "sports":   "sports story",
+    "opinion":  "opinion or editorial piece",
+}
+
+
+def ai_enrich_story(headline, section, article_text):
     """
-    Call Claude Haiku to write a 2-3 sentence summary of the article.
-    Returns the summary string, or None if the call fails.
-    Requires the 'anthropic' package and ANTHROPIC_API_KEY env var.
+    One Haiku call → JSON with 'summary' (2-3 sentences, factual) and
+    'contextNote' (1-2 sentences, why this matters to an Indian lawyer).
+    Returns dict or None on failure.
     """
+    import anthropic, json as _json
+    prompt = f"""{_READER_PROFILE}
+
+Section type: {_SECTION_HINTS.get(section, section)}
+Headline: {headline}
+
+Article:
+{article_text[:AI_ARTICLE_CHARS]}
+
+Return ONLY a raw JSON object — no markdown, no code fences, no commentary:
+{{
+  "summary": "2–3 sentence factual summary: what happened, who is involved, and the key development.",
+  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — think: precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
+}}"""
     try:
-        import anthropic
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-        prompt = (
-            f"Headline: {headline}\n\n"
-            f"Article:\n{article_text[:AI_ARTICLE_CHARS]}\n\n"
-            "Write a 2–3 sentence factual summary of this news article. "
-            "Mention what happened, who is involved, and why it matters. "
-            "Be concise and neutral. Do not start with 'This article' or 'The article'."
-        )
         msg = client.messages.create(
             model=AI_MODEL,
-            max_tokens=AI_MAX_TOKENS,
+            max_tokens=320,
             messages=[{"role": "user", "content": prompt}],
         )
-        return msg.content[0].text.strip()
+        raw = msg.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw)
+        data = _json.loads(raw)
+        summary      = str(data.get("summary", "")).strip()
+        context_note = str(data.get("contextNote", "")).strip()
+        if summary and context_note:
+            return {"summary": summary, "contextNote": context_note}
+        return None
     except Exception as e:
         print(f"      AI error: {e}", file=sys.stderr)
         return None
@@ -633,46 +669,45 @@ def build_stories():
             file=sys.stderr,
         )
 
-    # ── AI summarisation pass ─────────────────────────────────────────────────
+    # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
     if AI_ENABLED:
-        print(f"\n── AI summarisation (Claude Haiku) ──────────────────────────",
+        print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
               file=sys.stderr)
 
-        # Collect stories that have no meaningful summary yet
-        needs_summary = [
+        all_stories = [
             story
             for stories in sections.values()
             for story in stories
-            if not story.get("summary")
         ]
-        print(f"   {len(needs_summary)} stories need AI summaries", file=sys.stderr)
+        print(f"   {len(all_stories)} stories to enrich", file=sys.stderr)
 
-        def _summarise_one(story):
-            """Fetch article + call AI. Returns (story, summary_or_None)."""
+        def _enrich_one(story):
+            """Fetch article + call AI for summary & contextNote."""
             text = fetch_article_text(story["sourceUrl"])
             if not text or len(text) < 80:
                 return story, None
-            summary = ai_summarise(story["headline"], text)
-            return story, summary
+            result = ai_enrich_story(story["headline"], story["section"], text)
+            return story, result
 
         ai_ok = ai_fail = 0
         with ThreadPoolExecutor(max_workers=AI_WORKERS) as pool:
-            futures = {pool.submit(_summarise_one, s): s for s in needs_summary}
+            futures = {pool.submit(_enrich_one, s): s for s in all_stories}
             for fut in as_completed(futures):
-                story, summary = fut.result()
+                story, result = fut.result()
                 label = story["headline"][:60]
-                if summary:
-                    story["summary"] = summary
+                if result:
+                    story["summary"]     = result["summary"]
+                    story["contextNote"] = result["contextNote"]
                     ai_ok += 1
                     print(f"   ✓ {label}", file=sys.stderr)
                 else:
                     ai_fail += 1
                     print(f"   ✗ {label}", file=sys.stderr)
 
-        print(f"\n   AI done: {ai_ok} summaries written, {ai_fail} failed/skipped",
+        print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
               file=sys.stderr)
     else:
-        print("\nAI summarisation skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        print("\nAI enrichment skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
