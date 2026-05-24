@@ -384,14 +384,14 @@ RSS excerpt: {rss_context[:600] if rss_context else "(none)"}
 
 Return ONLY a raw JSON object — no markdown, no code fences:
 {{
-  "summary": "2–3 sentence factual summary of what happened, who is involved, and the key development. Use your knowledge of the topic and the RSS excerpt above.",
-  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
+  "summary": "Comprehensive summary covering ALL major points of the story: what happened, who is involved, the background/context, key details, numbers or facts mentioned, reactions or responses from parties involved, and what happens next. Write in flowing paragraphs, not bullet points. Use your full knowledge of the topic — do not just paraphrase the RSS excerpt. Aim for 150–250 words.",
+  "contextNote": "2–3 sentence explanation of why this matters specifically to an Indian lawyer — be concrete and specific: name the relevant statute, tribunal, or regulatory body; identify the compliance risk, litigation angle, precedent, or client advisory implication; explain what action a lawyer tracking this area might take."
 }}"""
     try:
         payload = {
             "model": AI_MODEL,
             "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 400,
+            "max_tokens": 900,
             "temperature": 0.3,
         }
         req = Request(
