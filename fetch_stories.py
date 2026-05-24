@@ -28,13 +28,11 @@ from html import unescape
 DEBUG_MODE = "--debug" in sys.argv
 
 # ── AI summarisation config ────────────────────────────────────────────────────
-ANTHROPIC_API_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
-AI_ENABLED          = bool(ANTHROPIC_API_KEY)
-AI_MODEL            = "claude-haiku-4-5-20251001"
-AI_MAX_TOKENS       = 180     # ~2-3 sentences
-AI_ARTICLE_CHARS    = 4000    # how much article text to feed the model
-AI_FETCH_TIMEOUT    = 10      # seconds per article HTTP request
-AI_WORKERS          = 4       # parallel article-fetch + summarise threads
+GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
+AI_ENABLED      = bool(GEMINI_API_KEY)
+AI_MODEL        = "gemini-1.5-flash"   # stable free-tier model (15 RPM, 1500 RPD)
+AI_WORKERS      = 1       # sequential — keeps us comfortably under the 15 RPM free limit
+AI_CALL_DELAY   = 5       # seconds between Gemini calls (~12 RPM; free tier allows 15)
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -344,26 +342,8 @@ def make_id(section, url):
 
 
 def fetch_article_text(url):
-    """
-    Fetch the real article HTML and extract the main body text.
-    Returns a string (possibly empty) or None if the page is unreachable.
-    Requires the 'trafilatura' package.
-    """
-    try:
-        import trafilatura
-        downloaded = trafilatura.fetch_url(url, no_ssl=True, timeout=AI_FETCH_TIMEOUT)
-        if not downloaded:
-            return None
-        text = trafilatura.extract(
-            downloaded,
-            include_comments=False,
-            include_tables=False,
-            no_fallback=False,
-        )
-        return text or None
-    except Exception as e:
-        print(f"      article-fetch error: {e}", file=sys.stderr)
-        return None
+    """Stub — article fetching removed; AI now works from RSS metadata only."""
+    return None
 
 
 _READER_PROFILE = (
@@ -386,41 +366,39 @@ _SECTION_HINTS = {
 }
 
 
-def ai_enrich_story(headline, section, article_text):
+def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    One Haiku call → JSON with 'summary' (2-3 sentences, factual) and
-    'contextNote' (1-2 sentences, why this matters to an Indian lawyer).
-    Returns dict or None on failure.
+    One Gemini call using RSS metadata (no article fetching needed).
+    Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
-    import anthropic, json as _json
+    from google import genai as _genai
+    import json as _json
+    rss_context = " ".join(filter(None, [hook, summary])).strip()
+    tags_str    = ", ".join(tags) if tags else ""
     prompt = f"""{_READER_PROFILE}
 
-Section type: {_SECTION_HINTS.get(section, section)}
+Section: {_SECTION_HINTS.get(section, section)}
+Source: {source}
+Tags: {tags_str}
 Headline: {headline}
+RSS excerpt: {rss_context[:600] if rss_context else "(none)"}
 
-Article:
-{article_text[:AI_ARTICLE_CHARS]}
-
-Return ONLY a raw JSON object — no markdown, no code fences, no commentary:
+Return ONLY a raw JSON object — no markdown, no code fences:
 {{
-  "summary": "2–3 sentence factual summary: what happened, who is involved, and the key development.",
-  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — think: precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
+  "summary": "2–3 sentence factual summary of what happened, who is involved, and the key development. Use your knowledge of the topic and the RSS excerpt above.",
+  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
-        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-        msg = client.messages.create(
-            model=AI_MODEL,
-            max_tokens=320,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw = msg.content[0].text.strip()
+        client   = _genai.Client(api_key=GEMINI_API_KEY)
+        response = client.models.generate_content(model=AI_MODEL, contents=prompt)
+        raw      = response.text.strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
-        data = _json.loads(raw)
-        summary      = str(data.get("summary", "")).strip()
+        data         = _json.loads(raw)
+        summary_out  = str(data.get("summary", "")).strip()
         context_note = str(data.get("contextNote", "")).strip()
-        if summary and context_note:
-            return {"summary": summary, "contextNote": context_note}
+        if summary_out and context_note:
+            return {"summary": summary_out, "contextNote": context_note}
         return None
     except Exception as e:
         print(f"      AI error: {e}", file=sys.stderr)
@@ -671,7 +649,7 @@ def build_stories():
 
     # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
     if AI_ENABLED:
-        print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
+        print(f"\n── AI enrichment (Gemini {AI_MODEL}) ─────────────────────────────",
               file=sys.stderr)
 
         all_stories = [
@@ -679,35 +657,35 @@ def build_stories():
             for stories in sections.values()
             for story in stories
         ]
-        print(f"   {len(all_stories)} stories to enrich", file=sys.stderr)
-
-        def _enrich_one(story):
-            """Fetch article + call AI for summary & contextNote."""
-            text = fetch_article_text(story["sourceUrl"])
-            if not text or len(text) < 80:
-                return story, None
-            result = ai_enrich_story(story["headline"], story["section"], text)
-            return story, result
+        print(f"   {len(all_stories)} stories to enrich  "
+              f"(sequential, {AI_CALL_DELAY}s delay → ~{60//AI_CALL_DELAY} RPM)",
+              file=sys.stderr)
 
         ai_ok = ai_fail = 0
-        with ThreadPoolExecutor(max_workers=AI_WORKERS) as pool:
-            futures = {pool.submit(_enrich_one, s): s for s in all_stories}
-            for fut in as_completed(futures):
-                story, result = fut.result()
-                label = story["headline"][:60]
-                if result:
-                    story["summary"]     = result["summary"]
-                    story["contextNote"] = result["contextNote"]
-                    ai_ok += 1
-                    print(f"   ✓ {label}", file=sys.stderr)
-                else:
-                    ai_fail += 1
-                    print(f"   ✗ {label}", file=sys.stderr)
+        for story in all_stories:
+            label  = story["headline"][:60]
+            result = ai_enrich_story(
+                story["headline"],
+                story["section"],
+                story.get("hook", ""),
+                story.get("summary", ""),
+                story.get("source", ""),
+                story.get("tags", []),
+            )
+            if result:
+                story["summary"]     = result["summary"]
+                story["contextNote"] = result["contextNote"]
+                ai_ok += 1
+                print(f"   ✓ {label}", file=sys.stderr)
+            else:
+                ai_fail += 1
+                print(f"   ✗ {label}", file=sys.stderr)
+            time.sleep(AI_CALL_DELAY)
 
         print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
               file=sys.stderr)
     else:
-        print("\nAI enrichment skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        print("\nAI enrichment skipped — GEMINI_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
