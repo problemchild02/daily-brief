@@ -368,10 +368,9 @@ _SECTION_HINTS = {
 
 def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    One Gemini call using RSS metadata (no article fetching needed).
+    Direct REST call to Gemini API — no SDK, uses only built-in urllib.
     Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
-    from google import genai as _genai
     import json as _json
     rss_context = " ".join(filter(None, [hook, summary])).strip()
     tags_str    = ", ".join(tags) if tags else ""
@@ -389,9 +388,23 @@ Return ONLY a raw JSON object — no markdown, no code fences:
   "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
-        client   = _genai.Client(api_key=GEMINI_API_KEY)
-        response = client.models.generate_content(model=AI_MODEL, contents=prompt)
-        raw      = response.text.strip()
+        url = (
+            "https://generativelanguage.googleapis.com/v1beta/models/"
+            f"{AI_MODEL}:generateContent?key={GEMINI_API_KEY}"
+        )
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"maxOutputTokens": 400, "temperature": 0.3},
+        }
+        req = Request(
+            url,
+            data=_json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urlopen(req, timeout=30) as resp:
+            result = _json.loads(resp.read().decode("utf-8"))
+        raw = result["candidates"][0]["content"]["parts"][0]["text"].strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
         data         = _json.loads(raw)
@@ -399,6 +412,10 @@ Return ONLY a raw JSON object — no markdown, no code fences:
         context_note = str(data.get("contextNote", "")).strip()
         if summary_out and context_note:
             return {"summary": summary_out, "contextNote": context_note}
+        return None
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="ignore")
+        print(f"      AI error HTTP {e.code}: {body[:300]}", file=sys.stderr)
         return None
     except Exception as e:
         print(f"      AI error: {e}", file=sys.stderr)
