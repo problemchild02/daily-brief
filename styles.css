@@ -569,6 +569,11 @@ button {
   color: var(--text);
 }
 
+.story-summary--none {
+  font-style: italic;
+  color: var(--text-faint);
+}
+
 .why-matters {
   margin-bottom: var(--space-4);
   padding: var(--space-3) var(--space-4);
