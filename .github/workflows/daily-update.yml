@@ -13,7 +13,7 @@ permissions:
 jobs:
   update-stories:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repo
@@ -26,8 +26,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch RSS stories
+      - name: Install dependencies
+        run: pip install anthropic trafilatura
+
+      - name: Fetch RSS stories + AI summaries
         id: fetch
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           set -o pipefail
           python fetch_stories.py 2>&1 | tee fetch-log.txt

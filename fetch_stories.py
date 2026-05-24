@@ -18,6 +18,7 @@ Manual refresh:
 """
 
 import json, hashlib, re, sys, time, shutil, os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from xml.etree import ElementTree as ET
 from urllib.request import urlopen, Request
@@ -25,6 +26,15 @@ from urllib.error import URLError, HTTPError
 from html import unescape
 
 DEBUG_MODE = "--debug" in sys.argv
+
+# ── AI summarisation config ────────────────────────────────────────────────────
+ANTHROPIC_API_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
+AI_ENABLED          = bool(ANTHROPIC_API_KEY)
+AI_MODEL            = "claude-haiku-4-5-20251001"
+AI_MAX_TOKENS       = 180     # ~2-3 sentences
+AI_ARTICLE_CHARS    = 4000    # how much article text to feed the model
+AI_FETCH_TIMEOUT    = 10      # seconds per article HTTP request
+AI_WORKERS          = 4       # parallel article-fetch + summarise threads
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -166,9 +176,20 @@ FEEDS = [
 # Canonical section order — mirrors the UI tab order
 ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"]
 
-# Sections that get a contextNote disclaimer in each story card
-# Only sections where a disclaimer adds genuine value (source verification, editorial bias notice)
-CONTEXT_NOTE_REQUIRED = {"legal", "reliance", "retail", "opinion"}
+# All sections get a contextNote. AI writes it when the article is reachable;
+# these static strings are the fallback when article fetch fails.
+CONTEXT_NOTE_REQUIRED = {"legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"}
+
+CONTEXT_TEMPLATES = {
+    "legal":    "This ruling or regulatory action may affect litigation strategy, compliance obligations, or precedent applicable to your practice — verify the full order via the source link.",
+    "business": "Corporate developments like this can trigger due diligence, disclosure obligations, or restructuring considerations relevant to transactional and advisory work.",
+    "reliance": "Reliance group moves often signal shifts in regulatory posture, M&A activity, or sector-wide compliance trends worth tracking for corporate and commercial practice.",
+    "retail":   "Retail sector changes can implicate FDI rules, consumer protection law, and e-commerce policy — areas of growing regulatory activity in India.",
+    "tech":     "Technology and data regulation is evolving rapidly in India (DPDP, MeitY, IT Rules) — this development may have compliance or advisory implications.",
+    "world":    "International developments affecting trade, sanctions, or cross-border investment can directly impact Indian law practice and client advisories.",
+    "sports":   "Sports governance and media rights increasingly involve contract, IP, and regulatory disputes — worth tracking for sports law and entertainment practice.",
+    "opinion":  "Editorial perspective — useful for understanding the direction of regulatory discourse and anticipating legislative or policy shifts.",
+}
 
 MAX_PER_SECTION  = 8    # max stories kept per section
 MAX_AGE_HOURS    = 240  # 10 days — survives long weekends, holidays, feed outages
@@ -225,15 +246,6 @@ SOURCE_MAP = {
     "news.google":           "Google News",
 }
 
-CONTEXT_TEMPLATES = {
-    "legal":    "Reported in the legal domain. Verify full judgment or order text via the source link.",
-    "business": "Filed under business coverage. Cross-check with official filings or exchange disclosures.",
-    "reliance": "Pertains to Reliance Industries group. Verify via official exchange filings (BSE/NSE).",
-    "retail":   "Retail sector development. Impact may vary by geography and segment.",
-    "tech":     "Technology sector story. Details may evolve rapidly — check primary source for updates.",
-    "opinion":  "This is an opinion or editorial piece and reflects the author's views.",
-}
-
 
 # ── HELPERS ────────────────────────────────────────────────────────────────────
 
@@ -287,6 +299,27 @@ _BOILERPLATE_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Domains that should never appear as news stories (encyclopedias, dictionaries, etc.)
+_JUNK_DOMAINS = {
+    "britannica.com", "wikipedia.org", "wikimedia.org",
+    "merriam-webster.com", "dictionary.com", "investopedia.com",
+    "thoughtco.com", "thefreedictionary.com",
+}
+
+
+def is_junk_url(url):
+    try:
+        from urllib.parse import urlparse
+        host = urlparse(url).netloc.lower().lstrip("www.")
+        return any(host == d or host.endswith("." + d) for d in _JUNK_DOMAINS)
+    except Exception:
+        return False
+
+
+def _norm(text):
+    """Lowercase + collapse whitespace + strip trailing ellipsis for comparison."""
+    return re.sub(r"\s+", " ", text.lower().strip()).rstrip("\u2026")
+
 _LEADING_JUNK_RE = re.compile(
     r"^(?:\|\s*)?(?:Image|Photo|Video|Illustration|Screenshot):[^.!?]{0,120}\.?\s*",
     re.IGNORECASE,
@@ -308,6 +341,90 @@ def truncate(text, maxlen):
 
 def make_id(section, url):
     return f"{section}-{hashlib.sha1(url.encode()).hexdigest()[:8]}"
+
+
+def fetch_article_text(url):
+    """
+    Fetch the real article HTML and extract the main body text.
+    Returns a string (possibly empty) or None if the page is unreachable.
+    Requires the 'trafilatura' package.
+    """
+    try:
+        import trafilatura
+        downloaded = trafilatura.fetch_url(url, no_ssl=True, timeout=AI_FETCH_TIMEOUT)
+        if not downloaded:
+            return None
+        text = trafilatura.extract(
+            downloaded,
+            include_comments=False,
+            include_tables=False,
+            no_fallback=False,
+        )
+        return text or None
+    except Exception as e:
+        print(f"      article-fetch error: {e}", file=sys.stderr)
+        return None
+
+
+_READER_PROFILE = (
+    "The reader is an Indian lawyer / legal professional who tracks: "
+    "Indian courts and tribunals (Supreme Court, High Courts, NCLT, NCLAT, SEBI, CCI, ED, etc.), "
+    "large Indian corporates especially Reliance Industries and its subsidiaries (Jio, Jio Financial, etc.), "
+    "startup and tech regulation (DPDP Act, MeitY, fintech, edtech, ecommerce policy), "
+    "and global business / geopolitics that affects Indian law, cross-border M&A, or compliance practice."
+)
+
+_SECTION_HINTS = {
+    "legal":    "legal/court story — judgment, order, petition, regulatory action",
+    "business": "business/corporate story — deals, earnings, corporate governance",
+    "reliance": "Reliance Industries group story — RIL, Jio, Jio Financial, Reliance Retail",
+    "retail":   "retail sector story",
+    "tech":     "technology/regulation story",
+    "world":    "global/international story",
+    "sports":   "sports story",
+    "opinion":  "opinion or editorial piece",
+}
+
+
+def ai_enrich_story(headline, section, article_text):
+    """
+    One Haiku call → JSON with 'summary' (2-3 sentences, factual) and
+    'contextNote' (1-2 sentences, why this matters to an Indian lawyer).
+    Returns dict or None on failure.
+    """
+    import anthropic, json as _json
+    prompt = f"""{_READER_PROFILE}
+
+Section type: {_SECTION_HINTS.get(section, section)}
+Headline: {headline}
+
+Article:
+{article_text[:AI_ARTICLE_CHARS]}
+
+Return ONLY a raw JSON object — no markdown, no code fences, no commentary:
+{{
+  "summary": "2–3 sentence factual summary: what happened, who is involved, and the key development.",
+  "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — think: precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
+}}"""
+    try:
+        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        msg = client.messages.create(
+            model=AI_MODEL,
+            max_tokens=320,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = msg.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw)
+        data = _json.loads(raw)
+        summary      = str(data.get("summary", "")).strip()
+        context_note = str(data.get("contextNote", "")).strip()
+        if summary and context_note:
+            return {"summary": summary, "contextNote": context_note}
+        return None
+    except Exception as e:
+        print(f"      AI error: {e}", file=sys.stderr)
+        return None
 
 
 def parse_date(item):
@@ -450,6 +567,9 @@ def build_stories():
             if not url:
                 continue
 
+            if is_junk_url(url):
+                continue
+
             pub_dt = parse_date(item)
             if pub_dt is None:
                 items_no_date += 1
@@ -462,6 +582,14 @@ def build_stories():
                 title_el = item.find("{http://www.w3.org/2005/Atom}title")
             headline = truncate(strip_html(title_el.text if title_el is not None else ""), 180)
             if len(headline) < 8:
+                continue
+
+            # Google News appends " - Publication Name" to every headline — strip it
+            if "news.google.com" in feed_url and " - " in headline:
+                headline = headline.rsplit(" - ", 1)[0].strip()
+
+            # Skip encyclopedia / directory entries — their titles contain "|"
+            if "|" in headline:
                 continue
 
             desc_el = item.find("description")
@@ -484,6 +612,11 @@ def build_stories():
                 remaining = " ".join(sentences[1:]).strip()
                 if len(remaining) >= 30:
                     summary = remaining
+
+            # If summary is still essentially the same as the hook, clear it —
+            # an empty summary is better than showing the same sentence twice
+            if _norm(summary) == _norm(hook) or _norm(summary) == _norm(headline):
+                summary = ""
 
             if url not in seen:
                 story = build_story(
@@ -535,6 +668,46 @@ def build_stories():
             f"{items_too_old} too old, {items_no_date} no-date",
             file=sys.stderr,
         )
+
+    # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
+    if AI_ENABLED:
+        print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
+              file=sys.stderr)
+
+        all_stories = [
+            story
+            for stories in sections.values()
+            for story in stories
+        ]
+        print(f"   {len(all_stories)} stories to enrich", file=sys.stderr)
+
+        def _enrich_one(story):
+            """Fetch article + call AI for summary & contextNote."""
+            text = fetch_article_text(story["sourceUrl"])
+            if not text or len(text) < 80:
+                return story, None
+            result = ai_enrich_story(story["headline"], story["section"], text)
+            return story, result
+
+        ai_ok = ai_fail = 0
+        with ThreadPoolExecutor(max_workers=AI_WORKERS) as pool:
+            futures = {pool.submit(_enrich_one, s): s for s in all_stories}
+            for fut in as_completed(futures):
+                story, result = fut.result()
+                label = story["headline"][:60]
+                if result:
+                    story["summary"]     = result["summary"]
+                    story["contextNote"] = result["contextNote"]
+                    ai_ok += 1
+                    print(f"   ✓ {label}", file=sys.stderr)
+                else:
+                    ai_fail += 1
+                    print(f"   ✗ {label}", file=sys.stderr)
+
+        print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
+              file=sys.stderr)
+    else:
+        print("\nAI enrichment skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
