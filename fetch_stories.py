@@ -30,8 +30,9 @@ DEBUG_MODE = "--debug" in sys.argv
 # ── AI summarisation config ────────────────────────────────────────────────────
 GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
 AI_ENABLED      = bool(GEMINI_API_KEY)
-AI_MODEL        = "gemini-2.0-flash"
-AI_WORKERS      = 4       # parallel summarise threads
+AI_MODEL        = "gemini-1.5-flash"   # stable free-tier model (15 RPM, 1500 RPD)
+AI_WORKERS      = 1       # sequential — keeps us comfortably under the 15 RPM free limit
+AI_CALL_DELAY   = 5       # seconds between Gemini calls (~12 RPM; free tier allows 15)
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -341,27 +342,8 @@ def make_id(section, url):
 
 
 def fetch_article_text(url):
-    """
-    Fetch article HTML via urllib (same method used for RSS feeds) then
-    extract body text with trafilatura. Returns text string or None.
-    """
-    try:
-        import trafilatura
-        req = Request(url, headers=_HEADERS)
-        with urlopen(req, timeout=AI_FETCH_TIMEOUT) as resp:
-            html = resp.read().decode("utf-8", errors="ignore")
-        if not html:
-            return None
-        text = trafilatura.extract(
-            html,
-            include_comments=False,
-            include_tables=False,
-            no_fallback=False,
-        )
-        return text or None
-    except Exception as e:
-        print(f"      article-fetch error: {e}", file=sys.stderr)
-        return None
+    """Stub — article fetching removed; AI now works from RSS metadata only."""
+    return None
 
 
 _READER_PROFILE = (
@@ -386,10 +368,11 @@ _SECTION_HINTS = {
 
 def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    One Gemini call using RSS metadata we already have (no article fetching).
+    One Gemini call using RSS metadata (no article fetching needed).
     Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
-    import google.generativeai as genai, json as _json
+    from google import genai as _genai
+    import json as _json
     rss_context = " ".join(filter(None, [hook, summary])).strip()
     tags_str    = ", ".join(tags) if tags else ""
     prompt = f"""{_READER_PROFILE}
@@ -406,13 +389,12 @@ Return ONLY a raw JSON object — no markdown, no code fences:
   "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
-        genai.configure(api_key=GEMINI_API_KEY)
-        model  = genai.GenerativeModel(AI_MODEL)
-        result = model.generate_content(prompt)
-        raw    = result.text.strip()
+        client   = _genai.Client(api_key=GEMINI_API_KEY)
+        response = client.models.generate_content(model=AI_MODEL, contents=prompt)
+        raw      = response.text.strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
-        data = _json.loads(raw)
+        data         = _json.loads(raw)
         summary_out  = str(data.get("summary", "")).strip()
         context_note = str(data.get("contextNote", "")).strip()
         if summary_out and context_note:
@@ -667,7 +649,7 @@ def build_stories():
 
     # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
     if AI_ENABLED:
-        print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
+        print(f"\n── AI enrichment (Gemini {AI_MODEL}) ─────────────────────────────",
               file=sys.stderr)
 
         all_stories = [
@@ -675,10 +657,13 @@ def build_stories():
             for stories in sections.values()
             for story in stories
         ]
-        print(f"   {len(all_stories)} stories to enrich", file=sys.stderr)
+        print(f"   {len(all_stories)} stories to enrich  "
+              f"(sequential, {AI_CALL_DELAY}s delay → ~{60//AI_CALL_DELAY} RPM)",
+              file=sys.stderr)
 
-        def _enrich_one(story):
-            """Call AI using RSS metadata we already have — no article fetching."""
+        ai_ok = ai_fail = 0
+        for story in all_stories:
+            label  = story["headline"][:60]
             result = ai_enrich_story(
                 story["headline"],
                 story["section"],
@@ -687,27 +672,20 @@ def build_stories():
                 story.get("source", ""),
                 story.get("tags", []),
             )
-            return story, result
-
-        ai_ok = ai_fail = 0
-        with ThreadPoolExecutor(max_workers=AI_WORKERS) as pool:
-            futures = {pool.submit(_enrich_one, s): s for s in all_stories}
-            for fut in as_completed(futures):
-                story, result = fut.result()
-                label = story["headline"][:60]
-                if result:
-                    story["summary"]     = result["summary"]
-                    story["contextNote"] = result["contextNote"]
-                    ai_ok += 1
-                    print(f"   ✓ {label}", file=sys.stderr)
-                else:
-                    ai_fail += 1
-                    print(f"   ✗ {label}", file=sys.stderr)
+            if result:
+                story["summary"]     = result["summary"]
+                story["contextNote"] = result["contextNote"]
+                ai_ok += 1
+                print(f"   ✓ {label}", file=sys.stderr)
+            else:
+                ai_fail += 1
+                print(f"   ✗ {label}", file=sys.stderr)
+            time.sleep(AI_CALL_DELAY)
 
         print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
               file=sys.stderr)
     else:
-        print("\nAI enrichment skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        print("\nAI enrichment skipped — GEMINI_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
