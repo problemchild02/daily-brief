@@ -30,7 +30,7 @@ DEBUG_MODE = "--debug" in sys.argv
 # ── AI summarisation config ────────────────────────────────────────────────────
 GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
 AI_ENABLED      = bool(GEMINI_API_KEY)
-AI_MODEL        = "gemini-1.5-flash"   # stable free-tier model (15 RPM, 1500 RPD)
+AI_MODEL        = "gemini-2.0-flash"   # v1beta model — works with google-genai SDK default endpoint
 AI_WORKERS      = 1       # sequential — keeps us comfortably under the 15 RPM free limit
 AI_CALL_DELAY   = 5       # seconds between Gemini calls (~12 RPM; free tier allows 15)
 
