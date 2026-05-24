@@ -28,13 +28,10 @@ from html import unescape
 DEBUG_MODE = "--debug" in sys.argv
 
 # ── AI summarisation config ────────────────────────────────────────────────────
-ANTHROPIC_API_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
-AI_ENABLED          = bool(ANTHROPIC_API_KEY)
-AI_MODEL            = "claude-haiku-4-5-20251001"
-AI_MAX_TOKENS       = 180     # ~2-3 sentences
-AI_ARTICLE_CHARS    = 4000    # how much article text to feed the model
-AI_FETCH_TIMEOUT    = 10      # seconds per article HTTP request
-AI_WORKERS          = 4       # parallel article-fetch + summarise threads
+GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
+AI_ENABLED      = bool(GEMINI_API_KEY)
+AI_MODEL        = "gemini-2.0-flash"
+AI_WORKERS      = 4       # parallel summarise threads
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -389,10 +386,10 @@ _SECTION_HINTS = {
 
 def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    One Haiku call using RSS metadata we already have (no article fetching).
+    One Gemini call using RSS metadata we already have (no article fetching).
     Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
-    import anthropic, json as _json
+    import google.generativeai as genai, json as _json
     rss_context = " ".join(filter(None, [hook, summary])).strip()
     tags_str    = ", ".join(tags) if tags else ""
     prompt = f"""{_READER_PROFILE}
@@ -409,13 +406,10 @@ Return ONLY a raw JSON object — no markdown, no code fences:
   "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
-        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-        msg = client.messages.create(
-            model=AI_MODEL,
-            max_tokens=320,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw = msg.content[0].text.strip()
+        genai.configure(api_key=GEMINI_API_KEY)
+        model  = genai.GenerativeModel(AI_MODEL)
+        result = model.generate_content(prompt)
+        raw    = result.text.strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
         data = _json.loads(raw)

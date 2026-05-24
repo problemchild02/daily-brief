@@ -27,12 +27,12 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install anthropic
+        run: pip install google-generativeai
 
       - name: Fetch RSS stories + AI summaries
         id: fetch
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           set -o pipefail
           python fetch_stories.py 2>&1 | tee fetch-log.txt
