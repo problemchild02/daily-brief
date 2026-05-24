@@ -30,7 +30,7 @@ DEBUG_MODE = "--debug" in sys.argv
 # ── AI summarisation config ────────────────────────────────────────────────────
 GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
 AI_ENABLED      = bool(GEMINI_API_KEY)
-AI_MODEL        = "gemini-2.0-flash"   # v1beta model — works with google-genai SDK default endpoint
+AI_MODEL        = "gemini-1.5-flash"   # stable model, available in v1 (stable) API
 AI_WORKERS      = 1       # sequential — keeps us comfortably under the 15 RPM free limit
 AI_CALL_DELAY   = 5       # seconds between Gemini calls (~12 RPM; free tier allows 15)
 
@@ -389,7 +389,7 @@ Return ONLY a raw JSON object — no markdown, no code fences:
   "contextNote": "1–2 sentence explanation of why this matters specifically to an Indian lawyer — precedent, compliance risk, regulatory change, client impact, or litigation opportunity."
 }}"""
     try:
-        client   = _genai.Client(api_key=GEMINI_API_KEY)
+        client   = _genai.Client(api_key=GEMINI_API_KEY, http_options={'api_version': 'v1'})
         response = client.models.generate_content(model=AI_MODEL, contents=prompt)
         raw      = response.text.strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
