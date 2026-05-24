@@ -28,11 +28,11 @@ from html import unescape
 DEBUG_MODE = "--debug" in sys.argv
 
 # ── AI summarisation config ────────────────────────────────────────────────────
-GROQ_API_KEY    = os.environ.get("GROQ_API_KEY", "")
-AI_ENABLED      = bool(GROQ_API_KEY)
-AI_MODEL        = "llama-3.3-70b-versatile"   # Groq free tier: 14,400 req/day
-AI_WORKERS      = 1       # sequential
-AI_CALL_DELAY   = 3       # seconds between calls (free tier: 30 RPM)
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+AI_ENABLED        = bool(ANTHROPIC_API_KEY)
+AI_MODEL          = "claude-haiku-4-5-20251001"
+AI_WORKERS        = 1
+AI_CALL_DELAY     = 1   # Haiku is fast; 1s gap is plenty
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 # Each entry: (url, primary_section, tags, priority)
@@ -368,7 +368,7 @@ _SECTION_HINTS = {
 
 def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
-    Groq API (OpenAI-compatible) — free tier, no credit card required.
+    Anthropic Messages API via direct urllib — no SDK needed.
     Returns dict {"summary": str, "contextNote": str} or None on failure.
     """
     import json as _json
@@ -389,23 +389,23 @@ Return ONLY a raw JSON object — no markdown, no code fences:
 }}"""
     try:
         payload = {
-            "model": AI_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
+            "model":      AI_MODEL,
             "max_tokens": 900,
-            "temperature": 0.3,
+            "messages":   [{"role": "user", "content": prompt}],
         }
         req = Request(
-            "https://api.groq.com/openai/v1/chat/completions",
+            "https://api.anthropic.com/v1/messages",
             data=_json.dumps(payload).encode("utf-8"),
             headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {GROQ_API_KEY}",
+                "Content-Type":      "application/json",
+                "x-api-key":         ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
             },
             method="POST",
         )
         with urlopen(req, timeout=30) as resp:
             result = _json.loads(resp.read().decode("utf-8"))
-        raw = result["choices"][0]["message"]["content"].strip()
+        raw = result["content"][0]["text"].strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
         data         = _json.loads(raw)
@@ -667,7 +667,7 @@ def build_stories():
 
     # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
     if AI_ENABLED:
-        print(f"\n── AI enrichment (Groq/{AI_MODEL}) ─────────────────────────────",
+        print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
               file=sys.stderr)
 
         all_stories = [
@@ -703,7 +703,7 @@ def build_stories():
         print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
               file=sys.stderr)
     else:
-        print("\nAI enrichment skipped — GROQ_API_KEY not set.", file=sys.stderr)
+        print("\nAI enrichment skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""
