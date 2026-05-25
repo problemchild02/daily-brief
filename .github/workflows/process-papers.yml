@@ -1,0 +1,39 @@
+name: Daily Brief — Process Paper Import
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  process-papers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Process pending paper files
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          mkdir -p papers/pending papers/processed
+          python process_papers.py 2>&1
+
+      - name: Commit results
+        run: |
+          git config user.name  "daily-brief-bot"
+          git config user.email "bot@daily-brief.local"
+          git add paper_stories.json papers/
+          git diff --cached --quiet && echo "No changes to commit." || \
+            git commit -m "chore: process paper import $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

@@ -874,7 +874,7 @@ async function initApp() {
   initHeaderRefreshButton();
   initSettingsModal();
   initPdfImport();
-  renderPaperStories();
+  loadAndRenderPaperStories();
 
   const themeBtn = document.getElementById("btn-theme");
   if (themeBtn) {
@@ -1110,13 +1110,12 @@ function parseStoriesFromText(text, sourceName) {
   return stories.slice(0, 40);
 }
 
-function renderPaperStories() {
+function renderPaperStories(stories) {
   const grid  = document.getElementById("papers-grid");
   const empty = document.getElementById("papers-empty");
   if (!grid) return;
 
-  const stories = loadPaperStories();
-  if (stories.length === 0) {
+  if (!stories || stories.length === 0) {
     grid.hidden = true;
     if (empty) empty.hidden = false;
     return;
@@ -1127,6 +1126,72 @@ function renderPaperStories() {
   initExpandButtons();
   initNotes();
   initBookmarks();
+}
+
+async function loadAndRenderPaperStories() {
+  // Try AI-enriched paper_stories.json first, fall back to localStorage preview
+  let stories = null;
+  try {
+    const res = await fetch("./paper_stories.json", { cache: "reload" });
+    if (res.ok) stories = await res.json();
+  } catch { /* file doesn't exist yet */ }
+
+  if (!stories || stories.length === 0) {
+    stories = loadPaperStories();
+  }
+  renderPaperStories(stories);
+
+  // Show AI badge on papers tab if we loaded from the server file
+  const tab = document.getElementById("tab-papers");
+  if (tab && stories && stories.some((s) => s.contextNote)) {
+    tab.title = "Newspaper imports — AI summaries included";
+  }
+}
+
+function strToBase64(str) {
+  const encoder = new TextEncoder();
+  const bytes = encoder.encode(str);
+  let binary = "";
+  bytes.forEach((b) => (binary += String.fromCharCode(b)));
+  return btoa(binary);
+}
+
+async function uploadTextToGithub(pat, filename, content) {
+  const path = `papers/pending/${filename}`;
+  const res = await fetch(
+    `https://api.github.com/repos/problemchild02/daily-brief/contents/${path}`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${pat}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `paper: add ${filename}`,
+        content: strToBase64(content),
+      }),
+    }
+  );
+  return res.ok;
+}
+
+async function triggerPaperWorkflow(pat) {
+  const res = await fetch(
+    "https://api.github.com/repos/problemchild02/daily-brief/actions/workflows/process-papers.yml/dispatches",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${pat}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ref: "main" }),
+    }
+  );
+  return res.status === 204;
 }
 
 function initPdfImport() {
@@ -1148,6 +1213,8 @@ function initPdfImport() {
   if (!overlay) return;
 
   let parsedStories = [];
+  let extractedText = "";
+  let currentFile   = null;
 
   function showStep(step) {
     stepPick.hidden   = step !== "pick";
@@ -1156,7 +1223,13 @@ function initPdfImport() {
   }
 
   function openModal() { overlay.hidden = false; showStep("pick"); }
-  function closeModal() { overlay.hidden = true; fileInput.value = ""; parsedStories = []; }
+  function closeModal() {
+    overlay.hidden = true;
+    fileInput.value = "";
+    parsedStories = [];
+    extractedText = "";
+    currentFile = null;
+  }
 
   openBtn.addEventListener("click", openModal);
   closeBtn.addEventListener("click", closeModal);
@@ -1177,17 +1250,18 @@ function initPdfImport() {
   });
 
   async function processFile(file) {
+    currentFile = file;
     showStep("processing");
     progLabel.textContent = "Loading PDF library…";
     try {
       parsedStories = [];
-      const text = await extractPdfText(file, (page, total) => {
+      extractedText = await extractPdfText(file, (page, total) => {
         progLabel.textContent = `Extracting page ${page} of ${total}…`;
       });
       progLabel.textContent = "Parsing stories…";
-      parsedStories = parseStoriesFromText(text, file.name.replace(/\.pdf$/i, ""));
+      parsedStories = parseStoriesFromText(extractedText, file.name.replace(/\.pdf$/i, ""));
       if (parsedStories.length === 0) {
-        progLabel.textContent = "No stories could be detected. This PDF may be image-based (scanned).";
+        progLabel.textContent = "No stories detected — this PDF may be image-based (scanned). Only text-based PDFs work.";
         return;
       }
       fileName.textContent = file.name;
@@ -1212,17 +1286,42 @@ function initPdfImport() {
   storyList.addEventListener("input", (e) => {
     const idx = +e.target.dataset.idx;
     if (isNaN(idx)) return;
-    if (e.target.tagName === "INPUT") parsedStories[idx].headline = e.target.value;
-    if (e.target.tagName === "SELECT") parsedStories[idx].section = e.target.value;
+    if (e.target.tagName === "INPUT")  parsedStories[idx].headline = e.target.value;
+    if (e.target.tagName === "SELECT") parsedStories[idx].section  = e.target.value;
   });
 
   backBtn.addEventListener("click", () => { fileInput.value = ""; showStep("pick"); });
 
-  addBtn.addEventListener("click", () => {
+  addBtn.addEventListener("click", async () => {
+    // 1. Save heuristic stories to localStorage immediately for instant preview
     const existing = loadPaperStories();
     savePaperStories([...existing, ...parsedStories]);
-    renderPaperStories();
-    closeModal();
+    renderPaperStories([...existing, ...parsedStories]);
+
+    // 2. If GitHub PAT is set, upload the text and trigger AI processing
+    const pat = loadSettings().githubPat;
+    if (pat && extractedText && currentFile) {
+      addBtn.disabled = true;
+      addBtn.textContent = "Uploading for AI…";
+      try {
+        const ts = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 15);
+        const safeName = currentFile.name.replace(/\.pdf$/i, "").replace(/[^a-zA-Z0-9_\-]/g, "_");
+        const filename = `${ts}-${safeName}.txt`;
+        const uploaded = await uploadTextToGithub(pat, filename, extractedText);
+        if (uploaded) {
+          await triggerPaperWorkflow(pat);
+          addBtn.textContent = "✓ Submitted for AI processing";
+        } else {
+          addBtn.textContent = "Upload failed — check PAT permissions";
+        }
+      } catch (e) {
+        addBtn.textContent = `Upload error: ${e.message}`;
+      }
+      setTimeout(closeModal, 2200);
+    } else {
+      closeModal();
+    }
+
     // Switch to Papers tab
     const papersTab = document.getElementById("tab-papers");
     if (papersTab) papersTab.click();
@@ -1232,7 +1331,7 @@ function initPdfImport() {
     clearBtn.addEventListener("click", () => {
       if (confirm("Clear all imported newspaper stories?")) {
         savePaperStories([]);
-        renderPaperStories();
+        renderPaperStories([]);
       }
     });
   }
