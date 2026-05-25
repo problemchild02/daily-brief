@@ -1,17 +1,17 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-15 07:15 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (202,519 bytes)
+    OK  (195,069 bytes)
     + [legal] Plea In Supreme Court Seeks Probe Into Activities Linked To ‘Cockroach Janta Par
     + [legal] Twisha Sharma case in Supreme Court: Suspicious death, dowry allegations, CBI pr
-    + [legal] Twisha Sharma Case Supreme Court Hearing Live: SC calls for fair probe in death 
     + [legal] Supreme Court To Hear Twisha Sharma Case Amid Allegations Of Bias In Probe
     + [legal] Expanding the court, avoiding a larger debate
     + [legal] SC seeks reference to a larger Bench to resolve UAPA bail divergence
     + [legal] Supreme Court expresses concern over media narrative in Twisha Sharma death case
     + [legal] Stray dogs case: Supreme Court refuses to entertain mentioning of plea over Punj
-    → 100 items: 8 accepted, 1 too old, 0 no-date
+    + [legal] Twisha Sharma case update: Supreme Court begins hearing, dowry allegations, laps
+    → 100 items: 8 accepted, 2 too old, 0 no-date
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
   [     legal] SKIP (section full) https://www.barandbench.com/feed
@@ -19,14 +19,14 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (190,778 bytes)
-    → 93 items: 0 accepted, 93 too old, 0 no-date
+    OK  (143,633 bytes)
+    → 75 items: 0 accepted, 75 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (67,660 bytes)
-    + [business] Kiaasa Retail Cash Flow, Financial Statements
-    → 39 items: 1 accepted, 34 too old, 0 no-date
+    OK  (77,382 bytes)
+    → 44 items: 0 accepted, 41 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (51,242 bytes)
+    OK  (51,228 bytes)
+    + [business] Any relief rally in markets likely limited and temporary: David Roche
     + [business] Bitcoin steadies around $77,000 after volatile three-week correction; easing US-
     + [business] RBI dividend provides fiscal buffer, but inflation risks loom large: Kanika Pasr
     + [business] Aluminium prices near record high: What’s driving the rally?
@@ -34,14 +34,14 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
     + [business] Gold & silver ready for next big leg up? 360 ONE Asset’s Rahul Khetawat shares t
     + [business] Multibagger Apollo Micro Systems shares soar 13%, up 33% in May alone. What are 
     + [business] Wipro's Rs 15,000 crore share buyback at 23% premium: Should you buy before reco
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    → 50 items: 8 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (192,431 bytes)
+    OK  (191,423 bytes)
     + [reliance] Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impact
     + [reliance] Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
     + [reliance] Quotes from Mrs. Nita M Ambani, Founder & Chairperson of Reliance Foundation on 
@@ -58,23 +58,23 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Udaan in talks to raise $50-60 million from existing backers Lightspeed, M&G
     → 10 items: 1 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (100,967 bytes)
+    OK  (97,132 bytes)
     + [retail] FMCG Logistics Market Outlook: Rising E-commerce Demand and Advancements in Supp
-    → 60 items: 1 accepted, 59 too old, 0 no-date
+    → 58 items: 1 accepted, 57 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,885 bytes)
+    OK  (10,888 bytes)
+    + [retail] Modi wants Indians to press pause on gold. But the $5.2 trillion obsession runs 
     + [retail] Heatwave drives surge in cold drink sales, AC and fridge demand stays weak
     + [retail] Gold, silver likely to remain rangebound as US-Iran negotiations near key stage:
     + [retail] Explainer: What Pronto’s new video recording feature means for your privacy
     + [retail] OnePlus, Xiaomi among firms trimming marketing and sales roles in India amid cos
     + [retail] Colgate-Palmolive India leans on premium products, advertising to drive growth
     + [retail] Delivery platforms deploy cooling cover as orders heat up
-    + [retail] Walmart’s international sales growth in Q4 driven by Flipkart, China units
     → 10 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (47,258 bytes)
+    OK  (47,286 bytes)
     + [tech] Huawei's 'chip queen' etches her name in China's tech folklore
     + [tech] AI edge will depend on building hard-to-copy systems, says McKinsey
     + [tech] Upgrade grid to realise AI dream: Applied Materials executive
@@ -94,7 +94,8 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
     OK  (75,538 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 155
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (12,834 bytes)
+    OK  (12,869 bytes)
+    + [world] Muslims begin the annual Hajj against a backdrop of war concerns
     + [world] China launches Shenzhou 23 spacecraft with 1 of 3 astronauts set for yearlong st
     + [world] Trump says a deal to end war with Iran is near, but many questions remain
     + [world] Has the U.S. lost the war in Iran?
@@ -102,7 +103,6 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
     + [world] DR Congo Ebola cases rise amid distrust, armed conflict zone
     + [world] What both sides have said about a U.S.-Iran deal
     + [world] What we know about the status of a U.S.-Iran deal
-    + [world] Russia pounds Kyiv in powerful drone and missile attack
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -111,12 +111,12 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (137,960 bytes)
+    OK  (137,641 bytes)
     + [sports] Jacob Bethell injury may force England to pick most inexperienced top order ever
     + [sports] Jacob Bethell: England all-rounder will return to the UK after sustaining 'left 
     + [sports] Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane shaped his Test prepa
     + [sports] Pakistan Tour of England Reportedly Confirmed Ahead of Ashes 2027
-    + [sports] Sachin Tendulkar
+    + [sports] Rachin Ravindra Prepares for New Zealand Tests via IPL Mentorship
     → 100 items: 5 accepted, 93 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
     OK  (90,550 bytes)
@@ -130,10 +130,10 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (108,427 bytes)
+    OK  (96,880 bytes)
+    + [opinion] Pakistan Shows The Way To India-Pakistan Reconciliation – Analysis
     + [opinion] Analysis: The 'Good Girl' Trap That Killed Twisha Sharma
-    + [opinion] India just turned strategic oil storage into a geopolitical asset
-    → 80 items: 2 accepted, 78 too old, 0 no-date
+    → 72 items: 2 accepted, 70 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -155,13 +155,13 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
    ✓ Plea In Supreme Court Seeks Probe Into Activities Linked To 
    ✓ Twisha Sharma case in Supreme Court: Suspicious death, dowry
-   ✓ Twisha Sharma Case Supreme Court Hearing Live: SC calls for 
    ✓ Supreme Court To Hear Twisha Sharma Case Amid Allegations Of
    ✓ Expanding the court, avoiding a larger debate
    ✓ SC seeks reference to a larger Bench to resolve UAPA bail di
    ✓ Supreme Court expresses concern over media narrative in Twis
    ✓ Stray dogs case: Supreme Court refuses to entertain mentioni
-   ✓ Kiaasa Retail Cash Flow, Financial Statements
+   ✓ Twisha Sharma case update: Supreme Court begins hearing, dow
+   ✓ Any relief rally in markets likely limited and temporary: Da
    ✓ Bitcoin steadies around $77,000 after volatile three-week co
    ✓ RBI dividend provides fiscal buffer, but inflation risks loo
    ✓ Aluminium prices near record high: What’s driving the rally?
@@ -178,13 +178,13 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
    ✓ Reliance Industries' stock jumps over 2.5% amid weak trade; 
    ✓ Udaan in talks to raise $50-60 million from existing backers
    ✓ FMCG Logistics Market Outlook: Rising E-commerce Demand and 
+   ✓ Modi wants Indians to press pause on gold. But the $5.2 tril
    ✓ Heatwave drives surge in cold drink sales, AC and fridge dem
    ✓ Gold, silver likely to remain rangebound as US-Iran negotiat
    ✓ Explainer: What Pronto’s new video recording feature means f
    ✓ OnePlus, Xiaomi among firms trimming marketing and sales rol
    ✓ Colgate-Palmolive India leans on premium products, advertisi
    ✓ Delivery platforms deploy cooling cover as orders heat up
-   ✓ Walmart’s international sales growth in Q4 driven by Flipkar
    ✓ Huawei's 'chip queen' etches her name in China's tech folklo
    ✓ AI edge will depend on building hard-to-copy systems, says M
    ✓ Upgrade grid to realise AI dream: Applied Materials executiv
@@ -193,6 +193,7 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
    ✓ Huawei proposes new path for chip development amid US sancti
    ✓ AI chip demand drives 6% growth for Singapore in first quart
    ✓ Uber weighs higher bid for Delivery Hero: FT
+   ✓ Muslims begin the annual Hajj against a backdrop of war conc
    ✓ China launches Shenzhou 23 spacecraft with 1 of 3 astronauts
    ✓ Trump says a deal to end war with Iran is near, but many que
    ✓ Has the U.S. lost the war in Iran?
@@ -200,17 +201,16 @@ Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
    ✓ DR Congo Ebola cases rise amid distrust, armed conflict zone
    ✓ What both sides have said about a U.S.-Iran deal
    ✓ What we know about the status of a U.S.-Iran deal
-   ✓ Russia pounds Kyiv in powerful drone and missile attack
    ✓ Jacob Bethell injury may force England to pick most inexperi
    ✓ Jacob Bethell: England all-rounder will return to the UK aft
    ✓ Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane s
    ✓ Pakistan Tour of England Reportedly Confirmed Ahead of Ashes
-   ✓ Sachin Tendulkar
+   ✓ Rachin Ravindra Prepares for New Zealand Tests via IPL Mento
    ✓ Rahane: 'When the team is struggling, it is important to sho
    ✓ 'We didn't seize those moments' - Badani on DC's what-could-
    ✓ 'Revenge, spite' driving Schutt in World Cup swansong
+   ✓ Pakistan Shows The Way To India-Pakistan Reconciliation – An
    ✓ Analysis: The 'Good Girl' Trap That Killed Twisha Sharma
-   ✓ India just turned strategic oil storage into a geopolitical 
    ✓ Worldly Dangal
    ✓ Club rules need not apply: Reclaiming 'commons' on which Del
    ✓ Go on then, make money with money
