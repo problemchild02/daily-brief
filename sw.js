@@ -1,5 +1,5 @@
 // Cache version — bump this string whenever you want all clients to get a fresh cache.
-const CACHE_NAME = "daily-brief-v3";
+const CACHE_NAME = "daily-brief-v4";
 
 // App shell: static assets that are safe to cache long-term.
 // stories.json is intentionally excluded — it is fetched network-first (see below).
@@ -52,7 +52,7 @@ self.addEventListener("fetch", (event) => {
   if (isStoriesJson) {
     // Network-first: always fetch fresh from network, bypassing HTTP cache.
     // Fall back to SW cache only when offline.
-    const networkRequest = new Request(url.href, { cache: "no-store" });
+    const networkRequest = new Request(url.href, { cache: "reload" });
     event.respondWith(
       fetch(networkRequest)
         .then((networkResponse) => {

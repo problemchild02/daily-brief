@@ -768,7 +768,7 @@ function initHeaderRefreshButton() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function loadStories() {
-  const response = await fetch("./stories.json", { cache: "no-store" });
+  const response = await fetch("./stories.json", { cache: "reload" });
   if (!response.ok) {
     throw new Error("Failed to load stories.json");
   }
