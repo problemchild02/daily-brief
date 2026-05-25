@@ -1,16 +1,16 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-15 06:53 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (197,180 bytes)
-    + [legal] Safety from dog attacks is basic human right, India Supreme Court rules
-    + [legal] India’s ‘Cockroach Janta Party’ began as a joke. Then millions joined in.
+    OK  (202,519 bytes)
     + [legal] Plea In Supreme Court Seeks Probe Into Activities Linked To ‘Cockroach Janta Par
-    + [legal] Twisha Sharma Supreme Court Hearing LIVE Updates: Top Court To Take Up Twisha Sh
-    + [legal] Sedition in abeyance, but not in limbo
-    + [legal] CBI probe sought in Supreme Court over ‘Cockroach Janta Party’ campaign, fake ad
+    + [legal] Twisha Sharma case in Supreme Court: Suspicious death, dowry allegations, CBI pr
+    + [legal] Twisha Sharma Case Supreme Court Hearing Live: SC calls for fair probe in death 
+    + [legal] Supreme Court To Hear Twisha Sharma Case Amid Allegations Of Bias In Probe
     + [legal] Expanding the court, avoiding a larger debate
-    + [legal] Centre tells Supreme Court it will bring back persons allegedly ‘pushed’ to Bang
+    + [legal] SC seeks reference to a larger Bench to resolve UAPA bail divergence
+    + [legal] Supreme Court expresses concern over media narrative in Twisha Sharma death case
+    + [legal] Stray dogs case: Supreme Court refuses to entertain mentioning of plea over Punj
     → 100 items: 8 accepted, 1 too old, 0 no-date
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
@@ -22,74 +22,80 @@ Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
     OK  (190,778 bytes)
     → 93 items: 0 accepted, 93 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (73,243 bytes)
-    + [business] Archives 2025 December
-    + [business] GOCL Corporation Yearly results, Financial Summary
-    + [business] Shriram Finance Share Price Today, Shriram Finance Stock Price Live NSE/BSE Upda
-    + [business] Kiaasa Retail Yearly results, Financial Summary
-    → 42 items: 4 accepted, 38 too old, 0 no-date
+    OK  (67,660 bytes)
+    + [business] Kiaasa Retail Cash Flow, Financial Statements
+    → 39 items: 1 accepted, 34 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (50,319 bytes)
-    + [business] Arvind Panagariya on what RBI transfer of ₹2.87 lakh cr surplus to govt means fo
-    + [business] MTAR Tech shares drop 3% after rallying 24% in 3 days. Should you buy the dip?
-    + [business] US Stock Market: Are S&P 500, Nasdaq open or shut today for Memorial Day 2026? C
-    + [business] NTPC Green Energy shares fall 4% after Q4 profit drops 15% YoY
-    → 50 items: 4 accepted, 0 too old, 0 no-date
+    OK  (51,242 bytes)
+    + [business] Bitcoin steadies around $77,000 after volatile three-week correction; easing US-
+    + [business] RBI dividend provides fiscal buffer, but inflation risks loom large: Kanika Pasr
+    + [business] Aluminium prices near record high: What’s driving the rally?
+    + [business] JM Financial AMC launches second Rs 1,000 crore performing credit AIF to tap pri
+    + [business] Gold & silver ready for next big leg up? 360 ONE Asset’s Rahul Khetawat shares t
+    + [business] Multibagger Apollo Micro Systems shares soar 13%, up 33% in May alone. What are 
+    + [business] Wipro's Rs 15,000 crore share buyback at 23% premium: Should you buy before reco
+    → 50 items: 7 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (190,292 bytes)
+    OK  (192,431 bytes)
     + [reliance] Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impact
     + [reliance] Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
     + [reliance] Quotes from Mrs. Nita M Ambani, Founder & Chairperson of Reliance Foundation on 
-    + [reliance] Reliance could USD 4 bn Jio Platforms listing
-    + [reliance] Jio IPO Faces Iran War Hurdles As Reliance Reviews Deal Structure
     + [reliance] Reliance Industries share price rises 2.5% despite stock market crash. Do you ow
     + [reliance] Reliance Industries becomes first Indian company to surpass $120 bln revenue mar
     + [reliance] Reliance in talks with Chinese battery behemoth CATL & others for big battery sy
-    → 100 items: 8 accepted, 11 too old, 0 no-date
-  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
+    + [reliance] Reliance Industries' stock jumps over 2.5% amid weak trade; possible triggers ex
+    → 100 items: 7 accepted, 93 too old, 0 no-date
+  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+    OK  (1,347 bytes)
+    → 1 items: 0 accepted, 1 too old, 0 no-date
+  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
+    OK  (10,885 bytes)
+    + [reliance] Udaan in talks to raise $50-60 million from existing backers Lightspeed, M&G
+    → 10 items: 1 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
     OK  (100,967 bytes)
     + [retail] FMCG Logistics Market Outlook: Rising E-commerce Demand and Advancements in Supp
     → 60 items: 1 accepted, 59 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,652 bytes)
+    OK  (10,885 bytes)
+    + [retail] Heatwave drives surge in cold drink sales, AC and fridge demand stays weak
+    + [retail] Gold, silver likely to remain rangebound as US-Iran negotiations near key stage:
+    + [retail] Explainer: What Pronto’s new video recording feature means for your privacy
     + [retail] OnePlus, Xiaomi among firms trimming marketing and sales roles in India amid cos
     + [retail] Colgate-Palmolive India leans on premium products, advertising to drive growth
     + [retail] Delivery platforms deploy cooling cover as orders heat up
     + [retail] Walmart’s international sales growth in Q4 driven by Flipkart, China units
-    + [retail] Varun Beverages, PepsiCo India extend bottling pact till 2049
-    + [retail] As competition hots up, consumer brands step up Q-Comm spends for better screen 
-    + [retail] Nykaa Q4 results: Profit soars 4X YoY to Rs 79 crore; revenue climbs 28%
     → 10 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
-  [      tech] fetching https://www.theverge.com/rss/index.xml
-    OK  (137,330 bytes)
-    + [tech] The best Memorial Day sales you can shop this weekend
-    + [tech] On Trails is a wandering tale that blends hiking, science, and history
-    + [tech] Apple’s latest MacBook Air is $200 off in both sizes for Memorial Day
-    + [tech] Hackers are learning to exploit chatbot ‘personalities’
-    + [tech] Why Nuro thinks being a robotaxi ‘second mover’ gives it an advantage
-    + [tech] Record Club is trying to be Letterboxd for music nerds
-    + [tech] The man behind the legendary MPC, Roger Linn, stays focused with a single browse
-    + [tech] Here are 38 Memorial Day deals we recommend for $50 or less
-    → 10 items: 8 accepted, 0 too old, 8 no-date
-  [      tech] SKIP (section full) https://feeds.arstechnica.com/arstechnica/index
+  [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
+    OK  (47,258 bytes)
+    + [tech] Huawei's 'chip queen' etches her name in China's tech folklore
+    + [tech] AI edge will depend on building hard-to-copy systems, says McKinsey
+    + [tech] Upgrade grid to realise AI dream: Applied Materials executive
+    + [tech] Biotech startup StrainX Bioworks raises $13 million from Prime Venture, Leo Capi
+    + [tech] Pope to release major artificial intelligence manifesto
+    + [tech] Huawei proposes new path for chip development amid US sanctions
+    + [tech] AI chip demand drives 6% growth for Singapore in first quarter
+    + [tech] Uber weighs higher bid for Delivery Hero: FT
+    → 50 items: 8 accepted, 0 too old, 0 no-date
+  [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
+  [      tech] SKIP (section full) https://www.medianama.com/feed/
+  [      tech] SKIP (section full) https://inc42.com/feed/
+  [      tech] SKIP (section full) https://yourstory.com/feed
   [      tech] SKIP (section full) https://techcrunch.com/feed/
-  [      tech] SKIP (section full) https://feeds.feedburner.com/gadgets360-latest
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
-  [      tech] SKIP (section full) https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
   [     world] fetching https://feeds.voanews.com/rss/english/news
     OK  (75,538 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 155
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (12,539 bytes)
+    OK  (12,834 bytes)
+    + [world] China launches Shenzhou 23 spacecraft with 1 of 3 astronauts set for yearlong st
     + [world] Trump says a deal to end war with Iran is near, but many questions remain
     + [world] Has the U.S. lost the war in Iran?
     + [world] Remains of lost arctic explorers identified with DNA, nearly two centuries later
@@ -97,7 +103,6 @@ Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
     + [world] What both sides have said about a U.S.-Iran deal
     + [world] What we know about the status of a U.S.-Iran deal
     + [world] Russia pounds Kyiv in powerful drone and missile attack
-    + [world] Romanian director Cristian Mungiu's 'Fjord' wins top prize at Cannes
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -113,18 +118,17 @@ Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
     + [sports] Pakistan Tour of England Reportedly Confirmed Ahead of Ashes 2027
     + [sports] Sachin Tendulkar
     → 100 items: 5 accepted, 93 too old, 0 no-date
-  [    sports] fetching https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en
-    OK  (104,512 bytes)
-    → 60 items: 0 accepted, 60 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
     OK  (90,550 bytes)
+    + [sports] Rahane: 'When the team is struggling, it is important to show your character'
     + [sports] 'We didn't seize those moments' - Badani on DC's what-could-have-been season
     + [sports] 'Revenge, spite' driving Schutt in World Cup swansong
-    + [sports] Rayudu: Rahul 'has been fantastic for any team that he has played for'
     → 100 items: 3 accepted, 0 too old, 0 no-date
-  [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
-  [    sports] SKIP (section full) https://sports.ndtv.com/rss/cricket
+  [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
+  [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
+  [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
+  [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
     OK  (108,427 bytes)
     + [opinion] Analysis: The 'Good Girl' Trap That Killed Twisha Sharma
@@ -149,46 +153,47 @@ Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Safety from dog attacks is basic human right, India Supreme 
-   ✓ India’s ‘Cockroach Janta Party’ began as a joke. Then millio
    ✓ Plea In Supreme Court Seeks Probe Into Activities Linked To 
-   ✓ Twisha Sharma Supreme Court Hearing LIVE Updates: Top Court 
-   ✓ Sedition in abeyance, but not in limbo
-   ✓ CBI probe sought in Supreme Court over ‘Cockroach Janta Part
+   ✓ Twisha Sharma case in Supreme Court: Suspicious death, dowry
+   ✓ Twisha Sharma Case Supreme Court Hearing Live: SC calls for 
+   ✓ Supreme Court To Hear Twisha Sharma Case Amid Allegations Of
    ✓ Expanding the court, avoiding a larger debate
-   ✓ Centre tells Supreme Court it will bring back persons allege
-   ✓ Archives 2025 December
-   ✓ GOCL Corporation Yearly results, Financial Summary
-   ✓ Shriram Finance Share Price Today, Shriram Finance Stock Pri
-   ✓ Kiaasa Retail Yearly results, Financial Summary
-   ✓ Arvind Panagariya on what RBI transfer of ₹2.87 lakh cr surp
-   ✓ MTAR Tech shares drop 3% after rallying 24% in 3 days. Shoul
-   ✓ US Stock Market: Are S&P 500, Nasdaq open or shut today for 
-   ✓ NTPC Green Energy shares fall 4% after Q4 profit drops 15% Y
+   ✓ SC seeks reference to a larger Bench to resolve UAPA bail di
+   ✓ Supreme Court expresses concern over media narrative in Twis
+   ✓ Stray dogs case: Supreme Court refuses to entertain mentioni
+   ✓ Kiaasa Retail Cash Flow, Financial Statements
+   ✓ Bitcoin steadies around $77,000 after volatile three-week co
+   ✓ RBI dividend provides fiscal buffer, but inflation risks loo
+   ✓ Aluminium prices near record high: What’s driving the rally?
+   ✓ JM Financial AMC launches second Rs 1,000 crore performing c
+   ✓ Gold & silver ready for next big leg up? 360 ONE Asset’s Rah
+   ✓ Multibagger Apollo Micro Systems shares soar 13%, up 33% in 
+   ✓ Wipro's Rs 15,000 crore share buyback at 23% premium: Should
    ✓ Ambani’s $4 Billion Jio IPO Hits Roadblocks on Iran War Impa
    ✓ Mukesh Ambani’s $4 billion Jio IPO hits Iran war roadblock
    ✓ Quotes from Mrs. Nita M Ambani, Founder & Chairperson of Rel
-   ✓ Reliance could USD 4 bn Jio Platforms listing
-   ✓ Jio IPO Faces Iran War Hurdles As Reliance Reviews Deal Stru
    ✓ Reliance Industries share price rises 2.5% despite stock mar
    ✓ Reliance Industries becomes first Indian company to surpass 
    ✓ Reliance in talks with Chinese battery behemoth CATL & other
+   ✓ Reliance Industries' stock jumps over 2.5% amid weak trade; 
+   ✓ Udaan in talks to raise $50-60 million from existing backers
    ✓ FMCG Logistics Market Outlook: Rising E-commerce Demand and 
+   ✓ Heatwave drives surge in cold drink sales, AC and fridge dem
+   ✓ Gold, silver likely to remain rangebound as US-Iran negotiat
+   ✓ Explainer: What Pronto’s new video recording feature means f
    ✓ OnePlus, Xiaomi among firms trimming marketing and sales rol
    ✓ Colgate-Palmolive India leans on premium products, advertisi
    ✓ Delivery platforms deploy cooling cover as orders heat up
    ✓ Walmart’s international sales growth in Q4 driven by Flipkar
-   ✓ Varun Beverages, PepsiCo India extend bottling pact till 204
-   ✓ As competition hots up, consumer brands step up Q-Comm spend
-   ✓ Nykaa Q4 results: Profit soars 4X YoY to Rs 79 crore; revenu
-   ✓ The best Memorial Day sales you can shop this weekend
-   ✓ On Trails is a wandering tale that blends hiking, science, a
-   ✓ Apple’s latest MacBook Air is $200 off in both sizes for Mem
-   ✓ Hackers are learning to exploit chatbot ‘personalities’
-   ✓ Why Nuro thinks being a robotaxi ‘second mover’ gives it an 
-   ✓ Record Club is trying to be Letterboxd for music nerds
-   ✓ The man behind the legendary MPC, Roger Linn, stays focused 
-   ✓ Here are 38 Memorial Day deals we recommend for $50 or less
+   ✓ Huawei's 'chip queen' etches her name in China's tech folklo
+   ✓ AI edge will depend on building hard-to-copy systems, says M
+   ✓ Upgrade grid to realise AI dream: Applied Materials executiv
+   ✓ Biotech startup StrainX Bioworks raises $13 million from Pri
+   ✓ Pope to release major artificial intelligence manifesto
+   ✓ Huawei proposes new path for chip development amid US sancti
+   ✓ AI chip demand drives 6% growth for Singapore in first quart
+   ✓ Uber weighs higher bid for Delivery Hero: FT
+   ✓ China launches Shenzhou 23 spacecraft with 1 of 3 astronauts
    ✓ Trump says a deal to end war with Iran is near, but many que
    ✓ Has the U.S. lost the war in Iran?
    ✓ Remains of lost arctic explorers identified with DNA, nearly
@@ -196,15 +201,14 @@ Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
    ✓ What both sides have said about a U.S.-Iran deal
    ✓ What we know about the status of a U.S.-Iran deal
    ✓ Russia pounds Kyiv in powerful drone and missile attack
-   ✓ Romanian director Cristian Mungiu's 'Fjord' wins top prize a
    ✓ Jacob Bethell injury may force England to pick most inexperi
    ✓ Jacob Bethell: England all-rounder will return to the UK aft
    ✓ Rachin Ravindra reveals how Virat Kohli and Ajinkya Rahane s
    ✓ Pakistan Tour of England Reportedly Confirmed Ahead of Ashes
    ✓ Sachin Tendulkar
+   ✓ Rahane: 'When the team is struggling, it is important to sho
    ✓ 'We didn't seize those moments' - Badani on DC's what-could-
    ✓ 'Revenge, spite' driving Schutt in World Cup swansong
-   ✓ Rayudu: Rahul 'has been fantastic for any team that he has p
    ✓ Analysis: The 'Good Girl' Trap That Killed Twisha Sharma
    ✓ India just turned strategic oil storage into a geopolitical 
    ✓ Worldly Dangal
@@ -217,9 +221,9 @@ Cutoff: 2026-05-15 05:07 UTC  (MAX_AGE_HOURS=240)
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  3 failed
+Feeds:   15 OK  /  3 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-05-25   Hero: legal-d7a829e8
+Edition: 2026-05-25   Hero: legal-b85e4e16
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
