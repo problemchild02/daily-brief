@@ -752,6 +752,19 @@ function initDownloadButton() {
   btn.addEventListener("click", downloadOfflineEdition);
 }
 
+function initHeaderRefreshButton() {
+  const btn = document.getElementById("btn-refresh");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    btn.disabled = true;
+    btn.style.opacity = "0.5";
+    refreshStories().finally(() => {
+      btn.disabled = false;
+      btn.style.opacity = "";
+    });
+  });
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function loadStories() {
@@ -857,6 +870,7 @@ async function initApp() {
   initBookmarks();
   initRefreshButtons();
   initDownloadButton();
+  initHeaderRefreshButton();
 
   const themeBtn = document.getElementById("btn-theme");
   if (themeBtn) {

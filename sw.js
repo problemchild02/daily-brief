@@ -1,5 +1,5 @@
 // Cache version — bump this string whenever you want all clients to get a fresh cache.
-const CACHE_NAME = "daily-brief-v2";
+const CACHE_NAME = "daily-brief-v3";
 
 // App shell: static assets that are safe to cache long-term.
 // stories.json is intentionally excluded — it is fetched network-first (see below).
@@ -50,18 +50,18 @@ self.addEventListener("fetch", (event) => {
   const isStoriesJson = url.pathname.endsWith("stories.json");
 
   if (isStoriesJson) {
-    // Network-first: fresh data on every load, cache as offline fallback.
+    // Network-first: always fetch fresh from network, bypassing HTTP cache.
+    // Fall back to SW cache only when offline.
+    const networkRequest = new Request(url.href, { cache: "no-store" });
     event.respondWith(
-      fetch(event.request)
+      fetch(networkRequest)
         .then((networkResponse) => {
-          // Clone and store the fresh response in cache for offline use.
           const clone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          caches.open(CACHE_NAME).then((cache) => cache.put(url.href, clone));
           return networkResponse;
         })
         .catch(() => {
-          // Network failed — serve stale cache so the app still loads offline.
-          return caches.match(event.request);
+          return caches.match(url.href);
         })
     );
   } else {
