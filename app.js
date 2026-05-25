@@ -185,8 +185,9 @@ function createStoryMarkup(story, type = "card", instanceKey = "default") {
   const domIdSuffix = `${story.id}-${instanceKey}`;
 
   return `
-    <article class="${wrapperClass}" data-story-id="${escapeHtml(story.id)}">
+    <article class="${wrapperClass}" data-section="${escapeHtml(story.section)}" data-story-id="${escapeHtml(story.id)}">
       ${isHero ? `<span class="story-index" aria-hidden="true">01</span>` : ""}
+      ${!isHero && story.source ? `<span class="story-source-pill">${escapeHtml(story.source)}</span>` : ""}
       <${headlineTag} class="${isHero ? "hero-headline" : "story-headline"}">
         ${escapeHtml(story.headline)}
       </${headlineTag}>
@@ -224,7 +225,7 @@ function createStoryMarkup(story, type = "card", instanceKey = "default") {
           ` : ""}
 
 <div class="story-meta">
-  <span class="story-source">${escapeHtml(story.sectionLabel || story.section || story.source)}</span>
+  <span class="story-source">${escapeHtml(story.source || story.sectionLabel || story.section)}</span>
   <span class="story-date">${escapeHtml(story.dateLabel)}</span>
 </div>
 

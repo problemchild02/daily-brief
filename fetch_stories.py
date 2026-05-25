@@ -100,20 +100,21 @@ FEEDS = [
      "retail", ["mint", "retail"], "low"),
 
     # ── Tech ──────────────────────────────────────────────────────────────────
-    # The Verge + Ars Technica confirmed accessible from cloud IPs
-    ("https://www.theverge.com/rss/index.xml",
-     "tech", ["the-verge", "technology"], "high"),
-    ("https://feeds.arstechnica.com/arstechnica/index",
-     "tech", ["ars-technica", "technology"], "high"),
-    ("https://techcrunch.com/feed/",
-     "tech", ["techcrunch", "startups"], "medium"),
-    # Gadgets360 — direct NDTV tech feed (Feedburner redirect is unreliable)
-    ("https://feeds.feedburner.com/gadgets360-latest",
-     "tech", ["gadgets360", "India-tech"], "medium"),
-    ("https://www.ndtv.com/feed/tech-gadgets",
-     "tech", ["gadgets360", "NDTV", "India-tech"], "medium"),
+    # India-focused: startup, policy, regulation (DPDP, MeitY, fintech)
     ("https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
      "tech", ["ET-tech", "India-tech"], "high"),
+    ("https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en",
+     "tech", ["India-tech", "DPDP", "MeitY", "google-news"], "high"),
+    ("https://www.medianama.com/feed/",
+     "tech", ["medianama", "India-tech-policy"], "high"),
+    ("https://inc42.com/feed/",
+     "tech", ["inc42", "India-startup"], "medium"),
+    ("https://yourstory.com/feed",
+     "tech", ["yourstory", "India-startup"], "medium"),
+    ("https://techcrunch.com/feed/",
+     "tech", ["techcrunch", "startups"], "medium"),
+    ("https://www.ndtv.com/feed/tech-gadgets",
+     "tech", ["NDTV", "India-tech"], "low"),
 
     # ── World ─────────────────────────────────────────────────────────────────
     # VOA + NPR: public broadcasters, no bot-blocking, designed for aggregation
@@ -137,21 +138,23 @@ FEEDS = [
      "world", ["Guardian", "world"], "low"),
 
     # ── Sports ────────────────────────────────────────────────────────────────
-    # Google News sports — most reliable from cloud IPs
+    # Cricket
     ("https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en",
      "sports", ["cricket", "India", "google-news"], "high"),
-    ("https://news.google.com/rss/search?q=India+sports+football+hockey+badminton&hl=en&gl=US&ceid=US:en",
-     "sports", ["sports", "India", "google-news"], "medium"),
     ("https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
-     "sports", ["cricket", "espncricinfo"], "medium"),
-    ("https://timesofindia.indiatimes.com/rss/4719148.cms",
-     "sports", ["sports", "TOI"], "low"),
-    # Cricbuzz — correct RSS endpoint
+     "sports", ["cricket", "espncricinfo"], "high"),
     ("https://www.cricbuzz.com/rss-feeds/cricket-news",
      "sports", ["cricket", "cricbuzz"], "medium"),
-    # NDTV Sports
-    ("https://sports.ndtv.com/rss/cricket",
-     "sports", ["NDTV", "cricket"], "medium"),
+    # Football / Soccer — international and India
+    ("https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en",
+     "sports", ["football", "soccer", "Premier-League"], "high"),
+    ("https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en",
+     "sports", ["football", "ISL", "India"], "high"),
+    ("https://feeds.bbci.co.uk/sport/football/rss.xml",
+     "sports", ["football", "BBC-sport"], "medium"),
+    # General India sports
+    ("https://timesofindia.indiatimes.com/rss/4719148.cms",
+     "sports", ["sports", "TOI", "India"], "low"),
 
     # ── Opinion ───────────────────────────────────────────────────────────────
     # Google News opinion — reliable from cloud IPs
@@ -215,6 +218,10 @@ SOURCE_MAP = {
     "business-standard":     "Business Standard",
     "livemint":              "Mint",
     "indiatoday":            "India Today",
+    "medianama.com":         "MediaNama",
+    "inc42.com":             "Inc42",
+    "yourstory.com":         "YourStory",
+    "bbci.co.uk/sport":      "BBC Sport",
     "techcrunch":            "TechCrunch",
     "gadgets360":            "Gadgets 360",
     "feedburner.com/gadgets": "Gadgets 360",
@@ -234,7 +241,9 @@ SOURCE_MAP = {
     "rsshub.app/apnews":     "AP News",
     "voanews":               "VOA News",
     "feeds.npr":             "NPR",
+    "espncricinfo.com":      "ESPNcricinfo",
     "espncricinfo":          "ESPN Cricinfo",
+    "cricbuzz.com":          "Cricbuzz",
     "cricbuzz":              "Cricbuzz",
     "timesofindia":          "Times of India",
     "thehindu":              "The Hindu",
@@ -312,6 +321,18 @@ def is_junk_url(url):
         return any(host == d or host.endswith("." + d) for d in _JUNK_DOMAINS)
     except Exception:
         return False
+
+
+_JUNK_HEADLINE_RE = re.compile(
+    r"(?i)(yearly results|annual results|financial summary|share price today|"
+    r"nse/bse|stock price live|archives \d{4}|q\d results.*financial|"
+    r"memorial day sale|best .* deals? .*(weekend|today)|"
+    r"\d+ deals? (we recommend|under \$))",
+    re.IGNORECASE,
+)
+
+def is_junk_headline(headline):
+    return bool(_JUNK_HEADLINE_RE.search(headline))
 
 
 def _norm(text):
@@ -586,6 +607,9 @@ def build_stories():
 
             # Skip encyclopedia / directory entries — their titles contain "|"
             if "|" in headline:
+                continue
+
+            if is_junk_headline(headline):
                 continue
 
             desc_el = item.find("description")
