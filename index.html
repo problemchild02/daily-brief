@@ -84,6 +84,40 @@
         </svg>
       </button>
 
+      <!-- Import newspaper PDF button -->
+      <button
+        class="icon-btn"
+        id="btn-import-pdf"
+        type="button"
+        title="Import newspaper PDF"
+        aria-label="Import newspaper PDF"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="12" y1="18" x2="12" y2="12"></line>
+          <line x1="9" y1="15" x2="15" y2="15"></line>
+        </svg>
+      </button>
+
+      <!-- Settings button -->
+      <button
+        class="icon-btn"
+        id="btn-settings"
+        type="button"
+        title="Settings"
+        aria-label="Settings"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+
       <!-- Refresh stories button — useful on mobile where hard-refresh isn't available -->
       <button
         class="icon-btn"
@@ -242,6 +276,19 @@
       data-target="opinion"
     >
       Opinion
+    </button>
+
+    <button
+      class="tab"
+      id="tab-papers"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-papers"
+      tabindex="-1"
+      data-target="papers"
+    >
+      Papers
     </button>
   </nav>
 
@@ -565,11 +612,118 @@
         <div class="card-grid" id="opinion-grid-panel"></div>
       </section>
     </section>
+    <!-- ── PAPERS panel ──────────────────────────────────────────────────── -->
+    <section
+      id="panel-papers"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-papers"
+      tabindex="0"
+      data-panel="papers"
+      hidden
+    >
+      <section class="rail-section rail-section-single">
+        <div class="rail-header">
+          <div class="rail-title-group">
+            <span class="category-dot" style="background:var(--accent-hero)" aria-hidden="true"></span>
+            <h2 class="rail-heading">Newspaper Imports</h2>
+          </div>
+          <button class="btn-refresh" type="button" id="btn-clear-papers" title="Clear all imported stories" aria-label="Clear all imported stories">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6l-1 14H6L5 6"></path>
+              <path d="M10 11v6M14 11v6"></path>
+            </svg>
+            Clear all
+          </button>
+        </div>
+        <div id="papers-empty" class="papers-empty">
+          <p>No newspaper stories imported yet.</p>
+          <p>Click <strong>Import PDF</strong> in the header to add stories from a newspaper PDF.</p>
+        </div>
+        <div class="card-grid" id="papers-grid" hidden></div>
+      </section>
+    </section>
   </main>
 
   <footer class="site-footer">
     <p>The Daily Brief &nbsp;·&nbsp; v0.2 &nbsp;·&nbsp; Static edition</p>
   </footer>
+
+  <!-- ── Settings modal ─────────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="settings-overlay" hidden aria-modal="true" role="dialog" aria-labelledby="settings-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 class="modal-title" id="settings-title">Settings</h2>
+        <button class="modal-close" id="settings-close" type="button" aria-label="Close settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-group">
+          <label class="settings-label" for="input-github-pat">
+            GitHub Personal Access Token
+            <span class="settings-hint">Used to trigger the daily refresh workflow from this page. Needs <code>workflow</code> scope. Stored only in your browser.</span>
+          </label>
+          <input class="settings-input" type="password" id="input-github-pat" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="settings-actions">
+          <button class="settings-btn settings-btn-primary" id="btn-save-settings" type="button">Save</button>
+          <button class="settings-btn settings-btn-secondary" id="btn-trigger-workflow" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Run workflow now
+          </button>
+        </div>
+        <p class="settings-status" id="settings-status" hidden></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PDF import modal ────────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="pdf-overlay" hidden aria-modal="true" role="dialog" aria-labelledby="pdf-title">
+    <div class="modal-box modal-box-wide">
+      <div class="modal-header">
+        <h2 class="modal-title" id="pdf-title">Import Newspaper PDF</h2>
+        <button class="modal-close" id="pdf-close" type="button" aria-label="Close import">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="pdf-modal-body">
+
+        <!-- Step 1: file pick -->
+        <div id="pdf-step-pick">
+          <p class="pdf-step-hint">Select a newspaper PDF. Text is extracted in your browser — nothing is uploaded anywhere.</p>
+          <label class="pdf-drop-zone" for="input-pdf-file" id="pdf-drop-zone">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+            <span class="pdf-drop-label">Click to choose PDF or drag &amp; drop</span>
+            <input type="file" id="input-pdf-file" accept=".pdf,application/pdf" class="sr-only">
+          </label>
+          <p class="pdf-note">Works best with text-based PDFs (searchable). Scanned image PDFs won't extract well.</p>
+        </div>
+
+        <!-- Step 2: processing -->
+        <div id="pdf-step-processing" hidden>
+          <div class="pdf-progress">
+            <div class="btn-spinner pdf-spinner" aria-hidden="true"></div>
+            <span id="pdf-progress-label">Extracting text…</span>
+          </div>
+        </div>
+
+        <!-- Step 3: review parsed stories -->
+        <div id="pdf-step-review" hidden>
+          <p class="pdf-step-hint">Found <strong id="pdf-story-count">0</strong> stories from <strong id="pdf-file-name"></strong>. Review and assign sections before adding.</p>
+          <div id="pdf-story-list" class="pdf-story-list"></div>
+          <div class="pdf-review-actions">
+            <button class="settings-btn settings-btn-secondary" id="btn-pdf-back" type="button">← Back</button>
+            <button class="settings-btn settings-btn-primary" id="btn-pdf-add" type="button">Add stories to Papers</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <script src="app.js" defer></script>
 </body>

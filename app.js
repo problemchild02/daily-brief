@@ -872,6 +872,9 @@ async function initApp() {
   initRefreshButtons();
   initDownloadButton();
   initHeaderRefreshButton();
+  initSettingsModal();
+  initPdfImport();
+  renderPaperStories();
 
   const themeBtn = document.getElementById("btn-theme");
   if (themeBtn) {
@@ -900,4 +903,337 @@ if ("serviceWorker" in navigator) {
       .register("./sw.js")
       .catch((error) => console.error("Service worker registration failed:", error));
   });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Settings
+// ─────────────────────────────────────────────────────────────────────────────
+
+const SETTINGS_KEY = "daily-brief:settings";
+
+function loadSettings() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}"); }
+  catch { return {}; }
+}
+
+function saveSettings(s) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+}
+
+async function triggerWorkflow(pat) {
+  const res = await fetch(
+    "https://api.github.com/repos/problemchild02/daily-brief/actions/workflows/daily-update.yml/dispatches",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${pat}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ref: "main" }),
+    }
+  );
+  return res.status === 204;
+}
+
+function initSettingsModal() {
+  const overlay  = document.getElementById("settings-overlay");
+  const openBtn  = document.getElementById("btn-settings");
+  const closeBtn = document.getElementById("settings-close");
+  const patInput = document.getElementById("input-github-pat");
+  const saveBtn  = document.getElementById("btn-save-settings");
+  const runBtn   = document.getElementById("btn-trigger-workflow");
+  const status   = document.getElementById("settings-status");
+  if (!overlay) return;
+
+  function openModal() {
+    patInput.value = loadSettings().githubPat || "";
+    overlay.hidden = false;
+    patInput.focus();
+  }
+  function closeModal() { overlay.hidden = true; }
+  function showStatus(msg, ok) {
+    status.textContent = msg;
+    status.className = `settings-status ${ok ? "status-ok" : "status-err"}`;
+    status.hidden = false;
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !overlay.hidden) closeModal(); });
+
+  saveBtn.addEventListener("click", () => {
+    const s = loadSettings();
+    s.githubPat = patInput.value.trim();
+    saveSettings(s);
+    showStatus("Saved.", true);
+  });
+
+  runBtn.addEventListener("click", async () => {
+    const pat = patInput.value.trim() || loadSettings().githubPat;
+    if (!pat) { showStatus("Paste your GitHub PAT first.", false); return; }
+    runBtn.disabled = true;
+    runBtn.textContent = "Triggering…";
+    try {
+      const ok = await triggerWorkflow(pat);
+      if (ok) {
+        showStatus("Workflow triggered! Stories will update in ~3 minutes.", true);
+      } else {
+        showStatus("Failed — check your PAT has the 'workflow' scope.", false);
+      }
+    } catch (e) {
+      showStatus(`Error: ${e.message}`, false);
+    }
+    runBtn.disabled = false;
+    runBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Run workflow now`;
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PDF import
+// ─────────────────────────────────────────────────────────────────────────────
+
+const PAPERS_KEY = "daily-brief:papers";
+const PDFJS_CDN  = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+const PDFJS_WORKER = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+const SECTION_KW = {
+  legal:    ["court", "judge", "judgment", "petition", "sc ", "high court", "supreme court", "nclt", "nclat", "sebi", "cci", "tribunal", "verdict", "bench", "justice", "advocate", "suo motu", "bail", "fir", "arrest", "conviction", "acquit", "ipc", "crpc", "constitution", "article "],
+  business: ["company", "market", "stock", "share", "profit", "revenue", "quarterly", "ipo", "merger", "acquisition", "rbi", "nifty", "sensex", "corporate", "ceo", "board", "rupee", "gdp", "inflation", "budget", "fiscal", "trade"],
+  reliance: ["reliance", "jio", "mukesh ambani", "ril", "jiomart"],
+  retail:   ["retail", "fmcg", "consumer", "ecommerce", "e-commerce", "flipkart", "amazon", "zomato", "swiggy", "meesho", "blinkit", "grocer", "supermarket"],
+  tech:     ["tech", "startup", "artificial intelligence", "ai ", "dpdp", "meity", "cyber", "data privacy", "app ", "software", "digital", "fintech", "edtech"],
+  world:    ["pakistan", "china", "us ", "iran", "russia", "ukraine", "geopolit", "bilateral", "diplomatic", "nato", "united nations", "global", "international"],
+  sports:   ["cricket", "football", "soccer", "ipl", "test match", "wicket", "batting", "bowling", "goal", "league", "tournament", "fifa", "premier league", "isl", "match"],
+  opinion:  ["opinion", "editorial", "analysis", "column", "perspective", "view", "comment"],
+};
+
+function guessSection(text) {
+  const lower = text.toLowerCase();
+  let best = "opinion", bestScore = 0;
+  for (const [sec, kws] of Object.entries(SECTION_KW)) {
+    const score = kws.reduce((n, kw) => n + (lower.includes(kw) ? 1 : 0), 0);
+    if (score > bestScore) { bestScore = score; best = sec; }
+  }
+  return best;
+}
+
+function loadPaperStories() {
+  try { return JSON.parse(localStorage.getItem(PAPERS_KEY) || "[]"); }
+  catch { return []; }
+}
+
+function savePaperStories(stories) {
+  localStorage.setItem(PAPERS_KEY, JSON.stringify(stories));
+}
+
+async function loadPdfJs() {
+  if (window.pdfjsLib) return;
+  await new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = PDFJS_CDN;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+  window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
+}
+
+async function extractPdfText(file, onProgress) {
+  await loadPdfJs();
+  const buf = await file.arrayBuffer();
+  const pdf = await window.pdfjsLib.getDocument({ data: buf }).promise;
+  const pages = pdf.numPages;
+  let full = "";
+  for (let i = 1; i <= pages; i++) {
+    if (onProgress) onProgress(i, pages);
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    const pageText = content.items.map((it) => it.str).join(" ");
+    full += pageText + "\n\n";
+  }
+  return full;
+}
+
+function parseStoriesFromText(text, sourceName) {
+  const stories = [];
+  const lines = text.split(/\n+/).map((l) => l.trim()).filter((l) => l.length > 0);
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const words = line.split(/\s+/);
+    const isHeadline =
+      words.length >= 4 &&
+      words.length <= 25 &&
+      line.length >= 20 &&
+      line.length <= 200 &&
+      !/^\d+$/.test(line) &&
+      !/^[A-Z\s\d]+$/.test(line) &&
+      !/page \d+/i.test(line) &&
+      !line.startsWith("http");
+
+    if (!isHeadline) continue;
+
+    const bodyLines = [];
+    let j = i + 1;
+    while (j < lines.length && bodyLines.length < 8) {
+      const next = lines[j];
+      const nextWords = next.split(/\s+/);
+      if (nextWords.length >= 4 && nextWords.length <= 25 && next.length <= 200) break;
+      if (next.length > 30) bodyLines.push(next);
+      j++;
+    }
+    if (bodyLines.length === 0) continue;
+
+    const body = bodyLines.join(" ");
+    const hook = body.slice(0, 220);
+    const summary = body.slice(0, 900);
+    const section = guessSection(line + " " + hook);
+
+    stories.push({
+      id: "paper-" + Math.random().toString(36).slice(2, 10),
+      headline: line,
+      hook,
+      summary,
+      section,
+      source: sourceName,
+      sourceUrl: "#",
+      dateLabel: "Today",
+      tags: ["newspaper", section],
+      contextNote: "",
+      fromPaper: true,
+    });
+    i = j - 1;
+  }
+  return stories.slice(0, 40);
+}
+
+function renderPaperStories() {
+  const grid  = document.getElementById("papers-grid");
+  const empty = document.getElementById("papers-empty");
+  if (!grid) return;
+
+  const stories = loadPaperStories();
+  if (stories.length === 0) {
+    grid.hidden = true;
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  grid.hidden = false;
+  grid.innerHTML = stories.map((s) => createStoryMarkup(s, "card", "paper")).join("");
+  initExpandButtons();
+  initNotes();
+  initBookmarks();
+}
+
+function initPdfImport() {
+  const overlay    = document.getElementById("pdf-overlay");
+  const openBtn    = document.getElementById("btn-import-pdf");
+  const closeBtn   = document.getElementById("pdf-close");
+  const fileInput  = document.getElementById("input-pdf-file");
+  const dropZone   = document.getElementById("pdf-drop-zone");
+  const stepPick   = document.getElementById("pdf-step-pick");
+  const stepProc   = document.getElementById("pdf-step-processing");
+  const stepReview = document.getElementById("pdf-step-review");
+  const progLabel  = document.getElementById("pdf-progress-label");
+  const storyList  = document.getElementById("pdf-story-list");
+  const storyCount = document.getElementById("pdf-story-count");
+  const fileName   = document.getElementById("pdf-file-name");
+  const backBtn    = document.getElementById("btn-pdf-back");
+  const addBtn     = document.getElementById("btn-pdf-add");
+  const clearBtn   = document.getElementById("btn-clear-papers");
+  if (!overlay) return;
+
+  let parsedStories = [];
+
+  function showStep(step) {
+    stepPick.hidden   = step !== "pick";
+    stepProc.hidden   = step !== "processing";
+    stepReview.hidden = step !== "review";
+  }
+
+  function openModal() { overlay.hidden = false; showStep("pick"); }
+  function closeModal() { overlay.hidden = true; fileInput.value = ""; parsedStories = []; }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !overlay.hidden) closeModal(); });
+
+  dropZone.addEventListener("dragover", (e) => { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", () => dropZone.classList.remove("drag-over"));
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    const file = e.dataTransfer.files[0];
+    if (file && file.type === "application/pdf") processFile(file);
+  });
+
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files[0]) processFile(fileInput.files[0]);
+  });
+
+  async function processFile(file) {
+    showStep("processing");
+    progLabel.textContent = "Loading PDF library…";
+    try {
+      parsedStories = [];
+      const text = await extractPdfText(file, (page, total) => {
+        progLabel.textContent = `Extracting page ${page} of ${total}…`;
+      });
+      progLabel.textContent = "Parsing stories…";
+      parsedStories = parseStoriesFromText(text, file.name.replace(/\.pdf$/i, ""));
+      if (parsedStories.length === 0) {
+        progLabel.textContent = "No stories could be detected. This PDF may be image-based (scanned).";
+        return;
+      }
+      fileName.textContent = file.name;
+      storyCount.textContent = parsedStories.length;
+      storyList.innerHTML = parsedStories.map((s, idx) => `
+        <div class="pdf-story-item">
+          <input class="pdf-story-headline-input" type="text" value="${escapeHtml(s.headline)}" data-idx="${idx}" aria-label="Headline">
+          <select class="pdf-story-section-select" data-idx="${idx}" aria-label="Section">
+            ${["legal","business","retail","tech","world","sports","opinion"].map((sec) =>
+              `<option value="${sec}" ${sec === s.section ? "selected" : ""}>${sec.charAt(0).toUpperCase() + sec.slice(1)}</option>`
+            ).join("")}
+          </select>
+          <p class="pdf-story-preview">${escapeHtml(s.hook)}</p>
+        </div>
+      `).join("");
+      showStep("review");
+    } catch (err) {
+      progLabel.textContent = `Error: ${err.message}`;
+    }
+  }
+
+  storyList.addEventListener("input", (e) => {
+    const idx = +e.target.dataset.idx;
+    if (isNaN(idx)) return;
+    if (e.target.tagName === "INPUT") parsedStories[idx].headline = e.target.value;
+    if (e.target.tagName === "SELECT") parsedStories[idx].section = e.target.value;
+  });
+
+  backBtn.addEventListener("click", () => { fileInput.value = ""; showStep("pick"); });
+
+  addBtn.addEventListener("click", () => {
+    const existing = loadPaperStories();
+    savePaperStories([...existing, ...parsedStories]);
+    renderPaperStories();
+    closeModal();
+    // Switch to Papers tab
+    const papersTab = document.getElementById("tab-papers");
+    if (papersTab) papersTab.click();
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      if (confirm("Clear all imported newspaper stories?")) {
+        savePaperStories([]);
+        renderPaperStories();
+      }
+    });
+  }
 }
