@@ -10,8 +10,19 @@ function formatPrice(price: number, decimals: number): string {
   }).format(price)
 }
 
-function QuoteChip({ quote }: { quote: MarketQuote }) {
-  const up = quote.changePct >= 0
+function QuoteChip({ quote, loading }: { quote: MarketQuote; loading: boolean }) {
+  const hasData = quote.price > 0
+
+  if (loading || !hasData) {
+    return (
+      <span className="flex items-center gap-1 shrink-0">
+        <span className="text-ink-3">{quote.display}</span>
+        <span className="text-ink-2 tabular-nums">—</span>
+      </span>
+    )
+  }
+
+  const up  = quote.changePct >= 0
   const pct = `${up ? '+' : ''}${quote.changePct.toFixed(2)}%`
 
   return (
@@ -40,33 +51,22 @@ interface MarketsTickerProps {
 export function MarketsTicker({ className = '' }: MarketsTickerProps) {
   const { quotes, loading } = useMarkets()
 
-  if (loading) {
-    return (
-      <div
-        className={`flex items-center gap-4 ${className}`}
-        style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}
-      >
-        <span className="text-ink-3 animate-pulse">Markets loading…</span>
-      </div>
-    )
-  }
-
-  if (!quotes) return null
-
   return (
     <div
-      className={`flex items-center gap-4 flex-wrap ${className}`}
+      className={clsx('flex items-center gap-4 flex-wrap', className)}
       style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}
       aria-label="Market indices"
     >
-      {quotes.map((q, i) =>
-        q ? (
-          <span key={q.display} className="flex items-center gap-4">
-            {i > 0 && <span className="text-rule select-none" aria-hidden>·</span>}
-            <QuoteChip quote={q} />
-          </span>
-        ) : null,
-      )}
+      {quotes.map((q, i) => (
+        <span key={q?.display ?? i} className="flex items-center gap-4">
+          {i > 0 && <span className="text-rule select-none" aria-hidden>·</span>}
+          {q ? (
+            <QuoteChip quote={q} loading={loading} />
+          ) : (
+            <span className="text-ink-3">—</span>
+          )}
+        </span>
+      ))}
     </div>
   )
 }
