@@ -40,6 +40,9 @@ jobs:
           cp icon-512.png dist/
           cp sw.js dist/
           cp _headers dist/
+          # Serve src/data/ at /daily-brief/src/data/ so runtime fetches work
+          mkdir -p dist/src/data
+          cp src/data/*.json dist/src/data/
 
       - uses: actions/upload-pages-artifact@v3
         with:
