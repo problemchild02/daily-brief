@@ -502,17 +502,21 @@ def build_story(section, feed_url, url, pub_dt, headline, hook, summary, tags, p
             source = name
             break
 
+    pub_iso = pub_dt.isoformat() if pub_dt else datetime.now(timezone.utc).isoformat()
+
     story = {
-        "id":        make_id(section, url),
-        "section":   section,
-        "headline":  headline,
-        "hook":      hook,
-        "summary":   summary,
-        "source":    source,
-        "sourceUrl": url,
-        "dateLabel": date_label(pub_dt),
-        "tags":      tags[:8],
-        "priority":  priority,
+        "id":          make_id(section, url),
+        "section":     section,
+        "headline":    headline,
+        "hook":        hook,
+        "summary":     summary,
+        "source":      source,
+        "sourceUrl":   url,
+        "dateLabel":   date_label(pub_dt),
+        "publishedAt": pub_iso,
+        "wordCount":   len((summary + " " + hook).split()),
+        "tags":        tags[:8],
+        "priority":    priority,
     }
     if section in CONTEXT_NOTE_REQUIRED:
         story["contextNote"] = CONTEXT_TEMPLATES.get(section, "See source for full context.")
@@ -722,6 +726,9 @@ def build_stories():
             else:
                 ai_fail += 1
                 print(f"   ✗ {label}", file=sys.stderr)
+            story["wordCount"] = len(
+                (story.get("summary", "") + " " + story.get("contextNote", "")).split()
+            )
             time.sleep(AI_CALL_DELAY)
 
         print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
