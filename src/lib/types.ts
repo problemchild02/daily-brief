@@ -36,10 +36,16 @@ export interface FeedsPayload {
   sections: Record<CategoryKey, Story[]>
 }
 
+export interface FeedHealthEntry {
+  status: 'ok' | 'stale' | 'error'
+  lastSuccess: string  // ISO datetime
+}
+
 export interface MetaJson {
   editionNumber: number
   lastRefreshIST: string
-  feedHealth: Record<string, 'ok' | 'error'>
+  lastRefreshISO?: string
+  feedHealth: Record<string, FeedHealthEntry | 'ok' | 'error'>
 }
 
 export interface SourceEntry {

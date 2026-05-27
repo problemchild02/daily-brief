@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Masthead } from './components/layout/Masthead'
+import { SettingsSheet } from './components/layout/SettingsSheet'
 import { SectionDeck } from './components/sections/SectionDeck'
 import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
+import { useDensity } from './hooks/useDensity'
 import type { FeedsPayload, MetaJson, CategoryKey } from './lib/types'
 
 const BASE = import.meta.env.BASE_URL
@@ -11,6 +13,7 @@ export default function App() {
   const [meta, setMeta] = useState<MetaJson | null>(null)
   const [feeds, setFeeds] = useState<FeedsPayload | null>(null)
   const [loading, setLoading] = useState(true)
+  const [settingsOpen, setSettingsOpen] = useState(false)
   const [bookmarks, setBookmarks] = useState<Set<string>>(() => {
     try {
       return new Set(JSON.parse(localStorage.getItem('daily-brief:bookmarks') ?? '[]'))
@@ -18,6 +21,9 @@ export default function App() {
       return new Set()
     }
   })
+
+  // Apply density class to <html> on mount and whenever it changes.
+  useDensity()
 
   useEffect(() => {
     fetch(`${BASE}src/data/meta.json`)
@@ -51,7 +57,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-canvas text-ink font-sans">
-      <Masthead meta={meta} />
+      <Masthead
+        meta={meta}
+        onSettingsOpen={() => setSettingsOpen(true)}
+      />
 
       <main id="main-content" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 space-y-14">
         {orderedSections.map((section: CategoryKey) => (
@@ -62,9 +71,16 @@ export default function App() {
             loading={loading}
             bookmarks={bookmarks}
             onBookmark={toggleBookmark}
+            feedHealth={meta?.feedHealth}
+            lastRefreshISO={meta?.lastRefreshISO}
           />
         ))}
       </main>
+
+      <SettingsSheet
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+      />
     </div>
   )
 }

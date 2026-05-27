@@ -1,7 +1,7 @@
-import { CATEGORIES } from '../../lib/categories'
-import type { CategoryKey, Story } from '../../lib/types'
+import type { CategoryKey, Story, FeedHealthEntry } from '../../lib/types'
 import { Card } from '../cards/Card'
 import { SkeletonCard } from '../cards/SkeletonCard'
+import { SectionHeader } from './SectionHeader'
 
 interface SectionDeckProps {
   section: CategoryKey
@@ -9,6 +9,8 @@ interface SectionDeckProps {
   loading?: boolean
   bookmarks?: Set<string>
   onBookmark?: (id: string) => void
+  feedHealth?: Record<string, FeedHealthEntry | 'ok' | 'error'>
+  lastRefreshISO?: string
 }
 
 // Spec §7.6 — auto-fit grid, one SectionDeck per category.
@@ -18,18 +20,16 @@ export function SectionDeck({
   loading = false,
   bookmarks,
   onBookmark,
+  feedHealth,
+  lastRefreshISO,
 }: SectionDeckProps) {
-  const cat = CATEGORIES[section]
-
   return (
     <section aria-labelledby={`section-${section}`} className="mb-12">
-      <h2
-        id={`section-${section}`}
-        className="type-kicker mb-5"
-        style={{ color: `var(${cat.colorVar})` }}
-      >
-        {cat.label}
-      </h2>
+      <SectionHeader
+        category={section}
+        feedHealth={feedHealth}
+        lastRefreshISO={lastRefreshISO}
+      />
 
       {/* Spec §7.6: "repeat(auto-fit, minmax(320px, 1fr))" — one declaration,
           no media queries — gives 1 col at 375px, 2 at 768px, 3 at 1024px+ */}
