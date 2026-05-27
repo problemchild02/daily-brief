@@ -1,0 +1,71 @@
+:root {
+  /* ─── Surfaces ─────────────────────────────────── */
+  --canvas:    #FAF8F4;
+  --surface:   #FFFFFF;
+  --surface-2: #F3EFE8;
+  --rule:      #E6E0D6;
+
+  /* ─── Ink ──────────────────────────────────────── */
+  --ink:   #1A1A1A;
+  --ink-2: #4A4A4A;
+  --ink-3: #787470;
+
+  /* ─── Accent ───────────────────────────────────── */
+  --accent:      #A8321F;
+  --accent-soft: #FBE9E4;
+
+  /* ─── Category colours ─────────────────────────── */
+  --cat-legal:    #7A4E1F;
+  --cat-business: #1F4E7A;
+  --cat-retail:   #5B2E7A;
+  --cat-tech:     #1F6B5E;
+  --cat-world:    #7A1F2E;
+  --cat-sports:   #3D6B1F;
+  --cat-opinion:  #5C5C5C;
+  --cat-reliance: #6B1A5C;
+
+  /* ─── Type scale (fluid) ───────────────────────── */
+  --step--1: clamp(0.80rem, 0.78rem + 0.10vw, 0.875rem);
+  --step-0:  clamp(1.00rem, 0.97rem + 0.15vw, 1.0625rem);
+  --step-1:  clamp(1.25rem, 1.20rem + 0.25vw, 1.375rem);
+  --step-2:  clamp(1.563rem, 1.48rem + 0.40vw, 1.75rem);
+  --step-3:  clamp(1.953rem, 1.83rem + 0.62vw, 2.25rem);
+  --step-4:  clamp(2.441rem, 2.25rem + 0.95vw, 3.00rem);
+  --step-5:  clamp(3.052rem, 2.78rem + 1.36vw, 4.00rem);
+
+  /* ─── Font roles ───────────────────────────────── */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ─── Reading column ───────────────────────────── */
+  --measure: 68ch;
+
+  /* ─── Motion ───────────────────────────────────── */
+  --ease:     cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+}
+
+[data-theme="dark"] {
+  --canvas:    #11100E;
+  --surface:   #1A1815;
+  --surface-2: #23201C;
+  --rule:      #2D2926;
+
+  --ink:   #EDE7DC;
+  --ink-2: #B8B0A2;
+  --ink-3: #857E72;
+
+  --accent:      #E8745B;
+  --accent-soft: #3A1F18;
+
+  --cat-legal:    #D9A66B;
+  --cat-business: #7AB0E0;
+  --cat-retail:   #C198E0;
+  --cat-tech:     #5FD0BA;
+  --cat-world:    #E08097;
+  --cat-sports:   #9AD06B;
+  --cat-opinion:  #B8B8B8;
+  --cat-reliance: #D988C8;
+}
