@@ -26,6 +26,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Fetch RSS stories + AI summaries
         id: fetch
         env:
@@ -52,11 +57,14 @@ jobs:
               print('Committing anyway so the site shows the fallback notice rather than staying blank.')
           EOF
 
+      - name: Update meta.json
+        run: node scripts/update-meta.mjs
+
       - name: Commit updated stories.json
         run: |
           git config user.name  "daily-brief-bot"
           git config user.email "bot@daily-brief.local"
-          git add stories.json fetch-log.txt
+          git add stories.json fetch-log.txt src/data/meta.json
           git diff --cached --quiet && echo "No changes to commit." || \
             git commit -m "chore: stories auto-update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
