@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./type.css";
+
+/* ─── Tailwind v4: map runtime CSS vars to utility classes ─────────────
+   @theme inline tells Tailwind to emit `var(--xxx)` in the generated
+   utility, not a hardcoded value. This makes dark mode work automatically
+   because the underlying CSS variables change under [data-theme="dark"].
+───────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  /* Surfaces */
+  --color-canvas:    var(--canvas);
+  --color-surface:   var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-rule:      var(--rule);
+
+  /* Ink */
+  --color-ink:   var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+
+  /* Accent */
+  --color-accent:      var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  /* Category colours */
+  --color-cat-legal:    var(--cat-legal);
+  --color-cat-business: var(--cat-business);
+  --color-cat-retail:   var(--cat-retail);
+  --color-cat-tech:     var(--cat-tech);
+  --color-cat-world:    var(--cat-world);
+  --color-cat-sports:   var(--cat-sports);
+  --color-cat-opinion:  var(--cat-opinion);
+  --color-cat-reliance: var(--cat-reliance);
+
+  /* Font families (override Tailwind defaults with our Google Fonts stack) */
+  --font-serif: var(--font-serif);
+  --font-sans:  var(--font-sans);
+  --font-mono:  var(--font-mono);
+
+  /* Reading column */
+  --width-measure: var(--measure);
+
+  /* Fluid type scale → text-step-* utilities */
+  --text-step--1: var(--step--1);
+  --text-step-0:  var(--step-0);
+  --text-step-1:  var(--step-1);
+  --text-step-2:  var(--step-2);
+  --text-step-3:  var(--step-3);
+  --text-step-4:  var(--step-4);
+  --text-step-5:  var(--step-5);
+}
+
+/* ─── Dark mode variant via [data-theme="dark"] on <html> ──────────────── */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ─── Base resets ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+}
