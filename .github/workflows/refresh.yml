@@ -1,19 +1,21 @@
-name: Daily Brief — Auto-Update
+name: Refresh Daily Brief
 
 on:
   schedule:
-    # 00:30 UTC = 06:00 AM IST
+    # 06:00, 12:00, 18:00 IST = 00:30, 06:30, 12:30 UTC
     - cron: "30 0 * * *"
-  # Manual trigger: Actions tab → select workflow → "Run workflow" button
+    - cron: "30 6 * * *"
+    - cron: "30 12 * * *"
+  # Manual trigger via Actions tab or PAT dispatch from the Settings sheet
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-stories:
+  refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repo
@@ -31,7 +33,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Fetch RSS stories + AI summaries
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Fetch feeds
         id: fetch
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -40,7 +45,6 @@ jobs:
           python fetch_stories.py 2>&1 | tee fetch-log.txt
 
       - name: Validate stories.json
-        id: validate
         run: |
           python - <<'EOF'
           import json, sys
@@ -53,18 +57,27 @@ jobs:
           print(f'Hero    : {hero or "(none)"}')
           print(f'Stories : {total} total  [{per_section}]')
           if total == 0:
-              print('ERROR: 0 stories — this is the fallback edition or something is wrong.')
-              print('Committing anyway so the site shows the fallback notice rather than staying blank.')
+              print('WARNING: 0 stories — this may be the fallback edition.')
           EOF
 
-      - name: Update meta.json
+      - name: Generate per-story annotations
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-annotations.mjs
+
+      - name: Generate briefing
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-briefing.mjs
+
+      - name: Update meta
         run: node scripts/update-meta.mjs
 
-      - name: Commit updated stories.json
+      - name: Commit and push
         run: |
           git config user.name  "daily-brief-bot"
           git config user.email "bot@daily-brief.local"
-          git add stories.json fetch-log.txt src/data/meta.json
+          git add stories.json fetch-log.txt src/data/meta.json src/data/briefing.json
           git diff --cached --quiet && echo "No changes to commit." || \
-            git commit -m "chore: stories auto-update $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git commit -m "chore: refresh $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
           git push
