@@ -39,3 +39,6 @@ export function formatTimeIST(iso: string): string {
   if (isNaN(d.getTime())) return ''
   return TIME_FORMATTER.format(d)
 }
+
+// Spec §7 alias
+export const formatIST = formatTimeIST

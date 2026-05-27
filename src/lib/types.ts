@@ -17,7 +17,8 @@ export interface Story {
   headline: string
   hook: string
   summary: string
-  contextNote?: string
+  contextNote?: string    // legacy field name in stories.json
+  whyItMatters?: string   // spec §7.9 field name (used by future workflow)
   kicker?: string
   source: string
   sourceUrl: string

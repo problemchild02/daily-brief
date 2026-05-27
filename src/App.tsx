@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Masthead } from './components/layout/Masthead'
-import { Card } from './components/cards/Card'
-import { SkeletonCard } from './components/cards/SkeletonCard'
+import { SectionDeck } from './components/sections/SectionDeck'
 import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
 import type { FeedsPayload, MetaJson, CategoryKey } from './lib/types'
@@ -55,48 +54,16 @@ export default function App() {
       <Masthead meta={meta} />
 
       <main id="main-content" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 space-y-14">
-        {orderedSections.map((section: CategoryKey) => {
-          const stories = feeds?.sections[section] ?? []
-          const cat = CATEGORIES[section]
-
-          return (
-            <section key={section} aria-labelledby={`section-${section}`}>
-              <h2
-                id={`section-${section}`}
-                className="type-kicker mb-5"
-                style={{ color: `var(${cat.colorVar})` }}
-              >
-                {cat.label}
-              </h2>
-
-              <div
-                className="grid gap-5"
-                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
-              >
-                {loading
-                  ? Array.from({ length: 3 }, (_, i) => (
-                      <SkeletonCard key={i} variant={i === 0 ? 'hero' : 'standard'} />
-                    ))
-                  : stories.length === 0
-                    ? (
-                      <p className="font-mono text-step--1 text-ink-3 col-span-full py-6">
-                        Nothing new in this section — check back after the next refresh.
-                      </p>
-                    )
-                    : stories.map((story, idx) => (
-                      <Card
-                        key={story.id}
-                        story={story}
-                        variant={idx === 0 ? 'hero' : 'standard'}
-                        isBookmarked={bookmarks.has(story.id)}
-                        onBookmark={toggleBookmark}
-                      />
-                    ))
-                }
-              </div>
-            </section>
-          )
-        })}
+        {orderedSections.map((section: CategoryKey) => (
+          <SectionDeck
+            key={section}
+            section={section}
+            stories={feeds?.sections[section] ?? []}
+            loading={loading}
+            bookmarks={bookmarks}
+            onBookmark={toggleBookmark}
+          />
+        ))}
       </main>
     </div>
   )
