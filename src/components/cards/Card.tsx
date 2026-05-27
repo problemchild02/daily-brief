@@ -32,7 +32,7 @@ function KickerLabel({
 }
 
 export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: CardProps) {
-  const { id, section, headline, hook, summary, source, sourceUrl, publishedAt, wordCount, kicker } =
+  const { id, section, headline, hook, summary, contextNote, source, sourceUrl, publishedAt, wordCount, kicker } =
     story
   const category = section as CategoryKey
   const cat = CATEGORIES[category]
@@ -109,6 +109,25 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
         <p className="font-serif text-step-0 leading-[1.45] text-ink-2 line-clamp-4">
           {summary}
         </p>
+      )}
+
+      {contextNote && (
+        <aside
+          className="rounded-lg px-4 py-3 text-step--1 font-sans leading-relaxed"
+          style={{
+            background: `color-mix(in srgb, var(${cat.colorVar}) 8%, var(--surface-2))`,
+            borderLeft: `3px solid var(${cat.colorVar})`,
+            color: 'var(--ink-2)',
+          }}
+        >
+          <span
+            className="type-kicker block mb-1"
+            style={{ color: `var(${cat.colorVar})` }}
+          >
+            Why it matters
+          </span>
+          {contextNote}
+        </aside>
       )}
 
       <footer className="font-mono text-step--1 text-ink-3 flex items-center justify-between mt-auto pt-1">
