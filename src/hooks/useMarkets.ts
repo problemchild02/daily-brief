@@ -35,10 +35,10 @@ async function tryFetch(url: string): Promise<Response | null> {
 }
 
 async function fetchQuote(symbol: string, decimals: number): Promise<MarketQuote | null> {
-  // Yahoo Finance requires literal ^ and = characters in the path — do NOT use encodeURIComponent.
   const yahooUrl = `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=2d`
-  // CORS proxy fallback for browsers/shields that block cross-origin Yahoo Finance requests.
-  const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(yahooUrl)}`
+  // allorigins.win proxies the request server-side, bypassing browser CORS restrictions.
+  // corsproxy.io returns 403 for GitHub Pages origins, so allorigins is the reliable fallback.
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(yahooUrl)}`
 
   for (const url of [yahooUrl, proxyUrl]) {
     const r = await tryFetch(url)
