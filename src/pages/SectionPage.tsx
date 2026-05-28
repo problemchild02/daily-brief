@@ -7,7 +7,7 @@ import type { CategoryKey } from '../lib/types'
 
 export function SectionPage() {
   const { category } = useParams<{ category: string }>()
-  const { feeds, meta, loading, bookmarks, toggleBookmark } = useAppContext()
+  const { feeds, meta, loading } = useAppContext()
 
   if (!category || !(CATEGORY_KEYS as readonly string[]).includes(category)) {
     return <Navigate to="/" replace />
@@ -17,7 +17,6 @@ export function SectionPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-      {/* Back-link / breadcrumb */}
       <p
         className="text-[11px] text-ink-3 mb-6 uppercase tracking-[0.06em]"
         style={{ fontFamily: 'var(--font-mono)' }}
@@ -31,8 +30,6 @@ export function SectionPage() {
         section={catKey}
         stories={feeds?.sections[catKey] ?? []}
         loading={loading}
-        bookmarks={bookmarks}
-        onBookmark={toggleBookmark}
         feedHealth={meta?.feedHealth}
         lastRefreshISO={meta?.lastRefreshISO}
       />

@@ -4,6 +4,7 @@ import { clsx } from 'clsx'
 import { CATEGORIES } from '../../lib/categories'
 import { relativeTime } from '../../lib/dateFormat'
 import { readPat, dispatchWorkflow } from '../../lib/githubWorkflow'
+import { BriefingSkeleton } from './BriefingSkeleton'
 import type { BriefingJson, CategoryKey } from '../../lib/types'
 
 interface BriefingOfTheDayProps {
@@ -51,21 +52,8 @@ export function BriefingOfTheDay({ briefing, loading = false }: BriefingOfTheDay
     }
   }, [])
 
-  // Loading skeleton
   if (loading) {
-    return (
-      <div className="col-span-full bg-surface border border-rule rounded-2xl p-6 mb-2">
-        <div className="h-7 w-36 bg-surface-2 rounded animate-pulse mb-4" />
-        <div className="space-y-3">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="flex gap-3 items-start">
-              <div className="w-2 h-2 rounded-full bg-surface-2 shrink-0 mt-1.5 animate-pulse" />
-              <div className="h-4 bg-surface-2 rounded animate-pulse flex-1" style={{ width: `${70 + i * 5}%` }} />
-            </div>
-          ))}
-        </div>
-      </div>
-    )
+    return <BriefingSkeleton />
   }
 
   // Empty state — briefing hasn't been generated yet

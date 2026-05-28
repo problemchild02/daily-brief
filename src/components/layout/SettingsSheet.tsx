@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { X, Eye, EyeOff, Play, Loader } from 'lucide-react'
+import { X, Eye, EyeOff, Play, Loader, Printer } from 'lucide-react'
 import { clsx } from 'clsx'
 import { useTheme } from '../../hooks/useTheme'
 import { useDensity } from '../../hooks/useDensity'
@@ -344,6 +344,30 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                 )}
               </div>
             </div>
+          </div>
+
+          {/* ── Export ──────────────────────────────────── */}
+          <SectionLabel>Export</SectionLabel>
+          <div className="border border-rule rounded-xl px-4 py-3">
+            <p
+              className="mb-3"
+              style={{ fontFamily: 'var(--font-serif)', fontSize: '13px', lineHeight: 1.5, color: 'var(--ink-2)' }}
+            >
+              Save today's brief as a printable PDF.
+            </p>
+            <button
+              type="button"
+              onClick={() => { onClose(); setTimeout(() => window.print(), 200) }}
+              className={clsx(
+                'flex items-center gap-1.5 px-3 py-2 rounded-lg border border-rule text-[12px] font-medium',
+                'hover:bg-surface-2 hover:border-ink-3/40 transition-colors',
+                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent',
+              )}
+              style={{ fontFamily: 'var(--font-mono)', color: 'var(--ink-2)' }}
+            >
+              <Printer size={13} />
+              Export to PDF
+            </button>
           </div>
 
           {/* ── Papers ──────────────────────────────────── */}

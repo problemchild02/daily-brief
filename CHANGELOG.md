@@ -2,6 +2,29 @@
 
 All notable changes to the Daily Brief React migration are recorded here.
 
+## [Phase 2 M3] — 2026-05-28
+
+### Added
+- **`src/lib/urlHash.ts`** — djb2-style URL hash used as stable bookmark key across feed refreshes
+- **`src/hooks/useBookmarks.ts`** — URL-hash-keyed bookmark store (`Record<urlHash, BookmarkMeta>`) persisted to `daily-brief:bookmarks`; old array format auto-discarded; `BookmarkMeta` carries `savedAt` ISO timestamp for time-bucket grouping
+- **`src/components/cards/ListRow.tsx`** — standalone list-variant story row (52 px); category kicker, headline, source · time, external link, bookmark toggle
+- **`src/components/briefing/BriefingSkeleton.tsx`** — exact-height briefing loading skeleton (title + 2-line summary + 5 category-dot bullets)
+- **`src/components/cards/SkeletonCard.tsx`** — added `SkeletonListRow` export for list-mode loading state; improved card placeholder heights to match real Card
+- **Print / Export to PDF** — `@media print` rules in `global.css` (18 mm `@page` margins, 11 pt Newsreader body, single-column grid override, `page-break-after` on sections, `page-break-inside: avoid` on articles); "Export to PDF" button in `SettingsSheet` calling `window.print()`
+
+### Changed
+- **`src/contexts/AppContext.tsx`** — extended with `feedsError`, `retryFeeds`, `density`, `bookmarksList`, `isBookmarked`, `toggleBookmark`
+- **`src/App.tsx`** — wires `useBookmarks()` and `useDensity()` into context; adds `feedsError` / `fetchKey` retry pattern; wraps Masthead + info strip in `print:hidden`
+- **`src/components/sections/SectionDeck.tsx`** — reads bookmarks and density from context (props removed); density-driven default view mode (`dense` → list); per-section grid/list toggle; list view renders `ListRow` stack; error state with inline Retry button
+- **`src/components/sections/SectionHeader.tsx`** — added `viewMode` + `onToggleView` props; grid/list toggle button (LayoutGrid / List icons)
+- **`src/components/briefing/BriefingOfTheDay.tsx`** — replaced inline loading skeleton with `<BriefingSkeleton />`
+- **`src/pages/FrontPage.tsx`** — removed `bookmarks` / `onBookmark` props from `SectionDeck` calls (context-driven)
+- **`src/pages/SectionPage.tsx`** — same as FrontPage
+- **`src/pages/SavedPage.tsx`** — rewritten to group bookmarks by Today / This week / Earlier this month / Older using `BookmarkMeta.savedAt`; no longer depends on live `feeds` data
+- **`src/components/layout/Sidebar.tsx`** — added `print:hidden`
+- **`src/components/layout/TabBar.tsx`** — added `print:hidden`
+- **`src/components/layout/SettingsSheet.tsx`** — added Export section with "Export to PDF" button; imports `Printer` from lucide-react
+
 ## [Phase 1.4] — 2026-05-27
 
 ### Added
