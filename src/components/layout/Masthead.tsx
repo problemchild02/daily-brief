@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Moon, Sun, Settings, Search } from 'lucide-react'
+import { Moon, Sun, Settings, Search, PanelLeft } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme'
 import type { MetaJson } from '../../lib/types'
 
@@ -21,9 +21,10 @@ interface MastheadProps {
   meta?: MetaJson | null
   onSettingsOpen?: () => void
   onSearchOpen?: () => void
+  onSidebarToggle?: () => void
 }
 
-export function Masthead({ meta, onSettingsOpen, onSearchOpen }: MastheadProps) {
+export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle }: MastheadProps) {
   const { isDark, toggle } = useTheme()
   // Spec §6.1: "On scroll past 200px, masthead sticks to top with reduced height"
   const [compact, setCompact] = useState(false)
@@ -49,6 +50,18 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen }: MastheadProps) 
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
 
+        {/* Left: optional sidebar toggle (desktop only) + wordmark */}
+        <div className="flex items-center gap-2 min-w-0">
+          {onSidebarToggle && (
+            <button
+              type="button"
+              onClick={onSidebarToggle}
+              aria-label="Toggle sidebar"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-ink-3 hover:bg-surface-2 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent transition-colors"
+            >
+              <PanelLeft size={18} />
+            </button>
+          )}
         {/* Wordmark + date line */}
         <div className="min-w-0">
           {/* Spec §6.1: "48–64px (fluid clamp), weight 700, tracking -0.025em"
@@ -73,6 +86,7 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen }: MastheadProps) 
               )}
             </p>
           )}
+        </div>
         </div>
 
         {/* Spec §6.1: "Right side: theme toggle, settings (gear), search (slash) icons.

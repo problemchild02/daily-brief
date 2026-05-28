@@ -11,12 +11,13 @@ export interface AppContextValue {
   feedsError: boolean
   retryFeeds: () => void
   density: Density
-  // Bookmarks (keyed by URL hash for cross-refresh persistence)
   bookmarksList: BookmarkMeta[]
   isBookmarked: (sourceUrl: string) => boolean
   toggleBookmark: (story: Story) => void
   onSettingsOpen: () => void
   onPaletteOpen: () => void
+  sidebarCollapsed: boolean
+  onSidebarToggle: () => void
 }
 
 export const AppContext = createContext<AppContextValue>({
@@ -32,6 +33,8 @@ export const AppContext = createContext<AppContextValue>({
   toggleBookmark: () => {},
   onSettingsOpen: () => {},
   onPaletteOpen: () => {},
+  sidebarCollapsed: false,
+  onSidebarToggle: () => {},
 })
 
 export function useAppContext(): AppContextValue {

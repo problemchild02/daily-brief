@@ -10,6 +10,8 @@ import { CATEGORY_KEYS } from '../../lib/types'
 import { useAppContext } from '../../contexts/AppContext'
 import type { CategoryKey } from '../../lib/types'
 
+
+
 const navItem = (active: boolean) => clsx(
   'flex items-center gap-3 px-3 py-2.5 rounded-lg w-full transition-colors',
   active
@@ -20,13 +22,18 @@ const navItem = (active: boolean) => clsx(
 const NAV_STYLE = { fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 500 } as const
 
 export function Sidebar() {
-  const { onPaletteOpen, onSettingsOpen } = useAppContext()
+  const { onPaletteOpen, onSettingsOpen, sidebarCollapsed } = useAppContext()
   const [sectionsOpen, setSectionsOpen] = useState(true)
 
   return (
     <aside
-      className="fixed left-0 top-0 h-full w-[240px] z-30 bg-canvas border-r border-rule flex flex-col overflow-y-auto print:hidden"
+      className={clsx(
+        'fixed left-0 top-0 h-full w-[240px] z-30 bg-canvas border-r border-rule flex flex-col overflow-y-auto print:hidden',
+        'transition-transform duration-300',
+        sidebarCollapsed ? '-translate-x-full' : 'translate-x-0',
+      )}
       aria-label="Primary navigation"
+      aria-hidden={sidebarCollapsed}
     >
       {/* Logo */}
       <div className="px-4 py-5 border-b border-rule shrink-0">
