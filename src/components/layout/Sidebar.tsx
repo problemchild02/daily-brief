@@ -25,7 +25,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className="fixed left-0 top-0 h-full w-[240px] z-30 bg-canvas border-r border-rule flex flex-col overflow-y-auto"
+      className="fixed left-0 top-0 h-full w-[240px] z-30 bg-canvas border-r border-rule flex flex-col overflow-y-auto print:hidden"
       aria-label="Primary navigation"
     >
       {/* Logo */}

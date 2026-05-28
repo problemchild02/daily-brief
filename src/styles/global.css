@@ -118,3 +118,52 @@ button {
 [cmdk-item][aria-selected="true"] {
   background-color: var(--surface-2);
 }
+
+/* ─── Print / Export to PDF ─────────────────────────────────────────────── */
+@media print {
+  @page {
+    margin: 18mm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: var(--font-serif);
+    font-size: 11pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Collapse auto-fit grids to a single column */
+  .grid {
+    display: block !important;
+  }
+
+  /* Page break after each major section */
+  section[aria-labelledby] {
+    page-break-after: always;
+  }
+
+  /* Keep each card on one page where possible */
+  article {
+    page-break-inside: avoid;
+    border: 1px solid #ccc !important;
+    border-left-width: 3px !important;
+    background: transparent !important;
+    margin-bottom: 12pt;
+  }
+
+  /* Links — preserve text, no underline */
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* Hide interactive chrome that print:hidden utility doesn't reach */
+  [role="dialog"],
+  [cmdk-root],
+  .fixed {
+    display: none !important;
+  }
+}

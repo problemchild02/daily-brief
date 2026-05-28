@@ -13,13 +13,13 @@ import { SavedPage } from './pages/SavedPage'
 import { PapersPage } from './pages/PapersPage'
 import { AppContext } from './contexts/AppContext'
 import { useDensity } from './hooks/useDensity'
+import { useBookmarks } from './hooks/useBookmarks'
 import { useIsDesktop } from './hooks/useMediaQuery'
 import { CATEGORY_KEYS } from './lib/types'
 import type { FeedsPayload, MetaJson, BriefingJson } from './lib/types'
 
 const BASE = import.meta.env.BASE_URL
 
-// Redirect helpers — must be defined outside App to avoid hook-in-nested-function issues.
 function SearchRedirect({ onOpen }: { onOpen: () => void }) {
   const navigate = useNavigate()
   useEffect(() => { onOpen(); navigate('/', { replace: true }) }, [])
@@ -37,14 +37,13 @@ export default function App() {
   const [feeds,    setFeeds]    = useState<FeedsPayload | null>(null)
   const [briefing, setBriefing] = useState<BriefingJson | null>(null)
   const [loading,  setLoading]  = useState(true)
+  const [feedsError, setFeedsError] = useState(false)
+  const [fetchKey, setFetchKey] = useState(0)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [paletteOpen,  setPaletteOpen]  = useState(false)
-  const [bookmarks, setBookmarks] = useState<Set<string>>(() => {
-    try { return new Set(JSON.parse(localStorage.getItem('daily-brief:bookmarks') ?? '[]')) }
-    catch { return new Set() }
-  })
 
-  useDensity()
+  const { density } = useDensity()
+  const { toggle: toggleBookmark, isBookmarked, bookmarksList } = useBookmarks()
   const isDesktop = useIsDesktop()
 
   // ── Data loading ──────────────────────────────────────────────────────────
@@ -63,12 +62,13 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    setFeedsError(false)
     fetch(`${BASE}stories.json`)
-      .then(r => r.ok ? r.json() : null)
-      .then((d: FeedsPayload | null) => { if (d) setFeeds(d) })
-      .catch(() => {})
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
+      .then((d: FeedsPayload) => { setFeeds(d); setFeedsError(false) })
+      .catch(() => setFeedsError(true))
       .finally(() => setLoading(false))
-  }, [])
+  }, [fetchKey])
 
   // ── Global keyboard shortcuts ─────────────────────────────────────────────
   useEffect(() => {
@@ -87,51 +87,42 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // ── Bookmarks ─────────────────────────────────────────────────────────────
-  const toggleBookmark = useCallback((id: string) => {
-    setBookmarks(prev => {
-      const next = new Set(prev)
-      next.has(id) ? next.delete(id) : next.add(id)
-      try { localStorage.setItem('daily-brief:bookmarks', JSON.stringify([...next])) }
-      catch { /* ignore */ }
-      return next
-    })
+  const retryFeeds = useCallback(() => {
+    setLoading(true)
+    setFeedsError(false)
+    setFetchKey(k => k + 1)
   }, [])
 
-  // Flatten all stories for the command palette search index.
   const allStories = feeds
     ? CATEGORY_KEYS.flatMap(k => feeds.sections[k] ?? [])
     : []
 
   return (
     <AppContext.Provider value={{
-      feeds, meta, briefing, loading, bookmarks, toggleBookmark,
+      feeds, meta, briefing, loading, feedsError, retryFeeds, density,
+      bookmarksList, isBookmarked, toggleBookmark,
       onSettingsOpen: () => setSettingsOpen(true),
       onPaletteOpen:  () => setPaletteOpen(true),
     }}>
-      <div className={[
-        'min-h-screen bg-canvas text-ink font-sans',
-        isDesktop ? '' : 'pb-0',
-      ].join(' ')}>
-
-        {/* ── Desktop sidebar (fixed left, full height) ─────────────────── */}
+      <div className="min-h-screen bg-canvas text-ink font-sans">
         {isDesktop && <Sidebar />}
 
-        {/* ── Main content column ───────────────────────────────────────── */}
         <div className={[
           'flex flex-col min-h-screen',
           isDesktop ? 'ml-[240px]' : 'pb-20',
         ].join(' ')}>
 
-          {/* Masthead — sticky top-0 within this column */}
-          <Masthead
-            meta={meta}
-            onSettingsOpen={() => setSettingsOpen(true)}
-            onSearchOpen={() => setPaletteOpen(true)}
-          />
+          {/* Masthead hidden in print */}
+          <div className="print:hidden">
+            <Masthead
+              meta={meta}
+              onSettingsOpen={() => setSettingsOpen(true)}
+              onSearchOpen={() => setPaletteOpen(true)}
+            />
+          </div>
 
-          {/* Info strip: WeatherStrip + MarketsTicker */}
-          <div className="border-b border-rule bg-canvas/80">
+          {/* Info strip hidden in print */}
+          <div className="border-b border-rule bg-canvas/80 print:hidden">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:divide-x sm:divide-rule gap-3 sm:gap-0 py-2.5">
                 <WeatherStrip className="sm:pr-5" />
@@ -140,28 +131,22 @@ export default function App() {
             </div>
           </div>
 
-          {/* Page routes */}
           <main id="main-content" className="flex-1">
             <Routes>
-              <Route path="/"                  element={<FrontPage />} />
+              <Route path="/"                   element={<FrontPage />} />
               <Route path="/sections/:category" element={<SectionPage />} />
-              <Route path="/saved"             element={<SavedPage />} />
-              <Route path="/papers"            element={<PapersPage />} />
-              <Route path="/search"            element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
-              <Route path="/settings"          element={<SettingsRedirect onOpen={() => setSettingsOpen(true)} />} />
-              <Route path="*"                  element={<FrontPage />} />
+              <Route path="/saved"              element={<SavedPage />} />
+              <Route path="/papers"             element={<PapersPage />} />
+              <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
+              <Route path="/settings"           element={<SettingsRedirect onOpen={() => setSettingsOpen(true)} />} />
+              <Route path="*"                   element={<FrontPage />} />
             </Routes>
           </main>
         </div>
 
-        {/* ── Mobile tab bar (fixed bottom) ─────────────────────────────── */}
         {!isDesktop && <TabBar />}
 
-        {/* ── Overlays ──────────────────────────────────────────────────── */}
-        <SettingsSheet
-          open={settingsOpen}
-          onClose={() => setSettingsOpen(false)}
-        />
+        <SettingsSheet open={settingsOpen} onClose={() => setSettingsOpen(false)} />
         <CommandPalette
           open={paletteOpen}
           onClose={() => setPaletteOpen(false)}

@@ -5,7 +5,7 @@ import { useAppContext } from '../contexts/AppContext'
 import type { CategoryKey, Story } from '../lib/types'
 
 export function PapersPage() {
-  const { feeds, bookmarks, toggleBookmark, onSettingsOpen } = useAppContext()
+  const { feeds, isBookmarked, toggleBookmark, onSettingsOpen } = useAppContext()
 
   const paperStories: Story[] = feeds
     ? (CATEGORY_KEYS as readonly CategoryKey[]).flatMap(k => feeds.sections[k] ?? []).filter(s => s.fromPaper)
@@ -58,8 +58,8 @@ export function PapersPage() {
             <Card
               key={story.id}
               story={story}
-              isBookmarked={bookmarks.has(story.id)}
-              onBookmark={toggleBookmark}
+              isBookmarked={isBookmarked(story.sourceUrl)}
+              onBookmark={() => toggleBookmark(story)}
             />
           ))}
         </div>

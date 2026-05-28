@@ -26,7 +26,7 @@ export function TabBar() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 bg-canvas border-t border-rule"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-canvas border-t border-rule print:hidden"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       aria-label="Primary navigation"
     >

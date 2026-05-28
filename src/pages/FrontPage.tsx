@@ -6,7 +6,7 @@ import { useAppContext } from '../contexts/AppContext'
 import type { CategoryKey } from '../lib/types'
 
 export function FrontPage() {
-  const { feeds, meta, briefing, loading, bookmarks, toggleBookmark } = useAppContext()
+  const { feeds, meta, briefing, loading } = useAppContext()
 
   const orderedSections = (CATEGORY_KEYS as readonly CategoryKey[])
     .slice()
@@ -30,8 +30,6 @@ export function FrontPage() {
             section={section}
             stories={feeds?.sections[section] ?? []}
             loading={loading}
-            bookmarks={bookmarks}
-            onBookmark={toggleBookmark}
             feedHealth={meta?.feedHealth}
             lastRefreshISO={meta?.lastRefreshISO}
           />
