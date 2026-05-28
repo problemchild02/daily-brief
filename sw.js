@@ -1,75 +1,58 @@
-// Cache version — bump this string whenever you want all clients to get a fresh cache.
-const CACHE_NAME = "daily-brief-v4";
+// Bump this version to force all clients to discard old caches and reload fresh.
+// v4 → v5: React/Vite migration; old app.js + styles.css no longer exist.
+const CACHE_NAME = "daily-brief-v5";
 
-// App shell: static assets that are safe to cache long-term.
-// stories.json is intentionally excluded — it is fetched network-first (see below).
-const APP_SHELL = [
-  "./",
-  "./index.html",
-  "./styles.css",
-  "./app.js",
-  "./manifest.json"
-];
-
-// ── Install: pre-cache the app shell ────────────────────────────────────────
+// ── Install: skip waiting so the new SW takes control immediately ────────────
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL))
-  );
   self.skipWaiting();
 });
 
-// ── Activate: delete any old caches (e.g. daily-brief-v1) ───────────────────
+// ── Activate: wipe every old cache, then claim all clients ──────────────────
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    )
+    caches.keys()
+      .then((keys) => Promise.all(keys.map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// ── Fetch: split strategy ────────────────────────────────────────────────────
-//
-//  • stories.json  → NETWORK-FIRST
-//      Always try the network so users always get today's edition.
-//      Fall back to cache only when the network is completely unavailable
-//      (e.g. the user is genuinely offline).
-//
-//  • Everything else → CACHE-FIRST
-//      Serve from cache for speed; fall back to network on a miss.
-//
+// ── Fetch: network-first for HTML + JSON data, cache-first for hashed assets ─
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   const url = new URL(event.request.url);
-  const isStoriesJson = url.pathname.endsWith("stories.json");
+  const path = url.pathname;
 
-  if (isStoriesJson) {
-    // Network-first: always fetch fresh from network, bypassing HTTP cache.
-    // Fall back to SW cache only when offline.
-    const networkRequest = new Request(url.href, { cache: "reload" });
+  // Network-first: HTML documents and all JSON data files.
+  // Ensures users always get the latest app shell and fresh stories/markets/briefing.
+  const isNetworkFirst =
+    path.endsWith(".html") ||
+    path.endsWith(".json") ||
+    path === "/daily-brief/" ||
+    path === "/daily-brief";
+
+  if (isNetworkFirst) {
     event.respondWith(
-      fetch(networkRequest)
-        .then((networkResponse) => {
-          const clone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(url.href, clone));
-          return networkResponse;
+      fetch(new Request(event.request, { cache: "no-store" }))
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          return response;
         })
-        .catch(() => {
-          return caches.match(url.href);
-        })
+        .catch(() => caches.match(event.request))
     );
-  } else {
-    // Cache-first: fast loads for static assets.
-    event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        return cachedResponse || fetch(event.request);
-      })
-    );
+    return;
   }
+
+  // Cache-first: JS/CSS/fonts/images use content-hashed filenames — safe to cache forever.
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+      return fetch(event.request).then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        return response;
+      });
+    })
+  );
 });

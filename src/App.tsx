@@ -20,6 +20,10 @@ import type { FeedsPayload, MetaJson, BriefingJson } from './lib/types'
 
 const BASE = import.meta.env.BASE_URL
 
+function readSidebarCollapsed(): boolean {
+  try { return localStorage.getItem('daily-brief:sidebar-collapsed') === 'true' } catch { return false }
+}
+
 function SearchRedirect({ onOpen }: { onOpen: () => void }) {
   const navigate = useNavigate()
   useEffect(() => { onOpen(); navigate('/', { replace: true }) }, [])
@@ -41,6 +45,7 @@ export default function App() {
   const [fetchKey, setFetchKey] = useState(0)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [paletteOpen,  setPaletteOpen]  = useState(false)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(readSidebarCollapsed)
 
   const { density } = useDensity()
   const { toggle: toggleBookmark, isBookmarked, bookmarksList } = useBookmarks()
@@ -93,6 +98,14 @@ export default function App() {
     setFetchKey(k => k + 1)
   }, [])
 
+  const onSidebarToggle = useCallback(() => {
+    setSidebarCollapsed(prev => {
+      const next = !prev
+      try { localStorage.setItem('daily-brief:sidebar-collapsed', String(next)) } catch {}
+      return next
+    })
+  }, [])
+
   const allStories = feeds
     ? CATEGORY_KEYS.flatMap(k => feeds.sections[k] ?? [])
     : []
@@ -103,13 +116,15 @@ export default function App() {
       bookmarksList, isBookmarked, toggleBookmark,
       onSettingsOpen: () => setSettingsOpen(true),
       onPaletteOpen:  () => setPaletteOpen(true),
+      sidebarCollapsed,
+      onSidebarToggle,
     }}>
       <div className="min-h-screen bg-canvas text-ink font-sans">
         {isDesktop && <Sidebar />}
 
         <div className={[
-          'flex flex-col min-h-screen',
-          isDesktop ? 'ml-[240px]' : 'pb-20',
+          'flex flex-col min-h-screen transition-[margin-left] duration-300',
+          isDesktop ? (sidebarCollapsed ? 'ml-0' : 'ml-[240px]') : 'pb-20',
         ].join(' ')}>
 
           {/* Masthead hidden in print */}
@@ -118,6 +133,7 @@ export default function App() {
               meta={meta}
               onSettingsOpen={() => setSettingsOpen(true)}
               onSearchOpen={() => setPaletteOpen(true)}
+              onSidebarToggle={isDesktop ? onSidebarToggle : undefined}
             />
           </div>
 
