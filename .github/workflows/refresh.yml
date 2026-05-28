@@ -70,6 +70,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/generate-briefing.mjs
 
+      - name: Fetch market data
+        run: node scripts/fetch-markets.mjs
+
       - name: Update meta
         run: node scripts/update-meta.mjs
 
@@ -77,7 +80,7 @@ jobs:
         run: |
           git config user.name  "daily-brief-bot"
           git config user.email "bot@daily-brief.local"
-          git add stories.json fetch-log.txt src/data/meta.json src/data/briefing.json
+          git add stories.json fetch-log.txt src/data/meta.json src/data/briefing.json src/data/markets.json
           git diff --cached --quiet && echo "No changes to commit." || \
             git commit -m "chore: refresh $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
           git push
