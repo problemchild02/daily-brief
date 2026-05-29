@@ -32,6 +32,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: npm
 
       - name: Install Node dependencies
         run: npm ci
@@ -76,12 +77,28 @@ jobs:
       - name: Update meta
         run: node scripts/update-meta.mjs
 
+      - name: Update fallback
+        run: |
+          python - <<'EOF'
+          import json, sys
+          with open('stories.json') as f:
+              d = json.load(f)
+          total = sum(len(v) for v in d['sections'].values())
+          if total > 0:
+              with open('stories.fallback.json', 'w') as f:
+                  json.dump(d, f, indent=2, ensure_ascii=False)
+                  f.write('\n')
+              print(f'Updated fallback with {total} stories from {d["editionDate"]}')
+          else:
+              print('Skipped fallback update — 0 stories this run')
+          EOF
+
       - name: Commit and push
         run: |
           git config user.name  "daily-brief-bot"
           git config user.email "bot@daily-brief.local"
-          git add stories.json fetch-log.txt src/data/meta.json src/data/briefing.json src/data/markets.json
+          git add stories.json stories.fallback.json fetch-log.txt src/data/meta.json src/data/briefing.json src/data/markets.json
           git diff --cached --quiet && echo "No changes to commit." || \
-            git commit -m "chore: refresh $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            git commit -m "chore: refresh $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
-          git push
+          git push origin HEAD:main
