@@ -82,6 +82,8 @@ async function main() {
     return
   }
 
+  console.log(`[generate-briefing] API key: ${ANTHROPIC_API_KEY.slice(0, 10)}…`)
+
   if (!existsSync(STORIES_PATH)) {
     console.log('[generate-briefing] stories.json not found, skipping.')
     return
@@ -96,7 +98,9 @@ async function main() {
     return
   }
 
-  const { default: Anthropic } = await import('@anthropic-ai/sdk')
+  console.log(`[generate-briefing] Generating briefing from ${stories.length} stories…`)
+
+  const Anthropic = (await import('@anthropic-ai/sdk')).default
   const client = new Anthropic({ apiKey: ANTHROPIC_API_KEY })
 
   try {
@@ -109,7 +113,9 @@ async function main() {
     writeFileSync(BRIEFING_PATH, JSON.stringify(output, null, 2) + '\n')
     console.log(`[generate-briefing] ✓ ${output.bullets.length} bullets — "${output.summary.slice(0, 60)}…"`)
   } catch (err) {
-    console.error('[generate-briefing] generation failed (keeping existing briefing.json):', err.message)
+    console.error('[generate-briefing] generation failed:', err.message)
+    console.error('[generate-briefing] status:', err.status, '| type:', err.constructor?.name)
+    if (err.error) console.error('[generate-briefing] API error body:', JSON.stringify(err.error))
     // Non-fatal — preserve existing briefing.json so the workflow continues
   }
 }
