@@ -1,5 +1,5 @@
 const DISPATCH_URL =
-  'https://api.github.com/repos/problemchild02/daily-brief/actions/workflows/daily-update.yml/dispatches'
+  'https://api.github.com/repos/problemchild02/daily-brief/actions/workflows/refresh.yml/dispatches'
 
 const PAT_KEY = 'daily-brief:gh-pat'
 
