@@ -82,10 +82,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
       {/* Dek — spec §7.2: "Newsreader Text 15px, line-height 1.45, ink-2"
           Use summary as primary (real content); hook is fallback for annotated editions. */}
       {(summary || hook) && (
-        <p className={clsx(
-          'font-serif text-[15px] leading-[1.45] text-ink-2',
-          isHero ? 'line-clamp-5' : 'line-clamp-4',
-        )}>
+        <p className="font-serif text-[15px] leading-[1.45] text-ink-2">
           {summary || hook}
         </p>
       )}
