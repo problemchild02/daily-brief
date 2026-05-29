@@ -109,9 +109,8 @@ async function main() {
     writeFileSync(BRIEFING_PATH, JSON.stringify(output, null, 2) + '\n')
     console.log(`[generate-briefing] ✓ ${output.bullets.length} bullets — "${output.summary.slice(0, 60)}…"`)
   } catch (err) {
-    console.error('[generate-briefing] generation failed:', err.message)
-    // Keep existing briefing.json rather than overwriting with empty
-    process.exit(1)
+    console.error('[generate-briefing] generation failed (keeping existing briefing.json):', err.message)
+    // Non-fatal — preserve existing briefing.json so the workflow continues
   }
 }
 
