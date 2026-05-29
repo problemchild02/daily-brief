@@ -1,16 +1,16 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-19 10:07 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (201,417 bytes)
+    OK  (202,510 bytes)
     + [legal] The Supreme Court and social media
+    + [legal] India court rejects Pernod's plea to sell liquor in Delhi, citing 'criminal back
     + [legal] Five new judges recommended for appointment to the Supreme Court
     + [legal] High Courts To Pronounce Reasoned Judgments In 3 Months; Pass Bail Orders In One
     + [legal] The Supreme Court of India approved a retrospective tax on online gambling
     + [legal] Supreme Court Mandates Swift Justice: New Deadlines for High Courts
     + [legal] SC sets three-month deadline on High Courts to pronounce judgment in a case
     + [legal] Indian courts can modify rather than quash awards to avoid hardship and delay, S
-    + [legal] Breaking: Supreme Court Issues Binding Guidelines Formulating Strict Timelines F
     → 100 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
@@ -19,29 +19,29 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (111,336 bytes)
-    → 67 items: 0 accepted, 67 too old, 0 no-date
+    OK  (115,675 bytes)
+    → 69 items: 0 accepted, 69 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (73,882 bytes)
-    + [business] Indraprastha Med Cash Flow, Financial Statements
+    OK  (71,025 bytes)
     + [business] Tipco Engineering Cash Flow, Financial Statements
-    + [business] K K Silk Mills Cash Flow, Financial Statements
-    → 42 items: 3 accepted, 36 too old, 0 no-date
+    + [business] DSM Fresh Foods Cash Flow, Financial Statements
+    → 38 items: 2 accepted, 33 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (49,221 bytes)
+    OK  (50,026 bytes)
+    + [business] Why is market crashing today? Sensex sinks over 1,100 points, Nifty below 23,550
+    + [business] Bank RoA to slip 10-15 bps to 1.15-1.2% this fiscal for 2 reasons: Crisil
     + [business] Nifty earnings growth slashed to 8.5% from 14%; no comfort in valuations still: 
     + [business] Netweb Technologies jumps 15%, hits fresh 52-week high after rating upgrade
     + [business] CV demand cycle intact despite fuel price volatility and sentiment swings: Shenu
     + [business] Asian Paints' board announces Rs 23/share dividend, sets June 23 as record date
-    + [business] Asian Paints Q4 Results: Net profit surges 69% YoY to Rs 1,172 crore, revenue ri
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    → 50 items: 6 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (184,507 bytes)
+    OK  (184,557 bytes)
     + [reliance] Ambani Says Reliance Evaluating ‘Strategic Pathways’ for Jio, No Word on IPO
     + [reliance] Reliance Jio IPO on the Horizon: Ambani Signals 'Strategic Pathways' for Stakeho
     + [reliance] Reliance Jio IPO soon? Mukesh Ambani to provide update on $4 bn public issue at 
@@ -54,9 +54,9 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (116,458 bytes)
+    OK  (126,594 bytes)
     + [retail] Word of the Day: Greenwashing
-    → 67 items: 1 accepted, 66 too old, 0 no-date
+    → 74 items: 1 accepted, 73 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,932 bytes)
     + [retail] Xiaomi brings in South Asia head to revive Indian operations
@@ -87,17 +87,17 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (75,583 bytes)
+    OK  (75,584 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 155
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,462 bytes)
+    OK  (13,726 bytes)
     + [world] U.S. and Iran trade strikes. How will this affect deal to end war?
     + [world] The possible return of Somali pirates poses a new problem for the shipping indus
     + [world] Australian woman charged over travel to Syria to join Islamic State
     + [world] Orthodox Jewish women in Israel may now take a rabbinic exam, like men
     + [world] U.S. strikes Iran again. And, DOJ charges Google staffer over Polymarket trades
     + [world] More than 500 people have died in Bangladesh measles outbreak
-    + [world] In Colombia, a flashy lawyer touts his tough-on-crime approach in presidential r
+    + [world] In Colombia's election, undecided voters weigh leftist vs. right-wing firebrand
     + [world] Congo's Ebola outbreak is spiraling, with health workers struggling to contain t
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
@@ -114,8 +114,8 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
     + [sports] Hashmatullah Shahidi to lead Afghanistan in one-off Test and ODI series against 
     → 100 items: 4 accepted, 95 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (91,622 bytes)
-    + [sports] Zimbabwe to host South Africa Women for five-match T20I series in September
+    OK  (91,562 bytes)
+    + [sports] South Africa Women's maiden tour to Zimbabwe to feature five T20Is
     + [sports] Babar returns while understrength Australia look to 2027 and beyond
     + [sports] Pakistan's famous cheerleader 'Chacha Cricket' to retire this year
     + [sports] David Hussey steps down as Victoria's head of men's cricket
@@ -126,15 +126,15 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (97,562 bytes)
+    OK  (105,050 bytes)
     + [opinion] India: Unfinished Stabilization In Jharkhand – Analysis
     + [opinion] Daily Editorial Analysis 29 May 2026
+    + [opinion] Daily Editorial Analysis 28 May 2026
     + [opinion] Marco Rubio’s visit cannot fully undo a year of systemic whiplash in India-US ti
     + [opinion] Daily Editorial Analysis 27 May 2026
-    + [opinion] Daily Editorial Analysis 28 May 2026
     + [opinion] Daily Editorial Analysis 25 May 2026
     + [opinion] Daily Editorial Analysis 26 May 2026
-    → 72 items: 7 accepted, 65 too old, 0 no-date
+    → 79 items: 7 accepted, 72 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -150,21 +150,21 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
    ✓ The Supreme Court and social media
+   ✓ India court rejects Pernod's plea to sell liquor in Delhi, c
    ✓ Five new judges recommended for appointment to the Supreme C
    ✓ High Courts To Pronounce Reasoned Judgments In 3 Months; Pas
    ✓ The Supreme Court of India approved a retrospective tax on o
    ✓ Supreme Court Mandates Swift Justice: New Deadlines for High
    ✓ SC sets three-month deadline on High Courts to pronounce jud
    ✓ Indian courts can modify rather than quash awards to avoid h
-   ✓ Breaking: Supreme Court Issues Binding Guidelines Formulatin
-   ✓ Indraprastha Med Cash Flow, Financial Statements
    ✓ Tipco Engineering Cash Flow, Financial Statements
-   ✓ K K Silk Mills Cash Flow, Financial Statements
+   ✓ DSM Fresh Foods Cash Flow, Financial Statements
+   ✓ Why is market crashing today? Sensex sinks over 1,100 points
+   ✓ Bank RoA to slip 10-15 bps to 1.15-1.2% this fiscal for 2 re
    ✓ Nifty earnings growth slashed to 8.5% from 14%; no comfort i
    ✓ Netweb Technologies jumps 15%, hits fresh 52-week high after
    ✓ CV demand cycle intact despite fuel price volatility and sen
    ✓ Asian Paints' board announces Rs 23/share dividend, sets Jun
-   ✓ Asian Paints Q4 Results: Net profit surges 69% YoY to Rs 1,1
    ✓ Ambani Says Reliance Evaluating ‘Strategic Pathways’ for Jio
    ✓ Reliance Jio IPO on the Horizon: Ambani Signals 'Strategic P
    ✓ Reliance Jio IPO soon? Mukesh Ambani to provide update on $4
@@ -195,22 +195,22 @@ Cutoff: 2026-05-19 09:46 UTC  (MAX_AGE_HOURS=240)
    ✓ Orthodox Jewish women in Israel may now take a rabbinic exam
    ✓ U.S. strikes Iran again. And, DOJ charges Google staffer ove
    ✓ More than 500 people have died in Bangladesh measles outbrea
-   ✓ In Colombia, a flashy lawyer touts his tough-on-crime approa
+   ✓ In Colombia's election, undecided voters weigh leftist vs. r
    ✓ Congo's Ebola outbreak is spiraling, with health workers str
    ✓ 'I love it went Virat Kohli say...': Ian Botham in awe of In
    ✓ Not IPL, Test cricket for Australia is my priority, says SRH
    ✓ No fifth day: Why New Zealand and Ireland are playing a four
    ✓ Hashmatullah Shahidi to lead Afghanistan in one-off Test and
-   ✓ Zimbabwe to host South Africa Women for five-match T20I seri
+   ✓ South Africa Women's maiden tour to Zimbabwe to feature five
    ✓ Babar returns while understrength Australia look to 2027 and
    ✓ Pakistan's famous cheerleader 'Chacha Cricket' to retire thi
    ✓ David Hussey steps down as Victoria's head of men's cricket
    ✓ India: Unfinished Stabilization In Jharkhand – Analysis
-   ✓ Daily Editorial Analysis 29 May 2026
-   ✓ Marco Rubio’s visit cannot fully undo a year of systemic whi
       AI error: Expecting value: line 1 column 1 (char 0)
-   ✗ Daily Editorial Analysis 27 May 2026
+   ✗ Daily Editorial Analysis 29 May 2026
    ✓ Daily Editorial Analysis 28 May 2026
+   ✓ Marco Rubio’s visit cannot fully undo a year of systemic whi
+   ✓ Daily Editorial Analysis 27 May 2026
    ✓ Daily Editorial Analysis 25 May 2026
    ✓ Daily Editorial Analysis 26 May 2026
    ✓ How to effectively snuff out complaints
