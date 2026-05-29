@@ -60,7 +60,7 @@ async function generateBriefing(stories, client) {
 
   const resp = await client.messages.create({
     model: 'claude-haiku-4-5-20251001',
-    max_tokens: 600,
+    max_tokens: 1500,
     messages: [{
       role: 'user',
       content: `${BRIEFING_PROMPT}\n\nInput stories:\n${JSON.stringify(input, null, 2)}`,
