@@ -1,17 +1,17 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-05-21 14:16 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (195,286 bytes)
+    OK  (194,723 bytes)
     + [legal] Can Courts Rely on the Credible Part of a Hostile Witness's Testimony? Supreme C
     + [legal] Top cases on the US Supreme Court's docket
+    + [legal] Supreme Court directs all High Courts to pronounce judgment within 3 months of r
     + [legal] On the day it set 3-month deadline for high courts, Supreme Court gave verdict r
     + [legal] India's top court provides relief to Reliance in 2007 securities market fraud ca
     + [legal] India news: Top court allows Vinesh Phogat's Asiad entry
     + [legal] Inside the Supreme Court Collegium's latest recommendations: Two High Court chie
     + [legal] Supreme Court sets 3-month deadline for High Courts to pronounce judgments after
-    + [legal] Breaking: Supreme Court Issues Binding Guidelines Formulating Strict Timelines F
-    → 100 items: 8 accepted, 2 too old, 0 no-date
+    → 100 items: 8 accepted, 1 too old, 0 no-date
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
   [     legal] SKIP (section full) https://www.barandbench.com/feed
@@ -19,44 +19,45 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (134,343 bytes)
+    OK  (128,083 bytes)
     + [business] India Loses Market Rank to Taiwan Even Before Iran War Hits Earnings
     + [business] Indian economy to remain resilient in FY27 despite West Asia conflict impact: RB
-    → 78 items: 2 accepted, 76 too old, 0 no-date
+    → 75 items: 2 accepted, 73 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (63,076 bytes)
-    + [business] Kiaasa Retail Cash Flow, Financial Statements
-    + [business] K K Silk Mills Balance Sheets, Financial Statements
+    OK  (64,023 bytes)
     + [business] Cholamandalam Inv & Finance stock (INE121A01024): shares ease on NSE ahead of va
-    → 37 items: 3 accepted, 30 too old, 0 no-date
+    → 36 items: 1 accepted, 31 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (50,484 bytes)
+    OK  (50,792 bytes)
+    + [business] Ahead of Market: 10 things that will decide stock market action on Monday
+    + [business] Market Trading Guide: YES Bank among two stock picks for Monday with up to 10% u
     + [business] ET Alpha Wealth Summit: Will AI disrupt India’s growth story or accelerate it?
     + [business] 9 Midcap stocks with massive upside potential of up to 45%! Do you own any?
     + [business] FPIs' outflow nears Rs 33,000 crore in May on weaker rupee
     ↳ dual-tag [reliance] FPIs' outflow nears Rs 33,000 crore in May on weaker rupee
-    → 50 items: 3 accepted, 0 too old, 0 no-date
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (189,700 bytes)
+    OK  (186,268 bytes)
     + [reliance] Ambani Says Reliance Evaluating ‘Strategic Pathways’ for Jio, No Word on IPO
-    + [reliance] Reliance Industries continues to invest in India's future. • ₹1,44,271 crore (US
+    + [reliance] 'Will continue to evaluate...': What Mukesh Ambani said about Reliance Jio IPO
     + [reliance] Reliance Jio IPO soon? Mukesh Ambani to provide update on $4 bn public issue at 
+    + [reliance] Mukesh Ambani’s praise for Jio Studios’ success with Dhurandhar franchise is a r
     + [reliance] Reliance Jio IPO on the Horizon: Ambani Signals 'Strategic Pathways' for Stakeho
     + [reliance] Reliance will continue to evaluate options to support Jio’s long-term growth: Mu
-    + [reliance] Quote of the day by Mukesh Ambani: 'Profit or loss is not guaranteed'
     + [reliance] Jio to Power Reliance’s Next Phase Of AI, Cloud & Digital Services: Mukesh Amban
     → 100 items: 7 accepted, 2 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (122,898 bytes)
+    OK  (124,000 bytes)
     + [retail] Word of the Day: Greenwashing
-    → 74 items: 1 accepted, 73 too old, 0 no-date
+    + [retail] Quick commerce becomes FMCG's biggest online sales channel in India
+    → 75 items: 2 accepted, 73 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,478 bytes)
     + [retail] After Zudio boom, Trent still has a long runway for growth: Noel Tata
@@ -65,20 +66,19 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
     + [retail] Asian Paints net profit jumps nearly 70%, weighs 'calibrated' price hikes
     + [retail] Indian court rejects Pernod Ricard's plea to sell liquor in New Delhi in latest 
     + [retail] Xiaomi brings in South Asia head to revive Indian operations
-    + [retail] U.S. drug regulator flags data integrity, maintenance lapses at Dabur India plan
-    → 10 items: 7 accepted, 0 too old, 0 no-date
+    → 10 items: 6 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (48,326 bytes)
+    OK  (48,933 bytes)
+    + [tech] As the Pentagon pushes for battlefield AI, some military leaders urge caution
+    + [tech] PhysicsWallah aims to grow revenue by over 30% this fiscal, leverage AI to cut c
+    + [tech] Adani says US legal issues behind it, bets on AI-driven infrastructure boom
     + [tech] SoftBank to spend $87.5 billion on AI centres in France: Son
     + [tech] CUET-UG exam hit by delay after TCS technical glitch
     + [tech] First Windows PC powered by Nvidia chips to debut next week: Axios
     + [tech] Delhi HC ruling against Google draws praise from startup founders
     + [tech] AI may impact "lucrative job market linked to IT services": EY report
-    + [tech] PB Fintech founders Yashish Dahiya, Alok Bansal sell 0.8% stake worth Rs 665 cro
-    + [tech] AI to reshape hiring and work in India, but 'human ownership' key as confidence 
-    + [tech] Hollywood studios and actors' union find common ground on AI
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -87,10 +87,11 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (75,584 bytes)
+    OK  (75,583 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 155
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,828 bytes)
+    OK  (13,931 bytes)
+    + [world] Israel seizes medieval castle as it expands major offensive in southern Lebanon
     + [world] PSG wins back-to-back Champions League titles after shootout victory against Ars
     + [world] Trump says a ceasefire extension deal with Iran is near, but core issues remain
     + [world] Over a thousand Palestinians from Gaza held in Israeli detention without charge
@@ -98,7 +99,6 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
     + [world] Hegseth urges Asian leaders to boost military spending against China
     + [world] U.S. Embassy in India launches Trump-themed rickshaws to mark America's 250th bi
     + [world] Colombia's untapped wonder: The Mavecure Mountains
-    + [world] Myanmar's Min Aung Hlaing takes first foreign tour as leader, with visit to Indi
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,34 +107,34 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (142,636 bytes)
-    → 100 items: 0 accepted, 98 too old, 0 no-date
+    OK  (140,587 bytes)
+    + [sports] MI player who left IPL due to injury joins national team's Test squad; set to pl
+    → 100 items: 1 accepted, 97 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (91,485 bytes)
-    + [sports] Thailand, Malaysia and China qualify for Asian Games women's competition
-    + [sports] Tendulkar's IPL reforms: no impact player, two-part powerplay, five overs for on
-    + [sports] Yellow alert in Ahmedabad on day of the IPL 2026 final
-    + [sports] Minhas' record-breaking debut sets up handsome Pakistan victory
-    + [sports] Gill: Physically RCB might have advantage, but finals are all about mental stren
-    + [sports] Patidar: Mindset is the same as last year's final
-    + [sports] Storm delays Gujarat Titans' arrival in Ahmedabad for IPL final
-    + [sports] Kemp makes the difference as England square the series in Bristol
-    → 100 items: 8 accepted, 0 too old, 0 no-date
+    OK  (90,951 bytes)
+    + [sports] Luff toughs it out as Somerset battle back against Surrey
+    + [sports] Unchanged RCB bowl; GT bring in Arshad Khan
+    + [sports] Scrivens and Macleod keep Essex rolling
+    + [sports] Villiers delivers with bat and ball in comfortable Durham victory
+    + [sports] Ruturaj Gaikwad replaces Riyan Parag for India A's tri-series in Sri Lanka
+    + [sports] Tiaan van Vuuren claims 11 in the match as South Africa A maul Lions
+    + [sports] Santner added to New Zealand Test squad to face England
+    → 100 items: 7 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (68,680 bytes)
+    OK  (105,226 bytes)
     + [opinion] Analysis: Punjab Civic Polls Signal Political Alignment Ahead Of 2027 Elections
     + [opinion] Daily Editorial Analysis 29 May 2026
     + [opinion] Rubio’s Visit Offers No ‘Real Medicine’ for Wounds to Relationship With India
-    + [opinion] India: Unfinished Stabilization In Jharkhand – Analysis
-    + [opinion] Daily Editorial Analysis 25 May 2026
+    + [opinion] Pakistan Shows The Way To India-Pakistan Reconciliation – Analysis
     + [opinion] Daily Editorial Analysis 28 May 2026
+    + [opinion] Daily Editorial Analysis 25 May 2026
     + [opinion] Daily Editorial Analysis 30 May 2026
-    → 54 items: 7 accepted, 47 too old, 0 no-date
+    → 78 items: 7 accepted, 71 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -151,44 +151,45 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
    ✓ Can Courts Rely on the Credible Part of a Hostile Witness's 
    ✓ Top cases on the US Supreme Court's docket
+   ✓ Supreme Court directs all High Courts to pronounce judgment 
    ✓ On the day it set 3-month deadline for high courts, Supreme 
    ✓ India's top court provides relief to Reliance in 2007 securi
    ✓ India news: Top court allows Vinesh Phogat's Asiad entry
    ✓ Inside the Supreme Court Collegium's latest recommendations:
    ✓ Supreme Court sets 3-month deadline for High Courts to prono
-   ✓ Breaking: Supreme Court Issues Binding Guidelines Formulatin
    ✓ India Loses Market Rank to Taiwan Even Before Iran War Hits 
    ✓ Indian economy to remain resilient in FY27 despite West Asia
-   ✓ Kiaasa Retail Cash Flow, Financial Statements
-   ✓ K K Silk Mills Balance Sheets, Financial Statements
    ✓ Cholamandalam Inv & Finance stock (INE121A01024): shares eas
+   ✓ Ahead of Market: 10 things that will decide stock market act
+   ✓ Market Trading Guide: YES Bank among two stock picks for Mon
    ✓ ET Alpha Wealth Summit: Will AI disrupt India’s growth story
    ✓ 9 Midcap stocks with massive upside potential of up to 45%! 
    ✓ FPIs' outflow nears Rs 33,000 crore in May on weaker rupee
    ✓ FPIs' outflow nears Rs 33,000 crore in May on weaker rupee
    ✓ Ambani Says Reliance Evaluating ‘Strategic Pathways’ for Jio
-   ✓ Reliance Industries continues to invest in India's future. •
+   ✓ 'Will continue to evaluate...': What Mukesh Ambani said abou
    ✓ Reliance Jio IPO soon? Mukesh Ambani to provide update on $4
+   ✓ Mukesh Ambani’s praise for Jio Studios’ success with Dhurand
    ✓ Reliance Jio IPO on the Horizon: Ambani Signals 'Strategic P
    ✓ Reliance will continue to evaluate options to support Jio’s 
-   ✓ Quote of the day by Mukesh Ambani: 'Profit or loss is not gu
    ✓ Jio to Power Reliance’s Next Phase Of AI, Cloud & Digital Se
    ✓ Word of the Day: Greenwashing
+   ✓ Quick commerce becomes FMCG's biggest online sales channel i
    ✓ After Zudio boom, Trent still has a long runway for growth: 
    ✓ Zara posts weakest performance in India since pandemic, net 
    ✓ Gold demand drops 70% after sharp duty hike in India
    ✓ Asian Paints net profit jumps nearly 70%, weighs 'calibrated
    ✓ Indian court rejects Pernod Ricard's plea to sell liquor in 
    ✓ Xiaomi brings in South Asia head to revive Indian operations
-   ✓ U.S. drug regulator flags data integrity, maintenance lapses
+   ✓ As the Pentagon pushes for battlefield AI, some military lea
+   ✓ PhysicsWallah aims to grow revenue by over 30% this fiscal, 
+   ✓ Adani says US legal issues behind it, bets on AI-driven infr
    ✓ SoftBank to spend $87.5 billion on AI centres in France: Son
    ✓ CUET-UG exam hit by delay after TCS technical glitch
    ✓ First Windows PC powered by Nvidia chips to debut next week:
    ✓ Delhi HC ruling against Google draws praise from startup fou
    ✓ AI may impact "lucrative job market linked to IT services": 
-   ✓ PB Fintech founders Yashish Dahiya, Alok Bansal sell 0.8% st
-   ✓ AI to reshape hiring and work in India, but 'human ownership
-   ✓ Hollywood studios and actors' union find common ground on AI
+   ✓ Israel seizes medieval castle as it expands major offensive 
    ✓ PSG wins back-to-back Champions League titles after shootout
    ✓ Trump says a ceasefire extension deal with Iran is near, but
    ✓ Over a thousand Palestinians from Gaza held in Israeli deten
@@ -196,28 +197,24 @@ Cutoff: 2026-05-21 09:27 UTC  (MAX_AGE_HOURS=240)
    ✓ Hegseth urges Asian leaders to boost military spending again
    ✓ U.S. Embassy in India launches Trump-themed rickshaws to mar
    ✓ Colombia's untapped wonder: The Mavecure Mountains
-   ✓ Myanmar's Min Aung Hlaing takes first foreign tour as leader
-   ✓ Thailand, Malaysia and China qualify for Asian Games women's
-   ✓ Tendulkar's IPL reforms: no impact player, two-part powerpla
-   ✓ Yellow alert in Ahmedabad on day of the IPL 2026 final
-   ✓ Minhas' record-breaking debut sets up handsome Pakistan vict
-   ✓ Gill: Physically RCB might have advantage, but finals are al
-   ✓ Patidar: Mindset is the same as last year's final
-   ✓ Storm delays Gujarat Titans' arrival in Ahmedabad for IPL fi
-   ✓ Kemp makes the difference as England square the series in Br
+   ✓ MI player who left IPL due to injury joins national team's T
+   ✓ Luff toughs it out as Somerset battle back against Surrey
+   ✓ Unchanged RCB bowl; GT bring in Arshad Khan
+   ✓ Scrivens and Macleod keep Essex rolling
+   ✓ Villiers delivers with bat and ball in comfortable Durham vi
+   ✓ Ruturaj Gaikwad replaces Riyan Parag for India A's tri-serie
+   ✓ Tiaan van Vuuren claims 11 in the match as South Africa A ma
+   ✓ Santner added to New Zealand Test squad to face England
    ✓ Analysis: Punjab Civic Polls Signal Political Alignment Ahea
-      AI error: Expecting value: line 1 column 1 (char 0)
-   ✗ Daily Editorial Analysis 29 May 2026
+   ✓ Daily Editorial Analysis 29 May 2026
    ✓ Rubio’s Visit Offers No ‘Real Medicine’ for Wounds to Relati
-   ✓ India: Unfinished Stabilization In Jharkhand – Analysis
+   ✓ Pakistan Shows The Way To India-Pakistan Reconciliation – An
+   ✓ Daily Editorial Analysis 28 May 2026
    ✓ Daily Editorial Analysis 25 May 2026
-      AI error: Expecting value: line 1 column 1 (char 0)
-   ✗ Daily Editorial Analysis 28 May 2026
-      AI error: Expecting value: line 1 column 1 (char 0)
-   ✗ Daily Editorial Analysis 30 May 2026
+   ✓ Daily Editorial Analysis 30 May 2026
    ✓ Living in the land of cheater cockroaches takes guts, spunk 
 
-   AI done: 61 enriched, 3 failed/skipped (kept RSS fallback)
+   AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
 Feeds:   13 OK  /  3 failed
