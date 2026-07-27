@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react'
 import { clsx } from 'clsx'
 import { motion, AnimatePresence } from 'motion/react'
@@ -28,10 +29,27 @@ function KickerLabel({ category, kicker }: { category: CategoryKey; kicker?: str
   )
 }
 
+// Not every story has an image — RSS feeds (especially Google News) often don't provide
+// one, and og:image scraping is best-effort. Silently collapse the slot on load failure
+// rather than showing a broken-image icon.
+function CardImage({ imageUrl, isHero }: { imageUrl?: string; isHero: boolean }) {
+  const [failed, setFailed] = useState(false)
+  if (!imageUrl || failed) return null
+  return (
+    <img
+      src={imageUrl}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className={clsx('w-full rounded-xl object-cover', isHero ? 'aspect-[21/9]' : 'aspect-[16/9]')}
+    />
+  )
+}
+
 export function Card({ story, variant = 'standard', isBookmarked, onBookmark, idx = 0 }: CardProps) {
   const {
     id, section, headline, hook, summary,
-    contextNote, whyItMatters,
+    contextNote, whyItMatters, imageUrl,
     source, sourceUrl, publishedAt, wordCount, kicker,
   } = story
   const category = section as CategoryKey
@@ -49,10 +67,14 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
     : rawPractitionerBrief
 
   // Summary/hook fallback: skip rendering if there's no real dek content — i.e. summary
-  // is empty and hook is either empty or just a duplicate of the headline (common with
-  // RSS feeds, especially Google News, that provide no article body).
+  // is empty and hook is either empty or just the headline (common with RSS feeds,
+  // especially Google News, whose <title> is "<headline> <source name>" with no body).
   const dek = summary?.trim() ? summary : hook
-  const hookIsDuplicateHeadline = !summary?.trim() && (!hook?.trim() || hook.trim() === headline.trim())
+  const hookTrimmed = hook?.trim() ?? ''
+  const headlineTrimmed = headline.trim()
+  const hookIsDuplicateHeadline = !summary?.trim() && (
+    !hookTrimmed || hookTrimmed.toLowerCase().startsWith(headlineTrimmed.toLowerCase())
+  )
 
   if (variant === 'list') {
     return <ListRow story={story} isBookmarked={isBookmarked} onBookmark={onBookmark} />
@@ -77,6 +99,8 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1], delay: Math.min(idx, 4) * 0.04 }}
     >
+      <CardImage imageUrl={imageUrl} isHero={isHero} />
+
       {/* Kicker — spec §7.2: "Inter 11px UPPERCASE, +0.08em, category colour" */}
       <KickerLabel category={category} kicker={kicker} />
 

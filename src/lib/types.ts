@@ -28,6 +28,7 @@ export interface Story {
   tags: string[]
   priority: 'high' | 'medium' | 'low'
   fromPaper?: boolean
+  imageUrl?: string
 }
 
 export interface FeedsPayload {

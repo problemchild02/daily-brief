@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { CATEGORIES } from '../../lib/categories'
@@ -13,8 +14,24 @@ interface ListRowProps {
   onBookmark?: () => void  // pre-curried at the call site
 }
 
+// Same silently-collapse-on-failure behavior as CardImage in Card.tsx — most stories
+// have no image (RSS rarely provides one), so this is an optional accent, not a fixture.
+function RowThumbnail({ imageUrl }: { imageUrl?: string }) {
+  const [failed, setFailed] = useState(false)
+  if (!imageUrl || failed) return null
+  return (
+    <img
+      src={imageUrl}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="h-9 w-9 shrink-0 rounded object-cover hidden sm:block"
+    />
+  )
+}
+
 export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
-  const { section, headline, source, sourceUrl, publishedAt } = story
+  const { section, headline, source, sourceUrl, publishedAt, imageUrl } = story
   const cat = CATEGORIES[section as CategoryKey]
   const timeAgo = relativeTime(publishedAt)
 
@@ -31,6 +48,8 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
       >
         {cat.label}
       </span>
+
+      <RowThumbnail imageUrl={imageUrl} />
 
       {/* Headline */}
       <a
