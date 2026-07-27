@@ -120,6 +120,7 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle }
           </button>
         </nav>
       </div>
+      <div className="h-px bg-ink/15" aria-hidden />
     </header>
   )
 }

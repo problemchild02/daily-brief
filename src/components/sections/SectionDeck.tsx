@@ -103,6 +103,7 @@ export function SectionDeck({
               variant={idx === 0 ? 'hero' : 'standard'}
               isBookmarked={isBookmarked(story.sourceUrl)}
               onBookmark={() => toggleBookmark(story)}
+              idx={idx}
             />
           ))}
         </div>

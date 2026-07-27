@@ -23,7 +23,7 @@ function CategoryDot({ category }: { category: CategoryKey }) {
         borderRadius: '50%',
         background: `var(${cat.colorVar})`,
         flexShrink: 0,
-        marginTop: 6,
+        marginTop: 8,
       }}
       aria-hidden
     />
@@ -165,7 +165,7 @@ export function BriefingOfTheDay({ briefing, loading = false }: BriefingOfTheDay
               className="text-ink hover:text-accent transition-colors leading-snug"
               style={{ fontFamily: 'var(--font-serif)', fontSize: '17px' }}
             >
-              <span className="text-ink-3 mr-1.5" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+              <span className="mr-2" style={{ fontFamily: 'var(--font-serif)', fontSize: '20px', fontWeight: 600, color: 'var(--accent)', lineHeight: 1 }}>
                 {i + 1}.
               </span>
               {bullet.text}

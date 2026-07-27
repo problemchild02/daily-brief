@@ -1,4 +1,5 @@
 import { Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react'
+import { motion, AnimatePresence } from 'motion/react'
 import { CATEGORIES } from '../../lib/categories'
 import { relativeTime } from '../../lib/dateFormat'
 import type { CategoryKey, Story } from '../../lib/types'
@@ -19,8 +20,8 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
 
   return (
     <article
-      className="flex items-center gap-3 border-b border-rule py-2.5 hover:bg-surface-2 px-1 -mx-1 rounded transition-colors"
-      style={{ minHeight: '52px' }}
+      className="flex items-center gap-3 border-b border-rule py-2.5 hover:bg-surface-2 pl-2 pr-1 -mx-1 rounded transition-colors"
+      style={{ minHeight: '52px', borderLeftColor: `var(${cat.colorVar})`, borderLeftWidth: '3px' }}
       aria-label={headline}
     >
       {/* Category kicker */}
@@ -36,7 +37,7 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
         href={sourceUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 font-serif text-step-0 font-semibold text-ink hover:text-accent leading-snug"
+        className="flex-1 font-serif text-step-0 font-semibold text-ink hover:text-accent visited:text-ink-2 leading-snug"
       >
         {headline}
       </a>
@@ -60,15 +61,27 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
           <ExternalLink size={12} />
         </a>
         {onBookmark && (
-          <button
+          <motion.button
             type="button"
             onClick={onBookmark}
             aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark this story'}
             aria-pressed={isBookmarked}
             className="hover:text-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent rounded"
+            whileTap={{ scale: 0.85 }}
           >
-            {isBookmarked ? <BookmarkCheck size={13} /> : <Bookmark size={13} />}
-          </button>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={String(isBookmarked)}
+                initial={{ scale: 0.6, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.6, opacity: 0 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className="inline-flex"
+              >
+                {isBookmarked ? <BookmarkCheck size={13} /> : <Bookmark size={13} />}
+              </motion.span>
+            </AnimatePresence>
+          </motion.button>
         )}
       </div>
     </article>
