@@ -1,5 +1,6 @@
 import { Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react'
 import { clsx } from 'clsx'
+import { motion, AnimatePresence } from 'motion/react'
 import { CATEGORIES } from '../../lib/categories'
 import { readingTime } from '../../lib/readingTime'
 import { relativeTime } from '../../lib/dateFormat'
@@ -7,12 +8,14 @@ import type { CategoryKey, Story } from '../../lib/types'
 import { WhyItMatters } from './WhyItMatters'
 import { ArticleNote } from './ArticleNote'
 import { ListRow } from './ListRow'
+import { isGenericWhyItMatters } from './genericFallbacks'
 
 interface CardProps {
   story: Story
   variant?: 'standard' | 'hero' | 'list'
   isBookmarked?: boolean
   onBookmark?: () => void  // pre-curried at the call site
+  idx?: number
 }
 
 function KickerLabel({ category, kicker }: { category: CategoryKey; kicker?: string }) {
@@ -25,7 +28,7 @@ function KickerLabel({ category, kicker }: { category: CategoryKey; kicker?: str
   )
 }
 
-export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: CardProps) {
+export function Card({ story, variant = 'standard', isBookmarked, onBookmark, idx = 0 }: CardProps) {
   const {
     id, section, headline, hook, summary,
     contextNote, whyItMatters,
@@ -37,7 +40,19 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
   const timeAgo = relativeTime(publishedAt)
 
   // Use whyItMatters (spec §7.9 name) with contextNote as fallback (existing data field).
-  const practitionerBrief = whyItMatters ?? contextNote
+  // When AI enrichment fails, the backend fills this with a generic, section-wide
+  // boilerplate sentence (see CONTEXT_TEMPLATES in scripts/fetch_stories.py) rather
+  // than real per-story analysis — treat that the same as no brief at all.
+  const rawPractitionerBrief = whyItMatters ?? contextNote
+  const practitionerBrief = isGenericWhyItMatters(rawPractitionerBrief)
+    ? undefined
+    : rawPractitionerBrief
+
+  // Summary/hook fallback: skip rendering if there's no real dek content — i.e. summary
+  // is empty and hook is either empty or just a duplicate of the headline (common with
+  // RSS feeds, especially Google News, that provide no article body).
+  const dek = summary?.trim() ? summary : hook
+  const hookIsDuplicateHeadline = !summary?.trim() && (!hook?.trim() || hook.trim() === headline.trim())
 
   if (variant === 'list') {
     return <ListRow story={story} isBookmarked={isBookmarked} onBookmark={onBookmark} />
@@ -46,7 +61,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
   const isHero = variant === 'hero'
 
   return (
-    <article
+    <motion.article
       className={clsx(
         'bg-surface border border-rule rounded-2xl p-6 flex flex-col gap-3',
         'hover:border-ink-3/40 transition-colors',
@@ -54,8 +69,13 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
       )}
       style={{
         borderLeftColor: `var(${cat.colorVar})`,
-        borderLeftWidth: '3px',
+        borderLeftWidth: isHero ? '5px' : '3px',
+        ...(isHero ? { backgroundColor: `color-mix(in srgb, var(${cat.colorVar}) 4%, var(--surface))` } : {}),
       }}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1], delay: Math.min(idx, 4) * 0.04 }}
     >
       {/* Kicker — spec §7.2: "Inter 11px UPPERCASE, +0.08em, category colour" */}
       <KickerLabel category={category} kicker={kicker} />
@@ -73,7 +93,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
           href={sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-accent transition-colors"
+          className="hover:text-accent visited:text-ink-3 transition-colors"
         >
           {headline}
         </a>
@@ -81,9 +101,14 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
 
       {/* Dek — spec §7.2: "Newsreader Text 15px, line-height 1.45, ink-2"
           Use summary as primary (real content); hook is fallback for annotated editions. */}
-      {(summary || hook) && (
-        <p className="font-serif text-[15px] leading-[1.45] text-ink-2">
-          {summary || hook}
+      {!hookIsDuplicateHeadline && (
+        <p
+          className={clsx(
+            'font-serif text-[15px] leading-[1.45] text-ink-2',
+            isHero && 'first-letter:font-serif first-letter:text-[2.75rem] first-letter:font-semibold first-letter:leading-[0.8] first-letter:float-left first-letter:mr-2 first-letter:mt-1 first-letter:text-ink',
+          )}
+        >
+          {dek}
         </p>
       )}
 
@@ -109,15 +134,27 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
             <ExternalLink size={13} />
           </a>
           {onBookmark && (
-            <button
+            <motion.button
               type="button"
               onClick={onBookmark}
               aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark this story'}
               aria-pressed={isBookmarked}
               className="hover:text-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent rounded"
+              whileTap={{ scale: 0.85 }}
             >
-              {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
-            </button>
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={String(isBookmarked)}
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.6, opacity: 0 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  className="inline-flex"
+                >
+                  {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+                </motion.span>
+              </AnimatePresence>
+            </motion.button>
           )}
         </div>
       </footer>
@@ -128,6 +165,6 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark }: 
         sourceUrl={sourceUrl}
         storyTitle={headline}
       />
-    </article>
+    </motion.article>
   )
 }

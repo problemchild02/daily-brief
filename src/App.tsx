@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import { MotionConfig } from 'motion/react'
 import { Masthead } from './components/layout/Masthead'
 import { Sidebar } from './components/layout/Sidebar'
 import { TabBar } from './components/layout/TabBar'
@@ -111,6 +112,7 @@ export default function App() {
     : []
 
   return (
+    <MotionConfig reducedMotion="user">
     <AppContext.Provider value={{
       feeds, meta, briefing, loading, feedsError, retryFeeds, density,
       bookmarksList, isBookmarked, toggleBookmark,
@@ -171,5 +173,6 @@ export default function App() {
         />
       </div>
     </AppContext.Provider>
+    </MotionConfig>
   )
 }

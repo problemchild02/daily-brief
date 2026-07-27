@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { Home, LayoutGrid, Search, Bookmark, FileText } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { clsx } from 'clsx'
+import { motion } from 'motion/react'
 import { useAppContext } from '../../contexts/AppContext'
 
 type TabDef =
@@ -20,6 +21,7 @@ export function TabBar() {
   ]
 
   const itemBase = clsx(
+    'relative',
     'flex flex-1 flex-col items-center justify-center gap-1 py-2',
     'min-h-[44px] min-w-[44px] transition-colors',
   )
@@ -60,8 +62,19 @@ export function TabBar() {
               )}
               style={{ fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 500 }}
             >
-              <Icon size={22} />
-              <span>{tab.label}</span>
+              {({ isActive }) => (
+                <>
+                  {isActive && (
+                    <motion.span
+                      layoutId="tabbar-active"
+                      className="absolute inset-x-3 top-0 h-0.5 rounded-full bg-accent"
+                      transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }}
+                    />
+                  )}
+                  <Icon size={22} />
+                  <span>{tab.label}</span>
+                </>
+              )}
             </NavLink>
           )
         })}
