@@ -674,26 +674,36 @@ def build_stories():
                 desc_el = item.find("{http://www.w3.org/2005/Atom}summary")
             if desc_el is None:
                 desc_el = item.find("{http://www.w3.org/2005/Atom}content")
-            raw_desc = clean_boilerplate(strip_html(desc_el.text if desc_el is not None else "")) or headline
-            summary  = truncate(raw_desc, 900)
-            if len(summary) < 30:
-                summary = truncate((summary + " " + headline).strip(), 900)
-
-            sentences = re.split(r"(?<=[.!?])\s+", summary)
-            hook = truncate(sentences[0] if sentences else summary, 220)
-            if len(hook) < 12:
-                hook = truncate(summary, 220)
-
-            # Remove the hook sentence from the summary so it doesn't repeat
-            if len(sentences) > 1:
-                remaining = " ".join(sentences[1:]).strip()
-                if len(remaining) >= 30:
-                    summary = remaining
-
-            # If summary is still essentially the same as the hook, clear it —
-            # an empty summary is better than showing the same sentence twice
-            if _norm(summary) == _norm(hook) or _norm(summary) == _norm(headline):
+            if "news.google.com" in feed_url:
+                # Google News <description> is never real article body text — it's just
+                # the headline (sometimes split into "sentences" by punctuation inside
+                # the headline itself, e.g. "RIL Is Becoming A Platform Company. The Jio
+                # IPO Is Just The Beginning") with the publisher name appended. Splitting
+                # it into a "hook"/"summary" produces headline fragments, not content —
+                # so these are headline-only stories until AI enrichment fills them in.
+                hook = ""
                 summary = ""
+            else:
+                raw_desc = clean_boilerplate(strip_html(desc_el.text if desc_el is not None else "")) or headline
+                summary  = truncate(raw_desc, 900)
+                if len(summary) < 30:
+                    summary = truncate((summary + " " + headline).strip(), 900)
+
+                sentences = re.split(r"(?<=[.!?])\s+", summary)
+                hook = truncate(sentences[0] if sentences else summary, 220)
+                if len(hook) < 12:
+                    hook = truncate(summary, 220)
+
+                # Remove the hook sentence from the summary so it doesn't repeat
+                if len(sentences) > 1:
+                    remaining = " ".join(sentences[1:]).strip()
+                    if len(remaining) >= 30:
+                        summary = remaining
+
+                # If summary is still essentially the same as the hook, clear it —
+                # an empty summary is better than showing the same sentence twice
+                if _norm(summary) == _norm(hook) or _norm(summary) == _norm(headline):
+                    summary = ""
 
             image_url = extract_rss_image(item)
 
