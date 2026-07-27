@@ -76,6 +76,10 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
     !hookTrimmed || hookTrimmed.toLowerCase().startsWith(headlineTrimmed.toLowerCase())
   )
 
+  // A card with no image, no real dek, and no practitioner brief is just a headline —
+  // give it a purposeful CTA instead of leaving a blank gap that reads as broken.
+  const isThinCard = !imageUrl && hookIsDuplicateHeadline && !practitionerBrief
+
   if (variant === 'list') {
     return <ListRow story={story} isBookmarked={isBookmarked} onBookmark={onBookmark} />
   }
@@ -134,6 +138,18 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
         >
           {dek}
         </p>
+      )}
+
+      {isThinCard && (
+        <a
+          href={sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex w-fit items-center gap-1.5 rounded-full border border-rule px-3 py-1.5 font-mono text-[12px] text-ink-2 transition-colors hover:border-accent hover:text-accent"
+        >
+          Read full story at {source}
+          <ExternalLink size={11} />
+        </a>
       )}
 
       {/* Spec §7.9 WhyItMatters — visible on standard + hero, never on list */}
