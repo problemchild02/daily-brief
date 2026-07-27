@@ -493,7 +493,7 @@ def is_reliance_story(headline, summary):
     return any(kw in text for kw in RELIANCE_KEYWORDS)
 
 
-def build_story(section, feed_url, url, pub_dt, headline, hook, summary, tags, priority):
+def build_story(section, feed_url, url, pub_dt, headline, hook, summary, tags, priority, image_url=None):
     """Construct a story dict."""
     source = "News Feed"
     feed_lower = feed_url.lower()
@@ -518,9 +518,62 @@ def build_story(section, feed_url, url, pub_dt, headline, hook, summary, tags, p
         "tags":        tags[:8],
         "priority":    priority,
     }
+    if image_url:
+        story["imageUrl"] = image_url
     if section in CONTEXT_NOTE_REQUIRED:
         story["contextNote"] = CONTEXT_TEMPLATES.get(section, "See source for full context.")
     return story
+
+
+# ── IMAGE EXTRACTION ───────────────────────────────────────────────────────────
+
+_MEDIA_NS = {"media": "http://search.yahoo.com/mrss/"}
+
+IMAGE_FETCH_TIMEOUT_SEC = 6
+IMAGE_FETCH_WORKERS     = 8
+IMAGE_MAX_BYTES         = 200_000
+
+_OG_IMAGE_RE     = re.compile(
+    r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]+content=["\']([^"\']+)["\']',
+    re.IGNORECASE,
+)
+_OG_IMAGE_RE_REV = re.compile(
+    r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\']',
+    re.IGNORECASE,
+)
+
+
+def extract_rss_image(item):
+    """Look for an image URL embedded directly in the RSS item — no network call."""
+    thumb = item.find("media:thumbnail", _MEDIA_NS)
+    if thumb is not None and thumb.get("url"):
+        return thumb.get("url").strip()
+    for content in item.findall("media:content", _MEDIA_NS):
+        medium = content.get("medium") or ""
+        ctype  = content.get("type") or ""
+        if content.get("url") and (medium == "image" or ctype.startswith("image/")):
+            return content.get("url").strip()
+    enclosure = item.find("enclosure")
+    if enclosure is not None and enclosure.get("url") and (enclosure.get("type") or "").startswith("image/"):
+        return enclosure.get("url").strip()
+    desc_el = item.find("description")
+    if desc_el is not None and desc_el.text:
+        m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', desc_el.text)
+        if m:
+            return m.group(1).strip()
+    return None
+
+
+def fetch_og_image(url):
+    """Best-effort fetch of a story's og:image/twitter:image meta tag. Never raises."""
+    try:
+        req = Request(url, headers=_HEADERS)
+        with urlopen(req, timeout=IMAGE_FETCH_TIMEOUT_SEC) as resp:
+            raw = resp.read(IMAGE_MAX_BYTES).decode("utf-8", errors="ignore")
+        m = _OG_IMAGE_RE.search(raw) or _OG_IMAGE_RE_REV.search(raw)
+        return unescape(m.group(1)).strip() if m else None
+    except Exception:
+        return None
 
 
 # ── MAIN ───────────────────────────────────────────────────────────────────────
@@ -642,10 +695,12 @@ def build_stories():
             if _norm(summary) == _norm(hook) or _norm(summary) == _norm(headline):
                 summary = ""
 
+            image_url = extract_rss_image(item)
+
             if url not in seen:
                 story = build_story(
                     primary_section, feed_url, url, pub_dt,
-                    headline, hook, summary, tags, priority
+                    headline, hook, summary, tags, priority, image_url
                 )
                 sections[primary_section].append(story)
                 seen.add(url)
@@ -664,7 +719,7 @@ def build_stories():
                         rel_tags = list(dict.fromkeys(["reliance", "RIL"] + tags))
                         rel_story = build_story(
                             "reliance", feed_url, url, pub_dt,
-                            headline, hook, summary, rel_tags, priority
+                            headline, hook, summary, rel_tags, priority, image_url
                         )
                         rel_story["id"] = make_id("reliance", url + "::reliance")
                         sections["reliance"].append(rel_story)
@@ -680,7 +735,7 @@ def build_stories():
                         biz_tags = list(dict.fromkeys(["reliance", "business"] + tags))
                         biz_story = build_story(
                             "business", feed_url, url, pub_dt,
-                            headline, hook, summary, biz_tags, priority
+                            headline, hook, summary, biz_tags, priority, image_url
                         )
                         biz_story["id"] = make_id("business", url + "::business")
                         sections["business"].append(biz_story)
@@ -693,16 +748,46 @@ def build_stories():
             file=sys.stderr,
         )
 
+    all_stories = [
+        story
+        for stories in sections.values()
+        for story in stories
+    ]
+
+    # ── Image fetch pass (best-effort og:image for stories with no RSS-embedded
+    #    image; runs regardless of AI_ENABLED — it doesn't touch the Anthropic API) ──
+    stories_needing_image = [s for s in all_stories if not s.get("imageUrl")]
+    if stories_needing_image:
+        print(f"\n── Image fetch ({len(stories_needing_image)} stories, "
+              f"{IMAGE_FETCH_WORKERS} workers) ─────────────────────────────",
+              file=sys.stderr)
+
+        img_ok = img_fail = 0
+        url_cache = {}
+
+        def _resolve_image(story):
+            src_url = story["sourceUrl"]
+            if src_url not in url_cache:
+                url_cache[src_url] = fetch_og_image(src_url)
+            return story, url_cache[src_url]
+
+        with ThreadPoolExecutor(max_workers=IMAGE_FETCH_WORKERS) as pool:
+            futures = [pool.submit(_resolve_image, s) for s in stories_needing_image]
+            for fut in as_completed(futures):
+                story, found_url = fut.result()
+                if found_url:
+                    story["imageUrl"] = found_url
+                    img_ok += 1
+                else:
+                    img_fail += 1
+
+        print(f"   images: {img_ok} found, {img_fail} not found", file=sys.stderr)
+
     # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
     if AI_ENABLED:
         print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
               file=sys.stderr)
 
-        all_stories = [
-            story
-            for stories in sections.values()
-            for story in stories
-        ]
         print(f"   {len(all_stories)} stories to enrich  "
               f"(sequential, {AI_CALL_DELAY}s delay → ~{60//AI_CALL_DELAY} RPM)",
               file=sys.stderr)
