@@ -1,39 +1,40 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-07-27 03:48 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-07-27 09:18 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
-    OK  (190,372 bytes)
-    + [legal] The Republic of Cockroaches: Judicial Speech, Satirical Dissent, and Digital Cen
-    + [legal] News outlets can report courts, but cannot ‘utilise’ audio-video clips of procee
-    + [legal] Supreme Court acquits man in jail for 22 years for wrong conviction
-    + [legal] US returns $100 billion in Trump tariffs invalidated by Supreme Court, filing sh
-    + [legal] 'The Most Powerful Response is Listening': Supreme Court on Student Protests
-    + [legal] RS passes bill to raise Supreme Court judges' strength to 37; Govt cites pendenc
-    + [legal] Bar Councils Have Become 'Men's Clubs': Supreme Court Orders Two Women Co-opted 
-    + [legal] 'Free to report, but...': Supreme Court says news outlets can't use audio-video 
-    → 100 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
-  [     legal] SKIP (section full) https://www.livelaw.in/rss/top-stories
-  [     legal] SKIP (section full) https://www.barandbench.com/feed
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
+  [     legal] fetching https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
+  [     legal] fetching https://www.livelaw.in/rss/top-stories
+    HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
+  [     legal] fetching https://www.barandbench.com/feed
+    OK  (270,635 bytes)
+    + [legal] Sunjay Kapur family dispute: Supreme Court says mediation progressing satisfacto
+    + [legal] Kerala High Court orders Vigilance probe into alleged irregularities in Milma gh
+    + [legal] Sayali Joshi joins Servier India as Legal & Compliance Director
+    + [legal] Trilegal, Latham & Watkins, Goodwin act on Oxane Partners securing investment fr
+    + [legal] Pinac advises Committed Cargo Care on acquisition of Ampersand Logistics
+    + [legal] Khaitan & Co advises Algonomy on acquisition by Malaysia-based ADA
+    + [legal] Luthra and Luthra celebrates Annual Day with Partner-level promotions
+    + [legal] CAM Aviation Partner Anandita Kaushik joins Dassault Aviation
+    → 44 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (217,917 bytes)
-    → 99 items: 0 accepted, 98 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (58,950 bytes)
-    → 33 items: 0 accepted, 32 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (50,632 bytes)
-    + [business] Lone warriors! How two mid-tier tech stocks rewarded investors in Rs 10 lakh cro
-    + [business] New India Assurance among 5 stocks showing bullish RSI upswing
-    + [business] How LIC minted Rs 21,000 crore in mark-to-market gains by betting against AI pan
-    + [business] Shiprocket IPO price band fixed at Rs 92-97; Rs 1,618 crore issue to open on Aug
-    + [business] Dividend alert! Last day to buy Maruti Suzuki, Grasim among 38 stocks for divide
-    + [business] Ardee Industries IPO Day 2: GMP at 29%; issue subscribed 3.08 times so far. Shou
-    + [business] UPL Share Price Live Updates: UPL's recent returns reflect market challenges
-    + [business] Juniper Green Energy shares to list today. Check GMP ahead of debut
+    OK  (52,163 bytes)
+    + [business] US Stock Market: Fed's Daly backs steady rates, says more inflation data needed 
+    + [business] RBI policy-led India bond rally continues; Friday's debt sale in focus
+    + [business] Warren Buffett and Sam Altman have a common investing rule: Here is where they f
+    + [business] Can Tata Sons stay unlisted? Here's what RBI Governor Sanjay Malhotra said
+    + [business] AI boom reshapes emerging markets, but surging volatility tests investor nerves
+    + [business] Global Market: Japanese bond yields fall as lower oil prices ease inflation conc
+    + [business] Global Market: Asian multi-strategy hedge funds hit by AI stock rout in July
+    + [business] Trent Q1 Results: Profit rises 21% YoY to Rs 519 crore; revenue up 18%
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -41,48 +42,48 @@ Cutoff: 2026-07-27 03:48 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (177,583 bytes)
-    + [reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years for India’s AI tran
-    + [reliance] ‘With Nita’s influence…’: Mukesh Ambani reveals simple habit he starts his day w
-    + [reliance] India's Reliance ramps up diesel exports to Europe, Brazil in July, sources say
-    + [reliance] Mumbai Indians: What takeover means for The Hundred's MI London
-    + [reliance] Fund diversion probes against Anil Ambani & Co reach Kokilaben Hospital—serious 
-    → 100 items: 5 accepted, 95 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
   [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
     OK  (1,347 bytes)
     → 1 items: 0 accepted, 1 too old, 0 no-date
   [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,067 bytes)
+    OK  (11,494 bytes)
+    + [reliance] FMCG price hikes could rewrite India’s inflation story
+    + [reliance] Swiggy targets Rs 10,000 crore in annual adjusted Ebitda in five years
+    + [reliance] Berger Q1 net profit jumps 29 per cent as decorative paints drive growth
+    + [reliance] Energy drink brands race to rework labels after FSSAI order
     + [reliance] Reliance Brands partners with SKIMS to bring shapewear brand to India
+    + [reliance] AlcoBev makers challenge FSSAI directive over flavoring, labelling norms in High
+    + [reliance] Commerce ministry notifies norms for inventory-based e-commerce exports
     + [reliance] Gen Z could unlock India’s Rs 315 lakh crore gold opportunity
-    + [reliance] Reliance Retail acquires AI-powered fashion discovery platform Furrl
-    → 10 items: 3 accepted, 0 too old, 0 no-date
+    → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (127,871 bytes)
-    + [retail] India’s consumer economy to touch $1.9 trillion by 2030 as AI, digital trust res
-    + [retail] Deloitte India Highlights Consumer Economy Growth
-    + [retail] India's consumer economy to reach $1.9 trillion by 2030 as AI, quick commerce re
-    + [retail] AI-enabled growth and governance drive India's US$1.9 trillion Consumer Economy:
-    + [retail] AI-enabled growth, governance to drive India's US$1.9 trillion consumer economy:
-    + [retail] Global FMCG majors bullish on India
-    → 74 items: 6 accepted, 68 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,067 bytes)
+    OK  (11,494 bytes)
+    + [retail] Reliance Retail acquires AI-powered fashion discovery platform Furrl
     + [retail] Dabur issues first statement after FSSAI tells company to halt sale of items wit
-    + [retail] Nestle flags near-term consumption slowdown amid West Asia conflict, El Nino con
     → 10 items: 2 accepted, 0 too old, 0 no-date
-  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
+  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
+    OK  (49,413 bytes)
+    + [retail] Chiripal Squash Excellence gears up for Olympics in Los Angeles
+    + [retail] Lok Sabha passes Taxation and Other Laws (Amendment) Bill without discussion
+    + [retail] Q1 Results Today Live: Trent & Emcure Pharma log Q1 PAT growth, Blue Star profit
+    + [retail] Paramotor Digital Tech to distribute prepaid products of Aditya Birla Capital Di
+    + [retail] iQIYI Launches Short-Form Suspense Drama Brand "Undercurrent Theater" to Advance
+    + [retail] India crosses 300 GW non-fossil fuel capacity, on track to achieve 500 GW by 203
+    → 60 items: 6 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (50,261 bytes)
-    + [tech] Chime raises 2026 revenue forecast on robust demand, CFO to step down
-    + [tech] Meta launches new AI coding tool powered by Muse Spark 1.2
-    + [tech] EBay forecasts upbeat quarterly revenue as high-value categories drive momentum
-    + [tech] Meta chases OpenAI, Anthropic with new AI coding app Muse Code
-    + [tech] Meta AI model hacks another company during testing
-    + [tech] Impact of MDR’s return; KKR veterans to anchor new fund
-    + [tech] Google's Jeff Dean launches AI startup Discovery Loop
-    + [tech] Google shakes up AI leadership as DeepMind CEO Demis Hassabis shifts role
+    OK  (50,486 bytes)
+    + [tech] AI adoption in finance hits 76%, governance and AI-centric operating models key 
+    + [tech] Construction qcomm outfit HomeRun raises $12 million from Nexus Venture Partners
+    + [tech] Meet Sanjay Ghemawat, cofounder of AI startup Discovery Loop
+    + [tech] Swiggy targets Rs 10,000 crore in annual adjusted Ebitda in five years
+    + [tech] Deeptech backer Piper Serica raises Rs 300 crore in first close of new fund
+    + [tech] Samsung, SK Hynix shareholders call for bigger payouts from AI cash mountain
+    + [tech] Anthropic and OpenAI Agents in soup again
+    + [tech] Sandisk forecasts upbeat quarterly revenue on AI-driven demand
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -93,15 +94,15 @@ Cutoff: 2026-07-27 03:48 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,147 bytes)
+    OK  (14,508 bytes)
+    + [world] Gianni Infantino gets internal support at crisis meeting to remain as FIFA presi
+    + [world] Drone with explosives found at German airport, official sees 'new quality' of th
     + [world] Ousted Bangladeshi leader vows to return from exile despite facing a death sente
     + [world] Kyiv residents face attacks with fewer defenses overhead
     + [world] Pakistan's ruling party leads in Kashmir vote despite boycott call by banned gro
     + [world] Under China's new 'unity' law, Tibetans fight to preserve language and culture
     + [world] U.S. missile stockpiles dwindle. And, FDA weighs approval of flu shots with mRNA
     + [world] A Russian barrage in Ukraine's capital kills 17 as air defenses fall short
-    + [world] Unrest mounts in Kashmir as Pakistani security crackdown stokes reform movement
-    + [world] Ukraine's air defenses are proving to be a weak point
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -110,33 +111,29 @@ Cutoff: 2026-07-27 03:48 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (193,860 bytes)
-    + [sports] From borrowing spikes to India call-up: Auqib Nabi replaces injured Jasprit Bumr
-    + [sports] Ajinkya Rahane's Cricket Journey Concludes: From Humble Beginnings to Elite Stat
-    + [sports] 'IPL isn't the only yardstick': Saransh Jain on maiden India call-up
-    → 100 items: 3 accepted, 97 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (88,184 bytes)
+    OK  (88,215 bytes)
+    + [sports] England recall Lawrence to Test team with Cox to bat at No. 3 vs Pakistan
+    + [sports] Mehidy Hasan Miraz century lifts Bangladesh after Corey Rocchiccioli takes six
+    + [sports] Chase: 'We could have made room for an extra spinner'
+    + [sports] New Zealand A to play in Top End T20 Series and one-dayers in Australia
     + [sports] Trent Rockets soar clear at top with fifth consecutive victory
     + [sports] Dunkley 65 helps fire Rockets top with fourth win in a row
     + [sports] Lumsden, Abbott run through Glamorgan to keep Hampshire in contention
     + [sports] Patel drives Surrey before Lawes four-for sinks Kent
-    + [sports] Shafique, spinners give Pakistan rare overseas win
-    → 100 items: 5 accepted, 0 too old, 0 no-date
+    → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (113,738 bytes)
-    + [opinion] When India’s Youth Tested The Limits Of Centralized Governance – Analysis
-    + [opinion] Why India Cannot Let The Rupee Float – Analysis
-    → 81 items: 2 accepted, 79 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
-    OK  (10,154 bytes)
+    OK  (11,102 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
     OK  (50,707 bytes)
@@ -146,150 +143,152 @@ Cutoff: 2026-07-27 03:48 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Lucrative strategy Of being useless
     + [opinion] How India is rewriting the enterprise software playbook
     + [opinion] LIC's second act smarter price tag
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    + [opinion] Make working in the Gulf safe & secure
+    + [opinion] FTAs must drive manufacturing, GVC integration and high-tech investment
+    → 50 items: 8 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (32 stories, 8 workers) ─────────────────────────────
-   images: 8 found, 24 not found
+── Image fetch (9 stories, 8 workers) ─────────────────────────────
+   images: 9 found, 0 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp1xDfCaG7wGEo27r3B"}
-   ✗ The Republic of Cockroaches: Judicial Speech, Satirical Diss
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp23Nie4p7eokoDdoCZ"}
-   ✗ News outlets can report courts, but cannot ‘utilise’ audio-v
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2933CPpTGYitUaFGQ"}
-   ✗ Supreme Court acquits man in jail for 22 years for wrong con
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2Dr1Yk7AKqhSPwggC"}
-   ✗ US returns $100 billion in Trump tariffs invalidated by Supr
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2JdjqVRYMHkr2EX2x"}
-   ✗ 'The Most Powerful Response is Listening': Supreme Court on 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2PL27CVzih1QAf3jG"}
-   ✗ RS passes bill to raise Supreme Court judges' strength to 37
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2UMdkW3gXUSfFNuSc"}
-   ✗ Bar Councils Have Become 'Men's Clubs': Supreme Court Orders
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2Z8Nnpz5VkHWJmcTZ"}
-   ✗ 'Free to report, but...': Supreme Court says news outlets ca
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2dtd9rgoXjXpLAVf7"}
-   ✗ Lone warriors! How two mid-tier tech stocks rewarded investo
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2ihbYyEEDWES4d6Bu"}
-   ✗ New India Assurance among 5 stocks showing bullish RSI upswi
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2oQs1HrhXqpu9xAGP"}
-   ✗ How LIC minted Rs 21,000 crore in mark-to-market gains by be
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2tTU9eqHQH7A4T8VA"}
-   ✗ Shiprocket IPO price band fixed at Rs 92-97; Rs 1,618 crore 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp2yFCrCY18ceqetn4B"}
-   ✗ Dividend alert! Last day to buy Maruti Suzuki, Grasim among 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp347QKijA8hKReD1wQ"}
-   ✗ Ardee Industries IPO Day 2: GMP at 29%; issue subscribed 3.0
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp38tt3uUe7NcvF5Ykh"}
-   ✗ UPL Share Price Live Updates: UPL's recent returns reflect m
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3EDcYToU8CS95vbxJ"}
-   ✗ Juniper Green Energy shares to list today. Check GMP ahead o
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3KLBt3LioMqN2Rcyn"}
-   ✗ Reliance and Jio to invest Rs 10 lakh crore over seven years
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3Q7RX9ztcVL9XcLFj"}
-   ✗ ‘With Nita’s influence…’: Mukesh Ambani reveals simple habit
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3UveaeaZ8YMjp3c6w"}
-   ✗ India's Reliance ramps up diesel exports to Europe, Brazil i
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3Zmr5MN2QYvgxNdQ3"}
-   ✗ Mumbai Indians: What takeover means for The Hundred's MI Lon
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3ekVYzcsmcip891Q2"}
-   ✗ Fund diversion probes against Anil Ambani & Co reach Kokilab
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3jYivFkJC7vVBGFVG"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFHoJFKoEfSDLtnziGw"}
+   ✗ Sunjay Kapur family dispute: Supreme Court says mediation pr
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFHtXGcYdpNZKoKeXPy"}
+   ✗ Kerala High Court orders Vigilance probe into alleged irregu
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFHyuiSd9eAuCnTdxje"}
+   ✗ Sayali Joshi joins Servier India as Legal & Compliance Direc
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJ4uMEJj9XyA9KWy7k"}
+   ✗ Trilegal, Latham & Watkins, Goodwin act on Oxane Partners se
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJ9nnp17Ejkie3UbxR"}
+   ✗ Pinac advises Committed Cargo Care on acquisition of Ampersa
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJF3YhQRZfeHFspNDj"}
+   ✗ Khaitan & Co advises Algonomy on acquisition by Malaysia-bas
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJMMZNfFYFbWuxwM59"}
+   ✗ Luthra and Luthra celebrates Annual Day with Partner-level p
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJS6KGcLDiew6StCK3"}
+   ✗ CAM Aviation Partner Anandita Kaushik joins Dassault Aviatio
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJWn6X3otbtn6TLh3e"}
+   ✗ US Stock Market: Fed's Daly backs steady rates, says more in
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJc9YrQwea5iNEfR8U"}
+   ✗ RBI policy-led India bond rally continues; Friday's debt sal
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJgzkqN1duSjRzGfjv"}
+   ✗ Warren Buffett and Sam Altman have a common investing rule: 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJn28Nir7zR34PVjX8"}
+   ✗ Can Tata Sons stay unlisted? Here's what RBI Governor Sanjay
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJrfBSVr3KsowtJNvG"}
+   ✗ AI boom reshapes emerging markets, but surging volatility te
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFJwQgPhat95rt9r9A3"}
+   ✗ Global Market: Japanese bond yields fall as lower oil prices
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFK2FtLJrKBN1DmR7B6"}
+   ✗ Global Market: Asian multi-strategy hedge funds hit by AI st
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFK7BJd9qirvBwvZ8cd"}
+   ✗ Trent Q1 Results: Profit rises 21% YoY to Rs 519 crore; reve
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKCXWw96TJpJTxDeAU"}
+   ✗ FMCG price hikes could rewrite India’s inflation story
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKHUB7b7F45qxS514e"}
+   ✗ Swiggy targets Rs 10,000 crore in annual adjusted Ebitda in 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKNCgc6AB1uMRfmTrM"}
+   ✗ Berger Q1 net profit jumps 29 per cent as decorative paints 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKSvhfFxgr5DbdiBZD"}
+   ✗ Energy drink brands race to rework labels after FSSAI order
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKY2Y8N1tKQiBNCDjh"}
    ✗ Reliance Brands partners with SKIMS to bring shapewear brand
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3pPRnjzY3yrs5sSgi"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKd1vJNdAE3d6uVJ3E"}
+   ✗ AlcoBev makers challenge FSSAI directive over flavoring, lab
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKhjvsEVha3WDiLrhJ"}
+   ✗ Commerce ministry notifies norms for inventory-based e-comme
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKnXfbD3m1B57ucAYp"}
    ✗ Gen Z could unlock India’s Rs 315 lakh crore gold opportunit
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3uPJpjBTXej2LxJw5"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKsMsZXdrs3Ypsck1C"}
    ✗ Reliance Retail acquires AI-powered fashion discovery platfo
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp3zB3bDq8P1F9hsByG"}
-   ✗ India’s consumer economy to touch $1.9 trillion by 2030 as A
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp453yeqUBmBRCC63RR"}
-   ✗ Deloitte India Highlights Consumer Economy Growth
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp49kkY9eBYdpTc3W9z"}
-   ✗ India's consumer economy to reach $1.9 trillion by 2030 as A
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4ESXv2xgYEb4BnW3e"}
-   ✗ AI-enabled growth and governance drive India's US$1.9 trilli
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4KEGK47ELjiAnSDin"}
-   ✗ AI-enabled growth, governance to drive India's US$1.9 trilli
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4Q5igPjLVH3VDR3py"}
-   ✗ Global FMCG majors bullish on India
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4V957MBa2bq9CAmao"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFKxA7B8anbR2KLMEj5"}
    ✗ Dabur issues first statement after FSSAI tells company to ha
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4ZzmY1enixufYDenK"}
-   ✗ Nestle flags near-term consumption slowdown amid West Asia c
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4ejH3p7ez9sdr3mUS"}
-   ✗ Chime raises 2026 revenue forecast on robust demand, CFO to 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4jLbfaNP4dKw2SJT8"}
-   ✗ Meta launches new AI coding tool powered by Muse Spark 1.2
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4p578yypjaGQw7c75"}
-   ✗ EBay forecasts upbeat quarterly revenue as high-value catego
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4tvJqCsPuWmTCYhWS"}
-   ✗ Meta chases OpenAI, Anthropic with new AI coding app Muse Co
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp4yk2PH4scE1qKnAx8"}
-   ✗ Meta AI model hacks another company during testing
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp54q7ieQNuuPhVEUN5"}
-   ✗ Impact of MDR’s return; KKR veterans to anchor new fund
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp59aNM6ZWfg5yqqcjF"}
-   ✗ Google's Jeff Dean launches AI startup Discovery Loop
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5EdUURZFGR7uoFmwY"}
-   ✗ Google shakes up AI leadership as DeepMind CEO Demis Hassabi
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5KH2NGQXWNNRrKSyY"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFL38FQeqC4CaDRDZ47"}
+   ✗ Chiripal Squash Excellence gears up for Olympics in Los Ange
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFL7xTaTVqR8YFEw7tS"}
+   ✗ Lok Sabha passes Taxation and Other Laws (Amendment) Bill wi
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLD7X9uR1aKoyri1vr"}
+   ✗ Q1 Results Today Live: Trent & Emcure Pharma log Q1 PAT grow
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLJCcYafpU6VnuGGX4"}
+   ✗ Paramotor Digital Tech to distribute prepaid products of Adi
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLR2sjYV6UKBayWeoV"}
+   ✗ iQIYI Launches Short-Form Suspense Drama Brand "Undercurrent
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLVta1ubHaPjmVJRjf"}
+   ✗ India crosses 300 GW non-fossil fuel capacity, on track to a
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLb6cF9ytbMEu3DEoN"}
+   ✗ AI adoption in finance hits 76%, governance and AI-centric o
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLgCCLkEzKkyKoVYnj"}
+   ✗ Construction qcomm outfit HomeRun raises $12 million from Ne
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLkzB4qQbUV4sLkgRt"}
+   ✗ Meet Sanjay Ghemawat, cofounder of AI startup Discovery Loop
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLqmQchuaaNjMwpZ3F"}
+   ✗ Swiggy targets Rs 10,000 crore in annual adjusted Ebitda in 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFLvg5gDZ1iUkL6RXKF"}
+   ✗ Deeptech backer Piper Serica raises Rs 300 crore in first cl
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFM1ejBYUXnAvr5XT9H"}
+   ✗ Samsung, SK Hynix shareholders call for bigger payouts from 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFM6MVsYK2mjMQaMoYM"}
+   ✗ Anthropic and OpenAI Agents in soup again
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMBRr6tY9CwqydAhUH"}
+   ✗ Sandisk forecasts upbeat quarterly revenue on AI-driven dema
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMGFK3PCni5vNjSM45"}
+   ✗ Gianni Infantino gets internal support at crisis meeting to 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMM7kmGJpuAWRKsKF2"}
+   ✗ Drone with explosives found at German airport, official sees
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMRt1A3oPy6QXa9ea3"}
    ✗ Ousted Bangladeshi leader vows to return from exile despite 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5PsbT4q8UB7t5K4CQ"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMWfyd5Z1pTkGZLZKQ"}
    ✗ Kyiv residents face attacks with fewer defenses overhead
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5UhZPnGW6ze1ZLkFD"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMbesPtEbvvsDYsp5t"}
    ✗ Pakistan's ruling party leads in Kashmir vote despite boycot
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5ahxcNHXhunj9dKht"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMggjup5Yqqyhq5mMx"}
    ✗ Under China's new 'unity' law, Tibetans fight to preserve la
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5fVwqCPdzrKn37f1P"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMmWhX45jgVK4YwYYY"}
    ✗ U.S. missile stockpiles dwindle. And, FDA weighs approval of
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5kHvbnHxdB6aKhCB3"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMrQPTXgK8bSQQkRiE"}
    ✗ A Russian barrage in Ukraine's capital kills 17 as air defen
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5q7tNKwmn7QqZciY5"}
-   ✗ Unrest mounts in Kashmir as Pakistani security crackdown sto
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5uvrdPxo5GAZMsKg8"}
-   ✗ Ukraine's air defenses are proving to be a weak point
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp5zmKH1bC8Z1N92SZC"}
-   ✗ From borrowing spikes to India call-up: Auqib Nabi replaces 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp65Z3tNEh1nvAcZmbQ"}
-   ✗ Ajinkya Rahane's Cricket Journey Concludes: From Humble Begi
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6AWwnKccsju5J11rY"}
-   ✗ 'IPL isn't the only yardstick': Saransh Jain on maiden India
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6FNPwzHb73SpfDTSf"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFMwRWB4eAXZ9SM35d5"}
+   ✗ England recall Lawrence to Test team with Cox to bat at No. 
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFN2jzTgbR3ss3HUCP4"}
+   ✗ Mehidy Hasan Miraz century lifts Bangladesh after Corey Rocc
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFN7jd3J1uGPRyNUjmn"}
+   ✗ Chase: 'We could have made room for an extra spinner'
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNCj1Ribzmxwu1mvwU"}
+   ✗ New Zealand A to play in Top End T20 Series and one-dayers i
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNHaTWFfE2Rh2YDSo9"}
    ✗ Trent Rockets soar clear at top with fifth consecutive victo
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6LBcoGsBsJRFmJAhk"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNNQRk1988Z3pkZUvK"}
    ✗ Dunkley 65 helps fire Rockets top with fourth win in a row
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6R4KBYePT2EMuUcoD"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNTCQF4JGjcfRdoSYK"}
    ✗ Lumsden, Abbott run through Glamorgan to keep Hampshire in c
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6W2TLLJexWvQhXx1N"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNYZMyE1mCWrs9bxCu"}
    ✗ Patel drives Surrey before Lawes four-for sinks Kent
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6aohKcPn6unpBBE8B"}
-   ✗ Shafique, spinners give Pakistan rare overseas win
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6fkr5Geu9M79QRpvU"}
-   ✗ When India’s Youth Tested The Limits Of Centralized Governan
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6kiFd63i9LWrUYkWJ"}
-   ✗ Why India Cannot Let The Rupee Float – Analysis
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6qyWPJfqJzcq2B1Yq"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNdciVAu4hPgShSgNP"}
    ✗ Present moment
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp6vmjaeVvnUD1RYKs3"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNiWu42Yq6db4QoKFv"}
    ✗ Inside Beijing's mind: How China really sees India
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp71T2G2XfxtvWuKYY5"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNoEfZt4ZqpFqM6oLm"}
    ✗ Arami puts Bolivia's biodiversity on a plate
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp76BHBQbaDR9ssBB9j"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNt57xmfiAsAG5dFsm"}
    ✗ Lucrative strategy Of being useless
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp7B1FHx2LBdDF48n9s"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFNy9U1YbPDo7wdgN7u"}
    ✗ How India is rewriting the enterprise software playbook
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011Cdkp7G85FXTgSRWga3SAe"}
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFP4atc7DsMXbPBiBB9"}
    ✗ LIC's second act smarter price tag
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFP9K9tzEqEn15LQugh"}
+   ✗ Make working in the Gulf safe & secure
+      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CdmFPE2RQACk9Vp9dtVR1"}
+   ✗ FTAs must drive manufacturing, GVC integration and high-tech
 
    AI done: 0 enriched, 64 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   15 OK  /  3 failed
+Feeds:   10 OK  /  12 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-06   Hero: legal-932e8039
+Edition: 2026-08-06   Hero: legal-04ff9b93
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
