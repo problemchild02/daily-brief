@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { CATEGORIES } from '../../lib/categories'
 import { readingTime } from '../../lib/readingTime'
 import { relativeTime } from '../../lib/dateFormat'
+import { useAppContext } from '../../contexts/AppContext'
 import type { CategoryKey, Story } from '../../lib/types'
 import { WhyItMatters } from './WhyItMatters'
 import { ArticleNote } from './ArticleNote'
@@ -121,18 +122,21 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
   }
 
   const isHero = variant === 'hero'
+  const { onStoryOpen } = useAppContext()
 
-  // Whole-card tap opens the story — a mouse/touch convenience layered on top of the
-  // headline's real <a>, not a replacement for it (keyboard/screen-reader users still
-  // get a proper, focusable link either way). Every other clickable element inside the
-  // card (headline link, footer link, bookmark button, the note textarea) stops the
-  // click from bubbling here, so nothing double-fires or hijacks a note edit.
-  const openStory = () => window.open(sourceUrl, '_blank', 'noopener,noreferrer')
+  // Whole-card tap opens the story in-app (ArticleSheet) instead of redirecting to
+  // the source site — redirecting on every tap was the actual complaint this design
+  // fixes. The footer's small external-link icon and the thin-card CTA are the only
+  // things that still go straight to the source: both are small, clearly-labeled,
+  // deliberate actions rather than "I tapped the card and got yanked out of the app."
+  // Every other clickable element inside the card (bookmark button, note textarea)
+  // still stops the click from bubbling here, so nothing double-fires.
+  const openSheet = () => onStoryOpen(story)
   const stop = (e: React.SyntheticEvent) => e.stopPropagation()
 
   return (
     <motion.article
-      onClick={openStory}
+      onClick={openSheet}
       className={clsx(
         'bg-surface border border-rule rounded-2xl flex flex-col gap-3 cursor-pointer',
         'p-4 md:p-6 lg:p-8',
@@ -179,15 +183,13 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
               isHero ? 'text-step-2' : 'text-[22px]',
             )}
           >
-            <a
-              href={sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={stop}
-              className="hover:text-accent visited:text-ink-3 transition-colors"
+            <button
+              type="button"
+              onClick={e => { stop(e); openSheet() }}
+              className="text-left hover:text-accent transition-colors"
             >
               {headline}
-            </a>
+            </button>
           </h3>
 
           {/* Dek — reading stack, fluid line-height 1.7, capped to a comfortable

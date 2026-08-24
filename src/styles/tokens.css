@@ -10,11 +10,24 @@
   /* Premium off-black — sharp without the eye-strain of pure #000. */
   --ink:   #111111;
   --ink-2: #4A4A4A;
-  --ink-3: #787470;
+  /* #787470 measured 4.44:1 against --canvas — just under WCAG AA's 4.5:1 for normal
+     text, and this token is used as real body/meta text (source names, timestamps,
+     "Your note" labels), not just decoration. #726E6A holds the same warm-gray hue
+     at 4.84:1, with headroom rather than sitting right on the threshold. */
+  --ink-3: #726E6A;
 
   /* ─── Accent ───────────────────────────────────── */
   --accent:      #A8321F;
   --accent-soft: #FBE9E4;
+
+  /* ─── Paper grain ──────────────────────────────────
+     A very low-opacity fractal-noise texture (inline SVG, no network request) layered
+     under the canvas color — see body{} in global.css. Subtle enough to read as paper
+     tooth rather than a visible pattern; the point is a faint tactile quality flat
+     color can't give, in keeping with the newsprint identity the palette is already
+     going for. Light/dark get separately tuned fill+opacity since a dark-noise texture
+     is invisible on a dark canvas and vice versa. */
+  --paper-texture: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj4KPGZpbHRlciBpZD0ibiI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiLz48L2ZpbHRlcj4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwMDAwMCIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjAzNSIvPgo8L3N2Zz4=");
 
   /* ─── Category colours ─────────────────────────── */
   --cat-legal:    #7A4E1F;
@@ -88,9 +101,13 @@
 
 [data-theme="dark"] {
   --canvas:    #11100E;
-  --surface:   #1A1815;
-  --surface-2: #23201C;
-  --rule:      #2D2926;
+  /* Surface/surface-2 raised a touch lighter than before — dark-mode depth reads
+     almost entirely from this luminance step (shadows barely register against a dark
+     backdrop), and the previous gap between canvas/surface was subtle enough that
+     cards leaned on their border for definition more than the surface color itself. */
+  --surface:   #1D1A16;
+  --surface-2: #26221C;
+  --rule:      #322D28;
 
   --ink:   #EDE7DC;
   --ink-2: #B8B0A2;
@@ -107,4 +124,6 @@
   --cat-sports:   #9AD06B;
   --cat-opinion:  #B8B8B8;
   --cat-reliance: #D988C8;
+
+  --paper-texture: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj4KPGZpbHRlciBpZD0ibiI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiLz48L2ZpbHRlcj4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ZmZmZmZiIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjA0NSIvPgo8L3N2Zz4=");
 }

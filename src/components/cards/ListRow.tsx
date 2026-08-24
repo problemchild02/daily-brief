@@ -3,6 +3,7 @@ import { Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { CATEGORIES } from '../../lib/categories'
 import { relativeTime } from '../../lib/dateFormat'
+import { useAppContext } from '../../contexts/AppContext'
 import type { CategoryKey, Story } from '../../lib/types'
 
 // Spec §7.2 list variant: single row, 52 px tall, headline + source + time + bookmark inline.
@@ -34,6 +35,7 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
   const { section, headline, source, sourceUrl, publishedAt, imageUrl } = story
   const cat = CATEGORIES[section as CategoryKey]
   const timeAgo = relativeTime(publishedAt)
+  const { onStoryOpen } = useAppContext()
 
   return (
     <article
@@ -51,15 +53,15 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
 
       <RowThumbnail imageUrl={imageUrl} />
 
-      {/* Headline */}
-      <a
-        href={sourceUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 font-serif text-step-0 font-semibold text-ink hover:text-accent visited:text-ink-2 leading-snug"
+      {/* Headline — opens in-app (ArticleSheet); the small external-link icon below
+          is the deliberate "leave the app" affordance instead. */}
+      <button
+        type="button"
+        onClick={() => onStoryOpen(story)}
+        className="flex-1 text-left font-serif text-step-0 font-semibold text-ink hover:text-accent leading-snug"
       >
         {headline}
-      </a>
+      </button>
 
       {/* Meta */}
       <div className="font-mono text-[11px] text-ink-3 shrink-0 hidden sm:flex items-center gap-2">
