@@ -72,6 +72,10 @@ html {
 body {
   margin: 0;
   background-color: var(--canvas);
+  /* Subtle paper grain under the flat canvas color — see --paper-texture in
+     tokens.css. 200x200 tile repeated across the page; imperceptible as a pattern
+     at normal viewing distance, reads as texture rather than flat color. */
+  background-image: var(--paper-texture);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--step-0);
