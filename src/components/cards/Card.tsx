@@ -64,11 +64,17 @@ function CardImage({ imageUrl, isHero, onFail }: { imageUrl?: string; isHero: bo
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className={clsx(
         'w-full shrink-0 object-cover bg-surface-2',
+        // A soft shadow under the image reads as depth regardless of the image's own
+        // color — matters for scraped og:images that turn out to be a promotional
+        // badge/logo rather than a real photo: a wide crop of one can land on a big
+        // solid-color region that would otherwise blend into a dark card background,
+        // making the headline right below it look like it's sitting on the image.
+        'shadow-[0_6px_10px_-6px_rgba(0,0,0,0.35)]',
         '-mx-4 -mt-4 w-[calc(100%+2rem)] rounded-t-2xl',
         isHero ? 'aspect-[21/9]' : 'aspect-video',
         isHero
           ? 'md:mx-0 md:mt-0 md:w-full md:rounded-2xl'
-          : 'md:mx-0 md:mt-0 md:w-[120px] md:aspect-square md:rounded-lg',
+          : 'md:mx-0 md:mt-0 md:w-[120px] md:aspect-square md:rounded-lg md:shadow-none',
         'lg:-mx-8 lg:-mt-8 lg:w-[calc(100%+4rem)] lg:rounded-t-2xl',
       )}
     />
