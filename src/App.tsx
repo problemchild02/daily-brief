@@ -5,6 +5,7 @@ import { Masthead } from './components/layout/Masthead'
 import { Sidebar } from './components/layout/Sidebar'
 import { TabBar } from './components/layout/TabBar'
 import { SettingsSheet } from './components/layout/SettingsSheet'
+import { ArticleSheet } from './components/cards/ArticleSheet'
 import { CommandPalette } from './components/search/CommandPalette'
 import { WeatherStrip } from './components/strips/WeatherStrip'
 import { MarketsTicker } from './components/strips/MarketsTicker'
@@ -18,7 +19,7 @@ import { useBookmarks } from './hooks/useBookmarks'
 import { useIsDesktop, useMediaQuery } from './hooks/useMediaQuery'
 import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
-import type { FeedsPayload, MetaJson, BriefingJson } from './lib/types'
+import type { FeedsPayload, MetaJson, BriefingJson, Story } from './lib/types'
 import type { BookmarkMeta } from './hooks/useBookmarks'
 
 const BASE = import.meta.env.BASE_URL
@@ -126,6 +127,7 @@ export default function App() {
   const [feedsError, setFeedsError] = useState(false)
   const [fetchKey, setFetchKey] = useState(0)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [openStory, setOpenStory] = useState<Story | null>(null)
   const [paletteOpen,  setPaletteOpen]  = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(readSidebarCollapsed)
 
@@ -207,6 +209,7 @@ export default function App() {
       onPaletteOpen:  () => setPaletteOpen(true),
       sidebarCollapsed,
       onSidebarToggle,
+      onStoryOpen: setOpenStory,
     }}>
       <div className="min-h-screen bg-canvas text-ink font-sans">
         {isDesktop && <Sidebar />}
@@ -313,6 +316,12 @@ export default function App() {
           onClose={() => setPaletteOpen(false)}
           stories={allStories}
           onSettingsOpen={() => setSettingsOpen(true)}
+        />
+        <ArticleSheet
+          story={openStory}
+          onClose={() => setOpenStory(null)}
+          isBookmarked={openStory ? isBookmarked(openStory.sourceUrl) : false}
+          onBookmark={openStory ? () => toggleBookmark(openStory) : undefined}
         />
       </div>
     </AppContext.Provider>

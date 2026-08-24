@@ -18,6 +18,10 @@ export interface AppContextValue {
   onPaletteOpen: () => void
   sidebarCollapsed: boolean
   onSidebarToggle: () => void
+  // Tapping a card opens it in-app (ArticleSheet) instead of redirecting straight to
+  // the source site — the sheet itself has an explicit "Read full story" link for
+  // when you actually want to leave. See App.tsx for where this state lives.
+  onStoryOpen: (story: Story) => void
 }
 
 export const AppContext = createContext<AppContextValue>({
@@ -35,6 +39,7 @@ export const AppContext = createContext<AppContextValue>({
   onPaletteOpen: () => {},
   sidebarCollapsed: false,
   onSidebarToggle: () => {},
+  onStoryOpen: () => {},
 })
 
 export function useAppContext(): AppContextValue {
