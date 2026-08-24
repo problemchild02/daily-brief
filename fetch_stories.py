@@ -39,11 +39,15 @@ AI_CALL_DELAY     = 1   # Haiku is fast; 1s gap is plenty
 # Stories tagged reliance are ALSO injected into business (dual-tagging).
 FEEDS = [
     # ── Legal ──────────────────────────────────────────────────────────────────
-    # Google News first — works reliably from cloud IPs (US locale avoids geo-mismatch)
-    ("https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en",
-     "legal", ["courts", "India", "google-news"], "high"),
-    ("https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en",
-     "legal", ["courts", "India", "google-news"], "medium"),
+    # Direct publisher feeds first — a real article page on a real news site has an
+    # og:image tag we can actually scrape; a Google News redirect link almost never
+    # does (it's a Google-hosted interstitial, not the article, and Google actively
+    # blocks non-browser requests to it). Google News feeds are still included below
+    # as a volume fallback (their own RSS *feed* endpoint is reliably fetchable even
+    # when they fill up first), but only get to fill whatever's left of the 8-story
+    # cap after these direct sources have had their turn — previously they were
+    # listed first and were crowding LiveLaw/Bar & Bench/etc. out of the section
+    # entirely on runs where Google News alone returned 8+ items.
     ("https://www.livelaw.in/rss/top-stories",
      "legal", ["courts", "litigation", "India"], "high"),
     ("https://www.barandbench.com/feed",
@@ -57,6 +61,12 @@ FEEDS = [
     # The Print — law & policy
     ("https://theprint.in/category/judiciary/feed/",
      "legal", ["the-print", "judiciary", "India"], "medium"),
+    # Google News — works reliably from cloud IPs (US locale avoids geo-mismatch),
+    # fills whatever's left of the section after the direct feeds above.
+    ("https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en",
+     "legal", ["courts", "India", "google-news"], "high"),
+    ("https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en",
+     "legal", ["courts", "India", "google-news"], "medium"),
 
     # ── Business (general) ────────────────────────────────────────────────────
     # Google News first — US locale works from GitHub Actions cloud IPs
@@ -565,15 +575,25 @@ def extract_rss_image(item):
 
 
 def fetch_og_image(url):
-    """Best-effort fetch of a story's og:image/twitter:image meta tag. Never raises."""
+    """Best-effort fetch of a story's og:image/twitter:image meta tag. Never raises.
+    Returns (image_url_or_None, reason) — the reason is only for diagnostic logging,
+    e.g. distinguishing "site has no og:image" from "blocked/timed out/network error"
+    (Google News redirect links in particular tend to fail here, not just return
+    nothing — see the reordered FEEDS comment above)."""
     try:
         req = Request(url, headers=_HEADERS)
         with urlopen(req, timeout=IMAGE_FETCH_TIMEOUT_SEC) as resp:
             raw = resp.read(IMAGE_MAX_BYTES).decode("utf-8", errors="ignore")
         m = _OG_IMAGE_RE.search(raw) or _OG_IMAGE_RE_REV.search(raw)
-        return unescape(m.group(1)).strip() if m else None
-    except Exception:
-        return None
+        if m:
+            return unescape(m.group(1)).strip(), "ok"
+        return None, "no og:image/twitter:image tag found"
+    except HTTPError as e:
+        return None, f"HTTP {e.code}"
+    except URLError as e:
+        return None, f"network error: {e.reason}"
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}"
 
 
 # ── MAIN ───────────────────────────────────────────────────────────────────────
@@ -784,12 +804,15 @@ def build_stories():
         with ThreadPoolExecutor(max_workers=IMAGE_FETCH_WORKERS) as pool:
             futures = [pool.submit(_resolve_image, s) for s in stories_needing_image]
             for fut in as_completed(futures):
-                story, found_url = fut.result()
+                story, (found_url, reason) = fut.result()
+                label = story["headline"][:60]
                 if found_url:
                     story["imageUrl"] = found_url
                     img_ok += 1
+                    print(f"   ✓ [{story['section']:>10}] {label}", file=sys.stderr)
                 else:
                     img_fail += 1
+                    print(f"   ✗ [{story['section']:>10}] {label}: {reason}", file=sys.stderr)
 
         print(f"   images: {img_ok} found, {img_fail} not found", file=sys.stderr)
 
