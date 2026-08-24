@@ -40,7 +40,7 @@ export function SectionHeader({
         <h2
           id={`section-${category}`}
           className="type-kicker shrink-0"
-          style={{ color: `var(${cat.colorVar})` }}
+          style={{ color: `var(${cat.colorVar})`, fontFamily: 'var(--font-display)' }}
         >
           {cat.label}
         </h2>

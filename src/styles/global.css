@@ -34,9 +34,11 @@
   --color-cat-reliance: var(--cat-reliance);
 
   /* Font families (override Tailwind defaults with our Google Fonts stack) */
-  --font-serif: var(--font-serif);
-  --font-sans:  var(--font-sans);
-  --font-mono:  var(--font-mono);
+  --font-serif:   var(--font-serif);
+  --font-sans:    var(--font-sans);
+  --font-mono:    var(--font-mono);
+  --font-display: var(--font-display);
+  --font-reading: var(--font-reading);
 
   /* Reading column */
   --width-measure: var(--measure);

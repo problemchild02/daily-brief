@@ -15,7 +15,7 @@ import { PapersPage } from './pages/PapersPage'
 import { AppContext } from './contexts/AppContext'
 import { useDensity } from './hooks/useDensity'
 import { useBookmarks } from './hooks/useBookmarks'
-import { useIsDesktop } from './hooks/useMediaQuery'
+import { useIsDesktop, useMediaQuery } from './hooks/useMediaQuery'
 import { CATEGORY_KEYS } from './lib/types'
 import type { FeedsPayload, MetaJson, BriefingJson } from './lib/types'
 
@@ -51,6 +51,11 @@ export default function App() {
   const { density } = useDensity()
   const { toggle: toggleBookmark, isBookmarked, bookmarksList } = useBookmarks()
   const isDesktop = useIsDesktop()
+  // Laptop breakpoint (≥1024px, matches Tailwind's `lg:`) — at this width the
+  // markets/weather strip moves out of the top bar and into a permanent aux rail
+  // instead. Gated in JS (not just CSS) so the strip and rail never both mount at
+  // once, which would otherwise double the useMarkets/useWeather data fetches.
+  const isLaptop = useMediaQuery('(min-width: 1024px)')
 
   // ── Data loading ──────────────────────────────────────────────────────────
   useEffect(() => {
@@ -139,27 +144,53 @@ export default function App() {
             />
           </div>
 
-          {/* Info strip hidden in print */}
-          <div className="border-b border-rule bg-canvas/80 print:hidden">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:divide-x sm:divide-rule gap-3 sm:gap-0 py-2.5">
-                <WeatherStrip className="sm:pr-5" />
-                <MarketsTicker className="sm:pl-5" />
+          {/* Info strip — mobile/tablet only; hidden in print. Below 1024px the
+              markets/weather strip scrolls horizontally instead of stacking
+              vertically and pushing the news down the fold. */}
+          {!isLaptop && (
+            <div className="border-b border-rule bg-canvas/80 print:hidden">
+              <div className="mx-auto max-w-7xl px-4 md:px-6">
+                <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap py-2.5 [-webkit-overflow-scrolling:touch]">
+                  <WeatherStrip className="shrink-0 !flex-nowrap md:pr-5 md:border-r md:border-rule" />
+                  <MarketsTicker className="shrink-0 !flex-nowrap md:pl-1" />
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
-          <main id="main-content" className="flex-1">
-            <Routes>
-              <Route path="/"                   element={<FrontPage />} />
-              <Route path="/sections/:category" element={<SectionPage />} />
-              <Route path="/saved"              element={<SavedPage />} />
-              <Route path="/papers"             element={<PapersPage />} />
-              <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
-              <Route path="/settings"           element={<SettingsRedirect onOpen={() => setSettingsOpen(true)} />} />
-              <Route path="*"                   element={<FrontPage />} />
-            </Routes>
-          </main>
+          <div className="flex-1 flex">
+            <main id="main-content" className="flex-1 min-w-0">
+              <Routes>
+                <Route path="/"                   element={<FrontPage />} />
+                <Route path="/sections/:category" element={<SectionPage />} />
+                <Route path="/saved"              element={<SavedPage />} />
+                <Route path="/papers"             element={<PapersPage />} />
+                <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
+                <Route path="/settings"           element={<SettingsRedirect onOpen={() => setSettingsOpen(true)} />} />
+                <Route path="*"                   element={<FrontPage />} />
+              </Routes>
+            </main>
+
+            {/* Laptop-only aux rail — third "column" of the broadsheet layout
+                (nav rail | main feed | aux rail), sticky below the masthead. */}
+            {isLaptop && (
+              <aside
+                aria-label="Markets and weather"
+                className="w-[260px] shrink-0 border-l border-rule px-6 py-8 self-start sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto print:hidden"
+              >
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <p className="type-kicker mb-3 text-ink-3">Weather</p>
+                    <WeatherStrip />
+                  </div>
+                  <div className="border-t border-rule pt-6">
+                    <p className="type-kicker mb-3 text-ink-3">Markets</p>
+                    <MarketsTicker />
+                  </div>
+                </div>
+              </aside>
+            )}
+          </div>
         </div>
 
         {!isDesktop && <TabBar />}

@@ -37,7 +37,7 @@ export function Sidebar() {
     >
       {/* Logo */}
       <div className="px-4 py-5 border-b border-rule shrink-0">
-        <p className="font-serif font-bold text-[15px] tracking-[-0.01em] text-ink leading-tight">
+        <p className="font-display font-bold text-[15px] tracking-[-0.01em] text-ink leading-tight">
           THE DAILY BRIEF
         </p>
       </div>

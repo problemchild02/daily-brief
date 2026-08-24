@@ -16,7 +16,7 @@ export function SectionPage() {
   const catKey = category as CategoryKey
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+    <div className="mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
       <p
         className="text-[11px] text-ink-3 mb-6 uppercase tracking-[0.06em]"
         style={{ fontFamily: 'var(--font-mono)' }}
