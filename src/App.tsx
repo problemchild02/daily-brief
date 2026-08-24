@@ -135,8 +135,16 @@ export default function App() {
           isDesktop ? (sidebarCollapsed ? 'ml-0' : 'ml-[240px]') : 'pb-20',
         ].join(' ')}>
 
-          {/* Masthead hidden in print */}
-          <div className="print:hidden">
+          {/* Masthead hidden in print. `contents` (not a plain block wrapper) is
+              deliberate: a plain div here has no explicit height, so it's exactly as
+              tall as the Masthead itself — which gives the header's sticky positioning
+              zero extra room in its own containing block, and it scrolls away instead
+              of sticking (confirmed: header.top was tracking -scrollY exactly, i.e.
+              behaving as position:static). `contents` removes this wrapper from the
+              layout tree entirely — Masthead renders as if it were a direct child of
+              the flex column below, sticking correctly against the whole page's
+              scroll — while still being a real DOM node `print:hidden` can target. */}
+          <div className="contents print:hidden">
             <Masthead
               meta={meta}
               onSettingsOpen={() => setSettingsOpen(true)}
