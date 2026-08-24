@@ -552,6 +552,22 @@ _OG_IMAGE_RE_REV = re.compile(
     re.IGNORECASE,
 )
 
+_IMAGE_WIDTH_PARAM_RE = re.compile(r'([?&])(w|width)=(\d+)', re.IGNORECASE)
+
+
+def upsize_image_url(url, min_width=800):
+    """Several CDNs used by Indian publishers (e.g. assettype.com — Bar & Bench and
+    others) embed a `w=`/`width=` query param in their og:image URL, sized for their
+    own small article-list thumbnails (seen as low as 280px). Our cards render wider
+    than that on most devices, so the browser upscales the small source and it looks
+    soft/blurry. If the URL already asks for a width below min_width, bump it up;
+    leave everything else (no such param, or already large enough) untouched."""
+    def _bump(m):
+        if int(m.group(3)) >= min_width:
+            return m.group(0)
+        return f"{m.group(1)}{m.group(2)}={min_width}"
+    return _IMAGE_WIDTH_PARAM_RE.sub(_bump, url, count=1)
+
 
 def extract_rss_image(item):
     """Look for an image URL embedded directly in the RSS item — no network call."""
@@ -586,7 +602,7 @@ def fetch_og_image(url):
             raw = resp.read(IMAGE_MAX_BYTES).decode("utf-8", errors="ignore")
         m = _OG_IMAGE_RE.search(raw) or _OG_IMAGE_RE_REV.search(raw)
         if m:
-            return unescape(m.group(1)).strip(), "ok"
+            return upsize_image_url(unescape(m.group(1)).strip()), "ok"
         return None, "no og:image/twitter:image tag found"
     except HTTPError as e:
         return None, f"HTTP {e.code}"
@@ -726,6 +742,8 @@ def build_stories():
                     summary = ""
 
             image_url = extract_rss_image(item)
+            if image_url:
+                image_url = upsize_image_url(image_url)
 
             if url not in seen:
                 story = build_story(
