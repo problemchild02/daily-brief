@@ -35,10 +35,15 @@ function KickerLabel({ category, kicker }: { category: CategoryKey; kicker?: str
 //
 // Responsive placement (floats don't apply to flex children, so the "beside the
 // headline" tablet look comes from the parent flex-row wrapper in Card, not CSS float):
-//   mobile  <768px : edge-to-edge, bled out of the card's own padding, above the
+//   mobile         : edge-to-edge, bled out of the card's own padding, above the
 //                    headline, 16:9 — the Apple News "big photo" card look
-//   tablet  768-1024: fixed 120px square, inset, sits beside the headline/dek column
-//   laptop  >1024   : edge-to-edge again, wide top-crop (21:9 hero / 16:9 standard)
+//   tablet standard: fixed 120px square, inset, sits beside the headline/dek column
+//                    (keeps 2-up cards compact)
+//   tablet hero     : same edge-to-edge wide treatment as mobile/laptop — the hero
+//                    already spans both grid columns and carries a full dek + Why It
+//                    Matters block, so a 120px thumbnail reads as undersized next to
+//                    that much content
+//   laptop         : edge-to-edge again, wide top-crop (21:9 hero / 16:9 standard)
 //
 // The bleed amounts (-mt/-mx-4 and -8) exactly cancel the card's own p-4/lg:p-8
 // padding — see the negative-margin values below — so the image lands flush with
@@ -58,10 +63,12 @@ function CardImage({ imageUrl, isHero, onFail }: { imageUrl?: string; isHero: bo
       animate={{ opacity: loaded ? 1 : 0 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className={clsx(
-        'w-full shrink-0 object-cover aspect-video bg-surface-2',
+        'w-full shrink-0 object-cover bg-surface-2',
         '-mx-4 -mt-4 w-[calc(100%+2rem)] rounded-t-2xl',
-        'md:mx-0 md:mt-0 md:w-[120px] md:aspect-square md:rounded-lg',
-        isHero ? 'lg:aspect-[21/9]' : 'lg:aspect-[16/9]',
+        isHero ? 'aspect-[21/9]' : 'aspect-video',
+        isHero
+          ? 'md:mx-0 md:mt-0 md:w-full md:rounded-2xl'
+          : 'md:mx-0 md:mt-0 md:w-[120px] md:aspect-square md:rounded-lg',
         'lg:-mx-8 lg:-mt-8 lg:w-[calc(100%+4rem)] lg:rounded-t-2xl',
       )}
     />
@@ -142,8 +149,15 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
       {/* Image + kicker/headline/dek. The image must be the very first element when
           present — its edge-to-edge bleed (negative margin, see CardImage) is measured
           from the card's own top/left/right padding, so anything rendered above it
-          (like the kicker used to be) would get visually covered by the bleed. */}
-      <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4 lg:flex-col lg:gap-3">
+          (like the kicker used to be) would get visually covered by the bleed.
+          Only standard cards go row-layout at tablet (image beside text) — hero stays
+          column-layout at every breakpoint since its image is full-width throughout. */}
+      <div
+        className={clsx(
+          'flex flex-col gap-3 lg:flex-col lg:gap-3',
+          !isHero && 'md:flex-row md:items-start md:gap-4',
+        )}
+      >
         <CardImage imageUrl={imageUrl} isHero={isHero} onFail={() => setImageFailed(true)} />
 
         <div className="min-w-0 flex flex-1 flex-col gap-3">
