@@ -50,10 +50,7 @@ export function SectionDeck({
             ))}
           </div>
         ) : (
-          <div
-            className="grid gap-5"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
-          >
+          <div className="grid grid-cols-1 gap-[var(--grid-gap)] md:grid-cols-2">
             <SkeletonCard variant="hero" />
             <SkeletonCard />
             <SkeletonCard />
@@ -92,10 +89,7 @@ export function SectionDeck({
           ))}
         </div>
       ) : (
-        <div
-          className="grid gap-5"
-          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
-        >
+        <div className="grid grid-cols-1 gap-[var(--grid-gap)] md:grid-cols-2">
           {stories.map((story, idx) => (
             <Card
               key={story.id}

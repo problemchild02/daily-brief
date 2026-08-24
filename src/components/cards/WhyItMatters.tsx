@@ -24,12 +24,8 @@ function renderItalics(text: string): ReactNode {
 export function WhyItMatters({ text }: WhyItMattersProps) {
   return (
     <aside
-      style={{
-        borderLeft: '3px solid var(--accent)',
-        background: 'var(--surface-2)',
-        padding: '18px 20px 18px 22px',
-      }}
-      className="rounded-r-lg"
+      style={{ borderLeft: '3px solid var(--accent)', background: 'var(--surface-2)' }}
+      className="rounded-r-lg p-4 md:p-5 lg:p-6"
     >
       <span
         className="block mb-2"
@@ -46,11 +42,12 @@ export function WhyItMatters({ text }: WhyItMattersProps) {
         Why it matters
       </span>
       <p
+        className="md:max-w-prose"
         style={{
-          fontFamily: 'var(--font-serif)',
+          fontFamily: 'var(--font-reading)',
           fontSize: '14px',
           fontStyle: 'italic',
-          lineHeight: 1.6,
+          lineHeight: 1.7,
           color: 'var(--ink-2)',
           margin: 0,
         }}

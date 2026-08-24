@@ -1,12 +1,14 @@
 :root {
   /* ─── Surfaces ─────────────────────────────────── */
-  --canvas:    #FAF8F4;
+  /* Low-strain off-white/cream paper tint, mimicking physical newsprint. */
+  --canvas:    #FBFAF7;
   --surface:   #FFFFFF;
   --surface-2: #F3EFE8;
   --rule:      #E6E0D6;
 
   /* ─── Ink ──────────────────────────────────────── */
-  --ink:   #1A1A1A;
+  /* Premium off-black — sharp without the eye-strain of pure #000. */
+  --ink:   #111111;
   --ink-2: #4A4A4A;
   --ink-3: #787470;
 
@@ -34,17 +36,54 @@
   --step-5:  clamp(3.052rem, 2.78rem + 1.36vw, 4.00rem);
 
   /* ─── Font roles ───────────────────────────────── */
-  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-serif:  'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:   'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  /* High-contrast display serif — mastheads, section headers, article headlines only. */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  /* Legible reading serif — body copy / deks / why-it-matters. Charter ships on macOS/iOS
+     but isn't a webfont; Merriweather (loaded) is the real fallback most readers get. */
+  --font-reading: 'Charter', 'Merriweather', Georgia, serif;
 
   /* ─── Reading column ───────────────────────────── */
   --measure: 68ch;
+
+  /* ─── Density-driven layout (see useDensity — comfortable is the :root default;
+       compact/dense override below) ───────────────── */
+  --grid-gap: 1.25rem;
+  --card-pad: 1.5rem;
 
   /* ─── Motion ───────────────────────────────────── */
   --ease:     cubic-bezier(0.2, 0.8, 0.2, 1);
   --dur-fast: 150ms;
   --dur-base: 220ms;
+}
+
+/* ─── Density overrides — scale type, gaps and card padding together ────────
+   Same technique as the [data-theme] override below: an attribute selector on
+   :root outranks the plain :root block, so these cleanly override per level. */
+:root[data-density="compact"] {
+  --step--1: clamp(0.76rem, 0.74rem + 0.09vw, 0.8125rem);
+  --step-0:  clamp(0.9375rem, 0.91rem + 0.13vw, 1rem);
+  --step-1:  clamp(1.1875rem, 1.14rem + 0.22vw, 1.3125rem);
+  --step-2:  clamp(1.45rem, 1.38rem + 0.35vw, 1.625rem);
+  --step-3:  clamp(1.8rem, 1.7rem + 0.5vw, 2.05rem);
+  --step-4:  clamp(2.25rem, 2.1rem + 0.8vw, 2.75rem);
+  --step-5:  clamp(2.8rem, 2.55rem + 1.2vw, 3.6rem);
+  --grid-gap: 1rem;
+  --card-pad: 1.25rem;
+}
+
+:root[data-density="dense"] {
+  --step--1: clamp(0.7rem, 0.68rem + 0.08vw, 0.75rem);
+  --step-0:  clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-1:  clamp(1.1rem, 1.05rem + 0.18vw, 1.2rem);
+  --step-2:  clamp(1.3rem, 1.24rem + 0.3vw, 1.45rem);
+  --step-3:  clamp(1.6rem, 1.5rem + 0.45vw, 1.8rem);
+  --step-4:  clamp(2rem, 1.85rem + 0.7vw, 2.4rem);
+  --step-5:  clamp(2.5rem, 2.3rem + 1vw, 3.1rem);
+  --grid-gap: 0.75rem;
+  --card-pad: 1rem;
 }
 
 [data-theme="dark"] {

@@ -59,10 +59,10 @@ export function BriefingOfTheDay({ briefing, loading = false }: BriefingOfTheDay
   // Empty state — briefing hasn't been generated yet
   if (!hasBullets) {
     return (
-      <div className="col-span-full bg-surface border border-rule rounded-2xl p-6 mb-2">
+      <div className="col-span-full bg-surface border border-rule rounded-2xl p-4 md:p-6 lg:p-8 mb-2">
         <div className="flex items-center justify-between mb-1">
           <h2
-            className="font-serif font-semibold text-ink"
+            className="font-display font-semibold text-ink"
             style={{ fontSize: '28px', letterSpacing: '-0.02em', lineHeight: 1.1 }}
           >
             Today's Brief
@@ -90,12 +90,12 @@ export function BriefingOfTheDay({ briefing, loading = false }: BriefingOfTheDay
   const timeAgo = briefing.generatedAt ? relativeTime(briefing.generatedAt) : null
 
   return (
-    <div className="col-span-full bg-surface border border-rule rounded-2xl p-6 mb-2">
+    <div className="col-span-full bg-surface border border-rule rounded-2xl p-4 md:p-6 lg:p-8 mb-2">
       {/* Header */}
       <div className="flex items-baseline justify-between mb-4">
         <div className="flex items-baseline gap-3">
           <h2
-            className="font-serif font-semibold text-ink"
+            className="font-display font-semibold text-ink"
             style={{ fontSize: '28px', letterSpacing: '-0.02em', lineHeight: 1.1 }}
           >
             Today's Brief
@@ -146,8 +146,8 @@ export function BriefingOfTheDay({ briefing, loading = false }: BriefingOfTheDay
       {/* Editor's summary */}
       {briefing.summary && (
         <p
-          className="mb-4 text-ink-2"
-          style={{ fontFamily: 'var(--font-serif)', fontSize: '15px', lineHeight: 1.5 }}
+          className="mb-4 text-ink-2 md:max-w-prose"
+          style={{ fontFamily: 'var(--font-reading)', fontSize: '15px', lineHeight: 1.7 }}
         >
           {briefing.summary}
         </p>

@@ -13,7 +13,7 @@ export function FrontPage() {
     .sort((a, b) => CATEGORIES[a].order - CATEGORIES[b].order)
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+    <div className="mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
       {/* Briefing hero */}
       <div
         className="grid mb-10"
@@ -25,7 +25,7 @@ export function FrontPage() {
       {/* Jump nav */}
       <nav
         aria-label="Jump to section"
-        className="sticky top-14 z-30 -mx-4 sm:-mx-6 mb-8 flex gap-4 overflow-x-auto whitespace-nowrap border-b border-rule bg-canvas/90 px-4 py-2.5 backdrop-blur sm:px-6"
+        className="sticky top-14 z-30 -mx-4 md:-mx-6 lg:-mx-8 mb-8 flex gap-4 overflow-x-auto whitespace-nowrap border-b border-rule bg-canvas/90 px-4 py-2.5 backdrop-blur md:px-6 lg:px-8"
       >
         {orderedSections.map(section => {
           const cat = CATEGORIES[section]

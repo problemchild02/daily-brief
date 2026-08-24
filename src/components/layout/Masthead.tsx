@@ -69,7 +69,7 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle }
               Compact: "wordmark drops to 24px" */}
           <p
             className={[
-              'font-serif font-bold tracking-[-0.025em] text-ink leading-none transition-all',
+              'font-display font-bold tracking-[-0.025em] text-ink leading-none transition-all',
               compact ? 'text-[24px]' : 'text-step-5',
             ].join(' ')}
           >

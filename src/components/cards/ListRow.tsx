@@ -37,7 +37,7 @@ export function ListRow({ story, isBookmarked, onBookmark }: ListRowProps) {
 
   return (
     <article
-      className="flex items-center gap-3 border-b border-rule py-2.5 hover:bg-surface-2 pl-2 pr-1 -mx-1 rounded transition-colors"
+      className="flex items-center gap-3 border-b border-rule py-2.5 hover:bg-surface-2 pl-2 pr-1 md:pl-3 lg:pl-4 -mx-1 rounded transition-colors"
       style={{ minHeight: '52px', borderLeftColor: `var(${cat.colorVar})`, borderLeftWidth: '3px' }}
       aria-label={headline}
     >
