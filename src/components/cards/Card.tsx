@@ -35,23 +35,34 @@ function KickerLabel({ category, kicker }: { category: CategoryKey; kicker?: str
 //
 // Responsive placement (floats don't apply to flex children, so the "beside the
 // headline" tablet look comes from the parent flex-row wrapper in Card, not CSS float):
-//   mobile  <768px : full width, stacked above the headline, 16:9
-//   tablet  768-1024: fixed 120px square, sits beside the headline/dek column
-//   laptop  >1024   : full width again, wide top-crop (21:9 hero / 16:9 standard)
+//   mobile  <768px : edge-to-edge, bled out of the card's own padding, above the
+//                    headline, 16:9 — the Apple News "big photo" card look
+//   tablet  768-1024: fixed 120px square, inset, sits beside the headline/dek column
+//   laptop  >1024   : edge-to-edge again, wide top-crop (21:9 hero / 16:9 standard)
+//
+// The bleed amounts (-mt/-mx-4 and -8) exactly cancel the card's own p-4/lg:p-8
+// padding — see the negative-margin values below — so the image lands flush with
+// the card's border on top/left/right, then rounds back into the card shape.
 function CardImage({ imageUrl, isHero, onFail }: { imageUrl?: string; isHero: boolean; onFail: () => void }) {
   const [failed, setFailed] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   if (!imageUrl || failed) return null
   return (
-    <img
+    <motion.img
       src={imageUrl}
       alt=""
       loading="lazy"
+      onLoad={() => setLoaded(true)}
       onError={() => { setFailed(true); onFail() }}
+      initial={false}
+      animate={{ opacity: loaded ? 1 : 0 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
       className={clsx(
-        'w-full shrink-0 rounded-xl object-cover aspect-video',
-        'md:w-[120px] md:aspect-square md:rounded-lg',
+        'w-full shrink-0 object-cover aspect-video bg-surface-2',
+        '-mx-4 -mt-4 w-[calc(100%+2rem)] rounded-t-2xl',
+        'md:mx-0 md:mt-0 md:w-[120px] md:aspect-square md:rounded-lg',
         isHero ? 'lg:aspect-[21/9]' : 'lg:aspect-[16/9]',
-        'lg:w-full lg:rounded-xl',
+        'lg:-mx-8 lg:-mt-8 lg:w-[calc(100%+4rem)] lg:rounded-t-2xl',
       )}
     />
   )
@@ -98,10 +109,19 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
 
   const isHero = variant === 'hero'
 
+  // Whole-card tap opens the story — a mouse/touch convenience layered on top of the
+  // headline's real <a>, not a replacement for it (keyboard/screen-reader users still
+  // get a proper, focusable link either way). Every other clickable element inside the
+  // card (headline link, footer link, bookmark button, the note textarea) stops the
+  // click from bubbling here, so nothing double-fires or hijacks a note edit.
+  const openStory = () => window.open(sourceUrl, '_blank', 'noopener,noreferrer')
+  const stop = (e: React.SyntheticEvent) => e.stopPropagation()
+
   return (
     <motion.article
+      onClick={openStory}
       className={clsx(
-        'bg-surface border border-rule rounded-2xl flex flex-col gap-3',
+        'bg-surface border border-rule rounded-2xl flex flex-col gap-3 cursor-pointer',
         'p-4 md:p-6 lg:p-8',
         'shadow-[0_1px_2px_rgba(0,0,0,0.03)]',
         'hover:border-ink-3/40 transition-colors',
@@ -116,16 +136,20 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1], delay: Math.min(idx, 4) * 0.04 }}
+      whileHover={{ y: -3, transition: { type: 'spring', stiffness: 400, damping: 28 } }}
+      whileTap={{ scale: 0.985, transition: { type: 'spring', stiffness: 500, damping: 30 } }}
     >
-      {/* Kicker — spec §7.2: "Inter 11px UPPERCASE, +0.08em, category colour" */}
-      <KickerLabel category={category} kicker={kicker} />
-
-      {/* Image + headline/dek: stacked on mobile, image floats beside the text on
-          tablet (120px square), stacked again on laptop (wide top-crop + caption). */}
+      {/* Image + kicker/headline/dek. The image must be the very first element when
+          present — its edge-to-edge bleed (negative margin, see CardImage) is measured
+          from the card's own top/left/right padding, so anything rendered above it
+          (like the kicker used to be) would get visually covered by the bleed. */}
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4 lg:flex-col lg:gap-3">
         <CardImage imageUrl={imageUrl} isHero={isHero} onFail={() => setImageFailed(true)} />
 
         <div className="min-w-0 flex flex-1 flex-col gap-3">
+          {/* Kicker — spec §7.2: "Inter 11px UPPERCASE, +0.08em, category colour" */}
+          <KickerLabel category={category} kicker={kicker} />
+
           {/* Headline — spec §7.2:
               standard: 22px weight 600 leading-[1.15] tracking-[-0.015em]
               hero:     28px (text-step-2 ≈ 25–28px) */}
@@ -139,6 +163,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={stop}
               className="hover:text-accent visited:text-ink-3 transition-colors"
             >
               {headline}
@@ -164,6 +189,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={stop}
               className="inline-flex w-fit items-center gap-1.5 rounded-full border border-rule px-3 py-1.5 font-mono text-[12px] text-ink-2 transition-colors hover:border-accent hover:text-accent"
             >
               Read full story at {source}
@@ -196,6 +222,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
             href={sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={stop}
             aria-label={`Open ${headline} in new tab`}
             className="hover:text-ink transition-colors"
           >
@@ -204,7 +231,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
           {onBookmark && (
             <motion.button
               type="button"
-              onClick={onBookmark}
+              onClick={e => { stop(e); onBookmark() }}
               aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark this story'}
               aria-pressed={isBookmarked}
               className="hover:text-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent rounded"
@@ -227,12 +254,15 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
         </div>
       </footer>
 
-      {/* Spec §7.10 ArticleNote — visible on standard + hero, never on list */}
-      <ArticleNote
-        storyId={id}
-        sourceUrl={sourceUrl}
-        storyTitle={headline}
-      />
+      {/* Spec §7.10 ArticleNote — visible on standard + hero, never on list.
+          Wrapped so clicking/typing into the note field doesn't trigger openStory. */}
+      <div onClick={stop}>
+        <ArticleNote
+          storyId={id}
+          sourceUrl={sourceUrl}
+          storyTitle={headline}
+        />
+      </div>
     </motion.article>
   )
 }
