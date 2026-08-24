@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import { MotionConfig } from 'motion/react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { MotionConfig, AnimatePresence, motion } from 'motion/react'
 import { Masthead } from './components/layout/Masthead'
 import { Sidebar } from './components/layout/Sidebar'
 import { TabBar } from './components/layout/TabBar'
@@ -56,6 +56,7 @@ export default function App() {
   // instead. Gated in JS (not just CSS) so the strip and rail never both mount at
   // once, which would otherwise double the useMarkets/useWeather data fetches.
   const isLaptop = useMediaQuery('(min-width: 1024px)')
+  const location = useLocation()
 
   // ── Data loading ──────────────────────────────────────────────────────────
   useEffect(() => {
@@ -160,15 +161,29 @@ export default function App() {
 
           <div className="flex-1 flex">
             <main id="main-content" className="flex-1 min-w-0">
-              <Routes>
-                <Route path="/"                   element={<FrontPage />} />
-                <Route path="/sections/:category" element={<SectionPage />} />
-                <Route path="/saved"              element={<SavedPage />} />
-                <Route path="/papers"             element={<PapersPage />} />
-                <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
-                <Route path="/settings"           element={<SettingsRedirect onOpen={() => setSettingsOpen(true)} />} />
-                <Route path="*"                   element={<FrontPage />} />
-              </Routes>
+              {/* Route changes get a soft fade+rise instead of an abrupt swap — the
+                  explicit `location` pin on Routes keeps rendering the outgoing page
+                  during the exit animation, which is what AnimatePresence needs to
+                  animate a route transition instead of just the entrance. */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={location.pathname}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.18, ease: [0.2, 0.8, 0.2, 1] }}
+                >
+                  <Routes location={location}>
+                    <Route path="/"                   element={<FrontPage />} />
+                    <Route path="/sections/:category" element={<SectionPage />} />
+                    <Route path="/saved"              element={<SavedPage />} />
+                    <Route path="/papers"             element={<PapersPage />} />
+                    <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
+                    <Route path="/settings"           element={<SettingsRedirect onOpen={() => setSettingsOpen(true)} />} />
+                    <Route path="*"                   element={<FrontPage />} />
+                  </Routes>
+                </motion.div>
+              </AnimatePresence>
             </main>
 
             {/* Laptop-only aux rail — third "column" of the broadsheet layout
