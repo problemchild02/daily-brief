@@ -45,8 +45,13 @@ export function TabBar() {
                 className={clsx(itemBase, 'text-ink-3 hover:text-ink')}
                 style={{ fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 500 }}
               >
-                <Icon size={22} />
-                <span>{tab.label}</span>
+                <motion.div
+                  className="flex flex-col items-center gap-1"
+                  whileTap={{ scale: 0.85, transition: { type: 'spring', stiffness: 500, damping: 30 } }}
+                >
+                  <Icon size={22} />
+                  <span>{tab.label}</span>
+                </motion.div>
               </button>
             )
           }
@@ -71,8 +76,13 @@ export function TabBar() {
                       transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }}
                     />
                   )}
-                  <Icon size={22} />
-                  <span>{tab.label}</span>
+                  <motion.div
+                    className="flex flex-col items-center gap-1"
+                    whileTap={{ scale: 0.85, transition: { type: 'spring', stiffness: 500, damping: 30 } }}
+                  >
+                    <Icon size={22} />
+                    <span>{tab.label}</span>
+                  </motion.div>
                 </>
               )}
             </NavLink>
