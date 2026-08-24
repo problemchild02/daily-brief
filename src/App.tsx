@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
 import { MotionConfig, AnimatePresence, motion } from 'motion/react'
 import { Masthead } from './components/layout/Masthead'
 import { Sidebar } from './components/layout/Sidebar'
@@ -16,10 +16,91 @@ import { AppContext } from './contexts/AppContext'
 import { useDensity } from './hooks/useDensity'
 import { useBookmarks } from './hooks/useBookmarks'
 import { useIsDesktop, useMediaQuery } from './hooks/useMediaQuery'
+import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
 import type { FeedsPayload, MetaJson, BriefingJson } from './lib/types'
+import type { BookmarkMeta } from './hooks/useBookmarks'
 
 const BASE = import.meta.env.BASE_URL
+
+// Aux-rail widget — condensed Today's Brief recap. The hero briefing scrolls out of
+// view immediately once you're reading a section, but on laptop the rail is always
+// visible, so this keeps the day's 5 headlines one glance away without re-fetching
+// anything (same `briefing` data the hero card already has).
+function BriefRail({ briefing }: { briefing: BriefingJson | null }) {
+  if (!briefing || briefing.bullets.length === 0) return null
+  return (
+    <div className="pt-6 first:pt-0">
+      <p className="type-kicker mb-3 text-ink-3">Today's Brief</p>
+      <ol className="space-y-2.5">
+        {briefing.bullets.map((bullet, i) => {
+          return (
+            <li key={i} className="flex items-baseline gap-2">
+              <span
+                className="shrink-0 font-display font-semibold"
+                style={{ fontSize: '13px', color: 'var(--accent)' }}
+              >
+                {i + 1}
+              </span>
+              <a
+                href={bullet.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-reading text-[13px] leading-snug text-ink-2 hover:text-ink transition-colors"
+              >
+                {bullet.text}
+              </a>
+            </li>
+          )
+        })}
+      </ol>
+    </div>
+  )
+}
+
+// Aux-rail widget — most recent saved stories, so bookmarking something feels like
+// it actually goes somewhere useful instead of vanishing into a page you have to
+// navigate to. Hidden entirely when there's nothing saved yet (an empty-state box
+// here would just be more of the dead space this rail already had too much of).
+function SavedRail({ bookmarksList }: { bookmarksList: BookmarkMeta[] }) {
+  if (bookmarksList.length === 0) return null
+  const recent = bookmarksList.slice(0, 5)
+  return (
+    <div className="pt-6 first:pt-0">
+      <div className="mb-3 flex items-center justify-between">
+        <p className="type-kicker text-ink-3">Saved</p>
+        <Link
+          to="/saved"
+          className="font-mono text-[10px] text-ink-3 hover:text-accent transition-colors"
+        >
+          View all →
+        </Link>
+      </div>
+      <ul className="space-y-3">
+        {recent.map(b => {
+          const cat = CATEGORIES[b.category]
+          return (
+            <li key={b.urlHash} className="flex items-start gap-2">
+              <span
+                aria-hidden
+                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                style={{ background: cat ? `var(${cat.colorVar})` : 'var(--ink-3)' }}
+              />
+              <a
+                href={b.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-reading text-[13px] leading-snug text-ink-2 hover:text-ink transition-colors"
+              >
+                {b.headline}
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
+}
 
 function readSidebarCollapsed(): boolean {
   try { return localStorage.getItem('daily-brief:sidebar-collapsed') === 'true' } catch { return false }
@@ -195,18 +276,26 @@ export default function App() {
             </main>
 
             {/* Laptop-only aux rail — third "column" of the broadsheet layout
-                (nav rail | main feed | aux rail), sticky below the masthead. */}
+                (nav rail | main feed | aux rail), sticky below the masthead.
+                Today's Brief + Saved lead (the personalized, highest-value content —
+                the hero briefing scrolls out of view the moment you start reading a
+                section, so this keeps it one glance away instead of leaving a rail
+                that's mostly empty space below two lightweight widgets). Both hide
+                themselves when there's nothing to show; divide-y only draws a rule
+                between whichever widgets actually rendered, never before the first. */}
             {isLaptop && (
               <aside
-                aria-label="Markets and weather"
+                aria-label="Today's brief, saved stories, weather and markets"
                 className="w-[260px] shrink-0 border-l border-rule px-6 py-8 self-start sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto print:hidden"
               >
-                <div className="flex flex-col gap-6">
-                  <div>
+                <div className="flex flex-col divide-y divide-rule">
+                  <BriefRail briefing={briefing} />
+                  <SavedRail bookmarksList={bookmarksList} />
+                  <div className="pt-6 first:pt-0">
                     <p className="type-kicker mb-3 text-ink-3">Weather</p>
                     <WeatherStrip />
                   </div>
-                  <div className="border-t border-rule pt-6">
+                  <div className="pt-6 first:pt-0">
                     <p className="type-kicker mb-3 text-ink-3">Markets</p>
                     <MarketsTicker />
                   </div>
