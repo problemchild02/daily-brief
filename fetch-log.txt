@@ -1,52 +1,55 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-14 13:28 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-15 01:59 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (94,560 bytes)
-    + [legal] Google-Adani data centre will not affect environment: Andhra Pradesh government 
-    + [legal] Karnataka HC rejects State's plea to cancel bail granted to BJP MLA Byrathi Basa
-    + [legal] Gauhati High Court closes PIL on adjournment reforms after HC notification addre
-    + [legal] Supreme Court restores Congress leader’s election petition challenging BJP MP Kr
-    + [legal] Forensic evidence should aid cases, not create more burden for survivors: Ex-ASG
-    + [legal] DPIIT relaxes FDI norms for export-oriented inventory-based e-commerce
-    + [legal] Allahabad High Court takes serious note of IAS officer's alleged attempt to infl
-    + [legal] Karnataka High Court stays proceedings against man accused of ghosting, seen-zon
-    → 15 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (7,133 bytes)
+    + [legal] Not essential religious practice: Allahabad High Court rejects Muslim student’s 
+    → 1 items: 1 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (202,106 bytes)
+    + [legal] Top 12 Supreme Court Judgments of January-July 2026 That Shaped Indian Law
+    + [legal] “What is not collected cannot be recovered”: Senior Advocate Pinky Anand leads G
+    + [legal] Justice Anil R. Dave to lead NFSU’s International Digital Dispute Resolution Cen
+    + [legal] NCLT Allows Withdrawal of unadmitted company petition against SpiceJet but decli
+    + [legal] Fox & Mandal advises Century Plyboards on the launch of its ‘Total Cover’warrant
+    + [legal] Court by Court, category by category: Inside the Centre’s fresh guidelines on be
+    + [legal] Shardul Amarchand Mangaldas & Co. advises Book Running Lead Managers on USD169 m
+    → 10 items: 7 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (199,954 bytes)
-    → 95 items: 0 accepted, 95 too old, 0 no-date
+    OK  (202,631 bytes)
+    → 96 items: 0 accepted, 96 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (67,274 bytes)
+    OK  (63,953 bytes)
     + [business] Anmol India Cash Flow, Financial Statements
-    → 35 items: 1 accepted, 34 too old, 0 no-date
+    + [business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earnings for Siddhika Coati
+    → 31 items: 2 accepted, 29 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (52,558 bytes)
-    + [business] Lenskart Solutions among 4 stocks to hit 52-week highs & surge up to 20% in a mo
-    + [business] Sebi introduces IT Resilience Index for market infrastructure institutions: Here
-    + [business] Global Markets: Fast-fashion giant Shein shrinks value to up to $27 billion in H
-    + [business] India lenders' dollar debt sales top $10 billion since RBI window, ICICI Bank be
-    + [business] Elan group ropes in Marriott International to manage upcoming hotel, branded hom
-    + [business] India plans first tokenised bond issue in September: Report
-    + [business] Quote of the day by Tom Russo: "Sadly, on Wall Street, rewards for acting with s
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    OK  (51,291 bytes)
+    + [business] InCred hires Avendus wealth experts to launch new platform for ultra-high-net-wo
+    + [business] Renewable energy project deadlines extended up to four months due to West Asia d
+    + [business] Global Market Today: Asian stocks dip after US tech selloff, gold gains
+    + [business] India’s weight in global emerging-market ETFs rises again
+    + [business] Sebi drops Rs 3,912 crore probe against Max Financial, Axis Bank over disclosure
+    + [business] India Inc’s equity fundraising surges past Rs 1.11 lakh crore on strong inflows 
+    → 50 items: 6 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (184,854 bytes)
+    OK  (186,909 bytes)
     + [reliance] Reliance Industries Limited. Reliance Industries Limited · Original audio.
     + [reliance] Reliance and Rolls-Royce to Build India's AMCA Engine
     + [reliance] Ambani's Rs 2.7 lakh cr underground bet can save India from shocks
-    → 100 items: 3 accepted, 97 too old, 0 no-date
+    + [reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks imports
+    → 100 items: 4 accepted, 96 too old, 0 no-date
   [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
     OK  (1,347 bytes)
     → 1 items: 0 accepted, 1 too old, 0 no-date
@@ -56,36 +59,35 @@ Cutoff: 2026-08-14 13:28 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Godrej Industries group signs pact to invest Rs 20,000 crore in Haryana
     + [reliance] Third Wave Coffee raises $43 million led by WestBridge Capital
     + [reliance] Indian food safety officer Tukaram Mundhe shakes up Mumbai, one viral raid at a 
-    + [reliance] FSSAI suspends Marche Retail's licence, orders SDP to stop ghee sales
-    → 10 items: 5 accepted, 0 too old, 0 no-date
+    → 10 items: 4 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (127,095 bytes)
-    + [retail] Ecommerce, Banking, and Tech Fuel India’s AI Advertising Shift
-    → 73 items: 1 accepted, 72 too old, 0 no-date
+    OK  (131,663 bytes)
+    → 76 items: 0 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,085 bytes)
+    + [retail] FSSAI suspends Marche Retail's licence, orders SDP to stop ghee sales
     + [retail] Starbucks India brews up a fresh plan; puts expansion back on the menu
     + [retail] Inside FMCG's leadership shake-up: The boardroom churn behind HUL, GCPL, Britann
     + [retail] Gold gets its glitter back as Indian buyers return ahead of wedding and festive 
     + [retail] Levi’s bets on bigger stores, women’s wear and denim lifestyle to drive next pha
     + [retail] Apple expected to expand mfg beyond iPhones
-    → 10 items: 5 accepted, 0 too old, 0 no-date
+    → 10 items: 6 accepted, 0 too old, 0 no-date
   [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (49,682 bytes)
-    + [retail] Ten years of UPI: From a payment tool to India's economic Spine
-    + [retail] Delay in depositing TDS: Company under liquidation ordered to pay fine, MD to pa
+    OK  (48,877 bytes)
+    + [retail] SEBI joins hands with RRU, NISM to boost cybersecurity and securities market int
+    + [retail] School building safety: Tamil Nadu proposes red, yellow, green sticker system
     → 60 items: 2 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (48,081 bytes)
+    OK  (48,150 bytes)
+    + [tech] Lead School targets 20% growth in FY27, eyes IPO in two to three years
+    + [tech] ETSA 2026: Elite jury meets today to crown startup ecosystem's best
+    + [tech] ET AI Hackathon 2026: A platform to build, innovate and lead
+    + [tech] Sebi launches Cyber Suraksha portal
+    + [tech] Amazon, Flipkart restructure seller fees, penalties ahead of festival season
+    + [tech] Infosys Q1 bonus payout averages 70%, down 10 percentage points from a year ago
+    + [tech] AI leaders on automation; PM Modi debriefs space startups
     + [tech] Trump-linked RUM Group signs $13.7 billion AI deal with US-based cloud client
-    + [tech] TCS to buy Porsche's IT unit, bags 5-year deal worth $1.5 billion
-    + [tech] Facebook, TikTok promoted Colombian armed groups' content to recruit children: N
-    + [tech] Xpeng's robotics unit valued at over $6.3 billion after record funding round
-    + [tech] Xiaomi launches new Xring chip, partners with TSMC for production
-    + [tech] Midcap IT likely to see better H2, AI-led deflation weighs on FY27 growth: Anand
-    + [tech] Alibaba launches Wan3.0 AI video model after $10 billion share sale
-    + [tech] ET AI Hackathon: Innovation begins with a challenge
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -96,15 +98,15 @@ Cutoff: 2026-08-14 13:28 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,240 bytes)
-    + [world] Treasury Secretary Scott Bessent to unveil new economic sanctions on Iran
+    OK  (14,159 bytes)
+    + [world] Six months on, U.S. Navy families who evacuated Bahrain remain in limbo
+    + [world] The view from Canada after U.S. trade negotiations collapse
+    + [world] Treasury Secretary Scott Bessent unveils new U.S. economic sanctions to isolate 
     + [world] U.S. to detail new economic pressures on Iran. And, Canada to impose tariffs on 
+    + [world] These American doctors treated Gaza's wounded. Then they came home to bear witne
     + [world] Learning to live in a post-American world
     + [world] As Canada readies retaliatory tariffs, Mark Carney says his nation is 'at war' w
     + [world] Big tech companies will have to pay to publish Australian news content under new
-    + [world] Top Iran official says U.S. focus on economic warfare shows it has failed milita
-    + [world] Trump declares economic warfare on Iran. And, SCOTUS to rule on White House ball
-    + [world] As Trump courts Kim, Pyongyang ups the price, while Seoul fears being sidelined
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -113,18 +115,18 @@ Cutoff: 2026-08-14 13:28 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (184,837 bytes)
+    OK  (183,646 bytes)
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
     + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
     + [sports] 'There is no point in playing anymore': Karn Sharma, winner of 4 IPL titles, ret
-    + [sports] 'He Might Want To Play IPL, But Don't Go There'
+    + [sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't Change Your Strength
     → 100 items: 4 accepted, 95 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,430 bytes)
+    OK  (89,318 bytes)
+    + [sports] New normal dawning for England after Carse night out
+    + [sports] Fatima Sana's Pakistan prepare for Asia Cup with T20 matches against men
+    + [sports] Carse removed from England squad as Cricket Regulator investigates
     + [sports] India dictate terms after Jurel's unbeaten century
-    + [sports] Naveen-ul-Haq returns to Afghanistan side for India T20I series
-    + [sports] Namibia bank on seasoned core and emerging stars for home tri-series
-    + [sports] Jaiswal and Asitha penalised after on-field confrontation in Colombo Test
     → 100 items: 4 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -132,120 +134,129 @@ Cutoff: 2026-08-14 13:28 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (114,966 bytes)
-    → 78 items: 0 accepted, 78 too old, 0 no-date
+    OK  (116,224 bytes)
+    + [opinion] A Passport To Citizenship Or A Mere Travel Document? – Analysis
+    → 78 items: 1 accepted, 77 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,102 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (49,427 bytes)
-    + [opinion] The long and not the short of it
-    + [opinion] How India’s consumers are reshaping the future of food and business
-    + [opinion] Polly Jean Harvey's 'Yuri-G'
-    + [opinion] India needs a transparent rulebook for the business of influence
-    + [opinion] Don't miss the cannabis bus
-    + [opinion] How to beat morning blues
-    + [opinion] Invest dignity-first for Anganwadis
-    + [opinion] BSE’s Nifty 50 entry shows how the index can move markets, not just mirror them
-    → 50 items: 8 accepted, 0 too old, 0 no-date
+    OK  (49,576 bytes)
+    + [opinion] The devils of Loudun
+    + [opinion] In praise of Jomo, the joy of missing out
+    + [opinion] Ethanol is not the whole story behind India’s sugar price surge
+    + [opinion] Agnipath reforms: Why Agniveers need longer service, higher retention and better
+    + [opinion] Don't tamper with Kaziranga National Park and Tiger Reserve's buffer
+    + [opinion] Few minutes of nothingness
+    + [opinion] Less chips chipping away at AInfra? Nvidia’s server price hike signals rising co
+    → 50 items: 7 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (17 stories, 8 workers) ─────────────────────────────
-   ✓ [     world] Learning to live in a post-American world
-   ✓ [     world] Treasury Secretary Scott Bessent to unveil new economic sanc
-   ✗ [    retail] Ecommerce, Banking, and Tech Fuel India’s AI Advertising Shi: no og:image/twitter:image tag found
-   ✓ [     world] U.S. to detail new economic pressures on Iran. And, Canada t
-   ✗ [  reliance] Ambani's Rs 2.7 lakh cr underground bet can save India from : no og:image/twitter:image tag found
+── Image fetch (26 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] Anmol India Cash Flow, Financial Statements: no og:image/twitter:image tag found
+   ✗ [  business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earning: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance Industries Limited. Reliance Industries Limited · O: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance and Rolls-Royce to Build India's AMCA Engine: no og:image/twitter:image tag found
-   ✗ [  business] Anmol India Cash Flow, Financial Statements: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani's Rs 2.7 lakh cr underground bet can save India from : no og:image/twitter:image tag found
+   ✗ [  reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks: no og:image/twitter:image tag found
+   ✓ [     world] Six months on, U.S. Navy families who evacuated Bahrain rema
+   ✓ [     world] The view from Canada after U.S. trade negotiations collapse
+   ✓ [     world] Treasury Secretary Scott Bessent unveils new U.S. economic s
+   ✓ [     world] U.S. to detail new economic pressures on Iran. And, Canada t
+   ✓ [     world] These American doctors treated Gaza's wounded. Then they cam
+   ✓ [     world] Learning to live in a post-American world
    ✓ [     world] As Canada readies retaliatory tariffs, Mark Carney says his 
-   ✓ [     world] Trump declares economic warfare on Iran. And, SCOTUS to rule
-   ✓ [     world] Top Iran official says U.S. focus on economic warfare shows 
-   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
-   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✓ [     world] As Trump courts Kim, Pyongyang ups the price, while Seoul fe
-   ✗ [    sports] 'There is no point in playing anymore': Karn Sharma, winner : no og:image/twitter:image tag found
    ✓ [     world] Big tech companies will have to pay to publish Australian ne
-   ✗ [    sports] 'He Might Want To Play IPL, But Don't Go There': no og:image/twitter:image tag found
-   images: 8 found, 9 not found
+   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
+   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
+   ✗ [    sports] 'There is no point in playing anymore': Karn Sharma, winner : no og:image/twitter:image tag found
+   ✗ [    sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't : no og:image/twitter:image tag found
+   ✗ [   opinion] A Passport To Citizenship Or A Mere Travel Document? – Analy: no og:image/twitter:image tag found
+   ✗ [     legal] “What is not collected cannot be recovered”: Senior Advocate: TimeoutError: The read operation timed out
+   ✗ [     legal] Justice Anil R. Dave to lead NFSU’s International Digital Di: TimeoutError: The read operation timed out
+   ✗ [     legal] Court by Court, category by category: Inside the Centre’s fr: TimeoutError: The read operation timed out
+   ✗ [     legal] Fox & Mandal advises Century Plyboards on the launch of its : TimeoutError: The read operation timed out
+   ✗ [     legal] Shardul Amarchand Mangaldas & Co. advises Book Running Lead : TimeoutError: The read operation timed out
+   ✗ [     legal] NCLT Allows Withdrawal of unadmitted company petition agains: TimeoutError: The read operation timed out
+   ✗ [     legal] Top 12 Supreme Court Judgments of January-July 2026 That Sha: TimeoutError: The read operation timed out
+   images: 8 found, 18 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Google-Adani data centre will not affect environment: Andhra
-   ✓ Karnataka HC rejects State's plea to cancel bail granted to 
-   ✓ Gauhati High Court closes PIL on adjournment reforms after H
-   ✓ Supreme Court restores Congress leader’s election petition c
-   ✓ Forensic evidence should aid cases, not create more burden f
-   ✓ DPIIT relaxes FDI norms for export-oriented inventory-based 
-   ✓ Allahabad High Court takes serious note of IAS officer's all
-   ✓ Karnataka High Court stays proceedings against man accused o
+   ✓ Not essential religious practice: Allahabad High Court rejec
+   ✓ Top 12 Supreme Court Judgments of January-July 2026 That Sha
+   ✓ “What is not collected cannot be recovered”: Senior Advocate
+   ✓ Justice Anil R. Dave to lead NFSU’s International Digital Di
+   ✓ NCLT Allows Withdrawal of unadmitted company petition agains
+   ✓ Fox & Mandal advises Century Plyboards on the launch of its 
+   ✓ Court by Court, category by category: Inside the Centre’s fr
+   ✓ Shardul Amarchand Mangaldas & Co. advises Book Running Lead 
    ✓ Anmol India Cash Flow, Financial Statements
-   ✓ Lenskart Solutions among 4 stocks to hit 52-week highs & sur
-   ✓ Sebi introduces IT Resilience Index for market infrastructur
-   ✓ Global Markets: Fast-fashion giant Shein shrinks value to up
-   ✓ India lenders' dollar debt sales top $10 billion since RBI w
-   ✓ Elan group ropes in Marriott International to manage upcomin
-   ✓ India plans first tokenised bond issue in September: Report
-   ✓ Quote of the day by Tom Russo: "Sadly, on Wall Street, rewar
+   ✓ Siddhika Coatings Nine Monthly Results, Nine Monthly Earning
+   ✓ InCred hires Avendus wealth experts to launch new platform f
+   ✓ Renewable energy project deadlines extended up to four month
+   ✓ Global Market Today: Asian stocks dip after US tech selloff,
+   ✓ India’s weight in global emerging-market ETFs rises again
+   ✓ Sebi drops Rs 3,912 crore probe against Max Financial, Axis 
+   ✓ India Inc’s equity fundraising surges past Rs 1.11 lakh cror
    ✓ Reliance Industries Limited. Reliance Industries Limited · O
    ✓ Reliance and Rolls-Royce to Build India's AMCA Engine
    ✓ Ambani's Rs 2.7 lakh cr underground bet can save India from 
+   ✓ Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks
    ✓ P&G Hygiene expects challenges to persist in FY27, remains c
    ✓ Godrej Industries group signs pact to invest Rs 20,000 crore
    ✓ Third Wave Coffee raises $43 million led by WestBridge Capit
    ✓ Indian food safety officer Tukaram Mundhe shakes up Mumbai, 
    ✓ FSSAI suspends Marche Retail's licence, orders SDP to stop g
-   ✓ Ecommerce, Banking, and Tech Fuel India’s AI Advertising Shi
    ✓ Starbucks India brews up a fresh plan; puts expansion back o
    ✓ Inside FMCG's leadership shake-up: The boardroom churn behin
    ✓ Gold gets its glitter back as Indian buyers return ahead of 
    ✓ Levi’s bets on bigger stores, women’s wear and denim lifesty
    ✓ Apple expected to expand mfg beyond iPhones
-   ✓ Ten years of UPI: From a payment tool to India's economic Sp
-   ✓ Delay in depositing TDS: Company under liquidation ordered t
+   ✓ SEBI joins hands with RRU, NISM to boost cybersecurity and s
+   ✓ School building safety: Tamil Nadu proposes red, yellow, gre
+   ✓ Lead School targets 20% growth in FY27, eyes IPO in two to t
+   ✓ ETSA 2026: Elite jury meets today to crown startup ecosystem
+   ✓ ET AI Hackathon 2026: A platform to build, innovate and lead
+   ✓ Sebi launches Cyber Suraksha portal
+   ✓ Amazon, Flipkart restructure seller fees, penalties ahead of
+   ✓ Infosys Q1 bonus payout averages 70%, down 10 percentage poi
+   ✓ AI leaders on automation; PM Modi debriefs space startups
    ✓ Trump-linked RUM Group signs $13.7 billion AI deal with US-b
-   ✓ TCS to buy Porsche's IT unit, bags 5-year deal worth $1.5 bi
-   ✓ Facebook, TikTok promoted Colombian armed groups' content to
-   ✓ Xpeng's robotics unit valued at over $6.3 billion after reco
-   ✓ Xiaomi launches new Xring chip, partners with TSMC for produ
-   ✓ Midcap IT likely to see better H2, AI-led deflation weighs o
-   ✓ Alibaba launches Wan3.0 AI video model after $10 billion sha
-   ✓ ET AI Hackathon: Innovation begins with a challenge
-   ✓ Treasury Secretary Scott Bessent to unveil new economic sanc
+   ✓ Six months on, U.S. Navy families who evacuated Bahrain rema
+   ✓ The view from Canada after U.S. trade negotiations collapse
+   ✓ Treasury Secretary Scott Bessent unveils new U.S. economic s
    ✓ U.S. to detail new economic pressures on Iran. And, Canada t
+   ✓ These American doctors treated Gaza's wounded. Then they cam
    ✓ Learning to live in a post-American world
    ✓ As Canada readies retaliatory tariffs, Mark Carney says his 
    ✓ Big tech companies will have to pay to publish Australian ne
-   ✓ Top Iran official says U.S. focus on economic warfare shows 
-   ✓ Trump declares economic warfare on Iran. And, SCOTUS to rule
-   ✓ As Trump courts Kim, Pyongyang ups the price, while Seoul fe
    ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
    ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
    ✓ 'There is no point in playing anymore': Karn Sharma, winner 
-   ✓ 'He Might Want To Play IPL, But Don't Go There'
+   ✓ India Star Told 'Not To Play In IPL' In Big Verdict: "Don't 
+   ✓ New normal dawning for England after Carse night out
+   ✓ Fatima Sana's Pakistan prepare for Asia Cup with T20 matches
+   ✓ Carse removed from England squad as Cricket Regulator invest
    ✓ India dictate terms after Jurel's unbeaten century
-   ✓ Naveen-ul-Haq returns to Afghanistan side for India T20I ser
-   ✓ Namibia bank on seasoned core and emerging stars for home tr
-   ✓ Jaiswal and Asitha penalised after on-field confrontation in
-   ✓ The long and not the short of it
-   ✓ How India’s consumers are reshaping the future of food and b
-   ✓ Polly Jean Harvey's 'Yuri-G'
-   ✓ India needs a transparent rulebook for the business of influ
-   ✓ Don't miss the cannabis bus
-   ✓ How to beat morning blues
-   ✓ Invest dignity-first for Anganwadis
-   ✓ BSE’s Nifty 50 entry shows how the index can move markets, n
+   ✓ A Passport To Citizenship Or A Mere Travel Document? – Analy
+   ✓ The devils of Loudun
+   ✓ In praise of Jomo, the joy of missing out
+   ✓ Ethanol is not the whole story behind India’s sugar price su
+   ✓ Agnipath reforms: Why Agniveers need longer service, higher 
+   ✓ Don't tamper with Kaziranga National Park and Tiger Reserve'
+   ✓ Few minutes of nothingness
+   ✓ Less chips chipping away at AInfra? Nvidia’s server price hi
 
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   16 OK  /  4 failed
+Feeds:   17 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-24   Hero: legal-c4b9352b
+Edition: 2026-08-25   Hero: legal-5e9a70ff
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
