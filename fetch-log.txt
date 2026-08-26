@@ -1,89 +1,87 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-16 07:22 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-16 13:31 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (287,658 bytes)
-    + [legal] GCCs at the crossroads: Navigating DPDP and overlapping cross-border privacy reg
-    + [legal] Structure before scale: The missing conversation in law firm growth
-    + [legal] Can IP suits be instituted anywhere because products available online pan-India?
-    + [legal] Karnataka HC quashes criminal case against Coorg homestay owner booked for not r
-    + [legal] Court fee in joint writ petitions payable 'per petitioner' if cause of action is
-    + [legal] Agencies must unite to trace, deport foreign nationals with fake Aadhaar: Bombay
-    + [legal] Implicated to satisfy public anger: Tahir Hussain moves Delhi HC against convict
-    + [legal] Punjab & Haryana High Court flags non-cooperation of police witnesses in NDPS ca
-    → 47 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (44,187 bytes)
+    + [legal] Basmati and the wrong instrument problem: Why trademark law keeps failing India
+    + [legal] Marginalisation in judicial appointments
+    + [legal] Have arrests become a joke? Karnataka High Court pulls up police for hasty arres
+    + [legal] Reassuring for democracy that Gen Z undeterred by propaganda and 'Dimagi Naxal’ 
+    + [legal] Conman Sukesh Chandrasekhar convicted for impersonating Supreme Court judge in b
+    → 5 items: 5 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (119,729 bytes)
+    + [legal] Free to move, not free to break the law: Delhi HC on Karni Sena President’s habe
+    + [legal] Supreme Court cancels bail of accused in pre-planned Satara murder case; holds r
+    + [legal] No one can interfere with consenting adults’ choice to live together, much less 
+    → 10 items: 3 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (200,665 bytes)
-    → 94 items: 0 accepted, 94 too old, 0 no-date
+    OK  (205,257 bytes)
+    + [business] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15 trillion 
+    ↳ dual-tag [reliance] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15
+    + [business] Bloomberg India launches expanded premium business, market coverage
+    → 96 items: 2 accepted, 94 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (61,758 bytes)
+    OK  (68,459 bytes)
     + [business] Anmol India Cash Flow, Financial Statements
-    + [business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earnings for Siddhika Coati
-    → 31 items: 2 accepted, 29 too old, 0 no-date
+    → 36 items: 1 accepted, 34 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (42,893 bytes)
-    + [business] Options turnover sinks at Dalal Street's top exchange preparing for IPO
-    + [business] Dick’s Sporting Goods slumps after earnings miss: What’s next?
-    + [business] Adani Ports or Gujarat Pipavav: Which stock benefits more from Gujarat concessio
-    + [business] Global Market: China, Hong Kong stocks rise as AI rebound boosts investor sentim
-    + [business] Welspun Corp shares drop 6% after CEO, promoter group likely sell stake worth Rs
-    + [business] Cyient shares rocket 8% after investor day, but brokerages see up to 24% downsid
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (49,268 bytes)
+    + [business] BSE, NSE impose over Rs 59 lakh penalty on NTPC, SJVN, REC for non-compliance
+    + [business] ICICI Prudential AMC shares: Prudential Corporation to divest up to 2% equity, s
+    + [business] TVS Motor among 6 stocks hitting 52-week highs; surge up to 35% in a month
+    + [business] Ventura initiates coverage on Meesho and LG India, sees up to 35% upside
+    + [business] Quote of the day by Warren Buffett: "The inescapable fact is that the value of a
+    ↳ dual-tag [reliance] Quote of the day by Warren Buffett: "The inescapable fact is that the 
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (183,405 bytes)
+    OK  (181,368 bytes)
     + [reliance] The philosophy behind Mukesh Ambani’s business empire: ‘If work is a burden…’
+    + [reliance] Reliance doubles down on family in 'Parvah hai toh parivar hai'
     + [reliance] Mukesh Ambani's succession plan runs into a wildlife problem at Vantara
-    + [reliance] Reliance Industries Limited. Reliance Industries Limited · Original audio.
     + [reliance] Reliance explores aluminium entry as Adani lines up $11.5 billion bet: Report
+    + [reliance] Reliance Industries Limited. Reliance Industries Limited · Original audio.
     + [reliance] Ambani’s Reliance eyes aluminium as Adani bets $11.5b on Odisha project
-    + [reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks imports
-    + [reliance] Reliance Industries Explores Aluminium Entry, Joins Odisha Bauxite Block Auction
-    → 100 items: 7 accepted, 93 too old, 0 no-date
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 1 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,009 bytes)
-    + [reliance] Fashion, malls and the experience economy: Industry leaders to decode retail’s n
-    → 10 items: 1 accepted, 0 too old, 0 no-date
+    → 100 items: 6 accepted, 35 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (132,984 bytes)
+    OK  (133,283 bytes)
     → 77 items: 0 accepted, 77 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,009 bytes)
+    OK  (11,335 bytes)
+    + [retail] Time, trust and personalisation will become retail’s new currencies by 2047
+    + [retail] Fashion brands must reinvent constantly without losing their core DNA, say retai
+    + [retail] Young, aspirational India will drive fashion’s next growth chapter: Levi Strauss
+    + [retail] Retail must decide which experiences to remove, amplify and make shareable: Amis
     + [retail] Court stops FSSAI from cancelling ITC's licence over its '100 per cent' claims
     + [retail] Emami well-placed to tap rural recovery, premiumisation trends: Chairman
     + [retail] Varun Beverages to foray into alcohol biz, set up subsidiary
     + [retail] Retailers, quick commerce companies limit sugar rush amid stock pain
-    + [retail] Livspace expands into furniture, appliances and home decor as it builds retail b
-    + [retail] India wanted red flags on chip packets and soda. Big Food fought back
-    + [retail] Inorbit Malls expands footprint with acquisition of Prozone malls in Coimbatore 
-    + [retail] SoftBank pares nearly 2.6 per cent stake in Lenskart for Rs 2,888 crore
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (47,732 bytes)
-    + [tech] SoftBank mulls up to $20 billion bond sale for OpenAI financing
-    + [tech] Ringg AI raises $10 million in funding from Peak XV Partners, others
-    + [tech] Five things to know about Anthropic ahead of Wall Street debut
-    + [tech] Brazil fines TikTok $30 million in 'powerful signal' over child safety
-    + [tech] China's Huawei, US PC maker HP sign multi-year Wi-Fi patent deal
-    + [tech] Vietnam tech firm FPT starts construction of UAV, semiconductors, cybersecurity 
-    + [tech] Finding right talent biggest challenge for GCCs eyeing workforce expansion: Repo
-    + [tech] Social media use on the rise among Australian under-16s after ban: data
+    OK  (47,675 bytes)
+    + [tech] China's MiniMax sees revenue nearly quadruple in first half as AI demand surges
+    + [tech] Octave opens Tech and Innovation Centre in Hyderabad; plans to scale to 2,000 en
+    + [tech] China's Moonshot in talks with Microsoft, Amazon, Google over K3 revenue sharing
+    + [tech] Indian companies step up acquisitions for AI, technology and talent: Crisil
+    + [tech] German firms report rising cyber threat from foreign intelligence services, stud
+    + [tech] Flipkart Minutes overtakes Swiggy Instamart in dark stores across top 10 cities
+    + [tech] D2C kitchenware startup Curaa raises Rs 40 crore led by 3one4 Capital
+    + [tech] Zoom forecasts quarterly profit below estimates
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -94,15 +92,15 @@ Cutoff: 2026-08-16 07:22 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,825 bytes)
+    OK  (15,015 bytes)
+    + [world] 8 dead, hundreds missing as Nepal avalanche triggers flash floods
+    + [world] Canada to hit U.S. with retaliatory tariffs. And, remembering music legend Dolly
+    + [world] Hospital nursery fire kills 14 newborns in Pakistan's capital, officials order i
     + [world] More than 50 kidnapped as violent gang attack in Haiti leaves 47 dead
     + [world] Canada hits back at the U.S. with tariffs as the countries' trade fight escalate
     + [world] 'Forget about going back': 9 years on, Rohingya crisis enters dangerous phase
     + [world] Trump calls leaders to isolate Iran. And, SCOTUS backs Trump for now on mail-in 
     + [world] Can Trump's economic war against Iran do what airstrikes and negotiations couldn
-    + [world] Indonesians brave choking smoke to pray for rain as country battles wildfires
-    + [world] U.K. will help Ukraine make long-range missiles by sharing classified tech infor
-    + [world] 6 months on, U.S. Navy families who evacuated Bahrain remain in limbo
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -111,28 +109,30 @@ Cutoff: 2026-08-16 07:22 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (183,458 bytes)
+    OK  (180,429 bytes)
     + [sports] 'People don't believe me': Ishan Kishan on his love for red-ball cricket
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
     + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
-    → 100 items: 3 accepted, 96 too old, 0 no-date
+    + [sports] 'He Might Want To Play IPL, But Don't Go There'
+    → 100 items: 4 accepted, 95 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,662 bytes)
-    + [sports] Abid Mushtaq spins North Zone past West Zone and into the semi-finals
-    + [sports] Australia and overseas stars set for BBL payday under new contracting rules
-    + [sports] Moeen and James lead rout of Tridents to take Falcons back to the top
-    + [sports] Gul blames Yorkshire weather for Headingley shortcomings
-    + [sports] Joe Root 'hacked off' after Carse incident mars Lord's Test build-up
-    → 100 items: 5 accepted, 0 too old, 0 no-date
+    OK  (89,556 bytes)
+    + [sports] India close in despite Sooriyabandara, Kamindu fifties
+    + [sports] Starc goes past Bumrah to top Test bowling rankings for the first time
+    + [sports] Pakistan's Aiman Anwer retires from internationals to become match referee
+    + [sports] England seek series win, but indisciplined narrative prevails
+    → 100 items: 4 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (116,873 bytes)
+    OK  (117,926 bytes)
+    + [opinion] Despite loopholes in governance, democracy remains India’s best bet
     + [opinion] Daily Editorial Analysis 26 August 2026
-    → 78 items: 1 accepted, 77 too old, 0 no-date
+    + [opinion] The India-Japan Maritime Security MoA: Consolidating an Indo-Pacific Partnership
+    → 78 items: 3 accepted, 75 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -145,110 +145,114 @@ Cutoff: 2026-08-16 07:22 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Mumbai autowalas' multilingual meter
     + [opinion] Starlink's satcom needs earthly fixes
     + [opinion] Five roles that a board leader alone must don, instead of merely being at the he
-    + [opinion] Enough of Gurugram as Potemkin village
-    + [opinion] Nature adores a vacuum
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (21 stories, 8 workers) ─────────────────────────────
+── Image fetch (28 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  business] Bloomberg India launches expanded premium business, market c: no og:image/twitter:image tag found
    ✗ [  business] Anmol India Cash Flow, Financial Statements: no og:image/twitter:image tag found
    ✗ [  reliance] The philosophy behind Mukesh Ambani’s business empire: ‘If w: no og:image/twitter:image tag found
+   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance doubles down on family in 'Parvah hai toh parivar h: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani's succession plan runs into a wildlife problem: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance explores aluminium entry as Adani lines up $11.5 bi: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance Industries Limited. Reliance Industries Limited · O: no og:image/twitter:image tag found
-   ✗ [  business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earning: no og:image/twitter:image tag found
-   ✗ [  reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh Ambani's succession plan runs into a wildlife problem: no og:image/twitter:image tag found
    ✗ [  reliance] Ambani’s Reliance eyes aluminium as Adani bets $11.5b on Odi: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance Industries Explores Aluminium Entry, Joins Odisha B: no og:image/twitter:image tag found
-   ✓ [     world] Canada hits back at the U.S. with tariffs as the countries' 
-   ✓ [     world] U.K. will help Ukraine make long-range missiles by sharing c
-   ✓ [     world] 'Forget about going back': 9 years on, Rohingya crisis enter
-   ✓ [     world] 6 months on, U.S. Navy families who evacuated Bahrain remain
-   ✓ [     world] Trump calls leaders to isolate Iran. And, SCOTUS backs Trump
    ✓ [     world] More than 50 kidnapped as violent gang attack in Haiti leave
-   ✓ [     world] Indonesians brave choking smoke to pray for rain as country 
+   ✓ [     world] Hospital nursery fire kills 14 newborns in Pakistan's capita
+   ✓ [     world] 'Forget about going back': 9 years on, Rohingya crisis enter
+   ✓ [     world] Canada hits back at the U.S. with tariffs as the countries' 
+   ✓ [     world] 8 dead, hundreds missing as Nepal avalanche triggers flash f
+   ✓ [     world] Canada to hit U.S. with retaliatory tariffs. And, rememberin
    ✗ [    sports] 'People don't believe me': Ishan Kishan on his love for red-: no og:image/twitter:image tag found
-   ✗ [   opinion] Daily Editorial Analysis 26 August 2026: no og:image/twitter:image tag found
-   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
    ✓ [     world] Can Trump's economic war against Iran do what airstrikes and
    ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   images: 8 found, 13 not found
+   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
+   ✗ [    sports] 'He Might Want To Play IPL, But Don't Go There': no og:image/twitter:image tag found
+   ✗ [   opinion] Despite loopholes in governance, democracy remains India’s b: no og:image/twitter:image tag found
+   ✓ [     world] Trump calls leaders to isolate Iran. And, SCOTUS backs Trump
+   ✗ [   opinion] Daily Editorial Analysis 26 August 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] The India-Japan Maritime Security MoA: Consolidating an Indo: no og:image/twitter:image tag found
+   ✗ [     legal] Supreme Court cancels bail of accused in pre-planned Satara : TimeoutError: The read operation timed out
+   ✗ [     legal] Free to move, not free to break the law: Delhi HC on Karni S: TimeoutError: The read operation timed out
+   ✗ [     legal] No one can interfere with consenting adults’ choice to live : TimeoutError: The read operation timed out
+   images: 8 found, 20 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ GCCs at the crossroads: Navigating DPDP and overlapping cros
-   ✓ Structure before scale: The missing conversation in law firm
-   ✓ Can IP suits be instituted anywhere because products availab
-   ✓ Karnataka HC quashes criminal case against Coorg homestay ow
-   ✓ Court fee in joint writ petitions payable 'per petitioner' i
-   ✓ Agencies must unite to trace, deport foreign nationals with 
-   ✓ Implicated to satisfy public anger: Tahir Hussain moves Delh
-   ✓ Punjab & Haryana High Court flags non-cooperation of police 
+   ✓ Basmati and the wrong instrument problem: Why trademark law 
+   ✓ Marginalisation in judicial appointments
+   ✓ Have arrests become a joke? Karnataka High Court pulls up po
+   ✓ Reassuring for democracy that Gen Z undeterred by propaganda
+   ✓ Conman Sukesh Chandrasekhar convicted for impersonating Supr
+   ✓ Free to move, not free to break the law: Delhi HC on Karni S
+   ✓ Supreme Court cancels bail of accused in pre-planned Satara 
+   ✓ No one can interfere with consenting adults’ choice to live 
+   ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
+   ✓ Bloomberg India launches expanded premium business, market c
    ✓ Anmol India Cash Flow, Financial Statements
-   ✓ Siddhika Coatings Nine Monthly Results, Nine Monthly Earning
-   ✓ Options turnover sinks at Dalal Street's top exchange prepar
-   ✓ Dick’s Sporting Goods slumps after earnings miss: What’s nex
-   ✓ Adani Ports or Gujarat Pipavav: Which stock benefits more fr
-   ✓ Global Market: China, Hong Kong stocks rise as AI rebound bo
-   ✓ Welspun Corp shares drop 6% after CEO, promoter group likely
-   ✓ Cyient shares rocket 8% after investor day, but brokerages s
+   ✓ BSE, NSE impose over Rs 59 lakh penalty on NTPC, SJVN, REC f
+   ✓ ICICI Prudential AMC shares: Prudential Corporation to dives
+   ✓ TVS Motor among 6 stocks hitting 52-week highs; surge up to 
+   ✓ Ventura initiates coverage on Meesho and LG India, sees up t
+   ✓ Quote of the day by Warren Buffett: "The inescapable fact is
+   ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
+   ✓ Quote of the day by Warren Buffett: "The inescapable fact is
    ✓ The philosophy behind Mukesh Ambani’s business empire: ‘If w
+   ✓ Reliance doubles down on family in 'Parvah hai toh parivar h
    ✓ Mukesh Ambani's succession plan runs into a wildlife problem
-   ✓ Reliance Industries Limited. Reliance Industries Limited · O
    ✓ Reliance explores aluminium entry as Adani lines up $11.5 bi
+   ✓ Reliance Industries Limited. Reliance Industries Limited · O
    ✓ Ambani’s Reliance eyes aluminium as Adani bets $11.5b on Odi
-   ✓ Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks
-   ✓ Reliance Industries Explores Aluminium Entry, Joins Odisha B
-   ✓ Fashion, malls and the experience economy: Industry leaders 
+   ✓ Time, trust and personalisation will become retail’s new cur
+   ✓ Fashion brands must reinvent constantly without losing their
+   ✓ Young, aspirational India will drive fashion’s next growth c
+   ✓ Retail must decide which experiences to remove, amplify and 
    ✓ Court stops FSSAI from cancelling ITC's licence over its '10
    ✓ Emami well-placed to tap rural recovery, premiumisation tren
    ✓ Varun Beverages to foray into alcohol biz, set up subsidiary
    ✓ Retailers, quick commerce companies limit sugar rush amid st
-   ✓ Livspace expands into furniture, appliances and home decor a
-   ✓ India wanted red flags on chip packets and soda. Big Food fo
-   ✓ Inorbit Malls expands footprint with acquisition of Prozone 
-   ✓ SoftBank pares nearly 2.6 per cent stake in Lenskart for Rs 
-   ✓ SoftBank mulls up to $20 billion bond sale for OpenAI financ
-   ✓ Ringg AI raises $10 million in funding from Peak XV Partners
-   ✓ Five things to know about Anthropic ahead of Wall Street deb
-   ✓ Brazil fines TikTok $30 million in 'powerful signal' over ch
-   ✓ China's Huawei, US PC maker HP sign multi-year Wi-Fi patent 
-   ✓ Vietnam tech firm FPT starts construction of UAV, semiconduc
-   ✓ Finding right talent biggest challenge for GCCs eyeing workf
-   ✓ Social media use on the rise among Australian under-16s afte
+   ✓ China's MiniMax sees revenue nearly quadruple in first half 
+   ✓ Octave opens Tech and Innovation Centre in Hyderabad; plans 
+   ✓ China's Moonshot in talks with Microsoft, Amazon, Google ove
+   ✓ Indian companies step up acquisitions for AI, technology and
+   ✓ German firms report rising cyber threat from foreign intelli
+   ✓ Flipkart Minutes overtakes Swiggy Instamart in dark stores a
+   ✓ D2C kitchenware startup Curaa raises Rs 40 crore led by 3one
+   ✓ Zoom forecasts quarterly profit below estimates
+   ✓ 8 dead, hundreds missing as Nepal avalanche triggers flash f
+   ✓ Canada to hit U.S. with retaliatory tariffs. And, rememberin
+   ✓ Hospital nursery fire kills 14 newborns in Pakistan's capita
    ✓ More than 50 kidnapped as violent gang attack in Haiti leave
    ✓ Canada hits back at the U.S. with tariffs as the countries' 
    ✓ 'Forget about going back': 9 years on, Rohingya crisis enter
    ✓ Trump calls leaders to isolate Iran. And, SCOTUS backs Trump
    ✓ Can Trump's economic war against Iran do what airstrikes and
-   ✓ Indonesians brave choking smoke to pray for rain as country 
-   ✓ U.K. will help Ukraine make long-range missiles by sharing c
-   ✓ 6 months on, U.S. Navy families who evacuated Bahrain remain
    ✓ 'People don't believe me': Ishan Kishan on his love for red-
    ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
    ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
-   ✓ Abid Mushtaq spins North Zone past West Zone and into the se
-   ✓ Australia and overseas stars set for BBL payday under new co
-   ✓ Moeen and James lead rout of Tridents to take Falcons back t
-   ✓ Gul blames Yorkshire weather for Headingley shortcomings
-   ✓ Joe Root 'hacked off' after Carse incident mars Lord's Test 
-      AI error: Expecting value: line 1 column 1 (char 0)
-   ✗ Daily Editorial Analysis 26 August 2026
+   ✓ 'He Might Want To Play IPL, But Don't Go There'
+   ✓ India close in despite Sooriyabandara, Kamindu fifties
+   ✓ Starc goes past Bumrah to top Test bowling rankings for the 
+   ✓ Pakistan's Aiman Anwer retires from internationals to become
+   ✓ England seek series win, but indisciplined narrative prevail
+   ✓ Despite loopholes in governance, democracy remains India’s b
+   ✓ Daily Editorial Analysis 26 August 2026
+   ✓ The India-Japan Maritime Security MoA: Consolidating an Indo
    ✓ Secular ethics
    ✓ India’s Reinsurance: Hidden tax or treaty? Best way to expan
    ✓ Mumbai autowalas' multilingual meter
    ✓ Starlink's satcom needs earthly fixes
    ✓ Five roles that a board leader alone must don, instead of me
-   ✓ Enough of Gurugram as Potemkin village
-   ✓ Nature adores a vacuum
 
-   AI done: 63 enriched, 1 failed/skipped (kept RSS fallback)
+   AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   15 OK  /  4 failed
+Feeds:   14 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-26   Hero: legal-4465fe8c
+Edition: 2026-08-26   Hero: legal-70a2f10c
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
