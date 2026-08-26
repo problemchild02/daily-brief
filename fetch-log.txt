@@ -1,41 +1,42 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-15 13:26 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-16 02:08 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (90,409 bytes)
-    + [legal] Supreme Court orders States to set up SITs to probe fraudulent motor accident in
-    + [legal] Delhi High Court gives slum dwellers near PM Modi's residence 6 weeks to move to
-    + [legal] CJAR at DNLU announces two-day single credit course and international conference
-    + [legal] Plea before Supreme Court seeks stay on NALSA decision to discontinue LADCS cont
-    + [legal] Forcibly de-boarding passenger from bus is a consumer case, not human rights vio
-    + [legal] RecTracker: MNLU Mumbai Batch of 2026 secures 47 placements
-    + [legal] Bombay High Court orders fresh FDA inspection of Mumbai Cricket Association outl
-    + [legal] Banke Bihari Temple: Supreme Court says all donations must go directly to temple
-    → 16 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (11,406 bytes)
+    + [legal] EXCLUSIVE: Supreme Court Justice Sandeep Mehta asks CJI Surya Kant to replace Ra
+    + [legal] Delhi court rejects Delhi Race Club's plea against government order to vacate it
+    → 2 items: 2 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (127,210 bytes)
+    + [legal] Victim has a Right to Speedy Trial too: SC rejects a reading of Section 12, Gang
+    + [legal] Bombay HC allows appointment of arbitrator in insurance dispute despite insurer’
+    + [legal] No Coaching for under-13s, no classes beyond 5 hours: Maharashtra proposes tough
+    + [legal] CAM acts as legal counsel to The Indian Hotels Company on the merger of its asso
+    + [legal] Mere expiry of statutory period under S. 13(1A) HMA does not confer an absolute 
+    + [legal] GHAC Arbitration Week 2026: A pivotal step towards building Gujarat’s Institutio
+    → 10 items: 6 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (203,882 bytes)
-    → 95 items: 0 accepted, 95 too old, 0 no-date
+    OK  (204,364 bytes)
+    → 97 items: 0 accepted, 97 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (61,549 bytes)
+    OK  (55,536 bytes)
     + [business] Anmol India Cash Flow, Financial Statements
     + [business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earnings for Siddhika Coati
-    → 33 items: 2 accepted, 31 too old, 0 no-date
+    → 28 items: 2 accepted, 26 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (52,262 bytes)
-    + [business] RBI net absorbed $561 million in June as inflows picked up
-    ↳ dual-tag [reliance] RBI net absorbed $561 million in June as inflows picked up
-    + [business] Block deal alert! Ribbit Capital to likely offload 1.6% stake in Groww for Rs 1,
-    + [business] India bonds rise as oil shrugs off US sanctions concerns
-    + [business] Paytm among 4 stocks hitting 52-week highs; surge up to 35% in a month
-    + [business] Market wrap: Adani Enterprise, InterGlobe, HDFC Life, HCL Tech, top gainers and 
-    + [business] Hindustan Copper OFS subscribed over 3 times; govt to exercise greenshoe option
+    OK  (51,520 bytes)
+    + [business] Oil prices slide 2% on Iran-Oman talks to reopen Strait of Hormuz
+    + [business] Gross FDI climbs as net inflows turn positive
+    + [business] Outward remittances under LRS up at $2.5 billion
+    + [business] Axis Bank set to raise $700 million through ECB swap facility
+    + [business] Global Market Today: Asian stocks mixed ahead of Nvidia results, oil prices slid
+    + [business] Rupee strengthens to 95.41 after oil cools
     → 50 items: 6 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -43,49 +44,48 @@ Cutoff: 2026-08-15 13:26 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (196,430 bytes)
+    OK  (184,149 bytes)
+    + [reliance] The philosophy behind Mukesh Ambani’s business empire: ‘If work is a burden…’
     + [reliance] Reliance Industries Limited. Reliance Industries Limited · Original audio.
+    + [reliance] Ambani’s Reliance eyes aluminium as Adani bets $11.5b on Odisha project
     + [reliance] Ambani's Rs 2.7 lakh cr underground bet can save India from shocks
     + [reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks imports
     + [reliance] Reliance Industries Explores Aluminium Entry, Joins Odisha Bauxite Block Auction
-    → 100 items: 4 accepted, 96 too old, 0 no-date
+    → 100 items: 6 accepted, 94 too old, 0 no-date
   [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
     OK  (1,347 bytes)
     → 1 items: 0 accepted, 1 too old, 0 no-date
   [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,552 bytes)
+    OK  (10,715 bytes)
+    + [reliance] Fashion, malls and the experience economy: Industry leaders to decode retail’s n
     + [reliance] Livspace expands into furniture, appliances and home decor as it builds retail b
-    + [reliance] India wanted red flags on chip packets and soda. Big Food fought back
-    + [reliance] Inorbit Malls expands footprint with acquisition of Prozone malls in Coimbatore 
-    → 10 items: 3 accepted, 0 too old, 0 no-date
+    → 10 items: 2 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (131,006 bytes)
-    → 76 items: 0 accepted, 76 too old, 0 no-date
+    OK  (132,456 bytes)
+    → 77 items: 0 accepted, 77 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,552 bytes)
+    OK  (10,715 bytes)
+    + [retail] India wanted red flags on chip packets and soda. Big Food fought back
+    + [retail] Inorbit Malls expands footprint with acquisition of Prozone malls in Coimbatore 
     + [retail] SoftBank pares nearly 2.6 per cent stake in Lenskart for Rs 2,888 crore
     + [retail] F&B regulatory crackdown sends celebrities into endorsement rethink
     + [retail] Consumer giants' forex earnings shine despite gobal woes
     + [retail] Y Combinator sells 1.05 pc stake in Meesho for nearly Rs 970 crore
     + [retail] Apple gears up to launch its first New Mac Mini in two years
     + [retail] P&G Hygiene expects challenges to persist in FY27, remains confident of growth s
-    + [retail] Godrej Industries group signs pact to invest Rs 20,000 crore in Haryana
-    → 10 items: 7 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (49,384 bytes)
-    + [retail] AI-generated text found on over 1/3rd of new web pages
-    → 60 items: 1 accepted, 0 too old, 0 no-date
+    → 10 items: 8 accepted, 0 too old, 0 no-date
+  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (48,576 bytes)
+    OK  (47,747 bytes)
+    + [tech] AMI’s Nvidia chip bet; Groww’s new growth play
+    + [tech] Brazil fines TikTok owner ByteDance for unlawful processing of teenagers' data
+    + [tech] Apple launches faster Mac mini, Mac Studio to tap AI boom
+    + [tech] Delhi government data to be AI-ready for effective governance service delivery t
+    + [tech] VCs step up wealthtech bets; Blinkit freezes new launches
+    + [tech] Norway to crack down on use of smart glasses
+    + [tech] OfBusiness apparel revenue triples to Rs 3,002 crore in FY26
     + [tech] Piyush Goyal promises BIS certification relief for high-tech sector firms
-    + [tech] Google expands Gemini AI platform for law firms, lawyers
-    + [tech] Nvidia faces growth test as Rubin debut meets AI financing scrutiny
-    + [tech] WazirX launches AI trading co-pilot to streamline crypto research and execution
-    + [tech] Samsung, SK Hynix stand to benefit as Nvidia AI server costs surge
-    + [tech] Australia's music industry bans AI-generated tracks from official charts
-    + [tech] AM Intelligence orders 9,000 Nvidia Vera Rubin GPUs for Hyderabad AI factory
-    + [tech] AI chipmaker Enflame sets subscription date for near $900 million Shanghai IPO
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -96,15 +96,15 @@ Cutoff: 2026-08-15 13:26 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,659 bytes)
+    OK  (14,532 bytes)
+    + [world] Canada hits back at the U.S. with tariffs as the countries' trade fight escalate
+    + [world] 'Forget about going back': 9 years on, Rohingya crisis enters dangerous phase
     + [world] Trump calls leaders to isolate Iran. And, SCOTUS backs Trump for now on mail-in 
     + [world] Can Trump's economic war against Iran do what airstrikes and negotiations couldn
     + [world] Indonesians brave choking smoke to pray for rain as country battles wildfires
     + [world] U.K. will help Ukraine make long-range missiles by sharing classified tech infor
     + [world] 6 months on, U.S. Navy families who evacuated Bahrain remain in limbo
     + [world] The view from Canada after U.S. trade negotiations collapse
-    + [world] Treasury Secretary Scott Bessent unveils new U.S. economic sanctions to isolate 
-    + [world] U.S. to detail new economic pressures on Iran. And, Canada to impose tariffs on 
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -113,89 +113,101 @@ Cutoff: 2026-08-15 13:26 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (180,638 bytes)
+    OK  (181,150 bytes)
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
     + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
     + [sports] 'There is no point in playing anymore': Karn Sharma, winner of 4 IPL titles, ret
-    → 100 items: 3 accepted, 96 too old, 0 no-date
+    + [sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't Change Your Strength
+    → 100 items: 4 accepted, 95 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,425 bytes)
-    + [sports] Babar Azam set to return for Pakistan in second Test
+    OK  (89,449 bytes)
+    + [sports] Gul blames Yorkshire weather for Headingley shortcomings
     + [sports] Joe Root 'hacked off' after Carse incident mars Lord's Test build-up
     + [sports] Prasidh and Suthar share six to keep India in driver's seat
-    + [sports] Shahbaz leads East Zone to innings win over North East Zone
-    + [sports] 'If in doubt, favour the batter' - CA looks to redress balance
-    → 100 items: 5 accepted, 0 too old, 0 no-date
+    + [sports] Morkel doesn't rule out India enforcing follow-on as rain looms in Colombo
+    → 100 items: 4 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (116,808 bytes)
-    → 78 items: 0 accepted, 78 too old, 0 no-date
+    OK  (117,388 bytes)
+    + [opinion] Despite loopholes in governance, democracy remains India’s best bet
+    → 78 items: 1 accepted, 77 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,102 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (49,576 bytes)
-    + [opinion] The devils of Loudun
-    + [opinion] In praise of Jomo, the joy of missing out
-    + [opinion] Ethanol is not the whole story behind India’s sugar price surge
-    + [opinion] Agnipath reforms: Why Agniveers need longer service, higher retention and better
-    + [opinion] Don't tamper with Kaziranga National Park and Tiger Reserve's buffer
-    + [opinion] Few minutes of nothingness
-    + [opinion] Less chips chipping away at AInfra? Nvidia’s server price hike signals rising co
-    + [opinion] India-US ties are looking up, but the Russia and Iran sanctions bill, FCRA & BRI
-    → 50 items: 8 accepted, 0 too old, 0 no-date
+    OK  (49,752 bytes)
+    + [opinion] Secular ethics
+    + [opinion] India’s Reinsurance: Hidden tax or treaty? Best way to expand tax base is to red
+    + [opinion] Mumbai autowalas' multilingual meter
+    + [opinion] Starlink's satcom needs earthly fixes
+    + [opinion] Five roles that a board leader alone must don, instead of merely being at the he
+    + [opinion] Enough of Gurugram as Potemkin village
+    + [opinion] Nature adores a vacuum
+    → 50 items: 7 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (17 stories, 8 workers) ─────────────────────────────
-   ✗ [  reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Rs 2.7 lakh cr underground bet can save India from : no og:image/twitter:image tag found
-   ✗ [  business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earning: no og:image/twitter:image tag found
+── Image fetch (27 stories, 8 workers) ─────────────────────────────
    ✗ [  business] Anmol India Cash Flow, Financial Statements: no og:image/twitter:image tag found
+   ✗ [  business] Siddhika Coatings Nine Monthly Results, Nine Monthly Earning: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance Industries Limited. Reliance Industries Limited · O: no og:image/twitter:image tag found
+   ✗ [  reliance] The philosophy behind Mukesh Ambani’s business empire: ‘If w: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Reliance eyes aluminium as Adani bets $11.5b on Odi: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani's Rs 2.7 lakh cr underground bet can save India from : no og:image/twitter:image tag found
+   ✗ [  reliance] Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance Industries Explores Aluminium Entry, Joins Odisha B: no og:image/twitter:image tag found
-   ✓ [     world] Indonesians brave choking smoke to pray for rain as country 
-   ✓ [     world] U.S. to detail new economic pressures on Iran. And, Canada t
-   ✓ [     world] 6 months on, U.S. Navy families who evacuated Bahrain remain
-   ✓ [     world] Treasury Secretary Scott Bessent unveils new U.S. economic s
-   ✓ [     world] Trump calls leaders to isolate Iran. And, SCOTUS backs Trump
-   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
-   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [    sports] 'There is no point in playing anymore': Karn Sharma, winner : no og:image/twitter:image tag found
+   ✓ [     world] 'Forget about going back': 9 years on, Rohingya crisis enter
+   ✓ [     world] Canada hits back at the U.S. with tariffs as the countries' 
    ✓ [     world] Can Trump's economic war against Iran do what airstrikes and
-   ✓ [     world] The view from Canada after U.S. trade negotiations collapse
+   ✓ [     world] Trump calls leaders to isolate Iran. And, SCOTUS backs Trump
+   ✓ [     world] Indonesians brave choking smoke to pray for rain as country 
    ✓ [     world] U.K. will help Ukraine make long-range missiles by sharing c
-   images: 8 found, 9 not found
+   ✓ [     world] 6 months on, U.S. Navy families who evacuated Bahrain remain
+   ✓ [     world] The view from Canada after U.S. trade negotiations collapse
+   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
+   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
+   ✗ [    sports] 'There is no point in playing anymore': Karn Sharma, winner : no og:image/twitter:image tag found
+   ✗ [    sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't : no og:image/twitter:image tag found
+   ✗ [   opinion] Despite loopholes in governance, democracy remains India’s b: no og:image/twitter:image tag found
+   ✗ [     legal] Mere expiry of statutory period under S. 13(1A) HMA does not: TimeoutError: The read operation timed out
+   ✗ [     legal] CAM acts as legal counsel to The Indian Hotels Company on th: TimeoutError: The read operation timed out
+   ✗ [     legal] No Coaching for under-13s, no classes beyond 5 hours: Mahara: TimeoutError: The read operation timed out
+   ✗ [     legal] Victim has a Right to Speedy Trial too: SC rejects a reading: TimeoutError: The read operation timed out
+   ✗ [     legal] Bombay HC allows appointment of arbitrator in insurance disp: TimeoutError: The read operation timed out
+   ✗ [     legal] GHAC Arbitration Week 2026: A pivotal step towards building : TimeoutError: The read operation timed out
+   images: 8 found, 19 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Supreme Court orders States to set up SITs to probe fraudule
-   ✓ Delhi High Court gives slum dwellers near PM Modi's residenc
-   ✓ CJAR at DNLU announces two-day single credit course and inte
-   ✓ Plea before Supreme Court seeks stay on NALSA decision to di
-   ✓ Forcibly de-boarding passenger from bus is a consumer case, 
-   ✓ RecTracker: MNLU Mumbai Batch of 2026 secures 47 placements
-   ✓ Bombay High Court orders fresh FDA inspection of Mumbai Cric
-   ✓ Banke Bihari Temple: Supreme Court says all donations must g
+   ✓ EXCLUSIVE: Supreme Court Justice Sandeep Mehta asks CJI Sury
+   ✓ Delhi court rejects Delhi Race Club's plea against governmen
+   ✓ Victim has a Right to Speedy Trial too: SC rejects a reading
+   ✓ Bombay HC allows appointment of arbitrator in insurance disp
+   ✓ No Coaching for under-13s, no classes beyond 5 hours: Mahara
+   ✓ CAM acts as legal counsel to The Indian Hotels Company on th
+   ✓ Mere expiry of statutory period under S. 13(1A) HMA does not
+   ✓ GHAC Arbitration Week 2026: A pivotal step towards building 
    ✓ Anmol India Cash Flow, Financial Statements
    ✓ Siddhika Coatings Nine Monthly Results, Nine Monthly Earning
-   ✓ RBI net absorbed $561 million in June as inflows picked up
-   ✓ Block deal alert! Ribbit Capital to likely offload 1.6% stak
-   ✓ India bonds rise as oil shrugs off US sanctions concerns
-   ✓ Paytm among 4 stocks hitting 52-week highs; surge up to 35% 
-   ✓ Market wrap: Adani Enterprise, InterGlobe, HDFC Life, HCL Te
-   ✓ Hindustan Copper OFS subscribed over 3 times; govt to exerci
-   ✓ RBI net absorbed $561 million in June as inflows picked up
+   ✓ Oil prices slide 2% on Iran-Oman talks to reopen Strait of H
+   ✓ Gross FDI climbs as net inflows turn positive
+   ✓ Outward remittances under LRS up at $2.5 billion
+   ✓ Axis Bank set to raise $700 million through ECB swap facilit
+   ✓ Global Market Today: Asian stocks mixed ahead of Nvidia resu
+   ✓ Rupee strengthens to 95.41 after oil cools
+   ✓ The philosophy behind Mukesh Ambani’s business empire: ‘If w
    ✓ Reliance Industries Limited. Reliance Industries Limited · O
+   ✓ Ambani’s Reliance eyes aluminium as Adani bets $11.5b on Odi
    ✓ Ambani's Rs 2.7 lakh cr underground bet can save India from 
    ✓ Anant Ambani’s giant Vantara zoo announces ‘reset’, rethinks
    ✓ Reliance Industries Explores Aluminium Entry, Joins Odisha B
+   ✓ Fashion, malls and the experience economy: Industry leaders 
    ✓ Livspace expands into furniture, appliances and home decor a
    ✓ India wanted red flags on chip packets and soda. Big Food fo
    ✓ Inorbit Malls expands footprint with acquisition of Prozone 
@@ -205,47 +217,45 @@ Cutoff: 2026-08-15 13:26 UTC  (MAX_AGE_HOURS=240)
    ✓ Y Combinator sells 1.05 pc stake in Meesho for nearly Rs 970
    ✓ Apple gears up to launch its first New Mac Mini in two years
    ✓ P&G Hygiene expects challenges to persist in FY27, remains c
-   ✓ Godrej Industries group signs pact to invest Rs 20,000 crore
-   ✓ AI-generated text found on over 1/3rd of new web pages
+   ✓ AMI’s Nvidia chip bet; Groww’s new growth play
+   ✓ Brazil fines TikTok owner ByteDance for unlawful processing 
+   ✓ Apple launches faster Mac mini, Mac Studio to tap AI boom
+   ✓ Delhi government data to be AI-ready for effective governanc
+   ✓ VCs step up wealthtech bets; Blinkit freezes new launches
+   ✓ Norway to crack down on use of smart glasses
+   ✓ OfBusiness apparel revenue triples to Rs 3,002 crore in FY26
    ✓ Piyush Goyal promises BIS certification relief for high-tech
-   ✓ Google expands Gemini AI platform for law firms, lawyers
-   ✓ Nvidia faces growth test as Rubin debut meets AI financing s
-   ✓ WazirX launches AI trading co-pilot to streamline crypto res
-   ✓ Samsung, SK Hynix stand to benefit as Nvidia AI server costs
-   ✓ Australia's music industry bans AI-generated tracks from off
-   ✓ AM Intelligence orders 9,000 Nvidia Vera Rubin GPUs for Hyde
-   ✓ AI chipmaker Enflame sets subscription date for near $900 mi
+   ✓ Canada hits back at the U.S. with tariffs as the countries' 
+   ✓ 'Forget about going back': 9 years on, Rohingya crisis enter
    ✓ Trump calls leaders to isolate Iran. And, SCOTUS backs Trump
    ✓ Can Trump's economic war against Iran do what airstrikes and
    ✓ Indonesians brave choking smoke to pray for rain as country 
    ✓ U.K. will help Ukraine make long-range missiles by sharing c
    ✓ 6 months on, U.S. Navy families who evacuated Bahrain remain
    ✓ The view from Canada after U.S. trade negotiations collapse
-   ✓ Treasury Secretary Scott Bessent unveils new U.S. economic s
-   ✓ U.S. to detail new economic pressures on Iran. And, Canada t
    ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
    ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
    ✓ 'There is no point in playing anymore': Karn Sharma, winner 
-   ✓ Babar Azam set to return for Pakistan in second Test
+   ✓ India Star Told 'Not To Play In IPL' In Big Verdict: "Don't 
+   ✓ Gul blames Yorkshire weather for Headingley shortcomings
    ✓ Joe Root 'hacked off' after Carse incident mars Lord's Test 
    ✓ Prasidh and Suthar share six to keep India in driver's seat
-   ✓ Shahbaz leads East Zone to innings win over North East Zone
-   ✓ 'If in doubt, favour the batter' - CA looks to redress balan
-   ✓ The devils of Loudun
-   ✓ In praise of Jomo, the joy of missing out
-   ✓ Ethanol is not the whole story behind India’s sugar price su
-   ✓ Agnipath reforms: Why Agniveers need longer service, higher 
-   ✓ Don't tamper with Kaziranga National Park and Tiger Reserve'
-   ✓ Few minutes of nothingness
-   ✓ Less chips chipping away at AInfra? Nvidia’s server price hi
-   ✓ India-US ties are looking up, but the Russia and Iran sancti
+   ✓ Morkel doesn't rule out India enforcing follow-on as rain lo
+   ✓ Despite loopholes in governance, democracy remains India’s b
+   ✓ Secular ethics
+   ✓ India’s Reinsurance: Hidden tax or treaty? Best way to expan
+   ✓ Mumbai autowalas' multilingual meter
+   ✓ Starlink's satcom needs earthly fixes
+   ✓ Five roles that a board leader alone must don, instead of me
+   ✓ Enough of Gurugram as Potemkin village
+   ✓ Nature adores a vacuum
 
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
 Feeds:   16 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-25   Hero: legal-912e3ec9
+Edition: 2026-08-26   Hero: legal-b46046e2
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
