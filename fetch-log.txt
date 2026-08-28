@@ -1,13 +1,11 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-18 22:30 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (9,761 bytes)
-    + [legal] SCCA, GCAI sign MOU to boost India-Singapore legal cooperation
-    + [legal] Khaitan & Co Partner Abhisaar Bairagi relocates to Singapore office
-    → 2 items: 2 accepted, 0 too old, 0 no-date
+    OK  (831 bytes)
+    → 0 items: 0 accepted, 0 too old, 0 no-date
   [     legal] fetching https://www.scconline.com/blog/feed/
     OK  (136,220 bytes)
     + [legal] Two years, no Commission: Delhi HC directs Centre to decide on constitution of N
@@ -16,44 +14,51 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
     + [legal] Polluter-pays principle applies only where damage is attributable to the pollute
     + [legal] S&R Associates advises Mahanagar Gas Ltd. on concession agreement for 350 TPD co
     + [legal] Practising law and pursuing 3-year LLM course simultaneously? Delhi HC lets atte
-    → 10 items: 6 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
-  [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
-  [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
+    + [legal] Delhi HC calls for immediate measures to address Yamuna pollution, waterlogging,
+    → 10 items: 7 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://feeds.feedburner.com/ndtvnews-law
+    HTTP 404 — skipping  https://feeds.feedburner.com/ndtvnews-law
+  [     legal] fetching https://theprint.in/category/judiciary/feed/
+    OK  (1,853 bytes)
+  WARN parse: mismatched tag: line 17, column 10
+  [     legal] fetching https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
+    OK  (189,089 bytes)
+    + [legal] The Supreme Court of Israel
+    → 100 items: 1 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (205,670 bytes)
+    OK  (203,387 bytes)
     + [business] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15 trillion 
     ↳ dual-tag [reliance] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15
     + [business] India's economy offers scale, growth and opportunity, says Sitharaman in Toronto
-    + [business] Indian cotton yarn makers step up China market push; eye bigger share
+    + [business] India's rice exports to 26 priority markets outpace three-year average
     + [business] Bloomberg India to expand premium business and market coverage launched
-    → 96 items: 4 accepted, 92 too old, 0 no-date
+    → 95 items: 4 accepted, 91 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (64,805 bytes)
-    → 35 items: 0 accepted, 32 too old, 0 no-date
+    OK  (63,906 bytes)
+    → 34 items: 0 accepted, 31 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (49,349 bytes)
-    + [business] Jackson Hole: Will Kevin Warsh's inflation warning put Nifty under pressure on M
-    + [business] Blackstone to sell up to 25% stake worth Rs 11,988 crore in Knowledge Realty Tru
-    + [business] Sebi bars Trafiksol ITS, promoters for 1 year for misleading IPO disclosures
-    + [business] PayPal shares crash 13% on reports Advent-Stripe consortium walks away from bid
-    → 47 items: 4 accepted, 0 too old, 0 no-date
+    OK  (52,647 bytes)
+    + [business] US stocks today: US stocks end lower as Warsh keeps inflation fight front and ce
+    + [business] Gap shares surge 24% after Old Navy leadership shake-up, profit forecast raised
+    + [business] Sebi plans bigger institutional role in public offers by small firms, sources sa
+    + [business] Hero MotoCorp buys Rs 1,758 crore Ather Energy stake in block deal
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (180,834 bytes)
+    OK  (178,286 bytes)
     + [reliance] India's markets regulator approves Jio Platforms' $3.8 billion IPO
     + [reliance] SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potentially India’s biggest
     + [reliance] Jio Platforms gets nod for $4 billion IPO, India’s biggest ever
-    + [reliance] Subhash Chandra raises concerns over Reliance media entities’ NCLT coverage
-    + [reliance] Jio Platforms gets Sebi nod for $3.8 billion IPO, potentially India’s biggest li
     + [reliance] Mukesh Ambani’s Reliance AI Roadmap Puts Jio CallAgent Inside the Network
-    + [reliance] SEBI approves six IPOs, including India's largest, Jio Platforms' offering, on F
-    → 100 items: 7 accepted, 3 too old, 0 no-date
+    + [reliance] Jio Platforms gets Sebi nod for $3.8 billion IPO, potentially India’s biggest li
+    + [reliance] Subhash Chandra raises concerns over Reliance media entities’ NCLT coverage
+    + [reliance] The philosophy behind Mukesh Ambani’s business empire: ‘If work is a burden…’
+    → 100 items: 7 accepted, 5 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
@@ -92,15 +97,15 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,392 bytes)
+    OK  (13,558 bytes)
+    + [world] After 6 months of war, Iran's battered regime remains entrenched
     + [world] Experts warn more flooding might hit Nepal. And, Fed chairman to give key addres
     + [world] Hundreds killed, over 1,000 missing after flash floods in Nepal and Tibet
     + [world] 'It's essentially been one long day': A daughter details search for parents in N
-    + [world] A melting glacier contributed to the deadly Nepal floods. We can expect more lik
     + [world] U.S. says pipelines will make Strait of Hormuz irrelevant. Energy experts disagr
+    + [world] A melting glacier contributed to the deadly Nepal floods. We can expect more lik
     + [world] Mike D thought making music was behind him. Then came 'Thank You'
     + [world] Norway's King Harald V dies at 89 and his son becomes King Haakon VIII
-    + [world] U.S., South Korea and Japan to hold drill as North Korea ramps up pressure on U.
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,18 +114,18 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (181,776 bytes)
+    OK  (180,611 bytes)
     + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
     + [sports] Sri Lanka batter says 'thank you' to Yashasvi Jaiswal's 'IPL' promise, then thro
     + [sports] 'He Might Want To Play IPL, But Don't Go There'
     + [sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't Change Your Strength
     → 100 items: 4 accepted, 95 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,351 bytes)
+    OK  (89,317 bytes)
+    + [sports] Sarfaraz bemoans batting, as Pakistan face huge task to save Test
+    + [sports] Elgar revisits his pomp as century puts Surrey under pump
     + [sports] Lamplough four-for in vain as Thailand edge out Hong Kong in Women's Asia Cup op
     + [sports] Robinson, Archer demolish Pakistan as England take strong grip
-    + [sports] Lammonby returns to form to revive Somerset title push
-    + [sports] Clarke century keeps Notts moving in key title clash
     → 100 items: 4 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -128,7 +133,7 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (115,218 bytes)
+    OK  (114,318 bytes)
     + [opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets -- An Overhaul To Fi
     + [opinion] Analysis: War For Votes Over Vande Mataram
     + [opinion] Daily Editorial Analysis 26 August 2026
@@ -149,27 +154,28 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (33 stories, 8 workers) ─────────────────────────────
+── Image fetch (35 stories, 8 workers) ─────────────────────────────
+   ✗ [     legal] The Supreme Court of Israel: no og:image/twitter:image tag found
    ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
    ✗ [  business] India's economy offers scale, growth and opportunity, says S: no og:image/twitter:image tag found
-   ✗ [  business] Indian cotton yarn makers step up China market push; eye big: no og:image/twitter:image tag found
-   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  business] India's rice exports to 26 priority markets outpace three-ye: no og:image/twitter:image tag found
    ✗ [  business] Bloomberg India to expand premium business and market covera: no og:image/twitter:image tag found
+   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
    ✗ [  reliance] India's markets regulator approves Jio Platforms' $3.8 billi: no og:image/twitter:image tag found
    ✗ [  reliance] SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potenti: no og:image/twitter:image tag found
    ✗ [  reliance] Jio Platforms gets nod for $4 billion IPO, India’s biggest e: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra raises concerns over Reliance media entities: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms gets Sebi nod for $3.8 billion IPO, potentiall: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Reliance AI Roadmap Puts Jio CallAgent Insid: no og:image/twitter:image tag found
-   ✗ [  reliance] SEBI approves six IPOs, including India's largest, Jio Platf: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms gets Sebi nod for $3.8 billion IPO, potentiall: no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra raises concerns over Reliance media entities: no og:image/twitter:image tag found
+   ✗ [  reliance] The philosophy behind Mukesh Ambani’s business empire: ‘If w: no og:image/twitter:image tag found
+   ✓ [     world] After 6 months of war, Iran's battered regime remains entren
    ✓ [     world] Experts warn more flooding might hit Nepal. And, Fed chairma
-   ✓ [     world] 'It's essentially been one long day': A daughter details sea
    ✓ [     world] Hundreds killed, over 1,000 missing after flash floods in Ne
-   ✓ [     world] A melting glacier contributed to the deadly Nepal floods. We
+   ✓ [     world] 'It's essentially been one long day': A daughter details sea
    ✓ [     world] U.S. says pipelines will make Strait of Hormuz irrelevant. E
+   ✓ [     world] A melting glacier contributed to the deadly Nepal floods. We
    ✓ [     world] Mike D thought making music was behind him. Then came 'Thank
    ✓ [     world] Norway's King Harald V dies at 89 and his son becomes King H
-   ✓ [     world] U.S., South Korea and Japan to hold drill as North Korea ram
    ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
    ✗ [    sports] Sri Lanka batter says 'thank you' to Yashasvi Jaiswal's 'IPL: no og:image/twitter:image tag found
    ✗ [    sports] 'He Might Want To Play IPL, But Don't Go There': no og:image/twitter:image tag found
@@ -177,41 +183,41 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
    ✗ [   opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets : no og:image/twitter:image tag found
    ✗ [   opinion] Analysis: War For Votes Over Vande Mataram: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 26 August 2026: no og:image/twitter:image tag found
-   ✗ [     legal] Practising law and pursuing 3-year LLM course simultaneously: TimeoutError: The read operation timed out
-   ✗ [     legal] Cyril Amarchand Mangaldas acts as the Indian legal counsel t: TimeoutError: The read operation timed out
    ✗ [     legal] S&R Associates advises Mahanagar Gas Ltd. on concession agre: TimeoutError: The read operation timed out
+   ✗ [     legal] Can the Corporate Veil be pierced to enforce an Arbitral Awa: TimeoutError: The read operation timed out
+   ✗ [     legal] Practising law and pursuing 3-year LLM course simultaneously: TimeoutError: The read operation timed out
    ✗ [     legal] Polluter-pays principle applies only where damage is attribu: TimeoutError: The read operation timed out
    ✗ [     legal] Two years, no Commission: Delhi HC directs Centre to decide : TimeoutError: The read operation timed out
-   ✗ [     legal] Can the Corporate Veil be pierced to enforce an Arbitral Awa: TimeoutError: The read operation timed out
-   images: 8 found, 25 not found
+   ✗ [     legal] Cyril Amarchand Mangaldas acts as the Indian legal counsel t: TimeoutError: The read operation timed out
+   ✗ [     legal] Delhi HC calls for immediate measures to address Yamuna poll: TimeoutError: The read operation timed out
+   images: 8 found, 27 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ SCCA, GCAI sign MOU to boost India-Singapore legal cooperati
-   ✓ Khaitan & Co Partner Abhisaar Bairagi relocates to Singapore
    ✓ Two years, no Commission: Delhi HC directs Centre to decide 
    ✓ Can the Corporate Veil be pierced to enforce an Arbitral Awa
    ✓ Cyril Amarchand Mangaldas acts as the Indian legal counsel t
-      AI error: Expecting property name enclosed in double quotes: line 4 column 1 (char 1890)
-   ✗ Polluter-pays principle applies only where damage is attribu
+   ✓ Polluter-pays principle applies only where damage is attribu
    ✓ S&R Associates advises Mahanagar Gas Ltd. on concession agre
    ✓ Practising law and pursuing 3-year LLM course simultaneously
+   ✓ Delhi HC calls for immediate measures to address Yamuna poll
+   ✓ The Supreme Court of Israel
    ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
    ✓ India's economy offers scale, growth and opportunity, says S
-   ✓ Indian cotton yarn makers step up China market push; eye big
+   ✓ India's rice exports to 26 priority markets outpace three-ye
    ✓ Bloomberg India to expand premium business and market covera
-   ✓ Jackson Hole: Will Kevin Warsh's inflation warning put Nifty
-   ✓ Blackstone to sell up to 25% stake worth Rs 11,988 crore in 
-   ✓ Sebi bars Trafiksol ITS, promoters for 1 year for misleading
-   ✓ PayPal shares crash 13% on reports Advent-Stripe consortium 
+   ✓ US stocks today: US stocks end lower as Warsh keeps inflatio
+   ✓ Gap shares surge 24% after Old Navy leadership shake-up, pro
+   ✓ Sebi plans bigger institutional role in public offers by sma
+   ✓ Hero MotoCorp buys Rs 1,758 crore Ather Energy stake in bloc
    ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
    ✓ India's markets regulator approves Jio Platforms' $3.8 billi
    ✓ SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potenti
    ✓ Jio Platforms gets nod for $4 billion IPO, India’s biggest e
-   ✓ Subhash Chandra raises concerns over Reliance media entities
-   ✓ Jio Platforms gets Sebi nod for $3.8 billion IPO, potentiall
    ✓ Mukesh Ambani’s Reliance AI Roadmap Puts Jio CallAgent Insid
-   ✓ SEBI approves six IPOs, including India's largest, Jio Platf
+   ✓ Jio Platforms gets Sebi nod for $3.8 billion IPO, potentiall
+   ✓ Subhash Chandra raises concerns over Reliance media entities
+   ✓ The philosophy behind Mukesh Ambani’s business empire: ‘If w
    ✓ Pernod Ricard weighs options for India IPO, kicks off legal 
    ✓ 'Croma on turnaround path as losses narrow, quality of growt
    ✓ ​Swiggy's Food on Train network expands to 201 railway stati
@@ -228,22 +234,22 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
    ✓ Meta's Sandhya Devanathan exits after decade-long stint, to 
    ✓ Amaravati to get India’s first quantum-AI university
    ✓ AI ecommerce projects may fail without clean, centralised da
+   ✓ After 6 months of war, Iran's battered regime remains entren
    ✓ Experts warn more flooding might hit Nepal. And, Fed chairma
    ✓ Hundreds killed, over 1,000 missing after flash floods in Ne
    ✓ 'It's essentially been one long day': A daughter details sea
-   ✓ A melting glacier contributed to the deadly Nepal floods. We
    ✓ U.S. says pipelines will make Strait of Hormuz irrelevant. E
+   ✓ A melting glacier contributed to the deadly Nepal floods. We
    ✓ Mike D thought making music was behind him. Then came 'Thank
    ✓ Norway's King Harald V dies at 89 and his son becomes King H
-   ✓ U.S., South Korea and Japan to hold drill as North Korea ram
    ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
    ✓ Sri Lanka batter says 'thank you' to Yashasvi Jaiswal's 'IPL
    ✓ 'He Might Want To Play IPL, But Don't Go There'
    ✓ India Star Told 'Not To Play In IPL' In Big Verdict: "Don't 
+   ✓ Sarfaraz bemoans batting, as Pakistan face huge task to save
+   ✓ Elgar revisits his pomp as century puts Surrey under pump
    ✓ Lamplough four-for in vain as Thailand edge out Hong Kong in
    ✓ Robinson, Archer demolish Pakistan as England take strong gr
-   ✓ Lammonby returns to form to revive Somerset title push
-   ✓ Clarke century keeps Notts moving in key title clash
    ✓ Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets 
    ✓ Analysis: War For Votes Over Vande Mataram
    ✓ Daily Editorial Analysis 26 August 2026
@@ -253,12 +259,12 @@ Cutoff: 2026-08-18 18:52 UTC  (MAX_AGE_HOURS=240)
    ✓ 5 traits of good leaders
    ✓ Saptadhara is seven streams of rhetoric, not a growth strate
 
-   AI done: 63 enriched, 1 failed/skipped (kept RSS fallback)
+   AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   15 OK  /  6 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-29   Hero: legal-338805e3
+Edition: 2026-08-29   Hero: legal-a67306dd
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
