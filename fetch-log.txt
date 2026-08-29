@@ -1,33 +1,35 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-19 16:49 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (176,597 bytes)
-    + [legal] Not a single life should be lost: Bombay High Court orders medical care for fast
-    + [legal] Bombay HC suggests restaurants maintain websites, social media handles to facili
-    + [legal] Take appointment of arbitrators away from parties, institutionalise process: Sha
-    + [legal] Bombay HC closes taxi drivers' PIL against Marathi rule after State extends dead
-    + [legal] Nation wants to know why FIR was registered: Arnab Goswami, Amit Malviya argue i
-    + [legal] FDA restores licenses of Mumbai Cricket Association eateries after Bombay HC int
-    + [legal] [Book Review] The People's Sanctum: 100 year struggle to democratize temples in 
+    OK  (23,793 bytes)
+    + [legal] Whitefield police station should be renamed darkfield: Karnataka HC flags repeat
+    + [legal] Bombay High Court pulls up FDA for 'high-handed' cancellation of Cipla drug lice
     + [legal] NLU Delhi student body expresses solidarity with NLSIU students over cancelled c
-    → 29 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    + [legal] Not a good sign when bar council does not earn respect of its members: Supreme C
+    → 4 items: 4 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (207,509 bytes)
+    + [legal] ‘Sex workers entitled to equal protection’: Chhattisgarh HC quashes criminal pro
+    + [legal] Read why Punjab & Haryana High Court quashed PNB fraud order against former comp
+    + [legal] From retired Judges to retention money: Experts discuss fixing India’s infrastru
+    + [legal] Shardul Amarchand Mangaldas & Co. advises Union Bank of India on USD 600 million
+    → 10 items: 4 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (198,526 bytes)
+    OK  (202,959 bytes)
     + [business] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15 trillion 
     ↳ dual-tag [reliance] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15
     + [business] India's economy offers scale, growth and opportunity, says Sitharaman in Toronto
-    → 93 items: 2 accepted, 91 too old, 0 no-date
+    → 95 items: 2 accepted, 93 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (66,120 bytes)
-    → 37 items: 0 accepted, 35 too old, 0 no-date
+    OK  (58,641 bytes)
+    → 32 items: 0 accepted, 30 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
     OK  (52,760 bytes)
     + [business] Blackstone offers to sell up to 25% of India's Knowledge REIT for over $1 billio
@@ -43,19 +45,19 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (179,260 bytes)
+    OK  (179,653 bytes)
     + [reliance] India's markets regulator approves Jio Platforms' $3.8 billion IPO
+    + [reliance] India’s markets regulator approves Jio Platforms’ $3.8bn IPO
     + [reliance] Subhash Chandra accuses Mukesh Ambani of media campaign against him, Reliance sa
     + [reliance] Subhash Chandra Vs Mukesh Ambani: Reliance Rejects 'Fake Narrative' Charge
+    + [reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading misinformation, RIL den
     + [reliance] 'You have a lot to lose': Zee founder Subhash Chandra warns Mukesh Ambani over '
     + [reliance] Subhash Chandra takes on Mukesh Ambani, accuses TV18 of ‘misinformation’
-    + [reliance] Explainer: Subhash Chandra, Mukesh Ambani clash over NCLT case, media coverage
-    + [reliance] SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potentially India’s biggest
-    → 100 items: 7 accepted, 1 too old, 0 no-date
+    → 100 items: 7 accepted, 0 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (134,876 bytes)
+    OK  (134,123 bytes)
     → 78 items: 0 accepted, 78 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,327 bytes)
@@ -90,15 +92,15 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,552 bytes)
+    OK  (13,562 bytes)
+    + [world] Russian strike near Kyiv kills 37, in one of the year's deadliest attacks
+    + [world] Photos: See the aftermath of deadly flash floods in Nepal
     + [world] Srebrenica survivor Ahmed Hrustanovic reflects on Ratko Mladic's death
     + [world] Trump says U.S. has entered deal with Venezuela to take control of 65 billion ba
     + [world] After 6 months of war, Iran's battered regime remains entrenched
     + [world] Experts warn more flooding might hit Nepal. And, Fed chairman to give key addres
     + [world] Hundreds killed, over 1,000 missing after flash floods in Nepal and Tibet
     + [world] 'It's essentially been one long day': A daughter details search for parents in N
-    + [world] U.S. says pipelines will make Strait of Hormuz irrelevant. Energy experts disagr
-    + [world] A melting glacier contributed to the deadly Nepal floods. We can expect more lik
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,18 +109,18 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (183,298 bytes)
+    OK  (182,918 bytes)
     + [sports] 'He Might Want To Play IPL, But Don't Go There'
     + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
     + [sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't Change Your Strength
     → 100 items: 3 accepted, 96 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
     OK  (89,527 bytes)
-    + [sports] Zimbabwe bat; Eathan Bosch makes his T20I debut for South Africa
-    + [sports] 'What's being done to him is not right' - Miandad on Imran's imprisonment
-    + [sports] Gurnoor Brar added to North Zone squad for Duleep semi-finals
-    + [sports] All-round Narine leads TKR to morale-boosting win
-    + [sports] Sarfaraz bemoans batting, as Pakistan face huge task to save Test
+    + [sports] Javed Miandad and Moin Khan express concern over Imran Khan's health
+    + [sports] Patel, Gumbs edge forward for Leicestershire
+    + [sports] Suryakumar on being dropped: 'When everything is going well, why the change?'
+    + [sports] Mumbai Cricket Association awards equal pay to men and women players
+    + [sports] Brevis, Duan Jansen lead South Africa's rout of Zimbabwe
     → 100 items: 5 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -126,7 +128,7 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (114,889 bytes)
+    OK  (114,805 bytes)
     + [opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets -- An Overhaul To Fi
     + [opinion] Analysis: War For Votes Over Vande Mataram
     + [opinion] Daily Editorial Analysis 26 August 2026
@@ -137,53 +139,57 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
     OK  (11,102 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (49,261 bytes)
+    OK  (48,946 bytes)
+    + [opinion] Dolly Parton wasn't just travelin' thru
     + [opinion] Tourist destinations, not government assets
     + [opinion] Enterprise AI needs custom fit
     + [opinion] President Wonka's wonky philo-logic
     + [opinion] 5 traits of good leaders
-    + [opinion] Saptadhara is a wishlist that Indian govt needs to convert into a blueprint: Swa
     → 50 items: 5 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (24 stories, 8 workers) ─────────────────────────────
-   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
-   ✗ [  business] India's economy offers scale, growth and opportunity, says S: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra takes on Mukesh Ambani, accuses TV18 of ‘mis: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra Vs Mukesh Ambani: Reliance Rejects 'Fake Nar: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra accuses Mukesh Ambani of media campaign agai: no og:image/twitter:image tag found
-   ✗ [  reliance] India's markets regulator approves Jio Platforms' $3.8 billi: no og:image/twitter:image tag found
-   ✗ [  reliance] 'You have a lot to lose': Zee founder Subhash Chandra warns : no og:image/twitter:image tag found
+── Image fetch (28 stories, 8 workers) ─────────────────────────────
+   ✓ [     legal] Read why Punjab & Haryana High Court quashed PNB fraud order
    ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
-   ✗ [  reliance] Explainer: Subhash Chandra, Mukesh Ambani clash over NCLT ca: no og:image/twitter:image tag found
-   ✗ [  reliance] SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potenti: no og:image/twitter:image tag found
+   ✗ [  reliance] India's markets regulator approves Jio Platforms' $3.8 billi: no og:image/twitter:image tag found
+   ✗ [  business] India's economy offers scale, growth and opportunity, says S: no og:image/twitter:image tag found
+   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  reliance] India’s markets regulator approves Jio Platforms’ $3.8bn IPO: no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra accuses Mukesh Ambani of media campaign agai: no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra Vs Mukesh Ambani: Reliance Rejects 'Fake Nar: no og:image/twitter:image tag found
+   ✗ [  reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis: no og:image/twitter:image tag found
+   ✗ [  reliance] 'You have a lot to lose': Zee founder Subhash Chandra warns : no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra takes on Mukesh Ambani, accuses TV18 of ‘mis: no og:image/twitter:image tag found
+   ✓ [     world] Photos: See the aftermath of deadly flash floods in Nepal
+   ✓ [     world] Trump says U.S. has entered deal with Venezuela to take cont
+   ✓ [     world] Russian strike near Kyiv kills 37, in one of the year's dead
    ✓ [     world] Srebrenica survivor Ahmed Hrustanovic reflects on Ratko Mlad
    ✓ [     world] 'It's essentially been one long day': A daughter details sea
-   ✓ [     world] Hundreds killed, over 1,000 missing after flash floods in Ne
-   ✓ [     world] Experts warn more flooding might hit Nepal. And, Fed chairma
-   ✓ [     world] U.S. says pipelines will make Strait of Hormuz irrelevant. E
-   ✓ [     world] A melting glacier contributed to the deadly Nepal floods. We
+   ✓ [     world] After 6 months of war, Iran's battered regime remains entren
    ✗ [    sports] 'He Might Want To Play IPL, But Don't Go There': no og:image/twitter:image tag found
    ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
-   ✓ [     world] Trump says U.S. has entered deal with Venezuela to take cont
-   ✓ [     world] After 6 months of war, Iran's battered regime remains entren
    ✗ [    sports] India Star Told 'Not To Play In IPL' In Big Verdict: "Don't : no og:image/twitter:image tag found
    ✗ [   opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets : no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 26 August 2026: no og:image/twitter:image tag found
+   ✓ [     world] Hundreds killed, over 1,000 missing after flash floods in Ne
    ✗ [   opinion] Analysis: War For Votes Over Vande Mataram: no og:image/twitter:image tag found
-   images: 8 found, 16 not found
+   ✓ [     world] Experts warn more flooding might hit Nepal. And, Fed chairma
+   ✗ [     legal] ‘Sex workers entitled to equal protection’: Chhattisgarh HC : TimeoutError: The read operation timed out
+   ✗ [     legal] From retired Judges to retention money: Experts discuss fixi: TimeoutError: The read operation timed out
+   ✗ [     legal] Shardul Amarchand Mangaldas & Co. advises Union Bank of Indi: TimeoutError: The read operation timed out
+   images: 9 found, 19 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Not a single life should be lost: Bombay High Court orders m
-   ✓ Bombay HC suggests restaurants maintain websites, social med
-   ✓ Take appointment of arbitrators away from parties, instituti
-   ✓ Bombay HC closes taxi drivers' PIL against Marathi rule afte
-   ✓ Nation wants to know why FIR was registered: Arnab Goswami, 
-   ✓ FDA restores licenses of Mumbai Cricket Association eateries
-   ✓ [Book Review] The People's Sanctum: 100 year struggle to dem
+   ✓ Whitefield police station should be renamed darkfield: Karna
+   ✓ Bombay High Court pulls up FDA for 'high-handed' cancellatio
    ✓ NLU Delhi student body expresses solidarity with NLSIU stude
+   ✓ Not a good sign when bar council does not earn respect of it
+   ✓ ‘Sex workers entitled to equal protection’: Chhattisgarh HC 
+   ✓ Read why Punjab & Haryana High Court quashed PNB fraud order
+   ✓ From retired Judges to retention money: Experts discuss fixi
+   ✓ Shardul Amarchand Mangaldas & Co. advises Union Bank of Indi
    ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
    ✓ India's economy offers scale, growth and opportunity, says S
    ✓ Blackstone offers to sell up to 25% of India's Knowledge REI
@@ -194,12 +200,12 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
    ✓ Silver rebounds from correction: Can the recovery gain momen
    ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
    ✓ India's markets regulator approves Jio Platforms' $3.8 billi
+   ✓ India’s markets regulator approves Jio Platforms’ $3.8bn IPO
    ✓ Subhash Chandra accuses Mukesh Ambani of media campaign agai
    ✓ Subhash Chandra Vs Mukesh Ambani: Reliance Rejects 'Fake Nar
+   ✓ Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis
    ✓ 'You have a lot to lose': Zee founder Subhash Chandra warns 
    ✓ Subhash Chandra takes on Mukesh Ambani, accuses TV18 of ‘mis
-   ✓ Explainer: Subhash Chandra, Mukesh Ambani clash over NCLT ca
-   ✓ SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potenti
    ✓ Peg by peg, Vodka's share is rising in India
    ✓ Food safety eateries' body says fix the problem, not the bla
    ✓ Nestle wants a seat at the table as India debates food-warni
@@ -216,37 +222,37 @@ Cutoff: 2026-08-19 12:46 UTC  (MAX_AGE_HOURS=240)
    ✓ Pinterest finance chief Julia Donnelly to step down in Octob
    ✓ Marvell selloff deepens as investors seek clarity on Google 
    ✓ Chinese memory chipmaker CXMT sues Pentagon over 'Chinese mi
+   ✓ Russian strike near Kyiv kills 37, in one of the year's dead
+   ✓ Photos: See the aftermath of deadly flash floods in Nepal
    ✓ Srebrenica survivor Ahmed Hrustanovic reflects on Ratko Mlad
    ✓ Trump says U.S. has entered deal with Venezuela to take cont
    ✓ After 6 months of war, Iran's battered regime remains entren
    ✓ Experts warn more flooding might hit Nepal. And, Fed chairma
    ✓ Hundreds killed, over 1,000 missing after flash floods in Ne
    ✓ 'It's essentially been one long day': A daughter details sea
-   ✓ U.S. says pipelines will make Strait of Hormuz irrelevant. E
-   ✓ A melting glacier contributed to the deadly Nepal floods. We
    ✓ 'He Might Want To Play IPL, But Don't Go There'
    ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
    ✓ India Star Told 'Not To Play In IPL' In Big Verdict: "Don't 
-   ✓ Zimbabwe bat; Eathan Bosch makes his T20I debut for South Af
-   ✓ 'What's being done to him is not right' - Miandad on Imran's
-   ✓ Gurnoor Brar added to North Zone squad for Duleep semi-final
-   ✓ All-round Narine leads TKR to morale-boosting win
-   ✓ Sarfaraz bemoans batting, as Pakistan face huge task to save
+   ✓ Javed Miandad and Moin Khan express concern over Imran Khan'
+   ✓ Patel, Gumbs edge forward for Leicestershire
+   ✓ Suryakumar on being dropped: 'When everything is going well,
+   ✓ Mumbai Cricket Association awards equal pay to men and women
+   ✓ Brevis, Duan Jansen lead South Africa's rout of Zimbabwe
    ✓ Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets 
    ✓ Analysis: War For Votes Over Vande Mataram
    ✓ Daily Editorial Analysis 26 August 2026
+   ✓ Dolly Parton wasn't just travelin' thru
    ✓ Tourist destinations, not government assets
    ✓ Enterprise AI needs custom fit
    ✓ President Wonka's wonky philo-logic
    ✓ 5 traits of good leaders
-   ✓ Saptadhara is a wishlist that Indian govt needs to convert i
 
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   13 OK  /  4 failed
+Feeds:   14 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-29   Hero: legal-4d64ac9a
+Edition: 2026-08-29   Hero: legal-54cb9f9e
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
