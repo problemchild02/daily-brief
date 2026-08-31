@@ -1,85 +1,87 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-21 05:53 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-21 14:12 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (76,108 bytes)
-    + [legal] Subhash Chandra liability cut from ₹22,000 crore to ₹6.25 crore: NCLAT to hear a
-    + [legal] Who asked NLSIU students to publicly invite CJI for convocation? NALSAR SBC asks
-    + [legal] Bengaluru court grants bail to Karnataka Home Minister Priyank Kharge, Mohammed 
-    + [legal] CCPA imposes ₹1 lakh fine on United Biscuits for misleading 'wholewheat' Marie c
-    + [legal] Fortifying the frontiers of food safety
-    + [legal] Viable mining for a Viksit Bharat
-    + [legal] Google keywords and trademark infringement
-    + [legal] Ex-Madras HC Justice V Sivagnanam untraceable in Nepal after floods; bar body se
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (84,961 bytes)
+    + [legal] Delhi HC refuses to interfere as woman chooses to stay in Adhyatmik Vidyalaya as
+    + [legal] Delhi HC reduces punishment against DU law student accused of cheating on exam i
+    + [legal] Supreme Court dismisses plea against appointment of Justice PK Mishra’s son as R
+    + [legal] Delhi Police says it will drop all CJP protest FIRs; file one, fresh FIR against
+    + [legal] AI-generated work can get copyright but AI system cannot be author: Indian copyr
+    + [legal] Bar association not state under Article 12, bar issues not subject to writ juris
+    + [legal] Old Monk maker agrees to modify bottle labels after Bombay High Court questions 
+    + [legal] Children from marriage no reason to deny divorce to spouse: Madras High Court
+    → 16 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (202,644 bytes)
-    + [business] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15 trillion 
-    ↳ dual-tag [reliance] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15
-    + [business] India's economy offers scale, growth and opportunity, says Sitharaman in Toronto
-    → 95 items: 2 accepted, 93 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (71,330 bytes)
-    → 39 items: 0 accepted, 36 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (42,722 bytes)
-    + [business] Nomura initiates coverage on Clean Max Enviro with Buy call. Check upside potent
-    + [business] US Stock Market: Jobs data, Broadcom results to test stock rally near record hig
-    + [business] US Stock Market: Warsh signals Fed may need to raise rates if inflation remains 
-    + [business] Jefferies initiates coverage on Leela Hotels with Buy rating, sees 22% upside
-    + [business] Hindustan Zinc, Vedanta, Nalco and other metal stocks slide up to 5%. Here's why
-    + [business] Ashoka Buildcon shares rally 10% after securing Rs 602 crore order from RVNL
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (52,152 bytes)
+    + [business] US Stocks Today: US stocks fall at open as Iran war escalation sends oil prices 
+    + [business] Chinese AI chipmaker Enflame aims to raise $908 million after setting Shanghai I
+    + [business] Chennai’s rain gets a market price: NCDEX launches RAINCHNNAI weather derivative
+    + [business] India 10-year bond yield sees biggest monthly rise in FY27 on rising rate hike b
+    + [business] Fly-Hi Maritime Travels to hit IPO waters with Rs 52.6 crore BSE SME issue on Tu
+    + [business] Quote of the day by Arthur Zeikel: "Generally speaking, bad news tends to develo
+    + [business] Milky Mist Q1 Results: Profit zooms nearly 9 times YoY to Rs 65 crore; revenue r
+    + [business] Aurobindo Pharma among 5 stocks hitting 52-week highs; surge up to 18% in a mont
+    → 50 items: 8 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (182,696 bytes)
-    + [reliance] Meta- and Google-backed Indian telecom operator Jio Platforms gets regulatory no
-    + [reliance] India's markets regulator approves Jio Platforms' $3.8 billion IPO
-    + [reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading misinformation, RIL den
-    + [reliance] Subhash Chandra Vs Mukesh Ambani Feud Explained: From Zee-Sony Deal To NCLT Orde
-    + [reliance] Subhash Chandra accuses Mukesh Ambani of media campaign against him, Reliance sa
-    + [reliance] SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potentially India’s biggest
-    + [reliance] Reliance-Owned Firm Buys Lutyens Bungalow For Rs 3.5 Billion
-    → 100 items: 7 accepted, 5 too old, 0 no-date
-  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
+  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+    OK  (1,347 bytes)
+    → 1 items: 0 accepted, 1 too old, 0 no-date
+  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
+    OK  (11,101 bytes)
+    + [reliance] Miraggio targets Rs 500 crore by FY30, plans 100+ stores
+    + [reliance] Govt likely discussing import duty cut on gold and silver as high tariffs ‘fail’
+    + [reliance] Zomato bans analogue dairy dishes on platform, gives restaurants corrective acti
+    + [reliance] FSSAI bans Everest, LG from selling hing
+    + [reliance] India’s beauty & personal care market is estimated to get a $42 billion glow-up 
+    + [reliance] Temasek, ChrysCap brew up plans for Blue Tokai stake, put Rs 1000-1200 crore on 
+    + [reliance] For retailers, ecommerce highs come with headaches
+    + [reliance] Can Purple Style Labs IPO deliver long-term growth for high-risk investors?
+    → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (126,785 bytes)
-    → 74 items: 0 accepted, 74 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,908 bytes)
-    + [retail] India’s beauty & personal care market is estimated to get a $42 billion glow-up 
-    + [retail] Temasek, ChrysCap brew up plans for Blue Tokai stake, put Rs 1000-1200 crore on 
-    + [retail] FSSAI bans Everest, LG from selling hing
-    + [retail] For retailers, ecommerce highs come with headaches
-    + [retail] Can Purple Style Labs IPO deliver long-term growth for high-risk investors?
+    OK  (11,101 bytes)
     + [retail] Peg by peg, Vodka's share is rising in India
     + [retail] Food safety eateries' body says fix the problem, not the blame
-    + [retail] Nestle wants a seat at the table as India debates food-warning labels
-    → 10 items: 8 accepted, 0 too old, 0 no-date
-  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
+    → 10 items: 2 accepted, 0 too old, 0 no-date
+  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
+    OK  (48,688 bytes)
+    + [retail] GRT Jewellers looks to go pan-India, acquires 74% stake in TBZ for ₹1,034 crore
+    + [retail] Gautam Adani urges credit agencies to broaden infrastructure rating frameworks
+    + [retail] Fresh lending and deposit rates ease in July; MCLR inches up
+    + [retail] Altimetrik Achieves the AWS Generative AI Specialization
+    + [retail] SBI Life highlights the importance of balancing growth, protection and certainty
+    + [retail] India’s GDP growth accelerates to 7.8% in Q1 FY27
+    → 60 items: 6 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,072 bytes)
-    + [tech] French ​chip materials maker Soitec locks customers into multi-year deals as AI 
-    + [tech] OpenAI issued warrants worth $5.5 billion in SB Energy, WSJ reports
-    + [tech] AI and robotics drive an IPO boom in China as Shein lists in Hong Kong
-    + [tech] John Ternus to lead Apple into the age of AI
-    + [tech] Big firms eye ISRO's rocket tech; DealShare's sale talks
-    + [tech] SK hynix open to US investment, sees memory shortage through 2030
-    + [tech] Social media influencers don entrepreneurial hat; launch VC-backed consumer bran
-    + [tech] TCS employees get 50-70% variable in Q1
+    OK  (45,336 bytes)
+    + [tech] Semicon 2.0 takes shape; Zomato’s Hyderabad layoffs
+    + [tech] Nvidia invests $3.5 billion in MediaTek convertible bonds
+    + [tech] Chinese AI chipmaker Enflame aims to raise $908 million after setting Shanghai I
+    + [tech] GameStop expects lower quarterly sales on store closures, France exit
+    + [tech] Adobe to offer free access to AI tools in Saudi Arabia in $4 billion deal
+    + [tech] SLB to expand data center business with $3.4 billion deal for Kelvion
+    + [tech] Soitec locks customers into multi-year deals as AI wafer demand surges
+    + [tech] AI-driven cyber risk is top concern for global financial stability, watchdog say
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -90,15 +92,15 @@ Cutoff: 2026-08-21 05:53 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,580 bytes)
-    + [world] What Argentina gets right about youth soccer — and what the U.S. gets wrong
-    + [world] Families of pilgrims likely caught in floods are desperate for news from Nepal
-    + [world] Getting aid to Nepal's flood survivors is the next challenge
-    + [world] Noel Godin, who made powerful people nervous around cream pies, dies at 80
-    + [world] What a Brazilian tradition can teach us about the future of psychedelics
-    + [world] The Ukrainian women disappearing into Russian prisons
-    + [world] Canada claps back at Trump's efforts to rename Lake Ontario as 'Lake America'
-    + [world] Energy experts have doubts about Trump's newly proposed Venezuelan oil deal
+    OK  (14,407 bytes)
+    + [world] Nepal's hesitance to accept foreign help for flood relief under scrutiny
+    + [world] U.S., Venezuela strike oil deal. And, the staggering hidden toll of U.S. heat de
+    + [world] Russia's jet-powered drones bring empty Kyiv supermarket shelves and rattle Ukra
+    + [world] Attacks flare between the U.S. and Iran after a monthlong pause
+    + [world] Hit shows from Edinburgh's Fringe festival are coming to America. Here are our t
+    + [world] The U.S. Venezuela oil deal won't lower your gas prices. Here's what you need to
+    + [world] Rescuers search for the missing after deadly flood along Nepal-Tibet border
+    + [world] U.N. worker shares what aid is needed as Nepal recovers from devastating flood
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,29 +109,25 @@ Cutoff: 2026-08-21 05:53 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (179,378 bytes)
-    + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
-    + [sports] 'He Might Want To Play IPL, But Don't Go There'
-    + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
-    → 100 items: 3 accepted, 97 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,364 bytes)
+    OK  (89,352 bytes)
+    + [sports] Mayank Agarwal joins Durham for remainder of County Championship
+    + [sports] Unchanged Namibia bowl; Zimbabwe bring in Masakadza for Cremer
+    + [sports] Trescothick sees parallels with 2005 attack as England seamers gel
+    + [sports] BCB president Tamim Iqbal 'hopeful' of India touring Bangladesh in 2026-27 seaso
     + [sports] Hazlewood looks to maintain intensity after successful Test return
     + [sports] Abbas: "Everyone is worried" as Pakistan's grim run of form is extended
     + [sports] India shrug off middle-order collapse to post big win
     + [sports] Toby Albert fifty fails to ease Hampshire frustration
-    + [sports] Sides content to draw after third-day washout
-    → 100 items: 5 accepted, 0 too old, 0 no-date
+    → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (120,362 bytes)
-    + [opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets -- An Overhaul To Fi
-    + [opinion] Toxic: Yash, Geetu Mohandas’ crime thriller becomes the very monster it set out 
-    → 79 items: 2 accepted, 77 too old, 0 no-date
+    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -143,109 +141,96 @@ Cutoff: 2026-08-21 05:53 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Is your data truly yours? India's sovereignty struggle with foreign cloud provid
     + [opinion] Awareness that remains
     + [opinion] Flight of the Bumblebee
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    + [opinion] To be tech-en seriously, be loud
+    + [opinion] Chutney goes global: From Indian kitchens to Caribbean music and British superma
+    → 50 items: 8 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (23 stories, 8 workers) ─────────────────────────────
-   ✗ [  reliance] India's markets regulator approves Jio Platforms' $3.8 billi: no og:image/twitter:image tag found
-   ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra Vs Mukesh Ambani Feud Explained: From Zee-So: no og:image/twitter:image tag found
-   ✗ [  business] India's economy offers scale, growth and opportunity, says S: no og:image/twitter:image tag found
-   ✗ [  reliance] Meta- and Google-backed Indian telecom operator Jio Platform: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra accuses Mukesh Ambani of media campaign agai: no og:image/twitter:image tag found
-   ✗ [  reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis: no og:image/twitter:image tag found
-   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
-   ✓ [     world] What Argentina gets right about youth soccer — and what the 
-   ✓ [     world] Noel Godin, who made powerful people nervous around cream pi
-   ✗ [  reliance] Reliance-Owned Firm Buys Lutyens Bungalow For Rs 3.5 Billion: no og:image/twitter:image tag found
-   ✗ [  reliance] SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potenti: no og:image/twitter:image tag found
-   ✓ [     world] The Ukrainian women disappearing into Russian prisons
-   ✓ [     world] What a Brazilian tradition can teach us about the future of 
-   ✓ [     world] Energy experts have doubts about Trump's newly proposed Vene
-   ✓ [     world] Canada claps back at Trump's efforts to rename Lake Ontario 
-   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [   opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets : no og:image/twitter:image tag found
-   ✗ [    sports] 'He Might Want To Play IPL, But Don't Go There': no og:image/twitter:image tag found
-   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
-   ✓ [     world] Families of pilgrims likely caught in floods are desperate f
-   ✓ [     world] Getting aid to Nepal's flood survivors is the next challenge
-   ✗ [   opinion] Toxic: Yash, Geetu Mohandas’ crime thriller becomes the very: no og:image/twitter:image tag found
-   images: 8 found, 15 not found
+── Image fetch (8 stories, 8 workers) ─────────────────────────────
+   ✓ [     world] Nepal's hesitance to accept foreign help for flood relief un
+   ✓ [     world] Hit shows from Edinburgh's Fringe festival are coming to Ame
+   ✓ [     world] U.S., Venezuela strike oil deal. And, the staggering hidden 
+   ✓ [     world] Attacks flare between the U.S. and Iran after a monthlong pa
+   ✓ [     world] Russia's jet-powered drones bring empty Kyiv supermarket she
+   ✓ [     world] Rescuers search for the missing after deadly flood along Nep
+   ✓ [     world] The U.S. Venezuela oil deal won't lower your gas prices. Her
+   ✓ [     world] U.N. worker shares what aid is needed as Nepal recovers from
+   images: 8 found, 0 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Subhash Chandra liability cut from ₹22,000 crore to ₹6.25 cr
-   ✓ Who asked NLSIU students to publicly invite CJI for convocat
-   ✓ Bengaluru court grants bail to Karnataka Home Minister Priya
-   ✓ CCPA imposes ₹1 lakh fine on United Biscuits for misleading 
-   ✓ Fortifying the frontiers of food safety
-   ✓ Viable mining for a Viksit Bharat
-   ✓ Google keywords and trademark infringement
-   ✓ Ex-Madras HC Justice V Sivagnanam untraceable in Nepal after
-   ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
-   ✓ India's economy offers scale, growth and opportunity, says S
-   ✓ Nomura initiates coverage on Clean Max Enviro with Buy call.
-   ✓ US Stock Market: Jobs data, Broadcom results to test stock r
-   ✓ US Stock Market: Warsh signals Fed may need to raise rates i
-   ✓ Jefferies initiates coverage on Leela Hotels with Buy rating
-   ✓ Hindustan Zinc, Vedanta, Nalco and other metal stocks slide 
-   ✓ Ashoka Buildcon shares rally 10% after securing Rs 602 crore
-   ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
-   ✓ Meta- and Google-backed Indian telecom operator Jio Platform
-   ✓ India's markets regulator approves Jio Platforms' $3.8 billi
-   ✓ Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis
-   ✓ Subhash Chandra Vs Mukesh Ambani Feud Explained: From Zee-So
-   ✓ Subhash Chandra accuses Mukesh Ambani of media campaign agai
-   ✓ SEBI nod for Mukesh Ambani’s Jio Platforms IPO plan, potenti
-   ✓ Reliance-Owned Firm Buys Lutyens Bungalow For Rs 3.5 Billion
+   ✓ Delhi HC refuses to interfere as woman chooses to stay in Ad
+   ✓ Delhi HC reduces punishment against DU law student accused o
+   ✓ Supreme Court dismisses plea against appointment of Justice 
+   ✓ Delhi Police says it will drop all CJP protest FIRs; file on
+   ✓ AI-generated work can get copyright but AI system cannot be 
+   ✓ Bar association not state under Article 12, bar issues not s
+   ✓ Old Monk maker agrees to modify bottle labels after Bombay H
+   ✓ Children from marriage no reason to deny divorce to spouse: 
+   ✓ US Stocks Today: US stocks fall at open as Iran war escalati
+   ✓ Chinese AI chipmaker Enflame aims to raise $908 million afte
+   ✓ Chennai’s rain gets a market price: NCDEX launches RAINCHNNA
+   ✓ India 10-year bond yield sees biggest monthly rise in FY27 o
+   ✓ Fly-Hi Maritime Travels to hit IPO waters with Rs 52.6 crore
+   ✓ Quote of the day by Arthur Zeikel: "Generally speaking, bad 
+   ✓ Milky Mist Q1 Results: Profit zooms nearly 9 times YoY to Rs
+   ✓ Aurobindo Pharma among 5 stocks hitting 52-week highs; surge
+   ✓ Miraggio targets Rs 500 crore by FY30, plans 100+ stores
+   ✓ Govt likely discussing import duty cut on gold and silver as
+   ✓ Zomato bans analogue dairy dishes on platform, gives restaur
+   ✓ FSSAI bans Everest, LG from selling hing
    ✓ India’s beauty & personal care market is estimated to get a 
    ✓ Temasek, ChrysCap brew up plans for Blue Tokai stake, put Rs
-   ✓ FSSAI bans Everest, LG from selling hing
    ✓ For retailers, ecommerce highs come with headaches
    ✓ Can Purple Style Labs IPO deliver long-term growth for high-
    ✓ Peg by peg, Vodka's share is rising in India
    ✓ Food safety eateries' body says fix the problem, not the bla
-   ✓ Nestle wants a seat at the table as India debates food-warni
-   ✓ French ​chip materials maker Soitec locks customers into mul
-   ✓ OpenAI issued warrants worth $5.5 billion in SB Energy, WSJ 
-   ✓ AI and robotics drive an IPO boom in China as Shein lists in
-   ✓ John Ternus to lead Apple into the age of AI
-   ✓ Big firms eye ISRO's rocket tech; DealShare's sale talks
-   ✓ SK hynix open to US investment, sees memory shortage through
-   ✓ Social media influencers don entrepreneurial hat; launch VC-
-   ✓ TCS employees get 50-70% variable in Q1
-   ✓ What Argentina gets right about youth soccer — and what the 
-   ✓ Families of pilgrims likely caught in floods are desperate f
-   ✓ Getting aid to Nepal's flood survivors is the next challenge
-   ✓ Noel Godin, who made powerful people nervous around cream pi
-   ✓ What a Brazilian tradition can teach us about the future of 
-   ✓ The Ukrainian women disappearing into Russian prisons
-   ✓ Canada claps back at Trump's efforts to rename Lake Ontario 
-   ✓ Energy experts have doubts about Trump's newly proposed Vene
-   ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
-   ✓ 'He Might Want To Play IPL, But Don't Go There'
-   ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
+   ✓ GRT Jewellers looks to go pan-India, acquires 74% stake in T
+   ✓ Gautam Adani urges credit agencies to broaden infrastructure
+   ✓ Fresh lending and deposit rates ease in July; MCLR inches up
+   ✓ Altimetrik Achieves the AWS Generative AI Specialization
+   ✓ SBI Life highlights the importance of balancing growth, prot
+   ✓ India’s GDP growth accelerates to 7.8% in Q1 FY27
+   ✓ Semicon 2.0 takes shape; Zomato’s Hyderabad layoffs
+   ✓ Nvidia invests $3.5 billion in MediaTek convertible bonds
+   ✓ Chinese AI chipmaker Enflame aims to raise $908 million afte
+   ✓ GameStop expects lower quarterly sales on store closures, Fr
+   ✓ Adobe to offer free access to AI tools in Saudi Arabia in $4
+   ✓ SLB to expand data center business with $3.4 billion deal fo
+   ✓ Soitec locks customers into multi-year deals as AI wafer dem
+   ✓ AI-driven cyber risk is top concern for global financial sta
+   ✓ Nepal's hesitance to accept foreign help for flood relief un
+   ✓ U.S., Venezuela strike oil deal. And, the staggering hidden 
+   ✓ Russia's jet-powered drones bring empty Kyiv supermarket she
+   ✓ Attacks flare between the U.S. and Iran after a monthlong pa
+   ✓ Hit shows from Edinburgh's Fringe festival are coming to Ame
+   ✓ The U.S. Venezuela oil deal won't lower your gas prices. Her
+   ✓ Rescuers search for the missing after deadly flood along Nep
+   ✓ U.N. worker shares what aid is needed as Nepal recovers from
+   ✓ Mayank Agarwal joins Durham for remainder of County Champion
+   ✓ Unchanged Namibia bowl; Zimbabwe bring in Masakadza for Crem
+   ✓ Trescothick sees parallels with 2005 attack as England seame
+   ✓ BCB president Tamim Iqbal 'hopeful' of India touring Banglad
    ✓ Hazlewood looks to maintain intensity after successful Test 
    ✓ Abbas: "Everyone is worried" as Pakistan's grim run of form 
    ✓ India shrug off middle-order collapse to post big win
    ✓ Toby Albert fifty fails to ease Hampshire frustration
-   ✓ Sides content to draw after third-day washout
-   ✓ Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets 
-   ✓ Toxic: Yash, Geetu Mohandas’ crime thriller becomes the very
    ✓ Banks are in good shape, but ...
    ✓ HDFC Bank faces governance test as CEO exit raises questions
    ✓ Even AI champs blink on job cuts
    ✓ Is your data truly yours? India's sovereignty struggle with 
    ✓ Awareness that remains
    ✓ Flight of the Bumblebee
+   ✓ To be tech-en seriously, be loud
+   ✓ Chutney goes global: From Indian kitchens to Caribbean music
 
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   13 OK  /  4 failed
+Feeds:   10 OK  /  10 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-31   Hero: legal-67835e0d
+Edition: 2026-08-31   Hero: legal-ce57c210
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
