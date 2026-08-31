@@ -1,87 +1,85 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-21 14:12 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-21 19:10 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (84,961 bytes)
-    + [legal] Delhi HC refuses to interfere as woman chooses to stay in Adhyatmik Vidyalaya as
-    + [legal] Delhi HC reduces punishment against DU law student accused of cheating on exam i
-    + [legal] Supreme Court dismisses plea against appointment of Justice PK Mishra’s son as R
-    + [legal] Delhi Police says it will drop all CJP protest FIRs; file one, fresh FIR against
-    + [legal] AI-generated work can get copyright but AI system cannot be author: Indian copyr
-    + [legal] Bar association not state under Article 12, bar issues not subject to writ juris
-    + [legal] Old Monk maker agrees to modify bottle labels after Bombay High Court questions 
-    + [legal] Children from marriage no reason to deny divorce to spouse: Madras High Court
-    → 16 items: 8 accepted, 0 too old, 0 no-date
+    OK  (38,212 bytes)
+    + [legal] Supreme Court Collegium recommends Justice Pushpendra Singh Bhati as Jammu & Kas
+    + [legal] Supreme Court Collegium recommends Justice AY Kogje as Chief Justice of Madhya P
+    + [legal] Exclusive: Supreme Court Collegium recommends Justice Sanjay K Agrawal as Rajast
+    + [legal] Maharashtra family court judges cannot be treated as judicial officers for High 
+    + [legal] Subhash Chandra insolvency: NCLT forms 5-member bench after lack of consensus in
+    + [legal] Supreme Court panel submits nationwide roadmap to modernise court infrastructure
+    + [legal] Rajasthan High Court Acting Chief Justice SP Sharma opts himself out of judicial
+    + [legal] Twist in Subhash Chandra insolvency: NCLT says no consensus on repayment since t
+    → 9 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
+    OK  (201,262 bytes)
+    + [business] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15 trillion 
+    ↳ dual-tag [reliance] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15
+    + [business] India's economy offers scale, growth and opportunity, says Sitharaman in Toronto
+    → 95 items: 2 accepted, 93 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
+    OK  (69,607 bytes)
+    + [business] Market Data
+    → 37 items: 1 accepted, 35 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (52,152 bytes)
-    + [business] US Stocks Today: US stocks fall at open as Iran war escalation sends oil prices 
-    + [business] Chinese AI chipmaker Enflame aims to raise $908 million after setting Shanghai I
-    + [business] Chennai’s rain gets a market price: NCDEX launches RAINCHNNAI weather derivative
-    + [business] India 10-year bond yield sees biggest monthly rise in FY27 on rising rate hike b
-    + [business] Fly-Hi Maritime Travels to hit IPO waters with Rs 52.6 crore BSE SME issue on Tu
-    + [business] Quote of the day by Arthur Zeikel: "Generally speaking, bad news tends to develo
-    + [business] Milky Mist Q1 Results: Profit zooms nearly 9 times YoY to Rs 65 crore; revenue r
-    + [business] Aurobindo Pharma among 5 stocks hitting 52-week highs; surge up to 18% in a mont
-    → 50 items: 8 accepted, 0 too old, 0 no-date
+    OK  (52,717 bytes)
+    + [business] US 10-year Treasury yield tops 19-month high as oil prices fuel rate-hike bets
+    + [business] Longer-dated US Treasury yields climb as Iran and US restart military attacks
+    + [business] ITC Infotech to merge with Happiest Minds, buy 22% promoter stake for Rs 1,330 c
+    + [business] Sebi bars Tarapur Transformers, promoters from markets for 5 years in fund diver
+    + [business] Blackstone’s Knowledge Realty Trust OFS subscribed 1.4 times on Day 1
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 1 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,101 bytes)
-    + [reliance] Miraggio targets Rs 500 crore by FY30, plans 100+ stores
-    + [reliance] Govt likely discussing import duty cut on gold and silver as high tariffs ‘fail’
-    + [reliance] Zomato bans analogue dairy dishes on platform, gives restaurants corrective acti
-    + [reliance] FSSAI bans Everest, LG from selling hing
-    + [reliance] India’s beauty & personal care market is estimated to get a $42 billion glow-up 
-    + [reliance] Temasek, ChrysCap brew up plans for Blue Tokai stake, put Rs 1000-1200 crore on 
-    + [reliance] For retailers, ecommerce highs come with headaches
-    + [reliance] Can Purple Style Labs IPO deliver long-term growth for high-risk investors?
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (186,671 bytes)
+    + [reliance] India's markets regulator approves Jio Platforms' $3.8 billion IPO
+    + [reliance] Meta- and Google-backed Indian telecom operator Jio Platforms gets regulatory no
+    + [reliance] Subhash Chandra drops mention of Mukesh Ambani allegations, shifts focus to sett
+    + [reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest IPO, Setting Stage F
+    + [reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading misinformation, RIL den
+    + [reliance] Reliance rejects Subhash Chandra’s allegations against its media entities
+    + [reliance] Subhash Chandra accuses Mukesh Ambani of media campaign against him, Reliance sa
+    → 100 items: 7 accepted, 2 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
+    OK  (126,696 bytes)
+    → 74 items: 0 accepted, 74 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,101 bytes)
-    + [retail] Peg by peg, Vodka's share is rising in India
-    + [retail] Food safety eateries' body says fix the problem, not the blame
-    → 10 items: 2 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (48,688 bytes)
-    + [retail] GRT Jewellers looks to go pan-India, acquires 74% stake in TBZ for ₹1,034 crore
-    + [retail] Gautam Adani urges credit agencies to broaden infrastructure rating frameworks
-    + [retail] Fresh lending and deposit rates ease in July; MCLR inches up
-    + [retail] Altimetrik Achieves the AWS Generative AI Specialization
-    + [retail] SBI Life highlights the importance of balancing growth, protection and certainty
-    + [retail] India’s GDP growth accelerates to 7.8% in Q1 FY27
-    → 60 items: 6 accepted, 0 too old, 0 no-date
+    + [retail] Miraggio targets Rs 500 crore by FY30, plans 100+ stores
+    + [retail] Govt likely discussing import duty cut on gold and silver as high tariffs ‘fail’
+    + [retail] Zomato bans analogue dairy dishes on platform, gives restaurants corrective acti
+    + [retail] FSSAI bans Everest, LG from selling hing
+    + [retail] India’s beauty & personal care market is estimated to get a $42 billion glow-up 
+    + [retail] Temasek, ChrysCap brew up plans for Blue Tokai stake, put Rs 1000-1200 crore on 
+    + [retail] For retailers, ecommerce highs come with headaches
+    + [retail] Can Purple Style Labs IPO deliver long-term growth for high-risk investors?
+    → 10 items: 8 accepted, 0 too old, 0 no-date
+  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,336 bytes)
+    OK  (45,635 bytes)
+    + [tech] Meta removes ads for fraud apps posing as porn after India sounds alarm
+    + [tech] Meta defeats Instagram shopping monopoly lawsuit for now
+    + [tech] OpenAI says Indian advertisers to get direct access to ChatGPT Ads as ad busines
+    + [tech] ITC Infotech to acquire 22.1% stake in Happiest Minds for Rs 1,330 crore; firms 
+    + [tech] OpenAI's ad business hits $1 billion annualised revenue run rate
     + [tech] Semicon 2.0 takes shape; Zomato’s Hyderabad layoffs
     + [tech] Nvidia invests $3.5 billion in MediaTek convertible bonds
     + [tech] Chinese AI chipmaker Enflame aims to raise $908 million after setting Shanghai I
-    + [tech] GameStop expects lower quarterly sales on store closures, France exit
-    + [tech] Adobe to offer free access to AI tools in Saudi Arabia in $4 billion deal
-    + [tech] SLB to expand data center business with $3.4 billion deal for Kelvion
-    + [tech] Soitec locks customers into multi-year deals as AI wafer demand surges
-    + [tech] AI-driven cyber risk is top concern for global financial stability, watchdog say
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,15 +90,15 @@ Cutoff: 2026-08-21 14:12 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,407 bytes)
-    + [world] Nepal's hesitance to accept foreign help for flood relief under scrutiny
+    OK  (14,271 bytes)
+    + [world] Lionel Messi says he's retiring from playing internationally for Argentina
+    + [world] Nepal's hesitance to accept foreign help for flood relief comes under scrutiny
     + [world] U.S., Venezuela strike oil deal. And, the staggering hidden toll of U.S. heat de
     + [world] Russia's jet-powered drones bring empty Kyiv supermarket shelves and rattle Ukra
     + [world] Attacks flare between the U.S. and Iran after a monthlong pause
     + [world] Hit shows from Edinburgh's Fringe festival are coming to America. Here are our t
-    + [world] The U.S. Venezuela oil deal won't lower your gas prices. Here's what you need to
+    + [world] The U.S.-Venezuela oil deal won't lower your gas prices. Here's what you need to
     + [world] Rescuers search for the missing after deadly flood along Nepal-Tibet border
-    + [world] U.N. worker shares what aid is needed as Nepal recovers from devastating flood
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,73 +107,101 @@ Cutoff: 2026-08-21 14:12 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
+    OK  (182,451 bytes)
+    + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
+    + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
+    + [sports] How Saransh Jain chose red-ball cricket over IPL stint before Test debut
+    → 100 items: 3 accepted, 97 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,352 bytes)
-    + [sports] Mayank Agarwal joins Durham for remainder of County Championship
-    + [sports] Unchanged Namibia bowl; Zimbabwe bring in Masakadza for Cremer
-    + [sports] Trescothick sees parallels with 2005 attack as England seamers gel
-    + [sports] BCB president Tamim Iqbal 'hopeful' of India touring Bangladesh in 2026-27 seaso
-    + [sports] Hazlewood looks to maintain intensity after successful Test return
-    + [sports] Abbas: "Everyone is worried" as Pakistan's grim run of form is extended
-    + [sports] India shrug off middle-order collapse to post big win
-    + [sports] Toby Albert fifty fails to ease Hampshire frustration
-    → 100 items: 8 accepted, 0 too old, 0 no-date
+    OK  (89,294 bytes)
+    + [sports] Nahida, Marufa help Bangladesh brush aside Indonesia
+    + [sports] Pakistan send seven players home and bring in Hesson to coach Test side
+    + [sports] Zimbabwe survive Green, Busing-Volschenk scare to win thriller
+    + [sports] 'I'm confident in my abilities' - Maphaka ready to step up in Rabada's absence
+    + [sports] Pakistan squad, management set for overhaul after Lord's defeat
+    → 100 items: 5 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
+    OK  (119,316 bytes)
+    + [opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets -- An Overhaul To Fi
+    + [opinion] Daily Editorial Analysis 31 August 2026
+    + [opinion] India’s new global play: More trade deals, fewer fixed alliances
+    + [opinion] From silence within: The Young have never waited for permission
+    → 79 items: 4 accepted, 75 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,102 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (49,339 bytes)
-    + [opinion] Banks are in good shape, but ...
-    + [opinion] HDFC Bank faces governance test as CEO exit raises questions
-    + [opinion] Even AI champs blink on job cuts
-    + [opinion] Is your data truly yours? India's sovereignty struggle with foreign cloud provid
-    + [opinion] Awareness that remains
-    + [opinion] Flight of the Bumblebee
-    + [opinion] To be tech-en seriously, be loud
-    + [opinion] Chutney goes global: From Indian kitchens to Caribbean music and British superma
-    → 50 items: 8 accepted, 0 too old, 0 no-date
+    OK  (50,005 bytes)
+    + [opinion] The swan thieves by Elizabeth Kostova
+    + [opinion] Mount a Bid to Fix Gaspirations: India’s educated unemployed emerge as a new ele
+    + [opinion] Stories of humanity
+    + [opinion] Despite a strong Q1 showing, risks are on the upside, thanks to geopolitics and 
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (8 stories, 8 workers) ─────────────────────────────
-   ✓ [     world] Nepal's hesitance to accept foreign help for flood relief un
-   ✓ [     world] Hit shows from Edinburgh's Fringe festival are coming to Ame
-   ✓ [     world] U.S., Venezuela strike oil deal. And, the staggering hidden 
+── Image fetch (26 stories, 8 workers) ─────────────────────────────
+   ✗ [  reliance] Meta- and Google-backed Indian telecom operator Jio Platform: no og:image/twitter:image tag found
+   ✗ [  business] Market Data: no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra drops mention of Mukesh Ambani allegations, : no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest : no og:image/twitter:image tag found
+   ✗ [  reliance] India's markets regulator approves Jio Platforms' $3.8 billi: no og:image/twitter:image tag found
+   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  business] India's economy offers scale, growth and opportunity, says S: no og:image/twitter:image tag found
+   ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra accuses Mukesh Ambani of media campaign agai: no og:image/twitter:image tag found
+   ✗ [  reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance rejects Subhash Chandra’s allegations against its m: no og:image/twitter:image tag found
+   ✓ [     world] Lionel Messi says he's retiring from playing internationally
+   ✓ [     world] Nepal's hesitance to accept foreign help for flood relief co
    ✓ [     world] Attacks flare between the U.S. and Iran after a monthlong pa
-   ✓ [     world] Russia's jet-powered drones bring empty Kyiv supermarket she
+   ✓ [     world] The U.S.-Venezuela oil deal won't lower your gas prices. Her
+   ✓ [     world] U.S., Venezuela strike oil deal. And, the staggering hidden 
+   ✓ [     world] Hit shows from Edinburgh's Fringe festival are coming to Ame
+   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
+   ✗ [   opinion] Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets : no og:image/twitter:image tag found
+   ✗ [    sports] How Saransh Jain chose red-ball cricket over IPL stint befor: no og:image/twitter:image tag found
+   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
    ✓ [     world] Rescuers search for the missing after deadly flood along Nep
-   ✓ [     world] The U.S. Venezuela oil deal won't lower your gas prices. Her
-   ✓ [     world] U.N. worker shares what aid is needed as Nepal recovers from
-   images: 8 found, 0 not found
+   ✗ [   opinion] Daily Editorial Analysis 31 August 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] India’s new global play: More trade deals, fewer fixed allia: no og:image/twitter:image tag found
+   ✗ [   opinion] From silence within: The Young have never waited for permiss: no og:image/twitter:image tag found
+   ✓ [     world] Russia's jet-powered drones bring empty Kyiv supermarket she
+   images: 8 found, 18 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Delhi HC refuses to interfere as woman chooses to stay in Ad
-   ✓ Delhi HC reduces punishment against DU law student accused o
-   ✓ Supreme Court dismisses plea against appointment of Justice 
-   ✓ Delhi Police says it will drop all CJP protest FIRs; file on
-   ✓ AI-generated work can get copyright but AI system cannot be 
-   ✓ Bar association not state under Article 12, bar issues not s
-   ✓ Old Monk maker agrees to modify bottle labels after Bombay H
-   ✓ Children from marriage no reason to deny divorce to spouse: 
-   ✓ US Stocks Today: US stocks fall at open as Iran war escalati
-   ✓ Chinese AI chipmaker Enflame aims to raise $908 million afte
-   ✓ Chennai’s rain gets a market price: NCDEX launches RAINCHNNA
-   ✓ India 10-year bond yield sees biggest monthly rise in FY27 o
-   ✓ Fly-Hi Maritime Travels to hit IPO waters with Rs 52.6 crore
-   ✓ Quote of the day by Arthur Zeikel: "Generally speaking, bad 
-   ✓ Milky Mist Q1 Results: Profit zooms nearly 9 times YoY to Rs
-   ✓ Aurobindo Pharma among 5 stocks hitting 52-week highs; surge
+   ✓ Supreme Court Collegium recommends Justice Pushpendra Singh 
+   ✓ Supreme Court Collegium recommends Justice AY Kogje as Chief
+   ✓ Exclusive: Supreme Court Collegium recommends Justice Sanjay
+   ✓ Maharashtra family court judges cannot be treated as judicia
+   ✓ Subhash Chandra insolvency: NCLT forms 5-member bench after 
+   ✓ Supreme Court panel submits nationwide roadmap to modernise 
+   ✓ Rajasthan High Court Acting Chief Justice SP Sharma opts him
+   ✓ Twist in Subhash Chandra insolvency: NCLT says no consensus 
+   ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
+   ✓ India's economy offers scale, growth and opportunity, says S
+   ✓ Market Data
+   ✓ US 10-year Treasury yield tops 19-month high as oil prices f
+   ✓ Longer-dated US Treasury yields climb as Iran and US restart
+   ✓ ITC Infotech to merge with Happiest Minds, buy 22% promoter 
+   ✓ Sebi bars Tarapur Transformers, promoters from markets for 5
+   ✓ Blackstone’s Knowledge Realty Trust OFS subscribed 1.4 times
+   ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
+   ✓ India's markets regulator approves Jio Platforms' $3.8 billi
+   ✓ Meta- and Google-backed Indian telecom operator Jio Platform
+   ✓ Subhash Chandra drops mention of Mukesh Ambani allegations, 
+   ✓ Jio Platforms Gets Regulatory Clearance For India’s Biggest 
+   ✓ Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis
+   ✓ Reliance rejects Subhash Chandra’s allegations against its m
+   ✓ Subhash Chandra accuses Mukesh Ambani of media campaign agai
    ✓ Miraggio targets Rs 500 crore by FY30, plans 100+ stores
    ✓ Govt likely discussing import duty cut on gold and silver as
    ✓ Zomato bans analogue dairy dishes on platform, gives restaur
@@ -184,53 +210,45 @@ Cutoff: 2026-08-21 14:12 UTC  (MAX_AGE_HOURS=240)
    ✓ Temasek, ChrysCap brew up plans for Blue Tokai stake, put Rs
    ✓ For retailers, ecommerce highs come with headaches
    ✓ Can Purple Style Labs IPO deliver long-term growth for high-
-   ✓ Peg by peg, Vodka's share is rising in India
-   ✓ Food safety eateries' body says fix the problem, not the bla
-   ✓ GRT Jewellers looks to go pan-India, acquires 74% stake in T
-   ✓ Gautam Adani urges credit agencies to broaden infrastructure
-   ✓ Fresh lending and deposit rates ease in July; MCLR inches up
-   ✓ Altimetrik Achieves the AWS Generative AI Specialization
-   ✓ SBI Life highlights the importance of balancing growth, prot
-   ✓ India’s GDP growth accelerates to 7.8% in Q1 FY27
+   ✓ Meta removes ads for fraud apps posing as porn after India s
+   ✓ Meta defeats Instagram shopping monopoly lawsuit for now
+   ✓ OpenAI says Indian advertisers to get direct access to ChatG
+   ✓ ITC Infotech to acquire 22.1% stake in Happiest Minds for Rs
+   ✓ OpenAI's ad business hits $1 billion annualised revenue run 
    ✓ Semicon 2.0 takes shape; Zomato’s Hyderabad layoffs
    ✓ Nvidia invests $3.5 billion in MediaTek convertible bonds
    ✓ Chinese AI chipmaker Enflame aims to raise $908 million afte
-   ✓ GameStop expects lower quarterly sales on store closures, Fr
-   ✓ Adobe to offer free access to AI tools in Saudi Arabia in $4
-   ✓ SLB to expand data center business with $3.4 billion deal fo
-   ✓ Soitec locks customers into multi-year deals as AI wafer dem
-   ✓ AI-driven cyber risk is top concern for global financial sta
-   ✓ Nepal's hesitance to accept foreign help for flood relief un
+   ✓ Lionel Messi says he's retiring from playing internationally
+   ✓ Nepal's hesitance to accept foreign help for flood relief co
    ✓ U.S., Venezuela strike oil deal. And, the staggering hidden 
    ✓ Russia's jet-powered drones bring empty Kyiv supermarket she
    ✓ Attacks flare between the U.S. and Iran after a monthlong pa
    ✓ Hit shows from Edinburgh's Fringe festival are coming to Ame
-   ✓ The U.S. Venezuela oil deal won't lower your gas prices. Her
+   ✓ The U.S.-Venezuela oil deal won't lower your gas prices. Her
    ✓ Rescuers search for the missing after deadly flood along Nep
-   ✓ U.N. worker shares what aid is needed as Nepal recovers from
-   ✓ Mayank Agarwal joins Durham for remainder of County Champion
-   ✓ Unchanged Namibia bowl; Zimbabwe bring in Masakadza for Crem
-   ✓ Trescothick sees parallels with 2005 attack as England seame
-   ✓ BCB president Tamim Iqbal 'hopeful' of India touring Banglad
-   ✓ Hazlewood looks to maintain intensity after successful Test 
-   ✓ Abbas: "Everyone is worried" as Pakistan's grim run of form 
-   ✓ India shrug off middle-order collapse to post big win
-   ✓ Toby Albert fifty fails to ease Hampshire frustration
-   ✓ Banks are in good shape, but ...
-   ✓ HDFC Bank faces governance test as CEO exit raises questions
-   ✓ Even AI champs blink on job cuts
-   ✓ Is your data truly yours? India's sovereignty struggle with 
-   ✓ Awareness that remains
-   ✓ Flight of the Bumblebee
-   ✓ To be tech-en seriously, be loud
-   ✓ Chutney goes global: From Indian kitchens to Caribbean music
+   ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
+   ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
+   ✓ How Saransh Jain chose red-ball cricket over IPL stint befor
+   ✓ Nahida, Marufa help Bangladesh brush aside Indonesia
+   ✓ Pakistan send seven players home and bring in Hesson to coac
+   ✓ Zimbabwe survive Green, Busing-Volschenk scare to win thrill
+   ✓ 'I'm confident in my abilities' - Maphaka ready to step up i
+   ✓ Pakistan squad, management set for overhaul after Lord's def
+   ✓ Modi Cabinet Reshuffle Analysis: BJP's Mother of All Resets 
+   ✓ Daily Editorial Analysis 31 August 2026
+   ✓ India’s new global play: More trade deals, fewer fixed allia
+   ✓ From silence within: The Young have never waited for permiss
+   ✓ The swan thieves by Elizabeth Kostova
+   ✓ Mount a Bid to Fix Gaspirations: India’s educated unemployed
+   ✓ Stories of humanity
+   ✓ Despite a strong Q1 showing, risks are on the upside, thanks
 
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   10 OK  /  10 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-08-31   Hero: legal-ce57c210
+Edition: 2026-09-01   Hero: legal-11ad9322
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
