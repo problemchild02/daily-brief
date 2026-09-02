@@ -1,87 +1,85 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-23 04:53 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-23 11:31 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (26,349 bytes)
-    + [legal] Argus Partners hires Corporate Partners Saurav Kumar, Swathi Sreenath and team f
-    + [legal] Inability to prove exact quantum of loss does not bar award of compensation: Bom
-    + [legal] Trilegal, Quillon Partners act on Tynor securing $200 million investment from Ke
-    + [legal] Shardul Amarchand Mangaldas acts on Union Bank of India $600 million senior note
-    + [legal] Vinayak Savarkar did not hate Muslims, wanted their progress: Savarkar kin to Pu
-    + [legal] Karnataka HC grants relief to man booked for sexual harassment after urinating n
-    → 6 items: 6 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (255,882 bytes)
-    + [legal] From Law to Commerce: GCAI IndiaSingapore Legal Bridge Opens a New Chapter in L
-    + [legal] Crime Without Punishment: How Corrective Rape Escapes Law
-    → 10 items: 2 accepted, 0 too old, 0 no-date
+    OK  (232,721 bytes)
+    + [legal] Legalics strengthens Hyderabad presence through strategic collaboration with Nal
+    + [legal] Karnataka HC slaps ₹1 lakh costs on man who lodged email complaint with CJI and 
+    + [legal] Stratage Law Partners strengthens partnership with appointment of Amruta Kelkar,
+    + [legal] Move Andhra Pradesh HC: Delhi High Court rejects PIL against closure of old Visa
+    + [legal] Supreme Court seeks structured plan to fix vacancies, pendency in district and s
+    + [legal] Complaint before BCI alleges Rashtriya Raksha University law school in 'flagrant
+    + [legal] Expedite process to fill RERA vacancies: Delhi High Court directs Delhi governme
+    + [legal] Bombay High Court sets aside alimony order issued based on guesswork of husband'
+    → 38 items: 8 accepted, 0 too old, 0 no-date
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (215,830 bytes)
+    OK  (211,581 bytes)
     + [business] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15 trillion 
     ↳ dual-tag [reliance] Africa’s 2nd-largest economy makes fresh move to attract India’s $4.15
-    + [business] India GDP Growth At 7.8%: What It Means For The Economy, Markets & You
+    + [business] India's GDP grows 7.8% in Q1: Factors powering the economy despite global turmoi
     + [business] India's economy offers scale, growth and opportunity, says Sitharaman in Toronto
-    + [business] Bloomberg India to expand premium business and market coverage launched
-    → 98 items: 4 accepted, 94 too old, 0 no-date
+    + [business] India GDP Growth At 7.8%: What It Means For The Economy, Markets & You
+    → 95 items: 4 accepted, 91 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (64,968 bytes)
-    + [business] Susan Electricals Cash Flow, Financial Statements
-    + [business] BSE Hits 14th Straight Record Quarter as NSE Prepares for India’s Largest-Ever I
-    → 35 items: 2 accepted, 32 too old, 0 no-date
+    OK  (71,535 bytes)
+    → 38 items: 0 accepted, 37 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (41,521 bytes)
-    + [business] Global Market: Japanese shares tumble as Iran conflict lifts oil prices, bond yi
-    + [business] Which auto stocks should you buy after August sales? Here are Nomura, other brok
-    → 50 items: 2 accepted, 0 too old, 0 no-date
+    OK  (50,623 bytes)
+    + [business] Asset Reconstruction Company IPO to open on September 9. Check details
+    + [business] Pranav Constructions announces IPO price band, issue opens September 7. Check de
+    + [business] Bitcoin slips under $77K after August rally as macro pressures mount. Here is wh
+    + [business] RBI backstop keeps Indian rupee stable, blunting importer dollar demand impact
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (185,352 bytes)
+    OK  (183,282 bytes)
+    + [reliance] JioHotstar, India’s largest video streaming platform, is run by JioStar, the med
     + [reliance] Ambani’s streaming site targets millions of Indians living overseas
     + [reliance] India's markets regulator approves Jio Platforms' $3.8 billion IPO
-    + [reliance] Meta- and Google-backed Indian telecom operator Jio Platforms gets regulatory no
+    + [reliance] Ambani’s Streaming Site Targets Millions of Indians Living Overseas
+    + [reliance] Ambani uses ₹10 power again for the next disruption in a hot Indian market
+    + [reliance] India media baron Subhash Chandra’s insolvency settlement sparks feud with Mukes
     + [reliance] Ambani's Reliance enters India's crowded ice cream market with 10-cent products
-    + [reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading misinformation, RIL den
-    + [reliance] Subhash Chandra accuses Mukesh Ambani of media campaign against him, Reliance sa
-    + [reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest IPO, Setting Stage F
-    → 100 items: 7 accepted, 3 too old, 0 no-date
+    → 100 items: 7 accepted, 1 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (121,390 bytes)
-    → 72 items: 0 accepted, 72 too old, 0 no-date
+    OK  (126,630 bytes)
+    → 75 items: 0 accepted, 75 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,789 bytes)
-    + [retail] Ambani's Reliance enters India's crowded ice cream market with 10-cent products
-    + [retail] Nestle to divest mainstream supplements business for $1 billion
+    OK  (11,073 bytes)
+    + [retail] UK's Frasers plans to boost stake in Hugo Boss to more than 50%
     + [retail] Maharashtra FDA suspends Blinkit, 2 Mumbai eateries’ food licences over serious 
+    + [retail] Nestle to divest mainstream supplements business for $1 billion
+    + [retail] Ambani's Reliance enters India's crowded ice cream market with 10-cent products
     + [retail] Unless necessary, do not buy gold, reiterates PM Modi on Instagram; jewellery st
     + [retail] Parle Biscuits appoints former PepsiCo executive George Kovoor as CEO
     + [retail] Mumbai raid uncovers fake expiry dates, nutrition labels on food export products
     + [retail] FirstCry bets on quick deliveries to drive multichannel India sales
-    + [retail] Zomato layoffs: 250 jobs cut as company shuts customer support centre in Hyderab
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (46,008 bytes)
+    OK  (46,111 bytes)
+    + [tech] Dropbox says about 5,000 accounts compromised in August hack
+    + [tech] TSMC plans Kaohsiung site expansion to boost semiconductor testing efficiency
+    + [tech] Dell again lifts annual forecasts as AI demand powers record results
+    + [tech] ED raids 12 places across four states in Cyprus-based betting platform Parimatch
+    + [tech] Anthropic unveils Claude Fable 5.1 and Mythos 5.1 for coding and knowledge work
     + [tech] Palo Alto Networks beats quarterly earnings estimates, acquires AI platform Cons
     + [tech] Mark Zuckerberg, Elon Musk make plea at G20 for more AI data centers
     + [tech] OpenAI says upcoming model is so capable it requires stronger guardrails
-    + [tech] South Korean finance minister nominee vows to advance AI projects
-    + [tech] Perplexity CEO announces rollout of hybrid compute feature for Mac application
-    + [tech] John Ternus takes over as Apple enters era of AI, foldable phones
-    + [tech] Not just Nvidia: these power and cooling firms are riding the trillion-dollar da
-    + [tech] Restaurants step up food safety; UpGrad seals Unacademy deal
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,15 +90,15 @@ Cutoff: 2026-08-23 04:53 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,792 bytes)
+    OK  (14,058 bytes)
+    + [world] India's prime minister is wooing the GenZ while cracking down on them
+    + [world] ICE says it now has enough body cameras. And, Congress averts shutdown before mi
+    + [world] Israel bars U.S. citizens over criticism and ties to Palestinian activists, lawy
+    + [world] Germany blames Russia for last month's attempted drone attack at Leipzig airport
+    + [world] Putin signals support for Iran in ongoing war with the U.S.
+    + [world] U.S. military strikes Iran, while Trump vows more for Tehran's retaliation
+    + [world] A week after the deadly floods in Nepal, rescuers work to find survivors
     + [world] SCOTUS allows Trump's ballroom project to continue. And, the Army secretary resi
-    + [world] Global finance ministers gather in North Carolina for G20 summit
-    + [world] The U.S. wants others to join its economic pressure campaign against Iran. Will 
-    + [world] Days after Trump announces Venezuela oil deal, White House fills in some of the 
-    + [world] Hindu pilgrims on an arduous trek are among Nepal's missing
-    + [world] Trump's plan for economic D-day for Iran has one big hole: China
-    + [world] Lionel Messi says he's retiring from playing internationally for Argentina
-    + [world] Nepal's hesitance to accept foreign help for flood relief comes under scrutiny
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,18 +107,18 @@ Cutoff: 2026-08-23 04:53 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (194,208 bytes)
+    OK  (198,325 bytes)
+    + [sports] Cricket Test Today Match Live India Ipl Score A Peacock With Its Feathers Spread
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
-    + [sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to India Test Cap
     → 100 items: 2 accepted, 98 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,588 bytes)
+    OK  (89,637 bytes)
+    + [sports] Hampshire U-turn on Kuggeleijn signing after fan backlash
+    + [sports] 'Can play 360, has got power' - Stokes set for opening role with Adelaide Strike
+    + [sports] Asalanka named white-ball vice-captain, returns for England T20Is
     + [sports] 'It's just very messy' - Green and Holder criticise umpiring after Charles no-ba
-    + [sports] Aaqib warns of Imam 'inquiry', calls overhaul a 'message' to team management
-    + [sports] Stanlake emerges as unlikely Test contender
-    + [sports] Australia selectors focus on 'important' stepping stone to ODI World Cup defence
-    + [sports] Bouchier century sets England up for record 282-run chase against Ireland
-    + [sports] Asian Games: Teams can make their own hotel arrangements, says Japan Cricket Ass
+    + [sports] Tilak, Nidheesh lead South Zone into Duleep final
+    + [sports] India A to play three four-dayers in New Zealand before WTC Test series
     → 100 items: 6 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -128,11 +126,11 @@ Cutoff: 2026-08-23 04:53 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (120,748 bytes)
+    OK  (115,398 bytes)
     + [opinion] Nepal: Indian forensic team begins DNA analysis to identify flash flood victims
     + [opinion] Liquor dispatched from distilleries in Haryana before chemical analysis reports:
     + [opinion] India’s new global play: More trade deals, fewer fixed alliances
-    → 78 items: 3 accepted, 75 too old, 0 no-date
+    → 76 items: 3 accepted, 73 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -149,96 +147,92 @@ Cutoff: 2026-08-23 04:53 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (29 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Susan Electricals Cash Flow, Financial Statements: no og:image/twitter:image tag found
+── Image fetch (25 stories, 8 workers) ─────────────────────────────
+   ✗ [  reliance] JioHotstar, India’s largest video streaming platform, is run: no og:image/twitter:image tag found
+   ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  business] India's GDP grows 7.8% in Q1: Factors powering the economy d: no og:image/twitter:image tag found
    ✗ [  business] India GDP Growth At 7.8%: What It Means For The Economy, Mar: no og:image/twitter:image tag found
    ✗ [  business] India's economy offers scale, growth and opportunity, says S: no og:image/twitter:image tag found
-   ✗ [  business] Bloomberg India to expand premium business and market covera: no og:image/twitter:image tag found
-   ✗ [  business] BSE Hits 14th Straight Record Quarter as NSE Prepares for In: no og:image/twitter:image tag found
-   ✗ [  business] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
-   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani’s streaming site targets millions of Indians living o: no og:image/twitter:image tag found
-   ✗ [  reliance] Meta- and Google-backed Indian telecom operator Jio Platform: no og:image/twitter:image tag found
-   ✗ [  reliance] Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis: no og:image/twitter:image tag found
    ✗ [  reliance] India's markets regulator approves Jio Platforms' $3.8 billi: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s streaming site targets millions of Indians living o: no og:image/twitter:image tag found
+   ✗ [  reliance] Africa’s 2nd-largest economy makes fresh move to attract Ind: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani uses ₹10 power again for the next disruption in a hot: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Streaming Site Targets Millions of Indians Living O: no og:image/twitter:image tag found
+   ✗ [  reliance] India media baron Subhash Chandra’s insolvency settlement sp: no og:image/twitter:image tag found
    ✗ [  reliance] Ambani's Reliance enters India's crowded ice cream market wi: no og:image/twitter:image tag found
-   ✗ [  reliance] Subhash Chandra accuses Mukesh Ambani of media campaign agai: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest : no og:image/twitter:image tag found
+   ✓ [     world] Germany blames Russia for last month's attempted drone attac
+   ✓ [     world] U.S. military strikes Iran, while Trump vows more for Tehran
    ✓ [     world] SCOTUS allows Trump's ballroom project to continue. And, the
-   ✓ [     world] The U.S. wants others to join its economic pressure campaign
-   ✓ [     world] Days after Trump announces Venezuela oil deal, White House f
-   ✓ [     world] Nepal's hesitance to accept foreign help for flood relief co
-   ✓ [     world] Hindu pilgrims on an arduous trek are among Nepal's missing
-   ✓ [     world] Lionel Messi says he's retiring from playing internationally
-   ✓ [     world] Trump's plan for economic D-day for Iran has one big hole: C
-   ✓ [     world] Global finance ministers gather in North Carolina for G20 su
+   ✓ [     world] Putin signals support for Iran in ongoing war with the U.S.
+   ✓ [     world] A week after the deadly floods in Nepal, rescuers work to fi
+   ✓ [     world] ICE says it now has enough body cameras. And, Congress avert
+   ✓ [     world] Israel bars U.S. citizens over criticism and ties to Palesti
+   ✓ [     world] India's prime minister is wooing the GenZ while cracking dow
+   ✗ [    sports] Cricket Test Today Match Live India Ipl Score A Peacock With: no og:image/twitter:image tag found
    ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [    sports] Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I: no og:image/twitter:image tag found
-   ✗ [   opinion] India’s new global play: More trade deals, fewer fixed allia: no og:image/twitter:image tag found
-   ✗ [   opinion] Liquor dispatched from distilleries in Haryana before chemic: no og:image/twitter:image tag found
    ✗ [   opinion] Nepal: Indian forensic team begins DNA analysis to identify : no og:image/twitter:image tag found
-   ✗ [     legal] Crime Without Punishment: How Corrective Rape Escapes Law: TimeoutError: The read operation timed out
-   ✗ [     legal] From Law to Commerce: GCAI IndiaSingapore Legal Bridge Open: TimeoutError: The read operation timed out
-   images: 8 found, 21 not found
+   ✗ [   opinion] Liquor dispatched from distilleries in Haryana before chemic: no og:image/twitter:image tag found
+   ✗ [   opinion] India’s new global play: More trade deals, fewer fixed allia: no og:image/twitter:image tag found
+   images: 8 found, 17 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Argus Partners hires Corporate Partners Saurav Kumar, Swathi
-   ✓ Inability to prove exact quantum of loss does not bar award 
-   ✓ Trilegal, Quillon Partners act on Tynor securing $200 millio
-   ✓ Shardul Amarchand Mangaldas acts on Union Bank of India $600
-   ✓ Vinayak Savarkar did not hate Muslims, wanted their progress
-   ✓ Karnataka HC grants relief to man booked for sexual harassme
-   ✓ From Law to Commerce: GCAI IndiaSingapore Legal Bridge Open
-   ✓ Crime Without Punishment: How Corrective Rape Escapes Law
+   ✓ Legalics strengthens Hyderabad presence through strategic co
+   ✓ Karnataka HC slaps ₹1 lakh costs on man who lodged email com
+   ✓ Stratage Law Partners strengthens partnership with appointme
+   ✓ Move Andhra Pradesh HC: Delhi High Court rejects PIL against
+   ✓ Supreme Court seeks structured plan to fix vacancies, penden
+   ✓ Complaint before BCI alleges Rashtriya Raksha University law
+   ✓ Expedite process to fill RERA vacancies: Delhi High Court di
+   ✓ Bombay High Court sets aside alimony order issued based on g
    ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
-   ✓ India GDP Growth At 7.8%: What It Means For The Economy, Mar
+   ✓ India's GDP grows 7.8% in Q1: Factors powering the economy d
    ✓ India's economy offers scale, growth and opportunity, says S
-   ✓ Bloomberg India to expand premium business and market covera
-   ✓ Susan Electricals Cash Flow, Financial Statements
-   ✓ BSE Hits 14th Straight Record Quarter as NSE Prepares for In
-   ✓ Global Market: Japanese shares tumble as Iran conflict lifts
-   ✓ Which auto stocks should you buy after August sales? Here ar
+   ✓ India GDP Growth At 7.8%: What It Means For The Economy, Mar
+   ✓ Asset Reconstruction Company IPO to open on September 9. Che
+   ✓ Pranav Constructions announces IPO price band, issue opens S
+   ✓ Bitcoin slips under $77K after August rally as macro pressur
+   ✓ RBI backstop keeps Indian rupee stable, blunting importer do
    ✓ Africa’s 2nd-largest economy makes fresh move to attract Ind
+   ✓ JioHotstar, India’s largest video streaming platform, is run
    ✓ Ambani’s streaming site targets millions of Indians living o
    ✓ India's markets regulator approves Jio Platforms' $3.8 billi
-   ✓ Meta- and Google-backed Indian telecom operator Jio Platform
+   ✓ Ambani’s Streaming Site Targets Millions of Indians Living O
+   ✓ Ambani uses ₹10 power again for the next disruption in a hot
+   ✓ India media baron Subhash Chandra’s insolvency settlement sp
    ✓ Ambani's Reliance enters India's crowded ice cream market wi
-   ✓ Zee’s Subhash Chandra accuses Mukesh Ambani of spreading mis
-   ✓ Subhash Chandra accuses Mukesh Ambani of media campaign agai
-   ✓ Jio Platforms Gets Regulatory Clearance For India’s Biggest 
-   ✓ Ambani's Reliance enters India's crowded ice cream market wi
-   ✓ Nestle to divest mainstream supplements business for $1 bill
+   ✓ UK's Frasers plans to boost stake in Hugo Boss to more than 
    ✓ Maharashtra FDA suspends Blinkit, 2 Mumbai eateries’ food li
+   ✓ Nestle to divest mainstream supplements business for $1 bill
+   ✓ Ambani's Reliance enters India's crowded ice cream market wi
    ✓ Unless necessary, do not buy gold, reiterates PM Modi on Ins
    ✓ Parle Biscuits appoints former PepsiCo executive George Kovo
    ✓ Mumbai raid uncovers fake expiry dates, nutrition labels on 
    ✓ FirstCry bets on quick deliveries to drive multichannel Indi
-   ✓ Zomato layoffs: 250 jobs cut as company shuts customer suppo
+   ✓ Dropbox says about 5,000 accounts compromised in August hack
+   ✓ TSMC plans Kaohsiung site expansion to boost semiconductor t
+   ✓ Dell again lifts annual forecasts as AI demand powers record
+   ✓ ED raids 12 places across four states in Cyprus-based bettin
+   ✓ Anthropic unveils Claude Fable 5.1 and Mythos 5.1 for coding
    ✓ Palo Alto Networks beats quarterly earnings estimates, acqui
    ✓ Mark Zuckerberg, Elon Musk make plea at G20 for more AI data
    ✓ OpenAI says upcoming model is so capable it requires stronge
-   ✓ South Korean finance minister nominee vows to advance AI pro
-   ✓ Perplexity CEO announces rollout of hybrid compute feature f
-   ✓ John Ternus takes over as Apple enters era of AI, foldable p
-   ✓ Not just Nvidia: these power and cooling firms are riding th
-   ✓ Restaurants step up food safety; UpGrad seals Unacademy deal
+   ✓ India's prime minister is wooing the GenZ while cracking dow
+   ✓ ICE says it now has enough body cameras. And, Congress avert
+   ✓ Israel bars U.S. citizens over criticism and ties to Palesti
+   ✓ Germany blames Russia for last month's attempted drone attac
+   ✓ Putin signals support for Iran in ongoing war with the U.S.
+   ✓ U.S. military strikes Iran, while Trump vows more for Tehran
+   ✓ A week after the deadly floods in Nepal, rescuers work to fi
    ✓ SCOTUS allows Trump's ballroom project to continue. And, the
-   ✓ Global finance ministers gather in North Carolina for G20 su
-   ✓ The U.S. wants others to join its economic pressure campaign
-   ✓ Days after Trump announces Venezuela oil deal, White House f
-   ✓ Hindu pilgrims on an arduous trek are among Nepal's missing
-   ✓ Trump's plan for economic D-day for Iran has one big hole: C
-   ✓ Lionel Messi says he's retiring from playing internationally
-   ✓ Nepal's hesitance to accept foreign help for flood relief co
+   ✓ Cricket Test Today Match Live India Ipl Score A Peacock With
    ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
-   ✓ Saransh Jain's IPL Sacrifice for Red-Ball Cricket Leads to I
+   ✓ Hampshire U-turn on Kuggeleijn signing after fan backlash
+   ✓ 'Can play 360, has got power' - Stokes set for opening role 
+   ✓ Asalanka named white-ball vice-captain, returns for England 
    ✓ 'It's just very messy' - Green and Holder criticise umpiring
-   ✓ Aaqib warns of Imam 'inquiry', calls overhaul a 'message' to
-   ✓ Stanlake emerges as unlikely Test contender
-   ✓ Australia selectors focus on 'important' stepping stone to O
-   ✓ Bouchier century sets England up for record 282-run chase ag
-   ✓ Asian Games: Teams can make their own hotel arrangements, sa
+   ✓ Tilak, Nidheesh lead South Zone into Duleep final
+   ✓ India A to play three four-dayers in New Zealand before WTC 
    ✓ Nepal: Indian forensic team begins DNA analysis to identify 
    ✓ Liquor dispatched from distilleries in Haryana before chemic
    ✓ India’s new global play: More trade deals, fewer fixed allia
@@ -251,9 +245,9 @@ Cutoff: 2026-08-23 04:53 UTC  (MAX_AGE_HOURS=240)
    AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-09-02   Hero: legal-1ab30c3b
+Edition: 2026-09-02   Hero: legal-02a8c20e
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
