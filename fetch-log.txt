@@ -1,87 +1,85 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-24 04:50 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-24 11:28 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (25,029 bytes)
-    + [legal] Jindal - NTPC dispute: Delhi High Court delivers split verdict on validity of ₹1
-    + [legal] Preventing Dalits from entering temple on caste grounds amounts to untouchabilit
-    + [legal] Wife cannot be expected to follow husband like pug in Vodafone ad: Madras High C
-    + [legal] Consumer forum orders Zomato to pay customer ₹8,250 for cancelling food orders w
-    + [legal] Sayani Gupta files ₹9 crore defamation suit against Vinita Negi over 'Aasmani' p
-    → 5 items: 5 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (131,367 bytes)
-    + [legal] Cyril Amarchand Mangaldas advises The Great Eastern Shipping Company on its rece
-    + [legal] Systemic Integration in Investor State Dispute Settlement: Fragmentation, Treaty
-    + [legal] Call for Papers: RGNUL Financial and Mercantile Law Review [Volume XIV Issue I 
-    → 10 items: 3 accepted, 0 too old, 0 no-date
+    OK  (315,828 bytes)
+    + [legal] MNLU Mumbai announces 15th Edition of NA Palkhivala Memorial National Research P
+    + [legal] Rajasthan HC Acting Chief Justice SP Sharma says Justice Sandeep Mehta made alle
+    + [legal] Delhi HC appoints advocate Gautam Bhatia as amicus curiae in Janhvi Kapoor perso
+    + [legal] Bombay High Court grants actress Shruti Haasan interim relief on plea against AI
+    + [legal] Change the date of anti-reservation protest: Delhi High Court to Kshatriya Karni
+    + [legal] Jyoti Maheshwari joins ANM Global as Partner in Corporate, Fintech & Regulatory 
+    + [legal] Delhi court grants bail to AAP's Satyendar Jain in ACB case
+    + [legal] Punjab & Haryana High Court quashes dismissal of DSP accused of facilitating Law
+    → 50 items: 8 accepted, 0 too old, 0 no-date
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (179,241 bytes)
-    + [business] India's GDP grows 7.8% in Q1: Factors powering the economy despite global turmoi
+    OK  (176,425 bytes)
     + [business] India's economy can near $20 trn by 2046 if current growth pace holds: CEA
     + [business] Bloomberg India launches expanded premium business, market coverage
-    → 79 items: 3 accepted, 76 too old, 0 no-date
+    → 77 items: 2 accepted, 75 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (60,995 bytes)
-    → 32 items: 0 accepted, 30 too old, 0 no-date
+    OK  (59,646 bytes)
+    → 31 items: 0 accepted, 29 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (37,816 bytes)
-    + [business] Small investors, big money! 15 retail-heavy subscribed IPOs of 2026 deliver up t
-    + [business] Rupee gains to 94.27 vs USD as RBI measures bring in bumper $136 billion
-    + [business] Gold prices rise 2,300/10 gram in 2 days; silver gains Rs 3,300/kg as yields, do
-    + [business] Global Market: Japan’s Nikkei struggles for direction as chip stocks weigh, bond
-    + [business] Arcil sets price band at Rs 132-139 for Rs 733 cr IPO; issue to open on Sep 9
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    OK  (52,230 bytes)
+    + [business] Quote of the day by Bill Miller: "Markets are all about expectations, and the cr
+    + [business] Rupee rises 14 paise to close at 94.59 against US dollar
+    + [business] Beyond Stocks and Bonds: Rethinking wealth creation with alternative assets
+    + [business] Jindal Worldwide shares jump 20% to hit upper circuit, up 66% in 2026; check wha
+    + [business] Global Market: Eurozone services growth slows in August, but private sector rema
+    + [business] smallcase launches US stock, global ETF portfolios for Indian investors
+    → 50 items: 6 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (186,380 bytes)
+    OK  (188,080 bytes)
     + [reliance] Mukesh Ambani’s Jio Turns Old PCs Into AI Machines
     + [reliance] Meta- and Google-backed Indian telecom operator Jio Platforms gets regulatory no
     + [reliance] Reliance’s JioHotstar takes its streaming empire global — without sports
-    + [reliance] Ambani's Reliance enters India's crowded ice cream market with 10-cent products
+    + [reliance] Ambani’s Streaming Site Targets Millions of Indians Living Overseas
     + [reliance] JioHotstar, India’s largest video streaming platform, is run by JioStar, the med
-    + [reliance] Indian billionaire Mukesh Ambani launches ice cream brand
-    + [reliance] Ambani uses ₹10 power again for the next disruption in a hot Indian market
     + [reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest IPO, Setting Stage F
-    → 100 items: 8 accepted, 2 too old, 0 no-date
+    + [reliance] Subhash Chandra Vs Mukesh Ambani Feud Explained: From Zee-Sony Deal To NCLT Orde
+    + [reliance] The IPO India Has Been Waiting For: Why Jio’s Market Debut Could Rewrite Stock M
+    → 100 items: 8 accepted, 5 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (130,114 bytes)
-    + [retail] Bhagyajit Singh Rekhi on Indias Retail Future: Why Online and Offline Retail Mus
-    → 75 items: 1 accepted, 74 too old, 0 no-date
+    OK  (66,455 bytes)
+    + [retail] Indian Retail Shifts as 92% of Shoppers Use AI for Buying
+    → 41 items: 1 accepted, 40 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,566 bytes)
-    + [retail] Godrej Consumer’s new CEO Malbari lays out an execution overhaul in first invest
-    + [retail] Flipkart launches microdrama on main app to drive platform engagement
-    + [retail] Too weak, too strict: India's food warning labels draw fire from all sides
-    + [retail] India's rich diversity makes localisation necessary for brands, says Shiseido ex
+    OK  (11,320 bytes)
+    + [retail] Swiggy’s CREW enters travel with personal concierge service
     + [retail] Gold imports may fall 15 per cent in September after PM Modi’s call to curb purc
+    + [retail] India's rich diversity makes localisation necessary for brands, says Shiseido ex
+    + [retail] Too weak, too strict: India's food warning labels draw fire from all sides
+    + [retail] Flipkart launches microdrama on main app to drive platform engagement
+    + [retail] Godrej Consumer’s new CEO Malbari lays out an execution overhaul in first invest
     + [retail] Amazon to hire 160,000 temporary workers for festive season demand
-    + [retail] To Chennai from Cupertino: How Tim ‘cooked’ Apple's India recipe
     → 10 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (46,650 bytes)
+    OK  (47,483 bytes)
+    + [tech] NHRC seeks reports from MeitY, MIB, Delhi Police over Instagram CSAM ads
+    + [tech] Apple facing $2.7 billion UK lawsuit over 'unfair' app tracking rules
+    + [tech] If Europe's AI sovereignty relies on Mistral, 'we're doomed': French finance min
+    + [tech] South Korea utility proposes Samsung pays $15 billion in advance for power, pape
+    + [tech] New AI models, critical threshold, and a design debate: A busy day for AI indust
     + [tech] OpenAI is building 'automated shutdown' capabilities for AI tools, letter to law
     + [tech] Microsoft reveals Azure cloud sales in financial reporting shift
     + [tech] Had benefit of watching PM Modi talk about AI 10 years ago: Nvidia's Jensen Huan
-    + [tech] US Commerce chief says Anthropic back on 'right side' with Trump, Axios reports
-    + [tech] US government backs OpenAI in New York Times copyright case
-    + [tech] AI boom is testing tech firms' climate pledges
-    + [tech] Tech pilgrims flock to China as global innovation race heats up
-    + [tech] Broadcom raises AI chip forecast as Big Tech keeps writing bigger checks
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,15 +90,15 @@ Cutoff: 2026-08-24 04:50 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,300 bytes)
+    OK  (13,558 bytes)
+    + [world] Dems demand DHS fund election security. And, journalist Gloria Steinem has died
+    + [world] Families of the missing in Nepal's flash floods perform symbolic cremations
+    + [world] China's Xi visits Egypt for the first time in a decade
+    + [world] Critics question legality of Venezuela oil deals
+    + [world] U.S.-Israel relations are on the rocks ahead of elections
+    + [world] Xi visits Egypt as China seeks deeper influence across the Mideast
+    + [world] Ex-Venezuelan President Nicolás Maduro and wife seek to end drug charges case on
     + [world] A jury in Malta acquits a businessman in the killing of reporter Daphne Caruana 
-    + [world] Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong
-    + [world] Greetings from the Royal Pavilion, a stunning reminder of India in southern Engl
-    + [world] Chevron to expand in Venezuela, days after the U.S. and Venezuela strike oil dea
-    + [world] India's prime minister is wooing the Gen Z while cracking down on them
-    + [world] ICE says it now has enough body cameras. And, Congress averts shutdown before mi
-    + [world] Israel bars U.S. citizens over criticism and ties to Palestinian activists, lawy
-    + [world] Germany blames Russia for last month's attempted drone attack at Leipzig airport
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,18 +107,18 @@ Cutoff: 2026-08-24 04:50 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (202,248 bytes)
+    OK  (204,368 bytes)
     + [sports] Cricket Test Today Match Live India Ipl Score A Peacock With Its Feathers Spread
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
     → 100 items: 2 accepted, 98 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,566 bytes)
+    OK  (89,578 bytes)
     + [sports] Cornwall, Nawaz keep Falcons on top; TKR on the brink of elimination
+    + [sports] Tilak, Shreyas and Nidheesh lead South Zone into Duleep final
     + [sports] Nilakshika fifty, Athapaththu seven-for rescue Sri Lanka against Indonesia
     + [sports] Fisher channels disappointment at former club for Surrey's survival
     + [sports] Worcestershire ahead in promotion tussle with Kent
     + [sports] Leaning rebuilds amid Porter cameo from the bench
-    + [sports] Seamers run riot to keep Somerset's title hopes on track
     → 100 items: 6 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -128,10 +126,10 @@ Cutoff: 2026-08-24 04:50 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (114,172 bytes)
-    + [opinion] Daily Editorial Analysis 31 August 2026
-    + [opinion] India’s new global play: More trade deals, fewer fixed alliances
-    → 78 items: 2 accepted, 76 too old, 0 no-date
+    OK  (45,039 bytes)
+    + [opinion] Daily Editorial Analysis 1 September 2026
+    + [opinion] Daily Editorial Analysis 3 September 2026
+    → 35 items: 2 accepted, 33 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -149,96 +147,93 @@ Cutoff: 2026-08-24 04:50 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (27 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] Cyril Amarchand Mangaldas advises The Great Eastern Shipping
+── Image fetch (23 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] Bloomberg India launches expanded premium business, market c: no og:image/twitter:image tag found
+   ✗ [  business] India's economy can near $20 trn by 2046 if current growth p: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance’s JioHotstar takes its streaming empire global — wi: no og:image/twitter:image tag found
+   ✗ [  reliance] JioHotstar, India’s largest video streaming platform, is run: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Streaming Site Targets Millions of Indians Living O: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest : no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Jio Turns Old PCs Into AI Machines: no og:image/twitter:image tag found
    ✗ [  reliance] Meta- and Google-backed Indian telecom operator Jio Platform: no og:image/twitter:image tag found
-   ✗ [  business] India's economy can near $20 trn by 2046 if current growth p: no og:image/twitter:image tag found
-   ✗ [  business] Bloomberg India launches expanded premium business, market c: no og:image/twitter:image tag found
-   ✗ [  business] India's GDP grows 7.8% in Q1: Factors powering the economy d: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance’s JioHotstar takes its streaming empire global — wi: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Reliance enters India's crowded ice cream market wi: no og:image/twitter:image tag found
-   ✗ [  reliance] JioHotstar, India’s largest video streaming platform, is run: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani uses ₹10 power again for the next disruption in a hot: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms Gets Regulatory Clearance For India’s Biggest : no og:image/twitter:image tag found
-   ✗ [  reliance] Indian billionaire Mukesh Ambani launches ice cream brand: no og:image/twitter:image tag found
-   ✗ [    retail] Bhagyajit Singh Rekhi on Indias Retail Future: Why Online an: no og:image/twitter:image tag found
+   ✓ [     world] Families of the missing in Nepal's flash floods perform symb
+   ✓ [     world] China's Xi visits Egypt for the first time in a decade
+   ✓ [     world] Dems demand DHS fund election security. And, journalist Glor
+   ✓ [     world] Ex-Venezuelan President Nicolás Maduro and wife seek to end 
+   ✓ [     world] U.S.-Israel relations are on the rocks ahead of elections
+   ✗ [    retail] Indian Retail Shifts as 92% of Shoppers Use AI for Buying: no og:image/twitter:image tag found
+   ✗ [  reliance] Subhash Chandra Vs Mukesh Ambani Feud Explained: From Zee-So: no og:image/twitter:image tag found
+   ✗ [  reliance] The IPO India Has Been Waiting For: Why Jio’s Market Debut C: no og:image/twitter:image tag found
+   ✓ [     world] Critics question legality of Venezuela oil deals
    ✓ [     world] A jury in Malta acquits a businessman in the killing of repo
-   ✓ [     world] Greetings from the Royal Pavilion, a stunning reminder of In
-   ✓ [     world] ICE says it now has enough body cameras. And, Congress avert
-   ✓ [     world] India's prime minister is wooing the Gen Z while cracking do
-   ✓ [     world] Israel bars U.S. citizens over criticism and ties to Palesti
-   ✓ [     world] Iran fires on its Gulf neighbors, retaliating for U.S. strik
-   ✓ [     world] Germany blames Russia for last month's attempted drone attac
-   ✓ [     world] Chevron to expand in Venezuela, days after the U.S. and Vene
+   ✓ [     world] Xi visits Egypt as China seeks deeper influence across the M
    ✗ [    sports] Cricket Test Today Match Live India Ipl Score A Peacock With: no og:image/twitter:image tag found
    ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [   opinion] Daily Editorial Analysis 31 August 2026: no og:image/twitter:image tag found
-   ✗ [   opinion] India’s new global play: More trade deals, fewer fixed allia: no og:image/twitter:image tag found
-   ✗ [     legal] Call for Papers: RGNUL Financial and Mercantile Law Review [: TimeoutError: The read operation timed out
-   ✗ [     legal] Systemic Integration in Investor State Dispute Settlement: F: TimeoutError: The read operation timed out
-   images: 9 found, 18 not found
+   ✗ [   opinion] Daily Editorial Analysis 1 September 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 3 September 2026: no og:image/twitter:image tag found
+   images: 8 found, 15 not found
 
 ── AI enrichment (Claude Haiku) ─────────────────────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ Jindal - NTPC dispute: Delhi High Court delivers split verdi
-   ✓ Preventing Dalits from entering temple on caste grounds amou
-   ✓ Wife cannot be expected to follow husband like pug in Vodafo
-   ✓ Consumer forum orders Zomato to pay customer ₹8,250 for canc
-   ✓ Sayani Gupta files ₹9 crore defamation suit against Vinita N
-   ✓ Cyril Amarchand Mangaldas advises The Great Eastern Shipping
-   ✓ Systemic Integration in Investor State Dispute Settlement: F
-   ✓ Call for Papers: RGNUL Financial and Mercantile Law Review [
-   ✓ India's GDP grows 7.8% in Q1: Factors powering the economy d
+   ✓ MNLU Mumbai announces 15th Edition of NA Palkhivala Memorial
+   ✓ Rajasthan HC Acting Chief Justice SP Sharma says Justice San
+   ✓ Delhi HC appoints advocate Gautam Bhatia as amicus curiae in
+   ✓ Bombay High Court grants actress Shruti Haasan interim relie
+   ✓ Change the date of anti-reservation protest: Delhi High Cour
+   ✓ Jyoti Maheshwari joins ANM Global as Partner in Corporate, F
+   ✓ Delhi court grants bail to AAP's Satyendar Jain in ACB case
+   ✓ Punjab & Haryana High Court quashes dismissal of DSP accused
    ✓ India's economy can near $20 trn by 2046 if current growth p
    ✓ Bloomberg India launches expanded premium business, market c
-   ✓ Small investors, big money! 15 retail-heavy subscribed IPOs 
-   ✓ Rupee gains to 94.27 vs USD as RBI measures bring in bumper 
-   ✓ Gold prices rise 2,300/10 gram in 2 days; silver gains Rs 3,
-   ✓ Global Market: Japan’s Nikkei struggles for direction as chi
-   ✓ Arcil sets price band at Rs 132-139 for Rs 733 cr IPO; issue
+   ✓ Quote of the day by Bill Miller: "Markets are all about expe
+   ✓ Rupee rises 14 paise to close at 94.59 against US dollar
+   ✓ Beyond Stocks and Bonds: Rethinking wealth creation with alt
+   ✓ Jindal Worldwide shares jump 20% to hit upper circuit, up 66
+   ✓ Global Market: Eurozone services growth slows in August, but
+   ✓ smallcase launches US stock, global ETF portfolios for India
    ✓ Mukesh Ambani’s Jio Turns Old PCs Into AI Machines
    ✓ Meta- and Google-backed Indian telecom operator Jio Platform
    ✓ Reliance’s JioHotstar takes its streaming empire global — wi
-   ✓ Ambani's Reliance enters India's crowded ice cream market wi
+   ✓ Ambani’s Streaming Site Targets Millions of Indians Living O
    ✓ JioHotstar, India’s largest video streaming platform, is run
-   ✓ Indian billionaire Mukesh Ambani launches ice cream brand
-   ✓ Ambani uses ₹10 power again for the next disruption in a hot
    ✓ Jio Platforms Gets Regulatory Clearance For India’s Biggest 
-   ✓ Bhagyajit Singh Rekhi on Indias Retail Future: Why Online an
-   ✓ Godrej Consumer’s new CEO Malbari lays out an execution over
-   ✓ Flipkart launches microdrama on main app to drive platform e
-   ✓ Too weak, too strict: India's food warning labels draw fire 
-   ✓ India's rich diversity makes localisation necessary for bran
+   ✓ Subhash Chandra Vs Mukesh Ambani Feud Explained: From Zee-So
+   ✓ The IPO India Has Been Waiting For: Why Jio’s Market Debut C
+   ✓ Indian Retail Shifts as 92% of Shoppers Use AI for Buying
+   ✓ Swiggy’s CREW enters travel with personal concierge service
    ✓ Gold imports may fall 15 per cent in September after PM Modi
+   ✓ India's rich diversity makes localisation necessary for bran
+   ✓ Too weak, too strict: India's food warning labels draw fire 
+   ✓ Flipkart launches microdrama on main app to drive platform e
+   ✓ Godrej Consumer’s new CEO Malbari lays out an execution over
    ✓ Amazon to hire 160,000 temporary workers for festive season 
-   ✓ To Chennai from Cupertino: How Tim ‘cooked’ Apple's India re
+   ✓ NHRC seeks reports from MeitY, MIB, Delhi Police over Instag
+   ✓ Apple facing $2.7 billion UK lawsuit over 'unfair' app track
+   ✓ If Europe's AI sovereignty relies on Mistral, 'we're doomed'
+   ✓ South Korea utility proposes Samsung pays $15 billion in adv
+   ✓ New AI models, critical threshold, and a design debate: A bu
    ✓ OpenAI is building 'automated shutdown' capabilities for AI 
    ✓ Microsoft reveals Azure cloud sales in financial reporting s
    ✓ Had benefit of watching PM Modi talk about AI 10 years ago: 
-   ✓ US Commerce chief says Anthropic back on 'right side' with T
-   ✓ US government backs OpenAI in New York Times copyright case
-   ✓ AI boom is testing tech firms' climate pledges
-   ✓ Tech pilgrims flock to China as global innovation race heats
-   ✓ Broadcom raises AI chip forecast as Big Tech keeps writing b
+   ✓ Dems demand DHS fund election security. And, journalist Glor
+   ✓ Families of the missing in Nepal's flash floods perform symb
+   ✓ China's Xi visits Egypt for the first time in a decade
+   ✓ Critics question legality of Venezuela oil deals
+   ✓ U.S.-Israel relations are on the rocks ahead of elections
+   ✓ Xi visits Egypt as China seeks deeper influence across the M
+   ✓ Ex-Venezuelan President Nicolás Maduro and wife seek to end 
    ✓ A jury in Malta acquits a businessman in the killing of repo
-   ✓ Iran fires on its Gulf neighbors, retaliating for U.S. strik
-   ✓ Greetings from the Royal Pavilion, a stunning reminder of In
-   ✓ Chevron to expand in Venezuela, days after the U.S. and Vene
-   ✓ India's prime minister is wooing the Gen Z while cracking do
-   ✓ ICE says it now has enough body cameras. And, Congress avert
-   ✓ Israel bars U.S. citizens over criticism and ties to Palesti
-   ✓ Germany blames Russia for last month's attempted drone attac
    ✓ Cricket Test Today Match Live India Ipl Score A Peacock With
    ✓ Shubman Gill captaincy record in all formats - Tests, T20Is,
    ✓ Cornwall, Nawaz keep Falcons on top; TKR on the brink of eli
+   ✓ Tilak, Shreyas and Nidheesh lead South Zone into Duleep fina
    ✓ Nilakshika fifty, Athapaththu seven-for rescue Sri Lanka aga
    ✓ Fisher channels disappointment at former club for Surrey's s
    ✓ Worcestershire ahead in promotion tussle with Kent
    ✓ Leaning rebuilds amid Porter cameo from the bench
-   ✓ Seamers run riot to keep Somerset's title hopes on track
-   ✓ Daily Editorial Analysis 31 August 2026
-   ✓ India’s new global play: More trade deals, fewer fixed allia
+      AI error: Expecting value: line 1 column 1 (char 0)
+   ✗ Daily Editorial Analysis 1 September 2026
+   ✓ Daily Editorial Analysis 3 September 2026
    ✓ Le Doyenne Saint-Vrain, France
    ✓ Cash no king, but don't stash it: India wants a digital econ
    ✓ India’s IPO party is in full swing. Just don’t mistake debut
@@ -246,12 +241,12 @@ Cutoff: 2026-08-24 04:50 UTC  (MAX_AGE_HOURS=240)
    ✓ When a bigot gets a taste of his own medicine
    ✓ A plane plan for China to consider: Singapore opposition sla
 
-   AI done: 64 enriched, 0 failed/skipped (kept RSS fallback)
+   AI done: 63 enriched, 1 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-09-03   Hero: legal-a8717acc
+Edition: 2026-09-03   Hero: legal-e1d7ab95
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
