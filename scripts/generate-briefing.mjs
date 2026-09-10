@@ -18,7 +18,7 @@ const BRIEFING_PATH = join(ROOT, 'src', 'data', 'briefing.json')
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-const GEMINI_MODEL = 'gemini-2.5-flash'
+const GEMINI_MODEL = 'gemini-3.6-flash'
 const OPENAI_MODEL = 'gpt-4o-mini'
 
 // Priority categories for story selection

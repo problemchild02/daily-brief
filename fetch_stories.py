@@ -414,7 +414,7 @@ _BANNED_PHRASES = (
 # as a last resort elsewhere. Any provider whose key isn't set is skipped.
 GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
 OPENAI_API_KEY  = os.environ.get("OPENAI_API_KEY", "")
-GEMINI_MODEL    = "gemini-2.5-flash"
+GEMINI_MODEL    = "gemini-3.6-flash"
 OPENAI_MODEL    = "gpt-4o-mini"
 ANY_AI_ENABLED  = bool(ANTHROPIC_API_KEY or GEMINI_API_KEY or OPENAI_API_KEY)
 
