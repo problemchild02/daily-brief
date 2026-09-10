@@ -37,11 +37,13 @@ function pickInputStories(data) {
   return stories
 }
 
-const BRIEFING_PROMPT = `You are an editor producing a 5-bullet morning briefing for a senior in-house legal counsel at an Indian retail company. Pick the 5 most important stories from the input. For each, write one concise bullet (max 25 words) capturing the substance. Output JSON only.
+const BRIEFING_PROMPT = `You are an editor producing a 5-bullet morning briefing for a senior in-house legal counsel at an Indian retail company. Pick the 5 most important stories from the input. For each, write one concise bullet (max 25 words) capturing the substance — the specific fact (who, what, the number or ruling), not a category description of the story. Output JSON only.
+
+Do not write generic filler like "significant development" or "worth watching" — every bullet must contain a concrete, checkable fact from the input. If a story doesn't have one, don't pick it.
 
 Output schema:
 {
-  "summary": "<2-sentence editor's note summarising what kind of day it is — legal, market, mixed>",
+  "summary": "<2-sentence editor's note summarising what kind of day it is — legal, market, mixed — naming the specific driver, not just the category>",
   "bullets": [
     { "text": "...", "category": "legal|business|retail|tech|world|opinion|sports|reliance", "url": "..." }
   ]

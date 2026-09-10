@@ -397,6 +397,13 @@ _SECTION_HINTS = {
 }
 
 
+_BANNED_PHRASES = (
+    "may affect", "may have implications", "may impact", "could have implications",
+    "could affect", "is worth noting", "worth tracking", "worth watching",
+    "remains to be seen", "in today's", "in an ever-evolving", "landscape",
+    "growing regulatory activity", "increasingly important", "stay tuned",
+)
+
 def ai_enrich_story(headline, section, hook, summary, source, tags):
     """
     Anthropic Messages API via direct urllib — no SDK needed.
@@ -405,53 +412,96 @@ def ai_enrich_story(headline, section, hook, summary, source, tags):
     import json as _json
     rss_context = " ".join(filter(None, [hook, summary])).strip()
     tags_str    = ", ".join(tags) if tags else ""
+    has_excerpt = bool(rss_context)
+
+    no_excerpt_note = (
+        "" if has_excerpt else
+        "\nNo article text is available — you only have the headline, section, and "
+        "tags. Do not pad this out with vague sector commentary. For the summary, "
+        "restate concretely what the headline itself states (the specific actors, "
+        "numbers, and action) in one or two tight sentences — do not invent facts "
+        "beyond it. Put the real substance in contextNote, grounded in what you "
+        "actually know about the named people, companies, statutes, or events in "
+        "the headline."
+    )
+
     prompt = f"""{_READER_PROFILE}
 
 Section: {_SECTION_HINTS.get(section, section)}
 Source: {source}
 Tags: {tags_str}
 Headline: {headline}
-RSS excerpt: {rss_context[:600] if rss_context else "(none)"}
+RSS excerpt: {rss_context[:600] if has_excerpt else "(none)"}
+{no_excerpt_note}
+
+Write like a sharp analyst briefing a colleague who is short on time — specific,
+concrete, and grounded in named facts. Never write generic sector filler that
+could be pasted onto any other story in this section (e.g. "this may affect
+compliance obligations" or "worth tracking for regulatory trends"). If you
+don't have a specific fact to add, say less rather than pad with a hedge.
+Every sentence should teach the reader something they didn't already know from
+the headline alone.
 
 Return ONLY a raw JSON object — no markdown, no code fences:
 {{
-  "summary": "Strictly what this article reports: summarise every major point actually covered in the piece — what happened, who is involved, key figures/numbers/quotes mentioned, any reactions or responses reported, and what the article says happens next. Do NOT add outside context or your own knowledge here. Write in flowing paragraphs. Aim for 150–200 words.",
-  "contextNote": "Your own analysis — separate from the article: give the broader background and context a reader needs to fully understand this story, draw on your knowledge of the relevant law/sector/players, then explain specifically why this matters to an Indian lawyer: name the statute, tribunal, or regulatory body involved; identify the compliance risk, precedent, litigation angle, or client advisory implication; and state what a lawyer tracking this area should do or watch for. Aim for 100–150 words."
+  "summary": "Strictly what this article reports: the specific facts — what happened, who is involved (real names/entities, not 'the company' or 'the court'), key figures, numbers, quotes, or dates actually in the piece, any reactions reported, and what happens next. Do NOT add outside context or speculation here. Write in flowing paragraphs, no bullet points. Aim for 150-200 words when an excerpt is available; if none is available, keep this to 1-2 tight, factual sentences per the instruction above.",
+  "contextNote": "Your own grounded analysis, separate from the article. Name the specific statute (with section number if you know it), regulator, tribunal, or precedent involved — not just the category of law. If real case law applies, cite it (e.g. *Arun Ferreira (2021)*); if none is directly on point, say so rather than gesturing at 'relevant precedent'. Give 2-3 numbered concrete implications — '(1) ... (2) ...' inline, not generic bullets — for what an Indian in-house counsel should actually do, check, or watch for as a direct result of this specific story. Aim for 100-180 words."
 }}"""
-    try:
-        payload = {
-            "model":      AI_MODEL,
-            "max_tokens": 900,
-            "messages":   [{"role": "user", "content": prompt}],
-        }
-        req = Request(
-            "https://api.anthropic.com/v1/messages",
-            data=_json.dumps(payload).encode("utf-8"),
-            headers={
-                "Content-Type":      "application/json",
-                "x-api-key":         ANTHROPIC_API_KEY,
-                "anthropic-version": "2023-06-01",
-            },
-            method="POST",
-        )
-        with urlopen(req, timeout=30) as resp:
-            result = _json.loads(resp.read().decode("utf-8"))
-        raw = result["content"][0]["text"].strip()
-        raw = re.sub(r"^```(?:json)?\s*", "", raw)
-        raw = re.sub(r"\s*```$", "", raw)
-        data         = _json.loads(raw)
-        summary_out  = str(data.get("summary", "")).strip()
-        context_note = str(data.get("contextNote", "")).strip()
-        if summary_out and context_note:
+    banned_hint = ""
+    for attempt in range(2):
+        try:
+            payload = {
+                "model":      AI_MODEL,
+                "max_tokens": 900,
+                "messages":   [{"role": "user", "content": prompt + banned_hint}],
+            }
+            req = Request(
+                "https://api.anthropic.com/v1/messages",
+                data=_json.dumps(payload).encode("utf-8"),
+                headers={
+                    "Content-Type":      "application/json",
+                    "x-api-key":         ANTHROPIC_API_KEY,
+                    "anthropic-version": "2023-06-01",
+                },
+                method="POST",
+            )
+            with urlopen(req, timeout=30) as resp:
+                result = _json.loads(resp.read().decode("utf-8"))
+            raw = result["content"][0]["text"].strip()
+            raw = re.sub(r"^```(?:json)?\s*", "", raw)
+            raw = re.sub(r"\s*```$", "", raw)
+            data         = _json.loads(raw)
+            summary_out  = str(data.get("summary", "")).strip()
+            context_note = str(data.get("contextNote", "")).strip()
+            if not (summary_out and context_note):
+                return None
+            combined_lower = (summary_out + " " + context_note).lower()
+            if attempt == 0 and any(p in combined_lower for p in _BANNED_PHRASES):
+                # One retry, nudging the model away from the generic phrasing it used.
+                banned_hint = (
+                    "\n\nYour previous attempt used generic hedging language "
+                    "(e.g. \"may affect\", \"worth tracking\"). Rewrite with concrete, "
+                    "specific claims instead — name the actual mechanism or "
+                    "implication, don't gesture at one."
+                )
+                continue
             return {"summary": summary_out, "contextNote": context_note}
-        return None
-    except HTTPError as e:
-        body = e.read().decode("utf-8", errors="ignore")
-        print(f"      AI error HTTP {e.code}: {body[:300]}", file=sys.stderr)
-        return None
-    except Exception as e:
-        print(f"      AI error: {e}", file=sys.stderr)
-        return None
+        except HTTPError as e:
+            body = e.read().decode("utf-8", errors="ignore")
+            print(f"      AI error HTTP {e.code}: {body[:300]}", file=sys.stderr)
+            if e.code == 400 and "credit balance" in body.lower():
+                return None  # billing issue — retrying won't help
+            if attempt == 0:
+                time.sleep(2)
+                continue
+            return None
+        except Exception as e:
+            print(f"      AI error: {e}", file=sys.stderr)
+            if attempt == 0:
+                time.sleep(2)
+                continue
+            return None
+    return None
 
 
 def parse_date(item):

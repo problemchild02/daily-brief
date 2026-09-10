@@ -62,11 +62,6 @@ jobs:
               print('WARNING: 0 stories — this may be the fallback edition.')
           EOF
 
-      - name: Generate per-story annotations
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/generate-annotations.mjs
-
       - name: Generate briefing
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
