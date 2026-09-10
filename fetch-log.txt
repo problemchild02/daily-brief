@@ -1,48 +1,48 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-31 11:33 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (200,217 bytes)
+    OK  (235,679 bytes)
+    + [legal] Supreme Court asks Centre to respond to plea seeking safeguards for minors on so
+    + [legal] Delhi court frames money laundering charge against Lalu Yadav, Tejashwi Yadav, R
     + [legal] Delhi High Court restrains Beco’s ad campaign against HUL's Surf Excel, Vim
     + [legal] Supreme Court questions Rajasthan HC decision to downgrade judge's performance r
     + [legal] In-house counsel panel urges move towards domain experts and practitioners
     + [legal] Delhi High Court makes biometric Aadhaar authentication mandatory for GST regist
     + [legal] BJP leader files contempt case against CJP's Saurav Das for X post targeting P&H
     + [legal] Cannot be taken lightly: Supreme Court condemns harassment of 14-year-old girl l
-    + [legal] Adil Hussain moves from Baker McKenzie to Hogan Lovells Cadwalader
-    + [legal] Supreme Court dismisses anticipatory bail of Abhishek Banerjee's aide Sumit Roy 
-    → 38 items: 8 accepted, 0 too old, 0 no-date
+    → 43 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (188,481 bytes)
+    OK  (191,999 bytes)
     + [business] India GDP Growth At 7.8%: What It Means For The Economy, Markets & You
-    → 92 items: 1 accepted, 90 too old, 0 no-date
+    + [business] Zee Business Bond Tokenization Summit 2026: Tokenization to unlock India's bond 
+    → 93 items: 2 accepted, 90 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (70,937 bytes)
-    → 42 items: 0 accepted, 41 too old, 0 no-date
+    OK  (67,648 bytes)
+    → 39 items: 0 accepted, 38 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (49,465 bytes)
-    + [business] Global Market: European shares edge higher ahead of ECB rate decision
-    + [business] Explained: Why US ETFs listed in India are trading at steep 65% premiums over th
-    + [business] BSE suffers outage, Zerodha users complain of F&O price not reflecting
-    + [business] Global Market: Blackstone acquires majority stake in South Korea logistics park
-    + [business] 11 stocks that recorded profit margins above 10% for 4 straight quarters; surge 
-    + [business] Michael Burry pulls back on risk, says he’s happy to sit on cash. Is Big Short i
-    + [business] Global Market: ECB seen raising rates as Iran war fuels inflation fears
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    OK  (50,576 bytes)
+    + [business] Market wrap: HDFC Life, Power Grid, HCL Tech, Hindalco top gainers and losers on
+    + [business] Quote of the day by Daniel Kahneman: "When deciding to sell, people have control
+    + [business] Bitcoin consolidates near $78,000 as investors await key US inflation, Fed cues
+    + [business] Rupee slumps 38 paise to close at 95.46 against US dollar
+    + [business] Copper price's record rally highlights global mining-smelting mismatch, IPCPA sa
+    + [business] Can IndiGo shares fly again amid soaring oil prices? Ambit remains bullish but l
+    → 50 items: 6 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (192,108 bytes)
+    OK  (180,462 bytes)
     + [reliance] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This Year
     + [reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years for India’s AI tran
     + [reliance] Reliance Industries plans USD 1.3 billion bond issue, largest listed deal of 202
@@ -51,14 +51,15 @@ Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Reliance set to return to bond market after 3 years, eyes Rs 12,500 crore fundra
     + [reliance] After 10 years of India feat, Jio sets its sights on global market: Akash Ambani
     + [reliance] Jio Platforms Said to Start Marketing India IPO Next Week
-    → 100 items: 8 accepted, 1 too old, 0 no-date
+    → 100 items: 8 accepted, 6 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (128,052 bytes)
+    OK  (128,244 bytes)
     → 76 items: 0 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,750 bytes)
+    OK  (11,830 bytes)
+    + [retail] India’s organised apparel retail revenue to grow 12-13 per cent in FY27, margins
     + [retail] The House of Rare targets Rs 1,600 cr revenue, 285 stores as category expansion 
     + [retail] French food giant Danone eyes India growth without 'burning its wings'
     + [retail] Quick food delivery platform Swish raises $24 million led by Bertelsmann India
@@ -66,12 +67,11 @@ Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
     + [retail] India is consumer giant Unilever's blueprint for emerging-market growth: CEO
     + [retail] 'Apple enters late but sets the rules': A $1,999 bet on the foldable market with
     + [retail] Furniture rental firm Rentomojo's $133 million India IPO fully subscribed on fir
-    + [retail] Ferrero India enters premium chocolate bar segment with Classic Hazelnut, 70% Co
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,865 bytes)
+    OK  (45,859 bytes)
     + [tech] Technology takes centre stage as workplaces evolve into connected environments
     + [tech] DOJ probes Nvidia's licensing deal with AI startup Groq
     + [tech] Anthropic reports fourth cybersecurity incident with early version of Claude
@@ -107,10 +107,9 @@ Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (191,470 bytes)
-    + [sports] Cricket Test Today Match Live India Ipl Score A Peacock With Its Feathers Spread
+    OK  (189,193 bytes)
     + [sports] Vaibhav Sooryavanshi has already conquered IPL records and international cricket
-    → 100 items: 2 accepted, 98 too old, 0 no-date
+    → 100 items: 1 accepted, 99 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
     OK  (89,089 bytes)
     + [sports] Quraishi century headlines final day as East Zone secure Duleep Trophy
@@ -119,14 +118,15 @@ Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
     + [sports] Bumrah fit, Yash Thakur replaces Harshit for Afghanistan T20Is and Asian Games
     + [sports] Finn Allen poached by Melbourne Stars in biggest BBL deal
     + [sports] Tahir five-for, Sampson's sixes seal top spot for Guyana Amazon Warriors
-    → 100 items: 6 accepted, 0 too old, 0 no-date
+    + [sports] Santner resists BBL temptation to put New Zealand first
+    → 100 items: 7 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (118,749 bytes)
+    OK  (118,905 bytes)
     → 79 items: 0 accepted, 79 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
@@ -148,77 +148,58 @@ Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
 ── Image fetch (19 stories, 8 workers) ─────────────────────────────
-   ✗ [  reliance] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This : no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance Industries plans USD 1.3 billion bond issue, larges: no og:image/twitter:image tag found
    ✗ [  business] India GDP Growth At 7.8%: What It Means For The Economy, Mar: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years: no og:image/twitter:image tag found
-   ✗ [  reliance] After 10 years of India feat, Jio sets its sights on global : no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms to kick off global investor outreach this week: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This : no og:image/twitter:image tag found
    ✗ [  reliance] When Corporate India Goes to War: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms to kick off global investor outreach this week: no og:image/twitter:image tag found
+   ✗ [  business] Zee Business Bond Tokenization Summit 2026: Tokenization to : no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance Industries plans USD 1.3 billion bond issue, larges: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance set to return to bond market after 3 years, eyes Rs: no og:image/twitter:image tag found
    ✗ [  reliance] Jio Platforms Said to Start Marketing India IPO Next Week: no og:image/twitter:image tag found
-   ✓ [     world] 'I'll never trust them again': Some Afghans who helped the U
-   ✓ [     world] Greetings from Paris, where the 2024 Olympics balloon rises 
+   ✗ [  reliance] After 10 years of India feat, Jio sets its sights on global : no og:image/twitter:image tag found
    ✓ [     world] Scientists say August was Earth's hottest month they've meas
-   ✓ [     world] Iceland summons U.S. ambassador after Trump posts countries 
    ✓ [     world] UN peacekeepers give NPR a rare look behind Israeli lines
-   ✓ [     world] U.S. military destroys 5 Iranian oil tankers. And, the Smith
-   ✓ [     world] Citing the 'Deep State,' Trump overhauls the intelligence co
-   ✓ [     world] U.S. military says it destroyed 5 Iranian oil tankers after 
+   ✓ [     world] 'I'll never trust them again': Some Afghans who helped the U
    ✗ [    sports] Vaibhav Sooryavanshi has already conquered IPL records and i: no og:image/twitter:image tag found
-   ✗ [    sports] Cricket Test Today Match Live India Ipl Score A Peacock With: no og:image/twitter:image tag found
+   ✓ [     world] Iceland summons U.S. ambassador after Trump posts countries 
+   ✓ [     world] U.S. military destroys 5 Iranian oil tankers. And, the Smith
+   ✓ [     world] U.S. military says it destroyed 5 Iranian oil tankers after 
+   ✓ [     world] Greetings from Paris, where the 2024 Olympics balloon rises 
+   ✓ [     world] Citing the 'Deep State,' Trump overhauls the intelligence co
    images: 8 found, 11 not found
 
 ── AI enrichment (providers: anthropic, gemini, openai) ──────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
+   ✓ [anthropic] Supreme Court asks Centre to respond to plea seeking safegua
+   ✓ [anthropic] Delhi court frames money laundering charge against Lalu Yada
    ✓ [anthropic] Delhi High Court restrains Beco’s ad campaign against HUL's 
    ✓ [anthropic] Supreme Court questions Rajasthan HC decision to downgrade j
    ✓ [anthropic] In-house counsel panel urges move towards domain experts and
    ✓ [anthropic] Delhi High Court makes biometric Aadhaar authentication mand
    ✓ [anthropic] BJP leader files contempt case against CJP's Saurav Das for 
    ✓ [anthropic] Cannot be taken lightly: Supreme Court condemns harassment o
-   ✓ [anthropic] Adil Hussain moves from Baker McKenzie to Hogan Lovells Cadw
-   ✓ [anthropic] Supreme Court dismisses anticipatory bail of Abhishek Banerj
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
    ✓ [openai] India GDP Growth At 7.8%: What It Means For The Economy, Mar
-      [gemini] error: HTTP 404: {
+   ✓ [gemini] Zee Business Bond Tokenization Summit 2026: Tokenization to 
+      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+   ✓ [openai] Market wrap: HDFC Life, Power Grid, HCL Tech, Hindalco top g
+      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+   ✓ [openai] Quote of the day by Daniel Kahneman: "When deciding to sell,
+      [gemini] bad JSON: Unterminated string starting at: line 1 column 13 (char 12)
+   ✓ [openai] Bitcoin consolidates near $78,000 as investors await key US 
+      [gemini] bad JSON: Expecting value: line 1 column 1 (char 0)
+   ✓ [openai] Rupee slumps 38 paise to close at 95.46 against US dollar
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Global Market: European shares edge higher ahead of ECB rate
-      [gemini] error: HTTP 404: {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Copper price's record rally highlights global mining-smeltin
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Explained: Why US ETFs listed in India are trading at steep 
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] BSE suffers outage, Zerodha users complain of F&O price not 
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Global Market: Blackstone acquires majority stake in South K
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] 11 stocks that recorded profit margins above 10% for 4 strai
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Michael Burry pulls back on risk, says he’s happy to sit on 
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Global Market: ECB seen raising rates as Iran war fuels infl
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Can IndiGo shares fly again amid soaring oil prices? Ambit r
    ✓ [anthropic] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This 
    ✓ [anthropic] Reliance and Jio to invest Rs 10 lakh crore over seven years
    ✓ [anthropic] Reliance Industries plans USD 1.3 billion bond issue, larges
@@ -227,213 +208,210 @@ Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
    ✓ [anthropic] Reliance set to return to bond market after 3 years, eyes Rs
    ✓ [anthropic] After 10 years of India feat, Jio sets its sights on global 
    ✓ [anthropic] Jio Platforms Said to Start Marketing India IPO Next Week
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] India’s organised apparel retail revenue to grow 12-13 per c
+      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
    ✓ [openai] The House of Rare targets Rs 1,600 cr revenue, 285 stores as
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] French food giant Danone eyes India growth without 'burning 
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Quick food delivery platform Swish raises $24 million led by
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Lahori Zeera plans next Rs 400 cr growth; launches diet vari
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] India is consumer giant Unilever's blueprint for emerging-ma
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] 'Apple enters late but sets the rules': A $1,999 bet on the 
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Furniture rental firm Rentomojo's $133 million India IPO ful
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Ferrero India enters premium chocolate bar segment with Clas
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Technology takes centre stage as workplaces evolve into conn
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] DOJ probes Nvidia's licensing deal with AI startup Groq
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Anthropic reports fourth cybersecurity incident with early v
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] OpenAI pushes for mandatory national AI safety rules
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Anthropic sees AI driving GDP growth, but warns of job losse
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Meta share price surges after personal AI agent Muse release
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Generative AI a new tool in Mali's information war: study
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Indian-origin couple gifts $20 millon to American university
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Scientists say August was Earth's hottest month they've meas
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] UN peacekeepers give NPR a rare look behind Israeli lines
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] 'I'll never trust them again': Some Afghans who helped the U
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Greetings from Paris, where the 2024 Olympics balloon rises 
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] U.S. military destroys 5 Iranian oil tankers. And, the Smith
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Citing the 'Deep State,' Trump overhauls the intelligence co
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Iceland summons U.S. ambassador after Trump posts countries 
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] U.S. military says it destroyed 5 Iranian oil tankers after 
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
-   ✓ [openai] Cricket Test Today Match Live India Ipl Score A Peacock With
-      [gemini] error: HTTP 404: {
-  "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Vaibhav Sooryavanshi has already conquered IPL records and i
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Quraishi century headlines final day as East Zone secure Dul
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Shaheen Shah Afridi to play for KRL in President's Trophy
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Josh Blake signs Leicestershire deal after opting to leave S
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Bumrah fit, Yash Thakur replaces Harshit for Afghanistan T20
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Finn Allen poached by Melbourne Stars in biggest BBL deal
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Tahir five-for, Sampson's sixes seal top spot for Guyana Ama
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Santner resists BBL temptation to put New Zealand first
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Arkhe Adelaide
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Subhash Chandra’s Zee pledge saga: How promoter leverage tur
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Vi, index to measure the truly rich
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] NSE IPO is selling a monopoly. Investors should watch the re
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Man's search for God
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Part 'cream' from Dalit quota mix: Why Chirag Paswan & Jitan
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] UPI can do more tricks among BRICS
-      [gemini] error: HTTP 404: {
+      [gemini] exhausted: {
   "error": {
-    "code": 404,
-    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Regression can't be peddled as diversity
 
-   AI done: 64 enriched (anthropic=16, openai=48), 0 failed/skipped (kept RSS fallback)
+   AI done: 64 enriched (anthropic=16, openai=47, gemini=1), 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
 Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-09-10   Hero: legal-d114b4cc
+Edition: 2026-09-10   Hero: legal-97f9da86
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
