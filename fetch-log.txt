@@ -1,51 +1,48 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-08-31 05:01 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-08-31 10:27 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (26,074 bytes)
-    + [legal] Khaitan & Co acts on Bgauss ₹110 crore Series D fundraise
-    + [legal] T&R Law Offices advises No Filter on pre-seed fundraise
-    + [legal] JMRK Legal Associates is looking to hire Advocates in Delhi
-    + [legal] Problematic if choice of arbitrators can predict arbitration outcome: Justice In
-    + [legal] Madhya Pradesh High Court slams its IT wing for non-functional website; directs 
-    + [legal] SNG & Partners advises on inaugural investment by HDFC Capital - Hulic joint deb
-    → 6 items: 6 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (228,660 bytes)
-    + [legal] Cyril Amarchand Mangaldas advises Tilaknagar Industries Ltd. on its strategic in
-    + [legal] The SC Draft Regulation on AI: Intersection with Existing Laws
-    → 10 items: 2 accepted, 0 too old, 0 no-date
+    OK  (200,217 bytes)
+    + [legal] Delhi High Court restrains Beco’s ad campaign against HUL's Surf Excel, Vim
+    + [legal] Supreme Court questions Rajasthan HC decision to downgrade judge's performance r
+    + [legal] In-house counsel panel urges move towards domain experts and practitioners
+    + [legal] Delhi High Court makes biometric Aadhaar authentication mandatory for GST regist
+    + [legal] BJP leader files contempt case against CJP's Saurav Das for X post targeting P&H
+    + [legal] Cannot be taken lightly: Supreme Court condemns harassment of 14-year-old girl l
+    + [legal] Adil Hussain moves from Baker McKenzie to Hogan Lovells Cadwalader
+    + [legal] Supreme Court dismisses anticipatory bail of Abhishek Banerjee's aide Sumit Roy 
+    → 38 items: 8 accepted, 0 too old, 0 no-date
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (198,138 bytes)
-    + [business] India smashes growth forecasts as investment surges in April-June
-    ↳ dual-tag [reliance] India smashes growth forecasts as investment surges in April-June
+    OK  (188,481 bytes)
     + [business] India GDP Growth At 7.8%: What It Means For The Economy, Markets & You
-    → 97 items: 2 accepted, 94 too old, 0 no-date
+    → 92 items: 1 accepted, 90 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (69,887 bytes)
-    → 41 items: 0 accepted, 40 too old, 0 no-date
+    OK  (70,937 bytes)
+    → 42 items: 0 accepted, 41 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (44,499 bytes)
-    + [business] Gold prices dip to Rs 1.53 lakh, silver falls Rs 1,500/kg ahead of US inflation 
-    + [business] Shakti Pumps shares surge 12% on Rs 236 crore Maharashtra solar pump order
-    + [business] Apple Event 2026 impact: Redington shares jump 5% after Apple unveils first-ever
-    + [business] 6 mainboard IPOs enter Day 2: Karamtara Engineering, Steamhouse India, LCC Proje
-    + [business] Kanohar Electricals IPO Day 3: GMP signals 35% premium, subscription crosses 10x
-    + [business] Ather Energy shares rise 3% as Nomura raises target price; stock up nearly 200% 
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (49,465 bytes)
+    + [business] Global Market: European shares edge higher ahead of ECB rate decision
+    + [business] Explained: Why US ETFs listed in India are trading at steep 65% premiums over th
+    + [business] BSE suffers outage, Zerodha users complain of F&O price not reflecting
+    + [business] Global Market: Blackstone acquires majority stake in South Korea logistics park
+    + [business] 11 stocks that recorded profit margins above 10% for 4 straight quarters; surge 
+    + [business] Michael Burry pulls back on risk, says he’s happy to sit on cash. Is Big Short i
+    + [business] Global Market: ECB seen raising rates as Iran war fuels inflation fears
+    → 50 items: 7 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (179,745 bytes)
+    OK  (192,108 bytes)
     + [reliance] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This Year
     + [reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years for India’s AI tran
     + [reliance] Reliance Industries plans USD 1.3 billion bond issue, largest listed deal of 202
@@ -53,35 +50,36 @@ Cutoff: 2026-08-31 05:01 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Jio Platforms to kick off global investor outreach this week for $3.8 billion IP
     + [reliance] Reliance set to return to bond market after 3 years, eyes Rs 12,500 crore fundra
     + [reliance] After 10 years of India feat, Jio sets its sights on global market: Akash Ambani
-    → 100 items: 7 accepted, 5 too old, 0 no-date
+    + [reliance] Jio Platforms Said to Start Marketing India IPO Next Week
+    → 100 items: 8 accepted, 1 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (126,093 bytes)
-    → 75 items: 0 accepted, 75 too old, 0 no-date
+    OK  (128,052 bytes)
+    → 76 items: 0 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,288 bytes)
-    + [retail] India is consumer giant Unilever's blueprint for emerging-market growth: CEO
-    + [retail] Lahori Zeera plans next Rs 400 cr growth; launches diet variant, non-carbonated 
+    OK  (11,750 bytes)
+    + [retail] The House of Rare targets Rs 1,600 cr revenue, 285 stores as category expansion 
     + [retail] French food giant Danone eyes India growth without 'burning its wings'
+    + [retail] Quick food delivery platform Swish raises $24 million led by Bertelsmann India
+    + [retail] Lahori Zeera plans next Rs 400 cr growth; launches diet variant, non-carbonated 
+    + [retail] India is consumer giant Unilever's blueprint for emerging-market growth: CEO
     + [retail] 'Apple enters late but sets the rules': A $1,999 bet on the foldable market with
     + [retail] Furniture rental firm Rentomojo's $133 million India IPO fully subscribed on fir
     + [retail] Ferrero India enters premium chocolate bar segment with Classic Hazelnut, 70% Co
-    + [retail] Apple’s $2,000-plus foldable iPhone was a decade in the making
-    + [retail] Royaloak Furniture targets 1,000 stores in 3 years, plans Rs 100 cr manufacturin
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,619 bytes)
+    OK  (45,865 bytes)
+    + [tech] Technology takes centre stage as workplaces evolve into connected environments
+    + [tech] DOJ probes Nvidia's licensing deal with AI startup Groq
+    + [tech] Anthropic reports fourth cybersecurity incident with early version of Claude
+    + [tech] OpenAI pushes for mandatory national AI safety rules
     + [tech] Anthropic sees AI driving GDP growth, but warns of job losses, wage pressure
     + [tech] Meta share price surges after personal AI agent Muse release
     + [tech] Generative AI a new tool in Mali's information war: study
     + [tech] Indian-origin couple gifts $20 millon to American university for focus on AI, ad
-    + [tech] Meta tests fact-check replacement in Latin America
-    + [tech] Habuild CEO on user loyalty; Flipkart Minutes gets its own app
-    + [tech] ET Startup Awards 2026: Habuild leans on repeat users to expand beyond yoga into
-    + [tech] PhonePe to foray into UAE in maiden foreign outing
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,15 +90,15 @@ Cutoff: 2026-08-31 05:01 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,553 bytes)
+    OK  (13,738 bytes)
+    + [world] Scientists say August was Earth's hottest month they've measured
+    + [world] UN peacekeepers give NPR a rare look behind Israeli lines
+    + [world] 'I'll never trust them again': Some Afghans who helped the U.S. post-9/11 regret
     + [world] Greetings from Paris, where the 2024 Olympics balloon rises again
     + [world] U.S. military destroys 5 Iranian oil tankers. And, the Smithsonian head resigns
     + [world] Citing the 'Deep State,' Trump overhauls the intelligence community
     + [world] Iceland summons U.S. ambassador after Trump posts countries draped with American
     + [world] U.S. military says it destroyed 5 Iranian oil tankers after attacks on Navy wars
-    + [world] Kenya's foreign trader crackdown sparks fear among migrant communities
-    + [world] Australian social media users to be offered choice to opt out of algorithms
-    + [world] U.K. accuses Israeli settlers of 'ethnic cleansing' in West Bank and bans their 
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,18 +107,18 @@ Cutoff: 2026-08-31 05:01 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (190,598 bytes)
+    OK  (191,470 bytes)
     + [sports] Cricket Test Today Match Live India Ipl Score A Peacock With Its Feathers Spread
     + [sports] Vaibhav Sooryavanshi has already conquered IPL records and international cricket
     → 100 items: 2 accepted, 98 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,028 bytes)
+    OK  (89,089 bytes)
+    + [sports] Quraishi century headlines final day as East Zone secure Duleep Trophy
+    + [sports] Shaheen Shah Afridi to play for KRL in President's Trophy
+    + [sports] Josh Blake signs Leicestershire deal after opting to leave Surrey
+    + [sports] Bumrah fit, Yash Thakur replaces Harshit for Afghanistan T20Is and Asian Games
+    + [sports] Finn Allen poached by Melbourne Stars in biggest BBL deal
     + [sports] Tahir five-for, Sampson's sixes seal top spot for Guyana Amazon Warriors
-    + [sports] Santner resists BBL temptation to put New Zealand first
-    + [sports] 'It's depressing' - Shakeel laments Pakistan's batting woes
-    + [sports] Hermann: 'You don't just get a hundred, you try to push it further and further'
-    + [sports] Protesters mistake Pakistan's U-19 team for asylum seekers in Portsmouth
-    + [sports] Will Williams runs through Lancashire
     → 100 items: 6 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -128,10 +126,8 @@ Cutoff: 2026-08-31 05:01 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (118,121 bytes)
-    + [opinion] Markets Expert View: Stock Market Experts Views and Advice
-    + [opinion] Pakistan’s lawfare strategy against India has finally been blunted
-    → 79 items: 2 accepted, 77 too old, 0 no-date
+    OK  (118,749 bytes)
+    → 79 items: 0 accepted, 79 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -145,174 +141,299 @@ Cutoff: 2026-08-31 05:01 UTC  (MAX_AGE_HOURS=240)
     + [opinion] NSE IPO is selling a monopoly. Investors should watch the referee
     + [opinion] Man's search for God
     + [opinion] Part 'cream' from Dalit quota mix: Why Chirag Paswan & Jitan Ram Manjhi are clas
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    + [opinion] UPI can do more tricks among BRICS
+    + [opinion] Regression can't be peddled as diversity
+    → 50 items: 8 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (24 stories, 8 workers) ─────────────────────────────
-   ✗ [  reliance] Reliance Industries plans USD 1.3 billion bond issue, larges: no og:image/twitter:image tag found
+── Image fetch (19 stories, 8 workers) ─────────────────────────────
    ✗ [  reliance] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This : no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance Industries plans USD 1.3 billion bond issue, larges: no og:image/twitter:image tag found
    ✗ [  business] India GDP Growth At 7.8%: What It Means For The Economy, Mar: no og:image/twitter:image tag found
-   ✗ [  business] India smashes growth forecasts as investment surges in April: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years: no og:image/twitter:image tag found
-   ✗ [  reliance] India smashes growth forecasts as investment surges in April: no og:image/twitter:image tag found
-   ✗ [  reliance] When Corporate India Goes to War: no og:image/twitter:image tag found
    ✗ [  reliance] After 10 years of India feat, Jio sets its sights on global : no og:image/twitter:image tag found
    ✗ [  reliance] Jio Platforms to kick off global investor outreach this week: no og:image/twitter:image tag found
+   ✗ [  reliance] When Corporate India Goes to War: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance set to return to bond market after 3 years, eyes Rs: no og:image/twitter:image tag found
-   ✓ [     world] U.S. military says it destroyed 5 Iranian oil tankers after 
-   ✓ [     world] Kenya's foreign trader crackdown sparks fear among migrant c
-   ✓ [     world] U.S. military destroys 5 Iranian oil tankers. And, the Smith
-   ✓ [     world] Iceland summons U.S. ambassador after Trump posts countries 
+   ✗ [  reliance] Jio Platforms Said to Start Marketing India IPO Next Week: no og:image/twitter:image tag found
+   ✓ [     world] 'I'll never trust them again': Some Afghans who helped the U
    ✓ [     world] Greetings from Paris, where the 2024 Olympics balloon rises 
+   ✓ [     world] Scientists say August was Earth's hottest month they've meas
+   ✓ [     world] Iceland summons U.S. ambassador after Trump posts countries 
+   ✓ [     world] UN peacekeepers give NPR a rare look behind Israeli lines
+   ✓ [     world] U.S. military destroys 5 Iranian oil tankers. And, the Smith
    ✓ [     world] Citing the 'Deep State,' Trump overhauls the intelligence co
-   ✗ [    sports] Cricket Test Today Match Live India Ipl Score A Peacock With: no og:image/twitter:image tag found
-   ✓ [     world] Australian social media users to be offered choice to opt ou
+   ✓ [     world] U.S. military says it destroyed 5 Iranian oil tankers after 
    ✗ [    sports] Vaibhav Sooryavanshi has already conquered IPL records and i: no og:image/twitter:image tag found
-   ✗ [   opinion] Markets Expert View: Stock Market Experts Views and Advice: no og:image/twitter:image tag found
-   ✓ [     world] U.K. accuses Israeli settlers of 'ethnic cleansing' in West 
-   ✗ [   opinion] Pakistan’s lawfare strategy against India has finally been b: no og:image/twitter:image tag found
-   ✗ [     legal] Cyril Amarchand Mangaldas advises Tilaknagar Industries Ltd.: TimeoutError: The read operation timed out
-   ✗ [     legal] The SC Draft Regulation on AI: Intersection with Existing La: TimeoutError: The read operation timed out
-   images: 8 found, 16 not found
+   ✗ [    sports] Cricket Test Today Match Live India Ipl Score A Peacock With: no og:image/twitter:image tag found
+   images: 8 found, 11 not found
 
-── AI enrichment (Claude Haiku) ─────────────────────────────
+── AI enrichment (providers: anthropic, gemini, openai) ──────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxTbLUZ6VjBamkjxTi"}
-   ✗ Khaitan & Co acts on Bgauss ₹110 crore Series D fundraise
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxZ21nw1vW4NuJgn8u"}
-   ✗ T&R Law Offices advises No Filter on pre-seed fundraise
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxdmkzuMt3Nk2hDTi4"}
-   ✗ JMRK Legal Associates is looking to hire Advocates in Delhi
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxiYFWV7TrZLdXZ4ni"}
-   ✗ Problematic if choice of arbitrators can predict arbitration
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxoarw2YsGPdazLY7i"}
-   ✗ Madhya Pradesh High Court slams its IT wing for non-function
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxtKcvhjgKbig66i8V"}
-   ✗ SNG & Partners advises on inaugural investment by HDFC Capit
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAxy2PgrGt4X7AjKvCg"}
-   ✗ Cyril Amarchand Mangaldas advises Tilaknagar Industries Ltd.
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAy441bX1VFKDBrXJjp"}
-   ✗ The SC Draft Regulation on AI: Intersection with Existing La
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAy8om9e3WFYcH2qR6k"}
-   ✗ India smashes growth forecasts as investment surges in April
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyDXH5X7WGAKSHF4jv"}
-   ✗ India GDP Growth At 7.8%: What It Means For The Economy, Mar
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyJBpNWhyzRiwr6tET"}
-   ✗ Gold prices dip to Rs 1.53 lakh, silver falls Rs 1,500/kg ah
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyNzYKnWUmnGsGEqc7"}
-   ✗ Shakti Pumps shares surge 12% on Rs 236 crore Maharashtra so
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyTfppZXJJFKonMxFa"}
-   ✗ Apple Event 2026 impact: Redington shares jump 5% after Appl
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyYgT17YAFinx2Sp5c"}
-   ✗ 6 mainboard IPOs enter Day 2: Karamtara Engineering, Steamho
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAydNEQZfF946jXyWJw"}
-   ✗ Kanohar Electricals IPO Day 3: GMP signals 35% premium, subs
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyiSq4d4CuJ7Xq51KB"}
-   ✗ Ather Energy shares rise 3% as Nomura raises target price; s
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyoBafihG15wKzafLo"}
-   ✗ India smashes growth forecasts as investment surges in April
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAysubNbmFCdxSMBo3y"}
-   ✗ Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAyxxT5RPfi1WHSY8Ld"}
-   ✗ Reliance and Jio to invest Rs 10 lakh crore over seven years
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAz4CDzAMwHb5GiTyBW"}
-   ✗ Reliance Industries plans USD 1.3 billion bond issue, larges
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAz9E5sDJNkpkHeUB3D"}
-   ✗ When Corporate India Goes to War
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzEJgeqMmBRrJ7LGpP"}
-   ✗ Jio Platforms to kick off global investor outreach this week
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzJyUVecWCX3rNNsE8"}
-   ✗ Reliance set to return to bond market after 3 years, eyes Rs
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzQ16NPxeYrUtsNtLo"}
-   ✗ After 10 years of India feat, Jio sets its sights on global 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzV4waoxPHKs1KVvWG"}
-   ✗ India is consumer giant Unilever's blueprint for emerging-ma
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzZpSUtwTc5i71pRUb"}
-   ✗ Lahori Zeera plans next Rs 400 cr growth; launches diet vari
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzer4B2WM73MgNzLig"}
-   ✗ French food giant Danone eyes India growth without 'burning 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzjYLKTyRbVydS3bTK"}
-   ✗ 'Apple enters late but sets the rules': A $1,999 bet on the 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzpEN6nZ7K7zVgadtq"}
-   ✗ Furniture rental firm Rentomojo's $133 million India IPO ful
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzuJDMCRnsVteVWeFB"}
-   ✗ Ferrero India enters premium chocolate bar segment with Clas
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuAzz4DKKAcKv5nYefXG"}
-   ✗ Apple’s $2,000-plus foldable iPhone was a decade in the maki
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB154LqiMN3CJ3hiEdc"}
-   ✗ Royaloak Furniture targets 1,000 stores in 3 years, plans Rs
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB19r5Lyzdkt8WKmgMe"}
-   ✗ Anthropic sees AI driving GDP growth, but warns of job losse
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1EsCJ1ZUyBB1F6igE"}
-   ✗ Meta share price surges after personal AI agent Muse release
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1Ku4e8y5wsv1NmjEe"}
-   ✗ Generative AI a new tool in Mali's information war: study
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1R2PJNWhYQKU2K5sN"}
-   ✗ Indian-origin couple gifts $20 millon to American university
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1W7iugxmrWiKsDpHa"}
-   ✗ Meta tests fact-check replacement in Latin America
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1b8beHxgtaVZXSnSA"}
-   ✗ Habuild CEO on user loyalty; Flipkart Minutes gets its own a
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1gAiFQKqQ2SDGmh5x"}
-   ✗ ET Startup Awards 2026: Habuild leans on repeat users to exp
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1mBqGkzm9isQuDNfa"}
-   ✗ PhonePe to foray into UAE in maiden foreign outing
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1rFvuJBB7jM4yMRvT"}
-   ✗ Greetings from Paris, where the 2024 Olympics balloon rises 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB1wXgaioda3NcUgM3g"}
-   ✗ U.S. military destroys 5 Iranian oil tankers. And, the Smith
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB22FhU6vppmJHXiVna"}
-   ✗ Citing the 'Deep State,' Trump overhauls the intelligence co
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB26wyJE1cun3viU4q8"}
-   ✗ Iceland summons U.S. ambassador after Trump posts countries 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2CAzqa6gKKuGNAC6J"}
-   ✗ U.S. military says it destroyed 5 Iranian oil tankers after 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2GsmfuQ75Lg4DKeje"}
-   ✗ Kenya's foreign trader crackdown sparks fear among migrant c
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2MZYjYHmHUZwSEhMF"}
-   ✗ Australian social media users to be offered choice to opt ou
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2SavE9YDoFiWo1oC3"}
-   ✗ U.K. accuses Israeli settlers of 'ethnic cleansing' in West 
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2XeXPhKW9UDXNVjKg"}
-   ✗ Cricket Test Today Match Live India Ipl Score A Peacock With
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2ccvBXN6j3N5vP14E"}
-   ✗ Vaibhav Sooryavanshi has already conquered IPL records and i
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2hSdh6pP8KjL7VQa5"}
-   ✗ Tahir five-for, Sampson's sixes seal top spot for Guyana Ama
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2n8umWEhkVtaNGpTk"}
-   ✗ Santner resists BBL temptation to put New Zealand first
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2s7oYGcwWXeeTeSBV"}
-   ✗ 'It's depressing' - Shakeel laments Pakistan's batting woes
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB2xBA5TxXQgpp2rPtV"}
-   ✗ Hermann: 'You don't just get a hundred, you try to push it f
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB33UtrxkNbuyexT3Kv"}
-   ✗ Protesters mistake Pakistan's U-19 team for asylum seekers i
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB38XWCJAGqn8zCwypT"}
-   ✗ Will Williams runs through Lancashire
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3DacCKRUgDxyi2zjM"}
-   ✗ Markets Expert View: Stock Market Experts Views and Advice
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3JEf1mApitkmaNrQJ"}
-   ✗ Pakistan’s lawfare strategy against India has finally been b
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3NvSHbvoWKCzmA8DD"}
-   ✗ Arkhe Adelaide
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3U4WC8R8bfv73beX3"}
-   ✗ Subhash Chandra’s Zee pledge saga: How promoter leverage tur
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3YuheXUWJjS1DHxSy"}
-   ✗ Vi, index to measure the truly rich
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3dhBj7X9iHn1cyypZ"}
-   ✗ NSE IPO is selling a monopoly. Investors should watch the re
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3iiJtQBatvqvjCDwj"}
-   ✗ Man's search for God
-      AI error HTTP 400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CeuB3ootykGUrJaXF1yYt"}
-   ✗ Part 'cream' from Dalit quota mix: Why Chirag Paswan & Jitan
+   ✓ [anthropic] Delhi High Court restrains Beco’s ad campaign against HUL's 
+   ✓ [anthropic] Supreme Court questions Rajasthan HC decision to downgrade j
+   ✓ [anthropic] In-house counsel panel urges move towards domain experts and
+   ✓ [anthropic] Delhi High Court makes biometric Aadhaar authentication mand
+   ✓ [anthropic] BJP leader files contempt case against CJP's Saurav Das for 
+   ✓ [anthropic] Cannot be taken lightly: Supreme Court condemns harassment o
+   ✓ [anthropic] Adil Hussain moves from Baker McKenzie to Hogan Lovells Cadw
+   ✓ [anthropic] Supreme Court dismisses anticipatory bail of Abhishek Banerj
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] India GDP Growth At 7.8%: What It Means For The Economy, Mar
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Global Market: European shares edge higher ahead of ECB rate
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Explained: Why US ETFs listed in India are trading at steep 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] BSE suffers outage, Zerodha users complain of F&O price not 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Global Market: Blackstone acquires majority stake in South K
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] 11 stocks that recorded profit margins above 10% for 4 strai
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Michael Burry pulls back on risk, says he’s happy to sit on 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Global Market: ECB seen raising rates as Iran war fuels infl
+   ✓ [anthropic] Reliance Plans $1.3 Billion Bond Sale, India’s Biggest This 
+   ✓ [anthropic] Reliance and Jio to invest Rs 10 lakh crore over seven years
+   ✓ [anthropic] Reliance Industries plans USD 1.3 billion bond issue, larges
+   ✓ [anthropic] When Corporate India Goes to War
+   ✓ [anthropic] Jio Platforms to kick off global investor outreach this week
+   ✓ [anthropic] Reliance set to return to bond market after 3 years, eyes Rs
+   ✓ [anthropic] After 10 years of India feat, Jio sets its sights on global 
+   ✓ [anthropic] Jio Platforms Said to Start Marketing India IPO Next Week
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] The House of Rare targets Rs 1,600 cr revenue, 285 stores as
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] French food giant Danone eyes India growth without 'burning 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Quick food delivery platform Swish raises $24 million led by
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Lahori Zeera plans next Rs 400 cr growth; launches diet vari
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] India is consumer giant Unilever's blueprint for emerging-ma
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] 'Apple enters late but sets the rules': A $1,999 bet on the 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Furniture rental firm Rentomojo's $133 million India IPO ful
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Ferrero India enters premium chocolate bar segment with Clas
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Technology takes centre stage as workplaces evolve into conn
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] DOJ probes Nvidia's licensing deal with AI startup Groq
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Anthropic reports fourth cybersecurity incident with early v
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] OpenAI pushes for mandatory national AI safety rules
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Anthropic sees AI driving GDP growth, but warns of job losse
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Meta share price surges after personal AI agent Muse release
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Generative AI a new tool in Mali's information war: study
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Indian-origin couple gifts $20 millon to American university
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Scientists say August was Earth's hottest month they've meas
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] UN peacekeepers give NPR a rare look behind Israeli lines
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] 'I'll never trust them again': Some Afghans who helped the U
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Greetings from Paris, where the 2024 Olympics balloon rises 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] U.S. military destroys 5 Iranian oil tankers. And, the Smith
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Citing the 'Deep State,' Trump overhauls the intelligence co
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Iceland summons U.S. ambassador after Trump posts countries 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] U.S. military says it destroyed 5 Iranian oil tankers after 
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Cricket Test Today Match Live India Ipl Score A Peacock With
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Vaibhav Sooryavanshi has already conquered IPL records and i
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Quraishi century headlines final day as East Zone secure Dul
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Shaheen Shah Afridi to play for KRL in President's Trophy
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Josh Blake signs Leicestershire deal after opting to leave S
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Bumrah fit, Yash Thakur replaces Harshit for Afghanistan T20
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Finn Allen poached by Melbourne Stars in biggest BBL deal
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Tahir five-for, Sampson's sixes seal top spot for Guyana Ama
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Arkhe Adelaide
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Subhash Chandra’s Zee pledge saga: How promoter leverage tur
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Vi, index to measure the truly rich
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] NSE IPO is selling a monopoly. Investors should watch the re
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Man's search for God
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Part 'cream' from Dalit quota mix: Why Chirag Paswan & Jitan
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] UPI can do more tricks among BRICS
+      [gemini] error: HTTP 404: {
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features a
+   ✓ [openai] Regression can't be peddled as diversity
 
-   AI done: 0 enriched, 64 failed/skipped (kept RSS fallback)
+   AI done: 64 enriched (anthropic=16, openai=48), 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-09-10   Hero: legal-e8aa442f
+Edition: 2026-09-10   Hero: legal-d114b4cc
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
