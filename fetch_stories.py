@@ -404,12 +404,26 @@ _BANNED_PHRASES = (
     "growing regulatory activity", "increasingly important", "stay tuned",
 )
 
-def ai_enrich_story(headline, section, hook, summary, source, tags):
-    """
-    Anthropic Messages API via direct urllib — no SDK needed.
-    Returns dict {"summary": str, "contextNote": str} or None on failure.
-    """
-    import json as _json
+# ── Multi-provider AI backend ────────────────────────────────────────────────
+# Three providers, tried in order until one returns a usable result. Order is
+# cost-aware, not just reliability-aware: Gemini's free tier costs nothing, so
+# it goes first for routine sections; Claude Haiku is the best-tuned prompt
+# (see the practitioner-brief voice below) and the most expensive per call, so
+# it's reserved for the two sections that are this product's actual
+# differentiator (legal, reliance — see IMPLEMENTATION_SPEC.md §2.11) and used
+# as a last resort elsewhere. Any provider whose key isn't set is skipped.
+GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
+OPENAI_API_KEY  = os.environ.get("OPENAI_API_KEY", "")
+GEMINI_MODEL    = "gemini-2.5-flash"
+OPENAI_MODEL    = "gpt-4o-mini"
+ANY_AI_ENABLED  = bool(ANTHROPIC_API_KEY or GEMINI_API_KEY or OPENAI_API_KEY)
+
+_QUALITY_FIRST_SECTIONS = {"legal", "reliance"}
+_PROVIDER_ORDER_QUALITY_FIRST = ["anthropic", "gemini", "openai"]
+_PROVIDER_ORDER_COST_FIRST    = ["gemini", "openai", "anthropic"]
+
+
+def _build_enrichment_prompt(headline, section, hook, summary, source, tags):
     rss_context = " ".join(filter(None, [hook, summary])).strip()
     tags_str    = ", ".join(tags) if tags else ""
     has_excerpt = bool(rss_context)
@@ -425,7 +439,7 @@ def ai_enrich_story(headline, section, hook, summary, source, tags):
         "the headline."
     )
 
-    prompt = f"""{_READER_PROFILE}
+    return f"""{_READER_PROFILE}
 
 Section: {_SECTION_HINTS.get(section, section)}
 Source: {source}
@@ -447,60 +461,153 @@ Return ONLY a raw JSON object — no markdown, no code fences:
   "summary": "Strictly what this article reports: the specific facts — what happened, who is involved (real names/entities, not 'the company' or 'the court'), key figures, numbers, quotes, or dates actually in the piece, any reactions reported, and what happens next. Do NOT add outside context or speculation here. Write in flowing paragraphs, no bullet points. Aim for 150-200 words when an excerpt is available; if none is available, keep this to 1-2 tight, factual sentences per the instruction above.",
   "contextNote": "Your own grounded analysis, separate from the article. Name the specific statute (with section number if you know it), regulator, tribunal, or precedent involved — not just the category of law. If real case law applies, cite it (e.g. *Arun Ferreira (2021)*); if none is directly on point, say so rather than gesturing at 'relevant precedent'. Give 2-3 numbered concrete implications — '(1) ... (2) ...' inline, not generic bullets — for what an Indian in-house counsel should actually do, check, or watch for as a direct result of this specific story. Aim for 100-180 words."
 }}"""
+
+
+class _ProviderExhausted(Exception):
+    """Billing/quota failure — retrying the same provider won't help."""
+
+
+def _post_json(url, payload, headers, timeout=30):
+    import json as _json
+    req = Request(url, data=_json.dumps(payload).encode("utf-8"), headers=headers, method="POST")
+    with urlopen(req, timeout=timeout) as resp:
+        return _json.loads(resp.read().decode("utf-8"))
+
+
+def _strip_json_fences(raw):
+    raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
+    return re.sub(r"\s*```$", "", raw)
+
+
+def _call_anthropic_raw(prompt):
+    import json as _json
+    try:
+        result = _post_json(
+            "https://api.anthropic.com/v1/messages",
+            {"model": AI_MODEL, "max_tokens": 900, "messages": [{"role": "user", "content": prompt}]},
+            {
+                "Content-Type":      "application/json",
+                "x-api-key":         ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+            },
+        )
+        return result["content"][0]["text"]
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="ignore")
+        if e.code in (400, 429) and ("credit balance" in body.lower() or "quota" in body.lower()):
+            raise _ProviderExhausted(body[:200])
+        raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
+
+
+def _call_gemini_raw(prompt):
+    import json as _json
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+        f"?key={GEMINI_API_KEY}"
+    )
+    try:
+        result = _post_json(
+            url,
+            {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"temperature": 0.4, "maxOutputTokens": 900},
+            },
+            {"Content-Type": "application/json"},
+        )
+        return result["candidates"][0]["content"]["parts"][0]["text"]
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="ignore")
+        if e.code == 429 or "quota" in body.lower() or "RESOURCE_EXHAUSTED" in body:
+            raise _ProviderExhausted(body[:200])
+        raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
+
+
+def _call_openai_raw(prompt):
+    try:
+        result = _post_json(
+            "https://api.openai.com/v1/chat/completions",
+            {
+                "model": OPENAI_MODEL,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.4,
+                "max_tokens": 900,
+                "response_format": {"type": "json_object"},
+            },
+            {
+                "Content-Type":  "application/json",
+                "Authorization": f"Bearer {OPENAI_API_KEY}",
+            },
+        )
+        return result["choices"][0]["message"]["content"]
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="ignore")
+        if e.code == 429 or "insufficient_quota" in body.lower() or "billing" in body.lower():
+            raise _ProviderExhausted(body[:200])
+        raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
+
+
+_PROVIDERS = {
+    "anthropic": (_call_anthropic_raw, lambda: AI_ENABLED),
+    "gemini":    (_call_gemini_raw,    lambda: bool(GEMINI_API_KEY)),
+    "openai":    (_call_openai_raw,    lambda: bool(OPENAI_API_KEY)),
+}
+
+
+def _try_provider(name, prompt, label):
+    call_fn = _PROVIDERS[name][0]
     banned_hint = ""
+    result = None
     for attempt in range(2):
         try:
-            payload = {
-                "model":      AI_MODEL,
-                "max_tokens": 900,
-                "messages":   [{"role": "user", "content": prompt + banned_hint}],
-            }
-            req = Request(
-                "https://api.anthropic.com/v1/messages",
-                data=_json.dumps(payload).encode("utf-8"),
-                headers={
-                    "Content-Type":      "application/json",
-                    "x-api-key":         ANTHROPIC_API_KEY,
-                    "anthropic-version": "2023-06-01",
-                },
-                method="POST",
-            )
-            with urlopen(req, timeout=30) as resp:
-                result = _json.loads(resp.read().decode("utf-8"))
-            raw = result["content"][0]["text"].strip()
-            raw = re.sub(r"^```(?:json)?\s*", "", raw)
-            raw = re.sub(r"\s*```$", "", raw)
-            data         = _json.loads(raw)
-            summary_out  = str(data.get("summary", "")).strip()
-            context_note = str(data.get("contextNote", "")).strip()
-            if not (summary_out and context_note):
-                return None
-            combined_lower = (summary_out + " " + context_note).lower()
-            if attempt == 0 and any(p in combined_lower for p in _BANNED_PHRASES):
-                # One retry, nudging the model away from the generic phrasing it used.
-                banned_hint = (
-                    "\n\nYour previous attempt used generic hedging language "
-                    "(e.g. \"may affect\", \"worth tracking\"). Rewrite with concrete, "
-                    "specific claims instead — name the actual mechanism or "
-                    "implication, don't gesture at one."
-                )
-                continue
-            return {"summary": summary_out, "contextNote": context_note}
-        except HTTPError as e:
-            body = e.read().decode("utf-8", errors="ignore")
-            print(f"      AI error HTTP {e.code}: {body[:300]}", file=sys.stderr)
-            if e.code == 400 and "credit balance" in body.lower():
-                return None  # billing issue — retrying won't help
-            if attempt == 0:
-                time.sleep(2)
-                continue
+            raw = call_fn(prompt + banned_hint)
+        except _ProviderExhausted as e:
+            print(f"      [{name}] exhausted: {e}", file=sys.stderr)
             return None
         except Exception as e:
-            print(f"      AI error: {e}", file=sys.stderr)
-            if attempt == 0:
-                time.sleep(2)
-                continue
+            print(f"      [{name}] error: {e}", file=sys.stderr)
             return None
+        try:
+            data = json.loads(_strip_json_fences(raw))
+        except Exception as e:
+            print(f"      [{name}] bad JSON: {e}", file=sys.stderr)
+            return None
+        summary_out  = str(data.get("summary", "")).strip()
+        context_note = str(data.get("contextNote", "")).strip()
+        if not (summary_out and context_note):
+            return None
+        result = {"summary": summary_out, "contextNote": context_note, "enrichedBy": name}
+        combined_lower = (summary_out + " " + context_note).lower()
+        if attempt == 0 and any(p in combined_lower for p in _BANNED_PHRASES):
+            banned_hint = (
+                "\n\nYour previous attempt used generic hedging language "
+                "(e.g. \"may affect\", \"worth tracking\"). Rewrite with concrete, "
+                "specific claims instead — name the actual mechanism or "
+                "implication, don't gesture at one."
+            )
+            continue
+        break
+    if result:
+        print(f"   ✓ [{name}] {label}", file=sys.stderr)
+    return result
+
+
+def ai_enrich_story(headline, section, hook, summary, source, tags):
+    """
+    Tries each configured provider in cost-aware order until one returns a
+    usable {"summary", "contextNote"} pair. Returns None if all fail/skip.
+    """
+    prompt = _build_enrichment_prompt(headline, section, hook, summary, source, tags)
+    order = (
+        _PROVIDER_ORDER_QUALITY_FIRST if section in _QUALITY_FIRST_SECTIONS
+        else _PROVIDER_ORDER_COST_FIRST
+    )
+    label = headline[:60]
+    for name in order:
+        if not _PROVIDERS[name][1]():
+            continue
+        result = _try_provider(name, prompt, label)
+        if result:
+            return result
     return None
 
 
@@ -885,8 +992,9 @@ def build_stories():
         print(f"   images: {img_ok} found, {img_fail} not found", file=sys.stderr)
 
     # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
-    if AI_ENABLED:
-        print(f"\n── AI enrichment (Claude Haiku) ─────────────────────────────",
+    if ANY_AI_ENABLED:
+        active = [n for n, (_, has_key) in _PROVIDERS.items() if has_key()]
+        print(f"\n── AI enrichment (providers: {', '.join(active)}) ──────────────",
               file=sys.stderr)
 
         print(f"   {len(all_stories)} stories to enrich  "
@@ -894,8 +1002,8 @@ def build_stories():
               file=sys.stderr)
 
         ai_ok = ai_fail = 0
+        by_provider = {}
         for story in all_stories:
-            label  = story["headline"][:60]
             result = ai_enrich_story(
                 story["headline"],
                 story["section"],
@@ -907,20 +1015,22 @@ def build_stories():
             if result:
                 story["summary"]     = result["summary"]
                 story["contextNote"] = result["contextNote"]
+                story["enrichedBy"]  = result["enrichedBy"]
                 ai_ok += 1
-                print(f"   ✓ {label}", file=sys.stderr)
+                by_provider[result["enrichedBy"]] = by_provider.get(result["enrichedBy"], 0) + 1
             else:
                 ai_fail += 1
-                print(f"   ✗ {label}", file=sys.stderr)
+                print(f"   ✗ {story['headline'][:60]}", file=sys.stderr)
             story["wordCount"] = len(
                 (story.get("summary", "") + " " + story.get("contextNote", "")).split()
             )
             time.sleep(AI_CALL_DELAY)
 
-        print(f"\n   AI done: {ai_ok} enriched, {ai_fail} failed/skipped (kept RSS fallback)",
+        breakdown = ", ".join(f"{n}={c}" for n, c in by_provider.items()) or "none"
+        print(f"\n   AI done: {ai_ok} enriched ({breakdown}), {ai_fail} failed/skipped (kept RSS fallback)",
               file=sys.stderr)
     else:
-        print("\nAI enrichment skipped — ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        print("\nAI enrichment skipped — no ANTHROPIC_API_KEY, GEMINI_API_KEY, or OPENAI_API_KEY set.", file=sys.stderr)
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""

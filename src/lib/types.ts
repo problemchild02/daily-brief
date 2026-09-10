@@ -17,8 +17,9 @@ export interface Story {
   headline: string
   hook: string
   summary: string
-  contextNote?: string    // legacy field name in stories.json
-  whyItMatters?: string   // spec §7.9 field name (used by future workflow)
+  contextNote?: string    // practitioner "Why It Matters" brief, written by fetch_stories.py
+  whyItMatters?: string   // spec §7.9 field name; unused by the current pipeline, kept as a fallback source
+  enrichedBy?: string     // which AI provider generated summary/contextNote: 'anthropic' | 'gemini' | 'openai'
   kicker?: string
   source: string
   sourceUrl: string
