@@ -1,61 +1,63 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-09-02 15:41 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (75,692 bytes)
-    + [legal] Section 29A has completely failed: Senior Advocate Saurabh Soparkar on arbitral 
-    + [legal] The new Labour Codes and their impact on Global Capability Centres
-    + [legal] Delhi High Court bars misuse of AI deepfakes infringing Rajat Sharma’s personali
-    + [legal] Law, music and cinema not strangers to each other: Supreme Court Justice V Mohan
-    + [legal] Regulating arbitrators like Supreme Court, High Court judges is impossible: Reti
-    + [legal] Legal Notes by Arvind Datar: Retrospectivity v. retroactivity and the need for a
-    + [legal] Karnataka High Court quashes State's ₹482 crore penalty on Adani's ACC Limited f
-    + [legal] Mindspright Legal acts on Ashutosh Fibre IPO
-    → 10 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (15,884 bytes)
+    + [legal] CJI Surya Kant proposes register on arbitrators’ conflicts, caseload
+    + [legal] Refusing to return child's volleyball, asking him to bring parent not abetment o
+    + [legal] Khaitan & Co, Antares Legal act on Nexus Select Trust's ₹1,600 crore acquisition
+    → 3 items: 3 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (486,244 bytes)
+    + [legal] India Digital ADR Summit 2026: Chief Justice Sunita Agarwal outlines five princi
+    + [legal] India Digital ADR Summit 2026 opens in NFSU Gandhinagar: Justice Rajesh Bindal c
+    + [legal] Justice Sanjay Karol speaks of his journey and his understanding of the Constitu
+    + [legal] Cyril Amarchand Mangaldas advises Karam Safety Pvt. Ltd. on the legal vendor due
+    + [legal] Karnataka Eases Compliance for Shops and Establishments; Bars Employers from Ret
+    → 10 items: 5 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (199,333 bytes)
+    OK  (195,725 bytes)
     + [business] Market Data
     + [business] India's new business transition economy: What happens after a business is built?
-    → 96 items: 2 accepted, 93 too old, 0 no-date
+    → 94 items: 2 accepted, 91 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (74,791 bytes)
+    OK  (73,378 bytes)
+    + [business] NSE - National Stock Exchange of India Ltd: Live Share/Stock Market News & Updat
     + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
-    → 43 items: 1 accepted, 42 too old, 0 no-date
+    → 42 items: 2 accepted, 40 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (51,598 bytes)
+    OK  (51,569 bytes)
+    + [business] HDFC Bank submits two candidates to RBI for next CEO
+    + [business] Dalal Street Week Ahead: Weak technical setup to keep bulls under pressure
     + [business] Explained: What Sebi’s proposed CAS changes mean for expiry-day trading and sett
     + [business] F&O Talk: Nifty has slipped below its crucial support, says Sudeep Shah; picks 5
-    + [business] Bitcoin trades at $77,000 mark as profit-taking weighs on market; September FOMC
-    ↳ dual-tag [reliance] Bitcoin trades at $77,000 mark as profit-taking weighs on market; Sept
-    + [business] Demat 2.0 explained: Why it matters for bond market investors
-    + [business] Goldman Sachs’ India Portfolio; 10 stocks rally up to 130% in CY26
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (181,906 bytes)
+    OK  (181,638 bytes)
     + [reliance] India New Issue Reliance Industries to sell 5-year bonds next week, bankers say
     + [reliance] Billionaire Mukesh Ambani’s Reliance to raise $1.3 billion in first rupee bond s
-    + [reliance] As NSE, Reliance Jio eye listings, what are India's biggest share offerings?
     + [reliance] Excerpts from Sh Mukesh Ambani's speech at the launch event of Ms Arundhati Bhat
-    + [reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years for India’s AI tran
     + [reliance] Suvendu Adhikari to meet Ambani and Adani for investment talks
+    + [reliance] Mukesh Ambani: 'When Women of India Rise, India Rises'
     + [reliance] Reliance Industries plans USD 1.3 billion bond issue, largest listed deal of 202
-    → 100 items: 7 accepted, 5 too old, 0 no-date
+    + [reliance] Mukesh Ambani calls on corporate India to build a support system for working wom
+    + [reliance] Empathy in Leadership: Mukesh Ambani Advocates for Women at the Helm
+    → 100 items: 8 accepted, 14 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (126,204 bytes)
+    OK  (125,379 bytes)
     → 76 items: 0 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,806 bytes)
@@ -90,15 +92,15 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,963 bytes)
+    OK  (13,786 bytes)
+    + [world] 'People are still afraid of those three letters': Fighting the stigma of HIV
+    + [world] 'BRICS' forum brings together emerging economies, aimed at countering western do
+    + [world] Saudi Arabia forced to shut down crucial Red Sea pipeline after attacks
     + [world] The secret quest to preserve Palestinian writer Raja Shehadeh's diaries
     + [world] BRICS leaders meet in India as wars and US tensions test the bloc
     + [world] Yemen's Houthis capture a Red Sea island in threat to shipping
     + [world] The other side of 9/11: Afghans reckon with America's long shadow
     + [world] Amid war and sanctions, many Iranians are losing their jobs and struggling to ge
-    + [world] The U.S.-Canada trade war is creating a headache for auto-parts makers
-    + [world] Why gains by Iran-backed Houthis in Yemen could push gas prices even higher
-    + [world] Hong Kong court sentences 3 Tiananmen vigil organizers to prison
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,18 +109,18 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (187,156 bytes)
+    OK  (185,899 bytes)
     + [sports] ‘I Want That Test Cap’: Praful Hinge’s Journey From IPL Breakout to India A
     → 100 items: 1 accepted, 99 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (88,903 bytes)
-    + [sports] It's spin vs spin as India and Sri Lanka do battle for Asia Cup title
+    OK  (88,926 bytes)
+    + [sports] India face tough selection calls as Afghanistan play hosts in Delhi
+    + [sports] Razaullah's heroics delay Saim Ayub's CPL return by a day
+    + [sports] Mike Hesson 'open' to taking on Pakistan Test head coach role
+    + [sports] Root, Cox hit fifties as England cruise to 3-0
+    + [sports] It's spin vs spin as India and Sri Lanka battle for Asia Cup title
     + [sports] Harleen Deol joins Barbados Tridents for remainder of WCPL
     + [sports] Mehidy four-for takes Amazon Warriors to eighth win; TKR finish last
-    + [sports] For Padikkal, captaincy 'just helps my batting even further'
-    + [sports] Razaullah: 'I was just enjoying myself'
-    + [sports] Durham promoted as Division Two champions with rout of Middlesex
-    + [sports] Razaullah heroics leave England with 130 chase on day four
     → 100 items: 7 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -126,7 +128,7 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (116,594 bytes)
+    OK  (116,581 bytes)
     → 78 items: 0 accepted, 78 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
@@ -147,108 +149,140 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (21 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years: no og:image/twitter:image tag found
-   ✗ [  reliance] Excerpts from Sh Mukesh Ambani's speech at the launch event : no og:image/twitter:image tag found
-   ✗ [  reliance] India New Issue Reliance Industries to sell 5-year bonds nex: no og:image/twitter:image tag found
-   ✗ [  reliance] As NSE, Reliance Jio eye listings, what are India's biggest : no og:image/twitter:image tag found
-   ✗ [  reliance] Billionaire Mukesh Ambani’s Reliance to raise $1.3 billion i: no og:image/twitter:image tag found
+── Image fetch (28 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] NSE - National Stock Exchange of India Ltd: Live Share/Stock: no og:image/twitter:image tag found
    ✗ [  business] Market Data: no og:image/twitter:image tag found
    ✗ [  business] India's new business transition economy: What happens after : no og:image/twitter:image tag found
-   ✓ [      tech] Decade One of PhonePe: Sameer Nigam on India’s Digital Payme
-   ✓ [      tech] AI for a Billion Indians: Rahul Chari on PhonePe’s AI Strate
-   ✗ [  reliance] Reliance Industries plans USD 1.3 billion bond issue, larges: no og:image/twitter:image tag found
+   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Mukesh Ambani’s Reliance to raise $1.3 billion i: no og:image/twitter:image tag found
+   ✗ [  reliance] India New Issue Reliance Industries to sell 5-year bonds nex: no og:image/twitter:image tag found
+   ✗ [  reliance] Excerpts from Sh Mukesh Ambani's speech at the launch event : no og:image/twitter:image tag found
    ✗ [  reliance] Suvendu Adhikari to meet Ambani and Adani for investment tal: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani: 'When Women of India Rise, India Rises': no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance Industries plans USD 1.3 billion bond issue, larges: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani calls on corporate India to build a support sy: no og:image/twitter:image tag found
+   ✓ [      tech] AI for a Billion Indians: Rahul Chari on PhonePe’s AI Strate
+   ✗ [  reliance] Empathy in Leadership: Mukesh Ambani Advocates for Women at : no og:image/twitter:image tag found
+   ✓ [      tech] Decade One of PhonePe: Sameer Nigam on India’s Digital Payme
+   ✓ [     world] 'BRICS' forum brings together emerging economies, aimed at c
+   ✓ [     world] 'People are still afraid of those three letters': Fighting t
    ✓ [     world] The secret quest to preserve Palestinian writer Raja Shehade
-   ✓ [     world] The other side of 9/11: Afghans reckon with America's long s
    ✓ [     world] BRICS leaders meet in India as wars and US tensions test the
    ✓ [     world] Yemen's Houthis capture a Red Sea island in threat to shippi
-   ✓ [     world] The U.S.-Canada trade war is creating a headache for auto-pa
-   ✓ [     world] Amid war and sanctions, many Iranians are losing their jobs 
+   ✓ [     world] Saudi Arabia forced to shut down crucial Red Sea pipeline af
+   ✓ [     world] The other side of 9/11: Afghans reckon with America's long s
    ✗ [    sports] ‘I Want That Test Cap’: Praful Hinge’s Journey From IPL Brea: no og:image/twitter:image tag found
-   ✓ [     world] Why gains by Iran-backed Houthis in Yemen could push gas pri
-   ✓ [     world] Hong Kong court sentences 3 Tiananmen vigil organizers to pr
-   images: 10 found, 11 not found
+   ✓ [     world] Amid war and sanctions, many Iranians are losing their jobs 
+   ✗ [     legal] Justice Sanjay Karol speaks of his journey and his understan: TimeoutError: The read operation timed out
+   ✗ [     legal] India Digital ADR Summit 2026 opens in NFSU Gandhinagar: Jus: TimeoutError: The read operation timed out
+   ✗ [     legal] India Digital ADR Summit 2026: Chief Justice Sunita Agarwal : TimeoutError: The read operation timed out
+   ✗ [     legal] Karnataka Eases Compliance for Shops and Establishments; Bar: TimeoutError: The read operation timed out
+   ✗ [     legal] Cyril Amarchand Mangaldas advises Karam Safety Pvt. Ltd. on : TimeoutError: The read operation timed out
+   images: 10 found, 18 not found
 
 ── AI enrichment (providers: anthropic, gemini, openai) ──────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-      [anthropic] bad JSON: Expecting ',' delimiter: line 2 column 149 (char 150)
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
-   ✓ [openai] Section 29A has completely failed: Senior Advocate Saurabh S
-   ✓ [anthropic] The new Labour Codes and their impact on Global Capability C
-   ✓ [anthropic] Delhi High Court bars misuse of AI deepfakes infringing Raja
-   ✓ [anthropic] Law, music and cinema not strangers to each other: Supreme C
-   ✓ [anthropic] Regulating arbitrators like Supreme Court, High Court judges
-   ✓ [anthropic] Legal Notes by Arvind Datar: Retrospectivity v. retroactivit
-   ✓ [anthropic] Karnataka High Court quashes State's ₹482 crore penalty on A
-   ✓ [anthropic] Mindspright Legal acts on Ashutosh Fibre IPO
-      [gemini] bad JSON: Unterminated string starting at: line 3 column 18 (char 254)
+   ✓ [anthropic] CJI Surya Kant proposes register on arbitrators’ conflicts, 
+   ✓ [anthropic] Refusing to return child's volleyball, asking him to bring p
+   ✓ [anthropic] Khaitan & Co, Antares Legal act on Nexus Select Trust's ₹1,6
+   ✓ [anthropic] India Digital ADR Summit 2026: Chief Justice Sunita Agarwal 
+   ✓ [anthropic] India Digital ADR Summit 2026 opens in NFSU Gandhinagar: Jus
+   ✓ [anthropic] Justice Sanjay Karol speaks of his journey and his understan
+   ✓ [anthropic] Cyril Amarchand Mangaldas advises Karam Safety Pvt. Ltd. on 
+   ✓ [anthropic] Karnataka Eases Compliance for Shops and Establishments; Bar
+      [gemini] bad JSON: Unterminated string starting at: line 3 column 18 (char 188)
    ✓ [openai] Market Data
       [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
    ✓ [openai] India's new business transition economy: What happens after 
-      [gemini] bad JSON: Unterminated string starting at: line 3 column 18 (char 241)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] NSE - National Stock Exchange of India Ltd: Live Share/Stock
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] HDFC Bank submits two candidates to RBI for next CEO
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Dalal Street Week Ahead: Weak technical setup to keep bulls 
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Explained: What Sebi’s proposed CAS changes mean for expiry-
       [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
    ✓ [openai] F&O Talk: Nifty has slipped below its crucial support, says 
-      [gemini] error: The read operation timed out
-   ✓ [openai] Bitcoin trades at $77,000 mark as profit-taking weighs on ma
-      [gemini] error: HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-   ✓ [openai] Demat 2.0 explained: Why it matters for bond market investor
-      [gemini] bad JSON: Expecting value: line 1 column 1 (char 0)
-   ✓ [openai] Goldman Sachs’ India Portfolio; 10 stocks rally up to 130% i
-   ✓ [anthropic] Bitcoin trades at $77,000 mark as profit-taking weighs on ma
    ✓ [anthropic] India New Issue Reliance Industries to sell 5-year bonds nex
    ✓ [anthropic] Billionaire Mukesh Ambani’s Reliance to raise $1.3 billion i
-   ✓ [anthropic] As NSE, Reliance Jio eye listings, what are India's biggest 
    ✓ [anthropic] Excerpts from Sh Mukesh Ambani's speech at the launch event 
-   ✓ [anthropic] Reliance and Jio to invest Rs 10 lakh crore over seven years
    ✓ [anthropic] Suvendu Adhikari to meet Ambani and Adani for investment tal
+   ✓ [anthropic] Mukesh Ambani: 'When Women of India Rise, India Rises'
    ✓ [anthropic] Reliance Industries plans USD 1.3 billion bond issue, larges
-      [gemini] bad JSON: Unterminated string starting at: line 3 column 18 (char 764)
+   ✓ [anthropic] Mukesh Ambani calls on corporate India to build a support sy
+   ✓ [anthropic] Empathy in Leadership: Mukesh Ambani Advocates for Women at 
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Vadilal Enterprises blocks renewal of key 10-year pact with 
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Funding recap: Consumer startups raise over Rs 300 cr in fun
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Bharat commerce could hit $80-90 billion as next 300 million
-      [gemini] error: HTTP 503: {
+      [gemini] exhausted: {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Non-grocery sections emerging as big business in quick comme
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
-   ✓ [openai] Allied Blenders plans foray into single malt whisky, to inve
-      [gemini] bad JSON: Expecting value: line 1 column 1 (char 0)
-   ✓ [openai] Tukaram Mundhe-led Maharashtra FDA raids 11 food units in Th
-      [gemini] bad JSON: Unterminated string starting at: line 1 column 12 (char 11)
-   ✓ [openai] Decathlon India’s B2B business grows 20-fold in five years, 
-      [gemini] error: HTTP 503: {
+      [gemini] exhausted: {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Allied Blenders plans foray into single malt whisky, to inve
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Tukaram Mundhe-led Maharashtra FDA raids 11 food units in Th
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Decathlon India’s B2B business grows 20-fold in five years, 
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] 50 pc growth for 3 years: Amorepacific targets India among t
-      [gemini] bad JSON: Unterminated string starting at: line 3 column 18 (char 630)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] AI for a Billion Indians: Rahul Chari on PhonePe’s AI Strate
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] California governor signs law to limit children's social med
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Texas judge rules TikTok misled users on child safety featur
       [gemini] exhausted: {
   "error": {
@@ -265,7 +299,10 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Coforge says independent director resigns over internal tens
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Decade One of PhonePe: Sameer Nigam on India’s Digital Payme
       [gemini] exhausted: {
   "error": {
@@ -276,8 +313,26 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] 'People are still afraid of those three letters': Fighting t
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] 'BRICS' forum brings together emerging economies, aimed at c
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Saudi Arabia forced to shut down crucial Red Sea pipeline af
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] The secret quest to preserve Palestinian writer Raja Shehade
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] BRICS leaders meet in India as wars and US tensions test the
       [gemini] exhausted: {
   "error": {
@@ -298,24 +353,32 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] The U.S.-Canada trade war is creating a headache for auto-pa
-      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
-   ✓ [openai] Why gains by Iran-backed Houthis in Yemen could push gas pri
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Hong Kong court sentences 3 Tiananmen vigil organizers to pr
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] ‘I Want That Test Cap’: Praful Hinge’s Journey From IPL Brea
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] It's spin vs spin as India and Sri Lanka do battle for Asia 
+   ✓ [openai] India face tough selection calls as Afghanistan play hosts i
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Razaullah's heroics delay Saim Ayub's CPL return by a day
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Mike Hesson 'open' to taking on Pakistan Test head coach rol
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Root, Cox hit fifties as England cruise to 3-0
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] It's spin vs spin as India and Sri Lanka battle for Asia Cup
       [gemini] exhausted: {
   "error": {
     "code": 429,
@@ -326,26 +389,6 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Mehidy four-for takes Amazon Warriors to eighth win; TKR fin
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] For Padikkal, captaincy 'just helps my batting even further'
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Razaullah: 'I was just enjoying myself'
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Durham promoted as Division Two champions with rout of Middl
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Razaullah heroics leave England with 130 chase on day four
       [gemini] exhausted: {
   "error": {
     "code": 429,
@@ -387,12 +430,12 @@ Cutoff: 2026-09-02 10:59 UTC  (MAX_AGE_HOURS=240)
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] AI cracked the proof no human understands. Now what's a huma
 
-   AI done: 64 enriched (openai=49, anthropic=15), 0 failed/skipped (kept RSS fallback)
+   AI done: 64 enriched (anthropic=16, openai=48), 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   13 OK  /  4 failed
+Feeds:   14 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-09-12   Hero: legal-4e517ddb
+Edition: 2026-09-12   Hero: legal-4bd8e9aa
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
