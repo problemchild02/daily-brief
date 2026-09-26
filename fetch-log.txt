@@ -1,72 +1,74 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-09-16 05:16 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (166,136 bytes)
-    + [legal] Delhi High Court halts London arbitration in UN military cargo dispute
-    + [legal] 5 officers suspended, 543 properties demolished, 178 sealed after Satya Niketan 
-    + [legal] Myanmar terror training case: Delhi court allows accused US and Ukrainian nation
-    + [legal] Supreme Court asks BCI to consider withdrawing upper age limit for 5-year LL.B
-    + [legal] P&H High Court cancels murder accused's bail after his 'band baja dunga' threat
-    + [legal] Two coats, one body: Why cheating and criminal breach of trust refuse to share a
-    + [legal] 2020 Delhi riots: Supreme Court relaxes Meeran Haider's bail condition
-    + [legal] Stamping hurdle in enforcement of arbitral awards
-    → 27 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (17,174 bytes)
+    + [legal] Punjab & Haryana High Court raps GST authorities for manipulating records, arres
+    + [legal] Supreme Court refuses to halt forensic audit of Fortis transactions in Daiichi-S
+    → 2 items: 2 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (152,980 bytes)
+    + [legal] Cyril Amarchand Mangaldas advises Hero Motors Ltd. and the Selling Shareholders 
+    + [legal] Legal luminaries on building India’s legal architecture for Viksit Bharat at Nya
+    + [legal] FSSAI proposes restrictions on analogue dairy products; non-milk products may no
+    + [legal] Khaitan & Co advises Brokers on INR 11,988 Crore sale of 25.03% stake in Knowled
+    + [legal] Kerala HC directs State Bar Council to identify advocates who have not qualified
+    + [legal] S&R Associates advises ICICI Securities, DAM Capital and JM Financial on INR 10 
+    → 10 items: 6 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (205,940 bytes)
-    → 98 items: 0 accepted, 98 too old, 0 no-date
+    OK  (201,884 bytes)
+    → 97 items: 0 accepted, 97 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (81,729 bytes)
+    OK  (75,594 bytes)
     + [business] Asset Reconstruction Company shares list flat at Rs 139 on BSE, NSE
+    + [business] The battle between India’s stock exchanges is heating up again
     + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
-    → 47 items: 2 accepted, 43 too old, 0 no-date
+    + [business] Most Active (Volume) Stocks - NSE / BSE
+    → 45 items: 4 accepted, 39 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (51,577 bytes)
-    + [business] CleanMax Enviro block deal: Augment India Holdings likely to divest 85 lakh shar
-    + [business] Liqvd Digital India IPO subscribed 5.08 times on final day
-    + [business] Data center IPO hopefuls brave tougher market as investor scrutiny grows
-    + [business] US Federal Reserve plans to raise bank oversight thresholds, sources say
-    + [business] Lab-grown diamond manufacturer Anjali LabTech files updated papers for Rs 1,225 
-    + [business] Sebi bans Omaxe, 5 others for violating minimum public shareholding norms
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (52,648 bytes)
+    + [business] Wall Street Week Ahead: Jobs report, inflation data to test US rate path, econom
+    + [business] SK Hynix's Solidigm weighs IPO that could value the unit at up to $150 billion, 
+    + [business] Biscuit maker Anmol Industries files for $188 million IPO
+    + [business] Forex reserves drop to $781 billion after hitting a peak of $785 billion
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (181,855 bytes)
+    OK  (180,444 bytes)
     + [reliance] Ambani’s Reliance Plans Up to $1 Billion in Local Currency Bonds
     + [reliance] Billionaire Mukesh Ambani's Reliance lines up $1 billion bond sale, its second i
     + [reliance] Indian billionaire Ambani's Reliance Industries eyes $1 bln debt fundraise, bank
     + [reliance] Billionaire Ambani's Reliance Industries eyes Rs 10,000 cr debt fundraise: Sourc
     + [reliance] ‘Stooping low’: furore over UK university professorship for tycoon Ambani’s son
-    + [reliance] Mukesh and Nita Ambani visit Lalbaugcha Raja, offer prayers with family
+    + [reliance] Ambanis to begin Bengal recce: CM says Reliance team to explore multiple project
+    + [reliance] Why is Newcastle University facing backlash for appointing Anant Ambani as ‘Prof
     + [reliance] Mukesh Ambani, Nita Ambani Attend Lalbaugcha Raja Aarti With Family
-    + [reliance] ముంబైలోని లాల్‌బాగ్‌చా రాజాను దర్శించుకున్న అంబానీ కుటుంబం #MukeshAmbani #NitaAm
     → 100 items: 8 accepted, 2 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (131,457 bytes)
+    OK  (131,370 bytes)
     + [retail] FMCG Giants Bet Big on India
     → 74 items: 1 accepted, 73 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,800 bytes)
+    OK  (11,571 bytes)
+    + [retail] Tata’s e-commerce business begins to Cliq, losses shrink 19 per cent
+    + [retail] Decathlon sees double-digit sales growth, targets Rs 1,000 cr running sports biz
+    + [retail] Swiss Beauty Select targets Rs 100 crore as premium beauty arm charts 100 pc plu
+    + [retail] PC Jeweller becomes debt-free after clearing dues of all 14 consortium banks
+    + [retail] From metro cities to emerging markets: What will drive India’s next wave of café
     + [retail] A Rs 99 bet: India’s QSRs rethink the value game
     + [retail] India records highest-ever FDI of $94.53 billion in FY26, inflows since 2014 rea
-    + [retail] Myntra creates over 26,000 temporary jobs ahead of festive season
-    + [retail] 'Transparency' packs the punch: Sales of packaged health foods with clean ingred
-    + [retail] Four Godrej family members buy 1 pc stake in Godrej Consumer for Rs 900 cr
-    + [retail] Amazon to bet $3 billion on India's fast-delivery boom, sources say
-    + [retail] India’s consumer durables boom has a Rs 50,000 crore localisation opportunity
     → 10 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
@@ -90,7 +92,8 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,904 bytes)
+    OK  (13,724 bytes)
+    + [world] Takeaways from the Trump-Xi state visit: Pageantry and pandas
     + [world] There's a global pandemic treaty that's signed -- and in 'limbo.' What's the hol
     + [world] Pope Leo warns a 'paradise of machines' could undermine humanity on his France v
     + [world] Trump and Xi strike cordial tone at summit. And, Netanyahu gives defiant UNGA sp
@@ -98,7 +101,6 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
     + [world] Netanyahu rages against critics, including Mamdani, at the U.N. General Assembly
     + [world] Is Switzerland's neutrality at a crossroads?
     + [world] Iran's president says his country has 'no trust' in U.S. in meeting with journal
-    + [world] Former U.S. Ambassador to Israel on Netanyahu's speech at UNGA
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,18 +109,18 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (195,936 bytes)
+    OK  (196,114 bytes)
     → 100 items: 0 accepted, 100 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,794 bytes)
+    OK  (89,865 bytes)
+    + [sports] Asian Games: Japan knocked out after rain washes out steep chase against Nepal
+    + [sports] Morkel: Reddy can 'compete for allrounder's spot'
+    + [sports] Hain makes the grind count as Warwickshire put their champagne on ice
+    + [sports] Ben Compton hundred keeps Kent promotion train on track
+    + [sports] Abject Essex collapse under Glamorgan's weight of runs
+    + [sports] Zaib, Vasconcelos push back to keep Northants' faint promotion hopes alive
+    + [sports] Stone rocks Yorkshire but Notts helpless as title slips away
     + [sports] Waite tips scales back towards Worcestershire
-    + [sports] Unadkat, Haines power Sussex as Hampshire face another drubbing
-    + [sports] Tom Lammonby hundred steers Somerset response
-    + [sports] Buttler out of Oval decider as Lawrence earns ODI call-up
-    + [sports] Mani, Prasad, Anushka star in India A's 363 chase to seal series 2-1
-    + [sports] Gill takes a hit to the elbow in the nets ahead of West Indies ODIs
-    + [sports] Former Namibia captain Yasmeen Khan included in South Africa's red-ball training
-    + [sports] Noman Ali six-for highlights battling Lancashire effort
     → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -126,7 +128,7 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (122,209 bytes)
+    OK  (122,714 bytes)
     + [opinion] Deep rot: On the Election Commission of India’s functioning during its SIR
     → 76 items: 1 accepted, 75 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
@@ -135,121 +137,132 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
     OK  (11,308 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (51,857 bytes)
-    + [opinion] NSE IPO: A listing that matters beyond the market
-    + [opinion] Lesson from HDFC Bank controversy: Boards of companies should not conduct busine
-    + [opinion] A trend from, & for, the performing arts
-    + [opinion] Going back home from a trip
-    + [opinion] Need to repair the Nirvachan Vachan
-    + [opinion] Get wise, not wild
-    + [opinion] Beyond numbers: Why India’s electoral rolls, census and GDP need public trust
+    OK  (51,736 bytes)
+    + [opinion] Not the story of AI, but of individual AIs
+    + [opinion] Are you experienced? You'll be a big AI help
+    + [opinion] Keep calm and carry on
+    + [opinion] Performance anxiety
+    + [opinion] Show what you do & how: A reshuffle won’t fix Election Commission, only trustwor
+    + [opinion] Smart rice policy would be nice
+    + [opinion] Paneer by another name is... anything
     → 50 items: 7 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Image fetch (21 stories, 8 workers) ─────────────────────────────
-   ✗ [  reliance] Ambani’s Reliance Plans Up to $1 Billion in Local Currency B: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh and Nita Ambani visit Lalbaugcha Raja, offer prayers : no og:image/twitter:image tag found
-   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
-   ✗ [  reliance] Billionaire Mukesh Ambani's Reliance lines up $1 billion bon: no og:image/twitter:image tag found
-   ✗ [  reliance] Billionaire Ambani's Reliance Industries eyes Rs 10,000 cr d: no og:image/twitter:image tag found
+── Image fetch (29 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] The battle between India’s stock exchanges is heating up aga: no og:image/twitter:image tag found
+   ✓ [     legal] Legal luminaries on building India’s legal architecture for 
    ✗ [  business] Asset Reconstruction Company shares list flat at Rs 139 on B: no og:image/twitter:image tag found
+   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
+   ✗ [  business] Most Active (Volume) Stocks - NSE / BSE: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Reliance Plans Up to $1 Billion in Local Currency B: no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Mukesh Ambani's Reliance lines up $1 billion bon: no og:image/twitter:image tag found
    ✗ [  reliance] Indian billionaire Ambani's Reliance Industries eyes $1 bln : no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Ambani's Reliance Industries eyes Rs 10,000 cr d: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambanis to begin Bengal recce: CM says Reliance team to expl: no og:image/twitter:image tag found
    ✗ [  reliance] ‘Stooping low’: furore over UK university professorship for : no og:image/twitter:image tag found
-   ✗ [  reliance] ముంబైలోని లాల్‌బాగ్‌చా రాజాను దర్శించుకున్న అంబానీ కుటుంబం #: no og:image/twitter:image tag found
+   ✗ [  reliance] Why is Newcastle University facing backlash for appointing A: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani, Nita Ambani Attend Lalbaugcha Raja Aarti With: no og:image/twitter:image tag found
-   ✓ [     world] Pope Leo warns a 'paradise of machines' could undermine huma
    ✗ [    retail] FMCG Giants Bet Big on India: no og:image/twitter:image tag found
-   ✓ [     world] Netanyahu rages against critics, including Mamdani, at the U
+   ✓ [     world] Takeaways from the Trump-Xi state visit: Pageantry and panda
    ✓ [     world] There's a global pandemic treaty that's signed -- and in 'li
    ✓ [      tech] The valuation war over ERP readiness
-   ✓ [     world] Trump and Xi strike cordial tone at summit. And, Netanyahu g
-   ✓ [     world] Former U.S. Ambassador to Israel on Netanyahu's speech at UN
-   ✓ [     world] Is Switzerland's neutrality at a crossroads?
-   ✗ [   opinion] Deep rot: On the Election Commission of India’s functioning : no og:image/twitter:image tag found
+   ✓ [     world] Pope Leo warns a 'paradise of machines' could undermine huma
    ✓ [     world] Former U.S. ambassador to China on Xi Jinping's visit to Was
+   ✓ [     world] Trump and Xi strike cordial tone at summit. And, Netanyahu g
+   ✓ [     world] Netanyahu rages against critics, including Mamdani, at the U
+   ✓ [     world] Is Switzerland's neutrality at a crossroads?
    ✓ [     world] Iran's president says his country has 'no trust' in U.S. in 
-   images: 9 found, 12 not found
+   ✗ [   opinion] Deep rot: On the Election Commission of India’s functioning : no og:image/twitter:image tag found
+   ✗ [     legal] S&R Associates advises ICICI Securities, DAM Capital and JM : TimeoutError: The read operation timed out
+   ✗ [     legal] Cyril Amarchand Mangaldas advises Hero Motors Ltd. and the S: TimeoutError: The read operation timed out
+   ✗ [     legal] FSSAI proposes restrictions on analogue dairy products; non-: TimeoutError: The read operation timed out
+   ✗ [     legal] Kerala HC directs State Bar Council to identify advocates wh: TimeoutError: The read operation timed out
+   ✗ [     legal] Khaitan & Co advises Brokers on INR 11,988 Crore sale of 25.: TimeoutError: The read operation timed out
+   images: 10 found, 19 not found
 
 ── AI enrichment (providers: anthropic, gemini, openai) ──────────────
    64 stories to enrich  (sequential, 1s delay → ~60 RPM)
-   ✓ [anthropic] Delhi High Court halts London arbitration in UN military car
-   ✓ [anthropic] 5 officers suspended, 543 properties demolished, 178 sealed 
-   ✓ [anthropic] Myanmar terror training case: Delhi court allows accused US 
-   ✓ [anthropic] Supreme Court asks BCI to consider withdrawing upper age lim
-   ✓ [anthropic] P&H High Court cancels murder accused's bail after his 'band
-   ✓ [anthropic] Two coats, one body: Why cheating and criminal breach of tru
-   ✓ [anthropic] 2020 Delhi riots: Supreme Court relaxes Meeran Haider's bail
-   ✓ [anthropic] Stamping hurdle in enforcement of arbitral awards
-      [gemini] error: HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+   ✓ [anthropic] Punjab & Haryana High Court raps GST authorities for manipul
+   ✓ [anthropic] Supreme Court refuses to halt forensic audit of Fortis trans
+   ✓ [anthropic] Cyril Amarchand Mangaldas advises Hero Motors Ltd. and the S
+   ✓ [anthropic] Legal luminaries on building India’s legal architecture for 
+   ✓ [anthropic] FSSAI proposes restrictions on analogue dairy products; non-
+   ✓ [anthropic] Khaitan & Co advises Brokers on INR 11,988 Crore sale of 25.
+   ✓ [anthropic] Kerala HC directs State Bar Council to identify advocates wh
+   ✓ [anthropic] S&R Associates advises ICICI Securities, DAM Capital and JM 
+      [gemini] bad JSON: Unterminated string starting at: line 3 column 18 (char 149)
    ✓ [openai] Asset Reconstruction Company shares list flat at Rs 139 on B
-      [gemini] error: HTTP 503: {
+      [gemini] bad JSON: Unterminated string starting at: line 2 column 14 (char 15)
+   ✓ [openai] The battle between India’s stock exchanges is heating up aga
+      [gemini] exhausted: {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
-      [gemini] error: HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-   ✓ [openai] CleanMax Enviro block deal: Augment India Holdings likely to
-      [gemini] error: HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-   ✓ [openai] Liqvd Digital India IPO subscribed 5.08 times on final day
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Data center IPO hopefuls brave tougher market as investor sc
+   ✓ [openai] Most Active (Volume) Stocks - NSE / BSE
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] US Federal Reserve plans to raise bank oversight thresholds,
+   ✓ [openai] Wall Street Week Ahead: Jobs report, inflation data to test 
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Lab-grown diamond manufacturer Anjali LabTech files updated 
+   ✓ [openai] SK Hynix's Solidigm weighs IPO that could value the unit at 
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Sebi bans Omaxe, 5 others for violating minimum public share
+   ✓ [openai] Biscuit maker Anmol Industries files for $188 million IPO
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Forex reserves drop to $781 billion after hitting a peak of 
    ✓ [anthropic] Ambani’s Reliance Plans Up to $1 Billion in Local Currency B
    ✓ [anthropic] Billionaire Mukesh Ambani's Reliance lines up $1 billion bon
    ✓ [anthropic] Indian billionaire Ambani's Reliance Industries eyes $1 bln 
    ✓ [anthropic] Billionaire Ambani's Reliance Industries eyes Rs 10,000 cr d
    ✓ [anthropic] ‘Stooping low’: furore over UK university professorship for 
-   ✓ [anthropic] Mukesh and Nita Ambani visit Lalbaugcha Raja, offer prayers 
+   ✓ [anthropic] Ambanis to begin Bengal recce: CM says Reliance team to expl
+   ✓ [anthropic] Why is Newcastle University facing backlash for appointing A
    ✓ [anthropic] Mukesh Ambani, Nita Ambani Attend Lalbaugcha Raja Aarti With
-   ✓ [anthropic] ముంబైలోని లాల్‌బాగ్‌చా రాజాను దర్శించుకున్న అంబానీ కుటుంబం #
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] FMCG Giants Bet Big on India
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Tata’s e-commerce business begins to Cliq, losses shrink 19 
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Decathlon sees double-digit sales growth, targets Rs 1,000 c
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Swiss Beauty Select targets Rs 100 crore as premium beauty a
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] PC Jeweller becomes debt-free after clearing dues of all 14 
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] From metro cities to emerging markets: What will drive India
       [gemini] exhausted: {
   "error": {
     "code": 429,
@@ -264,44 +277,11 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Myntra creates over 26,000 temporary jobs ahead of festive s
-      [gemini] error: HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-   ✓ [openai] 'Transparency' packs the punch: Sales of packaged health foo
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Four Godrej family members buy 1 pc stake in Godrej Consumer
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Amazon to bet $3 billion on India's fast-delivery boom, sour
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] India’s consumer durables boom has a Rs 50,000 crore localis
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] European Union vows to defend its stand against X after the 
-      [gemini] error: HTTP 503: {
+      [gemini] exhausted: {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] The valuation war over ERP readiness
       [gemini] exhausted: {
   "error": {
@@ -333,6 +313,11 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Inside the deal engine room: VCs and PEs make the case for E
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Takeaways from the Trump-Xi state visit: Pageantry and panda
       [gemini] exhausted: {
   "error": {
     "code": 429,
@@ -372,7 +357,37 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Former U.S. Ambassador to Israel on Netanyahu's speech at UN
+   ✓ [openai] Asian Games: Japan knocked out after rain washes out steep c
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Morkel: Reddy can 'compete for allrounder's spot'
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Hain makes the grind count as Warwickshire put their champag
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Ben Compton hundred keeps Kent promotion train on track
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Abject Essex collapse under Glamorgan's weight of runs
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Zaib, Vasconcelos push back to keep Northants' faint promoti
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+   ✓ [openai] Stone rocks Yorkshire but Notts helpless as title slips away
       [gemini] exhausted: {
   "error": {
     "code": 429,
@@ -382,84 +397,49 @@ Cutoff: 2026-09-15 17:24 UTC  (MAX_AGE_HOURS=240)
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Unadkat, Haines power Sussex as Hampshire face another drubb
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Tom Lammonby hundred steers Somerset response
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Buttler out of Oval decider as Lawrence earns ODI call-up
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Mani, Prasad, Anushka star in India A's 363 chase to seal se
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Gill takes a hit to the elbow in the nets ahead of West Indi
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Former Namibia captain Yasmeen Khan included in South Africa
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Noman Ali six-for highlights battling Lancashire effort
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
    ✓ [openai] Deep rot: On the Election Commission of India’s functioning 
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] NSE IPO: A listing that matters beyond the market
+   ✓ [openai] Not the story of AI, but of individual AIs
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Lesson from HDFC Bank controversy: Boards of companies shoul
+   ✓ [openai] Are you experienced? You'll be a big AI help
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] A trend from, & for, the performing arts
+   ✓ [openai] Keep calm and carry on
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Going back home from a trip
+   ✓ [openai] Performance anxiety
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Need to repair the Nirvachan Vachan
+   ✓ [openai] Show what you do & how: A reshuffle won’t fix Election Commi
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Get wise, not wild
+   ✓ [openai] Smart rice policy would be nice
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-   ✓ [openai] Beyond numbers: Why India’s electoral rolls, census and GDP 
+   ✓ [openai] Paneer by another name is... anything
 
    AI done: 64 enriched (anthropic=16, openai=48), 0 failed/skipped (kept RSS fallback)
 
 ────────────────────────────────────────────────────────────
-Feeds:   13 OK  /  4 failed
+Feeds:   14 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-09-25   Hero: legal-f51b1892
+Edition: 2026-09-26   Hero: legal-16f3f145
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
