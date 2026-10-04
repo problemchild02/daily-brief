@@ -1,38 +1,120 @@
-# 🧠 Ultra-Comprehensive System Directive: Omni-Project Strategy Engine
+# daily-brief — project notes for Claude Code
 
-## 1. Core Persona & Operational Mandate
-You are the Lead Principal Engineer, Senior Product Architect, DevOps Specialist, and UX Design Visionary. 
-- The user is the Creative Director providing loose, conversational, or dictated plain-language intent streams. 
-- You carry 100% of the cognitive technical load. You are entirely responsible for the absolute structural, mathematical, and logical correctness of the codebase.
-- Because the user cannot manually audit your code, you must maintain an uncompromising standard of engineering excellence. Never rely on the user to catch typos, identify logical bugs, or spot architectural flaws.
+A personal newspaper-style news reader for one reader (in-house legal counsel,
+Mumbai/Delhi-NCR). React/Vite frontend on GitHub Pages, content refreshed by a
+Python script running in GitHub Actions. Design intent and history lives in
+`IMPLEMENTATION_SPEC.md` — read that for the *why* behind the UI. This file is
+the *what's actually running* reference, kept current as the codebase changes.
 
-## 2. Cloud Stack Integration & Environment Constraints
-- This workspace is entirely cloud-based. You must optimize your code to deploy flawlessly on hosting infrastructure (e.g., Vercel, cloud engines) and integrate smoothly with cloud version control hooks (e.g., GitHub Actions pipelines).
-- Before confirming any feature implementation as complete, you must explicitly audit the code for environment variable dependency errors. All sensitive authentication tokens, API keys, and endpoint configurations must be insulated inside custom `.env` or structured cloud-config blocks. Hardcoding credentials is strictly forbidden.
+## Architecture — read this before touching data or deploy
 
-## 3. Uncompromising Engineering Priorities
-Treat the following three dimensions as equally critical, inseparable milestones:
-- **Absolute Reliability (Defensive Architecture):** Write highly resilient code with strict error boundaries, fallbacks, and comprehensive validations. The final product must be 100% stable and production-ready.
-- **Premium UI/UX Delight:** Front-end changes must match elite modern industry standards. Research visual consistency, responsive layout systems, motion ergonomics, and fluid user interactions across top-tier web applications before editing styles.
-- **Impeccable Code Maintainability:** Codebases must remain perfectly clean, modular, and self-documenting. Use clean code architecture paradigms. Ensure new iterative additions are structurally isolated so updates never cause regression bugs or break legacy logic.
+- **Frontend**: `src/` — React 18 + TypeScript + Vite + Tailwind v4. Entry
+  point is `index.html` → `src/main.tsx`. Deployed to GitHub Pages at
+  `/daily-brief/`.
+- **Legacy, unused files at repo root**: `app.js`, `styles.css`,
+  `story-schema.json` are left over from a pre-React version. The live
+  `index.html` doesn't reference them. Don't assume styling changes there do
+  anything — the real design tokens are in `src/styles/tokens.css` /
+  `type.css` / `global.css`.
+- **Content pipeline**: `fetch_stories.py` (Python, repo root) is the real
+  content fetcher/enrichment script — not the `scripts/*.mjs` files the
+  original spec (`IMPLEMENTATION_SPEC.md`) described; the implementation
+  diverged from that spec. It fetches ~20 RSS feeds, dedupes/dual-tags
+  Reliance stories into both `reliance` and `business`, calls the AI
+  enrichment chain (below) per story, and writes `stories.json` +
+  `stories.fallback.json` at the repo root.
+- `scripts/generate-briefing.mjs` writes the "Today's Brief" hero summary to
+  `src/data/briefing.json`. `scripts/fetch-markets.mjs` and
+  `scripts/update-meta.mjs` write `src/data/markets.json` and
+  `src/data/meta.json`.
+- **The React app fetches these at runtime**, not at build time — see
+  `src/App.tsx` for the `fetch()` calls. `stories.json` is fetched from the
+  repo root; `meta.json`/`briefing.json` from `src/data/`.
+- **Categories**: `legal, business, reliance, retail, tech, world, sports,
+  opinion` — defined in `src/lib/categories.ts`, which is the source of
+  truth for display order/color/label (not `IMPLEMENTATION_SPEC.md`'s
+  original ordering, which has drifted).
+- **Papers feature** (`process_papers.py`, manually triggered via the
+  `process-papers.yml` workflow) is a separate PDF-import pipeline with its
+  own duplicated `ai_enrich_story` function — not on the multi-provider
+  chain below, still Anthropic-only. Low volume (manual trigger), so this
+  hasn't been a priority to unify, but it's inconsistent with the main
+  pipeline and worth fixing if it ever matters.
 
-## 4. The "Surgical Patching" & Anti-Hallucination Protocol
-- **Deep Context Review:** You are granted unlimited analysis time to fully read, map, and internalize the existing folder structure, files, and project settings before writing code. Take your time to get it right.
-- **Surgical Code Modifications:** Never perform massive, untargeted rewrites. When adding features or fixing bugs, apply surgical modifications that precisely target the necessary blocks while leaving stable, baseline logic fully untouched.
-- **Anti-Lazy Execution:** You are strictly forbidden from writing truncated loops, omitting code files, or using comments like `// TODO: Implement later` or `// Rest of the code goes here`. You must output fully completed, production-grade files every single time.
+## The AI enrichment chain (fetch_stories.py + generate-briefing.mjs)
 
-## 5. The Plain Language Guardrail & Oversight Protocol
-- **Two-Sentence Friction Layer:** Actively push back against problematic user instructions. If a plain-language prompt introduces technical debt, runtime lag, or security liabilities, halt immediately. Provide a concise, clear two-sentence warning explaining the risk using accessible language.
-- **Actionable Toggles:** Accompany warnings with explicit, simple choices or toggle options for the user to pick from. 
-- **Autonomous Resolution:** If the user explicitly states to "choose automatically," evaluate the ecosystem standard independently and deploy the safest, most performant solution available.
+Per-story `summary` + `contextNote` ("Why It Matters" — the product's actual
+differentiator, see `IMPLEMENTATION_SPEC.md` §2.11) are generated by trying
+providers in order until one succeeds, not by hard-depending on one:
 
-## 6. Controlled Innovation & Experimentation
-- Proactively discover and suggest cutting-edge design concepts, performance tricks, or modern libraries that elevate the project.
-- Experimental features must never cause system breaking errors. If a proposed experiment carries high volatility or uses unconventional methods, display an explicit, clear plain-language warning banner before modifying any files.
+- **`legal` and `reliance`** sections (the practitioner-analysis sections):
+  Anthropic (Claude Haiku) → Gemini → OpenAI. Anthropic's prompt is the most
+  carefully tuned, so it goes first where quality matters most.
+- **Everything else**: Gemini (free tier) → OpenAI → Anthropic. Cost-first,
+  since these sections don't need the same depth.
+- Requires `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` / `OPENAI_API_KEY` as
+  GitHub Actions secrets (passed through in `refresh.yml`). Any missing key
+  just skips that provider in the chain — no code change needed to add or
+  remove one.
+- Each story records `enrichedBy` (which provider actually produced it) —
+  useful for spot-checking after a run.
+- **The prompt bans generic hedging language** ("may affect", "worth
+  tracking", etc.) and retries once if the model uses it anyway — this
+  exists because the pipeline's original fallback behavior (when AI calls
+  failed) was 8 identical canned sentences per section, which is the bug
+  this chain was built to prevent. Don't reintroduce a silent generic
+  fallback path.
+- **Model names drift** — Gemini's model name has already changed once
+  under us (`gemini-2.5-flash` → `gemini-3.6-flash`, Google retired the
+  former for new API keys). If a provider starts failing 100% of calls,
+  check the actual error body first (`fetch-log.txt` or the Action's job
+  log) before assuming the API key is the problem — it's often just a
+  renamed/retired model.
 
-## 7. Systematic Execution Pipeline
-1. **Research & Scan:** Run extensive web searches or internal audits to evaluate corresponding cross-industry designs, robust npm libraries, or performance paradigms.
-2. **Chain of Thought:** Open `<analysis>` tags to document your exact research discoveries, file modification blueprints, and verification game plans before changing a file.
-3. **Write & Refine:** Implement the code blocks cleanly and completely.
-4. **Self-Correction Checkpoint:** Validate your work immediately using cloud-based build frameworks, automated linters, or workspace validation tests to quietly catch and resolve anomalies.
-5. **High-Signal Reporting:** Summarize what was built, why it was architected that way, and confirm successful validation to the user in punchy, simple terms.
+## Git & deploy workflow — this repo auto-commits itself
+
+- **`refresh.yml`** runs on a cron (3x/day) *and* is manually triggerable,
+  and commits straight to `main` (`chore: refresh <timestamp>`). This means
+  **`main` moves on its own, independent of anything you push.** Always
+  `git fetch origin main` immediately before pushing to it — assume it has
+  diverged, especially if any real time has passed since you last checked.
+- **`deploy.yml`** runs on every push to `main` and redeploys the live
+  GitHub Pages site. A push to `main` is a production action, not a dev
+  commit — treat it accordingly (this repo doesn't use PR review; direct
+  pushes to `main` are the normal workflow here, but still worth a beat of
+  care).
+- This session's GitHub integration can push code and read Actions
+  runs/logs, but **cannot trigger or cancel a workflow run via the API**
+  (`actions_run_trigger` returns 403 `Resource not accessible by
+  integration`). Triggering/canceling a run always needs the user to click
+  "Run workflow" in the Actions tab — don't assume you can do this
+  yourself, and don't retry the same call expecting a different result.
+- If `git push` to `main` is rejected as non-fast-forward, it's almost
+  certainly a `refresh.yml` auto-commit that landed in the meantime, not a
+  real conflict — `git fetch origin main && git rebase origin/main` is
+  normally sufficient and conflict-free, since those commits only touch
+  `stories.json` / `stories.fallback.json` / `src/data/*.json` /
+  `fetch-log.txt`.
+
+## Engineering defaults for this repo
+
+- No hardcoded credentials, ever — API keys live in GitHub Actions secrets
+  (`ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`), read via
+  `os.environ`/`process.env`.
+- Prefer surgical, targeted edits over rewriting whole files — most of this
+  codebase is already deliberately structured (see the file-level comments
+  in `Card.tsx`, `fetch_stories.py`); read the existing reasoning before
+  changing it.
+- Before saying a change is done: actually run it — `python3 -m py_compile`
+  for Python changes, `npx tsc -b` for TypeScript, `node --check` for the
+  `.mjs` scripts. For anything UI-facing, run the dev server and look at it
+  (headless browser screenshots work fine in this environment) rather than
+  asserting it looks right from reading the code.
+- Don't claim more certainty than you have. "Builds cleanly, haven't
+  clicked through the UI yet" is more useful than an unqualified "done" —
+  this project has bitten itself before on exactly that gap (silent AI
+  fallback to generic content wasn't visible until someone actually read
+  the live data).
+- No new npm/pip dependencies without a reason worth stating — this is a
+  small, mostly-static personal project; keep it that way unless there's a
+  concrete need.
