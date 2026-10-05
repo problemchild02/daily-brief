@@ -71,13 +71,19 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle }
         {/* Wordmark + date line */}
         <div className="min-w-0">
           {/* Spec §6.1: "48–64px (fluid clamp), weight 700, tracking -0.025em"
-              text-step-5 = clamp(3.052rem, 2.78rem + 1.36vw, 4.00rem) ≈ 48–64px
+              text-step-5 tops out at the spec's 48–64px range on tablet/laptop, but
+              its floor (≈48.8px) is wider than "THE DAILY BRIEF" fits in Playfair
+              Display Bold below ~420px — it was wrapping to 2-3 lines on phones,
+              eating most of the fold before any story was visible. This clamp has
+              its own, lower floor tuned to stay on one line down to a 320px phone;
+              it still reaches the same ~64px ceiling once there's room for it.
               Compact: "wordmark drops to 24px" */}
           <p
             className={[
-              'font-display font-bold tracking-[-0.025em] text-ink leading-none transition-all',
-              compact ? 'text-[24px]' : 'text-step-5',
+              'font-display font-bold tracking-[-0.025em] text-ink leading-none transition-all whitespace-nowrap',
+              compact ? 'text-[24px]' : '',
             ].join(' ')}
+            style={compact ? undefined : { fontSize: 'clamp(1.75rem, 5vw + 1rem, 4rem)' }}
           >
             THE DAILY BRIEF
           </p>
