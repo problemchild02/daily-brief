@@ -34,21 +34,14 @@ function KickerLabel({ category, kicker }: { category: CategoryKey; kicker?: str
 // one, and og:image scraping is best-effort. Silently collapse the slot on load failure
 // rather than showing a broken-image icon.
 //
-// Responsive placement (floats don't apply to flex children, so the "beside the
-// headline" tablet look comes from the parent flex-row wrapper in Card, not CSS float):
-//   mobile         : edge-to-edge, bled out of the card's own padding, above the
-//                    headline, 16:9 — the Apple News "big photo" card look
-//   tablet standard: fixed 120px square, inset, sits beside the headline/dek column
-//                    (keeps 2-up cards compact)
-//   tablet hero     : same edge-to-edge wide treatment as mobile/laptop — the hero
-//                    already spans both grid columns and carries a full dek + Why It
-//                    Matters block, so a 120px thumbnail reads as undersized next to
-//                    that much content
-//   laptop         : edge-to-edge again, wide top-crop (21:9 hero / 16:9 standard)
-//
-// The bleed amounts (-mt/-mx-4 and -8) exactly cancel the card's own p-4/lg:p-8
-// padding — see the negative-margin values below — so the image lands flush with
-// the card's border on top/left/right, then rounds back into the card shape.
+// Deliberately a supporting element, not a hero, on standard cards: a story's real
+// differentiated value is the Why It Matters analysis below, not a scraped stock/og
+// photo of inconsistent quality. A small, fixed-size thumbnail beside the headline —
+// at every breakpoint, mobile included — reads as "here's an exhibit" rather than
+// "here's the point," so the eye lands on the headline and analysis first. The hero
+// card (the single lead story of a section) is the one deliberate exception: it keeps
+// a wider, more present crop, because it's earned that attention by actually being
+// the top story — see the isHero branch below.
 function CardImage({ imageUrl, isHero, onFail }: { imageUrl?: string; isHero: boolean; onFail: () => void }) {
   const [failed, setFailed] = useState(false)
   const [loaded, setLoaded] = useState(false)
@@ -64,19 +57,23 @@ function CardImage({ imageUrl, isHero, onFail }: { imageUrl?: string; isHero: bo
       animate={{ opacity: loaded ? 1 : 0 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className={clsx(
-        'w-full shrink-0 object-cover bg-surface-2',
-        // A soft shadow under the image reads as depth regardless of the image's own
-        // color — matters for scraped og:images that turn out to be a promotional
-        // badge/logo rather than a real photo: a wide crop of one can land on a big
-        // solid-color region that would otherwise blend into a dark card background,
-        // making the headline right below it look like it's sitting on the image.
-        'shadow-[0_6px_10px_-6px_rgba(0,0,0,0.35)]',
-        '-mx-4 -mt-4 w-[calc(100%+2rem)] rounded-t-2xl',
-        isHero ? 'aspect-[21/9]' : 'aspect-video',
+        'shrink-0 object-cover bg-surface-2 rounded-lg',
         isHero
-          ? 'md:mx-0 md:mt-0 md:w-full md:rounded-2xl'
-          : 'md:mx-0 md:mt-0 md:w-[120px] md:aspect-square md:rounded-lg md:shadow-none',
-        'lg:-mx-8 lg:-mt-8 lg:w-[calc(100%+4rem)] lg:rounded-t-2xl',
+          ? [
+              // Hero keeps the wider, more present crop it's earned — edge-to-edge
+              // bleed out of the card's own padding (the negative margins cancel
+              // p-4/lg:p-8 exactly so the image lands flush with the card border).
+              'w-full aspect-[21/9] rounded-t-2xl rounded-b-none',
+              '-mx-4 -mt-4 w-[calc(100%+2rem)]',
+              'md:mx-0 md:mt-0 md:w-full md:rounded-2xl',
+              'lg:-mx-8 lg:-mt-8 lg:w-[calc(100%+4rem)] lg:rounded-t-2xl',
+              'shadow-[0_6px_10px_-6px_rgba(0,0,0,0.35)]',
+            ]
+          : [
+              // Standard cards: a small square "exhibit" thumbnail, same size and
+              // position (beside the headline) at every breakpoint — no mobile bleed.
+              'w-20 h-20 aspect-square',
+            ],
       )}
     />
   )
@@ -151,21 +148,27 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
       }}
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
+      // A large positive rootMargin — not the -40px "trigger a bit early" margin this
+      // used to have — means a card only stays un-animated if a scroll genuinely
+      // skipped clean over an 800px-tall band around the viewport. Browser back/
+      // forward, scroll restoration, and Ctrl+F can all jump the scroll position in
+      // one frame with no intermediate paint, so the IntersectionObserver this is
+      // built on never fires for anything it skipped over — once:true then leaves
+      // that card at opacity 0 forever. global.css's scroll-behavior:smooth covers
+      // in-app anchor jumps (the section nav pills); this margin is the fallback for
+      // the jumps that smooth-scroll can't reach.
+      viewport={{ once: true, margin: '800px 0px 800px 0px' }}
       transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1], delay: Math.min(idx, 4) * 0.04 }}
       whileHover={{ y: -3, transition: { type: 'spring', stiffness: 400, damping: 28 } }}
       whileTap={{ scale: 0.985, transition: { type: 'spring', stiffness: 500, damping: 30 } }}
     >
-      {/* Image + kicker/headline/dek. The image must be the very first element when
-          present — its edge-to-edge bleed (negative margin, see CardImage) is measured
-          from the card's own top/left/right padding, so anything rendered above it
-          (like the kicker used to be) would get visually covered by the bleed.
-          Only standard cards go row-layout at tablet (image beside text) — hero stays
-          column-layout at every breakpoint since its image is full-width throughout. */}
+      {/* Image + kicker/headline/dek. Standard cards are row-layout (small image beside
+          text) at every breakpoint, mobile included — see CardImage's comment for why.
+          Hero stays column-layout throughout since its image is full-width. */}
       <div
         className={clsx(
-          'flex flex-col gap-3 lg:flex-col lg:gap-3',
-          !isHero && 'md:flex-row md:items-start md:gap-4',
+          'flex gap-3',
+          isHero ? 'flex-col' : 'flex-row items-start',
         )}
       >
         <CardImage imageUrl={imageUrl} isHero={isHero} onFail={() => setImageFailed(true)} />
@@ -221,8 +224,9 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
         </div>
       </div>
 
-      {/* Editorial caption — laptop only, under the wide-crop hero image */}
-      {imageUrl && !imageFailed && (
+      {/* Editorial caption — hero only; standard cards' thumbnail is too small
+          beside the headline for a caption line to read as attached to it. */}
+      {isHero && imageUrl && !imageFailed && (
         <p className="hidden lg:block -mt-2 font-reading text-[12px] italic text-ink-3">
           Photo via {source}
         </p>
