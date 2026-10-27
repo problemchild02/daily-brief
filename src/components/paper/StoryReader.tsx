@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { X, ChevronLeft, ChevronRight, ExternalLink, Bookmark, BookmarkCheck } from 'lucide-react'
 import { FlipBook, type FlipBookHandle } from './FlipBook'
 import { PageShell } from './PaperPages'
+import { StoryArt } from './StoryArt'
 import { WhyItMatters } from '../cards/WhyItMatters'
 import { ArticleNote } from '../cards/ArticleNote'
 import { useAppContext } from '../../contexts/AppContext'
@@ -12,20 +13,6 @@ import { readingTime } from '../../lib/readingTime'
 import { relativeTime } from '../../lib/dateFormat'
 import { storyDek, storyBrief } from '../../lib/storyText'
 import type { Story } from '../../lib/types'
-
-function ReaderImage({ src }: { src?: string }) {
-  const [failed, setFailed] = useState(false)
-  if (!src || failed) return null
-  return (
-    <img
-      src={src}
-      alt=""
-      draggable={false}
-      onError={() => setFailed(true)}
-      className="ink mb-4 w-full aspect-[16/9] rounded-sm object-cover bg-surface-2 select-none"
-    />
-  )
-}
 
 function StoryHead({ story }: { story: Story }) {
   const cat = CATEGORIES[story.section]
@@ -53,7 +40,7 @@ function StoryBody({ story }: { story: Story }) {
   const dek = storyDek(story)
   return (
     <>
-      <ReaderImage src={story.imageUrl} />
+      <StoryArt story={story} className="ink mb-4 w-full aspect-[16/9] rounded-sm" />
       {dek ? (
         <p className="ink reading-body text-ink-2 first-letter:float-left first-letter:mr-2 first-letter:mt-1 first-letter:font-display first-letter:text-[3.1em] first-letter:font-bold first-letter:leading-[0.8] first-letter:text-ink">
           {dek}

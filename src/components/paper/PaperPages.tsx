@@ -1,10 +1,11 @@
-import { createContext, useContext, useRef, useState, type CSSProperties, type ReactNode, type PointerEvent, type KeyboardEvent } from 'react'
+import { createContext, useContext, useRef, type CSSProperties, type ReactNode, type PointerEvent, type KeyboardEvent } from 'react'
 import { CATEGORIES } from '../../lib/categories'
 import { readingTime } from '../../lib/readingTime'
 import { relativeTime } from '../../lib/dateFormat'
 import { storyDek, storyBrief, splitImplications } from '../../lib/storyText'
 import { MarketsTicker } from '../strips/MarketsTicker'
 import { WeatherStrip } from '../strips/WeatherStrip'
+import { StoryArt, StoryArtFallback } from './StoryArt'
 import type { BriefingJson, CategoryKey, MetaJson, Story } from '../../lib/types'
 
 const IST_DATE = new Intl.DateTimeFormat('en-IN', {
@@ -56,22 +57,18 @@ function Tappable({ onActivate, label, className, measure, measureId, children }
   )
 }
 
-function PaperImage({ src, className, style }: { src?: string; className: string; style?: CSSProperties }) {
-  const [failed, setFailed] = useState(false)
+function PaperImage({ story, className, style, variant }: {
+  story: Story
+  className: string
+  style?: CSSProperties
+  variant?: 'hero' | 'thumb'
+}) {
   const measuring = useContext(MeasuringContext)
-  if (!src || failed) return null
-  if (measuring) return <div className={className} style={style} />
-  return (
-    <img
-      src={src}
-      alt=""
-      loading="lazy"
-      draggable={false}
-      onError={() => setFailed(true)}
-      className={['object-cover bg-surface-2 select-none', className].join(' ')}
-      style={style}
-    />
-  )
+  // Every story gets a picture: its photo, or section artwork when it has none.
+  // The measuring copy always renders the artwork, a box of the same size, so a
+  // slow image can't change a measured height.
+  if (measuring) return <StoryArtFallback story={story} className={className} style={style} variant={variant} />
+  return <StoryArt story={story} className={className} style={style} variant={variant} />
 }
 
 function Kicker({ section, kicker }: { section: CategoryKey; kicker?: string }) {
@@ -315,14 +312,15 @@ export function ContentsContent({ entries, onGoTo, compact = false, tight = fals
 
 // ─── Section pages ──────────────────────────────────────────────────────────
 
-export type LeadFit = 'full' | 'compact' | 'text'
+export type LeadFit = 'full' | 'compact' | 'text' | 'minimal'
 
 export function SectionContent({ section, stories, lead, leadFit = 'full', continued, totalInSection, onOpen }: {
   section: CategoryKey
   stories: Story[]
   lead?: Story
   /** How much of the lead a short page has room for: a shorter photo and
-      summary, or no photo at all (small phone, large text). */
+      summary, no photo, or (small phone at a large text size) a one-line
+      summary and no "why it matters" teaser — still the headline and a summary. */
   leadFit?: LeadFit
   continued: boolean
   totalInSection: number
@@ -366,8 +364,8 @@ function LeadStory({ story, fit, onOpen }: { story: Story; fit: LeadFit; onOpen:
       {/* Capped on short pages (a laptop with a small window, iPad landscape)
           so the photo can't crowd the headline and "Why it matters" off the
           section front. */}
-      {fit !== 'text' && <PaperImage
-        src={story.imageUrl}
+      {fit !== 'text' && fit !== 'minimal' && <PaperImage
+        story={story}
         className="mb-3 w-full aspect-[16/9] rounded-sm"
         style={{ maxHeight: `calc(var(--paper-page-h, 100vh) * ${fit === 'full' ? 0.36 : 0.22})` }}
       />}
@@ -375,11 +373,11 @@ function LeadStory({ story, fit, onOpen }: { story: Story; fit: LeadFit; onOpen:
         {story.headline}
       </h3>
       {dek && (
-        <p className={`mt-2 font-reading text-ink-2 ${fit === 'full' ? 'line-clamp-4' : 'line-clamp-2'}`} style={{ fontSize: 'calc(15px * var(--reading-scale))', lineHeight: 1.6 }}>
+        <p className={`mt-2 font-reading text-ink-2 ${fit === 'full' ? 'line-clamp-4' : fit === 'minimal' ? 'line-clamp-1' : 'line-clamp-2'}`} style={{ fontSize: 'calc(15px * var(--reading-scale))', lineHeight: 1.6 }}>
           {dek}
         </p>
       )}
-      {firstImplication && (
+      {firstImplication && fit !== 'minimal' && (
         <p className="mt-3 border-l-2 pl-3 font-reading text-ink line-clamp-3" style={{ borderColor: 'var(--accent)', fontSize: 'calc(14px * var(--reading-scale))', lineHeight: 1.55 }}>
           <span className="type-kicker mr-1.5" style={{ color: 'var(--accent)', fontSize: '10px' }}>Why it matters</span>
           {firstImplication}
@@ -409,7 +407,7 @@ function StoryEntry({ story, onOpen }: { story: Story; onOpen: (s: Story) => voi
       {/* self-start + aspect-square: global.css's unlayered img{height:auto} beats
           a h-16 utility, so without these flexbox stretches the thumbnail to the
           full height of the entry. */}
-      <PaperImage src={story.imageUrl} className="mt-1 w-16 shrink-0 self-start aspect-square rounded-sm" />
+      <PaperImage story={story} variant="thumb" className="mt-1 w-16 shrink-0 self-start aspect-square rounded-sm" />
     </Tappable>
   )
 }

@@ -19,7 +19,8 @@ import { AppContext } from './contexts/AppContext'
 import { useDensity } from './hooks/useDensity'
 import { useBookmarks } from './hooks/useBookmarks'
 import { useIsDesktop, useMediaQuery } from './hooks/useMediaQuery'
-import { usePaperMode } from './hooks/usePreferences'
+import { usePaperMode, usePreferences, usePrefersReducedMotion } from './hooks/usePreferences'
+import { ViewModeSwitch } from './components/paper/ViewModeSwitch'
 import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
 import type { FeedsPayload, MetaJson, BriefingJson, Story } from './lib/types'
@@ -209,7 +210,10 @@ export default function App() {
   // tapped story opens in the page-turning reader. Off (or reduced motion) falls
   // back to the scrolling layout and the story sheet.
   const paperMode = usePaperMode()
-  const isPaperRoute = paperMode && (location.pathname === '/' || location.pathname.startsWith('/sections/'))
+  const prefs = usePreferences()
+  const reducedMotion = usePrefersReducedMotion()
+  const isMainRoute = location.pathname === '/' || location.pathname.startsWith('/sections/')
+  const isPaperRoute = paperMode && isMainRoute
   // The reader flips through the whole paper in edition order, same as the pages.
   const editionStories = feeds
     ? [...CATEGORY_KEYS]
@@ -272,6 +276,19 @@ export default function App() {
 
           <div className={isPaperRoute ? 'flex-1 flex min-h-0' : 'flex-1 flex'}>
             <main id="main-content" className={isPaperRoute ? 'flex-1 min-w-0 min-h-0' : 'flex-1 min-w-0'}>
+              {/* The Flip | Scroll switch, so the scrolling layout always has a
+                  visible way back to the paper (the paper's own toolbar carries
+                  the same switch). */}
+              {isMainRoute && !paperMode && (
+                <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 pt-3 md:px-6 print:hidden">
+                  <p className="min-w-0 font-mono text-[10px] leading-snug text-ink-3">
+                    {prefs.pageEffects === null && reducedMotion
+                      ? 'Your phone asks for reduced motion, so pages scroll. Tap Flip to turn them like a paper.'
+                      : ''}
+                  </p>
+                  <ViewModeSwitch />
+                </div>
+              )}
               {/* Route changes get a soft fade+rise instead of an abrupt swap — the
                   explicit `location` pin on Routes keeps rendering the outgoing page
                   during the exit animation, which is what AnimatePresence needs to

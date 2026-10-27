@@ -81,12 +81,17 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle, 
               its own, lower floor tuned to stay on one line down to a 320px phone;
               it still reaches the same ~64px ceiling once there's room for it.
               Compact: "wordmark drops to 24px" */}
+          {/* Sized from the room actually left beside the three icon buttons
+              (~190px with padding): the wordmark is ~8.4× its font size wide.
+              A plain 5vw-based clamp ran the title under the icons on
+              360–412px phones. */}
           <p
-            className={[
-              'font-display font-bold tracking-[-0.025em] text-ink leading-none transition-all whitespace-nowrap',
-              compact ? 'text-[24px]' : '',
-            ].join(' ')}
-            style={compact ? undefined : { fontSize: 'clamp(1.75rem, 5vw + 1rem, 4rem)' }}
+            className="font-display font-bold tracking-[-0.025em] text-ink leading-none transition-all whitespace-nowrap"
+            style={{
+              fontSize: compact
+                ? 'min(24px, calc((100vw - 190px) / 8.4))'
+                : 'clamp(0.95rem, calc((100vw - 190px) / 8.4), 4rem)',
+            }}
           >
             THE DAILY BRIEF
           </p>

@@ -46,6 +46,15 @@ declare module 'page-flip/dist/js/page-flip.module.js' {
     getOrientation(): 'portrait' | 'landscape'
     getState(): 'user_fold' | 'fold_corner' | 'flipping' | 'read'
     getSettings(): FlipSettings
+    /** Book geometry in coordinates relative to the .stf__block element. The
+        virtual book is always two pages wide; a single (portrait) page is its
+        right half. */
+    getRender(): { getRect(): { left: number; top: number; width: number; height: number; pageWidth: number } }
+    /** The library's own drag primitives (what its mouse/touch handlers call),
+        in .stf__block coordinates. */
+    startUserTouch(pos: { x: number; y: number }): void
+    userMove(pos: { x: number; y: number }, isTouch: boolean): void
+    userStop(pos: { x: number; y: number }, isSwipe?: boolean): void
     on(event: 'flip', cb: (e: FlipEvent<number>) => void): PageFlip
     on(event: 'changeState', cb: (e: FlipEvent<string>) => void): PageFlip
     on(event: 'changeOrientation', cb: (e: FlipEvent<string>) => void): PageFlip

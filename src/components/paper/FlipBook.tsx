@@ -31,11 +31,11 @@ interface FlipBookProps {
 
 // Anything a reader taps to *do* something inside a page — follow a link, save a
 // story, type a note — must not also start a page curl. page-flip listens for
-// mousedown/touchstart on its own block element, and its built-in check only looks
-// at the event's direct target tag (so tapping the text span inside a button still
+// mousedown on its own block element, and its built-in check only looks at the
+// event's direct target tag (so clicking the text span inside a button still
 // starts a fold, and a textarea can never receive focus because the library calls
-// preventDefault on mousedown). Stopping these events at the page element, before
-// they bubble up to the library, fixes both.
+// preventDefault on mousedown). Stopping mousedown at the page element, before it
+// bubbles up to the library, fixes both. Touch is handled by FlipBook itself.
 const INTERACTIVE = 'a, button, input, textarea, select, label, [role="button"], [data-no-flip]'
 
 // page-flip's own flipPrev() is broken in single-page mode: it aims the turn at a
@@ -71,7 +71,6 @@ function makePageElements(count: number): HTMLDivElement[] {
     el.setAttribute('aria-roledescription', 'page')
     el.setAttribute('aria-label', `Page ${i + 1} of ${count}`)
     el.addEventListener('mousedown', guardInteractive)
-    el.addEventListener('touchstart', guardInteractive, { passive: true })
     return el
   })
 }
@@ -254,41 +253,146 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // Forgiving swipe. page-flip only counts a swipe finished within 250ms, and only
-  // starts a finger-drag curl after a 250ms hold — so an ordinary, unhurried swipe
-  // (300–700ms) lands in the gap between the two and does nothing. This catches
-  // that gap: a clearly horizontal swipe the library didn't act on turns the page.
-  // It runs after the library's own touchend handling, and backs off if the
-  // library already started a turn or the page already changed.
+  // Touch turning, Apple Books style: the moment a finger moves sideways the
+  // page curls and follows it; let go past ~30% of the page (or flick) and it
+  // turns, otherwise it settles back. Up/down movement is left to the browser,
+  // so a long page still scrolls.
+  //
+  // page-flip's own touch handling can't do this on Android: it only starts
+  // following the finger after a 250ms press-and-hold, and only while the
+  // browser still allows the touch to be cancelled — once Chrome/Brave treat
+  // the gesture as a possible scroll, the library gives up and the page just
+  // scrolls. So touch events are caught here in the capture phase, kept from
+  // reaching the library, and translated into its drag primitives
+  // (startUserTouch / userMove / userStop). Mouse dragging on a laptop is
+  // still the library's own.
   useEffect(() => {
     const frame = frameRef.current
     if (!frame) return
-    let start: { x: number; y: number; t: number; page: number } | null = null
+
+    interface Drag {
+      x0: number; y0: number; t0: number
+      mode: 'pending' | 'turn' | 'ignore'
+      dir: 1 | -1             // 1 = forward (finger moving left)
+      origin: { x: number; y: number }
+      portrait: boolean
+      lastX: number; lastT: number; vx: number
+      pos: { x: number; y: number }
+    }
+    let drag: Drag | null = null
+    let settling = 0
+
+    const blockRect = () =>
+      outerRef.current?.querySelector('.stf__block')?.getBoundingClientRect() ?? null
+
     const onStart = (e: TouchEvent) => {
-      const t = e.changedTouches[0]
+      e.stopPropagation()
+      const t = e.touches[0]
       const book = bookRef.current
-      start = t && book ? { x: t.clientX, y: t.clientY, t: Date.now(), page: book.getCurrentPageIndex() } : null
+      if (e.touches.length !== 1 || !t || !book || settling || book.getState() !== 'read'
+        || (e.target as Element | null)?.closest?.(INTERACTIVE)) {
+        drag = null
+        return
+      }
+      drag = {
+        x0: t.clientX, y0: t.clientY, t0: e.timeStamp, mode: 'pending', dir: 1,
+        origin: { x: 0, y: 0 }, portrait: false, lastX: t.clientX, lastT: e.timeStamp, vx: 0, pos: { x: 0, y: 0 },
+      }
     }
+
+    const onMove = (e: TouchEvent) => {
+      e.stopPropagation()
+      const d = drag
+      const book = bookRef.current
+      const t = e.touches[0]
+      if (!d || !book || !t || d.mode === 'ignore') return
+      const dx = t.clientX - d.x0
+      const dy = t.clientY - d.y0
+
+      if (d.mode === 'pending') {
+        if (Math.hypot(dx, dy) < 8) return
+        // Mostly vertical, or the browser has already claimed it as a scroll.
+        if (Math.abs(dx) < Math.abs(dy) * 1.2 || !e.cancelable) { d.mode = 'ignore'; return }
+        const dir = dx < 0 ? 1 : -1
+        const index = book.getCurrentPageIndex()
+        const last = book.getPageCount() - (book.getOrientation() === 'landscape' ? 2 : 1)
+        const b = blockRect()
+        if (!b || (dir === 1 && index >= last) || (dir === -1 && index <= 0)) { d.mode = 'ignore'; return }
+        const r = book.getRender().getRect()
+        const portrait = book.getOrientation() === 'portrait'
+        // Grab the page by an outer edge at the finger's height: the right edge
+        // to turn forward; to turn back, the left edge of what's showing (on a
+        // single page that's the spine of the library's two-page geometry, its
+        // left half being hidden), so the previous page folds in from the left.
+        const y = Math.min(r.top + r.height - 2, Math.max(r.top + 2, d.y0 - b.top))
+        d.dir = dir
+        d.portrait = portrait
+        d.origin = { x: dir === 1 ? r.left + r.width - 2 : r.left + (portrait ? r.pageWidth : 0) + 2, y }
+        d.pos = d.origin
+        d.mode = 'turn'
+        book.startUserTouch(d.origin)
+      }
+
+      e.preventDefault()
+      const now = e.timeStamp
+      const v = (t.clientX - d.lastX) / Math.max(1, now - d.lastT)
+      d.vx = d.vx * 0.3 + v * 0.7
+      d.lastX = t.clientX
+      d.lastT = now
+      d.pos = { x: d.origin.x + dx, y: d.origin.y + dy * 0.4 }
+      book.userMove(d.pos, true)
+    }
+
     const onEnd = (e: TouchEvent) => {
-      const s = start
-      start = null
+      e.stopPropagation()
+      const d = drag
+      drag = null
+      const book = bookRef.current
+      if (!d || !book || d.mode !== 'turn') return
+      const r = book.getRender().getRect()
       const t = e.changedTouches[0]
-      if (!s || !t) return
-      const dx = t.clientX - s.x
-      const dy = t.clientY - s.y
-      if (Math.abs(dx) < 45 || Math.abs(dy) > Math.abs(dx) * 0.7 || Date.now() - s.t > 900) return
-      setTimeout(() => {
-        const book = bookRef.current
-        if (!book || book.getState() !== 'read' || book.getCurrentPageIndex() !== s.page) return
-        if (dx < 0) book.flipNext('bottom')
-        else turnBack(book)
-      }, 40)
+      const travelled = t ? (d.x0 - t.clientX) * d.dir : 0
+      // A flick: fast at release, or a short, quick gesture overall.
+      const avg = travelled / Math.max(1, e.timeStamp - d.t0)
+      const flick = travelled > 16 && (-d.vx * d.dir > 0.25 || (avg > 0.3 && e.timeStamp - d.t0 < 300))
+      const complete = e.type === 'touchend' && (travelled > r.pageWidth * 0.3 || flick)
+      // The library finishes a turn on release once the corner is past the
+      // spine, and returns the page otherwise. Glide the corner to the right
+      // side of that line over a few frames (not one jump), then release.
+      // A single page turning back starts on the spine already, so letting
+      // go early has to carry it back into the hidden half to cancel.
+      const spine = r.left + r.width / 2
+      let target: { x: number; y: number } | null = null
+      if (complete) target = { x: spine + r.pageWidth * 0.25 * -d.dir, y: d.pos.y }
+      else if (d.dir === -1 && d.portrait) target = { x: spine - r.pageWidth * 0.25, y: d.pos.y }
+      if (!target) { book.userStop(d.pos); return }
+      const to = target
+      const from = d.pos
+      const steps = 6
+      let i = 0
+      const step = () => {
+        i++
+        const k = i / steps
+        const p = { x: from.x + (to.x - from.x) * k, y: from.y + (to.y - from.y) * k }
+        book.userMove(p, true)
+        if (i < steps) { settling = requestAnimationFrame(step); return }
+        settling = 0
+        book.userStop(p)
+      }
+      settling = requestAnimationFrame(step)
     }
-    frame.addEventListener('touchstart', onStart, { passive: true })
-    frame.addEventListener('touchend', onEnd, { passive: true })
+
+    const opts = { capture: true, passive: false } as const
+    frame.addEventListener('touchstart', onStart, opts)
+    frame.addEventListener('touchmove', onMove, opts)
+    frame.addEventListener('touchend', onEnd, opts)
+    frame.addEventListener('touchcancel', onEnd, opts)
     return () => {
-      frame.removeEventListener('touchstart', onStart)
-      frame.removeEventListener('touchend', onEnd)
+      cancelAnimationFrame(settling)
+      frame.removeEventListener('touchstart', onStart, opts)
+      frame.removeEventListener('touchmove', onMove, opts)
+      frame.removeEventListener('touchend', onEnd, opts)
+      frame.removeEventListener('touchcancel', onEnd, opts)
     }
   }, [])
 

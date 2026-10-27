@@ -3,7 +3,7 @@ import { X, Eye, EyeOff, Play, Loader, Printer } from 'lucide-react'
 import { clsx } from 'clsx'
 import { useTheme } from '../../hooks/useTheme'
 import { useDensity } from '../../hooks/useDensity'
-import { usePreferences, setPreference, usePrefersReducedMotion } from '../../hooks/usePreferences'
+import { usePreferences, setPreference, usePrefersReducedMotion, usePaperMode } from '../../hooks/usePreferences'
 import type { ReadingFont, TextSize } from '../../hooks/usePreferences'
 import { readPat, writePat, dispatchWorkflow } from '../../lib/githubWorkflow'
 import type { Theme } from '../../hooks/useTheme'
@@ -94,6 +94,7 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
   const { density, setDensity } = useDensity()
   const prefs = usePreferences()
   const reducedMotion = usePrefersReducedMotion()
+  const paperMode = usePaperMode()
   const [homeCity, setHomeCityState] = useState<HomeCity>(readHomeCity)
   const [pat, setPat] = useState(readPat)
   const [showPat, setShowPat] = useState(false)
@@ -303,7 +304,7 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
             <SettingRow label="Page turns">
               <RadioGroup<'on' | 'off'>
                 name="Page turns"
-                value={prefs.pageEffects ? 'on' : 'off'}
+                value={paperMode ? 'on' : 'off'}
                 onChange={v => setPreference('pageEffects', v === 'on')}
                 options={[
                   { value: 'on', label: 'Flip pages' },
@@ -322,9 +323,9 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                 ]}
               />
             </SettingRow>
-            {reducedMotion && prefs.pageEffects && (
+            {reducedMotion && prefs.pageEffects === null && (
               <p className="pb-3" style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--ink-3)', lineHeight: 1.5 }}>
-                Your device has Reduce Motion on, so pages scroll instead of turning.
+                Your device asks for reduced motion, so pages scroll by default. Choose Flip pages to turn them anyway.
               </p>
             )}
           </div>

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, ListOrdered } from 'lucide-react'
 import { FlipBook, type FlipBookHandle } from './FlipBook'
+import { ViewModeSwitch } from './ViewModeSwitch'
 import {
   PageShell, Folio, FrontPageContent, BriefContinuedContent, ContentsContent, SectionContent,
   MeasuringContext, type LeadFit,
@@ -88,7 +89,7 @@ function buildPages(sections: Record<CategoryKey, Story[]> | undefined, layout: 
     const [lead, ...rest] = stories
     const head = layout.head[section] ?? 0
     // A page too short for the full lead gets a shorter one.
-    const leadFit = LEAD_FITS.find(f => head + (layout.lead[f][lead.id] ?? 0) <= layout.body) ?? 'text'
+    const leadFit = LEAD_FITS.find(f => head + (layout.lead[f][lead.id] ?? 0) <= layout.body) ?? 'minimal'
     let page: Story[] = []
     let used = head + (layout.lead[leadFit][lead.id] ?? 0)
     let first = true
@@ -121,7 +122,7 @@ const CONTENTS_DENSITIES: ContentsDensity[] = ['full', 'tight', 'compact']
 /** The mt-6 between the end of the brief and the contents. */
 const CONTENTS_GAP = 24
 
-const LEAD_FITS: LeadFit[] = ['full', 'compact', 'text']
+const LEAD_FITS: LeadFit[] = ['full', 'compact', 'text', 'minimal']
 
 function labelOf(p?: PageDesc): string {
   if (!p) return ''
@@ -172,7 +173,7 @@ function measureLayout(root: HTMLElement): Layout | null {
     contents: !overflows(contents) ? 'full' : !overflows(tight) ? 'tight' : 'compact',
     contentsH: { full: contentH(contents), tight: contentH(tight), compact: contentH(compactCopy) },
     body: Math.floor(body) - 2,
-    head: {}, cont: {}, lead: { full: {}, compact: {}, text: {} }, entry: {},
+    head: {}, cont: {}, lead: { full: {}, compact: {}, text: {}, minimal: {} }, entry: {},
   }
   // Each height runs from an element's top to the next one's, so margins and
   // dividers between stories are counted too.
@@ -439,6 +440,7 @@ export function PaperEdition() {
             <ListOrdered size={15} />
           </button>
         </div>
+        <ViewModeSwitch labels="wide" />
         <button
           type="button"
           onClick={() => bookRef.current?.next()}
@@ -492,7 +494,7 @@ export function PaperEdition() {
                       <SectionContent section={section} stories={[]} continued totalInSection={stories.length} onOpen={() => {}} />
                     </PageShell>
                   </div>
-                  {(['compact', 'text'] as const).map(f => (
+                  {(['compact', 'text', 'minimal'] as const).map(f => (
                     <div key={f} data-copy>
                       <PageShell folio={null}>
                         <SectionContent section={section} lead={lead} leadFit={f} stories={[]} continued={false} totalInSection={stories.length} onOpen={() => {}} />

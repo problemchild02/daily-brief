@@ -13,8 +13,9 @@ export interface Preferences {
   theme: ThemeChoice
   font: ReadingFont
   textSize: TextSize
-  /** Page curl, ink-settle and the paper-edition layout. */
-  pageEffects: boolean
+  /** Page curl, ink-settle and the paper-edition layout. null = the reader
+      hasn't chosen, so the device's reduced-motion setting decides. */
+  pageEffects: boolean | null
   pageSound: boolean
 }
 
@@ -48,7 +49,7 @@ function load(): Preferences {
     theme,
     font: (FONTS as string[]).includes(font ?? '') ? font as ReadingFont : 'serif',
     textSize: (SIZES as string[]).includes(size ?? '') ? size as TextSize : 'm',
-    pageEffects: read(KEYS.pageEffects) !== 'false',
+    pageEffects: (() => { const v = read(KEYS.pageEffects); return v === null ? null : v !== 'false' })(),
     pageSound: read(KEYS.pageSound) === 'true',
   }
 }
@@ -99,7 +100,8 @@ export function usePreferences(): Preferences {
   return useSyncExternalStore(subscribe, () => state, () => state)
 }
 
-/** Reduced-motion users always get the static layout, whatever the toggle says. */
+/** Whether the device asks for reduced motion (Android's battery saver and
+    "Remove animations" both set this). */
 export function usePrefersReducedMotion(): boolean {
   return useSyncExternalStore(
     cb => {
@@ -112,9 +114,14 @@ export function usePrefersReducedMotion(): boolean {
   )
 }
 
-/** True when the flip-book paper edition should be used. */
+/**
+ * True when the flip-book paper edition should be used. The reader's own choice
+ * (the Flip/Scroll switch, or Settings) always wins; reduced motion only picks
+ * the default for someone who hasn't chosen. It used to override the choice,
+ * which on an Android phone in battery saver silently meant no page turns.
+ */
 export function usePaperMode(): boolean {
   const { pageEffects } = usePreferences()
   const reduced = usePrefersReducedMotion()
-  return pageEffects && !reduced
+  return pageEffects ?? !reduced
 }
