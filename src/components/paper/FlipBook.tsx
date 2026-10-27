@@ -5,6 +5,7 @@ import {
 import { createPortal } from 'react-dom'
 import { PageFlip } from 'page-flip/dist/js/page-flip.module.js'
 import { playPageTurn } from '../../lib/pageSound'
+import { haptic } from '../../lib/haptics'
 
 export interface FlipBookHandle {
   next: () => void
@@ -181,6 +182,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
       currentRef.current = e.data
       setCurrent(e.data)
       markInk(e.data, book.getOrientation() === 'landscape')
+      haptic('turn')
       onFlipRef.current?.(e.data, false)
     })
     book.on('changeState', e => {
@@ -223,6 +225,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
         currentRef.current = target
         setCurrent(target)
         markInk(target, spread)
+        haptic('turn')
         onFlipRef.current?.(target, false)
       } else if (target > here) {
         book.flipNext('bottom')
@@ -330,6 +333,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
         d.origin = { x: dir === 1 ? r.left + r.width - 2 : r.left + (portrait ? r.pageWidth : 0) + 2, y }
         d.pos = d.origin
         d.mode = 'turn'
+        haptic('tick')
         book.startUserTouch(d.origin)
       }
 

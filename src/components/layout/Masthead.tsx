@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Moon, Sun, Settings, Search, PanelLeft } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { useTheme } from '../../hooks/useTheme'
+import { haptic } from '../../lib/haptics'
 import type { MetaJson } from '../../lib/types'
 
 // Shared tactile tap feedback for the icon buttons below — Apple-style spring
@@ -125,7 +126,7 @@ export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle, 
         <nav aria-label="Display controls" className="flex items-center gap-1 shrink-0 ml-4">
           <motion.button
             type="button"
-            onClick={toggle}
+            onClick={() => { haptic('select'); toggle() }}
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-3 hover:bg-surface-2 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent transition-colors"
             whileTap={ICON_TAP}

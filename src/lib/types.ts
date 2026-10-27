@@ -19,7 +19,9 @@ export interface Story {
   summary: string
   contextNote?: string    // practitioner "Why It Matters" brief, written by fetch_stories.py
   whyItMatters?: string   // spec §7.9 field name; unused by the current pipeline, kept as a fallback source
-  enrichedBy?: string     // which AI provider generated summary/contextNote: 'anthropic' | 'gemini' | 'openai'
+  enrichedBy?: string     // who wrote contextNote: 'native' (rule engine, no AI) | 'anthropic' | 'gemini' | 'openai' | 'custom'
+  summaryBy?: string      // who wrote summary: 'native' (extractive) or a provider reused from an earlier run
+  facts?: { label: string; value: string }[]   // courts, regulators, statutes, amounts… found in the text by the native engine
   kicker?: string
   source: string
   sourceUrl: string

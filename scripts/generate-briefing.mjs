@@ -18,6 +18,11 @@ const BRIEFING_PATH = join(ROOT, 'src', 'data', 'briefing.json')
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+// Optional fourth provider: any OpenAI-compatible endpoint (Groq, OpenRouter,
+// DeepSeek, a local Ollama...). Same three env vars as fetch_stories.py.
+const FALLBACK_BASE_URL = (process.env.AI_FALLBACK_BASE_URL || '').replace(/\/+$/, '')
+const FALLBACK_MODEL = process.env.AI_FALLBACK_MODEL || ''
+const FALLBACK_API_KEY = process.env.AI_FALLBACK_API_KEY || ''
 const GEMINI_MODEL = 'gemini-3.6-flash'
 const OPENAI_MODEL = 'gpt-4o-mini'
 
@@ -134,6 +139,24 @@ async function callOpenAI(prompt) {
   return body.choices?.[0]?.message?.content ?? ''
 }
 
+async function callCustom(prompt) {
+  const headers = { 'Content-Type': 'application/json' }
+  if (FALLBACK_API_KEY) headers.Authorization = `Bearer ${FALLBACK_API_KEY}`
+  const resp = await fetch(`${FALLBACK_BASE_URL}/chat/completions`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      model: FALLBACK_MODEL,
+      messages: [{ role: 'user', content: prompt }],
+      temperature: 0.4,
+      max_tokens: 1500,
+    }),
+  })
+  const body = await resp.json()
+  if (!resp.ok) throw new Error(`Fallback HTTP ${resp.status}: ${JSON.stringify(body).slice(0, 200)}`)
+  return body.choices?.[0]?.message?.content ?? ''
+}
+
 function parseJsonLoose(text) {
   const match = text.match(/\{[\s\S]*\}/)
   if (!match) throw new Error('No JSON in response')
@@ -144,6 +167,7 @@ const PROVIDERS = [
   { name: 'anthropic', hasKey: () => !!ANTHROPIC_API_KEY, call: callAnthropic },
   { name: 'gemini', hasKey: () => !!GEMINI_API_KEY, call: callGemini },
   { name: 'openai', hasKey: () => !!OPENAI_API_KEY, call: callOpenAI },
+  { name: 'custom', hasKey: () => !!(FALLBACK_BASE_URL && FALLBACK_MODEL), call: callCustom },
 ]
 
 async function generateBriefing(stories) {

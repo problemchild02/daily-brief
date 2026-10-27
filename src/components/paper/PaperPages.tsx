@@ -6,6 +6,7 @@ import { storyDek, storyBrief, splitImplications } from '../../lib/storyText'
 import { MarketsTicker } from '../strips/MarketsTicker'
 import { WeatherStrip } from '../strips/WeatherStrip'
 import { StoryArt, StoryArtFallback } from './StoryArt'
+import { haptic } from '../../lib/haptics'
 import type { BriefingJson, CategoryKey, MetaJson, Story } from '../../lib/types'
 
 const IST_DATE = new Intl.DateTimeFormat('en-IN', {
@@ -41,11 +42,12 @@ function Tappable({ onActivate, label, className, measure, measureId, children }
       aria-label={label}
       data-m={measure}
       data-id={measureId}
-      className={['cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md', className].filter(Boolean).join(' ')}
+      className={['cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md transition-[background-color,transform] duration-150 active:scale-[0.992] active:bg-surface-2/60', className].filter(Boolean).join(' ')}
       onPointerDown={(e: PointerEvent) => { start.current = { x: e.clientX, y: e.clientY } }}
       onClick={e => {
         const s = start.current
         if (s && Math.hypot(e.clientX - s.x, e.clientY - s.y) > 8) return
+        haptic('soft')
         onActivate()
       }}
       onKeyDown={(e: KeyboardEvent) => {
@@ -369,7 +371,7 @@ function LeadStory({ story, fit, onOpen }: { story: Story; fit: LeadFit; onOpen:
         className="mb-3 w-full aspect-[16/9] rounded-sm"
         style={{ maxHeight: `calc(var(--paper-page-h, 100vh) * ${fit === 'full' ? 0.36 : 0.22})` }}
       />}
-      <h3 className="font-display font-bold text-ink leading-[1.12] tracking-[-0.015em]" style={{ fontSize: 'calc(23px * var(--reading-scale))' }}>
+      <h3 className="font-display font-bold text-ink text-balance leading-[1.12] tracking-[-0.015em]" style={{ fontSize: 'calc(23px * var(--reading-scale))' }}>
         {story.headline}
       </h3>
       {dek && (
@@ -394,7 +396,7 @@ function StoryEntry({ story, onOpen }: { story: Story; onOpen: (s: Story) => voi
     <Tappable onActivate={() => onOpen(story)} label={story.headline} measure="entry" measureId={story.id} className="ink flex gap-3 py-3.5">
       <div className="min-w-0 flex-1">
         <Kicker section={story.section} kicker={story.kicker} />
-        <h3 className="mt-1 font-display font-semibold text-ink leading-[1.2]" style={{ fontSize: 'calc(17.5px * var(--reading-scale))' }}>
+        <h3 className="mt-1 font-display font-semibold text-ink text-balance leading-[1.2]" style={{ fontSize: 'calc(17.5px * var(--reading-scale))' }}>
           {story.headline}
         </h3>
         {dek && (

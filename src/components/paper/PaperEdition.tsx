@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, ListOrdered } from 'lucide-react'
 import { FlipBook, type FlipBookHandle } from './FlipBook'
 import { ViewModeSwitch } from './ViewModeSwitch'
+import { haptic } from '../../lib/haptics'
 import {
   PageShell, Folio, FrontPageContent, BriefContinuedContent, ContentsContent, SectionContent,
   MeasuringContext, type LeadFit,
@@ -416,10 +417,10 @@ export function PaperEdition() {
       <div className="flex items-center justify-between gap-2 px-3 py-1.5 sm:px-5 print:hidden">
         <button
           type="button"
-          onClick={() => bookRef.current?.prev()}
+          onClick={() => { haptic('soft'); bookRef.current?.prev() }}
           disabled={current === 0}
           aria-label="Previous page"
-          className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 disabled:opacity-30 transition-colors"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 active:scale-90 disabled:opacity-30 transition-[background-color,transform]"
         >
           <ChevronLeft size={20} />
         </button>
@@ -433,9 +434,9 @@ export function PaperEdition() {
           </span>
           <button
             type="button"
-            onClick={() => bookRef.current?.goTo(Math.max(0, contentsIndex))}
+            onClick={() => { haptic('select'); bookRef.current?.goTo(Math.max(0, contentsIndex)) }}
             aria-label="Contents"
-            className="ml-1 flex h-8 w-8 items-center justify-center rounded-full hover:bg-surface-2 hover:text-ink transition-colors"
+            className="ml-1 flex h-8 w-8 items-center justify-center rounded-full hover:bg-surface-2 hover:text-ink active:scale-90 transition-[background-color,transform]"
           >
             <ListOrdered size={15} />
           </button>
@@ -443,10 +444,10 @@ export function PaperEdition() {
         <ViewModeSwitch labels="wide" />
         <button
           type="button"
-          onClick={() => bookRef.current?.next()}
+          onClick={() => { haptic('soft'); bookRef.current?.next() }}
           disabled={current >= pages.length - (spread ? 2 : 1)}
           aria-label="Next page"
-          className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 disabled:opacity-30 transition-colors"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 active:scale-90 disabled:opacity-30 transition-[background-color,transform]"
         >
           <ChevronRight size={20} />
         </button>

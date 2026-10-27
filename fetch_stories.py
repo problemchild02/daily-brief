@@ -25,6 +25,8 @@ from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from html import unescape
 
+import analysis_engine as ae   # native (zero-token) summary / facts / why-it-matters
+
 DEBUG_MODE = "--debug" in sys.argv
 
 # ── AI summarisation config ────────────────────────────────────────────────────
@@ -187,8 +189,8 @@ FEEDS = [
 # Canonical section order — mirrors the UI tab order
 ALL_SECTIONS = ["legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"]
 
-# All sections get a contextNote. AI writes it when the article is reachable;
-# these static strings are the fallback when article fetch fails.
+# The old canned per-section notes. No longer attached to stories — kept only so
+# enrichment can recognise them in a previous stories.json and refuse to "reuse" one.
 CONTEXT_NOTE_REQUIRED = {"legal", "business", "reliance", "retail", "tech", "world", "sports", "opinion"}
 
 CONTEXT_TEMPLATES = {
@@ -422,45 +424,78 @@ _QUALITY_FIRST_SECTIONS = {"legal", "reliance"}
 _PROVIDER_ORDER_QUALITY_FIRST = ["anthropic", "gemini", "openai"]
 _PROVIDER_ORDER_COST_FIRST    = ["gemini", "openai", "anthropic"]
 
+# A fourth, optional provider for any OpenAI-compatible endpoint — Groq,
+# OpenRouter, DeepSeek, Mistral, Together, or a local Ollama / LM Studio server
+# (free, no tokens billed). Configure with three env vars, no code change:
+#   AI_FALLBACK_BASE_URL  e.g. https://api.groq.com/openai/v1   (or http://localhost:11434/v1)
+#   AI_FALLBACK_MODEL     e.g. llama-3.3-70b-versatile
+#   AI_FALLBACK_API_KEY   (may be blank for a local server)
+# It is always tried last unless AI_PROVIDER_ORDER lists it explicitly.
+FALLBACK_BASE_URL = os.environ.get("AI_FALLBACK_BASE_URL", "").rstrip("/")
+FALLBACK_MODEL    = os.environ.get("AI_FALLBACK_MODEL", "")
+FALLBACK_API_KEY  = os.environ.get("AI_FALLBACK_API_KEY", "")
+ANY_AI_ENABLED    = ANY_AI_ENABLED or bool(FALLBACK_BASE_URL and FALLBACK_MODEL)
 
-def _build_enrichment_prompt(headline, section, hook, summary, source, tags):
-    rss_context = " ".join(filter(None, [hook, summary])).strip()
-    tags_str    = ", ".join(tags) if tags else ""
-    has_excerpt = bool(rss_context)
+# Token-spend controls (all optional env vars).
+#   AI_PROVIDER_ORDER  comma list overriding the order, e.g. "gemini,custom,openai"
+#   AI_MAX_CALLS       hard cap on AI calls per run (default 40) — the native engine
+#                      handles everything else, and the cap is spent legal-first
+#   AI_MAX_FAILS       consecutive failures before a provider is skipped for the
+#                      rest of the run (default 3; quota/billing errors skip it at once)
+AI_MAX_CALLS = int(os.environ.get("AI_MAX_CALLS", "40") or 40)
+AI_MAX_FAILS = int(os.environ.get("AI_MAX_FAILS", "3") or 3)
+NOTE_MAX_TOKENS = 450      # a ~150-word note is ~250 tokens; the rest is headroom
 
-    no_excerpt_note = (
-        "" if has_excerpt else
-        "\nNo article text is available — you only have the headline, section, and "
-        "tags. Do not pad this out with vague sector commentary. For the summary, "
-        "restate concretely what the headline itself states (the specific actors, "
-        "numbers, and action) in one or two tight sentences — do not invent facts "
-        "beyond it. Put the real substance in contextNote, grounded in what you "
-        "actually know about the named people, companies, statutes, or events in "
-        "the headline."
+_PROVIDER_STATE = {}       # name -> {"fails": int, "dead": bool}, reset each run
+
+
+def _provider_order(section):
+    forced = [n.strip().lower() for n in os.environ.get("AI_PROVIDER_ORDER", "").split(",") if n.strip()]
+    forced = [n for n in forced if n in _PROVIDERS]
+    if forced:
+        return forced
+    base = list(_PROVIDER_ORDER_QUALITY_FIRST if section in _QUALITY_FIRST_SECTIONS else _PROVIDER_ORDER_COST_FIRST)
+    return base + ["custom"]
+
+
+def _provider_usable(name):
+    return _PROVIDERS[name][1]() and not _PROVIDER_STATE.get(name, {}).get("dead", False)
+
+
+def _note_provider_result(name, ok, exhausted=False):
+    st = _PROVIDER_STATE.setdefault(name, {"fails": 0, "dead": False})
+    if ok:
+        st["fails"] = 0
+        return
+    st["fails"] += 1
+    if exhausted or st["fails"] >= AI_MAX_FAILS:
+        st["dead"] = True
+        why = "out of quota/credit" if exhausted else f"{st['fails']} failures in a row"
+        print(f"      [{name}] disabled for the rest of this run ({why})", file=sys.stderr)
+
+
+def _build_note_prompt(headline, section, source, tags, excerpt, summary, facts):
+    """Prompt for ONLY the "why it matters" note. The summary and the extracted
+    facts are already known (native engine), so they go in as context instead of
+    being asked for again — about half the output tokens of the old both-fields
+    call, and a shorter input than before (excerpt capped at 450 chars)."""
+    facts_str = "; ".join(f"{f['label']}: {f['value']}" for f in facts) or "none extracted"
+    body = (summary or excerpt or "")[:450].strip()
+    no_text = "" if body else (
+        "\nNo article text is available — only the headline. Ground the analysis in what "
+        "you actually know about the named people, companies, statutes or events; do not "
+        "pad with vague sector commentary and do not invent facts about this story."
     )
-
     return f"""{_READER_PROFILE}
 
-Section: {_SECTION_HINTS.get(section, section)}
-Source: {source}
-Tags: {tags_str}
+Section: {_SECTION_HINTS.get(section, section)} | Source: {source} | Tags: {", ".join(tags or [])}
 Headline: {headline}
-RSS excerpt: {rss_context[:600] if has_excerpt else "(none)"}
-{no_excerpt_note}
+Key facts found in the text: {facts_str}
+What the article reports: {body or "(none)"}
+{no_text}
+Write like a sharp analyst briefing a busy colleague. No generic filler that fits any story ("may affect compliance", "worth tracking"); if you have no specific fact, say less.
 
-Write like a sharp analyst briefing a colleague who is short on time — specific,
-concrete, and grounded in named facts. Never write generic sector filler that
-could be pasted onto any other story in this section (e.g. "this may affect
-compliance obligations" or "worth tracking for regulatory trends"). If you
-don't have a specific fact to add, say less rather than pad with a hedge.
-Every sentence should teach the reader something they didn't already know from
-the headline alone.
-
-Return ONLY a raw JSON object — no markdown, no code fences:
-{{
-  "summary": "Strictly what this article reports: the specific facts — what happened, who is involved (real names/entities, not 'the company' or 'the court'), key figures, numbers, quotes, or dates actually in the piece, any reactions reported, and what happens next. Do NOT add outside context or speculation here. Write in flowing paragraphs, no bullet points. Aim for 150-200 words when an excerpt is available; if none is available, keep this to 1-2 tight, factual sentences per the instruction above.",
-  "contextNote": "Your own grounded analysis, separate from the article. Name the specific statute (with section number if you know it), regulator, tribunal, or precedent involved — not just the category of law. If real case law applies, cite it (e.g. *Arun Ferreira (2021)*); if none is directly on point, say so rather than gesturing at 'relevant precedent'. Give 2-3 numbered concrete implications — '(1) ... (2) ...' inline, not generic bullets — for what an Indian in-house counsel should actually do, check, or watch for as a direct result of this specific story. Aim for 100-180 words."
-}}"""
+Return ONLY raw JSON: {{"contextNote": "Grounded analysis, separate from the article. Name the specific statute (with section if known), regulator, tribunal or precedent — not just the area of law; cite real case law if it applies, else say none is on point. Then 2-3 numbered implications inline '(1) ... (2) ...' for what Indian in-house counsel should do, check or watch because of THIS story. 100-160 words."}}"""
 
 
 class _ProviderExhausted(Exception):
@@ -479,12 +514,12 @@ def _strip_json_fences(raw):
     return re.sub(r"\s*```$", "", raw)
 
 
-def _call_anthropic_raw(prompt):
+def _call_anthropic_raw(prompt, max_tokens=900):
     import json as _json
     try:
         result = _post_json(
             "https://api.anthropic.com/v1/messages",
-            {"model": AI_MODEL, "max_tokens": 900, "messages": [{"role": "user", "content": prompt}]},
+            {"model": AI_MODEL, "max_tokens": max_tokens, "messages": [{"role": "user", "content": prompt}]},
             {
                 "Content-Type":      "application/json",
                 "x-api-key":         ANTHROPIC_API_KEY,
@@ -499,7 +534,7 @@ def _call_anthropic_raw(prompt):
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
-def _call_gemini_raw(prompt):
+def _call_gemini_raw(prompt, max_tokens=900):
     import json as _json
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
@@ -510,7 +545,7 @@ def _call_gemini_raw(prompt):
             url,
             {
                 "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0.4, "maxOutputTokens": 900},
+                "generationConfig": {"temperature": 0.4, "maxOutputTokens": max_tokens},
             },
             {"Content-Type": "application/json"},
         )
@@ -522,7 +557,7 @@ def _call_gemini_raw(prompt):
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
-def _call_openai_raw(prompt):
+def _call_openai_raw(prompt, max_tokens=900):
     try:
         result = _post_json(
             "https://api.openai.com/v1/chat/completions",
@@ -530,7 +565,7 @@ def _call_openai_raw(prompt):
                 "model": OPENAI_MODEL,
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.4,
-                "max_tokens": 900,
+                "max_tokens": max_tokens,
                 "response_format": {"type": "json_object"},
             },
             {
@@ -546,37 +581,69 @@ def _call_openai_raw(prompt):
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
+def _call_custom_raw(prompt, max_tokens=900):
+    """Any OpenAI-compatible /chat/completions endpoint (see FALLBACK_* above)."""
+    headers = {"Content-Type": "application/json"}
+    if FALLBACK_API_KEY:
+        headers["Authorization"] = f"Bearer {FALLBACK_API_KEY}"
+    try:
+        result = _post_json(
+            f"{FALLBACK_BASE_URL}/chat/completions",
+            {
+                "model": FALLBACK_MODEL,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.4,
+                "max_tokens": max_tokens,
+            },
+            headers,
+            timeout=60,   # local models are slower
+        )
+        return result["choices"][0]["message"]["content"]
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="ignore")
+        if e.code == 429 or "quota" in body.lower() or "insufficient" in body.lower():
+            raise _ProviderExhausted(body[:200])
+        raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
+
+
 _PROVIDERS = {
     "anthropic": (_call_anthropic_raw, lambda: AI_ENABLED),
     "gemini":    (_call_gemini_raw,    lambda: bool(GEMINI_API_KEY)),
     "openai":    (_call_openai_raw,    lambda: bool(OPENAI_API_KEY)),
+    "custom":    (_call_custom_raw,    lambda: bool(FALLBACK_BASE_URL and FALLBACK_MODEL)),
 }
 
 
-def _try_provider(name, prompt, label):
+def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_MAX_TOKENS):
+    """One provider, up to two attempts (the second only when the first used banned
+    hedging language). Returns {field: text, "enrichedBy": name} or None. Tracks
+    failures so a dead provider stops being called for the rest of the run."""
     call_fn = _PROVIDERS[name][0]
     banned_hint = ""
     result = None
     for attempt in range(2):
         try:
-            raw = call_fn(prompt + banned_hint)
+            raw = call_fn(prompt + banned_hint, max_tokens)
         except _ProviderExhausted as e:
             print(f"      [{name}] exhausted: {e}", file=sys.stderr)
+            _note_provider_result(name, False, exhausted=True)
             return None
         except Exception as e:
             print(f"      [{name}] error: {e}", file=sys.stderr)
+            _note_provider_result(name, False)
             return None
         try:
             data = json.loads(_strip_json_fences(raw))
         except Exception as e:
             print(f"      [{name}] bad JSON: {e}", file=sys.stderr)
+            _note_provider_result(name, False)
             return None
-        summary_out  = str(data.get("summary", "")).strip()
-        context_note = str(data.get("contextNote", "")).strip()
-        if not (summary_out and context_note):
+        values = {f: str(data.get(f, "")).strip() for f in fields}
+        if not all(values.values()):
+            _note_provider_result(name, False)
             return None
-        result = {"summary": summary_out, "contextNote": context_note, "enrichedBy": name}
-        combined_lower = (summary_out + " " + context_note).lower()
+        result = {**values, "enrichedBy": name}
+        combined_lower = " ".join(values.values()).lower()
         if attempt == 0 and any(p in combined_lower for p in _BANNED_PHRASES):
             banned_hint = (
                 "\n\nYour previous attempt used generic hedging language "
@@ -587,24 +654,37 @@ def _try_provider(name, prompt, label):
             continue
         break
     if result:
+        _note_provider_result(name, True)
         print(f"   ✓ [{name}] {label}", file=sys.stderr)
     return result
 
 
-def ai_enrich_story(headline, section, hook, summary, source, tags):
-    """
-    Tries each configured provider in cost-aware order until one returns a
-    usable {"summary", "contextNote"} pair. Returns None if all fail/skip.
-    """
-    prompt = _build_enrichment_prompt(headline, section, hook, summary, source, tags)
-    order = (
-        _PROVIDER_ORDER_QUALITY_FIRST if section in _QUALITY_FIRST_SECTIONS
-        else _PROVIDER_ORDER_COST_FIRST
+class _AIBudget:
+    """Counts AI calls for the run so a bad day can't run up an unbounded bill."""
+    def __init__(self, cap):
+        self.cap, self.used = cap, 0
+
+    def left(self):
+        return self.used < self.cap
+
+    def spend(self):
+        self.used += 1
+
+
+def ai_note_for_story(story, excerpt, summary, facts, budget):
+    """The "why it matters" note from the first working provider, in cost-aware
+    order, or None. Only called when the native engine had no brief for the story."""
+    prompt = _build_note_prompt(
+        story["headline"], story["section"], story.get("source", ""),
+        story.get("tags", []), excerpt, summary, facts,
     )
-    label = headline[:60]
-    for name in order:
-        if not _PROVIDERS[name][1]():
+    label = story["headline"][:60]
+    for name in _provider_order(story["section"]):
+        if not _provider_usable(name):
             continue
+        if not budget.left():
+            return None
+        budget.spend()
         result = _try_provider(name, prompt, label)
         if result:
             return result
@@ -687,8 +767,10 @@ def build_story(section, feed_url, url, pub_dt, headline, hook, summary, tags, p
     }
     if image_url:
         story["imageUrl"] = image_url
-    if section in CONTEXT_NOTE_REQUIRED:
-        story["contextNote"] = CONTEXT_TEMPLATES.get(section, "See source for full context.")
+    # No canned "why it matters" is attached here any more: enrich_stories() sets
+    # contextNote from the native engine or an AI provider, and leaves it unset
+    # when neither has anything concrete — the site then shows no brief rather
+    # than the same sentence on every story in a section.
     return story
 
 
@@ -747,6 +829,27 @@ def extract_rss_image(item):
     return None
 
 
+def fetch_page_meta(url, want_text=True):
+    """One download of an article page, mined for both the og:image and the page's
+    own description / first paragraphs (fed to the native summary). Never raises.
+    Returns (image_url_or_None, reason, page_excerpt)."""
+    try:
+        req = Request(url, headers=_HEADERS)
+        with urlopen(req, timeout=IMAGE_FETCH_TIMEOUT_SEC) as resp:
+            raw = resp.read(IMAGE_MAX_BYTES).decode("utf-8", errors="ignore")
+        text = ae.extract_page_excerpt(raw) if want_text else ""
+        m = _OG_IMAGE_RE.search(raw) or _OG_IMAGE_RE_REV.search(raw)
+        if m:
+            return upsize_image_url(unescape(m.group(1)).strip()), "ok", text
+        return None, "no og:image/twitter:image tag found", text
+    except HTTPError as e:
+        return None, f"HTTP {e.code}", ""
+    except URLError as e:
+        return None, f"network error: {e.reason}", ""
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}", ""
+
+
 def fetch_og_image(url):
     """Best-effort fetch of a story's og:image/twitter:image meta tag. Never raises.
     Returns (image_url_or_None, reason) — the reason is only for diagnostic logging,
@@ -767,6 +870,147 @@ def fetch_og_image(url):
         return None, f"network error: {e.reason}"
     except Exception as e:
         return None, f"{type(e).__name__}: {e}"
+
+
+# ── ENRICHMENT ─────────────────────────────────────────────────────────────────
+
+def load_previous_stories(path="stories.json"):
+    """id -> story from the last run, so unchanged stories keep their (paid-for) analysis."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return {st["id"]: st for sec in data.get("sections", {}).values() for st in sec if "id" in st}
+    except Exception:
+        return {}
+
+
+def _generic_note(note):
+    low = (note or "").lower()
+    return (not note) or note in CONTEXT_TEMPLATES.values() or any(p in low for p in _BANNED_PHRASES)
+
+
+def _reusable_note(prev, story, content_hash):
+    """Last run's AI-written note, if it's still valid for this story. Native results
+    are never "reused" — they cost nothing, so they're recomputed with the latest rules."""
+    if not prev or prev.get("enrichedBy") not in _PROVIDERS or _generic_note(prev.get("contextNote")):
+        return None
+    if prev.get("enrichHash") is not None:
+        same = prev["enrichHash"] == content_hash
+    else:   # written before enrichHash existed: same headline is the best signal
+        same = prev.get("headline") == story["headline"]
+    return {"contextNote": prev["contextNote"], "enrichedBy": prev["enrichedBy"]} if same else None
+
+
+def enrich_stories(all_stories, page_text, previous):
+    """
+    Fills summary, contextNote ("why it matters"), facts, enrichedBy, summaryBy.
+
+      1. summary  — always native (extractive; faithful to the source and free).
+                    A summary an AI wrote on an earlier run is kept only when the
+                    native engine has less to offer.
+      2. note     — reuse last run's AI note if the story is unchanged; else the
+                    native rule engine if a legal regime is the story's subject;
+                    else ONE short AI call (note only), capped by AI_MAX_CALLS and
+                    skipping providers that have run out or keep failing.
+      3. nothing  — no note is better than a canned one. The site hides it.
+    """
+    _PROVIDER_STATE.clear()
+    budget = _AIBudget(AI_MAX_CALLS)
+    stats = {"reused": 0, "native_note": 0, "ai_note": 0, "no_note": 0, "skipped_budget": 0}
+    by_provider = {}
+    need_ai = []
+
+    for story in all_stories:
+        content_hash = ae.content_hash(story["headline"], story.get("hook", ""), story.get("summary", ""))
+        excerpts = [story.get("hook", ""), story.get("summary", ""), page_text.get(story["id"], "")]
+        prev = previous.get(story["id"])
+        try:
+            a = ae.analyse(story["headline"], story["section"], excerpts)
+        except Exception as e:   # the native engine must never take the refresh down
+            print(f"   ! native analysis failed for {story['headline'][:50]}: {e}", file=sys.stderr)
+            a = {"summary": None, "summaryQuality": None, "facts": [], "whyItMatters": None, "rule": None}
+
+        # — summary —
+        prev_ai_summary = (
+            prev and prev.get("enrichedBy") in _PROVIDERS and prev.get("summaryBy") in (None, *_PROVIDERS)
+            and prev.get("headline") == story["headline"] and (prev.get("summary") or "").strip()
+        )
+        if a["summaryQuality"] == "good":
+            summary, summary_by = a["summary"], "native"
+        elif prev_ai_summary:
+            summary, summary_by = prev["summary"], prev.get("summaryBy") or prev["enrichedBy"]
+        elif a["summary"]:
+            summary, summary_by = a["summary"], "native"
+        else:
+            summary, summary_by = "", None
+
+        # — why it matters —
+        note = _reusable_note(prev, story, content_hash)
+        if note:
+            stats["reused"] += 1
+        elif a["whyItMatters"]:
+            note = {"contextNote": a["whyItMatters"], "enrichedBy": "native"}
+            stats["native_note"] += 1
+        else:
+            need_ai.append((story, " ".join(filter(None, excerpts))[:900], summary, a["facts"]))
+
+        story["summary"] = summary
+        if summary_by:
+            story["summaryBy"] = summary_by
+        else:
+            story.pop("summaryBy", None)
+        story["facts"] = a["facts"]
+        story["enrichHash"] = content_hash
+        if note:
+            story["contextNote"] = note["contextNote"]
+            story["enrichedBy"] = note["enrichedBy"]
+        else:
+            story.pop("contextNote", None)
+            story.pop("enrichedBy", None)
+
+    # The capped AI budget goes legal/reliance-first, high-priority first.
+    need_ai.sort(key=lambda t: (t[0]["section"] not in _QUALITY_FIRST_SECTIONS, t[0].get("priority") != "high"))
+    active = [n for n in _PROVIDERS if _PROVIDERS[n][1]()]
+    if need_ai:
+        print(f"\n── AI notes ({len(need_ai)} stories without a native/reused brief; "
+              f"providers: {', '.join(active) or 'none configured'}; cap {AI_MAX_CALLS} calls) ──",
+              file=sys.stderr)
+    for story, excerpt, summary, facts in need_ai:
+        if not active:
+            stats["no_note"] += 1
+            continue
+        if not budget.left():
+            stats["skipped_budget"] += 1
+            continue
+        before = budget.used
+        result = ai_note_for_story(story, excerpt, summary, facts, budget)
+        if result:
+            story["contextNote"] = result["contextNote"]
+            story["enrichedBy"] = result["enrichedBy"]
+            stats["ai_note"] += 1
+            by_provider[result["enrichedBy"]] = by_provider.get(result["enrichedBy"], 0) + 1
+        else:
+            stats["no_note"] += 1
+            print(f"   ✗ no note: {story['headline'][:60]}", file=sys.stderr)
+        if budget.used > before:
+            time.sleep(AI_CALL_DELAY)
+
+    for story in all_stories:
+        story["wordCount"] = len((story.get("summary", "") + " " + story.get("contextNote", "")).split())
+
+    total = len(all_stories)
+    breakdown = ", ".join(f"{n}={c}" for n, c in by_provider.items()) or "none"
+    saved = (stats["reused"] + stats["native_note"]) * 1300 + total * 350
+    print(
+        f"\n   Enrichment: {total} stories | reused {stats['reused']} | native brief {stats['native_note']} | "
+        f"AI {stats['ai_note']} ({breakdown}; {budget.used} calls) | no brief {stats['no_note']}"
+        + (f" | over cap {stats['skipped_budget']}" if stats["skipped_budget"] else "")
+        + f"\n   ~{saved:,} tokens not spent vs. enriching every story with AI",
+        file=sys.stderr,
+    )
+    dead = [n for n, st in _PROVIDER_STATE.items() if st["dead"]]
+    if dead:
+        print(f"   Providers disabled this run: {', '.join(dead)}", file=sys.stderr)
 
 
 # ── MAIN ───────────────────────────────────────────────────────────────────────
@@ -959,28 +1203,43 @@ def build_stories():
         for story in stories
     ]
 
-    # ── Image fetch pass (best-effort og:image for stories with no RSS-embedded
-    #    image; runs regardless of AI_ENABLED — it doesn't touch the Anthropic API) ──
-    stories_needing_image = [s for s in all_stories if not s.get("imageUrl")]
-    if stories_needing_image:
-        print(f"\n── Image fetch ({len(stories_needing_image)} stories, "
+    # ── Page fetch pass: og:image for stories without an image, and the page's own
+    #    description for stories whose RSS excerpt is too thin to summarise. One
+    #    download serves both. Google News links are tried for an image (as before)
+    #    but never mined for text — their pages are a redirect shell. ─────────────
+    page_text = {}
+
+    def _thin(story):
+        return ae.native_summary(story["headline"], [story.get("hook", ""), story.get("summary", "")])[1] != "good"
+
+    def _wants_text(story):
+        return _thin(story) and "news.google.com" not in story["sourceUrl"]
+
+    stories_to_fetch = [s for s in all_stories if not s.get("imageUrl") or _wants_text(s)]
+    if stories_to_fetch:
+        print(f"\n── Page fetch ({len(stories_to_fetch)} stories, "
               f"{IMAGE_FETCH_WORKERS} workers) ─────────────────────────────",
               file=sys.stderr)
 
-        img_ok = img_fail = 0
+        img_ok = img_fail = txt_ok = 0
         url_cache = {}
 
-        def _resolve_image(story):
+        def _resolve_page(story):
             src_url = story["sourceUrl"]
             if src_url not in url_cache:
-                url_cache[src_url] = fetch_og_image(src_url)
+                url_cache[src_url] = fetch_page_meta(src_url, want_text=_wants_text(story))
             return story, url_cache[src_url]
 
         with ThreadPoolExecutor(max_workers=IMAGE_FETCH_WORKERS) as pool:
-            futures = [pool.submit(_resolve_image, s) for s in stories_needing_image]
+            futures = [pool.submit(_resolve_page, s) for s in stories_to_fetch]
             for fut in as_completed(futures):
-                story, (found_url, reason) = fut.result()
+                story, (found_url, reason, excerpt) = fut.result()
                 label = story["headline"][:60]
+                if excerpt and _wants_text(story):
+                    page_text[story["id"]] = excerpt
+                    txt_ok += 1
+                if story.get("imageUrl"):
+                    continue
                 if found_url:
                     story["imageUrl"] = found_url
                     img_ok += 1
@@ -989,48 +1248,10 @@ def build_stories():
                     img_fail += 1
                     print(f"   ✗ [{story['section']:>10}] {label}: {reason}", file=sys.stderr)
 
-        print(f"   images: {img_ok} found, {img_fail} not found", file=sys.stderr)
+        print(f"   images: {img_ok} found, {img_fail} not found  |  page text: {txt_ok} stories", file=sys.stderr)
 
-    # ── AI enrichment pass (summary + why-it-matters) ─────────────────────────
-    if ANY_AI_ENABLED:
-        active = [n for n, (_, has_key) in _PROVIDERS.items() if has_key()]
-        print(f"\n── AI enrichment (providers: {', '.join(active)}) ──────────────",
-              file=sys.stderr)
-
-        print(f"   {len(all_stories)} stories to enrich  "
-              f"(sequential, {AI_CALL_DELAY}s delay → ~{60//AI_CALL_DELAY} RPM)",
-              file=sys.stderr)
-
-        ai_ok = ai_fail = 0
-        by_provider = {}
-        for story in all_stories:
-            result = ai_enrich_story(
-                story["headline"],
-                story["section"],
-                story.get("hook", ""),
-                story.get("summary", ""),
-                story.get("source", ""),
-                story.get("tags", []),
-            )
-            if result:
-                story["summary"]     = result["summary"]
-                story["contextNote"] = result["contextNote"]
-                story["enrichedBy"]  = result["enrichedBy"]
-                ai_ok += 1
-                by_provider[result["enrichedBy"]] = by_provider.get(result["enrichedBy"], 0) + 1
-            else:
-                ai_fail += 1
-                print(f"   ✗ {story['headline'][:60]}", file=sys.stderr)
-            story["wordCount"] = len(
-                (story.get("summary", "") + " " + story.get("contextNote", "")).split()
-            )
-            time.sleep(AI_CALL_DELAY)
-
-        breakdown = ", ".join(f"{n}={c}" for n, c in by_provider.items()) or "none"
-        print(f"\n   AI done: {ai_ok} enriched ({breakdown}), {ai_fail} failed/skipped (kept RSS fallback)",
-              file=sys.stderr)
-    else:
-        print("\nAI enrichment skipped — no ANTHROPIC_API_KEY, GEMINI_API_KEY, or OPENAI_API_KEY set.", file=sys.stderr)
+    # ── Enrichment: reuse → native engine → AI only for what's still missing ─────
+    enrich_stories(all_stories, page_text, load_previous_stories())
 
     # ── Hero selection ────────────────────────────────────────────────────────
     hero_id = ""

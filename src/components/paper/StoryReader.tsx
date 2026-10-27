@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { X, ChevronLeft, ChevronRight, ExternalLink, Bookmark, BookmarkCheck } from 'lucide-react'
 import { FlipBook, type FlipBookHandle } from './FlipBook'
 import { PageShell } from './PaperPages'
+import { haptic } from '../../lib/haptics'
 import { StoryArt } from './StoryArt'
 import { WhyItMatters } from '../cards/WhyItMatters'
 import { ArticleNote } from '../cards/ArticleNote'
@@ -14,6 +15,10 @@ import { relativeTime } from '../../lib/dateFormat'
 import { storyDek, storyBrief } from '../../lib/storyText'
 import type { Story } from '../../lib/types'
 
+const PROVIDER_NAMES: Record<string, string> = {
+  anthropic: 'Claude', gemini: 'Gemini', openai: 'GPT', custom: 'a fallback AI model',
+}
+
 function StoryHead({ story }: { story: Story }) {
   const cat = CATEGORIES[story.section]
   const mins = readingTime(story.wordCount ?? 0)
@@ -23,15 +28,29 @@ function StoryHead({ story }: { story: Story }) {
         {cat.label}{story.kicker && <span className="opacity-70"> · {story.kicker}</span>}
       </p>
       <h2
-        className="ink mt-2 font-display font-bold text-ink leading-[1.1] tracking-[-0.015em]"
+        className="ink mt-2 font-display font-bold text-ink text-balance leading-[1.1] tracking-[-0.015em]"
         style={{ fontSize: 'calc(clamp(24px, 3.4vw, 34px) * var(--reading-scale))' }}
       >
         {story.headline}
       </h2>
-      <p className="ink mt-3 mb-4 border-b border-rule pb-3 font-mono text-[11px] text-ink-3">
+      <p className="ink mt-3 font-mono text-[11px] text-ink-3">
         {story.source} · {mins} min read
         {story.publishedAt && <> · <time dateTime={story.publishedAt}>{relativeTime(story.publishedAt)}</time></>}
       </p>
+      {story.facts && story.facts.length > 0 && (
+        <ul className="ink mt-3 flex flex-wrap gap-1.5" aria-label="Key facts from the story">
+          {story.facts.slice(0, 5).map((f, i) => (
+            <li
+              key={i}
+              className="inline-flex max-w-full items-baseline gap-1.5 rounded-full border border-rule bg-surface px-2.5 py-1 text-[11px] leading-tight"
+            >
+              <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-ink-3">{f.label}</span>
+              <span className="truncate font-medium text-ink">{f.value}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="ink mb-4 mt-3 border-b border-rule" />
     </>
   )
 }
@@ -46,7 +65,7 @@ function StoryBody({ story }: { story: Story }) {
           {dek}
         </p>
       ) : (
-        <p className="ink reading-body text-ink-3 italic">No summary for this one yet — the source has the full story.</p>
+        <p className="ink reading-body text-ink-3 italic">The source shared only a headline for this one — open the full story below for the detail.</p>
       )}
     </>
   )
@@ -61,15 +80,15 @@ function StoryActions({ story }: { story: Story }) {
         href={story.sourceUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 font-mono text-[12px] font-medium text-canvas hover:opacity-90 transition-opacity"
+        className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 font-mono text-[12px] font-medium text-canvas shadow-sm hover:opacity-90 active:scale-95 transition-[opacity,transform]"
       >
         Read at {story.source} <ExternalLink size={12} />
       </a>
       <button
         type="button"
-        onClick={() => toggleBookmark(story)}
+        onClick={() => { haptic(saved ? 'soft' : 'success'); toggleBookmark(story) }}
         aria-pressed={saved}
-        className="inline-flex items-center gap-1.5 rounded-full border border-rule px-4 py-2 font-mono text-[12px] text-ink-2 hover:bg-surface-2 hover:text-ink transition-colors"
+        className="inline-flex items-center gap-1.5 rounded-full border border-rule px-4 py-2 font-mono text-[12px] text-ink-2 hover:bg-surface-2 hover:text-ink active:scale-95 transition-[background-color,transform]"
       >
         {saved ? <BookmarkCheck size={13} /> : <Bookmark size={13} />}
         {saved ? 'Saved' : 'Save'}
@@ -82,7 +101,18 @@ function StoryAnalysis({ story }: { story: Story }) {
   const brief = storyBrief(story)
   return (
     <>
-      {brief && <div className="ink"><WhyItMatters text={brief} size="large" /></div>}
+      {brief && (
+        <div className="ink">
+          <WhyItMatters text={brief} size="large" />
+          {story.enrichedBy && (
+            <p className="mt-2 font-mono text-[10px] text-ink-3">
+              {story.enrichedBy === 'native'
+                ? 'Written by the built-in analysis engine from the legal regime in the story — no AI used.'
+                : `Written with ${PROVIDER_NAMES[story.enrichedBy] ?? 'an AI model'}.`}
+            </p>
+          )}
+        </div>
+      )}
       <StoryActions story={story} />
       <div className="ink mt-5 border-t border-rule pt-4">
         <ArticleNote storyId={story.id} sourceUrl={story.sourceUrl} storyTitle={story.headline} />
@@ -177,7 +207,7 @@ export function StoryReader({ stories, story, onClose }: StoryReaderProps) {
         <button
           ref={closeRef}
           type="button"
-          onClick={onClose}
+          onClick={() => { haptic('soft'); onClose() }}
           aria-label="Close story"
           className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 transition-colors"
         >
@@ -191,7 +221,7 @@ export function StoryReader({ stories, story, onClose }: StoryReaderProps) {
         <div className="flex items-center">
           <button
             type="button"
-            onClick={() => bookRef.current?.prev()}
+            onClick={() => { haptic('soft'); bookRef.current?.prev() }}
             disabled={storyIndex === 0}
             aria-label="Previous story"
             className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 disabled:opacity-30 transition-colors"
@@ -200,7 +230,7 @@ export function StoryReader({ stories, story, onClose }: StoryReaderProps) {
           </button>
           <button
             type="button"
-            onClick={() => bookRef.current?.next()}
+            onClick={() => { haptic('soft'); bookRef.current?.next() }}
             disabled={storyIndex >= stories.length - 1}
             aria-label="Next story"
             className="flex h-10 w-10 items-center justify-center rounded-full text-ink-2 hover:bg-surface-2 disabled:opacity-30 transition-colors"

@@ -17,6 +17,8 @@ export interface Preferences {
       hasn't chosen, so the device's reduced-motion setting decides. */
   pageEffects: boolean | null
   pageSound: boolean
+  /** Vibration cues on page turns, taps and switches (Android browsers). */
+  haptics: boolean
 }
 
 const KEYS = {
@@ -25,6 +27,7 @@ const KEYS = {
   textSize: 'daily-brief:text-size',
   pageEffects: 'daily-brief:page-effects',
   pageSound: 'daily-brief:page-sound',
+  haptics: 'daily-brief:haptics',
 } as const
 
 const THEMES: ThemeChoice[] = ['auto', 'paper', 'sepia', 'dark', 'night']
@@ -51,6 +54,7 @@ function load(): Preferences {
     textSize: (SIZES as string[]).includes(size ?? '') ? size as TextSize : 'm',
     pageEffects: (() => { const v = read(KEYS.pageEffects); return v === null ? null : v !== 'false' })(),
     pageSound: read(KEYS.pageSound) === 'true',
+    haptics: read(KEYS.haptics) !== 'false',
   }
 }
 
@@ -94,6 +98,11 @@ export function setPreference<K extends keyof Preferences>(key: K, value: Prefer
   write(KEYS[key], String(value))
   apply(state)
   listeners.forEach(l => l())
+}
+
+/** The current preferences outside React (event handlers, helpers). */
+export function getPreferences(): Preferences {
+  return state
 }
 
 export function usePreferences(): Preferences {

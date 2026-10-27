@@ -5,6 +5,7 @@ import { useTheme } from '../../hooks/useTheme'
 import { useDensity } from '../../hooks/useDensity'
 import { usePreferences, setPreference, usePrefersReducedMotion, usePaperMode } from '../../hooks/usePreferences'
 import type { ReadingFont, TextSize } from '../../hooks/usePreferences'
+import { haptic, hapticsSupported } from '../../lib/haptics'
 import { readPat, writePat, dispatchWorkflow } from '../../lib/githubWorkflow'
 import type { Theme } from '../../hooks/useTheme'
 import type { Density } from '../../hooks/useDensity'
@@ -40,9 +41,9 @@ function RadioGroup<T extends string>({ value, options, onChange, name }: RadioG
           type="button"
           role="radio"
           aria-checked={value === opt.value}
-          onClick={() => onChange(opt.value)}
+          onClick={() => { haptic('select'); onChange(opt.value) }}
           className={clsx(
-            'px-3 py-1.5 rounded-lg transition-colors',
+            'px-3 py-1.5 rounded-lg transition-colors active:scale-95',
             'focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent',
             value === opt.value
               ? 'bg-accent text-canvas'
@@ -323,6 +324,22 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                 ]}
               />
             </SettingRow>
+            <SettingRow label="Haptics">
+              <RadioGroup<'on' | 'off'>
+                name="Haptics"
+                value={prefs.haptics ? 'on' : 'off'}
+                onChange={v => setPreference('haptics', v === 'on')}
+                options={[
+                  { value: 'on', label: 'On' },
+                  { value: 'off', label: 'Off' },
+                ]}
+              />
+            </SettingRow>
+            {!hapticsSupported() && (
+              <p className="pb-3" style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--ink-3)', lineHeight: 1.5 }}>
+                This browser can't vibrate (iPhone browsers don't allow it), so haptics only work on Android.
+              </p>
+            )}
             {reducedMotion && prefs.pageEffects === null && (
               <p className="pb-3" style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--ink-3)', lineHeight: 1.5 }}>
                 Your device asks for reduced motion, so pages scroll by default. Choose Flip pages to turn them anyway.
