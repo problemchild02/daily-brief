@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./type.css";
+@import "./paper.css";
 
 /* ─── Tailwind v4: map runtime CSS vars to utility classes ─────────────
    @theme inline tells Tailwind to emit `var(--xxx)` in the generated

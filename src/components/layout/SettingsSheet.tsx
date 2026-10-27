@@ -3,6 +3,8 @@ import { X, Eye, EyeOff, Play, Loader, Printer } from 'lucide-react'
 import { clsx } from 'clsx'
 import { useTheme } from '../../hooks/useTheme'
 import { useDensity } from '../../hooks/useDensity'
+import { usePreferences, setPreference, usePrefersReducedMotion } from '../../hooks/usePreferences'
+import type { ReadingFont, TextSize } from '../../hooks/usePreferences'
 import { readPat, writePat, dispatchWorkflow } from '../../lib/githubWorkflow'
 import type { Theme } from '../../hooks/useTheme'
 import type { Density } from '../../hooks/useDensity'
@@ -90,6 +92,8 @@ interface SettingsSheetProps {
 export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
   const { theme, setTheme } = useTheme()
   const { density, setDensity } = useDensity()
+  const prefs = usePreferences()
+  const reducedMotion = usePrefersReducedMotion()
   const [homeCity, setHomeCityState] = useState<HomeCity>(readHomeCity)
   const [pat, setPat] = useState(readPat)
   const [showPat, setShowPat] = useState(false)
@@ -232,8 +236,37 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                 onChange={setTheme}
                 options={[
                   { value: 'auto', label: 'Auto' },
-                  { value: 'light', label: 'Light' },
+                  { value: 'paper', label: 'Paper' },
+                  { value: 'sepia', label: 'Sepia' },
                   { value: 'dark', label: 'Dark' },
+                  { value: 'night', label: 'Night' },
+                ]}
+              />
+            </SettingRow>
+
+            <SettingRow label="Font">
+              <RadioGroup<ReadingFont>
+                name="Reading font"
+                value={prefs.font}
+                onChange={v => setPreference('font', v)}
+                options={[
+                  { value: 'serif', label: 'Serif' },
+                  { value: 'sans', label: 'Sans' },
+                  { value: 'legible', label: 'Hyperlegible' },
+                ]}
+              />
+            </SettingRow>
+
+            <SettingRow label="Text size">
+              <RadioGroup<TextSize>
+                name="Text size"
+                value={prefs.textSize}
+                onChange={v => setPreference('textSize', v)}
+                options={[
+                  { value: 's', label: 'A−' },
+                  { value: 'm', label: 'A' },
+                  { value: 'l', label: 'A+' },
+                  { value: 'xl', label: 'A++' },
                 ]}
               />
             </SettingRow>
@@ -262,6 +295,38 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                 ]}
               />
             </SettingRow>
+          </div>
+
+          {/* ── Paper ───────────────────────────────────── */}
+          <SectionLabel>Paper</SectionLabel>
+          <div className="border border-rule rounded-xl px-4">
+            <SettingRow label="Page turns">
+              <RadioGroup<'on' | 'off'>
+                name="Page turns"
+                value={prefs.pageEffects ? 'on' : 'off'}
+                onChange={v => setPreference('pageEffects', v === 'on')}
+                options={[
+                  { value: 'on', label: 'Flip pages' },
+                  { value: 'off', label: 'Scroll' },
+                ]}
+              />
+            </SettingRow>
+            <SettingRow label="Page sound">
+              <RadioGroup<'on' | 'off'>
+                name="Page sound"
+                value={prefs.pageSound ? 'on' : 'off'}
+                onChange={v => setPreference('pageSound', v === 'on')}
+                options={[
+                  { value: 'off', label: 'Off' },
+                  { value: 'on', label: 'On' },
+                ]}
+              />
+            </SettingRow>
+            {reducedMotion && prefs.pageEffects && (
+              <p className="pb-3" style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--ink-3)', lineHeight: 1.5 }}>
+                Your device has Reduce Motion on, so pages scroll instead of turning.
+              </p>
+            )}
           </div>
 
           {/* ── Automation ──────────────────────────────── */}

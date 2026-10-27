@@ -41,6 +41,29 @@ the *what's actually running* reference, kept current as the codebase changes.
   hasn't been a priority to unify, but it's inconsistent with the main
   pipeline and worth fixing if it ever matters.
 
+## The paper edition (page-turn reading mode)
+
+The Front (`/`) and section routes (`/sections/:category`) render as a
+flippable newspaper, and stories open in a flippable reader, when "Page
+turns" is on in Settings (the default) and the OS isn't set to reduced
+motion. Otherwise the original scrolling `FrontPage`/`SectionPage` and
+`ArticleSheet` are used — keep both paths working.
+
+- `src/components/paper/FlipBook.tsx` wraps `page-flip` (StPageFlip, the
+  one dependency added for this). It works around several library quirks —
+  read its comments before changing it, and re-test back-navigation in
+  single-page (phone) mode, which the library gets wrong on its own.
+- **Pagination is measured, not estimated** (`PaperEdition.tsx`): an
+  off-screen copy of every page piece is rendered at the real page size,
+  and pages are packed from those heights. If you change spacing or font
+  sizes in `PaperPages.tsx`, nothing else needs updating — but don't
+  reintroduce fixed per-page story counts or height guesses; they left
+  pages overflowing with their folio cut off.
+- Reader preferences (theme palette, font, text size, page turns, page
+  sound) live in `src/hooks/usePreferences.ts` and are applied as
+  `data-*` attributes on `<html>`; palettes/fonts/`--reading-scale` are in
+  `src/styles/tokens.css`, paper styling in `src/styles/paper.css`.
+
 ## The AI enrichment chain (fetch_stories.py + generate-briefing.mjs)
 
 Per-story `summary` + `contextNote` ("Why It Matters" — the product's actual

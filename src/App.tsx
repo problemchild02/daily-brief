@@ -6,6 +6,8 @@ import { Sidebar } from './components/layout/Sidebar'
 import { TabBar } from './components/layout/TabBar'
 import { SettingsSheet } from './components/layout/SettingsSheet'
 import { ArticleSheet } from './components/cards/ArticleSheet'
+import { PaperEdition } from './components/paper/PaperEdition'
+import { StoryReader } from './components/paper/StoryReader'
 import { CommandPalette } from './components/search/CommandPalette'
 import { WeatherStrip } from './components/strips/WeatherStrip'
 import { MarketsTicker } from './components/strips/MarketsTicker'
@@ -17,6 +19,7 @@ import { AppContext } from './contexts/AppContext'
 import { useDensity } from './hooks/useDensity'
 import { useBookmarks } from './hooks/useBookmarks'
 import { useIsDesktop, useMediaQuery } from './hooks/useMediaQuery'
+import { usePaperMode } from './hooks/usePreferences'
 import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
 import type { FeedsPayload, MetaJson, BriefingJson, Story } from './lib/types'
@@ -182,6 +185,8 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
+  const closeStory = useCallback(() => setOpenStory(null), [])
+
   const retryFeeds = useCallback(() => {
     setLoading(true)
     setFeedsError(false)
@@ -200,6 +205,18 @@ export default function App() {
     ? CATEGORY_KEYS.flatMap(k => feeds.sections[k] ?? [])
     : []
 
+  // Paper edition: the front page and section pages become a flip-book, and a
+  // tapped story opens in the page-turning reader. Off (or reduced motion) falls
+  // back to the scrolling layout and the story sheet.
+  const paperMode = usePaperMode()
+  const isPaperRoute = paperMode && (location.pathname === '/' || location.pathname.startsWith('/sections/'))
+  // The reader flips through the whole paper in edition order, same as the pages.
+  const editionStories = feeds
+    ? [...CATEGORY_KEYS]
+        .sort((a, b) => CATEGORIES[a].order - CATEGORIES[b].order)
+        .flatMap(k => feeds.sections[k] ?? [])
+    : []
+
   return (
     <MotionConfig reducedMotion="user">
     <AppContext.Provider value={{
@@ -211,11 +228,12 @@ export default function App() {
       onSidebarToggle,
       onStoryOpen: setOpenStory,
     }}>
-      <div className="min-h-screen bg-canvas text-ink font-sans">
+      <div className={isPaperRoute ? 'h-[100dvh] overflow-hidden bg-canvas text-ink font-sans' : 'min-h-screen bg-canvas text-ink font-sans'}>
         {isDesktop && <Sidebar />}
 
         <div className={[
-          'flex flex-col min-h-screen transition-[margin-left] duration-300',
+          'flex flex-col transition-[margin-left] duration-300',
+          isPaperRoute ? 'h-[100dvh]' : 'min-h-screen',
           isDesktop ? (sidebarCollapsed ? 'ml-0' : 'ml-[240px]') : 'pb-20',
         ].join(' ')}>
 
@@ -234,13 +252,14 @@ export default function App() {
               onSettingsOpen={() => setSettingsOpen(true)}
               onSearchOpen={() => setPaletteOpen(true)}
               onSidebarToggle={isDesktop ? onSidebarToggle : undefined}
+              forceCompact={isPaperRoute}
             />
           </div>
 
           {/* Info strip — mobile/tablet only; hidden in print. Below 1024px the
               markets/weather strip scrolls horizontally instead of stacking
               vertically and pushing the news down the fold. */}
-          {!isLaptop && (
+          {!isLaptop && !isPaperRoute && (
             <div className="border-b border-rule bg-canvas/80 print:hidden">
               <div className="mx-auto max-w-7xl px-4 md:px-6">
                 <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap py-2.5 [-webkit-overflow-scrolling:touch]">
@@ -251,23 +270,27 @@ export default function App() {
             </div>
           )}
 
-          <div className="flex-1 flex">
-            <main id="main-content" className="flex-1 min-w-0">
+          <div className={isPaperRoute ? 'flex-1 flex min-h-0' : 'flex-1 flex'}>
+            <main id="main-content" className={isPaperRoute ? 'flex-1 min-w-0 min-h-0' : 'flex-1 min-w-0'}>
               {/* Route changes get a soft fade+rise instead of an abrupt swap — the
                   explicit `location` pin on Routes keeps rendering the outgoing page
                   during the exit animation, which is what AnimatePresence needs to
                   animate a route transition instead of just the entrance. */}
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={location.pathname}
+                  // One key for every paper page, so moving between the front page
+                  // and a section turns pages in the same book instead of
+                  // remounting it.
+                  key={isPaperRoute ? 'paper' : location.pathname}
+                  className={isPaperRoute ? 'h-full' : undefined}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.18, ease: [0.2, 0.8, 0.2, 1] }}
                 >
                   <Routes location={location}>
-                    <Route path="/"                   element={<FrontPage />} />
-                    <Route path="/sections/:category" element={<SectionPage />} />
+                    <Route path="/"                   element={paperMode ? <PaperEdition /> : <FrontPage />} />
+                    <Route path="/sections/:category" element={paperMode ? <PaperEdition /> : <SectionPage />} />
                     <Route path="/saved"              element={<SavedPage />} />
                     <Route path="/papers"             element={<PapersPage />} />
                     <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />
@@ -286,7 +309,7 @@ export default function App() {
                 that's mostly empty space below two lightweight widgets). Both hide
                 themselves when there's nothing to show; divide-y only draws a rule
                 between whichever widgets actually rendered, never before the first. */}
-            {isLaptop && (
+            {isLaptop && !isPaperRoute && (
               <aside
                 aria-label="Today's brief, saved stories, weather and markets"
                 className="w-[260px] shrink-0 border-l border-rule px-6 py-8 self-start sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto print:hidden"
@@ -294,9 +317,8 @@ export default function App() {
                 <div className="flex flex-col divide-y divide-rule">
                   <BriefRail briefing={briefing} />
                   <SavedRail bookmarksList={bookmarksList} />
-                  <div className="pt-6 first:pt-0">
-                    <p className="type-kicker mb-3 text-ink-3">Weather</p>
-                    <WeatherStrip />
+                  <div className="pt-6 first:pt-0 empty:hidden">
+                    <WeatherStrip heading="Weather" />
                   </div>
                   <div className="pt-6 first:pt-0">
                     <p className="type-kicker mb-3 text-ink-3">Markets</p>
@@ -317,12 +339,25 @@ export default function App() {
           stories={allStories}
           onSettingsOpen={() => setSettingsOpen(true)}
         />
-        <ArticleSheet
-          story={openStory}
-          onClose={() => setOpenStory(null)}
-          isBookmarked={openStory ? isBookmarked(openStory.sourceUrl) : false}
-          onBookmark={openStory ? () => toggleBookmark(openStory) : undefined}
-        />
+        {paperMode ? (
+          <AnimatePresence>
+            {openStory && (
+              <StoryReader
+                key="reader"
+                stories={editionStories.some(s => s.id === openStory.id) ? editionStories : [openStory]}
+                story={openStory}
+                onClose={closeStory}
+              />
+            )}
+          </AnimatePresence>
+        ) : (
+          <ArticleSheet
+            story={openStory}
+            onClose={closeStory}
+            isBookmarked={openStory ? isBookmarked(openStory.sourceUrl) : false}
+            onBookmark={openStory ? () => toggleBookmark(openStory) : undefined}
+          />
+        )}
       </div>
     </AppContext.Provider>
     </MotionConfig>
