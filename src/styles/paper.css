@@ -1,0 +1,115 @@
+/* ─── Paper edition (FlipBook.tsx) ─────────────────────────────────────────── */
+
+.paper-book-frame {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.paper-book-stage {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+}
+
+.paper-book {
+  position: absolute !important;
+  inset: 0;
+}
+
+/* The library sets every page's position/size via inline cssText on each frame,
+   so all page styling has to live in classes. */
+.paper-page {
+  background-color: var(--page);
+  background-image: var(--paper-texture);
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 32px -18px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .paper-page {
+  box-shadow: 0 0 0 1px var(--rule), 0 12px 32px -18px rgba(0, 0, 0, 0.8);
+}
+
+/* Spine shading on a two-page spread: each page darkens slightly toward the
+   fold, which is most of what makes two rectangles read as an open paper. */
+.paper-book-frame[data-spread="true"] .paper-page:nth-child(odd) {
+  background-image:
+    linear-gradient(to left, var(--page-shade), transparent 7%),
+    var(--paper-texture);
+}
+.paper-book-frame[data-spread="true"] .paper-page:nth-child(even) {
+  background-image:
+    linear-gradient(to right, var(--page-shade), transparent 7%),
+    var(--paper-texture);
+}
+
+.paper-page__inner {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+
+/* ─── Page edges: stacked sheets peeking out the side of the book ─────────── */
+/* The edge columns keep a fixed width so the book's size never changes as the
+   reader goes deeper (a resize rebuilds the book); only the visible stack of
+   page edges inside each column grows. */
+.paper-edges {
+  position: relative;
+  width: 16px;
+  margin-block: 10px;
+}
+.paper-edges::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  width: calc(var(--edge-layers, 0) * 2px + 4px);
+  transition: width 400ms var(--ease);
+}
+.paper-edges[data-empty]::before { display: none; }
+.paper-edges--right::before {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+  background:
+    repeating-linear-gradient(to right, var(--page) 0 1.5px, var(--rule) 1.5px 2px);
+  box-shadow: inset -1px 0 0 var(--rule);
+}
+.paper-edges--left::before {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  background:
+    repeating-linear-gradient(to left, var(--page) 0 1.5px, var(--rule) 1.5px 2px);
+  box-shadow: inset 1px 0 0 var(--rule);
+}
+
+/* ─── Ink settle: text darkens into the page as a turn lands ──────────────── */
+@keyframes ink-settle {
+  0%   { opacity: 0.18; filter: blur(0.7px); }
+  55%  { opacity: 0.85; filter: blur(0.15px); }
+  100% { opacity: 1;    filter: none; }
+}
+
+.paper-page[data-ink="settle"] .ink {
+  animation: ink-settle 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.paper-page[data-ink="settle"] .ink:nth-child(2) { animation-delay: 50ms; }
+.paper-page[data-ink="settle"] .ink:nth-child(3) { animation-delay: 100ms; }
+.paper-page[data-ink="settle"] .ink:nth-child(4) { animation-delay: 150ms; }
+.paper-page[data-ink="settle"] .ink:nth-child(n+5) { animation-delay: 200ms; }
+
+/* ─── Reading text that follows the text-size preference ─────────────────── */
+.reading-body {
+  font-family: var(--font-reading);
+  font-size: calc(16px * var(--reading-scale, 1));
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-page[data-ink="settle"] .ink { animation: none; }
+  .paper-edges::before { transition: none; }
+}

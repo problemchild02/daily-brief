@@ -5,6 +5,9 @@
   --surface:   #FFFFFF;
   --surface-2: #F3EFE8;
   --rule:      #E6E0D6;
+  /* Paper-edition page colour and the shading at a spread's spine / under a curl. */
+  --page:       #FFFDF8;
+  --page-shade: rgba(60, 40, 20, 0.16);
 
   /* ─── Ink ──────────────────────────────────────── */
   /* Premium off-black — sharp without the eye-strain of pure #000. */
@@ -126,4 +129,58 @@
   --cat-reliance: #D988C8;
 
   --paper-texture: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj4KPGZpbHRlciBpZD0ibiI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiLz48L2ZpbHRlcj4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ZmZmZmZiIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjA0NSIvPgo8L3N2Zz4=");
+  --page:        #1B1814;
+  --page-shade:  rgba(0, 0, 0, 0.42);
 }
+
+/* ─── Palettes beyond plain light/dark (see usePreferences.ts) ──────────────
+   data-theme stays "light"/"dark" so existing dark-mode rules keep applying;
+   data-palette swaps the surface/ink tokens on top. */
+
+/* Sepia: warm, low-glare paper for long reading sessions — the Apple Books
+   "Sepia" idea, tuned so ink-3 still clears 4.5:1 on the page colour. */
+[data-palette="sepia"] {
+  --canvas:    #F1E7D0;
+  --surface:   #F8F0DD;
+  --surface-2: #EADCBF;
+  --page:      #F8F0DD;
+  --rule:      #DDCBA6;
+  --ink:   #2E241A;
+  --ink-2: #54452F;
+  --ink-3: #6E5C42;
+  --accent:      #9A3B1C;
+  --accent-soft: #F1D9C4;
+  --page-shade:  rgba(90, 60, 20, 0.2);
+}
+
+/* Night: deeper than Dark for reading in bed — near-black page, softened
+   warm ink rather than bright white, so text doesn't glow. */
+[data-palette="night"] {
+  --canvas:    #0A0908;
+  --surface:   #121110;
+  --surface-2: #1A1816;
+  --page:      #121110;
+  --rule:      #262320;
+  --ink:   #D6CFC2;
+  --ink-2: #A69E90;
+  --ink-3: #807868;
+  --accent:      #D9775E;
+  --accent-soft: #2A1712;
+  --page-shade:  rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Reading font choice ──────────────────────────────────────────────────── */
+[data-font="sans"] {
+  --font-reading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Newsreader', Georgia, serif;
+}
+[data-font="legible"] {
+  --font-reading: 'Atkinson Hyperlegible', 'Inter', -apple-system, sans-serif;
+  --font-display: 'Atkinson Hyperlegible', 'Inter', -apple-system, sans-serif;
+}
+
+/* ─── Reading text size — scales story text, not the app chrome ────────────── */
+:root                    { --reading-scale: 1; }
+[data-text-size="s"]     { --reading-scale: 0.92; }
+[data-text-size="l"]     { --reading-scale: 1.1; }
+[data-text-size="xl"]    { --reading-scale: 1.22; }

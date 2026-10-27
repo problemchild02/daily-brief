@@ -27,12 +27,15 @@ interface MastheadProps {
   onSettingsOpen?: () => void
   onSearchOpen?: () => void
   onSidebarToggle?: () => void
+  /** Paper edition: the front page carries the full nameplate, so stay compact. */
+  forceCompact?: boolean
 }
 
-export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle }: MastheadProps) {
+export function Masthead({ meta, onSettingsOpen, onSearchOpen, onSidebarToggle, forceCompact = false }: MastheadProps) {
   const { isDark, toggle } = useTheme()
   // Spec §6.1: "On scroll past 200px, masthead sticks to top with reduced height"
-  const [compact, setCompact] = useState(false)
+  const [scrolledCompact, setCompact] = useState(false)
+  const compact = forceCompact || scrolledCompact
 
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > 200)

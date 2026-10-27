@@ -35,40 +35,54 @@ function findNextRainHour(
   return hourly.time[idx].slice(11, 16)
 }
 
+// One request per page load, shared by every WeatherStrip (rail, front page and
+// the paper edition's off-screen measuring copy) instead of one per mount.
+let request: Promise<CityWeather[] | null> | null = null
+
+function loadWeather(): Promise<CityWeather[] | null> {
+  if (request) return request
+  const lats = CITIES.map(c => c.lat).join(',')
+  const lons = CITIES.map(c => c.lon).join(',')
+  const url =
+    `https://api.open-meteo.com/v1/forecast` +
+    `?latitude=${lats}&longitude=${lons}` +
+    `&current=temperature_2m,weather_code` +
+    `&hourly=precipitation_probability` +
+    `&forecast_hours=6&timezone=Asia%2FKolkata`
+
+  request = fetch(url)
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(json => {
+      // Open-Meteo returns an array when multiple coordinates are passed
+      const responses: Record<string, unknown>[] = Array.isArray(json) ? json : [json]
+      return responses.map((r, i): CityWeather => {
+        const current = r.current as { temperature_2m: number; weather_code: number }
+        const hourly = r.hourly as { time: string[]; precipitation_probability: number[] }
+        return {
+          city: CITIES[i].name,
+          tempC: Math.round(current.temperature_2m),
+          conditionCode: current.weather_code,
+          conditionLabel: wmoLabel(current.weather_code),
+          nextRainHour: findNextRainHour(hourly),
+        }
+      })
+    })
+    .catch(() => null /* silently fail — show "—" */)
+  return request
+}
+
 export function useWeather() {
   const [data, setData] = useState<CityWeather[] | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const lats = CITIES.map(c => c.lat).join(',')
-    const lons = CITIES.map(c => c.lon).join(',')
-    const url =
-      `https://api.open-meteo.com/v1/forecast` +
-      `?latitude=${lats}&longitude=${lons}` +
-      `&current=temperature_2m,weather_code` +
-      `&hourly=precipitation_probability` +
-      `&forecast_hours=6&timezone=Asia%2FKolkata`
-
-    fetch(url)
-      .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(json => {
-        // Open-Meteo returns an array when multiple coordinates are passed
-        const responses: Record<string, unknown>[] = Array.isArray(json) ? json : [json]
-        const parsed: CityWeather[] = responses.map((r, i) => {
-          const current = r.current as { temperature_2m: number; weather_code: number }
-          const hourly = r.hourly as { time: string[]; precipitation_probability: number[] }
-          return {
-            city: CITIES[i].name,
-            tempC: Math.round(current.temperature_2m),
-            conditionCode: current.weather_code,
-            conditionLabel: wmoLabel(current.weather_code),
-            nextRainHour: findNextRainHour(hourly),
-          }
-        })
-        setData(parsed)
-      })
-      .catch(() => { /* silently fail — show "—" */ })
-      .finally(() => setLoading(false))
+    let live = true
+    loadWeather().then(parsed => {
+      if (!live) return
+      setData(parsed)
+      setLoading(false)
+    })
+    return () => { live = false }
   }, [])
 
   return { data, loading }

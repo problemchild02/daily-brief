@@ -24,26 +24,36 @@ const PLACEHOLDERS: MarketQuote[] = [
 
 const BASE = import.meta.env.BASE_URL
 
+// One request per page load, shared by every ticker on screen.
+let request: Promise<MarketsJson | null> | null = null
+
+function loadMarkets(): Promise<MarketsJson | null> {
+  request ??= fetch(`${BASE}src/data/markets.json`)
+    .then(r => r.ok ? r.json() : null)
+    .catch(() => null)
+  return request
+}
+
 export function useMarkets() {
   const [quotes, setQuotes] = useState<MarketQuote[]>(PLACEHOLDERS)
   const [loading, setLoading] = useState(true)
   const [updatedAt, setUpdatedAt] = useState('')
 
   useEffect(() => {
-    fetch(`${BASE}src/data/markets.json`)
-      .then(r => r.ok ? r.json() : null)
-      .then((d: MarketsJson | null) => {
-        if (d?.quotes?.length) {
-          // Preserve display order (SENSEX, NIFTY, USDINR, BRENT).
-          const ordered = PLACEHOLDERS.map(p =>
-            d.quotes.find(q => q.display === p.display) ?? p,
-          )
-          setQuotes(ordered)
-          setUpdatedAt(d.updatedAt)
-        }
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false))
+    let live = true
+    loadMarkets().then(d => {
+      if (!live) return
+      if (d?.quotes?.length) {
+        // Preserve display order (SENSEX, NIFTY, USDINR, BRENT).
+        const ordered = PLACEHOLDERS.map(p =>
+          d.quotes.find(q => q.display === p.display) ?? p,
+        )
+        setQuotes(ordered)
+        setUpdatedAt(d.updatedAt)
+      }
+      setLoading(false)
+    })
+    return () => { live = false }
   }, [])
 
   return { quotes, loading, updatedAt }

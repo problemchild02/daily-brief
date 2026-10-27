@@ -31,19 +31,26 @@ function CityBlock({ weather }: { weather: CityWeather }) {
 
 interface WeatherStripProps {
   className?: string
+  /** Rendered above the strip only when there's weather to show, so a failed
+      fetch leaves no orphaned heading behind (the laptop rail used to show an
+      empty "Weather" label). */
+  heading?: string
 }
 
-export function WeatherStrip({ className = '' }: WeatherStripProps) {
+export function WeatherStrip({ className = '', heading }: WeatherStripProps) {
   const { data, loading } = useWeather()
 
   if (loading) {
     return (
+      <>
+      {heading && <p className="type-kicker mb-3 text-ink-3">{heading}</p>}
       <div
         className={`flex items-center gap-4 ${className}`}
         style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}
       >
         <span className="text-ink-3 animate-pulse">Weather loading…</span>
       </div>
+      </>
     )
   }
 
@@ -64,6 +71,8 @@ export function WeatherStrip({ className = '' }: WeatherStripProps) {
   )
 
   return (
+    <>
+    {heading && <p className="type-kicker mb-3 text-ink-3">{heading}</p>}
     <div
       className={`flex items-center gap-4 flex-wrap ${className}`}
       style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}
@@ -76,5 +85,6 @@ export function WeatherStrip({ className = '' }: WeatherStripProps) {
         </span>
       ))}
     </div>
+    </>
   )
 }

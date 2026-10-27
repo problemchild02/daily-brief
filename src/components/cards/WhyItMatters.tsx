@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { splitImplications } from '../../lib/storyText'
 
 interface WhyItMattersProps {
   text: string
@@ -20,34 +21,11 @@ function renderItalics(text: string): ReactNode {
   )
 }
 
-// fetch_stories.py's prompt asks for "(1) ... (2) ... (3) ..." numbered practical
-// implications inline within the analysis paragraph — see IMPLEMENTATION_SPEC.md
-// §7.9 and the prompt in fetch_stories.py's ai_enrich_story(). Burying those in a
-// run-on paragraph is exactly the "read everything to find the one actionable line"
-// problem this product is supposed to solve for a reader who's scanning before
-// their day starts. Split them into a real list instead — the intro sentence(s)
-// stay as prose (the background a reader needs), each numbered implication becomes
-// its own scannable line.
-interface ParsedBrief {
-  intro: string
-  items: string[]
-}
-
-function parseBrief(text: string): ParsedBrief {
-  const parts = text.split(/\s*\((\d)\)\s*/)
-  // split() with a capturing group interleaves: [intro, "1", item1, "2", item2, ...]
-  if (parts.length < 3) return { intro: text, items: [] }
-  const intro = parts[0].trim()
-  const items: string[] = []
-  for (let i = 1; i < parts.length; i += 2) {
-    const item = parts[i + 1]?.trim()
-    if (item) items.push(item.replace(/\s+$/, ''))
-  }
-  return { intro, items }
-}
-
+// The numbered implications are split into a real list — see splitImplications()
+// in lib/storyText.ts for the rules and why burying them in a run-on paragraph
+// defeats the point of a brief someone scans before their day starts.
 export function WhyItMatters({ text, size = 'card' }: WhyItMattersProps) {
-  const { intro, items } = parseBrief(text)
+  const { intro, items } = splitImplications(text)
   const large = size === 'large'
 
   return (
@@ -75,7 +53,7 @@ export function WhyItMatters({ text, size = 'card' }: WhyItMattersProps) {
           className={large ? 'max-w-prose' : 'md:max-w-prose'}
           style={{
             fontFamily: 'var(--font-reading)',
-            fontSize: large ? '16px' : '14px',
+            fontSize: `calc(${large ? 16 : 14}px * var(--reading-scale, 1))`,
             lineHeight: 1.7,
             color: 'var(--ink-2)',
             margin: items.length ? '0 0 10px' : 0,
@@ -108,7 +86,7 @@ export function WhyItMatters({ text, size = 'card' }: WhyItMattersProps) {
               <span
                 style={{
                   fontFamily: 'var(--font-reading)',
-                  fontSize: large ? '15.5px' : '13.5px',
+                  fontSize: `calc(${large ? 15.5 : 13.5}px * var(--reading-scale, 1))`,
                   lineHeight: 1.55,
                   color: 'var(--ink)',
                 }}
