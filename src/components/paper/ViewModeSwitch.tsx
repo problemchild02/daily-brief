@@ -27,13 +27,13 @@ export function ViewModeSwitch({ labels = 'always' }: {
           setPreference('pageEffects', value)
         }}
         className={[
-          'relative flex h-8 items-center justify-center gap-1.5 rounded-full text-[12px] font-medium transition-colors active:scale-95',
-          labels === 'always' ? 'px-3' : 'w-8 sm:w-auto sm:px-3',
+          'relative h-8 rounded-full font-medium transition-colors active:scale-95',
           active ? '' : 'text-ink-3 hover:text-ink',
         ].join(' ')}
-        // Inline, because global.css's unlayered `button { background: none }`
-        // beats a bg- utility class.
-        style={active ? { color: 'var(--canvas)' } : undefined}
+        // Inline, because global.css's unlayered `button { padding: 0; font: inherit }`
+        // reset beats the layered padding, text-size and colour utilities — so
+        // spacing lives on the inner span, and size/colour are set here.
+        style={{ fontSize: 12, lineHeight: 1, ...(active ? { color: 'var(--canvas)' } : null) }}
       >
         {/* The pill is a plain CSS crossfade, not a framer-motion layoutId: a
             shared-layout element inside this subtree kept the old paper view
@@ -48,8 +48,15 @@ export function ViewModeSwitch({ labels = 'always' }: {
             transform: active ? 'scale(1)' : 'scale(0.82)',
           }}
         />
-        <Icon size={15} aria-hidden className="relative" />
-        <span aria-hidden className={['relative', labels === 'always' ? '' : 'hidden sm:inline'].join(' ')}>{label}</span>
+        <span
+          className={[
+            'relative flex h-full items-center justify-center gap-1.5',
+            labels === 'always' ? 'px-3' : 'w-8 sm:w-auto sm:px-3',
+          ].join(' ')}
+        >
+          <Icon size={15} aria-hidden />
+          <span aria-hidden className={labels === 'always' ? '' : 'hidden sm:inline'}>{label}</span>
+        </span>
       </button>
     )
   }

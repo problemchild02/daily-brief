@@ -22,6 +22,11 @@
 /* The library sets every page's position/size via inline cssText on each frame,
    so all page styling has to live in classes. */
 .paper-page {
+  /* Each visible page gets its own compositor layer, so the curl moves a
+     finished bitmap instead of repainting the page on every frame; paint
+     containment stops anything inside from invalidating its neighbours. */
+  will-change: transform;
+  contain: layout paint;
   background-color: var(--page);
   background-image: var(--paper-texture);
   color: var(--ink);
@@ -88,10 +93,12 @@
 }
 
 /* ─── Ink settle: text darkens into the page as a turn lands ──────────────── */
+/* Opacity only. This used to animate filter: blur() on every text block of the
+   page that had just landed — each frame re-rasterised full-size text layers,
+   which on a phone is exactly the stall you could see right after a turn. */
 @keyframes ink-settle {
-  0%   { opacity: 0.18; filter: blur(0.7px); }
-  55%  { opacity: 0.85; filter: blur(0.15px); }
-  100% { opacity: 1;    filter: none; }
+  0%   { opacity: 0.3; }
+  100% { opacity: 1; }
 }
 
 .paper-page[data-ink="settle"] .ink {
@@ -112,4 +119,22 @@
 @media (prefers-reduced-motion: reduce) {
   .paper-page[data-ink="settle"] .ink { animation: none; }
   .paper-edges::before { transition: none; }
+}
+
+/* On touch devices the paper's faint noise texture is an SVG feTurbulence
+   filter that has to be re-rendered whenever the curl's clip shape changes — slow
+   enough on a phone GPU to show as tearing and late tiles, for a grain you can
+   barely see at 3% opacity. Flat paper there; the texture stays on desktop. */
+@media (pointer: coarse) {
+  .paper-page,
+  .paper-book-frame[data-spread="true"] .paper-page:nth-child(odd),
+  .paper-book-frame[data-spread="true"] .paper-page:nth-child(even) {
+    background-image: none;
+  }
+  .paper-book-frame[data-spread="true"] .paper-page:nth-child(odd) {
+    background-image: linear-gradient(to left, var(--page-shade), transparent 7%);
+  }
+  .paper-book-frame[data-spread="true"] .paper-page:nth-child(even) {
+    background-image: linear-gradient(to right, var(--page-shade), transparent 7%);
+  }
 }
