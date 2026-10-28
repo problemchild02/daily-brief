@@ -216,6 +216,26 @@ class EnrichmentTests(unittest.TestCase):
         self.assertNotIn("contextNote", s)                               # nothing to extract, nothing invented
         self.assertFalse(s["summary"])
 
+    def test_sports_never_costs_a_call_but_opinion_does(self):
+        sports = story(20, "Team wins the third Test by 5 wickets", "sports",
+                       summary="The home side chased down 212 on the final day with five wickets in hand after a fine century.")
+        opinion = story(21, "Why the new disclosure regime needs a rethink", "opinion",
+                        summary="The author argues that the new disclosure regime will burden mid-sized listed companies unfairly.")
+        p = Providers()
+        self.run_enrich([sports, opinion], p.install(["gemini"]))
+        self.assertNotIn("contextNote", sports)                          # skipped: no call, no extract
+        self.assertTrue(sports["summary"])                               # but still summarised natively
+        self.assertEqual(len(p.calls), 1)                                # only the opinion piece was sent
+        self.assertIn("contextNote", opinion)
+
+    def test_skip_list_is_configurable(self):
+        s = story(22, "Team wins the third Test by 5 wickets", "sports",
+                  summary="The home side chased down 212 on the final day with five wickets in hand after a fine century.")
+        p = Providers()
+        with mock.patch.object(fs, "AI_SKIP_SECTIONS", set()):
+            self.run_enrich([s], p.install(["gemini"]))
+        self.assertEqual(len(p.calls), 1)
+
     def test_a_lone_court_name_is_not_a_note(self):
         s = story(15, "Supreme Court on judicial accountability", "legal",
                   summary="Former Justice Oka said the Supreme Court had to guard against hero worship and remain open to criticism.")

@@ -122,6 +122,8 @@ no-AI fallback (`nativeBriefing`: one story per section, headline as bullet,
 `generatedBy: "native"`), so it is never stale or empty.
 
 Spend controls (env vars / repo *variables*; all optional):
+`AI_SKIP_SECTIONS` (default `sports`: no AI note and no "key points" there; summary and
+facts stay native. Opinion is deliberately *not* skipped — editorials carry regulatory signal),
 `AI_MAX_CALLS` (default 80/run, spent legal-first), `AI_PROVIDER_ORDER`
 (e.g. `gemini,custom,openai`), and a per-run circuit breaker: quota/credit
 errors disable a provider immediately, `AI_MAX_FAILS` (3) consecutive failures

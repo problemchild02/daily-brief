@@ -443,6 +443,11 @@ ANY_AI_ENABLED    = ANY_AI_ENABLED or bool(FALLBACK_BASE_URL and FALLBACK_MODEL)
 AI_MAX_CALLS = int(os.environ.get("AI_MAX_CALLS", "80") or 80)
 AI_MAX_FAILS = int(os.environ.get("AI_MAX_FAILS", "3") or 3)
 NOTE_MAX_TOKENS = 450      # a ~150-word note is ~250 tokens; the rest is headroom
+#   AI_SKIP_SECTIONS   comma list of sections that never get an AI note (default:
+#                      "sports" — a "why it matters" for in-house counsel is noise
+#                      there). Opinion is deliberately NOT skipped: editorials often
+#                      carry the regulatory signal. Their summary and facts stay native.
+AI_SKIP_SECTIONS = {s.strip() for s in (os.environ.get("AI_SKIP_SECTIONS") or "sports").split(",") if s.strip()}
 
 _PROVIDER_STATE = {}       # name -> {"fails": int, "dead": bool}, reset each run
 
@@ -1046,6 +1051,8 @@ def enrich_stories(all_stories, page_text, previous):
         elif a["whyItMatters"]:
             note = {"contextNote": a["whyItMatters"], "enrichedBy": "native"}
             stats["native_note"] += 1
+        elif story["section"] in AI_SKIP_SECTIONS:
+            pass   # no note at all: neither a paid call nor extracted "key points"
         else:
             need_ai.append((story, " ".join(filter(None, excerpts))[:900], summary, a["facts"]))
             raw_excerpts[story["id"]] = excerpts
