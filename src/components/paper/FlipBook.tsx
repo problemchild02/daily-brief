@@ -134,6 +134,25 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
     }
   }, [pageEls])
 
+  // Pictures on pages that aren't showing are lazy-loaded (they sit in display:none
+  // pages), so without this the next page's photos start downloading — and then
+  // decoding — only once its turn has begun, which shows up as blank patches and
+  // hitches mid-curl. After each landing, ask the browser to fetch and decode the
+  // pictures of the next few pages (and the previous one) off the main thread.
+  const warm = useCallback((index: number) => {
+    const run = () => {
+      for (let i = Math.max(0, index - 1); i <= Math.min(pageCount - 1, index + 3); i++) {
+        pageEls[i]?.querySelectorAll('img').forEach(img => {
+          if (img.loading === 'lazy') img.loading = 'eager'
+          img.decode?.().catch(() => { /* broken or removed image */ })
+        })
+      }
+    }
+    // After the turn's own frames, not during them.
+    if ('requestIdleCallback' in window) (window as any).requestIdleCallback(run, { timeout: 1200 })
+    else setTimeout(run, 300)
+  }, [pageEls, pageCount])
+
   // (Re)build the book whenever its size or layout changes, resuming on the page
   // the reader was on. The host node is created fresh per build and removed on
   // cleanup, because the library adds classes, wrappers and inline sizing to it
@@ -183,6 +202,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
       setCurrent(e.data)
       markInk(e.data, book.getOrientation() === 'landscape')
       haptic('turn')
+      warm(e.data)
       onFlipRef.current?.(e.data, false)
     })
     book.on('changeState', e => {
@@ -196,6 +216,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
     currentRef.current = opened
     setCurrent(opened)
     markInk(opened, spread)
+    warm(opened)
     onFlipRef.current?.(opened, true)
 
     return () => {
@@ -203,7 +224,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
       try { book.destroy() } catch { /* already torn down */ }
       host.remove()
     }
-  }, [size, spread, pageCount, pageEls, markInk])
+  }, [size, spread, pageCount, pageEls, markInk, warm])
 
   useImperativeHandle(ref, () => ({
     next: () => bookRef.current?.flipNext('bottom'),
@@ -226,6 +247,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
         setCurrent(target)
         markInk(target, spread)
         haptic('turn')
+        warm(target)
         onFlipRef.current?.(target, false)
       } else if (target > here) {
         book.flipNext('bottom')
@@ -233,7 +255,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
         turnBack(book)
       }
     },
-  }), [pageCount, spread, markInk])
+  }), [pageCount, spread, markInk, warm])
 
   // Arrow keys turn pages, unless the reader is typing somewhere or a dialog the
   // book isn't part of is open on top of it (Settings, search, or — for the paper

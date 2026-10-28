@@ -5,8 +5,8 @@ import type { Story } from '../../lib/types'
 /**
  * A story's picture — or, when it has none (about one in five from Google News
  * and some publishers), or it fails to load, designed artwork in the section's
- * colour instead of a hole in the page: a tinted gradient with newsprint
- * hatching, the section's initial set large, and the source's name. Every story
+ * colour instead of a hole in the page: a tinted gradient,
+ * the section's initial set large, and the source's name. Every story
  * on a page therefore has a visual, and the layout never depends on whether a
  * photo arrived.
  */
@@ -48,8 +48,9 @@ export function StoryArtFallback({ story, className = '', style, variant = 'hero
       aria-hidden
       className={['relative overflow-hidden select-none', className].join(' ')}
       style={{
+        // A smooth gradient only: 1px hatch lines shimmer (moiré) when the page
+        // is transformed mid-curl.
         background:
-          `repeating-linear-gradient(135deg, transparent 0 7px, color-mix(in srgb, ${c} 9%, transparent) 7px 8px),` +
           `linear-gradient(145deg, color-mix(in srgb, ${c} 26%, var(--page)) 0%, color-mix(in srgb, ${c} 10%, var(--page)) 100%)`,
         ...style,
       }}

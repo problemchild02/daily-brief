@@ -25,10 +25,11 @@ export const MeasuringContext = createContext(false)
 // would make the story list — most of a phone page — impossible to swipe. A click
 // only counts if the pointer barely moved, so dragging a page corner across a
 // story on a laptop turns the page instead of also opening the story.
-function Tappable({ onActivate, label, className, measure, measureId, children }: {
+function Tappable({ onActivate, label, className, style, measure, measureId, children }: {
   onActivate: () => void
   label?: string
   className?: string
+  style?: CSSProperties
   /** Marks the element for PaperEdition's measuring pass. */
   measure?: string
   measureId?: string
@@ -40,6 +41,7 @@ function Tappable({ onActivate, label, className, measure, measureId, children }
       role="link"
       tabIndex={0}
       aria-label={label}
+      style={style}
       data-m={measure}
       data-id={measureId}
       className={['cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md transition-[background-color,transform] duration-150 active:scale-[0.992] active:bg-surface-2/60', className].filter(Boolean).join(' ')}
@@ -316,7 +318,7 @@ export function ContentsContent({ entries, onGoTo, compact = false, tight = fals
 
 export type LeadFit = 'full' | 'compact' | 'text' | 'minimal'
 
-export function SectionContent({ section, stories, lead, leadFit = 'full', continued, totalInSection, onOpen }: {
+export function SectionContent({ section, stories, lead, leadFit = 'full', variants, pad, continued, totalInSection, onOpen }: {
   section: CategoryKey
   stories: Story[]
   lead?: Story
@@ -324,6 +326,10 @@ export function SectionContent({ section, stories, lead, leadFit = 'full', conti
       summary, no photo, or (small phone at a large text size) a one-line
       summary and no "why it matters" teaser — still the headline and a summary. */
   leadFit?: LeadFit
+  /** Per-story upgrade chosen to fill the page's spare room (see EntryVariant). */
+  variants?: Record<string, EntryVariant>
+  /** Extra vertical padding per side for each listed story (px), from spare room. */
+  pad?: number
   continued: boolean
   totalInSection: number
   onOpen: (story: Story) => void
@@ -349,27 +355,36 @@ export function SectionContent({ section, stories, lead, leadFit = 'full', conti
       {lead && <LeadStory story={lead} fit={leadFit} onOpen={onOpen} />}
 
       <div data-m="list" className="flex flex-col divide-y divide-rule">
-        {stories.map(s => <StoryEntry key={s.id} story={s} onOpen={onOpen} />)}
+        {stories.map(s => <StoryEntry key={s.id} story={s} variant={variants?.[s.id]} pad={pad} onOpen={onOpen} />)}
       </div>
     </div>
   )
 }
 
-function LeadStory({ story, fit, onOpen }: { story: Story; fit: LeadFit; onOpen: (s: Story) => void }) {
+function LeadStory({ story, fit, onOpen, bare = false, measureAs, imageRatio }: {
+  story: Story
+  fit: LeadFit
+  onOpen: (s: Story) => void
+  /** Used as a "feature" entry inside a list: no extra rule/margin of its own. */
+  bare?: boolean
+  measureAs?: string
+  /** Max photo height as a share of the page height (default depends on `fit`). */
+  imageRatio?: number
+}) {
   const dek = storyDek(story)
   const brief = storyBrief(story)
   // The first numbered implication is the single most useful line of the brief,
   // so the section front teases it right under the lead.
   const firstImplication = brief ? splitImplications(brief).items[0] : undefined
   return (
-    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure={`lead-${fit}`} measureId={story.id} className="ink mb-2 block pb-4 border-b border-rule">
+    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure={measureAs ?? `lead-${fit}`} measureId={story.id} className={bare ? 'ink block' : 'ink mb-2 block pb-4 border-b border-rule'}>
       {/* Capped on short pages (a laptop with a small window, iPad landscape)
           so the photo can't crowd the headline and "Why it matters" off the
           section front. */}
       {fit !== 'text' && fit !== 'minimal' && <PaperImage
         story={story}
         className="mb-3 w-full aspect-[16/9] rounded-sm"
-        style={{ maxHeight: `calc(var(--paper-page-h, 100vh) * ${fit === 'full' ? 0.36 : 0.22})` }}
+        style={{ maxHeight: `calc(var(--paper-page-h, 100vh) * ${imageRatio ?? (fit === 'full' ? 0.36 : 0.22)})` }}
       />}
       <h3 className="font-display font-bold text-ink text-balance leading-[1.12] tracking-[-0.015em]" style={{ fontSize: 'calc(23px * var(--reading-scale))' }}>
         {story.headline}
@@ -390,26 +405,64 @@ function LeadStory({ story, fit, onOpen }: { story: Story; fit: LeadFit; onOpen:
   )
 }
 
-function StoryEntry({ story, onOpen }: { story: Story; onOpen: (s: Story) => void }) {
-  const dek = storyDek(story)
+/** How much of a story a listed entry shows. Pages are filled to their measured
+    height: `compact` (thumbnail row) by default; `rich` adds the "why it matters"
+    teaser and a longer summary; `feature` is a small lead — big picture, headline,
+    summary and teaser — for a page that would otherwise be mostly empty. */
+export type EntryVariant = 'rich' | 'feature' | 'feature-s'
+
+function teaserOf(story: Story): string | undefined {
+  const brief = storyBrief(story)
+  if (!brief) return undefined
+  const { intro, items } = splitImplications(brief)
+  return items[0] ?? (intro || undefined)
+}
+
+function WhyTeaser({ text, lines }: { text: string; lines: 2 | 3 }) {
   return (
-    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure="entry" measureId={story.id} className="ink flex gap-3 py-3.5">
-      <div className="min-w-0 flex-1">
-        <Kicker section={story.section} kicker={story.kicker} />
-        <h3 className="mt-1 font-display font-semibold text-ink text-balance leading-[1.2]" style={{ fontSize: 'calc(17.5px * var(--reading-scale))' }}>
-          {story.headline}
-        </h3>
-        {dek && (
-          <p className="mt-1 font-reading text-ink-2 line-clamp-2" style={{ fontSize: 'calc(13.5px * var(--reading-scale))', lineHeight: 1.5 }}>
-            {dek}
-          </p>
-        )}
-        <div className="mt-1.5"><Meta story={story} /></div>
+    <p
+      className={`mt-2.5 border-l-2 pl-3 font-reading text-ink ${lines === 3 ? 'line-clamp-3' : 'line-clamp-2'}`}
+      style={{ borderColor: 'var(--accent)', fontSize: 'calc(13.5px * var(--reading-scale))', lineHeight: 1.5 }}
+    >
+      <span className="type-kicker mr-1.5" style={{ color: 'var(--accent)', fontSize: '10px' }}>Why it matters</span>
+      {text}
+    </p>
+  )
+}
+
+function StoryEntry({ story, variant, pad = 0, onOpen }: { story: Story; variant?: EntryVariant; pad?: number; onOpen: (s: Story) => void }) {
+  // `pad`: extra breathing room per side, from the page's leftover height.
+  const padStyle = pad ? { paddingBlock: `calc(0.875rem + ${pad}px)` } : undefined
+  if (variant === 'feature' || variant === 'feature-s') {
+    return (
+      <div className="py-3.5" style={padStyle} data-m="entry" data-id={story.id}>
+        <LeadStory story={story} fit="compact" bare measureAs="feature" imageRatio={variant === 'feature' ? 0.3 : 0.17} onOpen={onOpen} />
       </div>
-      {/* self-start + aspect-square: global.css's unlayered img{height:auto} beats
-          a h-16 utility, so without these flexbox stretches the thumbnail to the
-          full height of the entry. */}
-      <PaperImage story={story} variant="thumb" className="mt-1 w-16 shrink-0 self-start aspect-square rounded-sm" />
+    )
+  }
+  const dek = storyDek(story)
+  const teaser = variant === 'rich' ? teaserOf(story) : undefined
+  return (
+    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure="entry" measureId={story.id} className="ink block py-3.5" style={padStyle}>
+      <div className="flex gap-3">
+        <div className="min-w-0 flex-1">
+          <Kicker section={story.section} kicker={story.kicker} />
+          <h3 className="mt-1 font-display font-semibold text-ink text-balance leading-[1.2]" style={{ fontSize: 'calc(17.5px * var(--reading-scale))' }}>
+            {story.headline}
+          </h3>
+          {dek && (
+            <p className={`mt-1 font-reading text-ink-2 ${variant === 'rich' ? 'line-clamp-3' : 'line-clamp-2'}`} style={{ fontSize: 'calc(13.5px * var(--reading-scale))', lineHeight: 1.5 }}>
+              {dek}
+            </p>
+          )}
+        </div>
+        {/* self-start + aspect-square: global.css's unlayered img{height:auto} beats
+            a h-16 utility, so without these flexbox stretches the thumbnail to the
+            full height of the entry. */}
+        <PaperImage story={story} variant="thumb" className="mt-1 w-16 shrink-0 self-start aspect-square rounded-sm" />
+      </div>
+      {teaser && <WhyTeaser text={teaser} lines={2} />}
+      <div className="mt-1.5"><Meta story={story} /></div>
     </Tappable>
   )
 }
