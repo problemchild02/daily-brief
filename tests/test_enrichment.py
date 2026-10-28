@@ -274,7 +274,7 @@ class EnrichmentTests(unittest.TestCase):
             def log_message(self, *a): pass
             def do_POST(self):
                 body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-                seen.update(path=self.path, auth=self.headers.get("Authorization"), model=body["model"], max_tokens=body["max_tokens"])
+                seen.update(path=self.path, auth=self.headers.get("Authorization"), model=body["model"], max_tokens=body["max_tokens"], effort=body.get("reasoning_effort"))
                 if body["messages"][0]["content"] == "quota":
                     self.send_response(429); self.end_headers(); self.wfile.write(b'{"error":"rate limited"}'); return
                 self.send_response(200); self.send_header("Content-Type", "application/json"); self.end_headers()
@@ -288,7 +288,8 @@ class EnrichmentTests(unittest.TestCase):
             out = fs._PROVIDERS["groq"][0]("hello", 321)
             self.assertIn("contextNote", out)
             self.assertEqual((seen["path"], seen["auth"], seen["model"], seen["max_tokens"]),
-                             ("/openai/v1/chat/completions", "Bearer k123", "m-1", 321))
+                             ("/openai/v1/chat/completions", "Bearer k123", "m-1", 1500))   # groq's minTokens beats the 321 asked for
+            self.assertEqual(seen["effort"], "low")                               # and its reasoning model is told to think briefly
             with self.assertRaises(fs._ProviderExhausted):
                 fs._PROVIDERS["groq"][0]("quota", 10)
 

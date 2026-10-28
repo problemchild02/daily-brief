@@ -101,7 +101,7 @@ async function callGemini(prompt) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.4, maxOutputTokens: 1500 },
+      generationConfig: { temperature: 0.4, maxOutputTokens: 4096 }  // thinking models spend part of this before answering,
     }),
   })
   const body = await resp.json()
@@ -196,7 +196,8 @@ function presetCaller(p) {
         model: presetSetting(p, 'model'),
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.4,
-        max_tokens: 1500,
+        max_tokens: Math.max(1500, p.minTokens ?? 0),
+        ...(p.body ?? {}),
       }),
     })
     const raw = await resp.text()
