@@ -1,83 +1,85 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-18 06:00 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-18 13:17 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (79,511 bytes)
-    + [legal] Master of roster system destroying accountability of judicial system: Kapil Siba
-    + [legal] Kerala Congress tenders unconditional apology to CJI Surya Kant over tweet calli
-    + [legal] CAT slams Railway officials for twisting former Solicitor General's undertaking 
-    + [legal] The question the court never asked : Proper law, rectification and comity in SAR
-    + [legal] Khaitan lawyer Akash Srinivasan joins Pinac as Partner and Head – Bangalore Offi
-    + [legal] Himatsingka Group GC Debasmita Gupta joins Orkla India as General Counsel
-    + [legal] CCPA imposes ₹1 lakh penalty on Shangri-La Eros for levying service charge on re
-    + [legal] Supreme Court too Chief Justice-centric, encourages ‘hero worship’: Former Justi
-    → 12 items: 8 accepted, 0 too old, 0 no-date
+    OK  (106,581 bytes)
+    + [legal] Sameer Chugh appointed General Counsel of Diageo India
+    + [legal] Bengaluru court sets aside ₹9 crore arbitral award against Karnataka Education D
+    + [legal] Delhi High Court slams State for failure to implement open prisons; warns Chief 
+    + [legal] ‘Love thy neighbour’: Karnataka HC refuses to quash cross-cases by neighbours ov
+    + [legal] Allahabad High Court moots disciplinary action after lawyers vandalise courtroom
+    + [legal] Government Law College, Dharmapuri wins SRM School of Law's 8th National Level T
+    + [legal] Dropping the issue since they have apologised: Lawyer who sent notice to Congres
+    + [legal] Kerala High Court seeks State's response on plea against GO exempting Vigilance 
+    → 20 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (48,793 bytes)
+    OK  (193,963 bytes)
     + [business] Private capital–fueled economic growth might be knocking on India’s doors soon
-    + [business] Piyush Goyal: ‘India Could Become A $30 Trillion Economy In The Next 22 Years’
-    ↳ dual-tag [reliance] Piyush Goyal: ‘India Could Become A $30 Trillion Economy In The Next 2
-    + [business] Piyush Goyal pitches India's 'economy of scale' and hard-working people to Dutch
-    + [business] Anupam Kher Joins Tender247 to Put India's 70 Lakh Crore Tender Economy in the S
+    + [business] FEATURE // From India to South Africa: Lessons in building an emerging market ec
     + [business] ‘Never seen such dismay’: Why a 36-year market veteran is warning India
-    + [business] Indian Markets Likely to Open Lower Amid Global Cues and Economic Concerns
-    + [business] Nearly 63 pc Indian workers confident about finances despite limited savings buf
-    → 33 items: 7 accepted, 26 too old, 0 no-date
+    → 96 items: 3 accepted, 93 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (73,914 bytes)
-    + [business] Jio Platforms Set for Stock-Market Debut Today After ₹30,213-Crore IPO
-    ↳ dual-tag [reliance] Jio Platforms Set for Stock-Market Debut Today After ₹30,213-Crore IPO
-    → 41 items: 1 accepted, 15 too old, 0 no-date
-  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (53,548 bytes)
+    + [business] NSE - National Stock Exchange of India Ltd: Live Share/Stock Market News & Updat
+    → 32 items: 1 accepted, 30 too old, 0 no-date
+  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (50,873 bytes)
+    + [business] India bonds end flat as oil woes come up against short covering
+    + [business] Bandhan Bank Q2 profit jumps 5.6 times as asset quality improves
+    + [business] Meesho Q2 Results: Loss narrows to Rs 132 crore YoY, revenue rises 34%
+    + [business] Tuborg maker Carlsberg India moves closer to IPO, files updated DRHP for complet
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (171,059 bytes)
-    + [reliance] Businesses and investors of Ambani's Jio as it debuts on Indian bourses
-    + [reliance] Billionaire Ambani's Jio jumps 21% in market debut after record India IPO
-    + [reliance] Ambani’s Jio Surges in Debut After India-Record $3.1 Billion IPO
-    + [reliance] Shares of Ambani’s Jio rise 22% in India’s biggest IPO
-    + [reliance] Jio shares surge 21% in market debut after blockbuster India IPO
+    OK  (190,688 bytes)
     + [reliance] Jio listing: Mukesh Ambani gets emotional as Isha recalls how he worked on Relia
-    → 100 items: 6 accepted, 0 too old, 0 no-date
+    + [reliance] Jio Platforms IPO In Photos: Ambani Family Shares Special Moments At NSE Listing
+    + [reliance] Businesses and investors of Ambani's Jio as it debuts on Indian bourses
+    + [reliance] Shares of Ambani’s Jio surge 27% in India’s biggest IPO
+    + [reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On Market Debut
+    + [reliance] Ambani's Jio surges 21% in Mumbai debut after record $3.2 billion India IPO
+    + [reliance] Ambani Sheds Tears as India’s Richest Family Hails Jio Debut Pop
+    + [reliance] Jio Platforms goes public in India’s biggest initial share flotation
+    → 100 items: 8 accepted, 0 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (148,003 bytes)
-    + [retail] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy Drinks
-    → 76 items: 1 accepted, 75 too old, 0 no-date
+    OK  (55,280 bytes)
+    + [retail] How Quick Commerce Is Reshaping FMCG Distribution Ahead of the Festive Season
+    + [retail] PepsiCo India Bets on New Snacks for Festive Growth
+    + [retail] Tata Consumer Products Q2 Results Show Strong Growth in India Business
+    → 32 items: 3 accepted, 29 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (9,388 bytes)
-    + [retail] Tata Electronics’ Apple exports near Rs 1 lakh crore in FY26 as net loss widens
-    + [retail] Tax officials visit Radico Khaitan offices and plant amid probe into bulk Scotch
-    + [retail] United Breweries Q2 Results: Profit jumps nearly 3 times to Rs 134 crore on volu
-    + [retail] India jewellers hold off gold buying, betting prices will drop
-    + [retail] Troo Good targets Rs 1,000 crore by FY31; to invest Rs 40 crore in mega factory
-    + [retail] Tata Motors, Amazon partner to deploy 3,000 electric trucks for ecommerce logist
-    + [retail] Rotoris raises $8.5 million in Series A led by Blume Ventures, plans global expa
-    → 8 items: 7 accepted, 0 too old, 0 no-date
+    OK  (11,169 bytes)
+    + [retail] Quick commerce is creating new FMCG categories, but traditional retail remains c
+    + [retail] Shelf visibility alone won't win consumers as trust, premiumisation reshape food
+    + [retail] Restaurant funding must accelerate profitable growth, not become a survival stra
+    + [retail] Gold, silver price correction lifts festive hopes; jewellers see buying interest
+    + [retail] Consistency, localisation and consumer trust key to food brands staying relevant
+    → 9 items: 5 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,593 bytes)
-    + [tech] AI chip giant SK hynix says quarterly operating profit soars 630%
-    + [tech] Oracle's Larry Ellison dismisses 'SaaS apocalypse' fears, says AI will make soft
-    + [tech] India among Oracle NetSuite's highest-priority markets, says Asia head Amit Suxe
-    + [tech] US agency approves Amazon Leo's $11.5 billion acquisition of Globalstar
-    + [tech] Nearly 60% of firms yet to move AI beyond pilots as deployment remains key chall
-    + [tech] Meta, Snap head to trial in another case about social media's harms
-    + [tech] Anthropic's record IPO faces some big questions
-    + [tech] OpenAI plans to buy Google's AI chips
+    OK  (45,641 bytes)
+    + [tech] Indian e-commerce player Meesho's quarterly loss shrinks on rising orders
+    + [tech] Sherpa and the future of AI-powered storytelling at Pocket FM
+    + [tech] Delivery Hero raises full-year forecast again on strong Q3 growth
+    + [tech] China's new export curbs draw a line around its AI crown jewels
+    + [tech] Agentic AI can cut banks' transaction monitoring workload by up to 50%: McKinsey
+    + [tech] AI chips worth $12.1 million seized at Malaysia airport, customs authority says
+    + [tech] China's CXMT to start advanced AI memory production despite poor yields
+    + [tech] TPG pursues $5 billion acquisition of British data centre group Ark: FT
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -88,15 +90,15 @@ Cutoff: 2026-10-18 06:00 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (15,481 bytes)
-    + [world] U.S. to issue visas to Flávio Bolsonaro as his whereabouts remain unclear
+    OK  (14,753 bytes)
+    + [world] Israel's election too close to call. And, the Ebola outbreak reaches grim milest
+    + [world] At least 30 dead in crash between two trains in central Spain, media say
+    + [world] Trump's relationship with Putin comes under fire ahead of the midterms
+    + [world] Partial results from Israel's contentious election show no clear winner
+    + [world] A U.S. cruise ship ends voyage due to fuel costs and passengers lose their homes
+    + [world] U.S. to issue visas to Flávio Bolsonaro as his whereabouts remain uncertain
     + [world] Israel's voter turnout soars as Netanyahu faces a tight election
     + [world] The Ebola outbreak is breaking records -- and just marked a grim milestone
-    + [world] Bolsonaro's party accepts Brazil election defeat, but he refuses to concede
-    + [world] A 'Green Army' is out to thwart El Niño flooding
-    + [world] Democrats have a midterm edge, poll shows. And, Israelis vote in high-stakes ele
-    + [world] Local ceasefire brokered by Melania Trump starts in southern Ukraine
-    + [world] A quick guide to Israel's high-stakes election
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -105,135 +107,158 @@ Cutoff: 2026-10-18 06:00 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (39,953 bytes)
+    OK  (55,132 bytes)
+    + [sports] Prakash Bhatt becomes second Indian after Javagal Srinath to be Test match refer
     + [sports] How to watch BAN vs WI Test series 2026 live: Start time, TV channels and stream
-    → 38 items: 1 accepted, 37 too old, 0 no-date
+    + [sports] INDIA vs WEST INDIES SERIES SEAL
+    + [sports] Jasprit Bumrah and Rishabh Pant likely to feature in India A’s third Test before
+    + [sports] Devdutt Padikkal credits Virat Kohli after scoring 199 runs against New Zealand 
+    + [sports] CSK Part Ways With Batting Coach Michael Hussey Ahead Of IPL 2027 Auction
+    → 50 items: 6 accepted, 44 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,645 bytes)
-    + [sports] Shadman firm but Bangladesh lose two in opening session
-    + [sports] WBBL: Yastika Bhatia replaces Jess Jonassen at Brisbane Heat
-    + [sports] Mushfiqur out with 'contusion injury', expected to be fit for second Test agains
-    + [sports] WI hand Bishop his Test debut; Mushfiqur out with injury as Bangladesh bat
-    + [sports] Starc's admission: 'A lot of things that haven't felt right'
-    + [sports] Ahmadzai, Rashid and Farooqi give Afghanistan a comfortable win
-    + [sports] Starc six-for sends SA sliding from 158 for 0 to 329 all out
-    → 100 items: 7 accepted, 0 too old, 0 no-date
+    OK  (90,741 bytes)
+    + [sports] UP Warriorz buy Sophie Molineux for INR 1.10 crore; RCB quiet in early bidding
+    + [sports] Vaishnavi five-for and Rawal, Shafali fifties power India to 3-0 sweep
+    → 100 items: 2 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (47,635 bytes)
+    OK  (45,794 bytes)
+    + [opinion] Daily Editorial Analysis 19 October 2026
     + [opinion] HOSMAC Develops Hospital Energy Analysis Tool to Support Energy Planning of Heal
+    + [opinion] Daily Editorial Analysis 28 October 2026
     + [opinion] Daily Editorial Analysis 26 October 2026
     + [opinion] Daily Editorial Analysis 27 October 2026
     + [opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
-    + [opinion] How much does the family you’re born into decide your future?
-    → 35 items: 5 accepted, 30 too old, 0 no-date
+    → 34 items: 6 accepted, 28 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,560 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (52,329 bytes)
+    OK  (52,311 bytes)
     + [opinion] A win that defied all odds
     + [opinion] India’s steel future depends on breaking its costly coal habit
-    + [opinion] Comic relief
-    → 50 items: 3 accepted, 0 too old, 0 no-date
+    → 50 items: 2 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
 ── Page fetch (47 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Anupam Kher Joins Tender247 to Put India's 70 Lakh Crore Ten: no og:image/twitter:image tag found
-   ✗ [  business] Piyush Goyal pitches India's 'economy of scale' and hard-wor: no og:image/twitter:image tag found
    ✗ [  business] ‘Never seen such dismay’: Why a 36-year market veteran is wa: no og:image/twitter:image tag found
-   ✗ [  business] Piyush Goyal: ‘India Could Become A $30 Trillion Economy In : no og:image/twitter:image tag found
-   ✗ [  business] Nearly 63 pc Indian workers confident about finances despite: no og:image/twitter:image tag found
-   ✗ [  business] Indian Markets Likely to Open Lower Amid Global Cues and Eco: no og:image/twitter:image tag found
    ✗ [  business] Private capital–fueled economic growth might be knocking on : no og:image/twitter:image tag found
-   ✗ [  business] Jio Platforms Set for Stock-Market Debut Today After ₹30,213: no og:image/twitter:image tag found
-   ✗ [  reliance] Piyush Goyal: ‘India Could Become A $30 Trillion Economy In : no og:image/twitter:image tag found
-   ✗ [  reliance] Businesses and investors of Ambani's Jio as it debuts on Ind: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms Set for Stock-Market Debut Today After ₹30,213: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio shares surge 21% in market debut after blockbuster India: no og:image/twitter:image tag found
-   ✗ [  reliance] Shares of Ambani’s Jio rise 22% in India’s biggest IPO: no og:image/twitter:image tag found
-   ✗ [  reliance] Billionaire Ambani's Jio jumps 21% in market debut after rec: no og:image/twitter:image tag found
    ✗ [  reliance] Jio listing: Mukesh Ambani gets emotional as Isha recalls ho: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani’s Jio Surges in Debut After India-Record $3.1 Billion: no og:image/twitter:image tag found
+   ✗ [  business] FEATURE // From India to South Africa: Lessons in building a: no og:image/twitter:image tag found
+   ✗ [  business] NSE - National Stock Exchange of India Ltd: Live Share/Stock: no og:image/twitter:image tag found
+   ✗ [  reliance] Businesses and investors of Ambani's Jio as it debuts on Ind: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms IPO In Photos: Ambani Family Shares Special Mo: no og:image/twitter:image tag found
+   ✗ [  reliance] Shares of Ambani’s Jio surge 27% in India’s biggest IPO: no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani's Jio surges 21% in Mumbai debut after record $3.2 bi: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms goes public in India’s biggest initial share f: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani Sheds Tears as India’s Richest Family Hails Jio Debut: no og:image/twitter:image tag found
+   ✗ [    retail] PepsiCo India Bets on New Snacks for Festive Growth: no og:image/twitter:image tag found
+   ✗ [    retail] Tata Consumer Products Q2 Results Show Strong Growth in Indi: no og:image/twitter:image tag found
+   ✗ [    retail] How Quick Commerce Is Reshaping FMCG Distribution Ahead of t: no og:image/twitter:image tag found
+   ✓ [     world] At least 30 dead in crash between two trains in central Spai
+   ✓ [     world] Israel's election too close to call. And, the Ebola outbreak
    ✓ [     world] U.S. to issue visas to Flávio Bolsonaro as his whereabouts r
-   ✓ [     world] Bolsonaro's party accepts Brazil election defeat, but he ref
-   ✓ [     world] Democrats have a midterm edge, poll shows. And, Israelis vot
+   ✓ [     world] A U.S. cruise ship ends voyage due to fuel costs and passeng
+   ✓ [     world] Trump's relationship with Putin comes under fire ahead of th
    ✓ [     world] The Ebola outbreak is breaking records -- and just marked a 
-   ✗ [    retail] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy : no og:image/twitter:image tag found
-   ✓ [     world] A 'Green Army' is out to thwart El Niño flooding
+   ✓ [     world] Partial results from Israel's contentious election show no c
    ✓ [     world] Israel's voter turnout soars as Netanyahu faces a tight elec
-   ✓ [     world] Local ceasefire brokered by Melania Trump starts in southern
-   ✓ [     world] A quick guide to Israel's high-stakes election
+   ✗ [    sports] Prakash Bhatt becomes second Indian after Javagal Srinath to: no og:image/twitter:image tag found
    ✗ [    sports] How to watch BAN vs WI Test series 2026 live: Start time, TV: no og:image/twitter:image tag found
+   ✗ [    sports] INDIA vs WEST INDIES SERIES SEAL: no og:image/twitter:image tag found
+   ✗ [    sports] CSK Part Ways With Batting Coach Michael Hussey Ahead Of IPL: no og:image/twitter:image tag found
+   ✗ [    sports] Devdutt Padikkal credits Virat Kohli after scoring 199 runs : no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 19 October 2026: no og:image/twitter:image tag found
+   ✗ [    sports] Jasprit Bumrah and Rishabh Pant likely to feature in India A: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 26 October 2026: no og:image/twitter:image tag found
    ✗ [   opinion] HOSMAC Develops Hospital Energy Analysis Tool to Support Ene: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 28 October 2026: no og:image/twitter:image tag found
    ✗ [   opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 27 October 2026: no og:image/twitter:image tag found
-   ✗ [   opinion] Daily Editorial Analysis 26 October 2026: no og:image/twitter:image tag found
-   ✗ [   opinion] How much does the family you’re born into decide your future: no og:image/twitter:image tag found
-   images: 8 found, 23 not found  |  page text: 14 stories
+   images: 8 found, 27 not found  |  page text: 15 stories
 
-── AI notes (51 stories without a native/reused brief; providers: anthropic, gemini, openai; cap 40 calls) ──
+── AI notes (54 stories without a native/reused brief; providers: anthropic, gemini, openai, github; cap 80 calls) ──
       [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
       [anthropic] disabled for the rest of this run (out of quota/credit)
       [gemini] bad JSON: Unterminated string starting at: line 1 column 17 (char 16)
-   ✓ [openai] Master of roster system destroying accountability of judicia
-      [gemini] exhausted: {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-      [gemini] disabled for the rest of this run (out of quota/credit)
-   ✓ [openai] Kerala Congress tenders unconditional apology to CJI Surya K
-   ✓ [openai] CAT slams Railway officials for twisting former Solicitor Ge
-   ✓ [openai] Khaitan lawyer Akash Srinivasan joins Pinac as Partner and H
-   ✓ [openai] Himatsingka Group GC Debasmita Gupta joins Orkla India as Ge
-   ✓ [openai] Supreme Court too Chief Justice-centric, encourages ‘hero wo
-   ✓ [openai] Piyush Goyal: ‘India Could Become A $30 Trillion Economy In 
-   ✓ [openai] Businesses and investors of Ambani's Jio as it debuts on Ind
-   ✓ [openai] Billionaire Ambani's Jio jumps 21% in market debut after rec
-   ✓ [openai] Ambani’s Jio Surges in Debut After India-Record $3.1 Billion
-   ✓ [openai] Shares of Ambani’s Jio rise 22% in India’s biggest IPO
-   ✓ [openai] Jio shares surge 21% in market debut after blockbuster India
-   ✓ [openai] Jio listing: Mukesh Ambani gets emotional as Isha recalls ho
-   ✓ [openai] Jio Platforms Set for Stock-Market Debut Today After ₹30,213
-   ✓ [openai] Piyush Goyal: ‘India Could Become A $30 Trillion Economy In 
-   ✓ [openai] Piyush Goyal pitches India's 'economy of scale' and hard-wor
-   ✓ [openai] Anupam Kher Joins Tender247 to Put India's 70 Lakh Crore Ten
-   ✓ [openai] Indian Markets Likely to Open Lower Amid Global Cues and Eco
-   ✓ [openai] Nearly 63 pc Indian workers confident about finances despite
-   ✓ [openai] Tata Electronics’ Apple exports near Rs 1 lakh crore in FY26
-   ✓ [openai] Tax officials visit Radico Khaitan offices and plant amid pr
-   ✓ [openai] United Breweries Q2 Results: Profit jumps nearly 3 times to 
-   ✓ [openai] India jewellers hold off gold buying, betting prices will dr
-   ✓ [openai] Tata Motors, Amazon partner to deploy 3,000 electric trucks 
-   ✓ [openai] AI chip giant SK hynix says quarterly operating profit soars
-   ✓ [openai] Oracle's Larry Ellison dismisses 'SaaS apocalypse' fears, sa
-   ✓ [openai] India among Oracle NetSuite's highest-priority markets, says
-   ✓ [openai] US agency approves Amazon Leo's $11.5 billion acquisition of
-   ✓ [openai] Nearly 60% of firms yet to move AI beyond pilots as deployme
-   ✓ [openai] Meta, Snap head to trial in another case about social media'
-   ✓ [openai] Anthropic's record IPO faces some big questions
-   ✓ [openai] OpenAI plans to buy Google's AI chips
+   ✓ [openai] Sameer Chugh appointed General Counsel of Diageo India
+      [gemini] bad JSON: Expecting value: line 1 column 1 (char 0)
+   ✓ [openai] Delhi High Court slams State for failure to implement open p
+      [gemini] bad JSON: Unterminated string starting at: line 1 column 17 (char 16)
+      [gemini] disabled for the rest of this run (3 failures in a row)
+   ✓ [openai] ‘Love thy neighbour’: Karnataka HC refuses to quash cross-ca
+   ✓ [openai] Allahabad High Court moots disciplinary action after lawyers
+   ✓ [openai] Government Law College, Dharmapuri wins SRM School of Law's 
+   ✓ [openai] Dropping the issue since they have apologised: Lawyer who se
+   ✓ [openai] Kerala High Court seeks State's response on plea against GO 
+   ✓ [openai] Jio Platforms IPO In Photos: Ambani Family Shares Special Mo
+   ✓ [openai] Shares of Ambani’s Jio surge 27% in India’s biggest IPO
+   ✓ [openai] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On
+   ✓ [openai] Ambani's Jio surges 21% in Mumbai debut after record $3.2 bi
+   ✓ [openai] Ambani Sheds Tears as India’s Richest Family Hails Jio Debut
+   ✓ [openai] Jio Platforms goes public in India’s biggest initial share f
+      [github] error: Expecting value: line 1 column 1 (char 0)
+   ✓ [openai] FEATURE // From India to South Africa: Lessons in building a
+      [github] error: Expecting value: line 1 column 1 (char 0)
+   ✓ [openai] India bonds end flat as oil woes come up against short cover
+      [github] error: Expecting value: line 1 column 1 (char 0)
+      [github] disabled for the rest of this run (3 failures in a row)
+   ✓ [openai] Bandhan Bank Q2 profit jumps 5.6 times as asset quality impr
+   ✓ [openai] Meesho Q2 Results: Loss narrows to Rs 132 crore YoY, revenue
+   ✓ [openai] How Quick Commerce Is Reshaping FMCG Distribution Ahead of t
+   ✓ [openai] PepsiCo India Bets on New Snacks for Festive Growth
+   ✓ [openai] Tata Consumer Products Q2 Results Show Strong Growth in Indi
+   ✓ [openai] Quick commerce is creating new FMCG categories, but traditio
+   ✓ [openai] Shelf visibility alone won't win consumers as trust, premium
+   ✓ [openai] Restaurant funding must accelerate profitable growth, not be
+   ✓ [openai] Gold, silver price correction lifts festive hopes; jewellers
+   ✓ [openai] Consistency, localisation and consumer trust key to food bra
+   ✓ [openai] Indian e-commerce player Meesho's quarterly loss shrinks on 
+   ✓ [openai] Sherpa and the future of AI-powered storytelling at Pocket F
+   ✓ [openai] Delivery Hero raises full-year forecast again on strong Q3 g
+   ✓ [openai] China's new export curbs draw a line around its AI crown jew
+   ✓ [openai] Agentic AI can cut banks' transaction monitoring workload by
+   ✓ [openai] AI chips worth $12.1 million seized at Malaysia airport, cus
+   ✓ [openai] China's CXMT to start advanced AI memory production despite 
+   ✓ [openai] TPG pursues $5 billion acquisition of British data centre gr
+   ✓ [openai] Israel's election too close to call. And, the Ebola outbreak
+   ✓ [openai] At least 30 dead in crash between two trains in central Spai
+   ✓ [openai] Trump's relationship with Putin comes under fire ahead of th
+   ✓ [openai] Partial results from Israel's contentious election show no c
+   ✓ [openai] A U.S. cruise ship ends voyage due to fuel costs and passeng
    ✓ [openai] U.S. to issue visas to Flávio Bolsonaro as his whereabouts r
    ✓ [openai] Israel's voter turnout soars as Netanyahu faces a tight elec
-   ✓ [openai] The Ebola outbreak is breaking records -- and just marked a 
-   ✓ [openai] Bolsonaro's party accepts Brazil election defeat, but he ref
-   ✓ [openai] Democrats have a midterm edge, poll shows. And, Israelis vot
+   ✓ [openai] Prakash Bhatt becomes second Indian after Javagal Srinath to
+   ✓ [openai] How to watch BAN vs WI Test series 2026 live: Start time, TV
+   ✓ [openai] INDIA vs WEST INDIES SERIES SEAL
+   ✓ [openai] Jasprit Bumrah and Rishabh Pant likely to feature in India A
+   ✓ [openai] Devdutt Padikkal credits Virat Kohli after scoring 199 runs 
+   ✓ [openai] CSK Part Ways With Batting Coach Michael Hussey Ahead Of IPL
+   ✗ no note: UP Warriorz buy Sophie Molineux for INR 1.10 crore; RCB quie
+   ✗ no note: Vaishnavi five-for and Rawal, Shafali fifties power India to
+   ✗ no note: Daily Editorial Analysis 19 October 2026
+   ✗ no note: Daily Editorial Analysis 28 October 2026
+   ✗ no note: Daily Editorial Analysis 26 October 2026
+   ✗ no note: NSE - National Stock Exchange of India Ltd: Live Share/Stock
+   ✗ no note: A win that defied all odds
+   ✗ no note: India’s steel future depends on breaking its costly coal hab
 
-   Enrichment: 64 stories | reused 11 | native brief 2 | AI 37 (openai=37; 40 calls) | no brief 0 | over cap 14
-   ~39,300 tokens not spent vs. enriching every story with AI
-   Providers disabled this run: anthropic, gemini
+   Enrichment: 64 stories | reused 8 | native brief 2 | AI 46 (openai=46; 80 calls) | kept stale 0 | key points 0 | no brief 8 | over cap 8
+   ~35,400 tokens not spent vs. enriching every story with AI
+   Providers disabled this run: anthropic, gemini, github
 
 ────────────────────────────────────────────────────────────
-Feeds:   12 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-10-28   Hero: legal-685bef24
+Edition: 2026-10-28   Hero: legal-75d97756
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
