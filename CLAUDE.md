@@ -108,7 +108,7 @@ In order, per story:
    silent generic fallback.
 
 Spend controls (env vars / repo *variables*; all optional):
-`AI_MAX_CALLS` (default 40/run, spent legal-first), `AI_PROVIDER_ORDER`
+`AI_MAX_CALLS` (default 80/run, spent legal-first), `AI_PROVIDER_ORDER`
 (e.g. `gemini,custom,openai`), and a per-run circuit breaker: quota/credit
 errors disable a provider immediately, `AI_MAX_FAILS` (3) consecutive failures
 also do. The run log ends with an `Enrichment:` line (reused / native / AI /

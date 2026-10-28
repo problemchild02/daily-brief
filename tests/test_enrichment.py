@@ -138,6 +138,14 @@ class EnrichmentTests(unittest.TestCase):
         self.assertEqual(len(with_note), 3)
         self.assertTrue(all(s["section"] == "legal" for s in with_note))
 
+    def test_failed_calls_do_not_spend_the_cap(self):
+        """A refused request (no credit) costs no tokens, so it must not use up the cap."""
+        sts = [story(i, f"Capped niche story {i}", "business", summary="Enough words here to form a proper excerpt for the summary check.") for i in range(4)]
+        p = Providers(gemini=fs._ProviderExhausted("quota"), openai=GOOD_NOTE)
+        self.run_enrich(sts, p.install(["gemini", "openai"]), cap=4)
+        self.assertTrue(all("contextNote" in s for s in sts))      # all 4 got a note despite the failed probe
+        self.assertEqual(len([c for c in p.calls if c[0] == "openai"]), 4)
+
     def test_exhausted_provider_is_not_called_again(self):
         sts = [story(i, f"Another niche story {i}", "business", summary="Enough words here to form a proper excerpt for the summary check.") for i in range(5)]
         p = Providers(gemini=fs._ProviderExhausted("quota"), openai=GOOD_NOTE)

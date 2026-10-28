@@ -52,7 +52,7 @@ jobs:
           # Optional extras — unset is fine. A repo *variable* (not secret) for the
           # non-sensitive ones: AI_FALLBACK_BASE_URL / AI_FALLBACK_MODEL (any
           # OpenAI-compatible service, e.g. Groq or OpenRouter), AI_PROVIDER_ORDER
-          # (e.g. "gemini,custom,openai"), AI_MAX_CALLS (default 40 per run).
+          # (e.g. "gemini,custom,openai"), AI_MAX_CALLS (default 80 per run).
           AI_FALLBACK_API_KEY: ${{ secrets.AI_FALLBACK_API_KEY }}
           AI_FALLBACK_BASE_URL: ${{ vars.AI_FALLBACK_BASE_URL }}
           AI_FALLBACK_MODEL: ${{ vars.AI_FALLBACK_MODEL }}

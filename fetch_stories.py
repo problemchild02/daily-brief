@@ -438,11 +438,11 @@ ANY_AI_ENABLED    = ANY_AI_ENABLED or bool(FALLBACK_BASE_URL and FALLBACK_MODEL)
 
 # Token-spend controls (all optional env vars).
 #   AI_PROVIDER_ORDER  comma list overriding the order, e.g. "gemini,custom,openai"
-#   AI_MAX_CALLS       hard cap on AI calls per run (default 40) — the native engine
+#   AI_MAX_CALLS       hard cap on AI calls per run (default 80) — the native engine
 #                      handles everything else, and the cap is spent legal-first
 #   AI_MAX_FAILS       consecutive failures before a provider is skipped for the
 #                      rest of the run (default 3; quota/billing errors skip it at once)
-AI_MAX_CALLS = int(os.environ.get("AI_MAX_CALLS", "40") or 40)
+AI_MAX_CALLS = int(os.environ.get("AI_MAX_CALLS", "80") or 80)
 AI_MAX_FAILS = int(os.environ.get("AI_MAX_FAILS", "3") or 3)
 NOTE_MAX_TOKENS = 450      # a ~150-word note is ~250 tokens; the rest is headroom
 
@@ -614,7 +614,7 @@ _PROVIDERS = {
 }
 
 
-def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_MAX_TOKENS):
+def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_MAX_TOKENS, budget=None):
     """One provider, up to two attempts (the second only when the first used banned
     hedging language). Returns {field: text, "enrichedBy": name} or None. Tracks
     failures so a dead provider stops being called for the rest of the run."""
@@ -622,8 +622,15 @@ def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_
     banned_hint = ""
     result = None
     for attempt in range(2):
+        if budget is not None and not budget.left():
+            break
         try:
             raw = call_fn(prompt + banned_hint, max_tokens)
+            # Only a call that got a reply from the model spends tokens — a refused
+            # or failed request (no credit, rate limit, outage) doesn't count
+            # against the cap.
+            if budget is not None:
+                budget.spend()
         except _ProviderExhausted as e:
             print(f"      [{name}] exhausted: {e}", file=sys.stderr)
             _note_provider_result(name, False, exhausted=True)
@@ -684,8 +691,7 @@ def ai_note_for_story(story, excerpt, summary, facts, budget):
             continue
         if not budget.left():
             return None
-        budget.spend()
-        result = _try_provider(name, prompt, label)
+        result = _try_provider(name, prompt, label, budget=budget)
         if result:
             return result
     return None
