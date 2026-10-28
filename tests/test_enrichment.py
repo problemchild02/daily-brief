@@ -272,6 +272,77 @@ class EnrichmentTests(unittest.TestCase):
             with self.assertRaises(fs._ProviderExhausted):
                 fs._PROVIDERS["groq"][0]("quota", 10)
 
+    def _serve(self, handler_fn):
+        import http.server, threading
+
+        class H(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *a): pass
+            def do_POST(self):
+                body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+                handler_fn(self, body)
+
+        srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), H)
+        threading.Thread(target=srv.serve_forever, daemon=True).start()
+        self.addCleanup(srv.shutdown)
+        return srv.server_port
+
+    def test_github_models_gets_the_headers_its_docs_ask_for(self):
+        seen = {}
+
+        def h(req, body):
+            seen.update(accept=req.headers.get("Accept"), version=req.headers.get("X-GitHub-Api-Version"),
+                        ua=req.headers.get("User-Agent"), auth=req.headers.get("Authorization"))
+            req.send_response(200); req.send_header("Content-Type", "application/json"); req.end_headers()
+            req.wfile.write(json.dumps({"choices": [{"message": {"content": GOOD_NOTE}}]}).encode())
+
+        port = self._serve(h)
+        env = {"GITHUB_MODELS_TOKEN": "tok", "GITHUB_BASE_URL": f"http://127.0.0.1:{port}/inference"}
+        with mock.patch.dict(os.environ, env):
+            fs._PROVIDERS["github"][0]("hi", 50)
+        self.assertEqual(seen["accept"], "application/vnd.github+json")
+        self.assertEqual(seen["version"], "2022-11-28")
+        self.assertEqual(seen["auth"], "Bearer tok")
+        self.assertIn("daily-brief", seen["ua"])          # never the bare "Python-urllib"
+
+    def test_a_redirect_is_reported_not_silently_followed(self):
+        def h(req, body):
+            req.send_response(302); req.send_header("Location", "https://example.com/elsewhere"); req.end_headers()
+
+        port = self._serve(h)
+        with mock.patch.dict(os.environ, {"GROQ_API_KEY": "k", "GROQ_BASE_URL": f"http://127.0.0.1:{port}/v1"}):
+            with self.assertRaises(RuntimeError) as cm:
+                fs._PROVIDERS["groq"][0]("hi", 50)
+        self.assertIn("HTTP 302", str(cm.exception))
+        self.assertIn("example.com/elsewhere", str(cm.exception))
+
+    def test_a_non_json_reply_says_what_came_back(self):
+        def h(req, body):
+            req.send_response(200); req.send_header("Content-Type", "text/html"); req.end_headers()
+            req.wfile.write(b"<html>Please sign in</html>")
+
+        port = self._serve(h)
+        with mock.patch.dict(os.environ, {"GROQ_API_KEY": "k", "GROQ_BASE_URL": f"http://127.0.0.1:{port}/v1"}):
+            with self.assertRaises(RuntimeError) as cm:
+                fs._PROVIDERS["groq"][0]("hi", 50)
+        msg = str(cm.exception)
+        self.assertIn("non-JSON reply", msg)
+        self.assertIn("HTTP 200", msg)
+        self.assertIn("text/html", msg)
+        self.assertIn("Please sign in", msg)
+
+    def test_gemini_gets_room_to_think(self):
+        sent = {}
+        with mock.patch.object(fs, "GEMINI_API_KEY", "k"), \
+             mock.patch.object(fs, "_post_json", side_effect=lambda url, payload, headers, timeout=30: (
+                 sent.update(payload) or {"candidates": [{"content": {"parts": [{"text": "{}"}]}}]})):
+            fs._call_gemini_raw("hi", 450)
+        self.assertGreaterEqual(sent["generationConfig"]["maxOutputTokens"], 2048)
+
+    def test_prompt_forbids_the_hedging_phrases_up_front(self):
+        prompt = fs._build_note_prompt("H", "legal", "Src", [], "excerpt", "summary", [])
+        for phrase in fs._BANNED_PHRASES:
+            self.assertIn(f'"{phrase}"', prompt)
+
     def test_real_stories_json_runs_clean(self):
         path = os.path.join(os.path.dirname(__file__), "..", "stories.json")
         data = json.load(open(path, encoding="utf-8"))["sections"]

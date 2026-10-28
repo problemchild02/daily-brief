@@ -184,7 +184,14 @@ function presetCaller(p) {
   return async prompt => {
     const resp = await fetch(`${presetSetting(p, 'base').replace(/\/+$/, '')}/chat/completions`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${presetSetting(p, 'key')}` },
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent': 'daily-brief/1.0 (+https://github.com/problemchild02/daily-brief)',
+        Authorization: `Bearer ${presetSetting(p, 'key')}`,
+        ...(p.headers ?? {}),
+      },
+      redirect: 'manual',
       body: JSON.stringify({
         model: presetSetting(p, 'model'),
         messages: [{ role: 'user', content: prompt }],
@@ -192,7 +199,11 @@ function presetCaller(p) {
         max_tokens: 1500,
       }),
     })
-    const body = await resp.json()
+    const raw = await resp.text()
+    let body
+    try { body = JSON.parse(raw) } catch {
+      throw new Error(`${p.name} non-JSON reply (HTTP ${resp.status}, ${resp.headers.get('content-type')}${resp.headers.get('location') ? ', -> ' + resp.headers.get('location') : ''}): ${raw.slice(0, 160)}`)
+    }
     if (!resp.ok) throw new Error(`${p.name} HTTP ${resp.status}: ${JSON.stringify(body).slice(0, 200)}`)
     return body.choices?.[0]?.message?.content ?? ''
   }

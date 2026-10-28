@@ -21,7 +21,7 @@ import json, hashlib, re, sys, time, shutil, os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from xml.etree import ElementTree as ET
-from urllib.request import urlopen, Request
+from urllib.request import urlopen, Request, build_opener, HTTPRedirectHandler
 from urllib.error import URLError, HTTPError
 from html import unescape
 
@@ -497,7 +497,7 @@ Headline: {headline}
 Key facts found in the text: {facts_str}
 What the article reports: {body or "(none)"}
 {no_text}
-Write like a sharp analyst briefing a busy colleague. No generic filler that fits any story ("may affect compliance", "worth tracking"); if you have no specific fact, say less.
+Write like a sharp analyst briefing a busy colleague. No generic filler that fits any story; if you have no specific fact, say less. Never use these phrases: {", ".join(f'"{p}"' for p in _BANNED_PHRASES)}.
 
 Return ONLY raw JSON: {{"contextNote": "Grounded analysis, separate from the article. Name the specific statute (with section if known), regulator, tribunal or precedent — not just the area of law; cite real case law if it applies, else say none is on point. Then 2-3 numbered implications inline '(1) ... (2) ...' for what Indian in-house counsel should do, check or watch because of THIS story. 100-160 words."}}"""
 
@@ -506,11 +506,32 @@ class _ProviderExhausted(Exception):
     """Billing/quota failure — retrying the same provider won't help."""
 
 
+class _NoRedirect(HTTPRedirectHandler):
+    """urllib silently turns a redirected POST into a GET and follows it, which
+    surfaces as a baffling "empty reply". Refuse to follow: the 3xx becomes an
+    HTTPError and the log shows where the server tried to send us."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+_API_OPENER = build_opener(_NoRedirect)
+_API_USER_AGENT = "daily-brief/1.0 (+https://github.com/problemchild02/daily-brief)"
+
+
 def _post_json(url, payload, headers, timeout=30):
     import json as _json
+    headers = {"User-Agent": _API_USER_AGENT, **headers}
     req = Request(url, data=_json.dumps(payload).encode("utf-8"), headers=headers, method="POST")
-    with urlopen(req, timeout=timeout) as resp:
-        return _json.loads(resp.read().decode("utf-8"))
+    with _API_OPENER.open(req, timeout=timeout) as resp:
+        raw = resp.read()
+        try:
+            return _json.loads(raw.decode("utf-8"))
+        except ValueError:
+            # Say what actually came back — "Expecting value: char 0" tells nobody anything.
+            raise RuntimeError(
+                f"non-JSON reply (HTTP {resp.status}, {resp.headers.get('Content-Type')}, "
+                f"{len(raw)} bytes): {raw[:160]!r}"
+            )
 
 
 def _strip_json_fences(raw):
@@ -549,7 +570,10 @@ def _call_gemini_raw(prompt, max_tokens=900):
             url,
             {
                 "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0.4, "maxOutputTokens": max_tokens},
+                # Newer Gemini models spend part of this budget "thinking" before they
+                # write; a tight cap (450) came back empty or cut off mid-JSON. Billing
+                # is for tokens actually generated, so a roomy cap costs nothing extra.
+                "generationConfig": {"temperature": 0.4, "maxOutputTokens": max(max_tokens, 2048)},
             },
             {"Content-Type": "application/json"},
         )
@@ -611,7 +635,12 @@ def _preset_setting(name, what):
 def _call_preset_raw(name, prompt, max_tokens=900):
     key = _preset_setting(name, "key")
     base = _preset_setting(name, "base").rstrip("/")
-    headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {key}",
+        **_PRESETS[name].get("headers", {}),
+    }
     try:
         result = _post_json(
             f"{base}/chat/completions",
@@ -631,7 +660,8 @@ def _call_preset_raw(name, prompt, max_tokens=900):
         # way, hammering it for the remaining stories only wastes the run.
         if e.code in (402, 429) or "quota" in body.lower() or "insufficient" in body.lower():
             raise _ProviderExhausted(body[:200])
-        raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
+        where = f" -> {e.headers.get('Location')}" if 300 <= e.code < 400 else ""
+        raise RuntimeError(f"HTTP {e.code}{where}: {body[:200]}")
 
 
 def _call_custom_raw(prompt, max_tokens=900):
