@@ -1,0 +1,21 @@
+name: Check news feeds
+
+# Manual only. Probes every candidate feed in scripts/check_feeds.py from the
+# runner (the one place that shows what really works) and prints a report.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Probe feeds
+        run: python3 scripts/check_feeds.py 2>&1 | tee feed-report.txt
