@@ -1,6 +1,6 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-18 21:02 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
@@ -22,7 +22,7 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (46,391 bytes)
+    OK  (45,674 bytes)
     + [business] Private capital–fueled economic growth might be knocking on India’s doors soon
     + [business] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Digital Economy
     ↳ dual-tag [reliance] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Digital Econ
@@ -33,7 +33,7 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
     + [business] India's flex workspace market likely to double to 180 mn sq ft by 2030
     + [business] Jio Platforms' Stellar Listing A Historic Moment For Indian Markets, Say Market 
     ↳ dual-tag [reliance] Jio Platforms' Stellar Listing A Historic Moment For Indian Markets, S
-    → 32 items: 8 accepted, 22 too old, 0 no-date
+    → 32 items: 8 accepted, 23 too old, 0 no-date
   [  business] SKIP (section full) https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
@@ -42,21 +42,20 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (175,088 bytes)
+    OK  (186,049 bytes)
     + [reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On Market Debut
     + [reliance] Jio listing: Mukesh Ambani gets emotional as Isha recalls how he worked on Relia
     + [reliance] Businesses and investors of Ambani's Jio as it debuts on Indian bourses
     + [reliance] Shares of Ambani’s Jio surge 27% in India’s biggest IPO
-    + [reliance] Ambani's Jio surges 21% in Mumbai debut as valuation soars to $131.5 billion
-    + [reliance] Jio Platforms Ends First Trading Day Near Its High After 21% Opening Jump
+    + [reliance] Jio’s Blockbuster I.P.O. Gives India’s Investors a Lift
+    + [reliance] Jio’s Rise Was Shaped by a Billionaire Family Feud, an American Tech Titan and a
     → 100 items: 6 accepted, 0 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (55,398 bytes)
-    + [retail] How Quick Commerce Is Reshaping FMCG Distribution Ahead of the Festive Season
-    + [retail] Tata Consumer Products Q2 Results Show Strong Growth in India Business
-    → 32 items: 2 accepted, 30 too old, 0 no-date
+    OK  (151,185 bytes)
+    + [retail] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy Drinks
+    → 77 items: 1 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,918 bytes)
     + [retail] Meesho Q2 Results: Loss narrows to Rs 132 crore YoY, revenue rises 34%
@@ -65,7 +64,8 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
     + [retail] Restaurant funding must accelerate profitable growth, not become a survival stra
     + [retail] Gold, silver price correction lifts festive hopes; jewellers see buying interest
     + [retail] Consistency, localisation and consumer trust key to food brands staying relevant
-    → 9 items: 6 accepted, 0 too old, 0 no-date
+    + [retail] HUL Q2 Results: Net profit rises 4% YoY to Rs 2,790 crore; Rs 19/share dividend 
+    → 9 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
@@ -105,8 +105,9 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (179,897 bytes)
-    → 100 items: 0 accepted, 100 too old, 0 no-date
+    OK  (37,533 bytes)
+    + [sports] How to watch BAN vs WI Test series 2026 live: Start time, TV channels and stream
+    → 35 items: 1 accepted, 34 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
     OK  (90,545 bytes)
     + [sports] Scans show joint injury for Smith, expected to be fit to face NZ
@@ -116,19 +117,21 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
     + [sports] Inglis leads reshuffled Australia to advantage in Cape Town
     + [sports] Sophie Molineux the top buy at WPL 2027 auction
     + [sports] Vaishnavi five-for and Rawal, Shafali fifties power India to 3-0 sweep
-    + [sports] WI 'disappointed' with early finish, Shadman 99* earns praise from hosts' camp
-    → 100 items: 8 accepted, 0 too old, 0 no-date
+    → 100 items: 7 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (129,253 bytes)
+    OK  (47,153 bytes)
     + [opinion] Daily Editorial Analysis 19 October 2026
+    + [opinion] HOSMAC Develops Hospital Energy Analysis Tool to Support Energy Planning of Heal
+    + [opinion] Daily Editorial Analysis 28 October 2026
+    + [opinion] Daily Editorial Analysis 26 October 2026
+    + [opinion] Daily Editorial Analysis 27 October 2026
     + [opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
-    + [opinion] Why does where you live affect your health in India?
-    → 81 items: 3 accepted, 78 too old, 0 no-date
+    → 35 items: 6 accepted, 29 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -138,61 +141,56 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
     OK  (52,006 bytes)
     + [opinion] Yes Minister, but of what kind?
     + [opinion] Mosu: A South Korean Michelin star success story
-    + [opinion] It's taxing to be a Delhi woman
-    + [opinion] Gulf AI buffering, but on-stream
-    + [opinion] Hit & run law, stop running from it
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    → 50 items: 2 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (46 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] Trust rules of exempted PF establishments cannot override ri
-   ✓ [     legal] SCBA condemns reported display of revolver by police at Shah
-   ✓ [     legal] SAM advises Jio Platforms on its historic ₹30,188 crore IPO,
-   ✓ [     legal] Khaitan & Co. advises Book Running Lead Managers on Jio Plat
-   ✓ [     legal] 8th Wildlife Protection Government Law College National Moot
-   ✓ [     legal] Does remarriage extinguish a wife’s right to alimony? Karnat
+── Page fetch (49 stories, 8 workers) ─────────────────────────────
    ✓ [     legal] Mere promotion of religion or persuasion to convert does not
-   ✓ [     legal] Call for Participation: Amity National Moot Court Competitio
-   ✗ [  business] India and Mexico Launch Trade Pact Negotiations to Expand Ma: no og:image/twitter:image tag found
    ✗ [  business] Private capital–fueled economic growth might be knocking on : no og:image/twitter:image tag found
    ✗ [  business] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Di: no og:image/twitter:image tag found
-   ✗ [  business] Piyush Goyal pitches India's 'economy of scale' and hard-wor: no og:image/twitter:image tag found
+   ✗ [  business] India and Mexico Launch Trade Pact Negotiations to Expand Ma: no og:image/twitter:image tag found
    ✗ [  business] India and Mexico sign Terms of Reference for preferential tr: no og:image/twitter:image tag found
+   ✗ [  business] Piyush Goyal pitches India's 'economy of scale' and hard-wor: no og:image/twitter:image tag found
+   ✓ [     legal] SCBA condemns reported display of revolver by police at Shah
+   ✓ [     legal] 8th Wildlife Protection Government Law College National Moot
+   ✓ [     legal] SAM advises Jio Platforms on its historic ₹30,188 crore IPO,
+   ✗ [  reliance] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Di: no og:image/twitter:image tag found
+   ✓ [     legal] Trust rules of exempted PF establishments cannot override ri
    ✗ [  business] ‘Never seen such dismay’: Why a 36-year market veteran is wa: no og:image/twitter:image tag found
+   ✓ [     legal] Does remarriage extinguish a wife’s right to alimony? Karnat
    ✗ [  business] India's flex workspace market likely to double to 180 mn sq : no og:image/twitter:image tag found
-   ✗ [  reliance] Businesses and investors of Ambani's Jio as it debuts on Ind: no og:image/twitter:image tag found
+   ✓ [     legal] Khaitan & Co. advises Book Running Lead Managers on Jio Plat
    ✗ [  business] Jio Platforms' Stellar Listing A Historic Moment For Indian : no og:image/twitter:image tag found
    ✗ [  reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Di: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms' Stellar Listing A Historic Moment For Indian : no og:image/twitter:image tag found
    ✗ [  reliance] Jio listing: Mukesh Ambani gets emotional as Isha recalls ho: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Jio surges 21% in Mumbai debut as valuation soars t: no og:image/twitter:image tag found
+   ✗ [  reliance] Businesses and investors of Ambani's Jio as it debuts on Ind: no og:image/twitter:image tag found
    ✗ [  reliance] Shares of Ambani’s Jio surge 27% in India’s biggest IPO: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms Ends First Trading Day Near Its High After 21%: no og:image/twitter:image tag found
-   ✗ [    retail] Tata Consumer Products Q2 Results Show Strong Growth in Indi: no og:image/twitter:image tag found
-   ✓ [     world] Partial results from Israel's contentious election show no c
-   ✓ [     world] A U.S. cruise ship ends voyage due to fuel costs and passeng
+   ✓ [     legal] Call for Participation: Amity National Moot Court Competitio
+   ✗ [  reliance] Jio Platforms' Stellar Listing A Historic Moment For Indian : no og:image/twitter:image tag found
+   ✗ [  reliance] Jio’s Blockbuster I.P.O. Gives India’s Investors a Lift: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio’s Rise Was Shaped by a Billionaire Family Feud, an Ameri: no og:image/twitter:image tag found
+   ✗ [    retail] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy : no og:image/twitter:image tag found
    ✓ [     world] Trump's relationship with Putin comes under fire ahead of th
+   ✓ [     world] A U.S. cruise ship ends voyage due to fuel costs and passeng
+   ✓ [     world] Flávio Bolsonaro arrives in Florida after fleeing Brazil
+   ✓ [     world] Ex-Israeli diplomat calls opposition's refusal to work with 
    ✓ [     world] Israel's election too close to call. And, the Ebola outbreak
    ✓ [     world] Dozens are dead in a high-speed train crash in Spain
-   ✓ [     world] Ex-Israeli diplomat calls opposition's refusal to work with 
+   ✓ [     world] Partial results from Israel's contentious election show no c
    ✓ [     world] Israel's voter turnout soars as Netanyahu faces a tight elec
-   ✓ [     world] Flávio Bolsonaro arrives in Florida after fleeing Brazil
-   ✗ [    retail] How Quick Commerce Is Reshaping FMCG Distribution Ahead of t: no og:image/twitter:image tag found
-   ✗ [   opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’: no og:image/twitter:image tag found
-   ✗ [   opinion] Why does where you live affect your health in India?: no og:image/twitter:image tag found
+   ✗ [    sports] How to watch BAN vs WI Test series 2026 live: Start time, TV: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 19 October 2026: no og:image/twitter:image tag found
-   images: 16 found, 21 not found  |  page text: 11 stories
+   ✗ [   opinion] HOSMAC Develops Hospital Energy Analysis Tool to Support Ene: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 28 October 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 27 October 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 26 October 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’: no og:image/twitter:image tag found
+   images: 16 found, 24 not found  |  page text: 12 stories
 
-── AI notes (32 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+── AI notes (12 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
       [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
       [anthropic] disabled for the rest of this run (out of quota/credit)
-   ✓ [gemini] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Di
-   ✓ [gemini] Jio Platforms' Stellar Listing A Historic Moment For Indian 
-   ✓ [gemini] Ambani's Jio surges 21% in Mumbai debut as valuation soars t
-   ✓ [gemini] SAM advises Jio Platforms on its historic ₹30,188 crore IPO,
-   ✓ [gemini] Mere promotion of religion or persuasion to convert does not
       [gemini] error: HTTP 503: {
   "error": {
     "code": 503,
@@ -201,7 +199,10 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
   }
 }
 
-   ✓ [openai] Call for Participation: Amity National Moot Court Competitio
+   ✓ [openai] Jio’s Blockbuster I.P.O. Gives India’s Investors a Lift
+   ✓ [gemini] Jio’s Rise Was Shaped by a Billionaire Family Feud, an Ameri
+   ✓ [gemini] India's flex workspace market likely to double to 180 mn sq 
+   ✓ [gemini] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy 
       [gemini] error: HTTP 503: {
   "error": {
     "code": 503,
@@ -210,56 +211,35 @@ Cutoff: 2026-10-18 20:54 UTC  (MAX_AGE_HOURS=240)
   }
 }
 
-   ✓ [openai] Khaitan & Co. advises Book Running Lead Managers on Jio Plat
-      [gemini] error: HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-      [gemini] disabled for the rest of this run (3 failures in a row)
-   ✓ [openai] Does remarriage extinguish a wife’s right to alimony? Karnat
-   ✓ [openai] Trust rules of exempted PF establishments cannot override ri
-   ✓ [openai] 8th Wildlife Protection Government Law College National Moot
-   ✓ [openai] SCBA condemns reported display of revolver by police at Shah
       [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [groq] error: HTTP 404: {"error":{"message":"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.","type":"invalid_request_error","code":"model_not_found"}}
+   ✓ [groq] HUL Q2 Results: Net profit rises 4% YoY to Rs 2,790 crore; R
+      [gemini] error: HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
 
-   ✓ [openai] Jio Platforms’ NSE Listing: A Landmark Moment for India’s Di
       [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [groq] error: HTTP 404: {"error":{"message":"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.","type":"invalid_request_error","code":"model_not_found"}}
-
-   ✓ [openai] India and Mexico Launch Trade Pact Negotiations to Expand Ma
+   ✓ [groq] Partial results from Israel's contentious election show no c
+      [gemini] exhausted: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+      [gemini] disabled for the rest of this run (out of quota/credit)
       [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
       [github] disabled for the rest of this run (3 failures in a row)
-      [groq] error: HTTP 404: {"error":{"message":"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.","type":"invalid_request_error","code":"model_not_found"}}
+   ✓ [groq] Israel's voter turnout soars as Netanyahu faces a tight elec
+   ✓ [groq] HOSMAC Develops Hospital Energy Analysis Tool to Support Ene
+   ✓ [groq] Daily Editorial Analysis 28 October 2026
+   ✓ [groq] Daily Editorial Analysis 26 October 2026
+   ✓ [groq] Daily Editorial Analysis 27 October 2026
+   ✓ [groq] Yes Minister, but of what kind?
 
-      [groq] disabled for the rest of this run (3 failures in a row)
-   ✓ [openai] India and Mexico sign Terms of Reference for preferential tr
-   ✓ [openai] Piyush Goyal pitches India's 'economy of scale' and hard-wor
-   ✓ [openai] India's flex workspace market likely to double to 180 mn sq 
-   ✓ [openai] Jio Platforms' Stellar Listing A Historic Moment For Indian 
-   ✓ [openai] How Quick Commerce Is Reshaping FMCG Distribution Ahead of t
-   ✓ [openai] Tata Consumer Products Q2 Results Show Strong Growth in Indi
-   ✓ [openai] Anthropic tells California governor courts should be able to
-   ✓ [openai] Meesho expects stronger Q3 growth due to change in festive s
-   ✓ [openai] Trump's relationship with Putin comes under fire ahead of th
-   ✓ [openai] Partial results from Israel's contentious election show no c
-   ✓ [openai] Flávio Bolsonaro arrives in Florida after fleeing Brazil
-   ✓ [openai] Israel's voter turnout soars as Netanyahu faces a tight elec
-   ✓ [openai] Daily Editorial Analysis 19 October 2026
-   ✓ [openai] Why does where you live affect your health in India?
-   ✓ [openai] Yes Minister, but of what kind?
-   ✓ [openai] Mosu: A South Korean Michelin star success story
-   ✓ [openai] It's taxing to be a Delhi woman
-   ✓ [openai] Gulf AI buffering, but on-stream
-   ✓ [openai] Hit & run law, stop running from it
-
-   Enrichment: 64 stories | reused 30 | native brief 0 | AI 32 (gemini=5, openai=27; 38 calls) | kept stale 0 | key points 0 | no brief 0
-   ~61,400 tokens not spent vs. enriching every story with AI
-   Providers disabled this run: anthropic, gemini, github, groq
+   Enrichment: 64 stories | reused 50 | native brief 0 | AI 12 (openai=1, gemini=3, groq=8; 12 calls) | kept stale 0 | key points 0 | no brief 0
+   ~87,400 tokens not spent vs. enriching every story with AI
+   Providers disabled this run: anthropic, gemini, github
 
 ────────────────────────────────────────────────────────────
 Feeds:   12 OK  /  4 failed
