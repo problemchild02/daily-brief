@@ -179,7 +179,7 @@ export function ArticleSheet({ story, onClose, isBookmarked, onBookmark }: Artic
             </p>
           )}
 
-          {practitionerBrief && <WhyItMatters text={practitionerBrief} />}
+          {practitionerBrief && <WhyItMatters text={practitionerBrief} label={story.noteKind === 'extract' ? 'Key points' : undefined} />}
 
           <a
             href={sourceUrl}

@@ -103,12 +103,14 @@ function StoryAnalysis({ story }: { story: Story }) {
     <>
       {brief && (
         <div className="ink">
-          <WhyItMatters text={brief} size="large" />
+          <WhyItMatters text={brief} size="large" label={story.noteKind === 'extract' ? 'Key points' : undefined} />
           {story.enrichedBy && (
             <p className="mt-2 font-mono text-[10px] text-ink-3">
-              {story.enrichedBy === 'native'
-                ? 'Written by the built-in analysis engine from the legal regime in the story — no AI used.'
-                : `Written with ${PROVIDER_NAMES[story.enrichedBy] ?? 'an AI model'}.`}
+              {story.noteKind === 'extract'
+                ? 'Pulled from the article by the built-in engine (no AI available for this one) — the facts and figures, not an analysis.'
+                : story.enrichedBy === 'native'
+                  ? 'Written by the built-in analysis engine from the legal regime in the story — no AI used.'
+                  : `Written with ${PROVIDER_NAMES[story.enrichedBy] ?? 'an AI model'}.`}
             </p>
           )}
         </div>

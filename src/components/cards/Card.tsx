@@ -233,7 +233,7 @@ export function Card({ story, variant = 'standard', isBookmarked, onBookmark, id
       )}
 
       {/* Spec §7.9 WhyItMatters — visible on standard + hero, never on list */}
-      {practitionerBrief && <WhyItMatters text={practitionerBrief} />}
+      {practitionerBrief && <WhyItMatters text={practitionerBrief} label={story.noteKind === 'extract' ? 'Key points' : undefined} />}
 
       {/* Meta row — spec §7.2: "JetBrains Mono 11px, ink-3" */}
       <footer className="font-mono text-[11px] text-ink-3 flex items-center justify-between mt-auto pt-1">

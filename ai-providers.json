@@ -1,0 +1,11 @@
+{
+  "_note": "Extra AI providers, all OpenAI-compatible (POST {baseUrl}/chat/completions). Read by fetch_stories.py and scripts/generate-briefing.mjs. A provider switches on by itself when its key env var is set (a GitHub Actions secret) — no code change. Override per provider with <NAME>_MODEL / <NAME>_BASE_URL env vars (NAME upper-cased). Model names and free-tier limits drift: if one starts failing, read the error in fetch-log.txt first. 'tier': 'free' = has a free allowance, tried before paid ones for routine sections.",
+  "providers": [
+    { "name": "github",     "keyEnv": "GITHUB_MODELS_TOKEN", "baseUrl": "https://models.github.ai/inference", "model": "openai/gpt-4.1-mini",                    "tier": "free", "note": "GitHub Models. In Actions this is the built-in GITHUB_TOKEN (workflow needs permissions: models: read) — no new account or secret. Free allowance is small (about 150 requests/day on low-tier models)." },
+    { "name": "groq",       "keyEnv": "GROQ_API_KEY",        "baseUrl": "https://api.groq.com/openai/v1",     "model": "llama-3.3-70b-versatile",                "tier": "free", "note": "Free tier with a rate limit; console.groq.com" },
+    { "name": "openrouter", "keyEnv": "OPENROUTER_API_KEY",  "baseUrl": "https://openrouter.ai/api/v1",       "model": "meta-llama/llama-3.3-70b-instruct:free", "tier": "free", "note": "':free' models rotate without notice — set OPENROUTER_MODEL if this one disappears." },
+    { "name": "cerebras",   "keyEnv": "CEREBRAS_API_KEY",    "baseUrl": "https://api.cerebras.ai/v1",         "model": "gpt-oss-120b",                           "tier": "free", "note": "Small free trial allowance." },
+    { "name": "mistral",    "keyEnv": "MISTRAL_API_KEY",     "baseUrl": "https://api.mistral.ai/v1",          "model": "mistral-small-latest",                   "tier": "free", "note": "La Plateforme free tier." },
+    { "name": "deepseek",   "keyEnv": "DEEPSEEK_API_KEY",    "baseUrl": "https://api.deepseek.com",           "model": "deepseek-chat",                          "tier": "paid", "note": "No free tier; very cheap per token." }
+  ]
+}

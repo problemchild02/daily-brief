@@ -421,8 +421,6 @@ OPENAI_MODEL    = "gpt-4o-mini"
 ANY_AI_ENABLED  = bool(ANTHROPIC_API_KEY or GEMINI_API_KEY or OPENAI_API_KEY)
 
 _QUALITY_FIRST_SECTIONS = {"legal", "reliance"}
-_PROVIDER_ORDER_QUALITY_FIRST = ["anthropic", "gemini", "openai"]
-_PROVIDER_ORDER_COST_FIRST    = ["gemini", "openai", "anthropic"]
 
 # A fourth, optional provider for any OpenAI-compatible endpoint — Groq,
 # OpenRouter, DeepSeek, Mistral, Together, or a local Ollama / LM Studio server
@@ -454,12 +452,18 @@ def _provider_order(section):
     forced = [n for n in forced if n in _PROVIDERS]
     if forced:
         return forced
-    base = list(_PROVIDER_ORDER_QUALITY_FIRST if section in _QUALITY_FIRST_SECTIONS else _PROVIDER_ORDER_COST_FIRST)
-    return base + ["custom"]
+    free = [n for n, p in _PRESETS.items() if p.get("tier") == "free"]
+    paid = [n for n, p in _PRESETS.items() if p.get("tier") != "free"]
+    if section in _QUALITY_FIRST_SECTIONS:
+        base = ["anthropic", "gemini", "openai"] + free + paid
+    else:
+        # Free allowances first, then the paid ones; Claude last (dearest per token).
+        base = ["gemini"] + free + ["openai"] + paid + ["anthropic"]
+    return [n for n in base + ["custom"] if n in _PROVIDERS]
 
 
 def _provider_usable(name):
-    return _PROVIDERS[name][1]() and not _PROVIDER_STATE.get(name, {}).get("dead", False)
+    return name in _PROVIDERS and _PROVIDERS[name][1]() and not _PROVIDER_STATE.get(name, {}).get("dead", False)
 
 
 def _note_provider_result(name, ok, exhausted=False):
@@ -581,6 +585,55 @@ def _call_openai_raw(prompt, max_tokens=900):
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
+def _load_presets():
+    """The extra OpenAI-compatible providers from ai-providers.json (see that file)."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ai-providers.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f).get("providers", [])
+    except Exception as e:
+        print(f"   ! ai-providers.json not loaded ({e}); extra providers unavailable", file=sys.stderr)
+        return []
+
+
+_PRESETS = {p["name"]: p for p in _load_presets()}
+
+
+def _preset_setting(name, what):
+    """A preset's key/model/base URL, with <NAME>_MODEL / <NAME>_BASE_URL overrides."""
+    p = _PRESETS[name]
+    if what == "key":
+        return os.environ.get(p["keyEnv"], "")
+    env = os.environ.get(f"{name.upper()}_{'MODEL' if what == 'model' else 'BASE_URL'}", "")
+    return env or p["model" if what == "model" else "baseUrl"]
+
+
+def _call_preset_raw(name, prompt, max_tokens=900):
+    key = _preset_setting(name, "key")
+    base = _preset_setting(name, "base").rstrip("/")
+    headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
+    try:
+        result = _post_json(
+            f"{base}/chat/completions",
+            {
+                "model": _preset_setting(name, "model"),
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.4,
+                "max_tokens": max_tokens,
+            },
+            headers,
+            timeout=45,
+        )
+        return result["choices"][0]["message"]["content"]
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="ignore")
+        # 429 covers both a spent daily allowance and a per-minute limit; either
+        # way, hammering it for the remaining stories only wastes the run.
+        if e.code in (402, 429) or "quota" in body.lower() or "insufficient" in body.lower():
+            raise _ProviderExhausted(body[:200])
+        raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
+
+
 def _call_custom_raw(prompt, max_tokens=900):
     """Any OpenAI-compatible /chat/completions endpoint (see FALLBACK_* above)."""
     headers = {"Content-Type": "application/json"}
@@ -610,8 +663,13 @@ _PROVIDERS = {
     "anthropic": (_call_anthropic_raw, lambda: AI_ENABLED),
     "gemini":    (_call_gemini_raw,    lambda: bool(GEMINI_API_KEY)),
     "openai":    (_call_openai_raw,    lambda: bool(OPENAI_API_KEY)),
-    "custom":    (_call_custom_raw,    lambda: bool(FALLBACK_BASE_URL and FALLBACK_MODEL)),
 }
+for _name in _PRESETS:
+    _PROVIDERS[_name] = (
+        (lambda prompt, max_tokens=900, _n=_name: _call_preset_raw(_n, prompt, max_tokens)),
+        (lambda _n=_name: bool(_preset_setting(_n, "key"))),
+    )
+_PROVIDERS["custom"] = (_call_custom_raw, lambda: bool(FALLBACK_BASE_URL and FALLBACK_MODEL))
 
 
 def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_MAX_TOKENS, budget=None):
@@ -922,9 +980,10 @@ def enrich_stories(all_stories, page_text, previous):
     """
     _PROVIDER_STATE.clear()
     budget = _AIBudget(AI_MAX_CALLS)
-    stats = {"reused": 0, "native_note": 0, "ai_note": 0, "no_note": 0, "skipped_budget": 0}
+    stats = {"reused": 0, "native_note": 0, "ai_note": 0, "stale": 0, "extract": 0, "no_note": 0, "skipped_budget": 0}
     by_provider = {}
     need_ai = []
+    raw_excerpts = {}
 
     for story in all_stories:
         content_hash = ae.content_hash(story["headline"], story.get("hook", ""), story.get("summary", ""))
@@ -959,6 +1018,7 @@ def enrich_stories(all_stories, page_text, previous):
             stats["native_note"] += 1
         else:
             need_ai.append((story, " ".join(filter(None, excerpts))[:900], summary, a["facts"]))
+            raw_excerpts[story["id"]] = excerpts
 
         story["summary"] = summary
         if summary_by:
@@ -967,6 +1027,7 @@ def enrich_stories(all_stories, page_text, previous):
             story.pop("summaryBy", None)
         story["facts"] = a["facts"]
         story["enrichHash"] = content_hash
+        story.pop("noteKind", None)
         if note:
             story["contextNote"] = note["contextNote"]
             story["enrichedBy"] = note["enrichedBy"]
@@ -983,7 +1044,6 @@ def enrich_stories(all_stories, page_text, previous):
               file=sys.stderr)
     for story, excerpt, summary, facts in need_ai:
         if not active:
-            stats["no_note"] += 1
             continue
         if not budget.left():
             stats["skipped_budget"] += 1
@@ -995,11 +1055,34 @@ def enrich_stories(all_stories, page_text, previous):
             story["enrichedBy"] = result["enrichedBy"]
             stats["ai_note"] += 1
             by_provider[result["enrichedBy"]] = by_provider.get(result["enrichedBy"], 0) + 1
+        if budget.used > before:
+            time.sleep(AI_CALL_DELAY)
+
+    # ── The safety net: no provider (out of credit, rate-limited, offline) may
+    #    leave a story blank when something concrete is available. In order:
+    #    last run's AI note for the same headline even if the text drifted a little
+    #    (stale beats blank), then key points extracted from the article itself.
+    #    Neither costs a token, and both are replaced the next time AI answers.
+    for story, excerpt, summary, facts in need_ai:
+        if story.get("contextNote"):
+            continue
+        prev = previous.get(story["id"])
+        if (prev and prev.get("enrichedBy") in _PROVIDERS and not _generic_note(prev.get("contextNote"))
+                and prev.get("headline") == story["headline"]):
+            story["contextNote"], story["enrichedBy"] = prev["contextNote"], prev["enrichedBy"]
+            stats["stale"] += 1
+            continue
+        try:
+            points = ae.key_points(story["headline"], raw_excerpts.get(story["id"], []), summary, facts)
+        except Exception as e:
+            print(f"   ! key points failed for {story['headline'][:50]}: {e}", file=sys.stderr)
+            points = None
+        if points:
+            story["contextNote"], story["enrichedBy"], story["noteKind"] = points, "native", "extract"
+            stats["extract"] += 1
         else:
             stats["no_note"] += 1
             print(f"   ✗ no note: {story['headline'][:60]}", file=sys.stderr)
-        if budget.used > before:
-            time.sleep(AI_CALL_DELAY)
 
     for story in all_stories:
         story["wordCount"] = len((story.get("summary", "") + " " + story.get("contextNote", "")).split())
@@ -1009,7 +1092,8 @@ def enrich_stories(all_stories, page_text, previous):
     saved = (stats["reused"] + stats["native_note"]) * 1300 + total * 350
     print(
         f"\n   Enrichment: {total} stories | reused {stats['reused']} | native brief {stats['native_note']} | "
-        f"AI {stats['ai_note']} ({breakdown}; {budget.used} calls) | no brief {stats['no_note']}"
+        f"AI {stats['ai_note']} ({breakdown}; {budget.used} calls) | kept stale {stats['stale']} | "
+        f"key points {stats['extract']} | no brief {stats['no_note']}"
         + (f" | over cap {stats['skipped_budget']}" if stats["skipped_budget"] else "")
         + f"\n   ~{saved:,} tokens not spent vs. enriching every story with AI",
         file=sys.stderr,

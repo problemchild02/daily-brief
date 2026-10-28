@@ -396,7 +396,7 @@ function LeadStory({ story, fit, onOpen, bare = false, measureAs, imageRatio }: 
       )}
       {firstImplication && fit !== 'minimal' && (
         <p className="mt-3 border-l-2 pl-3 font-reading text-ink line-clamp-3" style={{ borderColor: 'var(--accent)', fontSize: 'calc(14px * var(--reading-scale))', lineHeight: 1.55 }}>
-          <span className="type-kicker mr-1.5" style={{ color: 'var(--accent)', fontSize: '10px' }}>Why it matters</span>
+          <span className="type-kicker mr-1.5" style={{ color: 'var(--accent)', fontSize: '10px' }}>{story.noteKind === 'extract' ? 'Key points' : 'Why it matters'}</span>
           {firstImplication}
         </p>
       )}
@@ -418,13 +418,13 @@ function teaserOf(story: Story): string | undefined {
   return items[0] ?? (intro || undefined)
 }
 
-function WhyTeaser({ text, lines }: { text: string; lines: 2 | 3 }) {
+function WhyTeaser({ text, lines, label = 'Why it matters' }: { text: string; lines: 2 | 3; label?: string }) {
   return (
     <p
       className={`mt-2.5 border-l-2 pl-3 font-reading text-ink ${lines === 3 ? 'line-clamp-3' : 'line-clamp-2'}`}
       style={{ borderColor: 'var(--accent)', fontSize: 'calc(13.5px * var(--reading-scale))', lineHeight: 1.5 }}
     >
-      <span className="type-kicker mr-1.5" style={{ color: 'var(--accent)', fontSize: '10px' }}>Why it matters</span>
+      <span className="type-kicker mr-1.5" style={{ color: 'var(--accent)', fontSize: '10px' }}>{label}</span>
       {text}
     </p>
   )
@@ -461,7 +461,7 @@ function StoryEntry({ story, variant, pad = 0, onOpen }: { story: Story; variant
             full height of the entry. */}
         <PaperImage story={story} variant="thumb" className="mt-1 w-16 shrink-0 self-start aspect-square rounded-sm" />
       </div>
-      {teaser && <WhyTeaser text={teaser} lines={2} />}
+      {teaser && <WhyTeaser text={teaser} lines={2} label={story.noteKind === 'extract' ? 'Key points' : undefined} />}
       <div className="mt-1.5"><Meta story={story} /></div>
     </Tappable>
   )

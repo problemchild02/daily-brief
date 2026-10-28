@@ -11,6 +11,9 @@ on:
 
 permissions:
   contents: write
+  # Lets the built-in GITHUB_TOKEN call GitHub Models — a free AI fallback that
+  # needs no account or secret (see ai-providers.json).
+  models: read
 
 jobs:
   refresh:
@@ -43,19 +46,53 @@ jobs:
       - name: Test enrichment logic
         run: python -m unittest discover -s tests
 
+      # OPT-IN, off by default: set the repository variable LOCAL_MODEL (for example
+      # qwen2.5:3b) and the refresh runs that model on this runner through Ollama —
+      # no credits, no accounts, no rate limits, slower and less capable than the
+      # hosted models. It becomes the last-resort provider. If any step here fails
+      # the refresh carries on without it. (Cached after the first download.)
+      - name: Cache local model
+        if: ${{ vars.LOCAL_MODEL != '' }}
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama
+          key: ollama-${{ vars.LOCAL_MODEL }}
+
+      - name: Start local model (Ollama)
+        if: ${{ vars.LOCAL_MODEL != '' }}
+        continue-on-error: true
+        env:
+          LOCAL_MODEL: ${{ vars.LOCAL_MODEL }}
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          (ollama serve > ollama.log 2>&1 &)
+          for i in $(seq 1 30); do curl -sf http://localhost:11434 >/dev/null && break; sleep 2; done
+          ollama pull "$LOCAL_MODEL"
+
       - name: Fetch feeds
         id: fetch
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Free / cheap fallback providers (ai-providers.json). Each switches on when
+          # its secret exists; none is required. GitHub Models uses the built-in token.
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           # Optional extras — unset is fine. A repo *variable* (not secret) for the
           # non-sensitive ones: AI_FALLBACK_BASE_URL / AI_FALLBACK_MODEL (any
           # OpenAI-compatible service, e.g. Groq or OpenRouter), AI_PROVIDER_ORDER
           # (e.g. "gemini,custom,openai"), AI_MAX_CALLS (default 80 per run).
           AI_FALLBACK_API_KEY: ${{ secrets.AI_FALLBACK_API_KEY }}
-          AI_FALLBACK_BASE_URL: ${{ vars.AI_FALLBACK_BASE_URL }}
-          AI_FALLBACK_MODEL: ${{ vars.AI_FALLBACK_MODEL }}
+          # A repo variable LOCAL_MODEL (e.g. qwen2.5:3b) runs a model on this very
+          # runner (below) and uses it as the last-resort provider, overriding the
+          # two settings here.
+          AI_FALLBACK_BASE_URL: ${{ vars.LOCAL_MODEL != '' && 'http://localhost:11434/v1' || vars.AI_FALLBACK_BASE_URL }}
+          AI_FALLBACK_MODEL: ${{ vars.LOCAL_MODEL != '' && vars.LOCAL_MODEL || vars.AI_FALLBACK_MODEL }}
           AI_PROVIDER_ORDER: ${{ vars.AI_PROVIDER_ORDER }}
           AI_MAX_CALLS: ${{ vars.AI_MAX_CALLS }}
         run: |
@@ -86,6 +123,12 @@ jobs:
           AI_FALLBACK_API_KEY: ${{ secrets.AI_FALLBACK_API_KEY }}
           AI_FALLBACK_BASE_URL: ${{ vars.AI_FALLBACK_BASE_URL }}
           AI_FALLBACK_MODEL: ${{ vars.AI_FALLBACK_MODEL }}
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: node scripts/generate-briefing.mjs
 
       - name: Fetch market data

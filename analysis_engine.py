@@ -140,7 +140,7 @@ _SECTION_REF = re.compile(
     r"(?:\s+of(?:\s+the)?\s+([A-Z][\w&\-]*(?:\s+(?:of|and|the)?\s*[A-Z][\w&\-]*){0,6}\s+(?:Act|Code)(?:,?\s*(?:19|20)\d{2})?))?"
 )
 _AMOUNT = re.compile(
-    r"(?<![A-Za-z])(?:₹|Rs\.?|INR|US\$|USD|\$|€|£)\s?\d[\d,]*(?:\.\d+)?\s?(?:lakh crore|crore|lakh|million|billion|trillion|bn|mn|tn|cr|k)?\b"
+    r"(?<![A-Za-z])(?:₹|Rs\.?|INR|US\$|USD|\$|€|£)\s?\d[\d,]*(?:\.\d+)?[\s-]?(?:lakh crore|crore|lakh|million|billion|trillion|bn|mn|tn|cr|k)?\b"
     r"|\b\d[\d,]*(?:\.\d+)?\s?(?:lakh crore|crore|billion|million|trillion)\b(?:\s(?:rupees|dollars))?",
     re.IGNORECASE,
 )
@@ -172,7 +172,7 @@ def extract_signals(text):
     """Structured facts found in `text`. Every value is a substring of the input."""
     text = clean(text)
     regulators = [name for name, pat in _REGULATORS.items() if re.search(pat, text)]
-    courts = _dedupe((m.group(1) for m in _COURTS.finditer(text)), 3)
+    courts = _dedupe((re.sub(r"^The\s+", "", m.group(1)) for m in _COURTS.finditer(text)), 3)
     statutes = _dedupe(
         (re.sub(r"^(?:The|A)\s+", "", m.group(1)) for m in _STATUTE_NAME.finditer(text)),
         4,
@@ -441,3 +441,62 @@ def analyse(headline, section, excerpts):
         "whyItMatters": why,
         "rule": rule,
     }
+
+# ── key points: the no-AI fallback for "why it matters" ──────────────────────
+
+_CONSEQUENCE = re.compile(
+    r"\b(will|shall|must|directed?|ordered?|liable|penalt\w*|fined?|appeal\w*|next hearing|listed for|"
+    r"effective|come[s]? into (?:force|effect)|deadline|within \d+|barred|prohibit\w*|restrain\w*|stay(?:ed|s)?|"
+    r"quash\w*|set aside|upheld|dismiss\w*|allowed|granted|rejected|approved|notified|cancel\w*|suspend\w*|"
+    r"mandatory|compulsory|ban(?:ned|s)?|refund\w*|compensat\w*)\b",
+    re.IGNORECASE,
+)
+
+
+def key_points(headline, excerpts, summary, facts):
+    """Concrete points drawn from the article itself — used when no rule fired and no
+    AI provider could write a real brief (out of credit, rate-limited, offline).
+
+    It is deliberately NOT presented as analysis: it surfaces (1) the sentences
+    that say what the ruling/notice *does or requires* and that the summary didn't
+    already use, and (2) the legal anchors found in the text — court, regulator,
+    law, amount, deadline. Returns text in the "(1) … (2) …" form the site renders as a
+    list, or None when the text has nothing beyond the headline."""
+    used = {re.sub(r"\W+", "", x.lower())[:60] for x in split_sentences(summary or "")}
+    head_tokens = _tokens(headline)
+    cands = []
+    for ex in excerpts:
+        for i, sent in enumerate(split_sentences(ex)):
+            key = re.sub(r"\W+", "", sent.lower())[:60]
+            n = len(sent.split())
+            if key in used or _BOILERPLATE.search(sent) or n < 7 or n > 55:
+                continue
+            toks = _tokens(sent)
+            if head_tokens and toks and len(toks & head_tokens) / len(head_tokens) >= 0.7 and len(toks - head_tokens) <= 3:
+                continue
+            hits = len(_CONSEQUENCE.findall(sent))
+            if hits:
+                cands.append((hits + (0.5 if re.search(r"\d", sent) else 0) - 0.05 * i, i, sent))
+                used.add(key)
+    picked = [s for _, _, s in sorted(sorted(cands, reverse=True)[:2], key=lambda t: t[1])]
+
+    anchors = []
+    grouped = {}
+    for f in facts or []:
+        grouped.setdefault(f["label"], []).append(f["value"])
+    for label in ("Court", "Regulator", "Law", "Amount", "Change", "Timeline", "Company"):
+        if label in grouped:
+            anchors.append(f"{label}: {', '.join(grouped[label][:2])}")
+    # A note must say something. Sentences that state what the ruling/notice does
+    # qualify on their own; otherwise the anchors must include a law and one more
+    # deadline AND at least one more, or three kinds of anchor — "Court: Supreme Court."
+    # or "Amount: …; Company: …" alone is just noise.
+    substantial = ("Law" in grouped and len(anchors) >= 2) or len(anchors) >= 3
+    if not picked and not substantial:
+        return None
+    items = list(picked)
+    if anchors:
+        items.append("; ".join(anchors) + ".")
+    if len(items) == 1:
+        return items[0]
+    return " ".join(f"({i}) {t}" for i, t in enumerate(items, 1))

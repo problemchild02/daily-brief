@@ -100,12 +100,26 @@ In order, per story:
      consumer-court refund once matched an advertising rule).
 3. **AI, note only** — if none of the above produced a note, one short call
    (`max_tokens` 450; the prompt carries the native summary and facts instead of
-   asking for them again). Order: legal/reliance → Anthropic, Gemini, OpenAI;
-   everything else → Gemini, OpenAI, Anthropic; then the optional `custom`
-   provider. A missing key just skips that provider.
-4. **Nothing** — no note beats a canned one. `CONTEXT_TEMPLATES` is only kept
-   to recognise (and refuse to reuse) old canned notes. Don't reintroduce a
-   silent generic fallback.
+   asking for them again). Providers: Anthropic, Gemini, OpenAI plus the
+   OpenAI-compatible ones in `ai-providers.json` (GitHub Models, Groq,
+   OpenRouter, Cerebras, Mistral, DeepSeek), then the optional `custom` one.
+   Legal/reliance try Anthropic → Gemini → OpenAI → the rest; everything else
+   tries Gemini → the *free* presets → OpenAI → paid presets → Anthropic. A
+   provider without its key is skipped.
+4. **The safety net — no AI needed.** If every provider failed, a story keeps
+   (a) last run's AI note for the same headline even if the text drifted
+   ("stale beats blank"), else (b) **key points** extracted from the article
+   (`analysis_engine.key_points`: the sentences saying what the ruling/notice
+   does or requires, plus court/law/amount/deadline anchors; only when it has
+   real substance). These are stored with `noteKind: "extract"`, shown as
+   "Key points" (never "Why it matters"), and replaced the next time AI answers.
+5. **Nothing** — a headline-only story gets no note rather than an invented
+   one. `CONTEXT_TEMPLATES` is only kept to recognise (and refuse to reuse) old
+   canned notes. Don't reintroduce a silent generic fallback.
+
+"Today's Brief" (`generate-briefing.mjs`) has the same chain and its own
+no-AI fallback (`nativeBriefing`: one story per section, headline as bullet,
+`generatedBy: "native"`), so it is never stale or empty.
 
 Spend controls (env vars / repo *variables*; all optional):
 `AI_MAX_CALLS` (default 80/run, spent legal-first), `AI_PROVIDER_ORDER`
@@ -114,7 +128,20 @@ errors disable a provider immediately, `AI_MAX_FAILS` (3) consecutive failures
 also do. The run log ends with an `Enrichment:` line (reused / native / AI /
 no brief) — read it after a refresh.
 
-**Adding a fallback AI** needs no code: set `AI_FALLBACK_BASE_URL` (any
+**Adding a provider** that speaks the OpenAI chat format is one JSON entry in
+`ai-providers.json` (read by both Python and Node) plus a secret named in its
+`keyEnv`; it switches on by itself. `<NAME>_MODEL` / `<NAME>_BASE_URL` env vars
+override its defaults. **GitHub Models** needs no secret at all: `refresh.yml`
+has `permissions: models: read` and passes the built-in `GITHUB_TOKEN`.
+Model names and free allowances drift — read the error in `fetch-log.txt` first.
+
+**Self-hosted, zero-credit option (opt-in, untested in CI as of writing):** set
+the repo *variable* `LOCAL_MODEL` (e.g. `qwen2.5:3b`) and `refresh.yml`
+installs Ollama on the runner, pulls the model (cached) and uses it as the
+`custom` provider. Slower and weaker than hosted models; if its steps fail the
+refresh continues without it.
+
+**One generic fallback** needs no code either: set `AI_FALLBACK_BASE_URL` (any
 OpenAI-compatible `/chat/completions`, e.g. Groq, OpenRouter, DeepSeek, or a
 local Ollama at `http://localhost:11434/v1`), `AI_FALLBACK_MODEL`, and
 `AI_FALLBACK_API_KEY` (secret; may be blank for local). `generate-briefing.mjs`

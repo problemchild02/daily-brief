@@ -5,6 +5,8 @@ interface WhyItMattersProps {
   text: string
   /** Hero/reading-view contexts want a slightly larger, roomier treatment. */
   size?: 'card' | 'large'
+  /** Heading. "Key points" for notes extracted from the article rather than analysed. */
+  label?: string
 }
 
 // Converts *case names* → <em>case names</em> inline, preserving surrounding text.
@@ -24,7 +26,7 @@ function renderItalics(text: string): ReactNode {
 // The numbered implications are split into a real list — see splitImplications()
 // in lib/storyText.ts for the rules and why burying them in a run-on paragraph
 // defeats the point of a brief someone scans before their day starts.
-export function WhyItMatters({ text, size = 'card' }: WhyItMattersProps) {
+export function WhyItMatters({ text, size = 'card', label = 'Why it matters' }: WhyItMattersProps) {
   const { intro, items } = splitImplications(text)
   const large = size === 'large'
 
@@ -45,7 +47,7 @@ export function WhyItMatters({ text, size = 'card' }: WhyItMattersProps) {
           lineHeight: 1,
         }}
       >
-        Why it matters
+        {label}
       </span>
 
       {intro && (

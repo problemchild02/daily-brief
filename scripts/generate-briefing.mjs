@@ -163,12 +163,93 @@ function parseJsonLoose(text) {
   return JSON.parse(match[0])
 }
 
+// The extra OpenAI-compatible providers shared with fetch_stories.py
+// (ai-providers.json at the repo root): each turns on when its key env var is set.
+function loadPresets() {
+  try {
+    return JSON.parse(readFileSync(join(ROOT, 'ai-providers.json'), 'utf8')).providers ?? []
+  } catch (err) {
+    console.error(`[generate-briefing] ai-providers.json not loaded (${err.message})`)
+    return []
+  }
+}
+
+function presetSetting(p, what) {
+  if (what === 'key') return process.env[p.keyEnv] || ''
+  const override = process.env[`${p.name.toUpperCase()}_${what === 'model' ? 'MODEL' : 'BASE_URL'}`]
+  return override || (what === 'model' ? p.model : p.baseUrl)
+}
+
+function presetCaller(p) {
+  return async prompt => {
+    const resp = await fetch(`${presetSetting(p, 'base').replace(/\/+$/, '')}/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${presetSetting(p, 'key')}` },
+      body: JSON.stringify({
+        model: presetSetting(p, 'model'),
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.4,
+        max_tokens: 1500,
+      }),
+    })
+    const body = await resp.json()
+    if (!resp.ok) throw new Error(`${p.name} HTTP ${resp.status}: ${JSON.stringify(body).slice(0, 200)}`)
+    return body.choices?.[0]?.message?.content ?? ''
+  }
+}
+
+const PRESETS = loadPresets()
 const PROVIDERS = [
   { name: 'anthropic', hasKey: () => !!ANTHROPIC_API_KEY, call: callAnthropic },
   { name: 'gemini', hasKey: () => !!GEMINI_API_KEY, call: callGemini },
   { name: 'openai', hasKey: () => !!OPENAI_API_KEY, call: callOpenAI },
+  ...PRESETS.map(p => ({ name: p.name, hasKey: () => !!presetSetting(p, 'key'), call: presetCaller(p) })),
   { name: 'custom', hasKey: () => !!(FALLBACK_BASE_URL && FALLBACK_MODEL), call: callCustom },
 ]
+
+// ── Native briefing: no AI, no tokens ────────────────────────────────────────
+// Used when no provider is configured or every one fails (out of credit, rate
+// limited, offline), so "Today's Brief" is always fresh instead of stale or empty.
+// It picks one story per section — highest priority first, in the order a legal
+// reader cares about — and uses the story's own headline as the bullet: a
+// concrete, checkable fact from the source rather than a paraphrase of it.
+const NATIVE_ORDER = ['legal', 'reliance', 'business', 'retail', 'tech', 'world', 'opinion', 'sports']
+
+function cleanHeadline(h) {
+  return String(h ?? '').replace(/\s+[-–—|]\s+[A-Z][\w .&']{2,40}$/, '').replace(/\s+/g, ' ').trim()
+}
+
+function nativeBriefing(data) {
+  const rank = { high: 0, medium: 1, low: 2 }
+  const picks = []
+  const seen = new Set()
+  const bySection = s => [...(data.sections?.[s] ?? [])].sort((a, b) => (rank[a.priority] ?? 2) - (rank[b.priority] ?? 2))
+  for (const section of NATIVE_ORDER) {
+    const story = bySection(section).find(st => !seen.has(st.sourceUrl) && cleanHeadline(st.headline).split(' ').length >= 5)
+    if (story) { picks.push(story); seen.add(story.sourceUrl) }
+    if (picks.length === 5) break
+  }
+  // A second story from the legal desk if there are still places to fill.
+  for (const section of ['legal', 'business']) {
+    for (const st of bySection(section)) {
+      if (picks.length >= 5) break
+      if (!seen.has(st.sourceUrl)) { picks.push(st); seen.add(st.sourceUrl) }
+    }
+  }
+  const bullets = picks.slice(0, 5).map(st => ({
+    text: cleanHeadline(st.headline).replace(/[.]*$/, '') + '.',
+    category: st.section,
+    url: st.sourceUrl,
+  }))
+  const lead = bullets[0]?.text.replace(/[.]$/, '') ?? ''
+  const counts = Object.entries(data.sections ?? {})
+    .map(([k, v]) => [k, v.length]).filter(([, n]) => n > 0)
+  const legal = data.sections?.legal?.length ?? 0
+  const summary = lead
+    ? `Leading today: ${lead}. ${legal} legal and regulatory stories and ${counts.length - (legal ? 1 : 0)} other sections in this edition.`
+    : ''
+  return { summary, bullets }
+}
 
 async function generateBriefing(stories) {
   const prompt = buildPrompt(stories)
@@ -178,7 +259,7 @@ async function generateBriefing(stories) {
       const text = await provider.call(prompt)
       const parsed = parseJsonLoose(text)
       console.log(`[generate-briefing] ✓ generated via ${provider.name}`)
-      return parsed
+      return { briefing: parsed, by: provider.name }
     } catch (err) {
       console.error(`[generate-briefing] [${provider.name}] failed: ${err.message}`)
       // fall through to next provider
@@ -189,12 +270,6 @@ async function generateBriefing(stories) {
 
 async function main() {
   const now = new Date().toISOString()
-
-  if (!ANTHROPIC_API_KEY && !GEMINI_API_KEY && !OPENAI_API_KEY) {
-    console.log('[generate-briefing] No AI provider keys set — writing empty briefing.json.')
-    writeFileSync(BRIEFING_PATH, JSON.stringify({ generatedAt: now, summary: '', bullets: [] }, null, 2) + '\n')
-    return
-  }
 
   if (!existsSync(STORIES_PATH)) {
     console.log('[generate-briefing] stories.json not found, skipping.')
@@ -212,19 +287,31 @@ async function main() {
 
   console.log(`[generate-briefing] Generating briefing from ${stories.length} stories…`)
 
-  try {
-    const briefing = await generateBriefing(stories)
-    const output = {
-      generatedAt: now,
-      summary: briefing.summary ?? '',
-      bullets: (briefing.bullets ?? []).slice(0, 5),
+  let briefing, by
+  if (PROVIDERS.some(p => p.hasKey())) {
+    try {
+      const out = await generateBriefing(stories)
+      briefing = out.briefing
+      by = out.by
+    } catch (err) {
+      console.error('[generate-briefing] generation failed on all providers:', err.message)
     }
-    writeFileSync(BRIEFING_PATH, JSON.stringify(output, null, 2) + '\n')
-    console.log(`[generate-briefing] ✓ ${output.bullets.length} bullets — "${output.summary.slice(0, 60)}…"`)
-  } catch (err) {
-    console.error('[generate-briefing] generation failed on all providers:', err.message)
-    // Non-fatal — preserve existing briefing.json so the workflow continues
+  } else {
+    console.log('[generate-briefing] No AI provider keys set.')
   }
+  if (!briefing || !(briefing.bullets ?? []).length) {
+    briefing = nativeBriefing(data)
+    by = 'native'
+    console.log('[generate-briefing] Using the native (no-AI) briefing.')
+  }
+  const output = {
+    generatedAt: now,
+    generatedBy: by,
+    summary: briefing.summary ?? '',
+    bullets: (briefing.bullets ?? []).slice(0, 5),
+  }
+  writeFileSync(BRIEFING_PATH, JSON.stringify(output, null, 2) + '\n')
+  console.log(`[generate-briefing] ✓ ${output.bullets.length} bullets via ${by} — "${output.summary.slice(0, 60)}…"`)
 }
 
 main().catch(err => { console.error('[generate-briefing] fatal:', err); process.exit(1) })
