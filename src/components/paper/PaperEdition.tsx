@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { ChevronLeft, ChevronRight, ListOrdered } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ListOrdered, Maximize2, Minimize2 } from 'lucide-react'
 import { FlipBook, type FlipBookHandle } from './FlipBook'
 import { ViewModeSwitch } from './ViewModeSwitch'
 import { haptic } from '../../lib/haptics'
@@ -11,6 +11,7 @@ import {
 } from './PaperPages'
 import { useAppContext } from '../../contexts/AppContext'
 import { usePreferences } from '../../hooks/usePreferences'
+import { enterImmersive, exitImmersive, useImmersive } from '../../hooks/useImmersive'
 import { CATEGORIES } from '../../lib/categories'
 import { CATEGORY_KEYS } from '../../lib/types'
 import type { CategoryKey, Story } from '../../lib/types'
@@ -346,6 +347,7 @@ const MeasureTree = memo(function MeasureTree({ rootRef, pageW, pageH, mergeCand
 export function PaperEdition() {
   const { feeds, meta, briefing, onStoryOpen } = useAppContext()
   const { pageSound, textSize, font } = usePreferences()
+  const immersive = useImmersive()
   const { category } = useParams<{ category?: string }>()
   const navigate = useNavigate()
   const location = useLocation()
@@ -560,7 +562,28 @@ export function PaperEdition() {
 
   return (
     <div className="flex h-full flex-col" style={{ ['--paper-page-h' as string]: pageH ? `${pageH}px` : undefined }}>
-      <div className="flex items-center justify-between gap-2 px-3 py-1.5 sm:px-5 print:hidden">
+      {immersive && (
+        <>
+          {/* Everything else steps aside; two small, quiet controls remain. */}
+          <button
+            type="button"
+            onClick={() => { haptic('select'); exitImmersive() }}
+            aria-label="Exit full screen"
+            className="fixed right-2 z-50 flex h-9 w-9 items-center justify-center rounded-full text-ink-3 active:scale-90 transition-transform print:hidden"
+            style={{ top: 'max(8px, env(safe-area-inset-top))', background: 'color-mix(in srgb, var(--canvas) 80%, transparent)', backdropFilter: 'blur(6px)' }}
+          >
+            <Minimize2 size={16} />
+          </button>
+          <div
+            className="pointer-events-none fixed left-1/2 z-50 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] tabular-nums text-ink-3 print:hidden"
+            style={{ bottom: 'max(4px, env(safe-area-inset-bottom))' }}
+            aria-live="polite"
+          >
+            {pages.length > 0 && (spread && lastVisible - current === 2 ? `${current + 1}–${lastVisible}` : current + 1)} / {pages.length}
+          </div>
+        </>
+      )}
+      <div className={`${immersive ? 'hidden' : 'flex'} items-center justify-between gap-2 px-3 py-1.5 sm:px-5 print:hidden`}>
         <button
           type="button"
           onClick={() => { haptic('soft'); bookRef.current?.prev() }}
@@ -585,6 +608,14 @@ export function PaperEdition() {
             className="ml-1 flex h-8 w-8 items-center justify-center rounded-full hover:bg-surface-2 hover:text-ink active:scale-90 transition-[background-color,transform]"
           >
             <ListOrdered size={15} />
+          </button>
+          <button
+            type="button"
+            onClick={() => { haptic('select'); enterImmersive() }}
+            aria-label="Full screen reading"
+            className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-surface-2 hover:text-ink active:scale-90 transition-[background-color,transform]"
+          >
+            <Maximize2 size={15} />
           </button>
         </div>
         <ViewModeSwitch labels="wide" />
@@ -612,7 +643,7 @@ export function PaperEdition() {
         />
       )}
 
-      <div ref={stageRef} className="paper-stage mx-auto min-h-0 w-full max-w-[1560px] flex-1 px-1 pb-3 sm:px-4 sm:pb-5">
+      <div ref={stageRef} className={`paper-stage mx-auto min-h-0 w-full max-w-[1560px] flex-1 px-1 sm:px-4 ${immersive ? "pb-6 pt-2" : "pb-3 sm:pb-5"}`}>
         {stage && (
           <FlipBook
             // A new page count or layout means a different book; rebuild it,

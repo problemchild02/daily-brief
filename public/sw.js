@@ -1,6 +1,6 @@
 // Bump this version to force all clients to discard old caches and reload fresh.
-// v4 → v5: React/Vite migration; old app.js + styles.css no longer exist.
-const CACHE_NAME = "daily-brief-v5";
+// v5 → v6: manifest + icons now served from public/ (installable); v4 → v5: React/Vite migration.
+const CACHE_NAME = "daily-brief-v6";
 
 // ── Install: skip waiting so the new SW takes control immediately ────────────
 self.addEventListener("install", (event) => {

@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
 import { MotionConfig, AnimatePresence, motion } from 'motion/react'
 import { Masthead } from './components/layout/Masthead'
 import { Sidebar } from './components/layout/Sidebar'
+import { useImmersive } from './hooks/useImmersive'
 import { TabBar } from './components/layout/TabBar'
 import { SettingsSheet } from './components/layout/SettingsSheet'
 import { ArticleSheet } from './components/cards/ArticleSheet'
@@ -214,6 +215,7 @@ export default function App() {
   const reducedMotion = usePrefersReducedMotion()
   const isMainRoute = location.pathname === '/' || location.pathname.startsWith('/sections/')
   const isPaperRoute = paperMode && isMainRoute
+  const immersive = useImmersive() && isPaperRoute   // chrome-free full-screen reading
   // The reader flips through the whole paper in edition order, same as the pages.
   const editionStories = feeds
     ? [...CATEGORY_KEYS]
@@ -233,12 +235,12 @@ export default function App() {
       onStoryOpen: setOpenStory,
     }}>
       <div className={isPaperRoute ? 'h-[100dvh] overflow-hidden bg-canvas text-ink font-sans' : 'min-h-screen bg-canvas text-ink font-sans'}>
-        {isDesktop && <Sidebar />}
+        {isDesktop && !immersive && <Sidebar />}
 
         <div className={[
           'flex flex-col transition-[margin-left] duration-300',
           isPaperRoute ? 'h-[100dvh]' : 'min-h-screen',
-          isDesktop ? (sidebarCollapsed ? 'ml-0' : 'ml-[240px]') : 'pb-20 short-landscape-pad',
+          isDesktop ? (sidebarCollapsed || immersive ? 'ml-0' : 'ml-[240px]') : (immersive ? 'pb-0' : 'pb-20 short-landscape-pad'),
         ].join(' ')}>
 
           {/* Masthead hidden in print. `contents` (not a plain block wrapper) is
@@ -250,7 +252,7 @@ export default function App() {
               layout tree entirely — Masthead renders as if it were a direct child of
               the flex column below, sticking correctly against the whole page's
               scroll — while still being a real DOM node `print:hidden` can target. */}
-          <div className="contents print:hidden">
+          {!immersive && <div className="contents print:hidden">
             <Masthead
               meta={meta}
               onSettingsOpen={() => setSettingsOpen(true)}
@@ -258,7 +260,7 @@ export default function App() {
               onSidebarToggle={isDesktop ? onSidebarToggle : undefined}
               forceCompact={isPaperRoute}
             />
-          </div>
+          </div>}
 
           {/* Info strip — mobile/tablet only; hidden in print. Below 1024px the
               markets/weather strip scrolls horizontally instead of stacking
@@ -347,7 +349,7 @@ export default function App() {
           </div>
         </div>
 
-        {!isDesktop && <TabBar />}
+        {!isDesktop && !immersive && <TabBar />}
 
         <SettingsSheet open={settingsOpen} onClose={() => setSettingsOpen(false)} />
         <CommandPalette

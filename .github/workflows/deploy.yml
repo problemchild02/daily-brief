@@ -34,12 +34,8 @@ jobs:
           cp stories.json dist/
           cp stories.fallback.json dist/
           [ -f paper_stories.json ] && cp paper_stories.json dist/ || true
-          cp manifest.json dist/
-          cp favicon.svg dist/
-          cp icon-192.png dist/
-          cp icon-512.png dist/
-          cp sw.js dist/
           cp _headers dist/
+          # manifest.json, icons, favicon and sw.js live in public/ and are copied by Vite as-is
           # Serve src/data/ at /daily-brief/src/data/ so runtime fetches work
           mkdir -p dist/src/data
           cp src/data/*.json dist/src/data/

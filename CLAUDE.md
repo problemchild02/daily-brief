@@ -69,6 +69,16 @@ motion. Otherwise the original scrolling `FrontPage`/`SectionPage` and
   picks the default when nothing has been chosen.
 - Stories with no photo get section-coloured artwork (`StoryArt.tsx`).
 - Haptics (`src/lib/haptics.ts`, `navigator.vibrate`; Android only, a setting).
+- **Installable app + full screen.** `public/` holds `manifest.json`, icons
+  (incl. a maskable one), `apple-touch-icon.png`, `favicon.svg` and `sw.js`; Vite copies
+  them verbatim. Do NOT leave the manifest at the repo root and link it relatively: Vite
+  then bundles it into a hashed `assets/manifest-*.json`, so its `scope`/`start_url`/icon
+  paths resolve to `/daily-brief/assets/…` and the browser says "cannot be installed"
+  (this was the bug). Check with CDP `Page.getInstallabilityErrors` after changing it.
+  **Brave on Android cannot install web apps at all** (no WebAPK service; it only makes a
+  shortcut that opens in Brave) — for the user's phone the answer is the in-app
+  *Full screen* mode (`src/hooks/useImmersive.ts`: Fullscreen API + hides masthead, tab
+  bar, sidebar and the paper toolbar, leaving an exit button and a page counter).
 - Reader preferences (theme palette, font, text size, page turns, page
   sound, haptics) live in `src/hooks/usePreferences.ts` and are applied as
   `data-*` attributes on `<html>`; palettes/fonts/`--reading-scale` are in

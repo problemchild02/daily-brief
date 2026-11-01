@@ -6,6 +6,7 @@ import { useDensity } from '../../hooks/useDensity'
 import { usePreferences, setPreference, usePrefersReducedMotion, usePaperMode } from '../../hooks/usePreferences'
 import type { ReadingFont, TextSize } from '../../hooks/usePreferences'
 import { haptic, hapticsSupported } from '../../lib/haptics'
+import { enterImmersive } from '../../hooks/useImmersive'
 import { readPat, writePat, dispatchWorkflow } from '../../lib/githubWorkflow'
 import type { Theme } from '../../hooks/useTheme'
 import type { Density } from '../../hooks/useDensity'
@@ -355,6 +356,16 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                   { value: 'off', label: 'Scroll' },
                 ]}
               />
+            </SettingRow>
+            <SettingRow label="Full screen">
+              <button
+                type="button"
+                onClick={() => { haptic('select'); onClose(); enterImmersive() }}
+                className="rounded-lg transition-colors active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+                style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 500, padding: '6px 12px', background: 'var(--surface-2)', color: 'var(--ink-2)' }}
+              >
+                Read full screen
+              </button>
             </SettingRow>
             <SettingRow label="Page sound">
               <RadioGroup<'on' | 'off'>

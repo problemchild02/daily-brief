@@ -147,3 +147,6 @@
   .short-landscape-hide { display: none; }
   .short-landscape-pad { padding-bottom: 0 !important; }
 }
+
+/* Immersive reading: no pull-to-refresh or rubber-banding while swiping pages. */
+html[data-immersive="true"], html[data-immersive="true"] body { overscroll-behavior: none; }
