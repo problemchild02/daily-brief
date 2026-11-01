@@ -73,6 +73,12 @@ motion. Otherwise the original scrolling `FrontPage`/`SectionPage` and
   sound, haptics) live in `src/hooks/usePreferences.ts` and are applied as
   `data-*` attributes on `<html>`; palettes/fonts/`--reading-scale` are in
   `src/styles/tokens.css`, paper styling in `src/styles/paper.css`.
+- Themes: auto + 5 light (paper, sepia, mist, sage, blush) + 5 dark (dark, night,
+  slate, midnight, amoled "Black"). To add one: a `[data-palette="x"]` block in
+  `tokens.css` (check ink/ink-2/ink-3 contrast >= 4.5:1 on page and surface-2), add it
+  to `THEMES` (+ `DARK_PALETTES` if dark) in `usePreferences.ts`, and a swatch in
+  `THEME_SWATCHES` in `SettingsSheet.tsx`. Buttons need inline padding/background
+  (the global `button` reset beats Tailwind utilities).
 
 ## Story analysis: native engine first, AI only for what's missing
 

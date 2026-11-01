@@ -5,7 +5,7 @@ import { useSyncExternalStore } from 'react'
 // theme in local state, so changing it in Settings left the Masthead's sun/moon
 // icon (and the command palette's label) showing the old value until a remount.
 
-export type ThemeChoice = 'auto' | 'paper' | 'sepia' | 'dark' | 'night'
+export type ThemeChoice = 'auto' | 'paper' | 'sepia' | 'mist' | 'sage' | 'blush' | 'dark' | 'night' | 'slate' | 'midnight' | 'amoled'
 export type ReadingFont = 'serif' | 'sans' | 'legible'
 export type TextSize = 's' | 'm' | 'l' | 'xl'
 
@@ -30,7 +30,10 @@ const KEYS = {
   haptics: 'daily-brief:haptics',
 } as const
 
-const THEMES: ThemeChoice[] = ['auto', 'paper', 'sepia', 'dark', 'night']
+const THEMES: ThemeChoice[] = ['auto', 'paper', 'sepia', 'mist', 'sage', 'blush', 'dark', 'night', 'slate', 'midnight', 'amoled']
+/** Palettes that sit on a dark page; they get data-theme="dark" so every dark: rule applies. */
+const DARK_PALETTES = new Set<string>(['dark', 'night', 'slate', 'midnight', 'amoled'])
+export const isDarkPalette = (p: string) => DARK_PALETTES.has(p)
 const FONTS: ReadingFont[] = ['serif', 'sans', 'legible']
 const SIZES: TextSize[] = ['s', 'm', 'l', 'xl']
 
@@ -74,7 +77,7 @@ function apply(p: Preferences) {
   // data-theme stays a plain light/dark switch so every existing [data-theme="dark"]
   // rule and Tailwind's dark: variant keep working; data-palette layers the
   // sepia/night variations on top of it.
-  root.dataset.theme = palette === 'dark' || palette === 'night' ? 'dark' : 'light'
+  root.dataset.theme = isDarkPalette(palette) ? 'dark' : 'light'
   root.dataset.palette = palette
   root.dataset.font = p.font
   root.dataset.textSize = p.textSize

@@ -169,6 +169,99 @@
   --page-shade:  rgba(0, 0, 0, 0.6);
 }
 
+/* More palettes. Every ink/page pair was checked: ink >= 13:1, ink-2 >= 7.8:1,
+   ink-3 >= 5:1 on the page and >= 4.5:1 on surface-2, accent >= 5.7:1. */
+
+/* Mist: cool grey-blue daylight paper. */
+[data-palette="mist"] {
+  --canvas:    #E9EEF3;
+  --surface:   #F4F7FA;
+  --surface-2: #DCE4EC;
+  --page:      #F4F7FA;
+  --rule:      #C9D4DF;
+  --ink:   #17212B;
+  --ink-2: #384A5C;
+  --ink-3: #546679;
+  --accent:      #1F5FA8;
+  --accent-soft: #D6E4F4;
+  --page-shade:  rgba(20, 40, 70, 0.18);
+}
+
+/* Sage: soft green, easy on the eyes under office lighting. */
+[data-palette="sage"] {
+  --canvas:    #E6EBDD;
+  --surface:   #F0F4E8;
+  --surface-2: #DCE4CD;
+  --page:      #F0F4E8;
+  --rule:      #C6D1B2;
+  --ink:   #1E2A1B;
+  --ink-2: #3E4F38;
+  --ink-3: #56694F;
+  --accent:      #2F6B3A;
+  --accent-soft: #D3E5CC;
+  --page-shade:  rgba(40, 60, 20, 0.18);
+}
+
+/* Blush: pale rose paper with a berry accent. */
+[data-palette="blush"] {
+  --canvas:    #F3E6E4;
+  --surface:   #FAF1EF;
+  --surface-2: #EBD5D1;
+  --page:      #FAF1EF;
+  --rule:      #DDC1BC;
+  --ink:   #2B1B1C;
+  --ink-2: #53393B;
+  --ink-3: #6F5051;
+  --accent:      #A32D4A;
+  --accent-soft: #F3D3DB;
+  --page-shade:  rgba(90, 30, 40, 0.18);
+}
+
+/* Slate: blue-grey dark, less warm than Dark. */
+[data-palette="slate"] {
+  --canvas:    #0F141A;
+  --surface:   #171E26;
+  --surface-2: #1F2832;
+  --page:      #171E26;
+  --rule:      #2A3541;
+  --ink:   #E3E9EF;
+  --ink-2: #AEB9C5;
+  --ink-3: #8593A2;
+  --accent:      #6FB0F0;
+  --accent-soft: #1B2D40;
+  --page-shade:  rgba(0, 0, 0, 0.5);
+}
+
+/* Midnight: deep navy for night reading. */
+[data-palette="midnight"] {
+  --canvas:    #080C1A;
+  --surface:   #0E1428;
+  --surface-2: #151D38;
+  --page:      #0E1428;
+  --rule:      #1F2A4A;
+  --ink:   #DDE3F5;
+  --ink-2: #A9B3D2;
+  --ink-3: #8791B3;
+  --accent:      #8EA2FF;
+  --accent-soft: #1A2150;
+  --page-shade:  rgba(0, 0, 0, 0.6);
+}
+
+/* Black: true black for OLED screens (pixels off, battery saved). */
+[data-palette="amoled"] {
+  --canvas:    #000000;
+  --surface:   #0A0A0A;
+  --surface-2: #141414;
+  --page:      #0A0A0A;
+  --rule:      #222222;
+  --ink:   #E6E1D6;
+  --ink-2: #A8A296;
+  --ink-3: #858074;
+  --accent:      #E8745B;
+  --accent-soft: #2A1712;
+  --page-shade:  rgba(0, 0, 0, 0.7);
+}
+
 /* ─── Reading font choice ──────────────────────────────────────────────────── */
 [data-font="sans"] {
   --font-reading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

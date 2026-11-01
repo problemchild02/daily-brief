@@ -42,18 +42,72 @@ function RadioGroup<T extends string>({ value, options, onChange, name }: RadioG
           role="radio"
           aria-checked={value === opt.value}
           onClick={() => { haptic('select'); onChange(opt.value) }}
-          className={clsx(
-            'px-3 py-1.5 rounded-lg transition-colors active:scale-95',
-            'focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent',
-            value === opt.value
-              ? 'bg-accent text-canvas'
-              : 'bg-surface-2 text-ink-2 hover:text-ink',
-          )}
-          style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 500 }}
+          className="rounded-lg transition-colors active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+          // Inline, not Tailwind: the unlayered global `button { padding:0; background:none }`
+          // reset beats layered utilities, which left the selected option with no
+          // background (its canvas-coloured text vanished) and no padding.
+          style={{
+            fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 500,
+            padding: '6px 12px',
+            background: value === opt.value ? 'var(--accent)' : 'var(--surface-2)',
+            color: value === opt.value ? 'var(--canvas)' : 'var(--ink-2)',
+          }}
         >
           {opt.label}
         </button>
       ))}
+    </div>
+  )
+}
+
+// Preview colours for the swatch picker only: [page, ink, accent]. The real palettes
+// live in tokens.css; keep these in step when one changes.
+const THEME_SWATCHES: { value: Theme; label: string; page: string; ink: string; accent: string }[] = [
+  { value: 'paper',    label: 'Paper',    page: '#FFFDF8', ink: '#111111', accent: '#A8321F' },
+  { value: 'sepia',    label: 'Sepia',    page: '#F8F0DD', ink: '#2E241A', accent: '#9A3B1C' },
+  { value: 'mist',     label: 'Mist',     page: '#F4F7FA', ink: '#17212B', accent: '#1F5FA8' },
+  { value: 'sage',     label: 'Sage',     page: '#F0F4E8', ink: '#1E2A1B', accent: '#2F6B3A' },
+  { value: 'blush',    label: 'Blush',    page: '#FAF1EF', ink: '#2B1B1C', accent: '#A32D4A' },
+  { value: 'dark',     label: 'Dark',     page: '#1B1814', ink: '#EDE7DC', accent: '#E8745B' },
+  { value: 'slate',    label: 'Slate',    page: '#171E26', ink: '#E3E9EF', accent: '#6FB0F0' },
+  { value: 'midnight', label: 'Midnight', page: '#0E1428', ink: '#DDE3F5', accent: '#8EA2FF' },
+  { value: 'night',    label: 'Night',    page: '#121110', ink: '#D6CFC2', accent: '#D9775E' },
+  { value: 'amoled',   label: 'Black',    page: '#000000', ink: '#E6E1D6', accent: '#E8745B' },
+]
+
+function ThemePicker({ value, onChange }: { value: Theme; onChange: (v: Theme) => void }) {
+  const items = [{ value: 'auto' as Theme, label: 'Auto', page: '', ink: '', accent: '' }, ...THEME_SWATCHES]
+  return (
+    <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 w-full" role="radiogroup" aria-label="Theme">
+      {items.map(t => {
+        const selected = value === t.value
+        return (
+          <button
+            key={t.value}
+            type="button"
+            role="radio"
+            aria-checked={selected}
+            onClick={() => { haptic('select'); onChange(t.value) }}
+            className="flex flex-col items-center gap-1.5 rounded-xl active:scale-95 transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+            style={{ padding: 6, boxShadow: selected ? 'inset 0 0 0 2px var(--accent)' : 'inset 0 0 0 1px var(--rule)' }}
+          >
+            <span
+              aria-hidden="true"
+              className="flex h-11 w-full items-end justify-between overflow-hidden rounded-lg px-1.5 pb-1"
+              style={{
+                background: t.value === 'auto' ? 'linear-gradient(105deg, #FBFAF7 50%, #1B1814 50%)' : t.page,
+                boxShadow: 'inset 0 0 0 1px rgba(128,128,128,0.25)',
+              }}
+            >
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '17px', lineHeight: 1, fontWeight: 600, color: t.value === 'auto' ? '#B8442A' : t.ink }}>Aa</span>
+              <span style={{ height: 8, width: 8, borderRadius: 999, background: t.value === 'auto' ? '#8EA2FF' : t.accent }} />
+            </span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 500, color: selected ? 'var(--ink)' : 'var(--ink-3)' }}>
+              {t.label}
+            </span>
+          </button>
+        )
+      })}
     </div>
   )
 }
@@ -232,18 +286,7 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
           <SectionLabel>Reading</SectionLabel>
           <div className="border border-rule rounded-xl px-4">
             <SettingRow label="Theme">
-              <RadioGroup<Theme>
-                name="Theme"
-                value={theme}
-                onChange={setTheme}
-                options={[
-                  { value: 'auto', label: 'Auto' },
-                  { value: 'paper', label: 'Paper' },
-                  { value: 'sepia', label: 'Sepia' },
-                  { value: 'dark', label: 'Dark' },
-                  { value: 'night', label: 'Night' },
-                ]}
-              />
+              <ThemePicker value={theme} onChange={setTheme} />
             </SettingRow>
 
             <SettingRow label="Font">
