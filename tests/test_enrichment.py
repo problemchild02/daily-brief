@@ -22,7 +22,11 @@ def story(i, headline, section="legal", hook="", summary="", priority="normal"):
             "tags": [], "priority": priority}
 
 
-GOOD_NOTE = '{"contextNote": "Check s.9 Arbitration Act interim relief. (1) a (2) b"}'
+NOTE_TEXT = ("Section 9 of the Arbitration and Conciliation Act, 1996 lets a court grant interim relief before the "
+             "tribunal is constituted, so check whether your contract's seat and governing law give the High Court that "
+             "power. (1) Confirm the arbitration clause names the seat. (2) Calendar the window to commence arbitration "
+             "after any relief is granted. (3) Preserve the documents that show when the dispute arose.")
+GOOD_NOTE = json.dumps({"contextNote": NOTE_TEXT})
 
 
 class Providers:
@@ -52,6 +56,10 @@ class EnrichmentTests(unittest.TestCase):
         self.env = mock.patch.dict(os.environ, {"AI_PROVIDER_ORDER": ""}, clear=False)
         self.env.start()
         mock.patch.object(fs, "AI_CALL_DELAY", 0).start()
+        mock.patch.object(fs, "TRANSIENT_WAIT", 0).start()
+        mock.patch.object(fs, "_pace", lambda name: None).start()
+        mock.patch.object(fs, "HEALTH_PATH", None).start()      # tests must not write the repo's health file
+        fs._PREV_HEALTH.clear()
         self.addCleanup(mock.patch.stopall)
 
     def run_enrich(self, stories, providers, previous=None, cap=30, page_text=None):
@@ -183,9 +191,10 @@ class EnrichmentTests(unittest.TestCase):
 
     def test_banned_phrase_triggers_exactly_one_retry(self):
         s = story(10, "Retry story", "legal", summary="An excerpt long enough to be a real summary of the story at hand.")
-        p = Providers(gemini='{"contextNote": "This may affect compliance. (1) a (2) b"}')
+        p = Providers(gemini=json.dumps({"contextNote": "This may affect compliance. " + NOTE_TEXT}))
         self.run_enrich([s], p.install(["gemini"]))
         self.assertEqual(len(p.calls), 2)
+        self.assertNotIn("contextNote", s)       # still hedging after the retry: never published
 
     def test_stale_ai_note_beats_blank_when_every_provider_fails(self):
         s = story(11, "Court rules on tenancy dispute", "legal",
@@ -363,6 +372,153 @@ class EnrichmentTests(unittest.TestCase):
         prompt = fs._build_note_prompt("H", "legal", "Src", [], "excerpt", "summary", [])
         for phrase in fs._BANNED_PHRASES:
             self.assertIn(f'"{phrase}"', prompt)
+
+    # ── accuracy check, cascade, patience, memory ──────────────────────────────
+
+    SRC = ["The tribunal heard the dispute on Friday. It ordered the supplier to refund Rs 4 crore within 30 days. "
+           "The supplier must also pay interest at 9%."]
+    HEAD = "Tribunal orders refund in contract dispute"
+
+    def check(self, note, section="legal", src=None):
+        return ae.check_note(note, self.HEAD, src or self.SRC, section, banned=fs._BANNED_PHRASES)
+
+    def test_checker_accepts_a_grounded_note(self):
+        v = self.check(NOTE_TEXT + " The 9% interest and Rs 4 crore refund make delay costly.")
+        self.assertTrue(v["ok"], v)
+
+    def test_checker_rejects_an_invented_amount(self):
+        v = self.check(NOTE_TEXT + " The supplier now owes Rs 40 crore on the refund.")
+        self.assertTrue(any("not in the article" in h for h in v["hard"]), v)
+
+    def test_checker_tolerates_formatting_and_rounding(self):
+        v = self.check(NOTE_TEXT + " Interest runs at 9.0 per cent on the ₹4 crore refund.")
+        self.assertFalse(v["hard"], v)
+
+    def test_statutory_figures_are_background_not_invention(self):
+        v = self.check(NOTE_TEXT + " Under the Act a penalty of up to Rs 25 crore can follow.")
+        self.assertFalse(v["hard"], v)                     # quoted law, not a claim about this story
+        self.assertTrue(any("statutory" in s for s in v["info"]), v)
+        self.assertEqual(v["soft"], [])                    # and not worth paying a stronger model to redo
+
+    def test_checker_flags_headline_restatement_and_hedging(self):
+        self.assertIn("restates the headline", self.check("Tribunal orders refund in contract dispute.")["hard"])
+        self.assertIn("generic hedging language", self.check("This may affect compliance. " + NOTE_TEXT)["hard"])
+
+    def test_legal_note_without_an_anchor_is_only_soft(self):
+        note = ("The order obliges the supplier to pay back the money within the stated window and to add interest, "
+                "so the buyer should chase early. (1) Diarise the payment date. (2) Write to the supplier today. "
+                "(3) Keep proof of the payment demand ready for any later hearing.")
+        v = self.check(note)
+        self.assertFalse(v["hard"], v)
+        self.assertTrue(any("names no court" in s for s in v["soft"]), v)
+        self.assertEqual(self.check(note, section="business")["soft"], [])     # only legal/Reliance need an anchor
+
+    def test_free_provider_is_tried_first_even_for_legal(self):
+        s = story(30, "Tribunal orders refund in contract dispute", "legal", summary=self.SRC[0])
+        p = Providers()
+        self.run_enrich([s], p.install(["anthropic", "gemini", "openai"]))
+        self.assertEqual([c[0] for c in p.calls], ["gemini"])
+        self.assertEqual(s["enrichedBy"], "gemini")
+
+    def test_invented_figure_escalates_to_a_stronger_provider(self):
+        s = story(31, "Tribunal orders refund in contract dispute", "legal", summary=self.SRC[0])
+        bad = json.dumps({"contextNote": NOTE_TEXT + " The supplier now owes Rs 40 crore."})
+        p = Providers(gemini=bad, anthropic=GOOD_NOTE)
+        self.run_enrich([s], p.install(["anthropic", "gemini", "openai"]))
+        self.assertEqual([c[0] for c in p.calls], ["gemini", "gemini", "anthropic"])   # one retry with feedback, then escalate
+        self.assertEqual(s["enrichedBy"], "anthropic")
+        self.assertNotIn("Rs 40", s["contextNote"])
+
+    def test_retry_feedback_names_the_problem_and_can_fix_it(self):
+        s = story(32, "Tribunal orders refund in contract dispute", "business", summary=self.SRC[0])
+        bad = json.dumps({"contextNote": NOTE_TEXT + " The supplier now owes Rs 40 crore."})
+        replies = iter([bad, GOOD_NOTE])
+        p = Providers()
+        p.behaviour["gemini"] = None
+        reg = {n: p.make(n, n == "gemini") for n in ("anthropic", "gemini", "openai", "custom")}
+        def second_time_lucky(prompt, max_tokens=900):
+            p.calls.append(("gemini", max_tokens, prompt)); return next(replies)
+        reg["gemini"] = (second_time_lucky, lambda: True)
+        self.run_enrich([s], mock.patch.object(fs, "_PROVIDERS", reg))
+        self.assertEqual(len(p.calls), 2)
+        self.assertIn("previous attempt was rejected", p.calls[1][2])
+        self.assertIn("figures not in the article", p.calls[1][2])
+        self.assertEqual(s["enrichedBy"], "gemini")                            # fixed without paying anyone
+
+    def test_fabricated_note_is_never_published_even_if_every_provider_agrees(self):
+        s = story(33, "Tribunal orders refund in contract dispute", "business", summary=self.SRC[0])
+        bad = json.dumps({"contextNote": NOTE_TEXT + " The supplier now owes Rs 40 crore."})
+        p = Providers(gemini=bad, openai=bad, anthropic=bad)
+        self.run_enrich([s], p.install(["gemini", "openai", "anthropic"]))
+        self.assertNotIn("Rs 40", s.get("contextNote", ""))
+        self.assertEqual(s.get("noteKind"), "extract")                         # the honest key points instead
+
+    def test_soft_flaw_is_kept_if_the_stronger_provider_does_no_better(self):
+        s = story(34, "Tribunal orders refund in contract dispute", "business", summary=self.SRC[0])
+        short = json.dumps({"contextNote": "Chase the refund early and diarise the payment date for the interest."})
+        p = Providers(gemini=short, openai=short)
+        self.run_enrich([s], p.install(["gemini", "openai"]))
+        self.assertEqual(len(p.calls), 2)                                       # tried the stronger one once
+        self.assertIn("Chase the refund", s["contextNote"])                      # minor flaw: still better than nothing
+
+    def test_at_most_max_answers_providers_per_story(self):
+        s = story(35, "Tribunal orders refund in contract dispute", "business", summary=self.SRC[0])
+        short = json.dumps({"contextNote": "Chase the refund early."})
+        p = Providers(gemini=short, openai=short, anthropic=short, custom=short)
+        with mock.patch.object(fs, "AI_MAX_ANSWERS", 2):
+            self.run_enrich([s], p.install(["gemini", "openai", "anthropic", "custom"]))
+        self.assertEqual(len(p.calls), 2)
+
+    def test_strong_first_sections_skip_the_free_tier(self):
+        with mock.patch.object(fs, "AI_STRONG_FIRST_SECTIONS", {"legal"}):
+            self.assertEqual(fs._provider_order("legal")[0], "anthropic")
+            self.assertEqual(fs._provider_order("tech")[0], "groq")
+
+    def test_order_is_groq_then_gemini_then_the_rest_of_the_free_tier(self):
+        order = fs._provider_order("legal")
+        self.assertLess(order.index("groq"), order.index("gemini"))
+        self.assertLess(order.index("gemini"), order.index("github"))
+        self.assertLess(order.index("github"), order.index("anthropic"))
+        self.assertEqual(order[-1], "custom")
+
+    def test_a_busy_provider_gets_one_quiet_retry(self):
+        s = story(36, "Tribunal orders refund in contract dispute", "business", summary=self.SRC[0])
+        seq = iter([RuntimeError("HTTP 503: model is currently experiencing high demand"), GOOD_NOTE])
+        p = Providers()
+        reg = {n: p.make(n, n == "gemini") for n in ("anthropic", "gemini", "openai", "custom")}
+        reg["gemini"] = ((lambda prompt, max_tokens=900: (p.calls.append(("gemini", 0, prompt)), (lambda r: (_ for _ in ()).throw(r) if isinstance(r, Exception) else r)(next(seq)))[1]),
+                         lambda: True)
+        self.run_enrich([s], mock.patch.object(fs, "_PROVIDERS", reg))
+        self.assertEqual(len(p.calls), 2)
+        self.assertEqual(s["enrichedBy"], "gemini")
+        self.assertFalse(fs._PROVIDER_STATE["gemini"]["dead"])                  # a blip is not a failure
+
+    def test_per_minute_rate_limit_waits_and_retries_but_daily_quota_does_not(self):
+        minute = fs._exhausted('{"error":{"message":"Rate limit reached ... on tokens per minute (TPM): try again in 7.5s"}}')
+        self.assertTrue(minute.per_minute)
+        self.assertEqual(minute.wait, 7.5)
+        daily = fs._exhausted('{"error":{"message":"Rate limit reached on requests per day (RPD)"}}')
+        self.assertFalse(daily.per_minute)
+        self.assertFalse(fs._exhausted('{"error":{"message":"Your credit balance is too low"}}').per_minute)
+
+    def test_health_file_records_what_happened_and_demotes_a_quota_dead_provider(self):
+        import tempfile
+        from datetime import datetime, timezone
+        path = os.path.join(tempfile.mkdtemp(), "ai-health.json")
+        sts = [story(40 + i, f"Health check story {i}", "business", summary=self.SRC[0] + f" Case {i}.") for i in range(3)]
+        p = Providers(gemini=fs._ProviderExhausted("quota"), openai=GOOD_NOTE)
+        with mock.patch.object(fs, "HEALTH_PATH", path):
+            self.run_enrich(sts, p.install(["gemini", "openai"]))
+            doc = json.load(open(path))
+            self.assertEqual(doc["providers"]["gemini"]["dead"], "quota")
+            self.assertEqual(doc["providers"]["openai"]["answered"], 3)
+            self.assertEqual(doc["notes"]["ai_note"], 3)
+            fs._PREV_HEALTH.update(json.load(open(path)))
+            self.assertEqual(fs._demoted("gemini"), 1)                           # probed last next time
+            self.assertEqual(fs._demoted("openai"), 0)
+            self.assertGreater(fs._provider_order("tech").index("gemini"), fs._provider_order("tech").index("groq"))
+            order_cheap = [n for n in fs._provider_order("tech") if n in ("gemini", "github", "cerebras", "mistral", "openrouter")]
+            self.assertEqual(order_cheap[-1], "gemini")
 
     def test_real_stories_json_runs_clean(self):
         path = os.path.join(os.path.dirname(__file__), "..", "stories.json")

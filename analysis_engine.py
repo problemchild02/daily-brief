@@ -500,3 +500,121 @@ def key_points(headline, excerpts, summary, facts):
     if len(items) == 1:
         return items[0]
     return " ".join(f"({i}) {t}" for i, t in enumerate(items, 1))
+
+
+# ── verifying an AI-written note (no tokens, no network) ─────────────────────
+#
+# AI notes are the one place a made-up number can enter the paper. Research on news
+# summaries (BBC-led study, GDELT's write-up on "grounding") finds models invent
+# details even when handed the article, and the fix that works is a coverage check:
+# every claim must be supported by the source. This is the deterministic version for
+# the claims that matter most to a lawyer — amounts, percentages, dates, deadlines.
+#
+# Two grades:
+#   hard — do NOT publish: a story-specific figure that appears nowhere in the
+#          article, the note merely restating the headline, hedging filler.
+#   soft — publishable but weak: far too short, or no legal anchor in a legal/Reliance
+#          note. Worth one escalation to a stronger model, never a rejection.
+#   info — recorded, never acted on: formatting (numbered implications), length, and
+#          background figures (statute years, penalties quoted from legal knowledge such
+#          as "up to ₹1 crore under s.15") that a stronger model could not verify either.
+# Calibrated on the notes already in stories.json: none of them hard-fails, and the
+# frequent "(1)" omission by some providers is formatting, not an accuracy problem.
+
+_NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
+_FIGURE = re.compile(
+    r"(?<![A-Za-z])(?:₹|Rs\.?|INR|US\$|USD|\$|€|£)\s?(?P<a>\d[\d,]*(?:\.\d+)?)"
+    r"|\b(?P<b>\d[\d,]*(?:\.\d+)?)\s?-?\s?(?:lakh crore|crore|lakh|million|billion|trillion|bn|mn|tn|cr)\b"
+    r"|\b(?P<c>\d+(?:\.\d+)?)\s?(?:%|per cent|percent)",
+    re.IGNORECASE,
+)
+_LAW_CONTEXT = re.compile(
+    r"\b(?:under|section|sec\.|s\.|act|code|rules?|regulations?|penalt\w*|fines?|fined|imprisonment|statutory|maximum|up to|"
+    r"limitation|threshold|cap)\b", re.IGNORECASE)
+_SECTION_NUM = re.compile(r"\b(?:Sections?|Sec\.?|s\.|Articles?|Rules?|Regulations?|Order|Clauses?)\s*\d+[A-Z]{0,2}", re.IGNORECASE)
+_STATUTE_YEAR = re.compile(r"\b(?:Act|Code|Rules|Regulations|Order|of|in)\s*,?\s*(?:19|20)\d{2}\b")
+_LIST_MARK = re.compile(r"\(\d\)")
+
+
+def _num_value(token):
+    try:
+        return float(token.replace(",", ""))
+    except ValueError:
+        return None
+
+
+def _in_source(value, source_values):
+    """A figure is supported if the article has the same number, allowing rounding
+    ("27%" vs "27.2 per cent") and a 1% wobble."""
+    for s in source_values:
+        if abs(value - s) <= max(0.01 * abs(s), 0.0) or round(s) == round(value) and abs(s - value) < 1:
+            return True
+    return False
+
+
+def _source_numbers(texts):
+    vals = []
+    for t in texts:
+        for m in _NUMBER.finditer(t or ""):
+            v = _num_value(m.group(0))
+            if v is not None:
+                vals.append(v)
+    return vals
+
+
+def check_note(note, headline, source_texts, section=None, banned=()):
+    """Verdict on an AI-written "why it matters" note.
+
+    Returns {"ok": bool, "hard": [...], "soft": [...]} — `ok` means no hard problem
+    and no soft one either; callers decide what to do with soft-only results."""
+    note = clean(note)
+    hard, soft, info = [], [], []
+    words = note.split()
+    low = note.lower()
+
+    if any(p in low for p in banned):
+        hard.append("generic hedging language")
+
+    head_tokens = set(_tokens(headline))
+    note_tokens = [t for t in _tokens(note) if len(t) > 3]
+    if note_tokens and head_tokens:
+        novel = [t for t in note_tokens if t not in head_tokens]
+        if len(novel) < 0.25 * len(note_tokens):
+            hard.append("restates the headline")
+
+    if len(words) < 30:
+        soft.append(f"too short ({len(words)} words)")
+    elif len(words) > 230:
+        info.append(f"long ({len(words)} words)")
+    if "(1)" not in note and not re.search(r"\b1[.)]\s", note):
+        info.append("no numbered implications")
+
+    src = _source_numbers([headline, *source_texts])
+    unsupported_hard, unsupported_bg = [], []
+    for sent in split_sentences(note) or [note]:
+        for m in _FIGURE.finditer(sent):
+            tok = m.group("a") or m.group("b") or m.group("c")
+            v = _num_value(tok)
+            if v is None or _in_source(v, src):
+                continue
+            (unsupported_bg if _LAW_CONTEXT.search(sent) else unsupported_hard).append(m.group(0).strip())
+    if unsupported_hard:
+        hard.append("figures not in the article: " + ", ".join(dict.fromkeys(unsupported_hard)))
+    if unsupported_bg:
+        info.append("statutory figures not in the article: " + ", ".join(dict.fromkeys(unsupported_bg)))
+
+    # Other numbers (dates, day counts, counts). Statute/section numbers and list
+    # markers are background knowledge, not claims about this story.
+    stripped = _LIST_MARK.sub(" ", _SECTION_NUM.sub(" ", _STATUTE_YEAR.sub(" ", note)))
+    stripped = _FIGURE.sub(" ", stripped)
+    loose = [m.group(0) for m in _NUMBER.finditer(stripped) if len(m.group(0).replace(",", "")) >= 2]
+    miss = [t for t in dict.fromkeys(loose) if (v := _num_value(t)) is not None and not _in_source(v, src)]
+    if len(miss) >= 3:
+        info.append("numbers not in the article: " + ", ".join(miss[:4]))
+
+    if section in ("legal", "reliance"):
+        sig = extract_signals(note)
+        if not (sig["courts"] or sig["regulators"] or sig["statutes"] or sig["sections"]):
+            soft.append("names no court, regulator or statute")
+
+    return {"ok": not hard and not soft, "hard": hard, "soft": soft, "info": info}

@@ -104,14 +104,26 @@ In order, per story:
      sports/opinion. Rules name the entities found; `enrichedBy` = `"native"`.
      Add or tighten rules in `_RULES` — and re-check they don't misfire (a
      consumer-court refund once matched an advertising rule).
-3. **AI, note only** — if none of the above produced a note, one short call
-   (`max_tokens` 450; the prompt carries the native summary and facts instead of
-   asking for them again). Providers: Anthropic, Gemini, OpenAI plus the
-   OpenAI-compatible ones in `ai-providers.json` (GitHub Models, Groq,
-   OpenRouter, Cerebras, Mistral, DeepSeek), then the optional `custom` one.
-   Legal/reliance try Anthropic → Gemini → OpenAI → the rest; everything else
-   tries Gemini → the *free* presets → OpenAI → paid presets → Anthropic. A
-   provider without its key is skipped.
+3. **AI, note only, cheapest verified answer first** — if none of the above
+   produced a note, one short call (`max_tokens` 450; the prompt carries the native
+   summary and facts instead of asking for them again, and tells the model to
+   analyse *this* article's framing — every article keeps its own note; stories on
+   the same event are deliberately NOT merged). Providers: Anthropic, Gemini,
+   OpenAI plus the OpenAI-compatible ones in `ai-providers.json` (GitHub Models,
+   Groq, OpenRouter, Cerebras, Mistral, DeepSeek), then the optional `custom` one.
+   **Every section tries the free tier first** (Groq → Gemini → other free
+   presets), then the strong tier (legal/reliance: Anthropic → OpenAI; others:
+   OpenAI → paid presets → Anthropic). Each answer goes through
+   `analysis_engine.check_note` (no tokens): a *hard* flaw (an amount/percentage not in
+   the article, hedging, a restated headline) gets one retry on the same provider
+   with the reasons spelled out, then the next provider, and is never published;
+   a *soft* flaw (under 30 words, or no court/regulator/statute in a legal/Reliance
+   note) is kept while one stronger provider gets a try; *info* flaws (missing
+   numbered list, statute figures from legal knowledge) never trigger anything. At
+   most `AI_MAX_ANSWERS` (3) providers answer one story. A provider without its key
+   is skipped. A 503/timeout or a per-minute 429 gets one quiet retry; calls are
+   paced (`minGapSec` in `ai-providers.json`). The check cannot catch a note that is
+   fluent but irrelevant or mischaracterises a case it cites — spot-check legal notes.
 4. **The safety net — no AI needed.** If every provider failed, a story keeps
    (a) last run's AI note for the same headline even if the text drifted
    ("stale beats blank"), else (b) **key points** extracted from the article
@@ -131,10 +143,14 @@ Spend controls (env vars / repo *variables*; all optional):
 `AI_SKIP_SECTIONS` (default `sports`: no AI note and no "key points" there; summary and
 facts stay native. Opinion is deliberately *not* skipped — editorials carry regulatory signal),
 `AI_MAX_CALLS` (default 80/run, spent legal-first), `AI_PROVIDER_ORDER`
-(e.g. `gemini,custom,openai`), and a per-run circuit breaker: quota/credit
+(e.g. `gemini,custom,openai`), `AI_STRONG_FIRST_SECTIONS` (e.g. `legal,reliance` to
+skip the free tier there once Anthropic is topped up), `AI_MAX_ANSWERS`, and a per-run circuit breaker: quota/credit
 errors disable a provider immediately, `AI_MAX_FAILS` (3) consecutive failures
 also do. The run log ends with an `Enrichment:` line (reused / native / AI /
-no brief) — read it after a refresh.
+no brief) plus an `Accuracy check:` line (answers / rejected / minor flaws) — read
+them after a refresh. Each run also writes `src/data/ai-health.json` (per provider:
+answered, rejected, errors, dead reason, last error); a provider that ran out of
+quota in the last 12h is probed last next time.
 
 **Adding a provider** that speaks the OpenAI chat format is one JSON entry in
 `ai-providers.json` (read by both Python and Node) plus a secret named in its

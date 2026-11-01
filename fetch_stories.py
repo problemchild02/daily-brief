@@ -449,7 +449,21 @@ NOTE_MAX_TOKENS = 450      # a ~150-word note is ~250 tokens; the rest is headro
 #                      carry the regulatory signal. Their summary and facts stay native.
 AI_SKIP_SECTIONS = {s.strip() for s in (os.environ.get("AI_SKIP_SECTIONS") or "sports").split(",") if s.strip()}
 
-_PROVIDER_STATE = {}       # name -> {"fails": int, "dead": bool}, reset each run
+#   AI_MAX_ANSWERS     how many providers may answer ONE story before we stop (default 3):
+#                      free first, then a retry on a stronger one if the note fails the
+#                      accuracy check — at most one paid attempt per story in practice
+#   AI_STRONG_FIRST_SECTIONS  sections that skip the free tier and go straight to the
+#                      strong providers (e.g. "legal,reliance" once Anthropic is topped up)
+AI_MAX_ANSWERS = int(os.environ.get("AI_MAX_ANSWERS", "3") or 3)
+AI_STRONG_FIRST_SECTIONS = {s.strip() for s in (os.environ.get("AI_STRONG_FIRST_SECTIONS") or "").split(",") if s.strip()}
+TRANSIENT_WAIT = 3         # seconds before the single retry on a 503 / timeout
+HEALTH_PATH = os.environ.get("AI_HEALTH_PATH", os.path.join("src", "data", "ai-health.json"))
+
+_PROVIDER_STATE = {}       # name -> {"fails": int, "dead": bool, "why": str}, reset each run
+_RUN = {}                  # per-run tallies for ai-health.json, reset each run
+_PREV_HEALTH = {}          # last run's ai-health.json, loaded when enrichment starts
+_LAST_CALL = {}            # name -> monotonic time of its last request, for pacing
+_DEFAULT_GAP = {"gemini": 6.0}   # seconds between calls; presets set "minGapSec" in ai-providers.json
 
 
 def _provider_order(section):
@@ -459,12 +473,28 @@ def _provider_order(section):
         return forced
     free = [n for n, p in _PRESETS.items() if p.get("tier") == "free"]
     paid = [n for n, p in _PRESETS.items() if p.get("tier") != "free"]
+    # Cheap tier first for EVERY section: the accuracy check (analysis_engine.check_note)
+    # decides whether a free answer is good enough, so paid tokens are only spent on the
+    # stories where it was not. A provider that ran out of quota last run is probed last.
+    cheap = list(dict.fromkeys(["groq", "gemini"] + free))
+    cheap = [n for n in cheap if n == "gemini" or n in free]
+    cheap.sort(key=_demoted)
     if section in _QUALITY_FIRST_SECTIONS:
-        base = ["anthropic", "gemini", "openai"] + free + paid
+        strong = ["anthropic", "openai"] + paid
     else:
-        # Free allowances first, then the paid ones; Claude last (dearest per token).
-        base = ["gemini"] + free + ["openai"] + paid + ["anthropic"]
+        strong = ["openai"] + paid + ["anthropic"]   # Claude last: dearest per token
+    base = strong + cheap if section in AI_STRONG_FIRST_SECTIONS else cheap + strong
     return [n for n in base + ["custom"] if n in _PROVIDERS]
+
+
+def _demoted(name):
+    """1 if last run's health file says this provider ran out of quota recently."""
+    prev = (_PREV_HEALTH.get("providers") or {}).get(name) or {}
+    try:
+        age = (datetime.now(timezone.utc) - datetime.fromisoformat(_PREV_HEALTH["updatedAt"])).total_seconds()
+    except Exception:
+        return 0
+    return 1 if prev.get("dead") == "quota" and age < 12 * 3600 else 0
 
 
 def _provider_usable(name):
@@ -472,15 +502,20 @@ def _provider_usable(name):
 
 
 def _note_provider_result(name, ok, exhausted=False):
-    st = _PROVIDER_STATE.setdefault(name, {"fails": 0, "dead": False})
+    st = _PROVIDER_STATE.setdefault(name, {"fails": 0, "dead": False, "why": ""})
     if ok:
         st["fails"] = 0
         return
     st["fails"] += 1
     if exhausted or st["fails"] >= AI_MAX_FAILS:
-        st["dead"] = True
+        st["dead"], st["why"] = True, "quota" if exhausted else "failures"
         why = "out of quota/credit" if exhausted else f"{st['fails']} failures in a row"
         print(f"      [{name}] disabled for the rest of this run ({why})", file=sys.stderr)
+
+
+def _note_body(excerpt, summary):
+    """The article text the model is shown (and that its note is checked against)."""
+    return (summary or excerpt or "")[:700].strip()
 
 
 def _build_note_prompt(headline, section, source, tags, excerpt, summary, facts):
@@ -489,7 +524,7 @@ def _build_note_prompt(headline, section, source, tags, excerpt, summary, facts)
     being asked for again — about half the output tokens of the old both-fields
     call, and a shorter input than before (excerpt capped at 450 chars)."""
     facts_str = "; ".join(f"{f['label']}: {f['value']}" for f in facts) or "none extracted"
-    body = (summary or excerpt or "")[:450].strip()
+    body = _note_body(excerpt, summary)
     no_text = "" if body else (
         "\nNo article text is available — only the headline. Ground the analysis in what "
         "you actually know about the named people, companies, statutes or events; do not "
@@ -502,13 +537,35 @@ Headline: {headline}
 Key facts found in the text: {facts_str}
 What the article reports: {body or "(none)"}
 {no_text}
+Analyse THIS article, its outlet's framing and its facts, not the event in general; other outlets cover the same event from other angles and each gets its own note. Use only amounts, percentages, dates and counts that appear above; statutes, sections and precedents may come from your own knowledge, but if you are unsure of a section number name the Act only.
 Write like a sharp analyst briefing a busy colleague. No generic filler that fits any story; if you have no specific fact, say less. Never use these phrases: {", ".join(f'"{p}"' for p in _BANNED_PHRASES)}.
 
 Return ONLY raw JSON: {{"contextNote": "Grounded analysis, separate from the article. Name the specific statute (with section if known), regulator, tribunal or precedent — not just the area of law; cite real case law if it applies, else say none is on point. Then 2-3 numbered implications inline '(1) ... (2) ...' for what Indian in-house counsel should do, check or watch because of THIS story. 100-160 words."}}"""
 
 
 class _ProviderExhausted(Exception):
-    """Billing/quota failure — retrying the same provider won't help."""
+    """Billing/quota failure — retrying the same provider won't help, unless
+    `per_minute` says it was only a rate limit that clears in `wait` seconds."""
+    def __init__(self, message="", per_minute=False, wait=0):
+        super().__init__(message)
+        self.per_minute, self.wait = per_minute, wait
+
+
+def _exhausted(body, headers=None):
+    """A _ProviderExhausted from an error body, telling a per-minute rate limit
+    (wait and retry once) from a spent daily allowance or credit balance (give up)."""
+    low = (body or "").lower()
+    per_minute = bool(re.search(r"per ?minute|\brpm\b|\btpm\b|requests per min|tokens per min", low)) and \
+        not re.search(r"per ?day|\brpd\b|daily|billing|credit balance|insufficient", low)
+    wait = 10.0
+    try:
+        wait = float((headers or {}).get("Retry-After") or 0) or wait
+    except (TypeError, ValueError):
+        pass
+    m = re.search(r"(?:retry in|try again in|retrydelay\D{0,6})\s*([\d.]+)\s*s", low)
+    if m:
+        wait = float(m.group(1))
+    return _ProviderExhausted((body or "")[:200], per_minute, min(wait, 25.0))
 
 
 class _NoRedirect(HTTPRedirectHandler):
@@ -560,7 +617,7 @@ def _call_anthropic_raw(prompt, max_tokens=900):
     except HTTPError as e:
         body = e.read().decode("utf-8", errors="ignore")
         if e.code in (400, 429) and ("credit balance" in body.lower() or "quota" in body.lower()):
-            raise _ProviderExhausted(body[:200])
+            raise _exhausted(body, e.headers)
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
@@ -586,7 +643,7 @@ def _call_gemini_raw(prompt, max_tokens=900):
     except HTTPError as e:
         body = e.read().decode("utf-8", errors="ignore")
         if e.code == 429 or "quota" in body.lower() or "RESOURCE_EXHAUSTED" in body:
-            raise _ProviderExhausted(body[:200])
+            raise _exhausted(body, e.headers)
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
@@ -610,7 +667,7 @@ def _call_openai_raw(prompt, max_tokens=900):
     except HTTPError as e:
         body = e.read().decode("utf-8", errors="ignore")
         if e.code == 429 or "insufficient_quota" in body.lower() or "billing" in body.lower():
-            raise _ProviderExhausted(body[:200])
+            raise _exhausted(body, e.headers)
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
@@ -665,7 +722,7 @@ def _call_preset_raw(name, prompt, max_tokens=900):
         # 429 covers both a spent daily allowance and a per-minute limit; either
         # way, hammering it for the remaining stories only wastes the run.
         if e.code in (402, 429) or "quota" in body.lower() or "insufficient" in body.lower():
-            raise _ProviderExhausted(body[:200])
+            raise _exhausted(body, e.headers)
         where = f" -> {e.headers.get('Location')}" if 300 <= e.code < 400 else ""
         raise RuntimeError(f"HTTP {e.code}{where}: {body[:200]}")
 
@@ -691,7 +748,7 @@ def _call_custom_raw(prompt, max_tokens=900):
     except HTTPError as e:
         body = e.read().decode("utf-8", errors="ignore")
         if e.code == 429 or "quota" in body.lower() or "insufficient" in body.lower():
-            raise _ProviderExhausted(body[:200])
+            raise _exhausted(body, e.headers)
         raise RuntimeError(f"HTTP {e.code}: {body[:200]}")
 
 
@@ -708,18 +765,67 @@ for _name in _PRESETS:
 _PROVIDERS["custom"] = (_call_custom_raw, lambda: bool(FALLBACK_BASE_URL and FALLBACK_MODEL))
 
 
-def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_MAX_TOKENS, budget=None):
-    """One provider, up to two attempts (the second only when the first used banned
-    hedging language). Returns {field: text, "enrichedBy": name} or None. Tracks
-    failures so a dead provider stops being called for the rest of the run."""
+def _is_transient(e):
+    """A blip worth one quiet retry: provider overloaded, gateway hiccup, timeout."""
+    msg = str(e)
+    return any(t in msg for t in ("HTTP 502", "HTTP 503", "HTTP 504", "UNAVAILABLE", "overloaded", "timed out", "Connection reset"))
+
+
+def _pace(name):
+    """Stay under a provider's requests-per-minute limit instead of tripping it."""
+    gap = _PRESETS.get(name, {}).get("minGapSec", _DEFAULT_GAP.get(name, 0))
+    wait = _LAST_CALL.get(name, 0) + gap - time.monotonic()
+    if wait > 0:
+        time.sleep(wait)
+    _LAST_CALL[name] = time.monotonic()
+
+
+def _call_with_patience(name, call_fn, prompt, max_tokens):
+    """One request; a transient error or per-minute rate limit gets exactly one retry."""
+    for attempt in range(2):
+        _pace(name)
+        try:
+            return call_fn(prompt, max_tokens)
+        except _ProviderExhausted as e:
+            if attempt == 0 and e.per_minute:
+                print(f"      [{name}] rate limited; waiting {e.wait:.0f}s then retrying once", file=sys.stderr)
+                time.sleep(e.wait)
+                continue
+            raise
+        except Exception as e:
+            if attempt == 0 and _is_transient(e):
+                print(f"      [{name}] busy ({str(e)[:60].strip()}); retrying once", file=sys.stderr)
+                time.sleep(TRANSIENT_WAIT)
+                continue
+            raise
+
+
+def _note_run(kind, name, detail=None):
+    """Tally for ai-health.json."""
+    bucket = _RUN.setdefault(kind, {})
+    bucket[name] = bucket.get(name, 0) + 1
+    if detail:
+        _RUN.setdefault("last_error", {})[name] = str(detail)[:160]
+
+
+def _rank(verdict):
+    return (len(verdict["hard"]), len(verdict["soft"]))
+
+
+def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_MAX_TOKENS, budget=None, verify=None):
+    """One provider, up to two attempts (the second only when the first note failed
+    the accuracy check, and then with the reasons spelled out). Returns
+    {field: text, "enrichedBy": name, "verdict": {...}} — the better of the attempts —
+    or None when the provider gave no usable reply at all. Tracks failures so a dead
+    provider stops being called for the rest of the run."""
     call_fn = _PROVIDERS[name][0]
-    banned_hint = ""
-    result = None
+    feedback = ""
+    best = None
     for attempt in range(2):
         if budget is not None and not budget.left():
             break
         try:
-            raw = call_fn(prompt + banned_hint, max_tokens)
+            raw = _call_with_patience(name, call_fn, prompt + feedback, max_tokens)
             # Only a call that got a reply from the model spends tokens — a refused
             # or failed request (no credit, rate limit, outage) doesn't count
             # against the cap.
@@ -728,36 +834,45 @@ def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_
         except _ProviderExhausted as e:
             print(f"      [{name}] exhausted: {e}", file=sys.stderr)
             _note_provider_result(name, False, exhausted=True)
-            return None
+            _note_run("errors", name, e)
+            return best
         except Exception as e:
             print(f"      [{name}] error: {e}", file=sys.stderr)
             _note_provider_result(name, False)
-            return None
+            _note_run("errors", name, e)
+            return best
         try:
             data = json.loads(_strip_json_fences(raw))
         except Exception as e:
             print(f"      [{name}] bad JSON: {e}", file=sys.stderr)
             _note_provider_result(name, False)
-            return None
+            _note_run("errors", name, f"bad JSON: {e}")
+            return best
         values = {f: str(data.get(f, "")).strip() for f in fields}
         if not all(values.values()):
             _note_provider_result(name, False)
-            return None
-        result = {**values, "enrichedBy": name}
-        combined_lower = " ".join(values.values()).lower()
-        if attempt == 0 and any(p in combined_lower for p in _BANNED_PHRASES):
-            banned_hint = (
-                "\n\nYour previous attempt used generic hedging language "
-                "(e.g. \"may affect\", \"worth tracking\"). Rewrite with concrete, "
-                "specific claims instead — name the actual mechanism or "
-                "implication, don't gesture at one."
-            )
-            continue
-        break
-    if result:
+            _note_run("errors", name, "empty reply")
+            return best
+        note = values.get("contextNote", " ".join(values.values()))
+        verdict = verify(note) if verify else {"ok": True, "hard": [], "soft": [], "info": []}
+        if not verify and any(p in note.lower() for p in _BANNED_PHRASES):
+            verdict = {"ok": False, "hard": ["generic hedging language"], "soft": [], "info": []}
+        cand = {**values, "enrichedBy": name, "verdict": verdict}
+        if best is None or _rank(verdict) < _rank(best["verdict"]):
+            best = cand
+        if not verdict["hard"]:
+            break
+        feedback = (
+            "\n\nYour previous attempt was rejected: " + "; ".join(verdict["hard"]) + ". "
+            "Rewrite it using only amounts, percentages and dates that appear in the article text above, "
+            "with concrete, specific claims rather than generic hedging."
+        )
+    if best:
         _note_provider_result(name, True)
-        print(f"   ✓ [{name}] {label}", file=sys.stderr)
-    return result
+        _note_run("answered", name)
+        flaw = best["verdict"]["hard"] + best["verdict"]["soft"]
+        print(f"   {'✓' if not flaw else '~'} [{name}] {label}" + (f"  ({'; '.join(flaw)[:90]})" if flaw else ""), file=sys.stderr)
+    return best
 
 
 class _AIBudget:
@@ -773,22 +888,42 @@ class _AIBudget:
 
 
 def ai_note_for_story(story, excerpt, summary, facts, budget):
-    """The "why it matters" note from the first working provider, in cost-aware
-    order, or None. Only called when the native engine had no brief for the story."""
+    """The "why it matters" note, cheapest good answer first. Providers are tried in
+    cost order (free tier, then strong); each note is checked for accuracy against the
+    text the model was shown. A clean note is accepted at once; one with only soft flaws
+    (short, no legal anchor) is kept while a stronger provider gets one try; one with a
+    hard flaw (an invented figure, hedging, a restated headline) is never published.
+    Returns None when nothing acceptable came back — the key-points safety net follows."""
     prompt = _build_note_prompt(
         story["headline"], story["section"], story.get("source", ""),
         story.get("tags", []), excerpt, summary, facts,
     )
+    shown = [_note_body(excerpt, summary), story.get("hook", ""), " ".join(str(f["value"]) for f in facts)]
+
+    def verify(note):
+        return ae.check_note(note, story["headline"], shown, story["section"], banned=_BANNED_PHRASES)
+
     label = story["headline"][:60]
+    answered, best_soft = 0, None
     for name in _provider_order(story["section"]):
         if not _provider_usable(name):
             continue
-        if not budget.left():
-            return None
-        result = _try_provider(name, prompt, label, budget=budget)
-        if result:
+        if not budget.left() or answered >= AI_MAX_ANSWERS:
+            break
+        result = _try_provider(name, prompt, label, budget=budget, verify=verify)
+        if not result:
+            continue
+        answered += 1
+        v = result["verdict"]
+        if v["hard"]:
+            _note_run("rejected", name)
+            continue
+        if not v["soft"]:
             return result
-    return None
+        if best_soft is None:
+            best_soft = result
+        _note_run("soft", name)
+    return best_soft
 
 
 def parse_date(item):
@@ -1001,6 +1136,46 @@ def _reusable_note(prev, story, content_hash):
     return {"contextNote": prev["contextNote"], "enrichedBy": prev["enrichedBy"]} if same else None
 
 
+def _load_health():
+    try:
+        with open(HEALTH_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _write_health(stats, total):
+    """What each provider did this run, kept in the repo so the next run (and the
+    Settings page) can see which ones are healthy. Never allowed to fail a refresh."""
+    if not HEALTH_PATH:
+        return
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    prev = _PREV_HEALTH.get("providers") or {}
+    providers = {}
+    for name in sorted(set(_PROVIDER_STATE) | {n for k in ("answered", "rejected", "errors", "soft") for n in _RUN.get(k, {})}):
+        st = _PROVIDER_STATE.get(name, {})
+        answered = _RUN.get("answered", {}).get(name, 0)
+        providers[name] = {
+            "answered": answered,
+            "rejected": _RUN.get("rejected", {}).get(name, 0),
+            "minorFlaws": _RUN.get("soft", {}).get(name, 0),
+            "errors": _RUN.get("errors", {}).get(name, 0),
+            "dead": st.get("why") if st.get("dead") else None,
+            "lastError": _RUN.get("last_error", {}).get(name) or None,
+            "lastAnsweredAt": now if answered else (prev.get(name) or {}).get("lastAnsweredAt"),
+        }
+    doc = {"updatedAt": now, "stories": total,
+           "notes": {k: stats[k] for k in ("reused", "native_note", "ai_note", "stale", "extract", "no_note")},
+           "providers": providers}
+    try:
+        os.makedirs(os.path.dirname(HEALTH_PATH) or ".", exist_ok=True)
+        with open(HEALTH_PATH, "w", encoding="utf-8") as f:
+            json.dump(doc, f, indent=2)
+            f.write("\n")
+    except Exception as e:
+        print(f"   ! could not write {HEALTH_PATH}: {e}", file=sys.stderr)
+
+
 def enrich_stories(all_stories, page_text, previous):
     """
     Fills summary, contextNote ("why it matters"), facts, enrichedBy, summaryBy.
@@ -1015,6 +1190,9 @@ def enrich_stories(all_stories, page_text, previous):
       3. nothing  — no note is better than a canned one. The site hides it.
     """
     _PROVIDER_STATE.clear()
+    _RUN.clear()
+    _PREV_HEALTH.clear()
+    _PREV_HEALTH.update(_load_health())
     budget = _AIBudget(AI_MAX_CALLS)
     stats = {"reused": 0, "native_note": 0, "ai_note": 0, "stale": 0, "extract": 0, "no_note": 0, "skipped_budget": 0}
     by_provider = {}
@@ -1136,9 +1314,16 @@ def enrich_stories(all_stories, page_text, previous):
         + f"\n   ~{saved:,} tokens not spent vs. enriching every story with AI",
         file=sys.stderr,
     )
+    rejected = sum(_RUN.get("rejected", {}).values())
+    soft = sum(_RUN.get("soft", {}).values())
+    answered = sum(_RUN.get("answered", {}).values())
+    if answered:
+        print(f"   Accuracy check: {answered} provider answers | {rejected} rejected (invented figure, hedging or restated headline) | "
+              f"{soft} accepted with a minor flaw after trying a stronger provider", file=sys.stderr)
     dead = [n for n, st in _PROVIDER_STATE.items() if st["dead"]]
     if dead:
         print(f"   Providers disabled this run: {', '.join(dead)}", file=sys.stderr)
+    _write_health(stats, total)
 
 
 # ── MAIN ───────────────────────────────────────────────────────────────────────
