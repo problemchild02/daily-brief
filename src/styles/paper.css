@@ -138,3 +138,12 @@
     background-image: linear-gradient(to right, var(--page-shade), transparent 7%);
   }
 }
+
+/* A phone on its side leaves only ~175px for the page once the header, the paper
+   toolbar and the bottom tab bar are drawn. Hide the tab bar and its padding there
+   (the header's icons and the toolbar still reach every screen) so the spread gets
+   the height instead. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .short-landscape-hide { display: none; }
+  .short-landscape-pad { padding-bottom: 0 !important; }
+}

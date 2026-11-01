@@ -238,7 +238,7 @@ export default function App() {
         <div className={[
           'flex flex-col transition-[margin-left] duration-300',
           isPaperRoute ? 'h-[100dvh]' : 'min-h-screen',
-          isDesktop ? (sidebarCollapsed ? 'ml-0' : 'ml-[240px]') : 'pb-20',
+          isDesktop ? (sidebarCollapsed ? 'ml-0' : 'ml-[240px]') : 'pb-20 short-landscape-pad',
         ].join(' ')}>
 
           {/* Masthead hidden in print. `contents` (not a plain block wrapper) is

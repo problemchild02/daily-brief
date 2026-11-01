@@ -612,7 +612,7 @@ export function PaperEdition() {
         />
       )}
 
-      <div ref={stageRef} className="min-h-0 flex-1 px-1 pb-3 sm:px-4 sm:pb-5">
+      <div ref={stageRef} className="paper-stage mx-auto min-h-0 w-full max-w-[1560px] flex-1 px-1 pb-3 sm:px-4 sm:pb-5">
         {stage && (
           <FlipBook
             // A new page count or layout means a different book; rebuild it,

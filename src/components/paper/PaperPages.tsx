@@ -140,7 +140,7 @@ export function FrontPageContent({ meta, briefing, onBulletOpen, bulletLimit, co
         </p>
         <h1
           className="mt-2 font-display font-bold leading-none tracking-[-0.025em] text-ink whitespace-nowrap"
-          style={{ fontSize: 'clamp(1.9rem, 7.5vw, 3.6rem)' }}
+          style={{ fontSize: 'clamp(1.9rem, 7.5vmin, 3.6rem)' }}
         >
           The Daily Brief
         </h1>
