@@ -1,6 +1,6 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-22 13:39 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
@@ -22,44 +22,42 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (214,265 bytes)
-    → 100 items: 0 accepted, 100 too old, 0 no-date
+    OK  (46,634 bytes)
+    + [business] How Ambani’s Jio became India’s second-largest company
+    ↳ dual-tag [reliance] How Ambani’s Jio became India’s second-largest company
+    + [business] India’s FTAs to open access to $85 trillion market; Piyush Goyal urges exporters
+    ↳ dual-tag [reliance] India’s FTAs to open access to $85 trillion market; Piyush Goyal urges
+    + [business] People on the move in Indian Country
+    + [business] India lifts 496m people out of poverty, though inequality persists
+    + [business] Jio Platforms' listing reflects India's economic strength and AI opportunity, sa
+    ↳ dual-tag [reliance] Jio Platforms' listing reflects India's economic strength and AI oppor
+    + [business] India guards the factory floor, not the office floor
+    → 33 items: 6 accepted, 27 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (80,778 bytes)
-    + [business] Jio Platforms Set for Stock-Market Debut Today After ₹30,213-Crore IPO
-    ↳ dual-tag [reliance] Jio Platforms Set for Stock-Market Debut Today After ₹30,213-Crore IPO
-    + [business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signals 22% premium
-    ↳ dual-tag [reliance] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signals 22% pre
-    → 48 items: 2 accepted, 43 too old, 0 no-date
-  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (52,279 bytes)
-    + [business] ITC Q2 Results Preview: Profit seen falling nearly 30% YoY as cigarette tax hike
-    + [business] Nifty IT’s 18% rally may mark a durable leadership cycle; 35,000 next: LKP's Vat
-    + [business] IPO Calendar: Primary market cools after Jio frenzy, but 13 listings lined up
-    ↳ dual-tag [reliance] IPO Calendar: Primary market cools after Jio frenzy, but 13 listings l
-    + [business] Bonus issues, stock splits, dividends: Infosys, Asian Paints among over 40 stock
-    + [business] Sebi bars EKI Energy, MD Dabkara, others from market; imposes penalty
-    + [business] Muthoot Finance Q2 cons profit jumps 36% YoY to Rs 3,278 crore
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (42,633 bytes)
+    + [business] Q2 Results This Week: ITC, Bharti Airtel, NSE, BSE, LIC, among 350 companies rep
+    + [business] Capital India Finance (NSE:CIFL): Who Has Resigned from Senior Management?
+    → 28 items: 2 accepted, 3 too old, 0 no-date
+  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (153,423 bytes)
-    + [reliance] How Ambani’s Jio became India’s second-largest company
+    OK  (155,870 bytes)
     + [reliance] Ambani's Reliance set for profit jump on refining, Jio boost
     + [reliance] Mukesh Ambani’s Jio Posts 14% Profit Jump Days After Blockbuster IPO
     + [reliance] Billionaire Ambani cries tears of joy as Jio Platforms becomes the second most v
     + [reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’s second-most valuab
+    + [reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On Market Debut
     → 100 items: 5 accepted, 0 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (147,619 bytes)
-    + [retail] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy Drinks
-    → 76 items: 1 accepted, 75 too old, 0 no-date
+    OK  (59,179 bytes)
+    + [retail] Meesho appoints former GCPL CEO Sudhir Sitapati as independent director
+    → 33 items: 1 accepted, 32 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,009 bytes)
     + [retail] Global FMCG giants find an Indian answer to their Western slowdown
@@ -73,7 +71,8 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,718 bytes)
+    OK  (45,582 bytes)
+    + [tech] Festive spending drives record UPI transactions in October
     + [tech] North Korean hackers linked to crypto thefts among world's best, experts say
     + [tech] Mistral AI publicly releases Large 4, targets cybersecurity users
     + [tech] Alliant targets 1 GW of new data-center contracts in six months as power demand 
@@ -81,7 +80,6 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
     + [tech] Big Tech returns smallest share of cash to shareholders in 15 years, given AI sp
     + [tech] October ends with a thud for Intel, Reddit, AI stalwarts
     + [tech] S&P Global revises outlook on Meta to negative on cashflow concerns
-    + [tech] OpenAI cuts funding target by $10 billion: FT
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,7 +90,8 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,926 bytes)
+    OK  (14,317 bytes)
+    + [world] They signed up for a lifetime at sea on an endless cruise. High gas prices inter
     + [world] Secretary Rubio has a tough time getting officials at G20 on the same page
     + [world] A new political era in the Southern Philippines
     + [world] France seethes again as youth-led protests sweep Europe
@@ -100,7 +99,6 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
     + [world] Drone photo award winners: Far-out landscapes. Ship recycling. Rugs, rugs rugs!
     + [world] Blockchain intelligence firms link North Korea to $6.3B hack on Binance
     + [world] Alaska's Senate race faces claims of spoiler candidate. And, Hegseth ousts Army 
-    + [world] Israel is in a political deadlock. What comes next?
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,18 +107,18 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (178,713 bytes)
-    → 100 items: 0 accepted, 100 too old, 0 no-date
+    OK  (37,139 bytes)
+    → 36 items: 0 accepted, 36 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (89,714 bytes)
+    OK  (90,024 bytes)
+    + [sports] Conrad: 'I don't think you ever want to walk around saying you are the best'
+    + [sports] Gardner's 124 diffuses Hurricanes as Sixers script stunning comeback win
+    + [sports] Seifert, Phillips, Milne set up NZ win as India take series 3-2
+    + [sports] Test hopefuls fail as New South Wales crash to innings defeat
+    + [sports] Litchfield, Laura Harris and Knight blaze away to continue Heat's drought
+    + [sports] New Zealand field in final T20I; Bhuvneshwar and Varun in for India
     + [sports] Boyle and Foxcroft make it a long, hard day for India A bowlers
     + [sports] Duffy: Will be 'awesome' to play against RCB team-mate Kohli
-    + [sports] Temba Bavuma toasts South Africa's 'No. 1 Test win'
-    + [sports] King 81*, Chase five-for guide West Indies to victory on tricky pitch
-    + [sports] Cummins accepts change is on the cards as Australia come up short again
-    + [sports] Minhas' match-turning 61, Fakhar 127 take Pakistan to tri-series title
-    + [sports] Bangladesh bring in Amite Hasan for Mominul Haque for Sylhet Test
-    + [sports] Shanto blames Bangladesh spinners' inconsistency for Mirpur Test defeat
     → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -128,10 +126,13 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (129,329 bytes)
+    OK  (45,828 bytes)
     + [opinion] Indian Media’s Anxieties Add To Modi’s Mounting Woes – Analysis
-    + [opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
-    → 80 items: 2 accepted, 78 too old, 0 no-date
+    + [opinion] Daily Editorial Analysis 29 October 2026
+    + [opinion] Deemed ineligible: On the Supreme Court and SIR
+    + [opinion] Daily Editorial Analysis 30 October 2026
+    + [opinion] India’s learning gap: Why report cards may not tell the whole story
+    → 35 items: 5 accepted, 30 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -142,81 +143,95 @@ Cutoff: 2026-10-22 06:35 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Only a weatherman knows which way the wind blows: Why science and truth matter i
     + [opinion] When someone does your push-ups, can you feel your muscles flex?
     + [opinion] Red card for Maobappe from Mai-Bappe state: Chinese, dimagi Maoists on a totally
-    + [opinion] C-suite folks, mind your Mata Haris
-    + [opinion] Tricky trickle-down
-    + [opinion] See data centres less as energy-sucking private warehouses, and more as quasi-pu
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    → 50 items: 3 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (40 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] Centre exempts Isobgul/Isobgol (Psyllium Seeds) from GST fro
-   ✓ [     legal] Supreme Court: Sinking Fund contribution alongside depreciat
+── Page fetch (49 stories, 8 workers) ─────────────────────────────
+   ✓ [     legal] ICC India Arbitration Conference 2026 opens with Alexander F
+   ✗ [  business] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
+   ✗ [  business] India’s FTAs to open access to $85 trillion market; Piyush G: no og:image/twitter:image tag found
+   ✗ [  business] People on the move in Indian Country: no og:image/twitter:image tag found
+   ✗ [  business] India lifts 496m people out of poverty, though inequality pe: no og:image/twitter:image tag found
    ✓ [     legal] Cyril Amarchand Mangaldas advises Novo Tellus Capital Partne
+   ✓ [     legal] Advocate’s duty is to assist the Court, not insist on a favo
+   ✓ [     legal] Centre exempts Isobgul/Isobgol (Psyllium Seeds) from GST fro
+   ✗ [  business] Jio Platforms' listing reflects India's economic strength an: no og:image/twitter:image tag found
+   ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
+   ✗ [  reliance] India’s FTAs to open access to $85 trillion market; Piyush G: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms' listing reflects India's economic strength an: no og:image/twitter:image tag found
+   ✗ [  business] Q2 Results This Week: ITC, Bharti Airtel, NSE, BSE, LIC, amo: no og:image/twitter:image tag found
+   ✗ [  business] India guards the factory floor, not the office floor: no og:image/twitter:image tag found
+   ✗ [  business] Capital India Finance (NSE:CIFL): Who Has Resigned from Seni: no og:image/twitter:image tag found
+   ✓ [     legal] ICC India Arbitration Conference 2026: Justice Manish Pitale
+   ✗ [  reliance] Ambani's Reliance set for profit jump on refining, Jio boost: no og:image/twitter:image tag found
    ✓ [     legal] Juvenile found guilty of murder ‘cannot go unpunished’: 27 y
    ✓ [     legal] GST reverse charge extended to used cooking oil, plastic, ty
-   ✓ [     legal] Advocate’s duty is to assist the Court, not insist on a favo
-   ✗ [  business] Jio Platforms Set for Stock-Market Debut Today After ₹30,213: no og:image/twitter:image tag found
-   ✗ [  business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
-   ✓ [     legal] ICC India Arbitration Conference 2026 opens with Alexander F
-   ✓ [     legal] ICC India Arbitration Conference 2026: Justice Manish Pitale
-   ✗ [  reliance] Jio Platforms Set for Stock-Market Debut Today After ₹30,213: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Reliance set for profit jump on refining, Jio boost: no og:image/twitter:image tag found
-   ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Jio Posts 14% Profit Jump Days After Blockbu: no og:image/twitter:image tag found
-   ✗ [    retail] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy : no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’: no og:image/twitter:image tag found
    ✗ [  reliance] Billionaire Ambani cries tears of joy as Jio Platforms becom: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’: no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On: no og:image/twitter:image tag found
+   ✗ [    retail] Meesho appoints former GCPL CEO Sudhir Sitapati as independe: no og:image/twitter:image tag found
+   ✓ [     world] They signed up for a lifetime at sea on an endless cruise. H
    ✓ [     world] A new political era in the Southern Philippines
-   ✓ [     world] Drone photo award winners: Far-out landscapes. Ship recyclin
+   ✓ [     world] Secretary Rubio has a tough time getting officials at G20 on
    ✓ [     world] France seethes again as youth-led protests sweep Europe
    ✓ [     world] Key takeaways from this week's political meeting in Beijing
-   ✓ [     world] Secretary Rubio has a tough time getting officials at G20 on
-   ✓ [     world] Israel is in a political deadlock. What comes next?
+   ✓ [     world] Drone photo award winners: Far-out landscapes. Ship recyclin
    ✓ [     world] Alaska's Senate race faces claims of spoiler candidate. And,
-   ✗ [   opinion] Indian Media’s Anxieties Add To Modi’s Mounting Woes – Analy: no og:image/twitter:image tag found
-   ✗ [   opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’: no og:image/twitter:image tag found
    ✓ [     world] Blockchain intelligence firms link North Korea to $6.3B hack
-   images: 16 found, 12 not found  |  page text: 12 stories
+   ✗ [   opinion] Indian Media’s Anxieties Add To Modi’s Mounting Woes – Analy: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 29 October 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Deemed ineligible: On the Supreme Court and SIR: no og:image/twitter:image tag found
+   ✗ [   opinion] India’s learning gap: Why report cards may not tell the whol: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 30 October 2026: no og:image/twitter:image tag found
+   ✓ [     legal] Supreme Court: Sinking Fund contribution alongside depreciat
+   images: 16 found, 22 not found  |  page text: 11 stories
 
-── AI notes (15 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+── AI notes (20 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
       [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
       [anthropic] disabled for the rest of this run (out of quota/credit)
-   ✓ [gemini] IPO Calendar: Primary market cools after Jio frenzy, but 13 
-      [gemini] bad JSON: Unterminated string starting at: line 1 column 17 (char 16)
-   ✓ [openai] How Ambani’s Jio became India’s second-largest company
+   ✓ [gemini] How Ambani’s Jio became India’s second-largest company
+   ✓ [gemini] India’s FTAs to open access to $85 trillion market; Piyush G
+   ✓ [gemini] Jio Platforms' listing reflects India's economic strength an
    ✓ [gemini] Ambani’s Jio reaches $137 billion valuation, becoming India’
+   ✓ [gemini] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On
+      [gemini] bad JSON: Unterminated string starting at: line 1 column 17 (char 16)
+      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
+   ✓ [groq] How Ambani’s Jio became India’s second-largest company
+   ✓ [gemini] India’s FTAs to open access to $85 trillion market; Piyush G
+   ✓ [gemini] People on the move in Indian Country
+      [gemini] bad JSON: Unterminated string starting at: line 1 column 17 (char 16)
+      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
+   ✓ [groq] India lifts 496m people out of poverty, though inequality pe
+   ✓ [gemini] Jio Platforms' listing reflects India's economic strength an
+   ✓ [gemini] India guards the factory floor, not the office floor
+   ✓ [gemini] Meesho appoints former GCPL CEO Sudhir Sitapati as independe
+   ✓ [gemini] Festive spending drives record UPI transactions in October
+   ✓ [gemini] They signed up for a lifetime at sea on an endless cruise. H
+   ✓ [gemini] Daily Editorial Analysis 29 October 2026
+      [gemini] bad JSON: Expecting value: line 1 column 1 (char 0)
+      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
+      [github] disabled for the rest of this run (3 failures in a row)
+   ✓ [groq] Deemed ineligible: On the Supreme Court and SIR
+   ✓ [gemini] Daily Editorial Analysis 30 October 2026
+   ✓ [gemini] India’s learning gap: Why report cards may not tell the whol
+   ✓ [gemini] Q2 Results This Week: ITC, Bharti Airtel, NSE, BSE, LIC, amo
       [gemini] exhausted: {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
       [gemini] disabled for the rest of this run (out of quota/credit)
-   ✓ [openai] Juvenile found guilty of murder ‘cannot go unpunished’: 27 y
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [groq] ITC Q2 Results Preview: Profit seen falling nearly 30% YoY a
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [groq] Nifty IT’s 18% rally may mark a durable leadership cycle; 35
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [github] disabled for the rest of this run (3 failures in a row)
-   ✓ [groq] IPO Calendar: Primary market cools after Jio frenzy, but 13 
-   ✓ [groq] Bonus issues, stock splits, dividends: Infosys, Asian Paints
-   ✓ [groq] Reliance Consumer Expands FMCG Portfolio with Joyland Dairy 
-   ✓ [groq] Gen Z brands are breaching the last citadel of legacy consum
-   ✓ [groq] Secretary Rubio has a tough time getting officials at G20 on
-   ✓ [groq] A new political era in the Southern Philippines
-   ✓ [groq] France seethes again as youth-led protests sweep Europe
-   ✓ [groq] Key takeaways from this week's political meeting in Beijing
-   ✓ [groq] Only a weatherman knows which way the wind blows: Why scienc
+   ✓ [groq] Capital India Finance (NSE:CIFL): Who Has Resigned from Seni
 
-   Enrichment: 64 stories | reused 35 | native brief 6 | AI 15 (gemini=2, openai=2, groq=11; 18 calls) | kept stale 0 | key points 0 | no brief 0
-   ~75,700 tokens not spent vs. enriching every story with AI
+   Enrichment: 64 stories | reused 31 | native brief 5 | AI 20 (gemini=16, groq=4; 23 calls) | kept stale 0 | key points 0 | no brief 0
+   ~69,200 tokens not spent vs. enriching every story with AI
    Providers disabled this run: anthropic, gemini, github
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-01   Hero: business-241a7659
+Edition: 2026-11-01   Hero: business-ac411343
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
