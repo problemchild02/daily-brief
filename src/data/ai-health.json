@@ -1,33 +1,15 @@
 {
-  "updatedAt": "2026-11-02T05:29:53+00:00",
+  "updatedAt": "2026-11-02T06:37:04+00:00",
   "stories": 64,
   "notes": {
-    "reused": 22,
-    "native_note": 5,
-    "ai_note": 27,
+    "reused": 33,
+    "native_note": 3,
+    "ai_note": 20,
     "stale": 0,
     "extract": 0,
-    "no_note": 2
+    "no_note": 0
   },
   "providers": {
-    "anthropic": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": "quota",
-      "lastError": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to u",
-      "lastAnsweredAt": null
-    },
-    "gemini": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": "quota",
-      "lastError": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error,",
-      "lastAnsweredAt": null
-    },
     "github": {
       "answered": 0,
       "rejected": 0,
@@ -38,22 +20,13 @@
       "lastAnsweredAt": null
     },
     "groq": {
-      "answered": 11,
+      "answered": 20,
       "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": "quota",
-      "lastError": "{\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m624fffse3h84bds9ckk78df` service tier `on_demand` on tokens per ",
-      "lastAnsweredAt": "2026-11-02T05:29:53+00:00"
-    },
-    "openai": {
-      "answered": 18,
-      "rejected": 2,
       "minorFlaws": 0,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-02T05:29:53+00:00"
+      "lastAnsweredAt": "2026-11-02T06:37:04+00:00"
     }
   }
 }
