@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-11-02T06:37:04+00:00",
+  "updatedAt": "2026-11-02T16:24:50+00:00",
   "stories": 64,
   "notes": {
-    "reused": 33,
-    "native_note": 3,
-    "ai_note": 20,
+    "reused": 26,
+    "native_note": 0,
+    "ai_note": 30,
     "stale": 0,
     "extract": 0,
     "no_note": 0
   },
   "providers": {
-    "github": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 3,
-      "dead": "failures",
-      "lastError": "non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\\r\\n'",
-      "lastAnsweredAt": null
-    },
-    "groq": {
-      "answered": 20,
+    "gemini": {
+      "answered": 1,
       "rejected": 0,
       "minorFlaws": 0,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-02T06:37:04+00:00"
+      "lastAnsweredAt": "2026-11-02T16:24:50+00:00"
+    },
+    "groq": {
+      "answered": 30,
+      "rejected": 0,
+      "minorFlaws": 1,
+      "errors": 0,
+      "dead": null,
+      "lastError": null,
+      "lastAnsweredAt": "2026-11-02T16:24:50+00:00"
     }
   }
 }

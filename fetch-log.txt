@@ -1,42 +1,41 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-23 06:35 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-23 16:21 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (53,166 bytes)
-    + [legal] Azam Khan moves Supreme Court against arrest by ED after release from jail
-    + [legal] Khaitan & Co acts on NATCO Pharma ₹1,279 crore rights issue
-    + [legal] Kerala High Court Justice Bechu Kurian Thomas completes Ironman 70.3 triathlon i
-    + [legal] Allahabad High Court directs State to pay ₹1.25 lakh to man for 5-day illegal de
-    + [legal] Indian scientist secures patent for in-vivo power generator after Bombay High Co
-    + [legal] Courts reviewing arbitral award on merits defeats purposes of arbitration: Chief
-    + [legal] Bhushan Power: NCLT rejects promoters’ challenge to maintainability of governmen
-    + [legal] Arbitrary power thrives on ignorance, fear: Supreme Court Justice Ujjal Bhuyan
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (74,799 bytes)
+    + [legal] Lucky Ali moves Karnataka High Court challenging closure of forgery case concern
+    + [legal] We don't want to be the largest firm, we want to be the finest: Amar Gupta and V
+    + [legal] There is no justice for judges targeted by social media propaganda: Allahabad Hi
+    + [legal] Police can't ban alcohol at concerts while granting noise pollution clearance: A
+    + [legal] Allahabad High Court recommends FIR, initiates contempt action against lawyers w
+    + [legal] Exclusive: JSA unveils new brand identity as it celebrates 35 years
+    + [legal] Bombay High Court grants dynamic injunction to protect ₹2,000-crore film Ramayan
+    + [legal] Darius Khambata quits Tata Trusts, says Tata Sons' reputation has been sullied
+    → 12 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (212,141 bytes)
+    OK  (214,111 bytes)
     + [business] India's consumers are back, but its stock market is still lagging
     → 100 items: 1 accepted, 99 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (79,331 bytes)
-    + [business] Jio Platforms Set for Stock-Market Debut Today After ₹30,213-Crore IPO
-    ↳ dual-tag [reliance] Jio Platforms Set for Stock-Market Debut Today After ₹30,213-Crore IPO
+    OK  (71,971 bytes)
     + [business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signals 22% premium
     ↳ dual-tag [reliance] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signals 22% pre
-    → 45 items: 2 accepted, 39 too old, 0 no-date
+    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
+    → 41 items: 2 accepted, 38 too old, 0 no-date
   [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (44,914 bytes)
-    + [business] India bonds surge as oil cools on US-Iran deal hopes
-    + [business] GAIL shares jump 4% as Q2 net profit rises over 8% to Rs 4,650 crore, revenue gr
-    + [business] PC Jeweller shares drop 4% after Sebi sends warning letters to MD, company secre
-    + [business] BOJ signals December rate hike, but path beyond 1.5% remains uncertain
-    + [business] South Korean shares rebound as strong exports spur dip-buying
+    OK  (50,610 bytes)
+    + [business] Oracle plans to raise $20 billion through bonds and stock sales
+    + [business] Marvell to buy Lumentum in $115 billion deal in AI data-center bet
+    + [business] Ahead of Market: 10 things that will decide stock market action on Tuesday
+    + [business] EAAA India draws HDFC MF, Carnelian Asset, and L&T in Rs 316 crore listing-day b
+    + [business] Why traders are moving away from equity F&O to commodities? Nithin Kamath explai
     → 50 items: 5 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -44,42 +43,43 @@ Cutoff: 2026-10-23 06:35 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (174,027 bytes)
-    + [reliance] How Ambani’s Jio became India’s second-largest company
+    OK  (161,129 bytes)
     + [reliance] Ambani's Reliance set for profit jump on refining, Jio boost
+    + [reliance] How Ambani’s Jio became India’s second-largest company
     + [reliance] Mukesh Ambani’s Jio Posts 14% Profit Jump Days After Blockbuster IPO
     + [reliance] Billionaire Ambani cries tears of joy as Jio Platforms becomes the second most v
-    + [reliance] India's Reliance set for best day since January 2024 as oil business, Jio Platfo
-    + [reliance] Reliance Industries Surges Most in Nine Months on Earnings Beat
-    → 100 items: 6 accepted, 0 too old, 0 no-date
+    + [reliance] India's Reliance posts best day in over six years as oil business, Jio Platforms
+    + [reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’s second-most valuab
+    + [reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On Market Debut
+    → 100 items: 7 accepted, 0 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (60,468 bytes)
+    OK  (58,316 bytes)
     + [retail] Meesho appoints former GCPL CEO Sudhir Sitapati as independent director
     + [retail] Tata Consumer Products Q2 Results Show Strong Growth in India Business
     → 34 items: 2 accepted, 32 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,308 bytes)
-    + [retail] Ferrero sees India entering top 10 global markets, bets on premiumisation, ramps
-    + [retail] McDonald’s supersizes its north and east India bet to $80 million, even as risin
-    + [retail] Mass brands give liquor companies a hangover
+    OK  (10,362 bytes)
+    + [retail] Why is India's probe of Scotch imports from Britain rattling liquor majors?
+    + [retail] How Indian QSR brands are looking beyond the traditional meal
+    + [retail] Pizza Hut, KFC India operator's Q2 loss naarrows sharply on strong same-store sa
     + [retail] Millennials lead AI shopping adoption in India at 84 pc, ahead of Gen Z: McKinse
-    + [retail] Gen Z rewrites festive gifting with AI-assisted picks, artisanal hampers and sel
-    + [retail] Global FMCG giants find an Indian answer to their Western slowdown
-    → 10 items: 6 accepted, 0 too old, 0 no-date
+    + [retail] Mass brands give liquor companies a hangover
+    + [retail] McDonald’s supersizes its north and east India bet to $80 million, even as risin
+    → 9 items: 6 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,409 bytes)
+    OK  (45,417 bytes)
+    + [tech] STT Global’s India biz on the block; micro occasions power qcomm
+    + [tech] Keralam aims to bring in special Act to protect women from social media attacks
+    + [tech] Anthropic plans to sell $3.5 billion of shares to Japan investors in IPO, filing
     + [tech] HSBC to open Hong Kong AI Institute following Singapore launch
     + [tech] Apple's new CEO John Ternus to face first earnings test as memory costs surge
     + [tech] Tesla, Samsung oppose new US tariffs on Vietnam as probe deadline nears
     + [tech] AI debt surge pushes Magnificent Seven borrowing to $578 billion, up 45%: SBI Re
     + [tech] China's robot makers have mastered the moves. Now comes the race for brains
-    + [tech] South Korea's Lee vows to make bold AI investment in record budget push
-    + [tech] Binance sees outflows stabilising as exchange returns online after $6.3 billion 
-    + [tech] Fintechs fortify cyber defences; Logistics cos in the speed lane
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -90,15 +90,15 @@ Cutoff: 2026-10-23 06:35 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,840 bytes)
+    OK  (13,381 bytes)
+    + [world] Haley Stevens backs Mike Rogers. And, Gulf states brace for potential attack on 
+    + [world] Hundreds evacuate city during temporary ceasefire between Russia and Ukraine
+    + [world] UN's peacekeeping mission in disputed Western Sahara ends after 35 years
     + [world] This legendary board game could take decades to complete
     + [world] Gulf region on edge as Qatar leads talks with Iran to stave off new U.S. attacks
     + [world] They signed up for a lifetime at sea on an endless cruise. High gas prices inter
     + [world] Secretary Rubio has a tough time getting officials at G20 on the same page
     + [world] A new political era in the Southern Philippines
-    + [world] France seethes again as youth-led protests sweep Europe
-    + [world] Key takeaways from this week's political meeting in Beijing
-    + [world] Drone photo award winners: Far-out landscapes. Ship recycling. Rugs, rugs rugs!
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,18 +107,18 @@ Cutoff: 2026-10-23 06:35 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (182,860 bytes)
+    OK  (183,405 bytes)
     → 100 items: 0 accepted, 100 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,528 bytes)
-    + [sports] Lower-order runs put New Zealand A in front despite Siraj and Mukesh hauls
-    + [sports] McDonald: Australia will 'reassess' Labuschagne selection and squad's 'age profi
-    + [sports] Sammy: 'Our spinners outbowled the Bangladesh spinners' in the Dhaka Test
-    + [sports] Beardman set for ODI debut, Harper, Fraser-McGurk, Shaw in T20 squad
-    + [sports] Ravindra and Chapman ruled out of India ODIs
-    + [sports] Boyle and Foxcroft make it a long, hard day for India A bowlers
-    + [sports] Noor five-for seals 3-0 series sweep for Afghanistan in Sharjah
-    + [sports] JJ Smit sets up Namibia's first-ever bilateral ODI series win
+    OK  (90,431 bytes)
+    + [sports] Sarfaraz Khan: 'Everyday I ask myself why I should work harder'
+    + [sports] IPL 2027 retention deadline moved to November 17
+    + [sports] Pant to undergo fitness assessment before leaving for New Zealand
+    + [sports] Harshit Rana picked in India A squad for Rising Stars Asia Cup
+    + [sports] Irfan, Boucher, Waqar among support staff for inaugural Afghanistan Premier Leag
+    + [sports] Sophie Devine four-for seals low-scoring encounter for Scorchers
+    + [sports] Afghanistan climb to sixth, achieve highest-ever position in ODI rankings
+    + [sports] Ebola outbreak: Kenya trip scuttles Tribe's tour of the West Indies with England
     → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -126,12 +126,9 @@ Cutoff: 2026-10-23 06:35 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (45,066 bytes)
-    + [opinion] India’s Northeast Jews Prepare For Israel – Analysis
-    + [opinion] This Test team has 10 months to change ugly legacy
-    + [opinion] Daily Editorial Analysis 30 October 2026
-    + [opinion] India’s learning gap: Why report cards may not tell the whole story
-    → 35 items: 4 accepted, 31 too old, 0 no-date
+    OK  (42,579 bytes)
+    + [opinion] One Teacher, Five Classes: Inside India’s Single-Teacher Schools
+    → 34 items: 1 accepted, 33 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -143,75 +140,81 @@ Cutoff: 2026-10-23 06:35 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Technological fasting
     + [opinion] Tax-wise, $-foolish: Saving Dalal Street could come at a cost to Startup Street
     + [opinion] Enough of PC about pressure cookers
-    → 50 items: 4 accepted, 0 too old, 0 no-date
+    + [opinion] Mayonaise - The Smashing Pumpkins
+    + [opinion] With G-sec yields rising, countries have no alternative but to increase their bu
+    + [opinion] Better forecasts save lives in cyclones, but India needs stronger defences and f
+    → 50 items: 7 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (43 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] India's consumers are back, but its stock market is still la: no og:image/twitter:image tag found
-   ✗ [  business] Jio Platforms Set for Stock-Market Debut Today After ₹30,213: no og:image/twitter:image tag found
-   ✗ [  business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
-   ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Platforms Set for Stock-Market Debut Today After ₹30,213: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Reliance set for profit jump on refining, Jio boost: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh Ambani’s Jio Posts 14% Profit Jump Days After Blockbu: no og:image/twitter:image tag found
+── Page fetch (40 stories, 8 workers) ─────────────────────────────
    ✗ [  reliance] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
-   ✗ [  reliance] India's Reliance set for best day since January 2024 as oil : no og:image/twitter:image tag found
+   ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani’s Jio Posts 14% Profit Jump Days After Blockbu: no og:image/twitter:image tag found
+   ✗ [  business] India's consumers are back, but its stock market is still la: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani's Reliance set for profit jump on refining, Jio boost: no og:image/twitter:image tag found
+   ✗ [  business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
+   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
    ✗ [  reliance] Billionaire Ambani cries tears of joy as Jio Platforms becom: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance Industries Surges Most in Nine Months on Earnings B: no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On: no og:image/twitter:image tag found
+   ✗ [  reliance] India's Reliance posts best day in over six years as oil bus: no og:image/twitter:image tag found
    ✗ [    retail] Tata Consumer Products Q2 Results Show Strong Growth in Indi: no og:image/twitter:image tag found
-   ✓ [     world] Gulf region on edge as Qatar leads talks with Iran to stave 
-   ✓ [     world] They signed up for a lifetime at sea on an endless cruise. H
+   ✗ [  reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’: no og:image/twitter:image tag found
    ✗ [    retail] Meesho appoints former GCPL CEO Sudhir Sitapati as independe: no og:image/twitter:image tag found
-   ✓ [     world] France seethes again as youth-led protests sweep Europe
-   ✓ [     world] Key takeaways from this week's political meeting in Beijing
+   ✓ [     world] UN's peacekeeping mission in disputed Western Sahara ends af
+   ✓ [     world] This legendary board game could take decades to complete
+   ✓ [     world] Haley Stevens backs Mike Rogers. And, Gulf states brace for 
+   ✓ [     world] Gulf region on edge as Qatar leads talks with Iran to stave 
+   ✓ [     world] Hundreds evacuate city during temporary ceasefire between Ru
+   ✓ [     world] They signed up for a lifetime at sea on an endless cruise. H
    ✓ [     world] Secretary Rubio has a tough time getting officials at G20 on
    ✓ [     world] A new political era in the Southern Philippines
-   ✗ [   opinion] India’s learning gap: Why report cards may not tell the whol: no og:image/twitter:image tag found
-   ✗ [   opinion] This Test team has 10 months to change ugly legacy: no og:image/twitter:image tag found
-   ✗ [   opinion] Daily Editorial Analysis 30 October 2026: no og:image/twitter:image tag found
-   ✓ [     world] Drone photo award winners: Far-out landscapes. Ship recyclin
-   ✓ [     world] This legendary board game could take decades to complete
-   ✗ [   opinion] India’s Northeast Jews Prepare For Israel – Analysis: no og:image/twitter:image tag found
-   images: 8 found, 17 not found  |  page text: 13 stories
+   ✗ [   opinion] One Teacher, Five Classes: Inside India’s Single-Teacher Sch: no og:image/twitter:image tag found
+   images: 8 found, 14 not found  |  page text: 11 stories
 
-── AI notes (20 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [groq] Azam Khan moves Supreme Court against arrest by ED after rel
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [groq] Khaitan & Co acts on NATCO Pharma ₹1,279 crore rights issue
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [github] disabled for the rest of this run (3 failures in a row)
-   ✓ [groq] Kerala High Court Justice Bechu Kurian Thomas completes Iron
-   ✓ [groq] How Ambani’s Jio became India’s second-largest company
-   ✓ [groq] India's Reliance set for best day since January 2024 as oil 
-   ✓ [groq] Jio Platforms Set for Stock-Market Debut Today After ₹30,213
-   ✓ [groq] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa
-   ✓ [groq] India's consumers are back, but its stock market is still la
-   ✓ [groq] India bonds surge as oil cools on US-Iran deal hopes
-   ✓ [groq] GAIL shares jump 4% as Q2 net profit rises over 8% to Rs 4,6
-   ✓ [groq] BOJ signals December rate hike, but path beyond 1.5% remains
-   ✓ [groq] South Korean shares rebound as strong exports spur dip-buyin
-   ✓ [groq] Meesho appoints former GCPL CEO Sudhir Sitapati as independe
-   ✓ [groq] Tata Consumer Products Q2 Results Show Strong Growth in Indi
-   ✓ [groq] HSBC to open Hong Kong AI Institute following Singapore laun
-   ✓ [groq] South Korea's Lee vows to make bold AI investment in record 
-   ✓ [groq] Gulf region on edge as Qatar leads talks with Iran to stave 
-   ✓ [groq] Jio Platforms Set for Stock-Market Debut Today After ₹30,213
-   ✓ [groq] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa
-   ✓ [groq] NEP 2020: Will teacher education reforms miss the bus?
+── AI notes (30 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Lucky Ali moves Karnataka High Court challenging closure of 
+   ✓ [groq] We don't want to be the largest firm, we want to be the fine
+   ✓ [groq] There is no justice for judges targeted by social media prop
+   ✓ [groq] Police can't ban alcohol at concerts while granting noise po
+   ✓ [groq] Allahabad High Court recommends FIR, initiates contempt acti
+   ~ [groq] Exclusive: JSA unveils new brand identity as it celebrates 3  (names no court, regulator or statute)
+   ✓ [gemini] Exclusive: JSA unveils new brand identity as it celebrates 3
+   ✓ [groq] Bombay High Court grants dynamic injunction to protect ₹2,00
+   ✓ [groq] Darius Khambata quits Tata Trusts, says Tata Sons' reputatio
+   ✓ [groq] India's Reliance posts best day in over six years as oil bus
+   ✓ [groq] Ambani’s Jio reaches $137 billion valuation, becoming India’
+   ✓ [groq] Billionaire Mukesh Ambani’s Jio Platforms Surges Over 27% On
+   ✓ [groq] Oracle plans to raise $20 billion through bonds and stock sa
+   ✓ [groq] Marvell to buy Lumentum in $115 billion deal in AI data-cent
+   ✓ [groq] Ahead of Market: 10 things that will decide stock market act
+   ✓ [groq] EAAA India draws HDFC MF, Carnelian Asset, and L&T in Rs 316
+   ✓ [groq] Why traders are moving away from equity F&O to commodities? 
+   ✓ [groq] Why is India's probe of Scotch imports from Britain rattling
+   ✓ [groq] How Indian QSR brands are looking beyond the traditional mea
+   ✓ [groq] Pizza Hut, KFC India operator's Q2 loss naarrows sharply on 
+   ✓ [groq] STT Global’s India biz on the block; micro occasions power q
+   ✓ [groq] Keralam aims to bring in special Act to protect women from s
+   ✓ [groq] Anthropic plans to sell $3.5 billion of shares to Japan inve
+   ✓ [groq] Haley Stevens backs Mike Rogers. And, Gulf states brace for 
+   ✓ [groq] Hundreds evacuate city during temporary ceasefire between Ru
+   ✓ [groq] UN's peacekeeping mission in disputed Western Sahara ends af
+   ✓ [groq] One Teacher, Five Classes: Inside India’s Single-Teacher Sch
+   ✓ [groq] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
+   ✓ [groq] Mayonaise - The Smashing Pumpkins
+   ✓ [groq] With G-sec yields rising, countries have no alternative but 
+   ✓ [groq] Better forecasts save lives in cyclones, but India needs str
 
-   Enrichment: 64 stories | reused 33 | native brief 3 | AI 20 (groq=20; 21 calls) | kept stale 0 | key points 0 | no brief 0
-   ~69,200 tokens not spent vs. enriching every story with AI
-   Accuracy check: 20 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
-   Providers disabled this run: github
+   Enrichment: 64 stories | reused 26 | native brief 0 | AI 30 (groq=29, gemini=1; 32 calls) | kept stale 0 | key points 0 | no brief 0
+   ~56,200 tokens not spent vs. enriching every story with AI
+   Accuracy check: 31 provider answers | 0 rejected (invented figure, hedging or restated headline) | 1 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
 Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-02   Hero: legal-a61e2e47
+Edition: 2026-11-02   Hero: legal-b9753d43
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 83 stories for 2026-11-02 | 8 stories continue an earlier one
+Archive: 118 stories for 2026-11-02 | 11 stories continue an earlier one
