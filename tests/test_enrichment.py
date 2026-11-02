@@ -297,7 +297,7 @@ class EnrichmentTests(unittest.TestCase):
             out = fs._PROVIDERS["groq"][0]("hello", 321)
             self.assertIn("contextNote", out)
             self.assertEqual((seen["path"], seen["auth"], seen["model"], seen["max_tokens"]),
-                             ("/openai/v1/chat/completions", "Bearer k123", "m-1", 1500))   # groq's minTokens beats the 321 asked for
+                             ("/openai/v1/chat/completions", "Bearer k123", "m-1", 1000))   # groq minTokens beats the 321 asked for
             self.assertEqual(seen["effort"], "low")                               # and its reasoning model is told to think briefly
             with self.assertRaises(fs._ProviderExhausted):
                 fs._PROVIDERS["groq"][0]("quota", 10)
@@ -497,9 +497,43 @@ class EnrichmentTests(unittest.TestCase):
         minute = fs._exhausted('{"error":{"message":"Rate limit reached ... on tokens per minute (TPM): try again in 7.5s"}}')
         self.assertTrue(minute.per_minute)
         self.assertEqual(minute.wait, 7.5)
+        # Groq's real per-minute message also tells you to upgrade "billing": still just a wait.
+        groq = fs._exhausted('{"error":{"message":"Rate limit reached for model `openai/gpt-oss-120b` on tokens per minute (TPM): Limit 8000, Used 7259, Requested 1232. Please try again in 3.2s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"}}')
+        self.assertTrue(groq.per_minute)
+        self.assertEqual(groq.wait, 3.2)
         daily = fs._exhausted('{"error":{"message":"Rate limit reached on requests per day (RPD)"}}')
         self.assertFalse(daily.per_minute)
         self.assertFalse(fs._exhausted('{"error":{"message":"Your credit balance is too low"}}').per_minute)
+
+    def test_a_per_minute_limit_waits_and_does_not_kill_the_provider(self):
+        sts = [story(60 + i, f"Rate limit story {i}", "business", summary=self.SRC[0] + f" Case {i}.") for i in range(4)]
+        slept = []
+        limit = fs._ProviderExhausted("tokens per minute", per_minute=True, wait=3)
+        state = {"n": 0}
+        p = Providers()
+        reg = {n: p.make(n, n == "gemini") for n in ("anthropic", "gemini", "openai", "custom")}
+        def flaky(prompt, max_tokens=900):
+            state["n"] += 1
+            p.calls.append(("gemini", 0, prompt))
+            if state["n"] in (1, 3):          # the 1st and 3rd requests hit the limit once, then succeed
+                raise limit
+            return GOOD_NOTE
+        reg["gemini"] = (flaky, lambda: True)
+        with mock.patch.object(fs.time, "sleep", lambda s: slept.append(s)):
+            self.run_enrich(sts, mock.patch.object(fs, "_PROVIDERS", reg))
+        self.assertTrue(all("contextNote" in s and s["enrichedBy"] == "gemini" for s in sts))
+        self.assertFalse(fs._PROVIDER_STATE["gemini"]["dead"])
+        self.assertIn(3, slept)                                                 # waited the time the provider asked for
+
+    def test_a_per_minute_limit_that_never_clears_is_a_failure_not_an_outage_of_quota(self):
+        s = story(70, "Always limited", "business", summary=self.SRC[0])
+        always = fs._ProviderExhausted("tokens per minute", per_minute=True, wait=0)
+        p = Providers(gemini=always, openai=GOOD_NOTE)
+        with mock.patch.object(fs.time, "sleep", lambda s: None):
+            self.run_enrich([s], p.install(["gemini", "openai"]))
+        self.assertEqual(s["enrichedBy"], "openai")                             # covered by the next provider
+        self.assertEqual(fs._PROVIDER_STATE["gemini"]["why"], "")               # not marked as out of quota
+        self.assertEqual(len([c for c in p.calls if c[0] == "gemini"]), 3)      # first try + two waits
 
     def test_health_file_records_what_happened_and_demotes_a_quota_dead_provider(self):
         import tempfile

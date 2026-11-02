@@ -556,8 +556,10 @@ def _exhausted(body, headers=None):
     """A _ProviderExhausted from an error body, telling a per-minute rate limit
     (wait and retry once) from a spent daily allowance or credit balance (give up)."""
     low = (body or "").lower()
+    # Groq's per-minute message also says "upgrade ... billing", so "billing" alone proves nothing;
+    # only a daily limit or a spent credit balance means waiting won't help.
     per_minute = bool(re.search(r"per ?minute|\brpm\b|\btpm\b|requests per min|tokens per min", low)) and \
-        not re.search(r"per ?day|\brpd\b|daily|billing|credit balance|insufficient", low)
+        not re.search(r"per ?day|\brpd\b|daily|credit balance|insufficient_quota", low)
     wait = 10.0
     try:
         wait = float((headers or {}).get("Retry-After") or 0) or wait
@@ -782,19 +784,23 @@ def _pace(name):
 
 
 def _call_with_patience(name, call_fn, prompt, max_tokens):
-    """One request; a transient error or per-minute rate limit gets exactly one retry."""
-    for attempt in range(2):
+    """One request. A transient error (503, timeout) gets one quiet retry; a per-minute rate
+    limit gets up to two waits (the provider says how long) because it clears on its own."""
+    waits = blips = 0
+    while True:
         _pace(name)
         try:
             return call_fn(prompt, max_tokens)
         except _ProviderExhausted as e:
-            if attempt == 0 and e.per_minute:
-                print(f"      [{name}] rate limited; waiting {e.wait:.0f}s then retrying once", file=sys.stderr)
+            if e.per_minute and waits < 2:
+                waits += 1
+                print(f"      [{name}] rate limited; waiting {e.wait:.0f}s then retrying", file=sys.stderr)
                 time.sleep(e.wait)
                 continue
             raise
         except Exception as e:
-            if attempt == 0 and _is_transient(e):
+            if blips < 1 and _is_transient(e):
+                blips += 1
                 print(f"      [{name}] busy ({str(e)[:60].strip()}); retrying once", file=sys.stderr)
                 time.sleep(TRANSIENT_WAIT)
                 continue
@@ -833,8 +839,11 @@ def _try_provider(name, prompt, label, fields=("contextNote",), max_tokens=NOTE_
             if budget is not None:
                 budget.spend()
         except _ProviderExhausted as e:
-            print(f"      [{name}] exhausted: {e}", file=sys.stderr)
-            _note_provider_result(name, False, exhausted=True)
+            # A rate limit that outlasted our waits is a failure, not a spent allowance: the
+            # provider is tried again for the next story and only disabled after
+            # AI_MAX_FAILS in a row. A spent daily quota or credit balance disables it now.
+            print(f"      [{name}] {'still rate limited' if e.per_minute else 'exhausted'}: {e}", file=sys.stderr)
+            _note_provider_result(name, False, exhausted=not e.per_minute)
             _note_run("errors", name, e)
             return best
         except Exception as e:
