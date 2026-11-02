@@ -9,6 +9,10 @@ import type { CategoryKey, Story } from '../../lib/types'
 import { WhyItMatters } from './WhyItMatters'
 import { ArticleNote } from './ArticleNote'
 import { isGenericWhyItMatters } from './genericFallbacks'
+import { StoryFeedback } from '../personal/StoryFeedback'
+import { PreviouslyTrail } from '../personal/PreviouslyTrail'
+import { markEngaged, markOpened } from '../../hooks/useProfile'
+import { ENGAGED_SECONDS } from '../../lib/profile'
 
 interface ArticleSheetProps {
   story: Story | null
@@ -46,6 +50,14 @@ export function ArticleSheet({ story, onClose, isBookmarked, onBookmark }: Artic
   const open = story !== null
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
+
+  // Staying with a story counts for more than opening it.
+  useEffect(() => {
+    if (!story) return
+    markOpened(story)
+    const t = setTimeout(() => markEngaged(story, ENGAGED_SECONDS), ENGAGED_SECONDS * 1000)
+    return () => clearTimeout(t)
+  }, [story])
 
   useEffect(() => {
     if (!open) return
@@ -181,6 +193,8 @@ export function ArticleSheet({ story, onClose, isBookmarked, onBookmark }: Artic
 
           {practitionerBrief && <WhyItMatters text={practitionerBrief} label={story.noteKind === 'extract' ? 'Key points' : undefined} />}
 
+          <PreviouslyTrail story={story} />
+
           <a
             href={sourceUrl}
             target="_blank"
@@ -215,6 +229,8 @@ export function ArticleSheet({ story, onClose, isBookmarked, onBookmark }: Artic
               {isBookmarked ? 'Saved' : 'Save for later'}
             </motion.button>
           )}
+
+          <StoryFeedback story={story} />
 
           <div className="border-t border-rule pt-4">
             <ArticleNote

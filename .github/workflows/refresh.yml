@@ -159,6 +159,8 @@ jobs:
           git config user.email "bot@daily-brief.local"
           git add stories.json stories.fallback.json fetch-log.txt src/data/meta.json src/data/briefing.json src/data/markets.json
           [ -f src/data/ai-health.json ] && git add src/data/ai-health.json || true
+          [ -f src/data/threads.json ] && git add src/data/threads.json || true
+          [ -d archive ] && git add archive || true
           git diff --cached --quiet && echo "No changes to commit." || \
             git commit -m "chore: refresh $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main

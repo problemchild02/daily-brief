@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { Command } from 'cmdk'
-import { Search, Moon, Sun, RefreshCw, Settings, Clock } from 'lucide-react'
+import { Search, Moon, Sun, RefreshCw, Settings, Clock, Sparkles } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { clsx } from 'clsx'
 import { useTheme } from '../../hooks/useTheme'
 import { dispatchWorkflow, readPat } from '../../lib/githubWorkflow'
@@ -36,6 +37,7 @@ interface CommandPaletteProps {
 }
 
 export function CommandPalette({ open, onClose, stories, onSettingsOpen }: CommandPaletteProps) {
+  const navigate = useNavigate()
   const { isDark, toggle: toggleTheme } = useTheme()
   const [recent, setRecent] = useState<string[]>([])
   const [search, setSearch] = useState('')
@@ -97,6 +99,11 @@ export function CommandPalette({ open, onClose, stories, onSettingsOpen }: Comma
 
         {/* Quick actions */}
         <Command.Group heading="Quick actions">
+          <PaletteItem
+            icon={Sparkles}
+            label="For you: picks, catch-up, a 5 / 10 / 20 minute edition"
+            onSelect={() => run(() => navigate('/for-you'))}
+          />
           <PaletteItem
             icon={isDark ? Sun : Moon}
             label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}

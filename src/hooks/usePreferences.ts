@@ -5,9 +5,10 @@ import { useSyncExternalStore } from 'react'
 // theme in local state, so changing it in Settings left the Masthead's sun/moon
 // icon (and the command palette's label) showing the old value until a remount.
 
-export type ThemeChoice = 'auto' | 'paper' | 'sepia' | 'mist' | 'sage' | 'blush' | 'dark' | 'night' | 'slate' | 'midnight' | 'amoled'
+export type ThemeChoice = 'auto' | 'clock' | 'paper' | 'sepia' | 'mist' | 'sage' | 'blush' | 'dark' | 'night' | 'slate' | 'midnight' | 'amoled'
 export type ReadingFont = 'serif' | 'sans' | 'legible'
 export type TextSize = 's' | 'm' | 'l' | 'xl'
+export type Lens = 'retail' | 'balanced'
 
 export interface Preferences {
   theme: ThemeChoice
@@ -19,6 +20,10 @@ export interface Preferences {
   pageSound: boolean
   /** Vibration cues on page turns, taps and switches (Android browsers). */
   haptics: boolean
+  /** Order stories by what matters to this reader (see lib/ranking.ts). Off = publisher order. */
+  personalise: boolean
+  /** Which angle the ranking leans on. */
+  lens: Lens
 }
 
 const KEYS = {
@@ -28,9 +33,11 @@ const KEYS = {
   pageEffects: 'daily-brief:page-effects',
   pageSound: 'daily-brief:page-sound',
   haptics: 'daily-brief:haptics',
+  personalise: 'daily-brief:personalise',
+  lens: 'daily-brief:lens',
 } as const
 
-const THEMES: ThemeChoice[] = ['auto', 'paper', 'sepia', 'mist', 'sage', 'blush', 'dark', 'night', 'slate', 'midnight', 'amoled']
+const THEMES: ThemeChoice[] = ['auto', 'clock', 'paper', 'sepia', 'mist', 'sage', 'blush', 'dark', 'night', 'slate', 'midnight', 'amoled']
 /** Palettes that sit on a dark page; they get data-theme="dark" so every dark: rule applies. */
 const DARK_PALETTES = new Set<string>(['dark', 'night', 'slate', 'midnight', 'amoled'])
 export const isDarkPalette = (p: string) => DARK_PALETTES.has(p)
@@ -58,6 +65,8 @@ function load(): Preferences {
     pageEffects: (() => { const v = read(KEYS.pageEffects); return v === null ? null : v !== 'false' })(),
     pageSound: read(KEYS.pageSound) === 'true',
     haptics: read(KEYS.haptics) !== 'false',
+    personalise: read(KEYS.personalise) !== 'false',
+    lens: read(KEYS.lens) === 'balanced' ? 'balanced' : 'retail',
   }
 }
 
@@ -66,8 +75,17 @@ const listeners = new Set<() => void>()
 
 const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches
 
-export function resolvedPalette(theme: ThemeChoice): Exclude<ThemeChoice, 'auto'> {
+/** The palette for the time of day: daylight paper, warm sepia in the evening, night after 9:30pm. */
+export function clockPalette(date = new Date()): 'paper' | 'sepia' | 'night' {
+  const t = date.getHours() + date.getMinutes() / 60
+  if (t >= 21.5 || t < 6) return 'night'
+  if (t >= 17.5) return 'sepia'
+  return 'paper'
+}
+
+export function resolvedPalette(theme: ThemeChoice): Exclude<ThemeChoice, 'auto' | 'clock'> {
   if (theme === 'auto') return systemDark() ? 'dark' : 'paper'
+  if (theme === 'clock') return clockPalette()
   return theme
 }
 
@@ -86,6 +104,14 @@ function apply(p: Preferences) {
 }
 
 apply(state)
+
+// "Follows the clock" re-checks once a minute and only repaints when the palette changes.
+let clockShown = clockPalette()
+setInterval(() => {
+  if (state.theme !== 'clock') return
+  const now = clockPalette()
+  if (now !== clockShown) { clockShown = now; apply(state); listeners.forEach(l => l()) }
+}, 60_000)
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
   if (state.theme === 'auto') { apply(state); listeners.forEach(l => l()) }

@@ -26,6 +26,7 @@ from urllib.error import URLError, HTTPError
 from html import unescape
 
 import analysis_engine as ae   # native (zero-token) summary / facts / why-it-matters
+import story_threads as threads   # daily archive + "Previously…" trails (zero tokens)
 
 DEBUG_MODE = "--debug" in sys.argv
 
@@ -1630,3 +1631,12 @@ if __name__ == "__main__":
 
     print(f"\nWrote stories.json  ({total} stories) ✓", file=sys.stderr)
     print(f"Wrote {FALLBACK_FILE} ✓  (fallback updated)", file=sys.stderr)
+
+    # Archive today's edition and thread it against the earlier ones. Strictly an extra:
+    # a failure here must never cost the refresh its stories.
+    try:
+        archived, threaded = threads.run(
+            [s for sec in data["sections"].values() for s in sec], data["editionDate"])
+        print(f"Archive: {archived} stories for {data['editionDate']} | {threaded} stories continue an earlier one", file=sys.stderr)
+    except Exception as e:
+        print(f"! archive/threads skipped: {e}", file=sys.stderr)

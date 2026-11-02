@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { Home, LayoutGrid, Search, Bookmark, FileText } from 'lucide-react'
+import { Home, LayoutGrid, Sparkles, Bookmark, FileText } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { clsx } from 'clsx'
 import { motion } from 'motion/react'
@@ -10,12 +10,13 @@ type TabDef =
   | { label: string; icon: LucideIcon; to?: never; action: () => void }
 
 export function TabBar() {
-  const { onPaletteOpen } = useAppContext()
-
+  const { rankedById } = useAppContext()
+  // A quiet dot on "For you" when there is something new since your last visit.
+  const hasNew = [...rankedById.values()].some(r => r.isNew)
   const TABS: TabDef[] = [
     { label: 'Front',    icon: Home,        to: '/' },
     { label: 'Sections', icon: LayoutGrid,  to: '/sections/legal' },
-    { label: 'Search',   icon: Search,      action: onPaletteOpen },
+    { label: 'For you',  icon: Sparkles,    to: '/for-you' },
     { label: 'Saved',    icon: Bookmark,    to: '/saved' },
     { label: 'Papers',   icon: FileText,    to: '/papers' },
   ]
@@ -80,7 +81,12 @@ export function TabBar() {
                     className="flex flex-col items-center gap-1"
                     whileTap={{ scale: 0.85, transition: { type: 'spring', stiffness: 500, damping: 30 } }}
                   >
-                    <Icon size={22} />
+                    <span className="relative">
+                      <Icon size={22} />
+                      {tab.to === '/for-you' && hasNew && (
+                        <span aria-label="new stories" className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full" style={{ background: 'var(--accent)' }} />
+                      )}
+                    </span>
                     <span>{tab.label}</span>
                   </motion.div>
                 </>

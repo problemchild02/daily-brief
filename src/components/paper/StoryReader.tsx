@@ -9,6 +9,10 @@ import { WhyItMatters } from '../cards/WhyItMatters'
 import { ArticleNote } from '../cards/ArticleNote'
 import { useAppContext } from '../../contexts/AppContext'
 import { usePreferences } from '../../hooks/usePreferences'
+import { StoryFeedback } from '../personal/StoryFeedback'
+import { PreviouslyTrail } from '../personal/PreviouslyTrail'
+import { markEngaged, markOpened } from '../../hooks/useProfile'
+import { ENGAGED_SECONDS } from '../../lib/profile'
 import { CATEGORIES } from '../../lib/categories'
 import { readingTime } from '../../lib/readingTime'
 import { relativeTime } from '../../lib/dateFormat'
@@ -88,7 +92,9 @@ function StoryActions({ story }: { story: Story }) {
         type="button"
         onClick={() => { haptic(saved ? 'soft' : 'success'); toggleBookmark(story) }}
         aria-pressed={saved}
-        className="inline-flex items-center gap-1.5 rounded-full border border-rule px-4 py-2 font-mono text-[12px] text-ink-2 hover:bg-surface-2 hover:text-ink active:scale-95 transition-[background-color,transform]"
+        className="inline-flex items-center gap-1.5 rounded-full font-mono text-[12px] text-ink-2 hover:bg-surface-2 hover:text-ink active:scale-95 transition-[background-color,transform]"
+        // Inline: the global `button` reset beats the Tailwind padding/border utilities.
+        style={{ padding: '8px 16px', boxShadow: 'inset 0 0 0 1px var(--rule)' }}
       >
         {saved ? <BookmarkCheck size={13} /> : <Bookmark size={13} />}
         {saved ? 'Saved' : 'Save'}
@@ -115,7 +121,9 @@ function StoryAnalysis({ story }: { story: Story }) {
           )}
         </div>
       )}
+      <PreviouslyTrail story={story} />
       <StoryActions story={story} />
+      <StoryFeedback story={story} />
       <div className="ink mt-5 border-t border-rule pt-4">
         <ArticleNote storyId={story.id} sourceUrl={story.sourceUrl} storyTitle={story.headline} />
       </div>
@@ -189,6 +197,13 @@ export function StoryReader({ stories, story, onClose }: StoryReaderProps) {
 
   const current = stories[storyIndex] ?? story
   const cat = CATEGORIES[current.section]
+
+  // Turning to a story is reading it; staying on it for a while is a stronger signal.
+  useEffect(() => {
+    markOpened(current)
+    const t = setTimeout(() => markEngaged(current, ENGAGED_SECONDS), ENGAGED_SECONDS * 1000)
+    return () => clearTimeout(t)
+  }, [current])
 
   return (
     <motion.div

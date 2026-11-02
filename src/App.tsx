@@ -1,9 +1,12 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useMemo, useState, useCallback } from 'react'
 import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
 import { MotionConfig, AnimatePresence, motion } from 'motion/react'
 import { Masthead } from './components/layout/Masthead'
 import { Sidebar } from './components/layout/Sidebar'
 import { useImmersive } from './hooks/useImmersive'
+import { markOpened, useRankEpoch, useRankProfile } from './hooks/useProfile'
+import { rankSections } from './lib/ranking'
+import { ForYouPage } from './pages/ForYouPage'
 import { TabBar } from './components/layout/TabBar'
 import { SettingsSheet } from './components/layout/SettingsSheet'
 import { ArticleSheet } from './components/cards/ArticleSheet'
@@ -24,7 +27,7 @@ import { usePaperMode, usePreferences, usePrefersReducedMotion } from './hooks/u
 import { ViewModeSwitch } from './components/paper/ViewModeSwitch'
 import { CATEGORIES } from './lib/categories'
 import { CATEGORY_KEYS } from './lib/types'
-import type { FeedsPayload, MetaJson, BriefingJson, Story } from './lib/types'
+import type { FeedsPayload, MetaJson, BriefingJson, Story, ThreadsMap } from './lib/types'
 import type { BookmarkMeta } from './hooks/useBookmarks'
 
 const BASE = import.meta.env.BASE_URL
@@ -128,6 +131,7 @@ export default function App() {
   const [meta,     setMeta]     = useState<MetaJson | null>(null)
   const [feeds,    setFeeds]    = useState<FeedsPayload | null>(null)
   const [briefing, setBriefing] = useState<BriefingJson | null>(null)
+  const [threads,  setThreads]  = useState<ThreadsMap>({})
   const [loading,  setLoading]  = useState(true)
   const [feedsError, setFeedsError] = useState(false)
   const [fetchKey, setFetchKey] = useState(0)
@@ -158,6 +162,13 @@ export default function App() {
     fetch(`${BASE}src/data/briefing.json`)
       .then(r => r.ok ? r.json() : null)
       .then((d: BriefingJson | null) => { if (d) setBriefing(d) })
+      .catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    fetch(`${BASE}src/data/threads.json`)
+      .then(r => r.ok ? r.json() : null)
+      .then((d: { threads?: ThreadsMap } | null) => { if (d?.threads) setThreads(d.threads) })
       .catch(() => {})
   }, [])
 
@@ -203,9 +214,6 @@ export default function App() {
     })
   }, [])
 
-  const allStories = feeds
-    ? CATEGORY_KEYS.flatMap(k => feeds.sections[k] ?? [])
-    : []
 
   // Paper edition: the front page and section pages become a flip-book, and a
   // tapped story opens in the page-turning reader. Off (or reduced motion) falls
@@ -213,26 +221,49 @@ export default function App() {
   const paperMode = usePaperMode()
   const prefs = usePreferences()
   const reducedMotion = usePrefersReducedMotion()
+  // The paper is ranked once, from what you had read when you opened it (and again
+  // only if you change the ranking settings or reset what it has learned), so stories
+  // don't move while you read.
+  const rankProfile = useRankProfile()
+  const rankEpoch = useRankEpoch()
+  const ranking = useMemo(() => {
+    if (!feeds) return null
+    return rankSections(feeds.sections, {
+      now: Date.now(), profile: rankProfile, lens: prefs.lens, since: rankProfile.sessionSince,
+      threads, personalise: prefs.personalise,
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [feeds, threads, prefs.personalise, prefs.lens, rankEpoch])
+  const rankedFeeds = useMemo<FeedsPayload | null>(
+    () => (feeds && ranking ? { ...feeds, sections: ranking.sections } : feeds), [feeds, ranking])
+  const rankedById = useMemo(() => ranking?.byId ?? new Map(), [ranking])
+  const allStories = rankedFeeds
+    ? CATEGORY_KEYS.flatMap(k => rankedFeeds.sections[k] ?? [])
+    : []
+  const openAndRemember = useCallback((story: Story) => { markOpened(story); setOpenStory(story) }, [])
+
   const isMainRoute = location.pathname === '/' || location.pathname.startsWith('/sections/')
   const isPaperRoute = paperMode && isMainRoute
   const immersive = useImmersive() && isPaperRoute   // chrome-free full-screen reading
   // The reader flips through the whole paper in edition order, same as the pages.
-  const editionStories = feeds
+  const editionStories = rankedFeeds
     ? [...CATEGORY_KEYS]
         .sort((a, b) => CATEGORIES[a].order - CATEGORIES[b].order)
-        .flatMap(k => feeds.sections[k] ?? [])
+        .flatMap(k => rankedFeeds.sections[k] ?? [])
     : []
 
   return (
     <MotionConfig reducedMotion="user">
     <AppContext.Provider value={{
-      feeds, meta, briefing, loading, feedsError, retryFeeds, density,
+      feeds: rankedFeeds, meta, briefing, loading, feedsError, retryFeeds, density,
       bookmarksList, isBookmarked, toggleBookmark,
       onSettingsOpen: () => setSettingsOpen(true),
       onPaletteOpen:  () => setPaletteOpen(true),
       sidebarCollapsed,
       onSidebarToggle,
-      onStoryOpen: setOpenStory,
+      onStoryOpen: openAndRemember,
+      threads,
+      rankedById,
     }}>
       <div className={isPaperRoute ? 'h-[100dvh] overflow-hidden bg-canvas text-ink font-sans' : 'min-h-screen bg-canvas text-ink font-sans'}>
         {isDesktop && !immersive && <Sidebar />}
@@ -310,6 +341,7 @@ export default function App() {
                   <Routes location={location}>
                     <Route path="/"                   element={paperMode ? <PaperEdition /> : <FrontPage />} />
                     <Route path="/sections/:category" element={paperMode ? <PaperEdition /> : <SectionPage />} />
+                    <Route path="/for-you"            element={<ForYouPage />} />
                     <Route path="/saved"              element={<SavedPage />} />
                     <Route path="/papers"             element={<PapersPage />} />
                     <Route path="/search"             element={<SearchRedirect   onOpen={() => setPaletteOpen(true)} />} />

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   Home, ChevronDown, ChevronRight,
-  Search, Bookmark, FileText, Settings,
+  Search, Bookmark, FileText, Settings, Sparkles,
 } from 'lucide-react'
 import { clsx } from 'clsx'
 import { CATEGORIES } from '../../lib/categories'
@@ -52,6 +52,15 @@ export function Sidebar() {
         >
           <Home size={16} />
           Front
+        </NavLink>
+
+        <NavLink
+          to="/for-you"
+          className={({ isActive }) => navItem(isActive)}
+          style={NAV_STYLE}
+        >
+          <Sparkles size={16} />
+          For you
         </NavLink>
 
         {/* Sections with sub-items */}

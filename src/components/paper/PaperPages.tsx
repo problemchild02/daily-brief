@@ -7,6 +7,8 @@ import { MarketsTicker } from '../strips/MarketsTicker'
 import { WeatherStrip } from '../strips/WeatherStrip'
 import { StoryArt, StoryArtFallback } from './StoryArt'
 import { haptic } from '../../lib/haptics'
+import { useIsRead } from '../../hooks/useProfile'
+import { useAppContext } from '../../contexts/AppContext'
 import type { BriefingJson, CategoryKey, MetaJson, Story } from '../../lib/types'
 
 const IST_DATE = new Intl.DateTimeFormat('en-IN', {
@@ -86,8 +88,12 @@ function Kicker({ section, kicker }: { section: CategoryKey; kicker?: string }) 
 
 function Meta({ story }: { story: Story }) {
   const mins = readingTime(story.wordCount ?? 0)
+  const { rankedById } = useAppContext()
+  const r = rankedById.get(story.id)
   return (
     <p className="font-mono text-[11px] text-ink-3">
+      {r?.isNew && <><span className="font-semibold" style={{ color: 'var(--accent)' }}>NEW</span> · </>}
+      {r && r.developing > 0 && <><span className="font-semibold text-ink-2">DEVELOPING</span> · </>}
       {story.source}
       {mins > 0 && <> · {mins} min</>}
       {story.publishedAt && <> · <time dateTime={story.publishedAt}>{relativeTime(story.publishedAt)}</time></>}
@@ -376,8 +382,9 @@ function LeadStory({ story, fit, onOpen, bare = false, measureAs, imageRatio }: 
   // The first numbered implication is the single most useful line of the brief,
   // so the section front teases it right under the lead.
   const firstImplication = brief ? splitImplications(brief).items[0] : undefined
+  const read = useIsRead(story.id)
   return (
-    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure={measureAs ?? `lead-${fit}`} measureId={story.id} className={bare ? 'ink block' : 'ink mb-2 block pb-4 border-b border-rule'}>
+    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure={measureAs ?? `lead-${fit}`} measureId={story.id} className={(bare ? 'ink block' : 'ink mb-2 block pb-4 border-b border-rule') + (read ? ' story-read' : '')}>
       {/* Capped on short pages (a laptop with a small window, iPad landscape)
           so the photo can't crowd the headline and "Why it matters" off the
           section front. */}
@@ -431,6 +438,8 @@ function WhyTeaser({ text, lines, label = 'Why it matters' }: { text: string; li
 }
 
 function StoryEntry({ story, variant, pad = 0, onOpen }: { story: Story; variant?: EntryVariant; pad?: number; onOpen: (s: Story) => void }) {
+  // Before any early return: the same entry can switch between layouts as pages refill.
+  const read = useIsRead(story.id)
   // `pad`: extra breathing room per side, from the page's leftover height.
   const padStyle = pad ? { paddingBlock: `calc(0.875rem + ${pad}px)` } : undefined
   if (variant === 'feature' || variant === 'feature-s') {
@@ -443,7 +452,7 @@ function StoryEntry({ story, variant, pad = 0, onOpen }: { story: Story; variant
   const dek = storyDek(story)
   const teaser = variant === 'rich' ? teaserOf(story) : undefined
   return (
-    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure="entry" measureId={story.id} className="ink block py-3.5" style={padStyle}>
+    <Tappable onActivate={() => onOpen(story)} label={story.headline} measure="entry" measureId={story.id} className={`ink block py-3.5${read ? ' story-read' : ''}`} style={padStyle}>
       <div className="flex gap-3">
         <div className="min-w-0 flex-1">
           <Kicker section={story.section} kicker={story.kicker} />

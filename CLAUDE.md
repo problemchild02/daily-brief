@@ -90,6 +90,36 @@ motion. Otherwise the original scrolling `FrontPage`/`SectionPage` and
   `THEME_SWATCHES` in `SettingsSheet.tsx`. Buttons need inline padding/background
   (the global `button` reset beats Tailwind utilities).
 
+## The paper that learns the reader (personalisation)
+
+All on-device and token-free; nothing a reader does leaves their browser.
+
+- **Ranking** (`src/lib/ranking.ts`, pure, unit-tested): each story's score adds the reader's
+  *lens* (Retail & Reliance, or a balanced legal desk — one input, not the whole thing),
+  seriousness, freshness, what they read (decaying affinities for section / source / topic,
+  half-life 3 weeks), direct "More / Less like this" votes, already-read (-3), new-since-last-visit
+  and "developing". `topics.ts` is the coarse vocabulary (SEBI, Reliance & Jio, consumer
+  protection…) both the lens and the learning use. The two biggest reasons are shown
+  ("Here because…", "▸ …" on For you). Settings → Personal turns it off (publisher order).
+- **The paper is printed once per session**: `App.tsx` ranks `feeds` from the profile as it was
+  when the app opened (`useRankProfile`), so pages never reshuffle while reading. A reset or a
+  ranking-setting change reprints it. The For-you page scores *live* so read items fall away.
+- **Profile** (`src/lib/profile.ts` + `hooks/useProfile.ts`, localStorage `daily-brief:profile:v1`):
+  opens, engaged reads (15s on a story), votes, last-seen. `sessionSince` (frozen per session,
+  a return within 30 min keeps the old marker; first-ever visit = 0 = nothing is "new") drives
+  NEW cues and the catch-up block. Each device learns separately by design.
+- **For you** (`/for-you`, `pages/ForYouPage.tsx`; tab bar replaces the old Search tab, which
+  the header icon and Cmd-K already cover): catch-up, top picks, a 5 / 10 / 20 minute edition
+  (`buildEdition`, diversified so one story can't fill it), developing stories.
+- **Developing stories** (`story_threads.py`, run at the end of `fetch_stories.py`): one slim file
+  per edition day in `archive/` (30 days) and `src/data/threads.json` linking each story to
+  earlier coverage of the same running story (TF-IDF cosine + rare shared words; a story that
+  merely stays in the feed is not its own earlier report). Each article keeps its own note;
+  threads only add a "Previously" trail. Tuned on the real archive; thresholds are in the file.
+- **Clock theme** (`ThemeChoice 'clock'`): paper by day, sepia from 5:30pm, night from 9:30pm.
+- Tests: `python3 -m unittest discover -s tests` (pipeline, threads) and `npm run test:ts`
+  (ranking/profile; esbuild + node:test, no new dependency).
+
 ## Story analysis: native engine first, AI only for what's missing
 
 Per-story `summary`, `contextNote` ("Why It Matters" — the product's actual

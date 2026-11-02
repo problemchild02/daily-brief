@@ -150,3 +150,7 @@
 
 /* Immersive reading: no pull-to-refresh or rubber-banding while swiping pages. */
 html[data-immersive="true"], html[data-immersive="true"] body { overscroll-behavior: none; }
+
+/* A story you have already opened reads as "done": quieter headline, same layout. */
+.story-read h3 { color: var(--ink-3); }
+.story-read img { opacity: 0.75; }

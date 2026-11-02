@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react'
-import type { FeedsPayload, MetaJson, BriefingJson, Story } from '../lib/types'
+import type { FeedsPayload, MetaJson, BriefingJson, Story, ThreadsMap } from '../lib/types'
+import type { Ranked } from '../lib/ranking'
 import type { Density } from '../hooks/useDensity'
 import type { BookmarkMeta } from '../hooks/useBookmarks'
 
@@ -22,6 +23,10 @@ export interface AppContextValue {
   // the source site — the sheet itself has an explicit "Read full story" link for
   // when you actually want to leave. See App.tsx for where this state lives.
   onStoryOpen: (story: Story) => void
+  /** Earlier coverage of running stories (story id -> reports), from threads.json. */
+  threads: ThreadsMap
+  /** How the paper was ranked when it was printed: reasons, new-since-last-visit, developing. */
+  rankedById: Map<string, Ranked>
 }
 
 export const AppContext = createContext<AppContextValue>({
@@ -40,6 +45,8 @@ export const AppContext = createContext<AppContextValue>({
   sidebarCollapsed: false,
   onSidebarToggle: () => {},
   onStoryOpen: () => {},
+  threads: {},
+  rankedById: new Map(),
 })
 
 export function useAppContext(): AppContextValue {

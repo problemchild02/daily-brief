@@ -7,6 +7,9 @@ import { usePreferences, setPreference, usePrefersReducedMotion, usePaperMode } 
 import type { ReadingFont, TextSize } from '../../hooks/usePreferences'
 import { haptic, hapticsSupported } from '../../lib/haptics'
 import { enterImmersive } from '../../hooks/useImmersive'
+import { resetProfile, useProfile } from '../../hooks/useProfile'
+import { summarise } from '../../lib/profile'
+import { CATEGORIES } from '../../lib/categories'
 import { readPat, writePat, dispatchWorkflow } from '../../lib/githubWorkflow'
 import type { Theme } from '../../hooks/useTheme'
 import type { Density } from '../../hooks/useDensity'
@@ -77,7 +80,11 @@ const THEME_SWATCHES: { value: Theme; label: string; page: string; ink: string; 
 ]
 
 function ThemePicker({ value, onChange }: { value: Theme; onChange: (v: Theme) => void }) {
-  const items = [{ value: 'auto' as Theme, label: 'Auto', page: '', ink: '', accent: '' }, ...THEME_SWATCHES]
+  const items = [
+    { value: 'auto' as Theme, label: 'Auto', page: '', ink: '', accent: '' },
+    { value: 'clock' as Theme, label: 'Clock', page: '', ink: '', accent: '' },
+    ...THEME_SWATCHES,
+  ]
   return (
     <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 w-full" role="radiogroup" aria-label="Theme">
       {items.map(t => {
@@ -96,12 +103,13 @@ function ThemePicker({ value, onChange }: { value: Theme; onChange: (v: Theme) =
               aria-hidden="true"
               className="flex h-11 w-full items-end justify-between overflow-hidden rounded-lg px-1.5 pb-1"
               style={{
-                background: t.value === 'auto' ? 'linear-gradient(105deg, #FBFAF7 50%, #1B1814 50%)' : t.page,
+                background: t.value === 'auto' ? 'linear-gradient(105deg, #FBFAF7 50%, #1B1814 50%)'
+                  : t.value === 'clock' ? 'linear-gradient(105deg, #FFFDF8 34%, #F8F0DD 34% 67%, #121110 67%)' : t.page,
                 boxShadow: 'inset 0 0 0 1px rgba(128,128,128,0.25)',
               }}
             >
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '17px', lineHeight: 1, fontWeight: 600, color: t.value === 'auto' ? '#B8442A' : t.ink }}>Aa</span>
-              <span style={{ height: 8, width: 8, borderRadius: 999, background: t.value === 'auto' ? '#8EA2FF' : t.accent }} />
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '17px', lineHeight: 1, fontWeight: 600, color: t.value === 'auto' || t.value === 'clock' ? '#B8442A' : t.ink }}>Aa</span>
+              <span style={{ height: 8, width: 8, borderRadius: 999, background: t.value === 'auto' || t.value === 'clock' ? '#8EA2FF' : t.accent }} />
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 500, color: selected ? 'var(--ink)' : 'var(--ink-3)' }}>
               {t.label}
@@ -110,6 +118,39 @@ function ThemePicker({ value, onChange }: { value: Theme; onChange: (v: Theme) =
         )
       })}
     </div>
+  )
+}
+
+function LearnedRow() {
+  const profile = useProfile()
+  const [sure, setSure] = useState(false)
+  const s = summarise(profile)
+  const names = (xs: string[]) => xs.join(', ')
+  return (
+    <SettingRow label="Learned">
+      <div className="min-w-0 flex-1">
+        {s.storiesRead === 0 && s.votes === 0 ? (
+          <p className="font-mono text-[11px] leading-relaxed text-ink-3">Nothing yet. The paper learns from the stories you open and stay with, and from More / Less like this.</p>
+        ) : (
+          <ul className="space-y-1 font-mono text-[11px] leading-relaxed text-ink-2">
+            <li>{s.storiesRead} {s.storiesRead === 1 ? 'story' : 'stories'} read{s.votes ? `, ${s.votes} ${s.votes === 1 ? 'vote' : 'votes'}` : ''}</li>
+            {s.topTopics.length > 0 && <li>Leaning towards: {names(s.topTopics)}</li>}
+            {s.topSections.length > 0 && <li>Sections you read: {names(s.topSections.map(k => (CATEGORIES as Record<string, { label: string }>)[k]?.label ?? k))}</li>}
+            {s.fewer.length > 0 && <li>Showing less of: {names(s.fewer)}</li>}
+          </ul>
+        )}
+        <p className="mt-2 font-mono text-[10px] leading-relaxed text-ink-3">Stays on this device. Each device learns on its own.</p>
+        <button
+          type="button"
+          onClick={() => { if (sure) { resetProfile(); setSure(false) } else setSure(true) }}
+          onBlur={() => setSure(false)}
+          className="mt-2 rounded-lg transition-colors active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 500, padding: '6px 12px', background: sure ? 'var(--accent)' : 'var(--surface-2)', color: sure ? 'var(--canvas)' : 'var(--ink-2)' }}
+        >
+          {sure ? 'Tap again to forget everything' : 'Forget what it learned'}
+        </button>
+      </div>
+    </SettingRow>
   )
 }
 
@@ -343,6 +384,36 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
             </SettingRow>
           </div>
 
+          {/* ── Personal ────────────────────────────────── */}
+          <SectionLabel>Personal</SectionLabel>
+          <div className="border border-rule rounded-xl px-4">
+            <SettingRow label="Ranking">
+              <RadioGroup<'on' | 'off'>
+                name="Personal ranking"
+                value={prefs.personalise ? 'on' : 'off'}
+                onChange={v => setPreference('personalise', v === 'on')}
+                options={[
+                  { value: 'on', label: 'For me' },
+                  { value: 'off', label: 'Publisher order' },
+                ]}
+              />
+            </SettingRow>
+            {prefs.personalise && (
+              <SettingRow label="Emphasis">
+                <RadioGroup<'retail' | 'balanced'>
+                  name="Ranking emphasis"
+                  value={prefs.lens}
+                  onChange={v => setPreference('lens', v)}
+                  options={[
+                    { value: 'retail', label: 'Retail & Reliance' },
+                    { value: 'balanced', label: 'Balanced legal desk' },
+                  ]}
+                />
+              </SettingRow>
+            )}
+            <LearnedRow />
+          </div>
+
           {/* ── Paper ───────────────────────────────────── */}
           <SectionLabel>Paper</SectionLabel>
           <div className="border border-rule rounded-xl px-4">
@@ -362,7 +433,7 @@ export function SettingsSheet({ open, onClose }: SettingsSheetProps) {
                 type="button"
                 onClick={() => { haptic('select'); onClose(); enterImmersive() }}
                 className="rounded-lg transition-colors active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
-                style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 500, padding: '6px 12px', background: 'var(--surface-2)', color: 'var(--ink-2)' }}
+                style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 500, padding: '6px 12px', background: 'var(--surface-2)', color: 'var(--ink-2)', alignSelf: 'flex-start' }}
               >
                 Read full screen
               </button>

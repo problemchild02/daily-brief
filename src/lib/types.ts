@@ -72,3 +72,16 @@ export interface BriefingJson {
   summary: string
   bullets: BriefingBullet[]
 }
+
+/** An earlier report on the same running story (see story_threads.py). */
+export interface ThreadItem {
+  id: string
+  headline: string
+  source: string
+  section: string
+  sourceUrl: string
+  date: string   // edition day, YYYY-MM-DD
+}
+
+/** story id -> earlier coverage of the same story, oldest first. */
+export type ThreadsMap = Record<string, ThreadItem[]>
