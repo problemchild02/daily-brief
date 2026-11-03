@@ -1,26 +1,28 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-24 14:29 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-24 19:40 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (338,328 bytes)
-    + [legal] Karnataka lawyers protest advocate killings; seek 10-year prison term for offenc
-    + [legal] Supreme Court seeks UP Police response to plea over attack on lawyers in Ghaziab
-    + [legal] Allahabad High Court orders FIR against woman for falsely accusing brother of ra
-    + [legal] Supreme Court deletes High Court strictures against POCSO judge over ‘cut, copy 
-    + [legal] PIL in Delhi High Court seeks action against police officers for threats to use 
-    + [legal] IPAAC at NLUO announces single credit course on IPR & Technology Law
-    + [legal] Both Supreme Court and Manusmriti hold maintenance of wife to be pious obligatio
-    + [legal] Jantar Mantar should never have been a protest site; de-notified due to limited 
-    → 55 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (13,948 bytes)
+    + [legal] Savarkar defamation: Kin alleges security lapse, failure to examine witnesses in
+    + [legal] Supreme Court upholds reopening of tax assessments against former CJI YK Sabharw
+    → 2 items: 2 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (134,328 bytes)
+    + [legal] Fake Supreme Court website alert: SC flags “scigovinjudicial.com” as phishing do
+    + [legal] Call for Registrations: ‘Mediation Council of India  Lessons from the Internati
+    + [legal] Quackery and right to health under Article 21: Allahabad High Court issues notic
+    + [legal] Guest Lecturers entitled to maternity benefits irrespective of regular employmen
+    + [legal] Can AI be a co-mediator? Experts at IMF’s ‘An evening with mediators’ discuss fu
+    + [legal] Shardul Amarchand Mangaldas & Co. advises the Book Running Lead Managers on Zetw
+    → 10 items: 6 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (213,081 bytes)
+    OK  (212,864 bytes)
     + [business] How Ambani’s Jio became India’s second-largest company
     ↳ dual-tag [reliance] How Ambani’s Jio became India’s second-largest company
     + [business] How US Midterms Could Move Stock Markets, Oil Prices And India's Exports
@@ -28,33 +30,35 @@ Cutoff: 2026-10-24 14:29 UTC  (MAX_AGE_HOURS=240)
     + [business] India's consumers are back, but its stock market is still lagging
     → 100 items: 4 accepted, 96 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (46,771 bytes)
-    + [business] Two Years Of Little Market Gains: Is Dalal Street Entering A Longer Pause? Advai
+    OK  (81,827 bytes)
+    + [business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signals 22% premium
+    ↳ dual-tag [reliance] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signals 22% pre
     + [business] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian Markets Extend Four-D
-    + [business] Mukesh Ambani overtakes China's Zhang Yiming to become Asia's richest person
-    ↳ dual-tag [reliance] Mukesh Ambani overtakes China's Zhang Yiming to become Asia's richest 
-    + [business] EAAA India Alternatives shares list at less than 1% premium on BSE, NSE
-    → 23 items: 4 accepted, 1 too old, 0 no-date
-  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    → 46 items: 2 accepted, 44 too old, 0 no-date
+  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (50,366 bytes)
+    + [business] Taco Bell sales fall more than expected on cyclosporiasis outbreak hit
+    + [business] Polymarket unit gets US industry organization's approval to be futures broker
+    → 49 items: 2 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (160,267 bytes)
+    OK  (158,751 bytes)
     + [reliance] Mukesh Ambani stocks: Reliance Industries vs Jio Platforms shares compared - RIL
-    + [reliance] India's Reliance posts best day in over six years as oil business, Jio Platforms
-    + [reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
+    + [reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with Comcast and Charter,
     + [reliance] Billionaire Ambani cries tears of joy as Jio Platforms becomes the second most v
-    + [reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RIL stock slips from b
+    + [reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
     + [reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’s second-most valuab
+    + [reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RIL stock slips from b
     → 100 items: 6 accepted, 0 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (59,679 bytes)
-    + [retail] Meesho appoints former GCPL CEO Sudhir Sitapati as independent director
+    OK  (60,167 bytes)
+    + [retail] E-commerce share in India's FMCG retail sales triples in 2 years: Nielsen
     → 34 items: 1 accepted, 33 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,376 bytes)
@@ -88,7 +92,8 @@ Cutoff: 2026-10-24 14:29 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,322 bytes)
+    OK  (13,756 bytes)
+    + [world] For Ukraine's Kherson region, a short ceasefire meant a momentary return to norm
     + [world] Indian navy rescues 20 crew from Iranian fishing boat hijacked off Somalia
     + [world] Control of Congress is at stake today. And, judge to consider motion in Clancy c
     + [world] Death toll hits 29 after Russian strike on Ukrainian aid site, with 48 still mis
@@ -96,7 +101,6 @@ Cutoff: 2026-10-24 14:29 UTC  (MAX_AGE_HOURS=240)
     + [world] Hundreds evacuate city during temporary ceasefire between Russia and Ukraine
     + [world] UN's peacekeeping mission in disputed Western Sahara ends after 35 years
     + [world] This legendary board game could take decades to complete
-    + [world] Gulf region on edge as Qatar leads talks with Iran to stave off new U.S. attacks
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -105,26 +109,26 @@ Cutoff: 2026-10-24 14:29 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (183,766 bytes)
+    OK  (184,124 bytes)
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
-    + [sports] Prakash Bhatt becomes second Indian after Javagal Srinath to be Test match refer
-    → 100 items: 2 accepted, 98 too old, 0 no-date
+    → 100 items: 1 accepted, 99 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,408 bytes)
+    OK  (90,367 bytes)
+    + [sports] Deitz steps down as WI head coach; Coley takes interim charge
+    + [sports] NCL round-up: Chattogram win a thriller; Khulna consolidate top spot
     + [sports] Prema Rawat registers fastest fifty in women's T20s
     + [sports] Harmer calls on 'genius' Carl Crowe to boost English spin prowess
     + [sports] Finlay Bean makes switch from Yorkshire to Northants
     + [sports] India, New Zealand switch to World Cup prep at bouncy Eden Park
     + [sports] Gill would have preferred ODIs before T20Is on New Zealand tour
-    + [sports] Samad to lead Pakistan Shaheens in Rising Stars Asia Cup
-    → 100 items: 6 accepted, 0 too old, 0 no-date
+    → 100 items: 7 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (127,384 bytes)
+    OK  (127,589 bytes)
     + [opinion] Can India Ignore This International Court? Uk Snow Weather Maps (mObCZdJGRN)
     + [opinion] Actor Imran Khan Asked To Leave India, Days After Protest Against CEC Gyanesh Ku
     + [opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
@@ -136,93 +140,83 @@ Cutoff: 2026-10-24 14:29 UTC  (MAX_AGE_HOURS=240)
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (53,060 bytes)
-    + [opinion] Choose to be a healer
-    + [opinion] The Master And Margarita by Mikhail Bulgakov
-    + [opinion] All hands on the deck: Next few months, govt faces a test of political will to t
-    + [opinion] With most drug candidates failing in humans, India’s draft rules bet on the wron
+    OK  (53,159 bytes)
+    + [opinion] Second Arrow
+    + [opinion] Don't judge a book by...
+    + [opinion] Make urban legend real: Our cities must become far more business-friendly for In
+    + [opinion] Firm It Up, Don't Junk It: India needs a more predictable capital gains tax regi
     → 50 items: 4 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (48 stories, 8 workers) ─────────────────────────────
+── Page fetch (46 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
    ✗ [  business] How US Midterms Could Move Stock Markets, Oil Prices And Ind: no og:image/twitter:image tag found
-   ✗ [  business] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian M: no og:image/twitter:image tag found
    ✗ [  business] India Could Become World’s Largest Economy by 2100: Jeffrey : no og:image/twitter:image tag found
    ✗ [  business] India's consumers are back, but its stock market is still la: no og:image/twitter:image tag found
-   ✗ [  business] EAAA India Alternatives shares list at less than 1% premium : no og:image/twitter:image tag found
-   ✗ [  business] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
-   ✗ [  business] Two Years Of Little Market Gains: Is Dalal Street Entering A: no og:image/twitter:image tag found
-   ✗ [  business] Mukesh Ambani overtakes China's Zhang Yiming to become Asia': no og:image/twitter:image tag found
+   ✗ [  business] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
    ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh Ambani overtakes China's Zhang Yiming to become Asia': no og:image/twitter:image tag found
-   ✗ [  reliance] India's Reliance posts best day in over six years as oil bus: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa: no og:image/twitter:image tag found
+   ✗ [  business] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian M: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani stocks: Reliance Industries vs Jio Platforms s: no og:image/twitter:image tag found
+   ✗ [  reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with : no og:image/twitter:image tag found
    ✗ [  reliance] Billionaire Ambani cries tears of joy as Jio Platforms becom: no og:image/twitter:image tag found
-   ✗ [    retail] Meesho appoints former GCPL CEO Sudhir Sitapati as independe: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Jio reaches $137 billion valuation, becoming India’: no og:image/twitter:image tag found
+   ✓ [     legal] Can AI be a co-mediator? Experts at IMF’s ‘An evening with m
+   ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
+   ✓ [     legal] Fake Supreme Court website alert: SC flags “scigovinjudicial
+   ✓ [     legal] Guest Lecturers entitled to maternity benefits irrespective 
+   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
+   ✓ [     legal] Quackery and right to health under Article 21: Allahabad Hig
    ✓ [     world] Death toll hits 29 after Russian strike on Ukrainian aid sit
-   ✓ [     world] UN's peacekeeping mission in disputed Western Sahara ends af
    ✓ [     world] Control of Congress is at stake today. And, judge to conside
-   ✓ [     world] Haley Stevens backs Mike Rogers. And, Gulf states brace for 
-   ✓ [     world] Hundreds evacuate city during temporary ceasefire between Ru
    ✓ [     world] Indian navy rescues 20 crew from Iranian fishing boat hijack
+   ✓ [     world] Haley Stevens backs Mike Rogers. And, Gulf states brace for 
    ✓ [     world] This legendary board game could take decades to complete
-   ✗ [    sports] Prakash Bhatt becomes second Indian after Javagal Srinath to: no og:image/twitter:image tag found
-   ✓ [     world] Gulf region on edge as Qatar leads talks with Iran to stave 
+   ✓ [     legal] Call for Registrations: ‘Mediation Council of India  Lesson
+   ✓ [     world] Hundreds evacuate city during temporary ceasefire between Ru
+   ✓ [     world] UN's peacekeeping mission in disputed Western Sahara ends af
+   ✓ [     legal] Shardul Amarchand Mangaldas & Co. advises the Book Running L
    ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [   opinion] Why Parents Leave Local-Language Schools for English-Medium : no og:image/twitter:image tag found
-   ✗ [   opinion] Can India Ignore This International Court? Uk Snow Weather M: no og:image/twitter:image tag found
    ✗ [   opinion] Actor Imran Khan Asked To Leave India, Days After Protest Ag: no og:image/twitter:image tag found
+   ✗ [   opinion] Can India Ignore This International Court? Uk Snow Weather M: no og:image/twitter:image tag found
    ✗ [   opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’: no og:image/twitter:image tag found
-   images: 8 found, 23 not found  |  page text: 13 stories
+   ✗ [   opinion] Why Parents Leave Local-Language Schools for English-Medium : no og:image/twitter:image tag found
+   ✓ [     world] For Ukraine's Kherson region, a short ceasefire meant a mome
+   images: 14 found, 20 not found  |  page text: 11 stories
 
-── AI notes (31 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Karnataka lawyers protest advocate killings; seek 10-year pr
-   ✓ [groq] Supreme Court seeks UP Police response to plea over attack o
-   ✓ [groq] Allahabad High Court orders FIR against woman for falsely ac
-   ✓ [groq] Supreme Court deletes High Court strictures against POCSO ju
-   ✓ [groq] PIL in Delhi High Court seeks action against police officers
-   ✓ [groq] IPAAC at NLUO announces single credit course on IPR & Techno
-   ✓ [groq] Both Supreme Court and Manusmriti hold maintenance of wife t
-   ✓ [groq] Jantar Mantar should never have been a protest site; de-noti
-   ✓ [groq] Reliance shares: After massive 12% surge, Mukesh Ambani's RI
-   ✓ [groq] Ambani’s Jio reaches $137 billion valuation, becoming India’
-   ~ [groq] Mukesh Ambani overtakes China's Zhang Yiming to become Asia'  (names no court, regulator or statute)
-   ✓ [gemini] Mukesh Ambani overtakes China's Zhang Yiming to become Asia'
-   ✓ [groq] India Could Become World’s Largest Economy by 2100: Jeffrey 
-   ✓ [groq] FirstClub crosses 3.5 million orders, enters beauty and pers
-   ✓ [groq] GIVA raises $100 million-plus, closes FY26 at Rs 865 crore
-   ✓ [groq] Apple Q4 results beat estimates as iPhone 18 Pro demand, pri
-   ✓ [groq] Apple posts all-time September quarter revenue records in In
-   ✓ [groq] Apple’s robust India quarter; Giva’s $100 million funding
-   ✓ [groq] Samsung to make AMD, Nvidia chip parts at second Texas plant
-   ✓ [groq] China's 'Lipstick King' touts AI tokens in first for Singles
-   ✓ [groq] Oracle plans to raise $20 billion through bonds and stock sa
-   ✓ [groq] Binance co-CEO says company is in very strong financial heal
-   ✓ [groq] Indian navy rescues 20 crew from Iranian fishing boat hijack
-   ✓ [groq] Control of Congress is at stake today. And, judge to conside
-   ✓ [groq] Death toll hits 29 after Russian strike on Ukrainian aid sit
-   ✓ [groq] Can India Ignore This International Court? Uk Snow Weather M
-   ✓ [groq] Actor Imran Khan Asked To Leave India, Days After Protest Ag
-   ✓ [groq] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
-   ✓ [groq] Why Parents Leave Local-Language Schools for English-Medium 
-   ✓ [groq] Two Years Of Little Market Gains: Is Dalal Street Entering A
+── AI notes (19 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Savarkar defamation: Kin alleges security lapse, failure to 
+   ✓ [groq] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with 
+   ✓ [groq] Fake Supreme Court website alert: SC flags “scigovinjudicial
+   ✓ [groq] Call for Registrations: ‘Mediation Council of India  Lesson
+   ✓ [groq] Quackery and right to health under Article 21: Allahabad Hig
+   ✓ [groq] Guest Lecturers entitled to maternity benefits irrespective 
+   ✓ [groq] Can AI be a co-mediator? Experts at IMF’s ‘An evening with m
+   ✓ [groq] Shardul Amarchand Mangaldas & Co. advises the Book Running L
+   ✓ [groq] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa
+   ✓ [groq] Taco Bell sales fall more than expected on cyclosporiasis ou
+   ✓ [groq] Polymarket unit gets US industry organization's approval to 
+   ✓ [groq] E-commerce share in India's FMCG retail sales triples in 2 y
+   ✓ [groq] For Ukraine's Kherson region, a short ceasefire meant a mome
+   ✓ [groq] Jio Platforms shares to list on BSE, NSE tomorrow; GMP signa
    ✓ [groq] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian M
-   ✓ [groq] Mukesh Ambani overtakes China's Zhang Yiming to become Asia'
+   ✓ [groq] Second Arrow
+   ✓ [groq] Don't judge a book by...
+   ✓ [groq] Make urban legend real: Our cities must become far more busi
+   ✓ [groq] Firm It Up, Don't Junk It: India needs a more predictable ca
 
-   Enrichment: 64 stories | reused 25 | native brief 0 | AI 31 (groq=30, gemini=1; 33 calls) | kept stale 0 | key points 0 | no brief 0
-   ~54,900 tokens not spent vs. enriching every story with AI
-   Accuracy check: 32 provider answers | 0 rejected (invented figure, hedging or restated headline) | 1 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 36 | native brief 1 | AI 19 (groq=19; 20 calls) | kept stale 0 | key points 0 | no brief 0
+   ~70,500 tokens not spent vs. enriching every story with AI
+   Accuracy check: 19 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   12 OK  /  4 failed
+Feeds:   14 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-03   Hero: legal-3c5f52e0
+Edition: 2026-11-04   Hero: legal-63dd5d31
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 139 stories for 2026-11-03 | 12 stories continue an earlier one
+Archive: 64 stories for 2026-11-04 | 11 stories continue an earlier one
