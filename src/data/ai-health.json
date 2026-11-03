@@ -1,59 +1,32 @@
 {
-  "updatedAt": "2026-11-03T07:09:04+00:00",
+  "updatedAt": "2026-11-03T14:32:58+00:00",
   "stories": 64,
   "notes": {
-    "reused": 18,
-    "native_note": 1,
-    "ai_note": 37,
+    "reused": 25,
+    "native_note": 0,
+    "ai_note": 31,
     "stale": 0,
     "extract": 0,
     "no_note": 0
   },
   "providers": {
-    "anthropic": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": "quota",
-      "lastError": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to u",
-      "lastAnsweredAt": null
-    },
     "gemini": {
-      "answered": 3,
-      "rejected": 0,
-      "minorFlaws": 1,
-      "errors": 0,
-      "dead": null,
-      "lastError": null,
-      "lastAnsweredAt": "2026-11-03T07:09:04+00:00"
-    },
-    "github": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": null,
-      "lastError": "non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\\r\\n'",
-      "lastAnsweredAt": null
-    },
-    "groq": {
-      "answered": 37,
-      "rejected": 0,
-      "minorFlaws": 3,
-      "errors": 0,
-      "dead": null,
-      "lastError": null,
-      "lastAnsweredAt": "2026-11-03T07:09:04+00:00"
-    },
-    "openai": {
       "answered": 1,
       "rejected": 0,
       "minorFlaws": 0,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-03T07:09:04+00:00"
+      "lastAnsweredAt": "2026-11-03T14:32:58+00:00"
+    },
+    "groq": {
+      "answered": 31,
+      "rejected": 0,
+      "minorFlaws": 1,
+      "errors": 0,
+      "dead": null,
+      "lastError": null,
+      "lastAnsweredAt": "2026-11-03T14:32:58+00:00"
     }
   }
 }
