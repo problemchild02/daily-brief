@@ -1,87 +1,83 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-25 06:49 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-25 14:44 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (97,741 bytes)
-    + [legal] Cyril Amarchand Mangaldas advised OnEMI Technology Solutions on ₹832 crore fundr
-    + [legal] C&S Partners advises Dr. Lal PathLabs on acquiring 70% stake in SN Genelab
-    + [legal] Khaitan & Co advises Sumitomo Corp on acquiring 49% stake in Hero Group's Clean 
-    + [legal] Kanga & Co acts on Jai Parvati Forge ₹300 crore+ proposed IPO
-    + [legal] Police stations should not entertain or settle civil disputes: Karnataka High Co
-    + [legal] Widen pool of arbitrators to include more women, technical experts: Gujarat High
-    + [legal] Laws penalising having more than 2 children have become irrelevant: Supreme Cour
-    + [legal] Supreme Court upholds power of State legislatures to impose additional levy on s
-    → 16 items: 8 accepted, 0 too old, 0 no-date
+    OK  (271,586 bytes)
+    + [legal] A note on the conflict between Trademarks Act, 1999 and Commercial Courts Act, 2
+    + [legal] Supreme Court refuses to relax eligibility rules for court staff seeking recruit
+    + [legal] Insubordination does not mean doubtful integrity: Supreme Court backs HC ruling 
+    + [legal] Delhi High Court protects personality rights of Kriti Sanon
+    + [legal] Exclusion of civil court jurisdiction under Section 430 of Companies Act 2013: L
+    + [legal] Call for Papers: NLUA Law Review Volume X - Submit by December 31
+    + [legal] Our dignity is at stake: Supreme Court directs Centre to bring back child taken 
+    + [legal] Delhi High Court suspends its order for criminal complaint against 6 CBI officia
+    → 43 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
+    OK  (46,785 bytes)
+    + [business] How US Midterms Could Move Stock Markets, Oil Prices And India's Exports
+    + [business] Global Investors Reassess AI Trade: Could India Attract Money From Old Economy S
+    + [business] U.S. midterm elections impact on India: Faster trade deal talks and higher tarif
+    + [business] What will Trump losing US midterm elections mean for Sensex, Nifty? Explained
+    + [business] Air India targets international market share, plans more wide-body orders
+    + [business] ‘Never seen such dismay’: Why a 36-year market veteran is warning India
+    + [business] Gaja Capital Business Book Prize announces the shortlist for 2026
+    → 32 items: 7 accepted, 24 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (47,114 bytes)
-    + [business] Gold and silver prices correct ahead of Diwali: Buying opportunity or a trap?
-    + [business] US bond yields fall; Nasdaq, Dow Jones futures slip 2% as Democrats set for big 
-    + [business] Titan Company Q2 results preview: Profit may rise up to 27% YoY; jewellery growt
-    + [business] China Banks' applications for PBOC stock loan scheme exceed 200 billion yuan
-    + [business] Diwali 2026: Will Sensex, Nifty reclaim their peaks or scale new highs? Analysts
-    + [business] BLS Polymers shares rally 6% after strong stock market debut
-    + [business] China stocks struggle near one-year lows despite fresh government support measur
-    + [business] ITC shares jump 6% in two days after Q2 results. More upside ahead?
-    → 50 items: 8 accepted, 0 too old, 0 no-date
+    OK  (79,379 bytes)
+    + [business] Stocks in news: NSE, BSE, SBI, Happiest Minds, MCX, IEX and Minda Corp
+    → 44 items: 1 accepted, 1 too old, 0 no-date
+  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 1 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,715 bytes)
-    + [reliance] Upsurge India leads Rs 50 crore secondary transaction in iD Fresh Food; Blue Ash
-    + [reliance] Gold smuggling jumps to 50 tonnes as 15 pc import duty widens gap for unofficial
-    + [reliance] FDA collects samples of Patanjali cow ghee for laboratory testing
-    + [reliance] Johnnie Walker launches first India-inspired Blue Label festive blend in its 200
-    + [reliance] Nexus Select Trust Q2 NOI rises 8 PC to Rs 504 crore; declares Rs 359 crore dist
-    + [reliance] FirstClub crosses 3.5 million orders, enters beauty and personal care segment
-    + [reliance] GIVA raises $100 million-plus, closes FY26 at Rs 865 crore
-    + [reliance] Apple Q4 results beat estimates as iPhone 18 Pro demand, price hikes offset risi
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (161,097 bytes)
+    + [reliance] Best Mukesh Ambani stock to buy: RIL vs Jio Platforms vs Jio Financial shares - 
+    + [reliance] Billionaire Ambani cries tears of joy as Jio Platforms becomes the second most v
+    + [reliance] How Ambani’s Jio became India’s second-largest company
+    + [reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with Comcast and Charter,
+    + [reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio Could Be Heading to
+    + [reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
+    + [reliance] Exclusive-Ambani's Jio explores tech-for-equity talks with Comcast and Charter, 
+    + [reliance] India's Reliance posts best day in over six years as oil business, Jio Platforms
+    → 100 items: 8 accepted, 0 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
+    OK  (62,067 bytes)
+    + [retail] E-commerce share in India's FMCG retail sales triples in 2 years: Nielsen
+    + [retail] Quick commerce is creating new FMCG categories, but traditional retail remains c
+    → 34 items: 2 accepted, 32 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,715 bytes)
-    + [retail] Apple posts all-time September quarter revenue records in India: CEO John Ternus
-    + [retail] ITC Q2 net profit falls 20 pc as high taxes keep margins in check
-    → 10 items: 2 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (49,969 bytes)
-    + [retail] US elections: Democrats score governor race victories in Texas, Georgia, Ohio, I
-    + [retail] RBI forms technical panel for financial markets headed by Rohit Jain
-    + [retail] HDFC Bank extends rally for second day, hits ₹741 intraday high
-    + [retail] Q2 Results Today Live: Gabriel India Q2 profit down sequentially, BSE, Cummins, 
-    + [retail] India’s crypto growth slow due to limited private market participation: Binance’
-    + [retail] El Nino may keep global rice prices elevated until Q1 2027
-    → 60 items: 6 accepted, 0 too old, 0 no-date
+    OK  (10,627 bytes)
+    + [retail] Timex Group India Q2 revenue rises 47 pc to record Rs 359 crore; PBT up 57 pc
+    + [retail] GIVA raises $100 million-plus, closes FY26 at Rs 865 crore
+    + [retail] Johnnie Walker launches first India-inspired Blue Label festive blend in its 200
+    + [retail] FDA collects samples of Patanjali cow ghee for laboratory testing
+    + [retail] Upsurge India leads Rs 50 crore secondary transaction in iD Fresh Food; Blue Ash
+    + [retail] Gold smuggling jumps to 50 tonnes as 15 pc import duty widens gap for unofficial
+    → 10 items: 6 accepted, 0 too old, 0 no-date
+  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,351 bytes)
-    + [tech] IndiaAI Mission's three indigenous AI models target offline mobile access, secur
-    + [tech] Meta raises $15 billion in five-part US bond sale
-    + [tech] Human control must set limits on superintelligence, says OpenAI's Sam Altman
-    + [tech] Google will cut off search access for students at schools that reject AI
-    + [tech] Tesla misled South Korean customers about automated-driving tech, consumer group
-    + [tech] AMD's OpenAI, Meta chip deals trigger $1 billion quarterly charge
-    + [tech] Canva to cut about 22% of staff as growth slowdown triggers restructuring
-    + [tech] Premji's deeptech bets; Razorpay gets IPO nod
+    OK  (46,142 bytes)
+    + [tech] Lenskart, Nykaa, PhysicsWallah see Q2 profits surge
+    + [tech] Uber's profit forecast disappoints as driver shortages, Middle East conflict hur
+    + [tech] Tech funding hits 12-month low of $592 million in October; late-stage funding pl
+    + [tech] AMD shares jump as AI-driven data-center strength fuels growth outlook
+    + [tech] 70% of global business leaders report rising risk exposure amid AI, geopolitical
+    + [tech] Singapore Airlines says 46,000 booking records affected by Amadeus breach
+    + [tech] Oracle abandons $7 billion Tencent AI deal under Trump pressure: FT
+    + [tech] Google extends voluntary buyout offers to employees in several countries
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,15 +88,15 @@ Cutoff: 2026-10-25 06:49 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,712 bytes)
+    OK  (14,015 bytes)
+    + [world] The world is reacting to the Democrats' midterm elections victory
+    + [world] Democrats seize full control of Congress. And, which candidates made history las
     + [world] Japan faces diplomatic dilemma amid joint pressure from nuclear neighbors
     + [world] For Ukraine's Kherson region, a short ceasefire meant a momentary return to norm
     + [world] Indian navy rescues 20 crew from Iranian fishing boat hijacked off Somalia
     + [world] Control of Congress is at stake today. And, judge to consider motion in Clancy c
     + [world] Death toll hits 29 after Russian strike on Ukrainian aid site, with 48 still mis
     + [world] Haley Stevens backs Mike Rogers. And, Gulf states brace for potential attack on 
-    + [world] Hundreds evacuate city during temporary ceasefire between Russia and Ukraine
-    + [world] UN's peacekeeping mission in disputed Western Sahara ends after 35 years
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -109,17 +105,18 @@ Cutoff: 2026-10-25 06:49 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
+    OK  (45,570 bytes)
+    → 43 items: 0 accepted, 43 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,617 bytes)
-    + [sports] West Indies eye rare series win as Bangladesh seek answers
-    + [sports] India opt to bowl, pick Nabi and Kamboj
-    + [sports] Mustafizur signs with Melbourne Renegades for BBL 2026-27
-    + [sports] Meghalaya infighting: Ranji squad sacked, new players selected following court o
-    + [sports] Barrett-Wild appointed Sussex chief executive
-    + [sports] Deitz steps down as WI head coach; Coley takes interim charge
-    + [sports] NCL round-up: Chattogram win a thriller; Khulna consolidate top spot
-    + [sports] Prema Rawat registers fastest fifty in women's T20s
+    OK  (91,162 bytes)
+    + [sports] Vadodara and Mumbai to host WPL 2027
+    + [sports] Anshul Kamboj: One bad match doesn't affect me
+    + [sports] Samarawickrama to lead Sri Lanka in Emerging Nations Trophy, Dilhari her deputy
+    + [sports] Injured Marufa to miss Emerging Nations Trophy for Bangladesh
+    + [sports] Duffy: Late starts 'definitely a factor' in teams' inability to defend totals
+    + [sports] Sammy: West Indies 'on course' to achieve their WTC goal
+    + [sports] No-ball drama hands Renegades last-ball win against Hurricanes
+    + [sports] Kohli and quicks power India to 1-0 lead in Auckland
     → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -127,96 +124,118 @@ Cutoff: 2026-10-25 06:49 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    HTTP 503 — skipping  https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
+    OK  (131,024 bytes)
+    + [opinion] Can India Ignore This International Court? Uk Snow Weather Maps (mObCZdJGRN)
+    + [opinion] Analysis: As Punjab's Politicians Switch Sides, Where Are Its 'Spartans'?
+    + [opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
+    → 81 items: 3 accepted, 78 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (53,159 bytes)
+    OK  (53,164 bytes)
     + [opinion] Second Arrow
     + [opinion] Don't judge a book by...
     + [opinion] Make urban legend real: Our cities must become far more business-friendly for In
     + [opinion] Firm It Up, Don't Junk It: India needs a more predictable capital gains tax regi
     + [opinion] Stay empty, stay stupid
-    + [opinion] Rap the app & knock on Nasdaq's door
-    + [opinion] Pull it, not just for better FPIs: Scrap FPI capital gains tax to boost inflows,
-    + [opinion] Stop the price scam in our hospitals
-    → 50 items: 8 accepted, 0 too old, 0 no-date
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (31 stories, 8 workers) ─────────────────────────────
-   ✓ [    retail] Q2 Results Today Live: Gabriel India Q2 profit down sequenti
-   ✓ [     world] For Ukraine's Kherson region, a short ceasefire meant a mome
-   ✓ [     world] Japan faces diplomatic dilemma amid joint pressure from nucl
+── Page fetch (47 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] Global Investors Reassess AI Trade: Could India Attract Mone: no og:image/twitter:image tag found
+   ✗ [  business] What will Trump losing US midterm elections mean for Sensex,: no og:image/twitter:image tag found
+   ✗ [  business] ‘Never seen such dismay’: Why a 36-year market veteran is wa: no og:image/twitter:image tag found
+   ✗ [  business] Air India targets international market share, plans more wid: no og:image/twitter:image tag found
+   ✗ [  business] U.S. midterm elections impact on India: Faster trade deal ta: no og:image/twitter:image tag found
+   ✗ [  business] How US Midterms Could Move Stock Markets, Oil Prices And Ind: no og:image/twitter:image tag found
+   ✗ [  business] Gaja Capital Business Book Prize announces the shortlist for: no og:image/twitter:image tag found
+   ✗ [  business] Stocks in news: NSE, BSE, SBI, Happiest Minds, MCX, IEX and : no og:image/twitter:image tag found
+   ✗ [  reliance] Best Mukesh Ambani stock to buy: RIL vs Jio Platforms vs Jio: no og:image/twitter:image tag found
+   ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
+   ✗ [  reliance] Billionaire Ambani cries tears of joy as Jio Platforms becom: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person: no og:image/twitter:image tag found
+   ✗ [  reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with : no og:image/twitter:image tag found
+   ✗ [  reliance] Exclusive-Ambani's Jio explores tech-for-equity talks with C: no og:image/twitter:image tag found
+   ✗ [  reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio: no og:image/twitter:image tag found
+   ✗ [  reliance] India's Reliance posts best day in over six years as oil bus: no og:image/twitter:image tag found
+   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
+   ✗ [    retail] Quick commerce is creating new FMCG categories, but traditio: no og:image/twitter:image tag found
    ✓ [     world] Control of Congress is at stake today. And, judge to conside
-   ✓ [     world] Death toll hits 29 after Russian strike on Ukrainian aid sit
-   ✓ [     world] Indian navy rescues 20 crew from Iranian fishing boat hijack
-   ✓ [     world] Hundreds evacuate city during temporary ceasefire between Ru
-   ✓ [     world] UN's peacekeeping mission in disputed Western Sahara ends af
+   ✓ [     world] For Ukraine's Kherson region, a short ceasefire meant a mome
    ✓ [     world] Haley Stevens backs Mike Rogers. And, Gulf states brace for 
-   images: 9 found, 0 not found  |  page text: 19 stories
+   ✓ [     world] The world is reacting to the Democrats' midterm elections vi
+   ✓ [     world] Democrats seize full control of Congress. And, which candida
+   ✓ [     world] Indian navy rescues 20 crew from Iranian fishing boat hijack
+   ✗ [   opinion] Analysis: As Punjab's Politicians Switch Sides, Where Are It: no og:image/twitter:image tag found
+   ✗ [   opinion] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’: no og:image/twitter:image tag found
+   ✗ [   opinion] Can India Ignore This International Court? Uk Snow Weather M: no og:image/twitter:image tag found
+   ✓ [     world] Death toll hits 29 after Russian strike on Ukrainian aid sit
+   ✓ [     world] Japan faces diplomatic dilemma amid joint pressure from nucl
+   images: 8 found, 21 not found  |  page text: 14 stories
 
-── AI notes (41 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Cyril Amarchand Mangaldas advised OnEMI Technology Solutions
-   ✓ [groq] C&S Partners advises Dr. Lal PathLabs on acquiring 70% stake
-   ✓ [groq] Khaitan & Co advises Sumitomo Corp on acquiring 49% stake in
-   ✓ [groq] Kanga & Co acts on Jai Parvati Forge ₹300 crore+ proposed IP
-   ✓ [groq] Police stations should not entertain or settle civil dispute
-   ✓ [groq] Laws penalising having more than 2 children have become irre
-   ✓ [groq] Supreme Court upholds power of State legislatures to impose 
+── AI notes (43 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Supreme Court refuses to relax eligibility rules for court s
+   ✓ [groq] Insubordination does not mean doubtful integrity: Supreme Co
+   ✓ [groq] Delhi High Court protects personality rights of Kriti Sanon
+   ~ [groq] Call for Papers: NLUA Law Review Volume X - Submit by Decemb  (names no court, regulator or statute)
+   ✓ [gemini] Call for Papers: NLUA Law Review Volume X - Submit by Decemb
+   ✓ [groq] Our dignity is at stake: Supreme Court directs Centre to bri
+   ✓ [groq] Delhi High Court suspends its order for criminal complaint a
+   ~ [groq] Best Mukesh Ambani stock to buy: RIL vs Jio Platforms vs Jio  (names no court, regulator or statute)
+   ✓ [gemini] Best Mukesh Ambani stock to buy: RIL vs Jio Platforms vs Jio
+   ✓ [groq] Billionaire Ambani cries tears of joy as Jio Platforms becom
+   ✓ [groq] How Ambani’s Jio became India’s second-largest company
+   ✓ [groq] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with 
+   ✓ [groq] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio
+   ~ [groq] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person  (names no court, regulator or statute)
+   ✓ [gemini] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
+   ✓ [groq] Exclusive-Ambani's Jio explores tech-for-equity talks with C
+   ✓ [groq] India's Reliance posts best day in over six years as oil bus
+   ✓ [groq] How US Midterms Could Move Stock Markets, Oil Prices And Ind
+   ✓ [groq] Global Investors Reassess AI Trade: Could India Attract Mone
+   ✓ [groq] U.S. midterm elections impact on India: Faster trade deal ta
+   ✓ [groq] What will Trump losing US midterm elections mean for Sensex,
+   ✓ [groq] Air India targets international market share, plans more wid
+   ✓ [groq] ‘Never seen such dismay’: Why a 36-year market veteran is wa
+   ✓ [groq] Gaja Capital Business Book Prize announces the shortlist for
+   ✓ [groq] E-commerce share in India's FMCG retail sales triples in 2 y
+   ✓ [groq] Quick commerce is creating new FMCG categories, but traditio
+   ✓ [groq] Timex Group India Q2 revenue rises 47 pc to record Rs 359 cr
+   ✓ [groq] GIVA raises $100 million-plus, closes FY26 at Rs 865 crore
+   ✓ [groq] Johnnie Walker launches first India-inspired Blue Label fest
+   ✓ [groq] FDA collects samples of Patanjali cow ghee for laboratory te
    ✓ [groq] Upsurge India leads Rs 50 crore secondary transaction in iD 
    ✓ [groq] Gold smuggling jumps to 50 tonnes as 15 pc import duty widen
-   ✓ [groq] FDA collects samples of Patanjali cow ghee for laboratory te
-   ✓ [groq] Johnnie Walker launches first India-inspired Blue Label fest
-   ✓ [groq] Nexus Select Trust Q2 NOI rises 8 PC to Rs 504 crore; declar
-   ✓ [groq] FirstClub crosses 3.5 million orders, enters beauty and pers
-   ✓ [groq] GIVA raises $100 million-plus, closes FY26 at Rs 865 crore
-   ✓ [groq] Apple Q4 results beat estimates as iPhone 18 Pro demand, pri
-   ✓ [groq] Gold and silver prices correct ahead of Diwali: Buying oppor
-   ✓ [groq] US bond yields fall; Nasdaq, Dow Jones futures slip 2% as De
-   ✓ [groq] Titan Company Q2 results preview: Profit may rise up to 27% 
-   ✓ [groq] China Banks' applications for PBOC stock loan scheme exceed 
-   ✓ [groq] Diwali 2026: Will Sensex, Nifty reclaim their peaks or scale
-   ✓ [groq] BLS Polymers shares rally 6% after strong stock market debut
-   ✓ [groq] China stocks struggle near one-year lows despite fresh gover
-   ✓ [groq] ITC shares jump 6% in two days after Q2 results. More upside
-   ✓ [groq] IndiaAI Mission's three indigenous AI models target offline 
-   ✓ [groq] Meta raises $15 billion in five-part US bond sale
-   ✓ [groq] Human control must set limits on superintelligence, says Ope
-   ✓ [groq] Google will cut off search access for students at schools th
-   ✓ [groq] Tesla misled South Korean customers about automated-driving 
-   ✓ [groq] AMD's OpenAI, Meta chip deals trigger $1 billion quarterly c
-      [groq] rate limited; waiting 1s then retrying
-   ✓ [groq] Canva to cut about 22% of staff as growth slowdown triggers 
-   ✓ [groq] Premji's deeptech bets; Razorpay gets IPO nod
-      [groq] rate limited; waiting 1s then retrying
-   ✓ [groq] Japan faces diplomatic dilemma amid joint pressure from nucl
-   ✓ [groq] US elections: Democrats score governor race victories in Tex
-      [groq] rate limited; waiting 1s then retrying
-   ✓ [groq] HDFC Bank extends rally for second day, hits ₹741 intraday h
-   ✓ [groq] Q2 Results Today Live: Gabriel India Q2 profit down sequenti
-      [groq] rate limited; waiting 1s then retrying
-   ✓ [groq] India’s crypto growth slow due to limited private market par
-   ✓ [groq] El Nino may keep global rice prices elevated until Q1 2027
-   ✓ [groq] Stay empty, stay stupid
-      [groq] rate limited; waiting 1s then retrying
-   ✓ [groq] Rap the app & knock on Nasdaq's door
-   ✓ [groq] Pull it, not just for better FPIs: Scrap FPI capital gains t
-   ✓ [groq] Stop the price scam in our hospitals
+   ✓ [groq] Lenskart, Nykaa, PhysicsWallah see Q2 profits surge
+   ✓ [groq] Uber's profit forecast disappoints as driver shortages, Midd
+   ✓ [groq] Tech funding hits 12-month low of $592 million in October; l
+   ✓ [groq] AMD shares jump as AI-driven data-center strength fuels grow
+   ✓ [groq] 70% of global business leaders report rising risk exposure a
+   ✓ [groq] Singapore Airlines says 46,000 booking records affected by A
+   ✓ [groq] Oracle abandons $7 billion Tencent AI deal under Trump press
+   ✓ [groq] Google extends voluntary buyout offers to employees in sever
+   ✓ [groq] The world is reacting to the Democrats' midterm elections vi
+   ✓ [groq] Democrats seize full control of Congress. And, which candida
+   ✓ [groq] Can India Ignore This International Court? Uk Snow Weather M
+   ✓ [groq] Analysis: As Punjab's Politicians Switch Sides, Where Are It
+      [groq] rate limited; waiting 2s then retrying
+   ✓ [groq] India Shouldn’t Scrap LTCG Tax for ‘Hot Money’
+   ✓ [groq] Stocks in news: NSE, BSE, SBI, Happiest Minds, MCX, IEX and 
 
-   Enrichment: 64 stories | reused 13 | native brief 2 | AI 41 (groq=41; 42 calls) | kept stale 0 | key points 0 | no brief 0
-   ~41,900 tokens not spent vs. enriching every story with AI
-   Accuracy check: 41 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 11 | native brief 2 | AI 43 (groq=40, gemini=3; 48 calls) | kept stale 0 | key points 0 | no brief 0
+   ~39,300 tokens not spent vs. enriching every story with AI
+   Accuracy check: 46 provider answers | 0 rejected (invented figure, hedging or restated headline) | 3 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   10 OK  /  10 failed
+Feeds:   12 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-04   Hero: legal-8092b542
+Edition: 2026-11-04   Hero: legal-b0bcac09
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 112 stories for 2026-11-04 | 7 stories continue an earlier one
+Archive: 157 stories for 2026-11-04 | 4 stories continue an earlier one
