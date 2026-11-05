@@ -1,59 +1,23 @@
 {
-  "updatedAt": "2026-11-05T14:53:53+00:00",
+  "updatedAt": "2026-11-05T20:11:16+00:00",
   "stories": 64,
   "notes": {
-    "reused": 30,
-    "native_note": 0,
-    "ai_note": 26,
+    "reused": 40,
+    "native_note": 4,
+    "ai_note": 12,
     "stale": 0,
     "extract": 0,
     "no_note": 0
   },
   "providers": {
-    "anthropic": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": "quota",
-      "lastError": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to u",
-      "lastAnsweredAt": null
-    },
-    "gemini": {
-      "answered": 1,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 2,
-      "dead": null,
-      "lastError": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a",
-      "lastAnsweredAt": "2026-11-05T14:53:53+00:00"
-    },
-    "github": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 2,
-      "dead": null,
-      "lastError": "non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\\r\\n'",
-      "lastAnsweredAt": null
-    },
     "groq": {
-      "answered": 26,
-      "rejected": 1,
-      "minorFlaws": 2,
-      "errors": 0,
-      "dead": null,
-      "lastError": null,
-      "lastAnsweredAt": "2026-11-05T14:53:53+00:00"
-    },
-    "openai": {
-      "answered": 2,
+      "answered": 12,
       "rejected": 0,
-      "minorFlaws": 1,
+      "minorFlaws": 0,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-05T14:53:53+00:00"
+      "lastAnsweredAt": "2026-11-05T20:11:16+00:00"
     }
   }
 }
