@@ -1,40 +1,38 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-26 20:10 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-27 07:08 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (12,130 bytes)
-    + [legal] Centre clears appointment of CESTAT judicial member Ajay Sharma as Bombay High C
-    + [legal] Former Supreme Court Justice Rajesh Bindal appointed NCLAT Chairperson
-    + [legal] Bombay High Court cancels bail granted to ex-cop Sachin Waze in Antilia bomb sca
-    → 3 items: 3 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (166,662 bytes)
-    + [legal] Mediation Act, 2023: Experts discuss role of Mediation Council of India, institu
-    + [legal] Income Tax reassessment without Section 143(2) notice invalid even if assessee p
-    + [legal] CBDT prescribes conditions for merger of registered non-profit organisations; Fo
-    + [legal] What is the scope of review under Order 47 Rule 1 CPC? Andhra Pradesh High Court
-    + [legal] Marriage annulment on mental illness: Is pleading enough without proof? Jharkhan
-    → 10 items: 5 accepted, 0 too old, 0 no-date
+    OK  (67,948 bytes)
+    + [legal] Supreme Court initiates suo motu case on death of Delhi judge Aman Sharma
+    + [legal] Don't repeat lies: Kerala High Court slams convicted ex-DGP Tomin Thachankary fo
+    + [legal] Mercedes crash: Why Kerala court upheld bail to accused teenager
+    + [legal] Aakash Parihar, Gagan Narang, and Akshay Bafna merge practices to establish Forv
+    + [legal] Independent judge does not mean a judge who always goes against the executive an
+    + [legal] Imposter misused Delhi Police name to get IFF, SFLC handles blocked: X to Delhi 
+    + [legal] Challenge to delimitation: Calcutta High Court says no KMC elections based on re
+    + [legal] Authorities can't pass orders blindly based on panel lawyer's legal opinion: Kar
+    → 13 items: 8 accepted, 0 too old, 0 no-date
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (47,380 bytes)
+    OK  (46,717 bytes)
     + [business] U.S. midterm elections impact on India: Faster trade deal talks and higher tarif
     + [business] From Sivakasi to Diwali markets: Inside India's firecracker economy
-    + [business] What Trump’s Midterm Defeat Means for Modi and India
-    + [business] US Midterm Elections: 3 Scenarios That Could Decide Dalal Street's Fate
-    → 33 items: 4 accepted, 27 too old, 0 no-date
+    + [business] Prashant Jain sees 12-15% annual returns from Indian equities over 3-5 years
+    → 33 items: 3 accepted, 29 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (44,322 bytes)
+    OK  (38,427 bytes)
+    + [business] NSE - National Stock Exchange of India Ltd: Live Share/Stock Market News & Updat
     + [business] Stocks to Watch Today: Adani Power, Cupid, Aurobindo Pharma, BSE, Apollo Hospita
-    + [business] Stocks in news: NSE, BSE, SBI, Happiest Minds, MCX, IEX and Minda Corp
-    + [business] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian Markets Extend Four-D
-    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
-    → 24 items: 4 accepted, 2 too old, 0 no-date
+    + [business] Dalal Sreet Soars: BSE jumps 2,009 points, NSE tops 24,500; Falling crude, FII b
+    + [business] Sensex gains 2,000 points, investors richer by Rs 7 lakh crore: 3 reasons behind
+    + [business] Prudents FundzBazar Marks Diwali With SIP Ka Sathi, a Short Film Linking the Ram
+    → 24 items: 5 accepted, 3 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -42,7 +40,7 @@ Cutoff: 2026-10-26 20:10 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (174,551 bytes)
+    OK  (178,788 bytes)
     + [reliance] How Ambani’s Jio became India’s second-largest company
     + [reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with Comcast and Charter,
     + [reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
@@ -55,31 +53,31 @@ Cutoff: 2026-10-26 20:10 UTC  (MAX_AGE_HOURS=240)
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (64,038 bytes)
+    OK  (64,032 bytes)
     + [retail] E-commerce share in India's FMCG retail sales triples in 2 years: Nielsen
     + [retail] Quick commerce is creating new FMCG categories, but traditional retail remains c
     → 34 items: 2 accepted, 32 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,377 bytes)
+    OK  (11,982 bytes)
+    + [retail] Bikaji Foods International net profit falls over 11 pc to Rs 70.78 cr in Q2
+    + [retail] FDA seizes food stock worth Rs 63.45 crore, suspends 954 licences in two months
+    + [retail] Noel Tata to retire as Titan vice-chairman; Q2 profit more than doubles to Rs 2,
     + [retail] Marico expects 4700BC to break even ahead of schedule, two more digital brands t
+    + [retail] Popees Baby Care India to acquire 99.31 pc stake in operating business in Rs 511
     + [retail] Nykaa Q2 Results: PAT soars 207% YoY to Rs 101 crore, revenue up 28%; co to acqu
-    + [retail] Herjit Bhalla joins Dabur board as CEO Mohit Malhotra steps down
-    + [retail] Gold price correction to lift Dhanteras sentiment, but sales volumes likely to r
-    + [retail] Big FMCG companies outgrow market as smaller rivals get squeezed by costs and sl
-    + [retail] Lenskart Q2 profit more than doubles to Rs 232 crore; revenue rises 32.5 pc to R
     → 10 items: 6 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,726 bytes)
+    OK  (45,845 bytes)
+    + [tech] ING puts $500 million of data center loans up for sale
+    + [tech] SoftBank credit risk jumps to 4-year high as AI fears roil market
+    + [tech] Google sued over suicide-related AI chats on school computer
+    + [tech] OpenAI kicks off charm offensive to change voters' view of data centers
+    + [tech] OpenAI launches GPT-6 Cyber with 'Critical' cybersecurity rating
+    + [tech] Big tech, green groups in talks over data center guardrails
+    + [tech] Anthropic may need to cut IPO ambitions as investors balk: report
     + [tech] Amagi, Shiprocket post profits; US polls’ impact on IT
-    + [tech] GCCs ramp up hiring for AI, data, cybersecurity professionals; face talent short
-    + [tech] Shiprocket posts maiden profit on strong core business growth
-    + [tech] India flags Chinese-linked AI tools in hacking campaign against financial firms
-    + [tech] Blinkit Ambulance to charge Rs 2,500 for non-emergency trips; emergency service 
-    + [tech] China blocks SoftBank's $5.4 billion takeover of ABB's robotics division: FT
-    + [tech] Sony posts 45% Q2 profit rise on movies, games boost
-    + [tech] AI to reshape India's office space demand, workforce seen at 48 million by 2030:
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -90,15 +88,15 @@ Cutoff: 2026-10-26 20:10 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,659 bytes)
+    OK  (14,631 bytes)
     + [world] Paraguay's president is impeached minutes after resigning following a bank colla
     + [world] Russell Brand is convicted of rape, and judge says he'll get a prison term
     + [world] What's next for Democrats after the midterms. And, a look at the outstanding rac
+    + [world] Three ways Democrats could reshape U.S. foreign policy after the midterms
     + [world] Bob Dylan comes knockin' on pope's door as Leo welcomes legend to Vatican
     + [world] Hong Kong activist Joshua Wong is sentenced to 10 more years in prison
     + [world] Abdul El-Sayed welcomes Trump's plan to cut Israel aid, calls for end to arms sa
     + [world] The world is reacting to the Democrats' sweeping midterm elections victory
-    + [world] Democrats seize full control of Congress. And, which candidates made history las
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,29 +105,28 @@ Cutoff: 2026-10-26 20:10 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (55,614 bytes)
-    + [sports] Cricket-India-Sri Lanka ODI moved from Delhi to Visakhapatnam
+    OK  (54,731 bytes)
+    + [sports] Live Cricket Match Predictions & Win Probability
     + [sports] Virat Kohli Turns 38: Breaking Down the Numbers Behind a Cricket Legend
+    + [sports] India-Sri Lanka ODI moved from Delhi to Visakhapatnam
     + [sports] Virat Kohli Turns 38 Today, Celebrating King's 38 Records Across Tests, ODIs, IP
-    → 51 items: 3 accepted, 48 too old, 0 no-date
+    → 50 items: 4 accepted, 46 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,805 bytes)
-    + [sports] Jangoo, Forde and Mangru earn maiden West Indies contracts
-    + [sports] Lynn revealed to have served one-month suspension for cocaine use
-    + [sports] Taylor 131, Bennett's 71* give opening-day honours to Zimbabwe
-    + [sports] All-round Rehan stars as Lions complete T20 sweep of West Indies A
-    + [sports] Wickham: Jangoo was telling me what Test cricket is all about
-    → 100 items: 5 accepted, 0 too old, 0 no-date
+    OK  (91,109 bytes)
+    + [sports] Shadman stretchered off the field after twisting ankle
+    + [sports] Mahmud's new-ball burst makes it Bangladesh's morning
+    + [sports] Tickner finds perspective beyond cricket after wife's cancer battle
+    + [sports] Hussey joins Australia's coaching ranks for 2027 Ashes, World Cup and 2028 T20 W
+    → 100 items: 4 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (41,579 bytes)
+    OK  (40,852 bytes)
     + [opinion] Analysis: As Punjab's Politicians Switch Sides, Where Are Its 'Spartans'?
-    + [opinion] The School Toilet That Decides Whether a Girl Finishes Class 10
-    → 34 items: 2 accepted, 32 too old, 0 no-date
+    → 34 items: 1 accepted, 33 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -143,73 +140,88 @@ Cutoff: 2026-10-26 20:10 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Reset will keep India busy as Trump’s midterm loss redraws US politics
     + [opinion] SpiceJet’s meltdown: Rs 5,500 crore raised, but where did the money go?
     + [opinion] In the name Of Don Trump
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    + [opinion] Second Arrow
+    → 50 items: 7 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (48 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] U.S. midterm elections impact on India: Faster trade deal ta: no og:image/twitter:image tag found
+── Page fetch (45 stories, 8 workers) ─────────────────────────────
    ✗ [  business] From Sivakasi to Diwali markets: Inside India's firecracker : no og:image/twitter:image tag found
-   ✗ [  business] What Trump’s Midterm Defeat Means for Modi and India: no og:image/twitter:image tag found
-   ✗ [  business] US Midterm Elections: 3 Scenarios That Could Decide Dalal St: no og:image/twitter:image tag found
-   ✗ [  business] Stocks in news: NSE, BSE, SBI, Happiest Minds, MCX, IEX and : no og:image/twitter:image tag found
+   ✗ [  business] NSE - National Stock Exchange of India Ltd: Live Share/Stock: no og:image/twitter:image tag found
+   ✗ [  business] Dalal Sreet Soars: BSE jumps 2,009 points, NSE tops 24,500; : no og:image/twitter:image tag found
+   ✗ [  business] Prashant Jain sees 12-15% annual returns from Indian equitie: no og:image/twitter:image tag found
+   ✗ [  business] U.S. midterm elections impact on India: Faster trade deal ta: no og:image/twitter:image tag found
    ✗ [  business] Stocks to Watch Today: Adani Power, Cupid, Aurobindo Pharma,: no og:image/twitter:image tag found
-   ✗ [  business] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian M: no og:image/twitter:image tag found
-   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
+   ✗ [  business] Prudents FundzBazar Marks Diwali With SIP Ka Sathi, a Short : no og:image/twitter:image tag found
+   ✗ [  business] Sensex gains 2,000 points, investors richer by Rs 7 lakh cro: no og:image/twitter:image tag found
    ✗ [  reliance] How Ambani’s Jio became India’s second-largest company: no og:image/twitter:image tag found
    ✗ [  reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with : no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person: no og:image/twitter:image tag found
    ✗ [  reliance] India's Reliance posts best day in over six years as oil bus: no og:image/twitter:image tag found
-   ✗ [  reliance] Exclusive-Ambani's Jio explores tech-for-equity talks with C: no og:image/twitter:image tag found
-   ✗ [  reliance] Shares of Ambani’s Jio surge 27% in India’s biggest IPO: no og:image/twitter:image tag found
    ✗ [  reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
-   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
-   ✗ [    retail] Quick commerce is creating new FMCG categories, but traditio: no og:image/twitter:image tag found
-   ✓ [     world] Russell Brand is convicted of rape, and judge says he'll get
-   ✓ [     world] What's next for Democrats after the midterms. And, a look at
    ✓ [     world] Paraguay's president is impeached minutes after resigning fo
+   ✗ [  reliance] Shares of Ambani’s Jio surge 27% in India’s biggest IPO: no og:image/twitter:image tag found
+   ✓ [     world] Russell Brand is convicted of rape, and judge says he'll get
+   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
+   ✗ [  reliance] Exclusive-Ambani's Jio explores tech-for-equity talks with C: no og:image/twitter:image tag found
+   ✗ [    retail] Quick commerce is creating new FMCG categories, but traditio: no og:image/twitter:image tag found
+   ✓ [     world] What's next for Democrats after the midterms. And, a look at
    ✓ [     world] Bob Dylan comes knockin' on pope's door as Leo welcomes lege
+   ✓ [     world] Abdul El-Sayed welcomes Trump's plan to cut Israel aid, call
+   ✓ [     world] Three ways Democrats could reshape U.S. foreign policy after
    ✓ [     world] Hong Kong activist Joshua Wong is sentenced to 10 more years
    ✓ [     world] The world is reacting to the Democrats' sweeping midterm ele
-   ✓ [     world] Abdul El-Sayed welcomes Trump's plan to cut Israel aid, call
-   ✓ [     world] Democrats seize full control of Congress. And, which candida
+   ✗ [    sports] India-Sri Lanka ODI moved from Delhi to Visakhapatnam: no og:image/twitter:image tag found
    ✗ [    sports] Virat Kohli Turns 38: Breaking Down the Numbers Behind a Cri: no og:image/twitter:image tag found
-   ✗ [    sports] Cricket-India-Sri Lanka ODI moved from Delhi to Visakhapatna: no og:image/twitter:image tag found
    ✗ [    sports] Virat Kohli Turns 38 Today, Celebrating King's 38 Records Ac: no og:image/twitter:image tag found
+   ✗ [    sports] Live Cricket Match Predictions & Win Probability: no og:image/twitter:image tag found
    ✗ [   opinion] Analysis: As Punjab's Politicians Switch Sides, Where Are It: no og:image/twitter:image tag found
-   ✗ [   opinion] The School Toilet That Decides Whether a Girl Finishes Class: no og:image/twitter:image tag found
-   ✓ [     legal] Marriage annulment on mental illness: Is pleading enough wit
-   ✓ [     legal] CBDT prescribes conditions for merger of registered non-prof
-   ✓ [     legal] Mediation Act, 2023: Experts discuss role of Mediation Counc
-   ✓ [     legal] What is the scope of review under Order 47 Rule 1 CPC? Andhr
-   ✓ [     legal] Income Tax reassessment without Section 143(2) notice invali
-   images: 13 found, 23 not found  |  page text: 13 stories
+   images: 8 found, 23 not found  |  page text: 16 stories
 
-── AI notes (12 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Reliance shares: After massive 12% surge, Mukesh Ambani's RI
-   ✓ [groq] Mediation Act, 2023: Experts discuss role of Mediation Counc
-   ✓ [groq] What is the scope of review under Order 47 Rule 1 CPC? Andhr
-   ✓ [groq] Marriage annulment on mental illness: Is pleading enough wit
-   ✓ [groq] US Midterm Elections: 3 Scenarios That Could Decide Dalal St
-   ✓ [groq] Paraguay's president is impeached minutes after resigning fo
-   ✓ [groq] Russell Brand is convicted of rape, and judge says he'll get
-   ✓ [groq] Hong Kong activist Joshua Wong is sentenced to 10 more years
-   ✓ [groq] Sensex Surges 1,225 Points, Nifty Crosses 23,800 as Indian M
-   ✓ [groq] Beyond left and right
-   ✓ [groq] Diwali sweet nothings: Like soan papdi, the annual festival 
-   ✓ [groq] Fairness, churn, and India's rise: India has lifted millions
+── AI notes (26 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Supreme Court initiates suo motu case on death of Delhi judg
+   ✓ [groq] Don't repeat lies: Kerala High Court slams convicted ex-DGP 
+   ✓ [groq] Mercedes crash: Why Kerala court upheld bail to accused teen
+   ~ [groq] Aakash Parihar, Gagan Narang, and Akshay Bafna merge practic  (names no court, regulator or statute)
+      [gemini] busy (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "Th); retrying once
+   ✓ [gemini] Aakash Parihar, Gagan Narang, and Akshay Bafna merge practic
+   ✓ [groq] Independent judge does not mean a judge who always goes agai
+   ✓ [groq] Imposter misused Delhi Police name to get IFF, SFLC handles 
+   ✓ [groq] Challenge to delimitation: Calcutta High Court says no KMC e
+   ✓ [groq] Authorities can't pass orders blindly based on panel lawyer'
+   ✓ [groq] Prashant Jain sees 12-15% annual returns from Indian equitie
+   ✓ [groq] Bikaji Foods International net profit falls over 11 pc to Rs
+   ✓ [groq] FDA seizes food stock worth Rs 63.45 crore, suspends 954 lic
+   ✓ [groq] Noel Tata to retire as Titan vice-chairman; Q2 profit more t
+   ✓ [groq] Popees Baby Care India to acquire 99.31 pc stake in operatin
+   ✓ [groq] ING puts $500 million of data center loans up for sale
+   ✓ [groq] SoftBank credit risk jumps to 4-year high as AI fears roil m
+   ✓ [groq] Google sued over suicide-related AI chats on school computer
+   ✓ [groq] OpenAI kicks off charm offensive to change voters' view of d
+   ✓ [groq] OpenAI launches GPT-6 Cyber with 'Critical' cybersecurity ra
+   ✓ [groq] Big tech, green groups in talks over data center guardrails
+   ✓ [groq] Anthropic may need to cut IPO ambitions as investors balk: r
+   ✓ [groq] Three ways Democrats could reshape U.S. foreign policy after
+   ✓ [groq] NSE - National Stock Exchange of India Ltd: Live Share/Stock
+   ✓ [groq] Dalal Sreet Soars: BSE jumps 2,009 points, NSE tops 24,500; 
+   ✓ [groq] Sensex gains 2,000 points, investors richer by Rs 7 lakh cro
+   ✓ [groq] Prudents FundzBazar Marks Diwali With SIP Ka Sathi, a Short 
+   ✓ [groq] Second Arrow
 
-   Enrichment: 64 stories | reused 40 | native brief 4 | AI 12 (groq=12; 13 calls) | kept stale 0 | key points 0 | no brief 0
-   ~79,600 tokens not spent vs. enriching every story with AI
-   Accuracy check: 12 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 30 | native brief 0 | AI 26 (groq=25, gemini=1; 27 calls) | kept stale 0 | key points 0 | no brief 0
+   ~61,400 tokens not spent vs. enriching every story with AI
+   Accuracy check: 27 provider answers | 0 rejected (invented figure, hedging or restated headline) | 1 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   13 OK  /  4 failed
+Feeds:   12 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-06   Hero: legal-b60a41c9
+Edition: 2026-11-06   Hero: legal-388a3470
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 64 stories for 2026-11-06 | 16 stories continue an earlier one
+Archive: 96 stories for 2026-11-06 | 13 stories continue an earlier one
