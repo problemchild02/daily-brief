@@ -1,11 +1,12 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-29 17:59 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (831 bytes)
-    → 0 items: 0 accepted, 0 too old, 0 no-date
+    OK  (20,920 bytes)
+    + [legal] Gunpowder, diyas, and the Supreme Court's damp match
+    → 1 items: 1 accepted, 0 too old, 0 no-date
   [     legal] fetching https://www.scconline.com/blog/feed/
     OK  (221,268 bytes)
     + [legal] Newspaper ads are deemed notice of recruitment, rural residence no excuse for mi
@@ -15,26 +16,23 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
     + [legal] Landing price disclosure in hospital bills: Karnataka High Court holds back FDA 
     + [legal] Is moral policing a crime in India? What the BNS, POCSO and the Constitution say
     + [legal] Civil courts retain jurisdiction unless expressly or impliedly barred; Kerala HC
-    + [legal] Fox & Mandal acts as underwriter’s counsel to Smart Horizon Capital on the IPO o
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    → 10 items: 7 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (46,582 bytes)
+    OK  (46,604 bytes)
     + [business] India’s Markets Are Suddenly Having a Very Happy Diwali
     + [business] Indian economy to grow faster, foreign capital returning to markets: NSE CEO Ash
+    + [business] Indian Gaming Prediction Markets and Legal Challenges
     + [business] India’s Great Market Divergence: Why Stocks Rallied as Global Markets Swooned
     + [business] Indian economy to grow faster, foreign capital returning to markets: NSE CEO Ash
     + [business] Samvat 2083: Which Sectors Could Create The Biggest Wealth As India's Economy Mo
     + [business] India Expects Strong Economic Growth to Boost Markets in New Samvat
     + [business] Indian Stock Market in Samvat 2083: Why Betting On Quality Over Momentum Could B
-    → 32 items: 7 accepted, 25 too old, 0 no-date
-  [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (45,451 bytes)
-    + [business] Gold, Muhurat trading and big business: The economics of Diwali and how they've 
-    → 23 items: 1 accepted, 0 too old, 0 no-date
+    → 32 items: 8 accepted, 24 too old, 0 no-date
+  [  business] SKIP (section full) https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -42,20 +40,20 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (167,168 bytes)
+    OK  (162,498 bytes)
     + [reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with Comcast and Charter,
     + [reliance] Environmentalists criticise choice of Earthshot prize venue owned by fossil fuel
     + [reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
     + [reliance] India's Reliance posts best day in over six years as oil business, Jio Platforms
+    + [reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio Could Be Heading to
     + [reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RIL stock slips from b
     + [reliance] Reliance gets its mojo back
     + [reliance] Retail Still a Weak Spot as Reliance Profits Beat Expectations
-    + [reliance] Ambani's Jio Platforms explores tech-for-equity talks with Comcast and Charter, 
-    → 93 items: 8 accepted, 1 too old, 0 no-date
+    → 91 items: 8 accepted, 1 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (63,042 bytes)
+    OK  (64,023 bytes)
     + [retail] E-commerce share in India's FMCG retail sales triples in 2 years: Nielsen
     → 34 items: 1 accepted, 33 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
@@ -90,15 +88,15 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,518 bytes)
+    OK  (14,416 bytes)
+    + [world] No clear winner in New Zealand election, as leaders prepare for weeks of talks
+    + [world] After a successful trip to Uruguay, Pope Leo heads to Argentina
+    + [world] Russell Brand to learn sentence after being found guilty of rape and sexual assa
     + [world] A desert stirs to life: Chile's Atacama erupts in its biggest floral display in 
     + [world] Israeli president invites Netanyahu's opposition leader to broker new government
     + [world] A correspondent finds Cuba's people struggling
     + [world] Israel's president taps opposition candidate, not Netanyahu, to form a governmen
     + [world] Ousted Paraguayan president appears before prosecutors
-    + [world] Israel's Arab-led parties in spotlight after inconclusive election
-    + [world] Pope Leo begins a 12-day, 3-country South America tour after his cancer surgery
-    + [world] Health intel-sharing group warns industry in wake of cyberattack on French blood
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,7 +105,7 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (58,269 bytes)
+    OK  (59,484 bytes)
     + [sports] Cricket-India-Sri Lanka ODI moved from Delhi to Visakhapatnam
     + [sports] 'I'm not done yet': Shami's big retirement message
     + [sports] India's Mohammed Shami bids farewell to Test cricket
@@ -115,10 +113,10 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
     + [sports] Mohammed Shami Retires from Test Cricket
     + [sports] Why Former IPL Star Was Handed A One-Month Ban After Cocaine Test?
     + [sports] Mohammed Shami confirms IPL future after announcing retirement from Test cricket
-    → 52 items: 7 accepted, 45 too old, 0 no-date
+    → 53 items: 7 accepted, 46 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,153 bytes)
-    + [sports] Kavem Hodge: There is a belief and shared mindset among WI batters
+    OK  (90,191 bytes)
+    + [sports] Babar: 'Selection not in my hands, I simply give my inputs'
     → 100 items: 1 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -126,7 +124,7 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (40,053 bytes)
+    OK  (41,000 bytes)
     → 34 items: 0 accepted, 34 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
@@ -148,69 +146,65 @@ Cutoff: 2026-10-29 13:41 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
 ── Page fetch (43 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] GCAI Dialogue calls for a predictable, efficient and globall
    ✗ [  business] India’s Markets Are Suddenly Having a Very Happy Diwali: no og:image/twitter:image tag found
    ✗ [  business] Indian economy to grow faster, foreign capital returning to : no og:image/twitter:image tag found
-   ✓ [     legal] Landing price disclosure in hospital bills: Karnataka High C
-   ✗ [  business] Indian economy to grow faster, foreign capital returning to : no og:image/twitter:image tag found
+   ✗ [  business] Indian Gaming Prediction Markets and Legal Challenges: no og:image/twitter:image tag found
    ✗ [  business] India’s Great Market Divergence: Why Stocks Rallied as Globa: no og:image/twitter:image tag found
-   ✗ [  business] Samvat 2083: Which Sectors Could Create The Biggest Wealth A: no og:image/twitter:image tag found
-   ✗ [  business] India Expects Strong Economic Growth to Boost Markets in New: no og:image/twitter:image tag found
-   ✗ [  business] Indian Stock Market in Samvat 2083: Why Betting On Quality O: no og:image/twitter:image tag found
-   ✗ [  business] Gold, Muhurat trading and big business: The economics of Diw: no og:image/twitter:image tag found
-   ✗ [  reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with : no og:image/twitter:image tag found
+   ✗ [  business] Indian economy to grow faster, foreign capital returning to : no og:image/twitter:image tag found
    ✓ [     legal] Newspaper ads are deemed notice of recruitment, rural reside
-   ✗ [  reliance] Environmentalists criticise choice of Earthshot prize venue : no og:image/twitter:image tag found
+   ✓ [     legal] Civil courts retain jurisdiction unless expressly or implied
    ✓ [     legal] 2026 SCC Vol. 8 Part 4 Supreme Court rulings on arbitrator s
-   ✓ [     legal] Fox & Mandal acts as underwriter’s counsel to Smart Horizon 
+   ✓ [     legal] Is moral policing a crime in India? What the BNS, POCSO and 
+   ✗ [  business] Samvat 2083: Which Sectors Could Create The Biggest Wealth A: no og:image/twitter:image tag found
+   ✓ [     legal] High Court Roundup October 2026: 33 rulings on arbitration, 
+   ✓ [     legal] Landing price disclosure in hospital bills: Karnataka High C
+   ✓ [     legal] GCAI Dialogue calls for a predictable, efficient and globall
+   ✗ [  business] India Expects Strong Economic Growth to Boost Markets in New: no og:image/twitter:image tag found
+   ✗ [  reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with : no og:image/twitter:image tag found
+   ✗ [  business] Indian Stock Market in Samvat 2083: Why Betting On Quality O: no og:image/twitter:image tag found
+   ✗ [  reliance] Environmentalists criticise choice of Earthshot prize venue : no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person: no og:image/twitter:image tag found
    ✗ [  reliance] India's Reliance posts best day in over six years as oil bus: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
+   ✗ [  reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance gets its mojo back: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
+   ✓ [     world] No clear winner in New Zealand election, as leaders prepare 
    ✗ [  reliance] Retail Still a Weak Spot as Reliance Profits Beat Expectatio: no og:image/twitter:image tag found
+   ✓ [     world] After a successful trip to Uruguay, Pope Leo heads to Argent
    ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Jio Platforms explores tech-for-equity talks with C: no og:image/twitter:image tag found
-   ✓ [     legal] High Court Roundup October 2026: 33 rulings on arbitration, 
-   ✓ [     legal] Civil courts retain jurisdiction unless expressly or implied
-   ✓ [     legal] Is moral policing a crime in India? What the BNS, POCSO and 
    ✓ [     world] A desert stirs to life: Chile's Atacama erupts in its bigges
-   ✓ [     world] A correspondent finds Cuba's people struggling
-   ✓ [     world] Israel's Arab-led parties in spotlight after inconclusive el
    ✓ [     world] Israel's president taps opposition candidate, not Netanyahu,
-   ✓ [     world] Health intel-sharing group warns industry in wake of cyberat
-   ✓ [     world] Ousted Paraguayan president appears before prosecutors
+   ✓ [     world] A correspondent finds Cuba's people struggling
+   ✓ [     world] Russell Brand to learn sentence after being found guilty of 
    ✗ [    sports] Cricket-India-Sri Lanka ODI moved from Delhi to Visakhapatna: no og:image/twitter:image tag found
    ✓ [     world] Israeli president invites Netanyahu's opposition leader to b
    ✗ [    sports] 'I'm not done yet': Shami's big retirement message: no og:image/twitter:image tag found
+   ✓ [     world] Ousted Paraguayan president appears before prosecutors
    ✗ [    sports] India's Mohammed Shami bids farewell to Test cricket: no og:image/twitter:image tag found
    ✗ [    sports] India A vs New Zealand A 3rd Test: Live streaming, date, tim: no og:image/twitter:image tag found
    ✗ [    sports] Mohammed Shami Retires from Test Cricket: no og:image/twitter:image tag found
    ✗ [    sports] Why Former IPL Star Was Handed A One-Month Ban After Cocaine: no og:image/twitter:image tag found
    ✗ [    sports] Mohammed Shami confirms IPL future after announcing retireme: no og:image/twitter:image tag found
-   ✓ [     world] Pope Leo begins a 12-day, 3-country South America tour after
-   images: 16 found, 24 not found  |  page text: 13 stories
+   images: 15 found, 24 not found  |  page text: 13 stories
 
-── AI notes (9 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Ambani's Jio Platforms explores tech-for-equity talks with C
-   ✓ [groq] Newspaper ads are deemed notice of recruitment, rural reside
-   ✓ [groq] Indian economy to grow faster, foreign capital returning to 
-   ✓ [groq] Indian economy to grow faster, foreign capital returning to 
-   ✓ [groq] India Expects Strong Economic Growth to Boost Markets in New
-   ✓ [groq] Honasa Consumer Q2 revenue jumps 36 pc to Rs 731 crore, EBIT
-   ✓ [groq] Bikaji Foods International net profit falls over 11 pc to Rs
-   ✓ [groq] A desert stirs to life: Chile's Atacama erupts in its bigges
-   ✓ [groq] Gold, Muhurat trading and big business: The economics of Diw
+── AI notes (6 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Gunpowder, diyas, and the Supreme Court's damp match
+   ✓ [groq] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio
+   ✓ [groq] Indian Gaming Prediction Markets and Legal Challenges
+   ✓ [groq] No clear winner in New Zealand election, as leaders prepare 
+   ✓ [groq] After a successful trip to Uruguay, Pope Leo heads to Argent
+   ✓ [groq] Russell Brand to learn sentence after being found guilty of 
 
-   Enrichment: 64 stories | reused 44 | native brief 3 | AI 9 (groq=9; 10 calls) | kept stale 0 | key points 0 | no brief 0
-   ~83,500 tokens not spent vs. enriching every story with AI
-   Accuracy check: 9 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 47 | native brief 3 | AI 6 (groq=6; 6 calls) | kept stale 0 | key points 0 | no brief 0
+   ~87,400 tokens not spent vs. enriching every story with AI
+   Accuracy check: 6 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   13 OK  /  4 failed
+Feeds:   12 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-08   Hero: business-95f85a09
+Edition: 2026-11-08   Hero: legal-33850ccd
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 76 stories for 2026-11-08 | 13 stories continue an earlier one
+Archive: 83 stories for 2026-11-08 | 13 stories continue an earlier one

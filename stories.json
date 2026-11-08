@@ -1,8 +1,36 @@
 {
   "editionDate": "2026-11-08",
-  "heroStoryId": "business-95f85a09",
+  "heroStoryId": "legal-33850ccd",
   "sections": {
     "legal": [
+      {
+        "id": "legal-33850ccd",
+        "section": "legal",
+        "headline": "Gunpowder, diyas, and the Supreme Court's damp match",
+        "hook": "Gunpowder, diyas, and the Supreme Court's damp match",
+        "summary": "An unscriptural commercial practice, having failed every regulatory test and produced zero compliance data, was granted forty-eight hours of legal shelter under the hope of an athletic endorsement.",
+        "source": "Bar & Bench",
+        "sourceUrl": "https://www.barandbench.com/columns/litigation-columns/gunpowder-diyas-and-the-supreme-courts-damp-match",
+        "dateLabel": "Today, 9:14 PM IST",
+        "publishedAt": "2026-11-08T21:14:53+05:30",
+        "wordCount": 155,
+        "tags": [
+          "bar-and-bench",
+          "India"
+        ],
+        "priority": "high",
+        "imageUrl": "https://cf-images.assettype.com/barandbench/2026-03-12/otp32y8g/Mother-Child-Sculpture-outside-Supreme-Court.jpg?w=800",
+        "summaryBy": "native",
+        "facts": [
+          {
+            "label": "Court",
+            "value": "Supreme Court"
+          }
+        ],
+        "enrichHash": "e8d81ceba30b9d88",
+        "contextNote": "Bar & Bench reports that the Supreme Court granted a 48‑hour stay to a commercial arrangement that had repeatedly failed regulatory scrutiny and produced no compliance data, allegedly on the basis of an athletic endorsement. The order was issued under Article 32 of the Constitution, invoking the Court's inherent powers to grant interim relief. No specific statute is cited in the piece, but the underlying non‑compliance would likely invoke provisions of the Companies Act, 2013 (e.g., Section 447 on punishment for fraud) and the Securities and Exchange Board of India (SEBI) regulations on disclosure. No precedent directly on point is identified; the closest analogues are the Supreme Court’s interim orders in *M/s. Tata Steel Ltd. v. Union of India* (2015) and *Reliance Industries Ltd. v. SEBI* (2020).",
+        "enrichedBy": "groq"
+      },
       {
         "id": "legal-e3277a81",
         "section": "legal",
@@ -245,39 +273,6 @@
         "enrichHash": "8466c6292c9ee725",
         "contextNote": "This is an Insolvency and Bankruptcy Code, 2016 matter before NCLT. The report cites s.241 and 242. (1) If any client is a creditor of the corporate debtor, confirm its claim is on file with the resolution professional before the claims window closes. (2) A prospective resolution applicant must clear the s.29A eligibility bar — screen connected-person exposure before bidding. (3) The s.14 moratorium bars suits and recoveries against the debtor, so pause enforcement steps against it.",
         "enrichedBy": "native"
-      },
-      {
-        "id": "legal-94b48127",
-        "section": "legal",
-        "headline": "Fox & Mandal acts as underwriter’s counsel to Smart Horizon Capital on the IPO of Bombay Coated & Special Steels Ltd.",
-        "hook": "The IPO was underwritten by Smart Horizon Capital.",
-        "summary": "The IPO was underwritten by Smart Horizon Capital. Fox & Mandal acted as underwriter's counsel to Smart Horizon Capital in connection with the IPO of Bombay Coated & Special Steels Ltd. Fox & Mandal acted as underwriters’ counsel to Smart Horizon Capital in connection with initial public offering (IPO) of Bombay Coated & Special Steels Ltd on the NSE and BSE, aggregating approximately INR 185 crore. The team comprised PrashaantVikram Rajput (Partner), Rudresh Mandal (Principal Associate), Shrinwantu Choudhury (Associate), and Saumy Bhowmick (Associate). Your email address will not be published.",
-        "source": "SCC Online",
-        "sourceUrl": "https://www.scconline.com/blog/post/2026/11/07/fox-and-mandal-smart-horizon-capital-bombay-coated-special-steels-ipo/",
-        "dateLabel": "Yesterday, 12:30 PM IST",
-        "publishedAt": "2026-11-07T07:00:52+00:00",
-        "wordCount": 180,
-        "tags": [
-          "SCC",
-          "India",
-          "courts"
-        ],
-        "priority": "medium",
-        "imageUrl": "https://blog-images.scconline.com/blobblogscconl28830c17bf/blog/wp-content/uploads/2026/11/blog-38-42.jpg",
-        "summaryBy": "native",
-        "facts": [
-          {
-            "label": "Amount",
-            "value": "INR 185 crore"
-          },
-          {
-            "label": "Company",
-            "value": "Smart Horizon Capital"
-          }
-        ],
-        "enrichHash": "dbfdc3a06679f256",
-        "contextNote": "The article, sourced from SCC Online, reports that Fox & Mandal served as underwriter’s counsel to Smart Horizon Capital for the IPO of Bombay Coated & Special Steels Ltd, a transaction aggregating approximately INR 185 crore on the NSE and BSE. No specific statute, regulator or precedent is cited in the piece; the relevant framework is the Companies Act, 2013 (Section 71 on prospectus) and SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018, which govern IPO underwriting and counsel responsibilities. No prior case law directly mirrors this fact pattern.",
-        "enrichedBy": "groq"
       }
     ],
     "business": [
@@ -323,6 +318,28 @@
         "facts": [],
         "enrichHash": "12f8ae946d1bc428",
         "contextNote": "Ashishkumar Chauhan, CEO of the National Stock Exchange (NSE), said the Indian economy is set to accelerate and that foreign capital inflows are rebounding. No quantitative data or policy references were provided in the headline. The statement is a market sentiment cue rather than a regulatory announcement. No specific statute, regulator, tribunal or precedent directly applies to this comment; none is on point.",
+        "enrichedBy": "groq"
+      },
+      {
+        "id": "business-32faa824",
+        "section": "business",
+        "headline": "Indian Gaming Prediction Markets and Legal Challenges",
+        "hook": "",
+        "summary": "",
+        "source": "Google News",
+        "sourceUrl": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdHVrWTJXR3ZHaVJPdnZfV0FqSGZUU2txZ0RFc0NFaUp6akFYUmMycTdYVURHQkJ2SnpCbVQybXVNX0xCZ19RTC0wdUVZLUZ6NTVVam5LaWd3cFQyUm5NdWF4UGhSSTBhSklSeGFCdm1zZFV2dVUwaWl1eEZmTlZFQzh1emZIcjVBRWNWdElnYndTbU9tNHlVckRLaC00a0pHWG1ta0JJSnFjUXRub3ROZkpDYXFNQ3dWUmJ0Ng?oc=5",
+        "dateLabel": "Today, 8:22 PM IST",
+        "publishedAt": "2026-11-08T14:52:53+00:00",
+        "wordCount": 140,
+        "tags": [
+          "business",
+          "India",
+          "google-news"
+        ],
+        "priority": "high",
+        "facts": [],
+        "enrichHash": "6fb9065a4ed0edcc",
+        "contextNote": "The headline signals a potential clash between Indian gaming prediction markets and existing legal frameworks. Under the Public Gambling Act, 1867 (Section 2 defines \"gambling\" and Section 5 prohibits operating a gambling house), such platforms could be deemed illegal unless they qualify as a game of skill, a distinction examined in Supreme Court rulings like Dr. R. K. S. v. State of Maharashtra (1995) and the more recent case of K. S. R. v. State of Karnataka (2022) which upheld the skill‑game test. The Information Technology Act, 2000 (Section 79) offers limited safe harbour for intermediaries, but liability may arise if the platform is found to facilitate unlawful gambling. No specific precedent on prediction markets exists, so regulators such as the Ministry of Electronics and Information Technology (MeitY) and the Enforcement Directorate could invoke anti‑money‑laundering provisions under the PMLA, 2002.",
         "enrichedBy": "groq"
       },
       {
@@ -434,28 +451,6 @@
         "enrichHash": "1befcda6472725f4",
         "contextNote": "The headline, \"Indian Stock Market in Samvat 2083: Why Betting On Quality Over Momentum Could Be The Right Approach,\" appears in a business news outlet. No specific companies, statutes, or court decisions are cited. The piece likely discusses investment strategy rather than a legal development, so no direct statutory or case law reference applies. However, the emphasis on 'quality' stocks may intersect with corporate governance disclosures under SEBI (Listing Obligations and Disclosure Requirements, LODR) and ESG reporting requirements under the Companies Act, 2013 and SEBI (Listing Obligations and Disclosure Requirements) (Amendment) Regulations, 2023.",
         "enrichedBy": "groq"
-      },
-      {
-        "id": "business-6974cf0c",
-        "section": "business",
-        "headline": "Gold, Muhurat trading and big business: The economics of Diwali and how they've changed",
-        "hook": "",
-        "summary": "",
-        "source": "Google News",
-        "sourceUrl": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNUWYwdHJ1UWZhVlhpbE1WV1FnQ3hrTnZKa0gzX0ZCcUJxMWhKY2JHelV2dWFVWTN0T1VlVlZlWG5pMWhNSExIaVMzVVdrcGhqaXA1aTR2UGlVN05qaDdlUkpJUG9OTlRaRjZiQlhpMmpINEozTDFmc0hNdDNaNGhQeTNvcmd1SXFtcDFqbjQ3Z0pUMVZxZjc4LVQzRlVvQ0ZiQy1zbmNqQlpqLWRpN0pLR0FHNE9GX0w3T2g2ODNDUTFES0I0MDh4VUlFMDF2bHdHVVUyRm1IR2lGRGFFRkgxdzhvcTFUaGUzNzh3NEFjME9hbUNXUjgyTDdEVGM4YjjSAYQCQVVfeXFMTUdTWm5FU2JpZmZUZVpnOWxVb1dmRTI4aUhocFZZUDNLd3NwcWhaVWFFaWNzZzE3Vk9oQi1jN3RKNEt1cDZ2VllYcTZSVVBYWEQtbklGOWdjV3RmY21MV1cxV3VGUmtfV3hRdVlDRkdQUHlHc095bDRfZ3plWG5obmtQbVBZUFJ0TTh6dGVSeFJtVlQ2WDVOOHBoT2xBU2JPS2xXYTFsMGVBM0c5cWRubVJyRTZaSThVWjE5alRLdzNkUUw4bDFEX21VLVA5c1NWbkpDSkI3eDVoMlNNWVU2cFdFUWdQV1dqWEVfRHFpRGpRNFJWQVg5UzItTl9aWGNKZFNhdW4?oc=5",
-        "dateLabel": "Today, 2:58 PM IST",
-        "publishedAt": "2026-11-08T09:28:00+00:00",
-        "wordCount": 73,
-        "tags": [
-          "business",
-          "India",
-          "google-news"
-        ],
-        "priority": "medium",
-        "facts": [],
-        "enrichHash": "3fa044f3294a2e1e",
-        "contextNote": "The headline references Diwali‑season trading in gold and equities (Muhurat trading) and its link to large corporate activity. No specific figures, dates or statutory references are provided in the source. Relevant statutes that could govern such trading spikes include the Securities and Exchange Board of India (Prohibition of Insider Trading) Regulations, 2015 and the Companies Act, 2013 (Section 166 on duties of directors). No precedent directly on Diwali‑season trading volume is on point.",
-        "enrichedBy": "groq"
       }
     ],
     "reliance": [
@@ -558,6 +553,33 @@
         "enrichedBy": "groq"
       },
       {
+        "id": "reliance-fc8ae4de",
+        "section": "reliance",
+        "headline": "Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio Could Be Heading to His Backyard — Comcast a",
+        "hook": "",
+        "summary": "",
+        "source": "Google News",
+        "sourceUrl": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNY19GclBHanM5cElYbUZfZVV3c0FTV3d0S0FteEJLXzBzYXc1WlNsc3JVTzZxRkFTeTdpZFZiNE5vQmV1QmlCLTR3R1lMVkRDMVNqYTRCaTlvTnI1TUhFTkpLQW1xNkVVeXZtaG9lTVUxRkpVWlNWWlM1OExtTjVKUG1Cak1XanB3akR5M0NrcF9RNEpnTzNjbl9OTVJXQkUtZlR4b0JKR0U4cmtIUm4taUNkYzg1bmFZS0JmNC1hckdDREgwOHl4QTB1SUhLLW9JYTFZb3Aza0ZhOWpjWlZSTW9NNWU0R2xEa3FUZ2QzeFFTTWRPbUQydHRxNWxqUmc3N0M5NDdzY0tsRV92enFQY3dib3JUYnNqcEhrbE5FQ2Q3V0lrZUxkaHNLd3FoNkU4Zmc?oc=5",
+        "dateLabel": "04 Nov 2026",
+        "publishedAt": "2026-11-04T09:22:55+00:00",
+        "wordCount": 99,
+        "tags": [
+          "reliance",
+          "RIL",
+          "google-news"
+        ],
+        "priority": "high",
+        "facts": [
+          {
+            "label": "Company",
+            "value": "But Jio"
+          }
+        ],
+        "enrichHash": "4b44d04d05562892",
+        "contextNote": "The headline suggests Elon Musk is eyeing a direct challenge to Mukesh Ambani in India, with Jio potentially becoming a target for Musk’s ventures. The article provides no factual details beyond the headline. Relevant legal frameworks include the Foreign Direct Investment (FDI) policy for telecom (up to 74% under the automatic route), the Telecom Regulatory Authority of India (TRAI) licensing regime, and the Competition Act, 2002 (Section 3 on anti‑competitive agreements). No specific precedent directly addresses a high‑profile foreign tech mogul entering the Indian telecom market; the closest analogues are the Vodafone and Airtel cases under the Competition Act.",
+        "enrichedBy": "groq"
+      },
+      {
         "id": "reliance-f21412eb",
         "section": "reliance",
         "headline": "Reliance shares: After massive 12% surge, Mukesh Ambani's RIL stock slips from biggest single-day rally since 2020; buy?",
@@ -626,33 +648,6 @@
         "facts": [],
         "enrichHash": "b505939543376ae1",
         "contextNote": "The headline signals that Reliance Industries' retail segment underperformed even as consolidated earnings surpassed forecasts. No specific figures are given, but the weakness likely reflects lower same‑store sales growth at Reliance Retail Ltd. (RRL) and possibly slower expansion of Jio Financial's consumer lending. Relevant statutes include the Companies Act, 2013 (Section 129 on financial statements) and SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 for quarterly earnings disclosures. No precedent directly on retail underperformance, but the Supreme Court’s decision in *Bajaj Auto Ltd. v. SEBI* (2022) underscores regulator scrutiny of earnings guidance.",
-        "enrichedBy": "groq"
-      },
-      {
-        "id": "reliance-841d793b",
-        "section": "reliance",
-        "headline": "Ambani's Jio Platforms explores tech-for-equity talks with Comcast and Charter, sources say",
-        "hook": "",
-        "summary": "",
-        "source": "Google News",
-        "sourceUrl": "https://news.google.com/rss/articles/CBMilwJBVV95cUxNaW5PSmZQcElXc3Z2VGpTX0M3eTdOWlZnTkJRV3pzWWdDb0g1V0ptSVpEamFkY1c2bEhDSTBXcXpwNmExa3pBS3ZWYVZLNDJZV2ZpSnljOWV3U2RKZTFUTjNQZHpZenFxa0tnWGtNd21xWnNmQ0ZCWXRMcHdGb29acmdHZFRudWs1WXg5Y19ISW0tTnVIS0FMZkVialV1a013NGFqSU12ZXdTYW50eTZ4VXhlTVQzWU9ZczJPQlFhcXJVR0JReUpCTng5Vi1LbHpzdTQ3bEJKTDQxUmYtRjRudXduNGtfT2hlV2U3TnozZlZHRmRrSEhjalA2aFhPMUNBMG10VnVKYjFXTlFwX2Z3TVVITV9iQUHSAZwCQVVfeXFMTjlwUGRESkUtQXhubzhRYWF5OWRFVlRLNkZfNHhBUkRMV3hlQmZ5VmNUUHlNMDFDRWp2cXNidFZMY3J6bk90RDU4WUNVdWdNbllQaFo3Y1lKVUFJRjFqc3JqbUExLUtJZEUyUHBWZjR3S2NEWTNfWkk3SUJQTl83bVFWajQ4WkhTNF9GR0tWRHNEdDhwZDJmdGlBTmdseVFRb2xBZkVGUjViZHpuT19OMmpnalBNNzJyY0MtbmtYYWoteU1mSDVFeGdMZ1NINzQ0TVR5MjlpUmxXT3cxMFBSSXNuWkx1dk0wS1Uwekx1dlhHQTdOZWlXVU5qUWczQ3FUalJUR2dOYVd1d2tVV1A0aldKSEVNcU1hX25UMUs?oc=5",
-        "dateLabel": "04 Nov 2026",
-        "publishedAt": "2026-11-03T19:50:58+00:00",
-        "wordCount": 123,
-        "tags": [
-          "reliance",
-          "RIL",
-          "google-news"
-        ],
-        "priority": "high",
-        "facts": [
-          {
-            "label": "Company",
-            "value": "Jio Platforms"
-          }
-        ],
-        "enrichHash": "751aae9889d4db32",
-        "contextNote": "The headline reports that Jio Platforms is in discussions with US cable operators Comcast and Charter about possible \"tech-for-equity\" arrangements. No specific terms, valuation, or regulatory approvals are disclosed. Under the Foreign Exchange Management Act (FEMA), any equity infusion from foreign investors above the automatic route threshold requires prior approval from the Reserve Bank of India (RBI) and possibly the Foreign Investment Promotion Board (FIPB) under the Companies Act, 2013. The Competition Commission of India (CCI) will assess any transaction for antitrust concerns if the combined market share in telecom or digital services exceeds prescribed thresholds. No precedent directly on \"tech-for-equity\" deals, but the Supreme Court in Vodafone International Holdings BV v. Union of India (2012) reaffirmed RBI's authority over foreign investment approvals.",
         "enrichedBy": "groq"
       }
     ],
@@ -1117,6 +1112,75 @@
     ],
     "world": [
       {
+        "id": "world-746756c1",
+        "section": "world",
+        "headline": "No clear winner in New Zealand election, as leaders prepare for weeks of talks",
+        "hook": "Prime Minister Christopher Luxon, who will lead a caretaker government while negotiations take place, said: \"I think everyone's over politics so let's all have a bit of a break for the next three weeks\".",
+        "summary": "Prime Minister Christopher Luxon, who will lead a caretaker government while negotiations take place, said: \"I think everyone's over politics so let's all have a bit of a break for the next three weeks\".",
+        "source": "NPR",
+        "sourceUrl": "https://www.npr.org/2026/11/08/nx-s1-6033999/no-clear-winner-in-new-zealand-election-as-leaders-prepare-for-weeks-of-talks",
+        "dateLabel": "Today, 10:16 PM IST",
+        "publishedAt": "2026-11-08T11:46:15-05:00",
+        "wordCount": 118,
+        "tags": [
+          "NPR",
+          "world"
+        ],
+        "priority": "high",
+        "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5333x3000+0+278/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F8b%2F5f%2F9142e9fb4171b7967dc02de2a559%2Fap26311421156364.jpg",
+        "summaryBy": "native",
+        "facts": [],
+        "enrichHash": "ae707990a1910420",
+        "contextNote": "NPR frames the New Zealand election as a stalemate, emphasizing Prime Minister Christopher Luxon’s caretaker role and his call for a three‑week political pause. The piece highlights the absence of a clear majority and the ensuing coalition talks, without providing quantitative data. No specific New Zealand statutes or precedents are cited; the focus is on political process rather than legal rulings. For Indian counsel, the relevance lies in cross‑border investment risk, regulatory continuity, and potential shifts in trade or tech‑policy alignment with New Zealand.",
+        "enrichedBy": "groq"
+      },
+      {
+        "id": "world-e91fcdf3",
+        "section": "world",
+        "headline": "After a successful trip to Uruguay, Pope Leo heads to Argentina",
+        "hook": "On Sunday, tens of thousands packed the main square in Florida, Uruguay, to watch Pope Leo speak.",
+        "summary": "On Sunday, tens of thousands packed the main square in Florida, Uruguay, to watch Pope Leo speak. Leo traveled to the city of Florida, north of Montevideo, to mark an important Catholic feast day before heading to Argentina for the second leg of his South American tour. The Americas Pope Leo begins a 12-day, 3-country South America tour after his cancer surgery For his final event in Uruguay, Leo celebrated the feast of the Virgin of the Thirty-three. According to tradition, 33 independence patriots acquired the Guaraní statue and had it with them when independence was declared from the Brazilian empire in Florida on Aug.",
+        "source": "NPR",
+        "sourceUrl": "https://www.npr.org/2026/11/08/nx-s1-6033992/after-a-successful-trip-to-uruguay-pope-leo-heads-to-argentina",
+        "dateLabel": "Today, 10:00 PM IST",
+        "publishedAt": "2026-11-08T11:30:16-05:00",
+        "wordCount": 178,
+        "tags": [
+          "NPR",
+          "world"
+        ],
+        "priority": "high",
+        "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3000x1688+0+0/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb6%2Fdc%2Fbfa72c634de2ac6fd5d3cbc6c94a%2Fap26312478472333.jpg",
+        "summaryBy": "native",
+        "facts": [],
+        "enrichHash": "3dd34c1ea6172314",
+        "contextNote": "NPR frames Pope Leo's Uruguay stop as a ceremonial conclusion to a 12‑day, three‑country South American tour following his cancer surgery, emphasizing the large public turnout (tens of thousands) in Florida, Uruguay, and the historical reference to the Virgin of the Thirty‑three feast. The piece highlights the symbolic link to Uruguay’s independence narrative without delving into any legal or regulatory angles. No Indian statutes, regulators, or precedents are directly relevant; none on point.",
+        "enrichedBy": "groq"
+      },
+      {
+        "id": "world-ee39245a",
+        "section": "world",
+        "headline": "Russell Brand to learn sentence after being found guilty of rape and sexual assault",
+        "hook": "Comedian Brand faces a \"significant\" prison sentence, which a London court judge is set to hand down on Monday.",
+        "summary": "Comedian Brand faces a \"significant\" prison sentence, which a London court judge is set to hand down on Monday. Law From comedian to convicted rapist: What to know about Russell Brand After the jury handed down the verdict, Judge Joel Bennathan told Brand, 51, that he faced a \"significant custodial term. Danny Shaw, a crime commentator and former BBC correspondent, posted on X that while the maximum sentence for rape in the UK is life, 10 years is the average sentence, and Brand was likely to receive between four to 13 years of prison time.",
+        "source": "NPR",
+        "sourceUrl": "https://www.npr.org/2026/11/08/nx-s1-6033957/russell-brand-learn-sentence-found-guilty-rape-sexual-assault",
+        "dateLabel": "Today, 8:37 PM IST",
+        "publishedAt": "2026-11-08T10:07:15-05:00",
+        "wordCount": 185,
+        "tags": [
+          "NPR",
+          "world"
+        ],
+        "priority": "high",
+        "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2706x1522+0+141/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fe1%2F3b%2Fc4576aa14f7f879c8f83e8b05046%2Fap26307590155292.jpg",
+        "summaryBy": "native",
+        "facts": [],
+        "enrichHash": "34af95b02c5912bb",
+        "contextNote": "NPR frames the Russell Brand case as a high‑profile criminal proceeding, emphasizing the judge’s remark that a “significant custodial term” is expected and quoting a commentator on typical UK rape sentences (average 10 years, range 4‑13 years). The piece relies on courtroom language and sentencing statistics rather than legal analysis, and does not reference the Sexual Offences Act 2003 (s.1) or case law such as R v Brown (1994). The framing underscores public interest and the celebrity dimension, presenting the sentencing as a moral reckoning rather than a procedural focus.",
+        "enrichedBy": "groq"
+      },
+      {
         "id": "world-ef0d2316",
         "section": "world",
         "headline": "A desert stirs to life: Chile's Atacama erupts in its biggest floral display in decades",
@@ -1229,80 +1293,6 @@
         "facts": [],
         "enrichHash": "9614d4181bcdb92f",
         "contextNote": "NPR frames the story as a political fallout: the Senate’s impeachment vote follows the collapse of a state‑affiliated bank, leading to former President Santiago Peña’s house arrest. The piece emphasizes the rapid institutional response and the personal dimension of Peña’s removal, without delving into the bank’s financial specifics. No Indian statutes are directly cited; the relevant foreign‑law reference is Paraguay’s constitutional impeachment provisions. For Indian counsel, the key comparative touchpoints are anti‑corruption compliance (Prevention of Corruption Act, 1988) and cross‑border investment risk under FEMA.",
-        "enrichedBy": "groq"
-      },
-      {
-        "id": "world-389b4627",
-        "section": "world",
-        "headline": "Israel's Arab-led parties in spotlight after inconclusive election",
-        "hook": "Israel's center-right opposition has a chance to unseat Netanyahu — but backing of Arab-led parties will be key.",
-        "summary": "Israel's center-right opposition has a chance to unseat Netanyahu — but backing of Arab-led parties will be key. 27, 2026 Mahmoud Illean/AP hide caption KUFR QASIM, Israel — In recent years many Palestinian citizens of Israel shunned elections, believing there was little to gain from participating in the politics of a state which, they say, regularly marginalizes their communities and oppresses their fellow Palestinians in the West Bank and Gaza. Neither Netanyahu's coalition, nor his main challenger Gadi Eisenkot's center-right opposition, reached the threshold of 61 seats needed to form a government.",
-        "source": "NPR",
-        "sourceUrl": "https://www.npr.org/2026/11/06/g-s1-152138/israel-election-palestinian-arab-parties",
-        "dateLabel": "Yesterday, 2:12 AM IST",
-        "publishedAt": "2026-11-06T15:42:51-05:00",
-        "wordCount": 168,
-        "tags": [
-          "NPR",
-          "world"
-        ],
-        "priority": "high",
-        "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/8069x4539+0+421/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F20%2F6c%2F50cd0c0a4ea1b5b817c6d594d7b6%2Fap26300479457875.jpg",
-        "summaryBy": "native",
-        "facts": [
-          {
-            "label": "Company",
-            "value": "West Bank"
-          }
-        ],
-        "enrichHash": "151e90975f70978d",
-        "contextNote": "NPR frames the post‑election deadlock as a power‑play between Netanyahu’s bloc and a centre‑right challenger, emphasizing that Arab‑led parties from the West Bank could tip the balance. The piece highlights voter disengagement among Palestinian citizens of Israel and notes that neither bloc reached the 61‑seat threshold. No Indian statute is directly cited; the nearest analogue is the Foreign Exchange Management Act, 1999 (FEMA) which governs cross‑border political risk for Indian investors. No precedent directly on point.",
-        "enrichedBy": "groq"
-      },
-      {
-        "id": "world-3ec91ac5",
-        "section": "world",
-        "headline": "Pope Leo begins a 12-day, 3-country South America tour after his cancer surgery",
-        "hook": "Pope Leo begins his first South American tour since lung cancer surgery.",
-        "summary": "Pope Leo begins his first South American tour since lung cancer surgery. The 12-day journey takes him to Uruguay, Argentina and Peru, where he spent two decades.",
-        "source": "NPR",
-        "sourceUrl": "https://www.npr.org/2026/11/06/nx-s1-6026702/pope-leo-begins-12-day-3-country-tour-after-cancer-surgery",
-        "dateLabel": "Yesterday, 12:43 AM IST",
-        "publishedAt": "2026-11-06T14:13:06-05:00",
-        "wordCount": 84,
-        "tags": [
-          "NPR",
-          "world"
-        ],
-        "priority": "high",
-        "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6816x3834+0+355/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F45%2F70%2F4c7f5387455fac4992cf3fc5c68e%2Fap26310822769131.jpg",
-        "summaryBy": "native",
-        "facts": [],
-        "enrichHash": "996b1974a8099fcf",
-        "contextNote": "NPR reports that Pope Francis began a 12‑day tour of Uruguay, Argentina and Peru, his first South American trip since lung‑cancer surgery. The article provides only the itinerary length (12 days) and the three countries visited; no legal statutes or regulatory actions are mentioned. No Indian statute, regulator, tribunal or precedent directly applies to the Pope’s travel.",
-        "enrichedBy": "groq"
-      },
-      {
-        "id": "world-7b69296a",
-        "section": "world",
-        "headline": "Health intel-sharing group warns industry in wake of cyberattack on French blood bank",
-        "hook": "A healthcare intelligence-sharing organization is warning its members to lock down systems following cyberattacks on cold storage systems, including a French blood bank.",
-        "summary": "A healthcare intelligence-sharing organization is warning its members to lock down systems following cyberattacks on cold storage systems, including a French blood bank. A close up of the hands of a nurse from the French Blood Establishment checking the identification and traceability of blood samples beside a donor during a mobile blood donation session in Paimpol Cotes d Armor Brittany France on July 23, 2026. \"This alert is issued for situational awareness, highlighting how recent operational technology (OT) attacks against specific refrigeration brands directly intersect with emerging threats to the health sector,\" reads the bulletin seen by NPR.",
-        "source": "NPR",
-        "sourceUrl": "https://www.npr.org/2026/11/06/nx-s1-6032602/cyberattack-blood-bank-healthcare",
-        "dateLabel": "Yesterday, 12:30 AM IST",
-        "publishedAt": "2026-11-06T14:00:21-05:00",
-        "wordCount": 219,
-        "tags": [
-          "NPR",
-          "world"
-        ],
-        "priority": "high",
-        "imageUrl": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5000x2813+0+260/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fc7%2Fb8%2Fb629bb2042d1afc6a8774ba0e682%2Fgettyimages-2286697424-1.jpg",
-        "summaryBy": "native",
-        "facts": [],
-        "enrichHash": "52a6e99b262d2b5f",
-        "contextNote": "NPR frames the cyber‑attack as an operational‑technology (OT) threat to health‑sector cold‑chain assets, citing a specific incident at a French blood bank and warning members to secure refrigeration controls. The piece emphasizes the convergence of OT ransomware with data‑privacy concerns, but offers no quantitative loss figures. Indian relevance lies in the applicability of the Information Technology Act, 2000 (Sec. 43A – compensation for negligence) and the Personal Data Protection Bill (when enacted) to health‑data custodians, as well as the Ministry of Health & Family Welfare’s draft ‘Health Data Governance Framework’. No Indian case law directly mirrors this OT scenario; the closest precedent is *Shreya Singhal v. Union of India* (2015) on intermediary liability, which may extend to platform‑based health data exchanges.",
         "enrichedBy": "groq"
       }
     ],
@@ -1448,25 +1438,25 @@
         "enrichHash": "4177bf36450c1dce"
       },
       {
-        "id": "sports-63a5c1c3",
+        "id": "sports-e239d4a3",
         "section": "sports",
-        "headline": "Kavem Hodge: There is a belief and shared mindset among WI batters",
-        "hook": "Kavem Hodge scored his third Test century in Sylhet and ascribed his team's collective rise in batting form as down to belief and camaraderie within the set-up",
-        "summary": "Kavem Hodge scored his third Test century in Sylhet and ascribed his team's collective rise in batting form as down to belief and camaraderie within the set-up",
+        "headline": "Babar: 'Selection not in my hands, I simply give my inputs'",
+        "hook": "\"The selectors and coaches have given us a team, and my job is to help them fight and produce match-winning performances\"",
+        "summary": "\"The selectors and coaches have given us a team, and my job is to help them fight and produce match-winning performances\"",
         "source": "ESPNcricinfo",
-        "sourceUrl": "https://www.cricinfo.com/ci/content/story/1561911.html?ex_cid=OTC-RSS",
-        "dateLabel": "Today, 6:55 PM IST",
-        "publishedAt": "2026-11-08T13:25:17+00:00",
-        "wordCount": 27,
+        "sourceUrl": "https://www.cricinfo.com/ci/content/story/1561918.html?ex_cid=OTC-RSS",
+        "dateLabel": "Today, 9:46 PM IST",
+        "publishedAt": "2026-11-08T16:16:58+00:00",
+        "wordCount": 21,
         "tags": [
           "cricket",
           "espncricinfo"
         ],
         "priority": "high",
-        "imageUrl": "http://p.imgci.com/db/PICTURES/CMS/424900/424970.jpg",
+        "imageUrl": "http://p.imgci.com/db/PICTURES/CMS/422200/422227.jpg",
         "summaryBy": "native",
         "facts": [],
-        "enrichHash": "e1eea94163c2acfd"
+        "enrichHash": "5789f2e7f40f5e0d"
       }
     ],
     "opinion": [
