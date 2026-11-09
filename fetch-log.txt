@@ -1,6 +1,6 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-10-30 22:35 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
@@ -22,7 +22,7 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (44,164 bytes)
+    OK  (44,208 bytes)
     + [business] Indian economy to grow faster, foreign capital returning to markets: NSE CEO Ash
     + [business] The India Upside to Jensen Huang’s Nvidia Crisis
     + [business] Indian Gaming Prediction Markets and Legal Challenges
@@ -30,11 +30,11 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
     + [business] India Expects Strong Economic Growth to Boost Markets in New Samvat
     → 32 items: 5 accepted, 27 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (38,237 bytes)
+    OK  (35,274 bytes)
     + [business] Gold, Muhurat trading and big business: The economics of Diwali and how they've 
     + [business] Indian Stock Markets Set for Muhurat Trading on November 8
     + [business] Diwali Muhurat Trading 2026: NSE, BSE timings, Monday market schedule; what inve
-    → 22 items: 3 accepted, 1 too old, 0 no-date
+    → 20 items: 3 accepted, 1 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -42,23 +42,22 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (126,366 bytes)
+    OK  (128,841 bytes)
     + [reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with Comcast and Charter,
     + [reliance] Environmentalists criticise choice of Earthshot prize venue owned by fossil fuel
     + [reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio Could Be Heading to
-    + [reliance] India's Reliance posts best day in over six years as oil business, Jio Platforms
     + [reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person
     + [reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RIL stock slips from b
     + [reliance] Mukesh Ambani stocks: Reliance Industries vs Jio Platforms shares compared - RIL
     + [reliance] Ambani's Jio Platforms explores tech-for-equity talks with Comcast and Charter, 
-    → 74 items: 8 accepted, 20 too old, 0 no-date
+    + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV Logs 10 nm Flight Departing and Retu
+    → 75 items: 8 accepted, 20 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (63,046 bytes)
+    OK  (62,504 bytes)
     + [retail] E-commerce share in India's FMCG retail sales triples in 2 years: Nielsen
-    + [retail] India FMCG Sector: How It Generates Consistent Returns for Investors
-    → 34 items: 2 accepted, 32 too old, 0 no-date
+    → 34 items: 1 accepted, 33 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,719 bytes)
     + [retail] Jewellers report brisk Dhanteras sales as gold price drop lures buyers; volumes 
@@ -67,7 +66,8 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
     + [retail] Ambani's Reliance may not get Campa moment in biscuit market, Britannia CEO says
     + [retail] India's trade expected to cross Rs 1 lakh crore on Dhanteras: CAIT
     + [retail] Honasa Consumer Q2 revenue jumps 36 pc to Rs 731 crore, EBITDA nearly doubles to
-    → 10 items: 6 accepted, 0 too old, 0 no-date
+    + [retail] Bikaji Foods International net profit falls over 11 pc to Rs 70.78 cr in Q2
+    → 10 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
@@ -90,15 +90,15 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
   [     world] fetching https://feeds.voanews.com/rss/english/news
     HTTP 404 — skipping  https://feeds.voanews.com/rss/english/news
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,781 bytes)
+    OK  (14,492 bytes)
+    + [world] France accuses Iran of cyber 'sabotage' in fridge attacks
+    + [world] In northern Ethiopia, conflict pushes a strained healthcare system to the brink
     + [world] Thick smog shrouds New Delhi after Diwali firecrackers add to seasonal pollution
     + [world] British comedian Russell Brand sentenced to over 10 years for rape and sexual as
     + [world] Congress is back after GOP's midterm defeat. And, Trump appoints new chief of st
     + [world] Why a South Korean city is turning to a U.S. college to outsmart AI?
     + [world] How a bank collapse left millions in limbo and toppled Paraguay's president
     + [world] The world's largest telecoms firm is on trial and the outcome has global implica
-    + [world] Trying to find true owners, Paris' Musee D'Orsay exhibits art looted by Nazis
-    + [world] Europe to join U.S.-brokered Ukraine talks in Abu Dhabi, defying Kremlin objecti
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -107,26 +107,26 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (42,387 bytes)
+    OK  (51,405 bytes)
+    + [sports] 'I'm not done yet': Shami's big retirement message
     + [sports] Mohammed Shami Retires from Test Cricket
-    → 40 items: 1 accepted, 39 too old, 0 no-date
+    + [sports] Mohammed Shami confirms IPL future after announcing retirement from Test cricket
+    → 48 items: 3 accepted, 45 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,926 bytes)
+    OK  (90,784 bytes)
+    + [sports] Cricket Scotland announces reduced relations with Afghanistan
+    + [sports] Laurie Evans: 'My world was turned upside-down' during four-year fight against d
+    + [sports] Dale Benkenstein appointed Bangladesh's batting specialist ahead of SA tour
+    + [sports] Shanto: Bangladesh failed to make use of home conditions
     + [sports] Patterson-White tops the pecking order as England reassess spin stocks
-    + [sports] Suryakumar to lead Mumbai in Syed Mushtaq Ali Trophy; Dube and Thakur in the squ
-    + [sports] Patterson-White wins maiden England call in Test squad for South Africa
-    + [sports] Ervine 206*, Madhevere 100* as Zimbabwe and Afganistan play out draw
-    + [sports] Rodrigues, Amanjot back from injuries; Renuka picked only for T20Is for South Af
-    + [sports] Chase: Our improved game against spin helped us win in Bangladesh
-    + [sports] Shakeel digs in as Pakistan take opening day honours
-    → 100 items: 7 accepted, 0 too old, 0 no-date
+    → 100 items: 5 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (41,972 bytes)
+    OK  (40,918 bytes)
     → 34 items: 0 accepted, 34 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
@@ -134,87 +134,77 @@ Cutoff: 2026-10-30 16:41 UTC  (MAX_AGE_HOURS=240)
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (53,902 bytes)
+    OK  (53,887 bytes)
+    + [opinion] Nvidia CEO Jensen Huang scandal: Honeytrap ends honeymoon?
+    + [opinion] Human, all too human: More than whether Jensen Huang can survive the scandal, ca
+    + [opinion] India risks losing tax revenue by delaying global minimum tax rollout
     + [opinion] US midterm results may give India trade leverage, but tariff and AI risks remain
     + [opinion] Enough of COP Jamborees
     + [opinion] Healthcare needs stronger partnerships between hospitals and insurers
     + [opinion] Brightest Within
     + [opinion] Can we not be so txtually depraved, please?
-    + [opinion] 'We'll live happily ever after, we have retirement funds, & bifocals': Why do In
-    + [opinion] All is fair in books and coffee at Frankfurt, despite AI anxieties and geopoliti
-    + [opinion] Go beyond Dhan Lakshmi
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
 ── Page fetch (42 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] Cyril Amarchand Mangaldas advises selling shareholders in th
    ✓ [     legal] Quashing under S. 528 BNSS before cognizance? Gauhati HC say
-   ✓ [     legal] A Dispute Resolved, A Doctrine Left Open
-   ✓ [     legal] Khaitan & Co advises Giva on USD 100 million Series D fundin
+   ✓ [     legal] Cyril Amarchand Mangaldas advises selling shareholders in th
+   ✓ [     legal] Newspaper ads are deemed notice of recruitment, rural reside
+   ✓ [     legal] October 2026 Legislation Roundup: From RBI’s Repo Rate Hike 
    ✓ [     legal] Cyril Amarchand Mangaldas acts as Indian legal counsel to th
    ✗ [  business] Indian economy to grow faster, foreign capital returning to : no og:image/twitter:image tag found
    ✓ [     legal] National Legal Services Day: From Bhagalpur to NALSA  The C
-   ✗ [  business] Indian Gaming Prediction Markets and Legal Challenges: no og:image/twitter:image tag found
    ✗ [  business] The India Upside to Jensen Huang’s Nvidia Crisis: no og:image/twitter:image tag found
+   ✗ [  business] Indian Gaming Prediction Markets and Legal Challenges: no og:image/twitter:image tag found
+   ✓ [     legal] Khaitan & Co advises Giva on USD 100 million Series D fundin
    ✗ [  business] Indian markets offer growth, diversification amid AI-led mar: no og:image/twitter:image tag found
-   ✓ [     legal] October 2026 Legislation Roundup: From RBI’s Repo Rate Hike 
-   ✓ [     legal] Newspaper ads are deemed notice of recruitment, rural reside
    ✗ [  business] India Expects Strong Economic Growth to Boost Markets in New: no og:image/twitter:image tag found
+   ✓ [     legal] A Dispute Resolved, A Doctrine Left Open
    ✗ [  business] Gold, Muhurat trading and big business: The economics of Diw: no og:image/twitter:image tag found
    ✗ [  business] Indian Stock Markets Set for Muhurat Trading on November 8: no og:image/twitter:image tag found
    ✗ [  business] Diwali Muhurat Trading 2026: NSE, BSE timings, Monday market: no og:image/twitter:image tag found
+   ✗ [  reliance] Environmentalists criticise choice of Earthshot prize venue : no og:image/twitter:image tag found
+   ✗ [  reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
    ✗ [  reliance] EXCLUSIVE: Ambani's Jio explores tech-for-equity talks with : no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s Wealth Rises 10%—Now Asia’s Richest Person: no og:image/twitter:image tag found
-   ✗ [  reliance] India's Reliance posts best day in over six years as oil bus: no og:image/twitter:image tag found
-   ✗ [  reliance] Environmentalists criticise choice of Earthshot prize venue : no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance shares: After massive 12% surge, Mukesh Ambani's RI: no og:image/twitter:image tag found
-   ✗ [  reliance] Elon Musk Wants to Challenge Mukesh Ambani in India, But Jio: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh Ambani stocks: Reliance Industries vs Jio Platforms s: no og:image/twitter:image tag found
-   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani's Jio Platforms explores tech-for-equity talks with C: no og:image/twitter:image tag found
-   ✗ [    retail] India FMCG Sector: How It Generates Consistent Returns for I: no og:image/twitter:image tag found
-   ✓ [     world] The world's largest telecoms firm is on trial and the outcom
-   ✓ [     world] Congress is back after GOP's midterm defeat. And, Trump appo
-   ✓ [     world] How a bank collapse left millions in limbo and toppled Parag
-   ✓ [     world] British comedian Russell Brand sentenced to over 10 years fo
+   ✓ [     world] France accuses Iran of cyber 'sabotage' in fridge attacks
    ✓ [     world] Thick smog shrouds New Delhi after Diwali firecrackers add t
-   ✗ [    sports] Mohammed Shami Retires from Test Cricket: no og:image/twitter:image tag found
-   ✓ [     world] Trying to find true owners, Paris' Musee D'Orsay exhibits ar
-   ✓ [     world] Europe to join U.S.-brokered Ukraine talks in Abu Dhabi, def
+   ✗ [  reliance] Mukesh Ambani stocks: Reliance Industries vs Jio Platforms s: no og:image/twitter:image tag found
+   ✓ [     world] In northern Ethiopia, conflict pushes a strained healthcare 
+   ✓ [     world] British comedian Russell Brand sentenced to over 10 years fo
+   ✗ [  reliance] Ambani's Jio Platforms explores tech-for-equity talks with C: no og:image/twitter:image tag found
+   ✓ [     world] Congress is back after GOP's midterm defeat. And, Trump appo
+   ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV Logs 10 nm Fligh: no og:image/twitter:image tag found
+   ✓ [     world] The world's largest telecoms firm is on trial and the outcom
    ✓ [     world] Why a South Korean city is turning to a U.S. college to outs
-   images: 16 found, 19 not found  |  page text: 10 stories
+   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
+   ✓ [     world] How a bank collapse left millions in limbo and toppled Parag
+   ✗ [    sports] Mohammed Shami Retires from Test Cricket: no og:image/twitter:image tag found
+   ✗ [    sports] Mohammed Shami confirms IPL future after announcing retireme: no og:image/twitter:image tag found
+   ✗ [    sports] 'I'm not done yet': Shami's big retirement message: no og:image/twitter:image tag found
+   images: 16 found, 20 not found  |  page text: 9 stories
 
-── AI notes (18 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Khaitan & Co advises Giva on USD 100 million Series D fundin
-   ✓ [groq] National Legal Services Day: From Bhagalpur to NALSA  The C
-   ✓ [groq] The India Upside to Jensen Huang’s Nvidia Crisis
-   ✓ [groq] Indian markets offer growth, diversification amid AI-led mar
-   ✓ [groq] Google to introduce two variants of in-house chips: Bloomber
-   ✓ [groq] Apple Intelligence AI service registers with Chinese regulat
-   ✓ [groq] Enterprise data intelligence platform SplashBI opens GCC in 
-   ✓ [groq] Banks, investors grow wary of AI debt, spooked by market sel
-   ✓ [groq] Sarvam names Google Cloud India head Sashikumar Sreedharan a
-   ✓ [groq] China dismisses spy plot claim involving Nvidia CEO Jensen H
-   ✓ [groq] Nvidia's Jensen Huang, the scandal-hit AI visionary in a lea
-   ✓ [groq] Explained: Why Nvidia shares dropped 4% in overnight trade a
-   ✓ [groq] Thick smog shrouds New Delhi after Diwali firecrackers add t
-   ✓ [groq] British comedian Russell Brand sentenced to over 10 years fo
-   ✓ [groq] Congress is back after GOP's midterm defeat. And, Trump appo
-   ✓ [groq] Why a South Korean city is turning to a U.S. college to outs
-   ✓ [groq] Indian Stock Markets Set for Muhurat Trading on November 8
-   ✓ [groq] Diwali Muhurat Trading 2026: NSE, BSE timings, Monday market
+── AI notes (7 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV Logs 10 nm Fligh
+   ✓ [groq] Bikaji Foods International net profit falls over 11 pc to Rs
+   ✓ [groq] France accuses Iran of cyber 'sabotage' in fridge attacks
+   ✓ [groq] In northern Ethiopia, conflict pushes a strained healthcare 
+   ✓ [groq] Nvidia CEO Jensen Huang scandal: Honeytrap ends honeymoon?
+   ✓ [groq] Human, all too human: More than whether Jensen Huang can sur
+   ✓ [groq] India risks losing tax revenue by delaying global minimum ta
 
-   Enrichment: 64 stories | reused 37 | native brief 1 | AI 18 (groq=18; 18 calls) | kept stale 0 | key points 0 | no brief 0
-   ~71,800 tokens not spent vs. enriching every story with AI
-   Accuracy check: 18 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 48 | native brief 1 | AI 7 (groq=7; 7 calls) | kept stale 0 | key points 0 | no brief 0
+   ~86,100 tokens not spent vs. enriching every story with AI
+   Accuracy check: 7 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
 Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-09   Hero: business-36c6f7d6
+Edition: 2026-11-10   Hero: business-36c6f7d6
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 90 stories for 2026-11-09 | 13 stories continue an earlier one
+Archive: 64 stories for 2026-11-10 | 14 stories continue an earlier one
