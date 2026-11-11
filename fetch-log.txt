@@ -1,38 +1,40 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-01 19:45 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (351,252 bytes)
-    + [legal] Ola's extra pay for faster rides feature doesn't work: CCPA asks it to scrap pra
-    + [legal] Is the Collegium system failing women?
-    + [legal] PM's Mann Ki Baat not procured but Agal Vilakku books were fine? Madras High Cou
-    + [legal] MCO Legals (Meharia and Company) is looking to hire Legal Associates in Mumbai
-    + [legal] Business development in law firms: How it builds client flow in India and intern
-    + [legal] The ‘right to nominate’ under DPDP: A statutory right with no statutory procedur
-    + [legal] Kerala Court issues notice to former DGP R Sreelekha IPS over defamatory remarks
-    + [legal] Madras High Court orders FIR over fake, AI-generated books in public libraries
-    → 47 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (16,538 bytes)
+    + [legal] Five days for some, five years for others: What the Collegium's own record says
+    → 1 items: 1 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (143,987 bytes)
+    + [legal] CBDT exempts dividends paid between IFSC aircraft-leasing units from TDS under I
+    + [legal] Dubai Arbitration Week 2026: Experts on psychological biases, witness credibilit
+    + [legal] Bombay HC: No recall of witness under Section 311 CrPC merely to fill lacuna in 
+    + [legal] Mere possession of fake ISI mark insufficient to attract penalty; Proof of “use”
+    + [legal] Government Law College invites entries for 24th Dinesh Vyas Memorial National Le
+    + [legal] No interim stay on Ordinance giving Government nominees a vote in Gokul Chairman
+    + [legal] GNLU SRDC ADR Magazine invites submissions for Volume VII, Issue I; deadline 30-
+    → 10 items: 7 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (42,569 bytes)
-    + [business] India Market Entry for Swiss Firms: Key Sectors and TEPA Benefits
+    OK  (42,317 bytes)
+    + [business] India Emerges as Key Bioeconomy Growth Market as Governments Step Up Investment:
     + [business] India's wealthy pivot to real estate as stock market returns cool off
     → 33 items: 2 accepted, 31 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (49,559 bytes)
-    + [business] From 13% Down To Near Flat: How Nifty And Sensex Recovered From War-Time Losses
+    OK  (45,833 bytes)
     + [business] Bright Outdoor Media moves to BSE, NSE main boards, eyes expansion
-    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
     + [business] Kalyan Jewellers surges 10%, hits 52-week high post Q2 results
     + [business] Adani Power (NSE:ADANIPOWER) to Engage at JM Financial India Xchange 2026 Confer
-    + [business] Ahead of Market: 10 things that will decide stock market action on Wednesday
-    → 27 items: 6 accepted, 4 too old, 0 no-date
+    + [business] Fintech SaaS Company Veefin Migrates To NSE, BSE Mainboard
+    + [business] Stocks to Watch Today: Kalyan Jewellers, Matrimony, IIFL Finance, HLE Glascoat, 
+    + [business] Bright Outdoor Media debuts on BSE and NSE main boards
+    → 26 items: 6 accepted, 5 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -40,7 +42,7 @@ Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (78,932 bytes)
+    OK  (78,038 bytes)
     + [reliance] Environmentalists criticise choice of Earthshot prize venue owned by fossil fuel
     + [reliance] Thums Up vs Campa Cola: Can Mukesh Ambani Beat Coca-Cola at Its Own Game?
     + [reliance] Ambani's Reliance may not get Campa moment in biscuit market, Britannia CEO says
@@ -57,9 +59,9 @@ Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
     + [reliance] US, China drink less, India begins pouring more
     → 9 items: 5 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (60,505 bytes)
+    OK  (62,225 bytes)
     + [retail] E-commerce share in India's FMCG retail sales triples in 2 years: Nielsen
-    → 34 items: 1 accepted, 33 too old, 0 no-date
+    → 35 items: 1 accepted, 34 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (9,501 bytes)
     + [retail] Zara owner Inditex commits $50 million to fund low-cost loans for suppliers goin
@@ -68,22 +70,22 @@ Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
     + [retail] Ex-Rare Rabbit executive Lavish Soni launches IATE Fashion, targets Rs 500–800 c
     → 9 items: 4 accepted, 0 too old, 0 no-date
   [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (49,128 bytes)
-    + [retail] Nutrifresh plans 150-acre expansion across South India
-    + [retail] Tata Power appoints Sanjay Banga as CEO & MD-designate; approves ₹11,871-cr pump
-    + [retail] FDA flags rare vision-loss risk with GLP-1 drugs; doctors say patients need not 
+    OK  (48,157 bytes)
+    + [retail] Banks can offer cash pay-in and pay-out services under revised domestic money tr
+    + [retail] India approves ₹62,370-crore rabi fertiliser subsidy, 64% above budget estimate
+    + [retail] Nifty closes 0.84% higher, cooling off from intraday highs
     → 60 items: 3 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (46,958 bytes)
+    OK  (47,204 bytes)
+    + [tech] Could Huang, Nvidia and company's board be held liable over affair scandal?
+    + [tech] India blocked 129 betting websites on basis of fake high court orders: Report
     + [tech] TSMC to invest up to USD 1 billion in Anthropic, OpenAI
     + [tech] OpenAI to discontinue old ChatGPT voice modes from Dec 11; users to shift to liv
     + [tech] Gemini 4 Carbon opens to developers, enterprises with advanced AI capabilities f
     + [tech] Spain demands that TikTok suspend operations until child sexual abuse material g
     + [tech] Anthropic expands Claude into spreadsheets, dashboards and collaborative workpla
     + [tech] US and China should stay clear-eyed on AI cooperation and competition, Scott Bes
-    + [tech] Alleged spy plot targeting CEO Jensen Huang raises questions about Nvidia's futu
-    + [tech] CoreWeave beats quarterly revenue estimates as AI demand defies growing doubts
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -92,18 +94,18 @@ Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (48,293 bytes)
+    OK  (47,413 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (15,696 bytes)
-    + [world] Russia and Ukraine agree to a large exchange of prisoners of war, officials say
+    OK  (15,691 bytes)
+    + [world] Greetings from Senegal, where breakdancers are competing in the Youth Olympics
+    + [world] Russia and Ukraine agree to a prisoner exchange as talks end with no big breakth
     + [world] House effectively ends Hegseth impeachment. And, 3 men accused of plotting U.K. 
-    + [world] Iran-backed trio accused of plotting attacks on U.K. base hosting U.S. jets
-    + [world] Spain's first general strike in 14 years demands solutions to housing crisis
+    + [world] An Iran-backed trio is accused of plotting attacks on a U.K. base hosting U.S. j
+    + [world] Spain's workers hold a general strike over housing costs before national electio
     + [world] Ebola tops 11,000 cases in Congo's deadliest outbreak
     + [world] U.S. boycotts U.N. human rights review for second year running
     + [world] 'Like gods reigning over humans': Many defectors see daughter of North Korea's K
-    + [world] Indonesia's VP offers resignation as questions mount over his eligibility
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -112,26 +114,24 @@ Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (40,234 bytes)
-    → 38 items: 0 accepted, 38 too old, 0 no-date
-  [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,946 bytes)
-    + [sports] Bethell out of Australia white-ball tour with knee injury 'setback'
-    + [sports] Shreyanka in India A squads for England A series; Anushka, Mani named captains
-    + [sports] De Silva-Kusal stand of 249* moves Sri Lanka into the ascendancy
-    + [sports] 'Don't want to speculate' - Handscomb, Root keep distance from fresh sandpaper c
-    + [sports] Root ready for 200th ODI as England prep takes a back seat
-    + [sports] Rocchiccioli reveals call with Harmer for advice on offspin
-    + [sports] Clayton makes fifty as Test talk brings a lot more 'scrutiny'
-    + [sports] IPL 2027: MI and PBKS complete Hardik Pandya-Arshdeep Singh swap
-    → 100 items: 8 accepted, 0 too old, 0 no-date
+    OK  (55,969 bytes)
+    + [sports] Mohammed Shami retires from Tests as India's sixth best quick
+    + [sports] Mohammed Shami Shares Update On IPL And Domestic Future In Test Retirement Video
+    + [sports] Zimbabwe become first team to score 500-plus in both Test innings
+    + [sports] "He is the man who could be your workhorse" - Ravi Shastri on CSK star ahead of 
+    + [sports] Cheteshwar Pujara picks Punjab Kings retentions for IPL 2027; unsure about 2026 
+    + [sports] IND vs NZ: New Zealand announce squad for Test series; Rachin Ravindra, Devon Co
+    + [sports] Mitchell Starc set to play for DC in IPL 2027, but with one condition
+    + [sports] 'To A Lifetime Together': Arshdeep Singh Announces Engagement To Samreen Kaur
+    → 49 items: 8 accepted, 41 too old, 0 no-date
+  [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (39,791 bytes)
+    OK  (39,402 bytes)
     → 34 items: 0 accepted, 34 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
@@ -139,85 +139,98 @@ Cutoff: 2026-11-01 14:35 UTC  (MAX_AGE_HOURS=240)
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (53,621 bytes)
+    OK  (53,454 bytes)
+    + [opinion] Spago Budapest: Step up to the plate
+    + [opinion] IRDA's new consultation paper proposes major reforms to improve insurance distri
+    + [opinion] An act of wisdom
+    + [opinion] Are authorities losing control as youth protests leverage technology to bypass s
     + [opinion] Terminator: Rise of the AI sceptics
     + [opinion] ₹85,000 Temple: Deepinder Goyal’s wearable is a health-tech gamble
     + [opinion] Nvidia CEO Jensen Huang scandal: Honeytrap ends honeymoon?
     + [opinion] Human, all too human: More than whether Jensen Huang can survive the scandal, ca
-    + [opinion] India risks losing tax revenue by delaying global minimum tax rollout
-    + [opinion] US midterm results may give India trade leverage, but tariff and AI risks remain
-    + [opinion] Enough of COP Jamborees
-    + [opinion] Healthcare needs stronger partnerships between hospitals and insurers
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (40 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Bright Outdoor Media moves to BSE, NSE main boards, eyes exp: no og:image/twitter:image tag found
-   ✗ [  business] From 13% Down To Near Flat: How Nifty And Sensex Recovered F: no og:image/twitter:image tag found
-   ✗ [  business] Ahead of Market: 10 things that will decide stock market act: no og:image/twitter:image tag found
-   ✗ [  business] India Market Entry for Swiss Firms: Key Sectors and TEPA Ben: no og:image/twitter:image tag found
+── Page fetch (42 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] India Emerges as Key Bioeconomy Growth Market as Governments: no og:image/twitter:image tag found
    ✗ [  business] India's wealthy pivot to real estate as stock market returns: no og:image/twitter:image tag found
+   ✗ [  business] Bright Outdoor Media moves to BSE, NSE main boards, eyes exp: no og:image/twitter:image tag found
    ✗ [  business] Kalyan Jewellers surges 10%, hits 52-week high post Q2 resul: no og:image/twitter:image tag found
-   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
    ✗ [  business] Adani Power (NSE:ADANIPOWER) to Engage at JM Financial India: no og:image/twitter:image tag found
-   ✓ [     world] House effectively ends Hegseth impeachment. And, 3 men accus
-   ✗ [  reliance] Thums Up vs Campa Cola: Can Mukesh Ambani Beat Coca-Cola at : no og:image/twitter:image tag found
-   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
-   ✓ [     world] Iran-backed trio accused of plotting attacks on U.K. base ho
+   ✗ [  business] Fintech SaaS Company Veefin Migrates To NSE, BSE Mainboard: no og:image/twitter:image tag found
+   ✗ [  business] Stocks to Watch Today: Kalyan Jewellers, Matrimony, IIFL Fin: no og:image/twitter:image tag found
+   ✗ [  business] Bright Outdoor Media debuts on BSE and NSE main boards: no og:image/twitter:image tag found
    ✗ [  reliance] Environmentalists criticise choice of Earthshot prize venue : no og:image/twitter:image tag found
-   ✓ [     world] Russia and Ukraine agree to a large exchange of prisoners of
+   ✓ [     legal] Government Law College invites entries for 24th Dinesh Vyas 
+   ✓ [     legal] GNLU SRDC ADR Magazine invites submissions for Volume VII, I
+   ✓ [     legal] No interim stay on Ordinance giving Government nominees a vo
+   ✗ [  reliance] Thums Up vs Campa Cola: Can Mukesh Ambani Beat Coca-Cola at : no og:image/twitter:image tag found
+   ✓ [     legal] Bombay HC: No recall of witness under Section 311 CrPC merel
    ✗ [  reliance] Ambani's Reliance may not get Campa moment in biscuit market: no og:image/twitter:image tag found
-   ✓ [     world] Spain's first general strike in 14 years demands solutions t
+   ✓ [     legal] CBDT exempts dividends paid between IFSC aircraft-leasing un
+   ✓ [     legal] Dubai Arbitration Week 2026: Experts on psychological biases
+   ✗ [    retail] E-commerce share in India's FMCG retail sales triples in 2 y: no og:image/twitter:image tag found
+   ✓ [     legal] Mere possession of fake ISI mark insufficient to attract pen
    ✓ [     world] Ebola tops 11,000 cases in Congo's deadliest outbreak
-   ✓ [     world] Indonesia's VP offers resignation as questions mount over hi
    ✓ [     world] 'Like gods reigning over humans': Many defectors see daughte
+   ✓ [     world] House effectively ends Hegseth impeachment. And, 3 men accus
+   ✓ [     world] Spain's workers hold a general strike over housing costs bef
+   ✓ [     world] Russia and Ukraine agree to a prisoner exchange as talks end
+   ✓ [     world] An Iran-backed trio is accused of plotting attacks on a U.K.
+   ✗ [    sports] Mohammed Shami Shares Update On IPL And Domestic Future In T: no og:image/twitter:image tag found
+   ✗ [    sports] Mohammed Shami retires from Tests as India's sixth best quic: no og:image/twitter:image tag found
+   ✓ [     world] Greetings from Senegal, where breakdancers are competing in 
+   ✗ [    sports] Cheteshwar Pujara picks Punjab Kings retentions for IPL 2027: no og:image/twitter:image tag found
+   ✗ [    sports] "He is the man who could be your workhorse" - Ravi Shastri o: no og:image/twitter:image tag found
+   ✗ [    sports] IND vs NZ: New Zealand announce squad for Test series; Rachi: no og:image/twitter:image tag found
+   ✗ [    sports] Mitchell Starc set to play for DC in IPL 2027, but with one : no og:image/twitter:image tag found
+   ✗ [    sports] 'To A Lifetime Together': Arshdeep Singh Announces Engagemen: no og:image/twitter:image tag found
+   ✗ [    sports] Zimbabwe become first team to score 500-plus in both Test in: no og:image/twitter:image tag found
    ✓ [     world] U.S. boycotts U.N. human rights review for second year runni
-   images: 8 found, 12 not found  |  page text: 17 stories
+   images: 15 found, 20 not found  |  page text: 10 stories
 
-── AI notes (27 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ~ [groq] Is the Collegium system failing women?  (figures not in the article: 8.1%)
-   ✓ [gemini] Is the Collegium system failing women?
-   ✓ [groq] PM's Mann Ki Baat not procured but Agal Vilakku books were f
-   ~ [groq] MCO Legals (Meharia and Company) is looking to hire Legal As  (names no court, regulator or statute)
-   ✓ [gemini] MCO Legals (Meharia and Company) is looking to hire Legal As
-   ~ [groq] Business development in law firms: How it builds client flow  (names no court, regulator or statute)
-   ✓ [gemini] Business development in law firms: How it builds client flow
-   ✓ [groq] Kerala Court issues notice to former DGP R Sreelekha IPS ove
-   ✓ [groq] Madras High Court orders FIR over fake, AI-generated books i
-   ~ [groq] Ambani's Reliance may not get Campa moment in biscuit market  (names no court, regulator or statute)
-   ✓ [gemini] Ambani's Reliance may not get Campa moment in biscuit market
-   ✓ [groq] Mother Dairy raises milk prices by Rs 2-4 per litre, effecti
-   ✓ [groq] India's Q2 FY27 GDP growth pegged at 7.8 pc, GVA growth seen
-   ✓ [groq] Kalyan Jewellers Q2 net profit jumps 64 pc to Rs 427 cr
-   ✓ [groq] India holds Pernod, Diageo Scotch shipments as investigators
-   ✓ [groq] US, China drink less, India begins pouring more
-   ✓ [groq] India Market Entry for Swiss Firms: Key Sectors and TEPA Ben
-   ✓ [groq] Russia and Ukraine agree to a large exchange of prisoners of
-   ✓ [groq] House effectively ends Hegseth impeachment. And, 3 men accus
-   ✓ [groq] Iran-backed trio accused of plotting attacks on U.K. base ho
-   ✓ [groq] Spain's first general strike in 14 years demands solutions t
-   ✓ [groq] Ebola tops 11,000 cases in Congo's deadliest outbreak
-   ✓ [groq] From 13% Down To Near Flat: How Nifty And Sensex Recovered F
-   ✓ [groq] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
-   ✓ [groq] Kalyan Jewellers surges 10%, hits 52-week high post Q2 resul
-   ✓ [groq] Adani Power (NSE:ADANIPOWER) to Engage at JM Financial India
-   ✓ [groq] Ahead of Market: 10 things that will decide stock market act
-   ✓ [groq] Nutrifresh plans 150-acre expansion across South India
-   ✓ [groq] Tata Power appoints Sanjay Banga as CEO & MD-designate; appr
-   ✓ [groq] FDA flags rare vision-loss risk with GLP-1 drugs; doctors sa
-   ✓ [groq] Healthcare needs stronger partnerships between hospitals and
+── AI notes (22 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Five days for some, five years for others: What the Collegiu
+   ✓ [groq] Bombay HC: No recall of witness under Section 311 CrPC merel
+   ✓ [groq] Mere possession of fake ISI mark insufficient to attract pen
+   ~ [groq] Government Law College invites entries for 24th Dinesh Vyas   (names no court, regulator or statute)
+   ~ [gemini] Government Law College invites entries for 24th Dinesh Vyas   (names no court, regulator or statute)
+      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
+      [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
+      [anthropic] disabled for the rest of this run (out of quota/credit)
+   ~ [openai] Government Law College invites entries for 24th Dinesh Vyas   (names no court, regulator or statute)
+   ✓ [groq] No interim stay on Ordinance giving Government nominees a vo
+   ~ [groq] GNLU SRDC ADR Magazine invites submissions for Volume VII, I  (names no court, regulator or statute)
+   ✓ [gemini] GNLU SRDC ADR Magazine invites submissions for Volume VII, I
+   ✓ [groq] India Emerges as Key Bioeconomy Growth Market as Governments
+   ✓ [groq] Could Huang, Nvidia and company's board be held liable over 
+   ✓ [groq] India blocked 129 betting websites on basis of fake high cou
+   ✓ [groq] Greetings from Senegal, where breakdancers are competing in 
+   ✓ [groq] Russia and Ukraine agree to a prisoner exchange as talks end
+   ✓ [groq] An Iran-backed trio is accused of plotting attacks on a U.K.
+   ✓ [groq] Spain's workers hold a general strike over housing costs bef
+   ✓ [groq] Fintech SaaS Company Veefin Migrates To NSE, BSE Mainboard
+   ✓ [groq] Stocks to Watch Today: Kalyan Jewellers, Matrimony, IIFL Fin
+   ✓ [groq] Bright Outdoor Media debuts on BSE and NSE main boards
+   ✓ [groq] India approves ₹62,370-crore rabi fertiliser subsidy, 64% ab
+   ✓ [groq] Nifty closes 0.84% higher, cooling off from intraday highs
+   ✓ [groq] Spago Budapest: Step up to the plate
+   ✓ [groq] IRDA's new consultation paper proposes major reforms to impr
+   ✓ [groq] An act of wisdom
+   ✓ [groq] Are authorities losing control as youth protests leverage te
 
-   Enrichment: 64 stories | reused 27 | native brief 2 | AI 27 (gemini=4, groq=23; 33 calls) | kept stale 0 | key points 0 | no brief 0
-   ~60,100 tokens not spent vs. enriching every story with AI
-   Accuracy check: 31 provider answers | 1 rejected (invented figure, hedging or restated headline) | 3 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 31 | native brief 3 | AI 22 (groq=21, gemini=1; 27 calls) | kept stale 0 | key points 0 | no brief 0
+   ~66,600 tokens not spent vs. enriching every story with AI
+   Accuracy check: 25 provider answers | 0 rejected (invented figure, hedging or restated headline) | 4 accepted with a minor flaw after trying a stronger provider
+   Providers disabled this run: anthropic
 
 ────────────────────────────────────────────────────────────
 Feeds:   15 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-11   Hero: legal-6f176dfe
+Edition: 2026-11-12   Hero: legal-6a5a221a
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 132 stories for 2026-11-11 | 11 stories continue an earlier one
+Archive: 64 stories for 2026-11-12 | 13 stories continue an earlier one
