@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-13T07:06:31+00:00",
+  "updatedAt": "2026-11-13T14:49:01+00:00",
   "stories": 64,
   "notes": {
-    "reused": 24,
-    "native_note": 3,
-    "ai_note": 29,
+    "reused": 27,
+    "native_note": 2,
+    "ai_note": 27,
     "stale": 0,
     "extract": 0,
     "no_note": 0
@@ -20,7 +20,7 @@
       "lastAnsweredAt": null
     },
     "gemini": {
-      "answered": 1,
+      "answered": 0,
       "rejected": 0,
       "minorFlaws": 0,
       "errors": 1,
@@ -38,13 +38,13 @@
       "lastAnsweredAt": null
     },
     "groq": {
-      "answered": 29,
+      "answered": 27,
       "rejected": 0,
-      "minorFlaws": 2,
+      "minorFlaws": 1,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-13T07:06:31+00:00"
+      "lastAnsweredAt": "2026-11-13T14:49:01+00:00"
     },
     "openai": {
       "answered": 1,
@@ -53,7 +53,7 @@
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-13T07:06:31+00:00"
+      "lastAnsweredAt": "2026-11-13T14:49:01+00:00"
     }
   }
 }
