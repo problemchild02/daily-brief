@@ -1,59 +1,23 @@
 {
-  "updatedAt": "2026-11-13T14:49:01+00:00",
+  "updatedAt": "2026-11-13T19:57:09+00:00",
   "stories": 64,
   "notes": {
-    "reused": 27,
-    "native_note": 2,
-    "ai_note": 27,
+    "reused": 33,
+    "native_note": 5,
+    "ai_note": 18,
     "stale": 0,
     "extract": 0,
     "no_note": 0
   },
   "providers": {
-    "anthropic": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": "quota",
-      "lastError": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to u",
-      "lastAnsweredAt": null
-    },
-    "gemini": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": null,
-      "lastError": "The read operation timed out",
-      "lastAnsweredAt": "2026-11-13T07:06:31+00:00"
-    },
-    "github": {
-      "answered": 0,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 1,
-      "dead": null,
-      "lastError": "non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\\r\\n'",
-      "lastAnsweredAt": null
-    },
     "groq": {
-      "answered": 27,
+      "answered": 18,
       "rejected": 0,
-      "minorFlaws": 1,
+      "minorFlaws": 0,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-13T14:49:01+00:00"
-    },
-    "openai": {
-      "answered": 1,
-      "rejected": 0,
-      "minorFlaws": 1,
-      "errors": 0,
-      "dead": null,
-      "lastError": null,
-      "lastAnsweredAt": "2026-11-13T14:49:01+00:00"
+      "lastAnsweredAt": "2026-11-13T19:57:09+00:00"
     }
   }
 }
