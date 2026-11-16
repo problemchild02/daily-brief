@@ -1,40 +1,41 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-05 19:00 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-06 07:01 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (831 bytes)
-    → 0 items: 0 accepted, 0 too old, 0 no-date
+    OK  (26,929 bytes)
+    + [legal] Supreme Court upholds NCLAT order to reconsider Videocon resolution plan involvi
+    + [legal] Calcutta High Court restores case against SBI manager in ₹165 crore scam
+    + [legal] Deleted voters won't be prosecuted for using Form 6 for re-enrolment: ECI to Sup
+    + [legal] Mere claim that man contacted terrorist through VPN not enough to order preventi
+    + [legal] VERTICES PARTNERS, Saraf and Partners act on Live2.ai $13 million pre-Series B f
+    → 5 items: 5 accepted, 0 too old, 0 no-date
   [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (221,750 bytes)
-    + [legal] 2026 SCC Vol. 8 Part 5: Supreme Court rulings on illegal mining, foreign exchang
-    + [legal] Centre notifies Fourth Amendment to Gold Hallmarking Order, 2020; expands distri
-    + [legal] DIFC Court rejects Persephone’s permission to appeal against setting aside of US
-    + [legal] Dubai Arbitration Week 2026: Examining AI’s growing role, risks and safeguards i
-    + [legal] Political satire crosses line when it attacks individual dignity: Inside Delhi H
-    + [legal] Dubai Arbitration Week 2026: Experts discuss integrated pathways through arbitra
-    + [legal] Public purpose cannot be a pretext for private benefit: Bombay HC quashes acquis
-    + [legal] Dubai Arbitration Week 2026: Russian Arbitration Center brings judges together t
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (200,729 bytes)
+    + [legal] India International Disputes Week 2027 announces international commercial arbitr
+    + [legal] Delhi HC quashes ED LOCs against non- accused in RCFLRHFL case; Holds mere pend
+    + [legal] Dubai Arbitration Week 2026: Experts discuss transferability, enforcement risks,
+    → 10 items: 3 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (43,466 bytes)
-    + [business] Corporate Leaders Discuss the Future of India’s Economy at TIME Impact Dinner
-    + [business] India’s ethanol drive has created a feed market no ministry is tracking
-    + [business] Link Farmers’ Traditional Knowledge With Scientific Research and Markets: P K Mi
-    + [business] 'India Is An Oasis In The Desert': Piyush Goyal Invites Global Businesses To Inv
-    → 33 items: 4 accepted, 29 too old, 0 no-date
+    OK  (43,026 bytes)
+    + [business] India, Egypt explore local currency trade, FTA options
+    → 33 items: 1 accepted, 32 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (30,300 bytes)
-    + [business] WPI inflation, oil, FII trading activity may guide stock markets this week
-    + [business] Fintech SaaS Company Veefin Migrates To NSE, BSE Mainboard
-    + [business] Indian Renewable Energy Stocks Witness Mixed Trading as Sensex Falls 0.4% on Nov
+    OK  (26,643 bytes)
+    + [business] Bajaj Finance, Radico, Clean Science top stock ideas by Choice Broking
     + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
-    → 18 items: 4 accepted, 2 too old, 0 no-date
+    + [business] WPI inflation, oil, FII trading activity may guide stock markets this week
+    + [business] Top gainers and losers, Nov 13: Shriram Finance, Tata Motors PV fall 3%; Eicher 
+    + [business] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from IPO price
+    ↳ dual-tag [reliance] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from IPO price
+    + [business] Stock market cues to watch today: GIFT Nifty, FII, crude, and other data
+    + [business] Mahanadi Coalfields Rs 8,981 crore IPO to open on November 19; GMP at 5%. Check 
+    → 16 items: 7 accepted, 9 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -42,50 +43,49 @@ Cutoff: 2026-11-05 19:00 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (81,887 bytes)
-    + [reliance] Environmentalists criticise choice of Earthshot prize venue owned by fossil fuel
+    OK  (80,977 bytes)
     + [reliance] Thums Up vs Campa Cola: Can Mukesh Ambani Beat Coca-Cola at Its Own Game?
     + [reliance] Reliance to invest ₹1 lakh crore in Andhra Pradesh, plans 3 lakh job opportuniti
-    → 52 items: 3 accepted, 49 too old, 0 no-date
+    → 52 items: 2 accepted, 50 too old, 0 no-date
   [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
     OK  (1,347 bytes)
     → 1 items: 0 accepted, 1 too old, 0 no-date
   [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,319 bytes)
-    + [reliance] Softbank further trims India exposure, offloads Meesho shares worth Rs 1,885 cro
-    + [reliance] Food inflation to stay elevated; ICICI Bank sees 25 bps RBI rate hike in Decembe
-    + [reliance] Carlsberg said to start road show for $600 million India IPO
-    + [reliance] Page Industries posts higher quarterly profit on strong volume growth
-    + [reliance] Voltas expects home appliances JV Voltbek to reach EBITDA break-even by FY28
+    OK  (10,705 bytes)
+    + [reliance] Consumer spending on ITC-acquired brands Savlon, Nimyle to double in medium term
+    + [reliance] Urban Company shareholders approve Rs 2,500 cr raise
+    + [reliance] Indians look beyond gold and diamonds as coloured gemstone sales surge 40 pc
+    + [reliance] Ajinkya Rahane invests in Ember Cookware as brand plans expansion into new categ
+    + [reliance] Senco Gold H1 revenue rises 52 pc to Rs 5,115 crore; adds 14 showrooms
     → 10 items: 5 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (62,972 bytes)
+    OK  (60,969 bytes)
     + [retail] Beco, a sustainable home care brand, has targeted a presence in 25,000+ general 
-    → 35 items: 1 accepted, 34 too old, 0 no-date
+    → 34 items: 1 accepted, 33 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,319 bytes)
-    + [retail] Whisper maker P&G Hygiene profit declines 6.7 pc to Rs 196 crore in Q2
-    + [retail] ITC Foods’ Right Shift clocks 300 pc growth, plans quarterly format launches to 
-    + [retail] Bodhi Tree Investment: BTS invests $180 million in A2B; funds expansion and digi
-    + [retail] Perona targets 20–30 pc festive growth, eyes 15 pc EBITDA
-    + [retail] Amazon Bazaar emerges as key player in India's value-commerce market, Meesho and
+    OK  (10,705 bytes)
+    + [retail] Softbank further trims India exposure, offloads Meesho shares worth Rs 1,885 cro
+    + [retail] Food inflation to stay elevated; ICICI Bank sees 25 bps RBI rate hike in Decembe
+    + [retail] Carlsberg said to start road show for $600 million India IPO
+    + [retail] Page Industries posts higher quarterly profit on strong volume growth
+    + [retail] Voltas expects home appliances JV Voltbek to reach EBITDA break-even by FY28
     → 10 items: 5 accepted, 0 too old, 0 no-date
   [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (48,018 bytes)
-    + [retail] Editorial. COP out
-    + [retail] Hindalco arm Novelis to sell China assets for ₹2,490 cr
+    OK  (49,224 bytes)
+    + [retail] Anthropic promises to pursue humanity's benefit; ts IPO filing gives it wiggle r
+    + [retail] TMPV shares slide 8% as JLR guidance cut rattles investors
     → 60 items: 2 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (45,646 bytes)
+    OK  (45,739 bytes)
+    + [tech] DPDP rules may boost demand for cybersecurity professionals and security service
+    + [tech] Alibaba unveils new flagship AI model with safety upgrades
     + [tech] Altimeter, Atreides urge Nvidia board to keep doors open for Jensen Huang's retu
     + [tech] Microsoft outage shows the risks of relying on a single technology provider for 
     + [tech] Nvidia scandal looms over US-China AI talks
     + [tech] Softbank further trims India exposure, offloads Meesho shares worth Rs 1,885 cro
     + [tech] Nvidia approaches Arm Holdings CEO Haas to take over Jensen Huang's job, Elon Mu
     + [tech] Jensen Huang exit and US scrutiny imperil $3 billion in Chinese AI projects reli
-    + [tech] Investors flock to Anthropic IPO but question durability of AI lead
-    + [tech] Amazon's plan to own the world's product data and fight AI shopping agents
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -94,18 +94,18 @@ Cutoff: 2026-11-05 19:00 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (47,662 bytes)
+    OK  (47,661 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,024 bytes)
+    OK  (14,563 bytes)
+    + [world] What to expect from Trump and Xi's upcoming meeting in China
+    + [world] Who makes Sydney Sweeney's American Eagle jeans — and under what conditions?
     + [world] Fuel crisis and protests pressure Chile's far-right president
     + [world] What's Trump's strategy now with Iran? To keep things as they are
     + [world] Nvidia CEO steps down. And, Sen. Chris Van Hollen to run for majority leader
     + [world] Nvidia's interim CEO inherits risky AI bets and a legal mess
     + [world] U.S. envoys meet with Putin in Moscow on Ukraine talks, then see Zelenskyy in Du
     + [world] Indonesia's VP resigns as his eligibility and academic credentials are questione
-    + [world] Colom wins Mississippi Senate race. And, White House warns Dems over future prob
-    + [world] Former Ukrainian foreign minister discusses how to bridge gaps between Ukraine, 
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -114,16 +114,16 @@ Cutoff: 2026-11-05 19:00 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (53,335 bytes)
+    OK  (52,416 bytes)
     + [sports] India's Pant clears fitness test ahead of New Zealand tests
+    + [sports] When will India next play ODI cricket?
+    + [sports] Why is Matt Henry not playing 5th NZ vs IND ODI?
     + [sports] Why is Shubman Gill not playing 5th NZ vs IND ODI?
-    + [sports] Why is Shubman Gill not playing 4th NZ vs IND ODI?
-    + [sports] 'It Was Hardest Indian Side That Came To South Africa': Faf On Virat's 2018 Test
-    + [sports] Harshal Patel Likely To Move To GT From SRH Via Trade Deal Ahead Of IPL 2027 Ret
+    + [sports] When will Rohit Sharma & Virat Kohli next play for India?
     + [sports] ‘Is Banton The Ideal Replacement For Buttler?’: Mukund On GT’s Options Ahead Of 
+    + [sports] Kuldeep’s Trade To LSG Could Be One Of The Smartest Moves Of The IPL 2027 Season
     + [sports] Brar added to India’s Test squad for NZ series, Kuldeep Yadav released
-    + [sports] Syed Mushtaq Ali Trophy Gives Uncapped Players a Final Chance to Impress IPL Sco
-    → 44 items: 8 accepted, 36 too old, 0 no-date
+    → 46 items: 8 accepted, 35 too old, 0 no-date
   [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -131,11 +131,10 @@ Cutoff: 2026-11-05 19:00 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (41,383 bytes)
-    + [opinion] Cummins delivered a 70-minute masterclass, but there was one thing he got wrong
-    + [opinion] The truth about ball-tampering should have killed off Sandpapergate
+    OK  (32,076 bytes)
+    + [opinion] Daily Editorial Analysis 16 November 2026
     + [opinion] Gig Workers in India: Are App ‘Partners’ Really Partners?
-    → 34 items: 3 accepted, 30 too old, 0 no-date
+    → 27 items: 2 accepted, 25 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
@@ -148,66 +147,88 @@ Cutoff: 2026-11-05 19:00 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Sanatan and Children
     + [opinion] The secondary market is filling a funding gap and changing Indian venture capita
     + [opinion] Reimagining tax compliance through trust
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    + [opinion] Brazil gives workers their lives back; India gives more work
+    → 50 items: 6 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (41 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] 2026 SCC Vol. 8 Part 5: Supreme Court rulings on illegal min
-   ✓ [     legal] DIFC Court rejects Persephone’s permission to appeal against
-   ✓ [     legal] Centre notifies Fourth Amendment to Gold Hallmarking Order, 
-   ✓ [     legal] Dubai Arbitration Week 2026: Examining AI’s growing role, ri
-   ✓ [     legal] Dubai Arbitration Week 2026: Experts discuss integrated path
-   ✗ [  business] Corporate Leaders Discuss the Future of India’s Economy at T: no og:image/twitter:image tag found
-   ✓ [     legal] Political satire crosses line when it attacks individual dig
-   ✓ [     legal] Dubai Arbitration Week 2026: Russian Arbitration Center brin
-   ✗ [  business] India’s ethanol drive has created a feed market no ministry : no og:image/twitter:image tag found
-   ✓ [     legal] Public purpose cannot be a pretext for private benefit: Bomb
-   ✗ [  business] Link Farmers’ Traditional Knowledge With Scientific Research: no og:image/twitter:image tag found
+── Page fetch (40 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] Bajaj Finance, Radico, Clean Science top stock ideas by Choi: no og:image/twitter:image tag found
+   ✗ [  business] India, Egypt explore local currency trade, FTA options: no og:image/twitter:image tag found
    ✗ [  business] WPI inflation, oil, FII trading activity may guide stock mar: no og:image/twitter:image tag found
-   ✗ [  business] 'India Is An Oasis In The Desert': Piyush Goyal Invites Glob: no og:image/twitter:image tag found
-   ✗ [  business] Fintech SaaS Company Veefin Migrates To NSE, BSE Mainboard: no og:image/twitter:image tag found
-   ✗ [  reliance] Environmentalists criticise choice of Earthshot prize venue : no og:image/twitter:image tag found
    ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
-   ✗ [  business] Indian Renewable Energy Stocks Witness Mixed Trading as Sens: no og:image/twitter:image tag found
-   ✗ [  reliance] Thums Up vs Campa Cola: Can Mukesh Ambani Beat Coca-Cola at : no og:image/twitter:image tag found
+   ✗ [  business] Top gainers and losers, Nov 13: Shriram Finance, Tata Motors: no og:image/twitter:image tag found
+   ✗ [  business] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from : no og:image/twitter:image tag found
+   ✗ [  reliance] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from : no og:image/twitter:image tag found
+   ✗ [  business] Mahanadi Coalfields Rs 8,981 crore IPO to open on November 1: no og:image/twitter:image tag found
+   ✗ [  business] Stock market cues to watch today: GIFT Nifty, FII, crude, an: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance to invest ₹1 lakh crore in Andhra Pradesh, plans 3 : no og:image/twitter:image tag found
+   ✗ [  reliance] Thums Up vs Campa Cola: Can Mukesh Ambani Beat Coca-Cola at : no og:image/twitter:image tag found
    ✗ [    retail] Beco, a sustainable home care brand, has targeted a presence: no og:image/twitter:image tag found
-   ✓ [     world] Nvidia CEO steps down. And, Sen. Chris Van Hollen to run for
-   ✓ [     world] Colom wins Mississippi Senate race. And, White House warns D
+   ✓ [     world] What to expect from Trump and Xi's upcoming meeting in China
+   ✓ [     world] Who makes Sydney Sweeney's American Eagle jeans — and under 
    ✓ [     world] Fuel crisis and protests pressure Chile's far-right presiden
-   ✗ [    sports] India's Pant clears fitness test ahead of New Zealand tests: no og:image/twitter:image tag found
+   ✓ [     world] Nvidia's interim CEO inherits risky AI bets and a legal mess
    ✓ [     world] What's Trump's strategy now with Iran? To keep things as the
+   ✓ [     world] Nvidia CEO steps down. And, Sen. Chris Van Hollen to run for
    ✓ [     world] Indonesia's VP resigns as his eligibility and academic crede
+   ✗ [    sports] India's Pant clears fitness test ahead of New Zealand tests: no og:image/twitter:image tag found
    ✓ [     world] U.S. envoys meet with Putin in Moscow on Ukraine talks, then
-   ✗ [    sports] Why is Shubman Gill not playing 4th NZ vs IND ODI?: no og:image/twitter:image tag found
+   ✗ [    sports] When will India next play ODI cricket?: no og:image/twitter:image tag found
+   ✗ [    sports] Why is Matt Henry not playing 5th NZ vs IND ODI?: no og:image/twitter:image tag found
    ✗ [    sports] Why is Shubman Gill not playing 5th NZ vs IND ODI?: no og:image/twitter:image tag found
-   ✓ [     world] Former Ukrainian foreign minister discusses how to bridge ga
-   ✗ [    sports] 'It Was Hardest Indian Side That Came To South Africa': Faf : no og:image/twitter:image tag found
-   ✗ [    sports] Harshal Patel Likely To Move To GT From SRH Via Trade Deal A: no og:image/twitter:image tag found
+   ✗ [    sports] When will Rohit Sharma & Virat Kohli next play for India?: no og:image/twitter:image tag found
    ✗ [    sports] ‘Is Banton The Ideal Replacement For Buttler?’: Mukund On GT: no og:image/twitter:image tag found
    ✗ [    sports] Brar added to India’s Test squad for NZ series, Kuldeep Yada: no og:image/twitter:image tag found
-   ✗ [    sports] Syed Mushtaq Ali Trophy Gives Uncapped Players a Final Chanc: no og:image/twitter:image tag found
+   ✗ [    sports] Kuldeep’s Trade To LSG Could Be One Of The Smartest Moves Of: no og:image/twitter:image tag found
    ✗ [   opinion] Gig Workers in India: Are App ‘Partners’ Really Partners?: no og:image/twitter:image tag found
-   ✗ [   opinion] Cummins delivered a 70-minute masterclass, but there was one: no og:image/twitter:image tag found
-   ✗ [   opinion] The truth about ball-tampering should have killed off Sandpa: no og:image/twitter:image tag found
-   ✓ [     world] Nvidia's interim CEO inherits risky AI bets and a legal mess
-   images: 16 found, 23 not found  |  page text: 9 stories
+   ✗ [   opinion] Daily Editorial Analysis 16 November 2026: no og:image/twitter:image tag found
+   ✓ [     legal] India International Disputes Week 2027 announces internation
+   ✓ [     legal] Delhi HC quashes ED LOCs against non- accused in RCFLRHFL c
+   ✓ [     legal] Dubai Arbitration Week 2026: Experts discuss transferability
+   images: 11 found, 22 not found  |  page text: 13 stories
 
-── AI notes (2 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Editorial. COP out
-   ✓ [groq] Hindalco arm Novelis to sell China assets for ₹2,490 cr
+── AI notes (28 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Calcutta High Court restores case against SBI manager in ₹16
+   ✓ [groq] Deleted voters won't be prosecuted for using Form 6 for re-e
+   ✓ [groq] Mere claim that man contacted terrorist through VPN not enou
+   ✓ [groq] VERTICES PARTNERS, Saraf and Partners act on Live2.ai $13 mi
+   ✓ [groq] Delhi HC quashes ED LOCs against non- accused in RCFLRHFL c
+   ✓ [groq] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from 
+   ✓ [groq] Consumer spending on ITC-acquired brands Savlon, Nimyle to d
+   ✓ [groq] Urban Company shareholders approve Rs 2,500 cr raise
+   ~ [groq] Indians look beyond gold and diamonds as coloured gemstone s  (names no court, regulator or statute)
+   ✓ [gemini] Indians look beyond gold and diamonds as coloured gemstone s
+   ✓ [groq] Ajinkya Rahane invests in Ember Cookware as brand plans expa
+   ✓ [groq] Senco Gold H1 revenue rises 52 pc to Rs 5,115 crore; adds 14
+   ✓ [groq] India, Egypt explore local currency trade, FTA options
+   ✓ [groq] Softbank further trims India exposure, offloads Meesho share
+   ✓ [groq] Carlsberg said to start road show for $600 million India IPO
+   ✓ [groq] Page Industries posts higher quarterly profit on strong volu
+   ✓ [groq] Voltas expects home appliances JV Voltbek to reach EBITDA br
+   ✓ [groq] Alibaba unveils new flagship AI model with safety upgrades
+   ✓ [groq] What to expect from Trump and Xi's upcoming meeting in China
+   ✓ [groq] Who makes Sydney Sweeney's American Eagle jeans — and under 
+   ✓ [groq] Daily Editorial Analysis 16 November 2026
+   ✓ [groq] Bajaj Finance, Radico, Clean Science top stock ideas by Choi
+   ✓ [groq] Top gainers and losers, Nov 13: Shriram Finance, Tata Motors
+   ✓ [groq] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from 
+   ✓ [groq] Stock market cues to watch today: GIFT Nifty, FII, crude, an
+   ✓ [groq] Mahanadi Coalfields Rs 8,981 crore IPO to open on November 1
+   ✓ [groq] Anthropic promises to pursue humanity's benefit; ts IPO fili
+   ✓ [groq] TMPV shares slide 8% as JLR guidance cut rattles investors
+   ✓ [groq] Brazil gives workers their lives back; India gives more work
 
-   Enrichment: 64 stories | reused 49 | native brief 5 | AI 2 (groq=2; 2 calls) | kept stale 0 | key points 0 | no brief 0
-   ~92,600 tokens not spent vs. enriching every story with AI
-   Accuracy check: 2 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 23 | native brief 5 | AI 28 (groq=27, gemini=1; 29 calls) | kept stale 0 | key points 0 | no brief 0
+   ~58,800 tokens not spent vs. enriching every story with AI
+   Accuracy check: 29 provider answers | 0 rejected (invented figure, hedging or restated headline) | 1 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
 Feeds:   15 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-16   Hero: business-4d7414a4
+Edition: 2026-11-16   Hero: legal-699ffadd
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 64 stories for 2026-11-16 | 12 stories continue an earlier one
+Archive: 101 stories for 2026-11-16 | 10 stories continue an earlier one
