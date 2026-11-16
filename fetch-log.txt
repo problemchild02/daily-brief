@@ -1,50 +1,49 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-06 16:10 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-06 22:23 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (69,373 bytes)
-    + [legal] Madras High Court bars Blinkit from using CSK fan Saravanan Hari’s persona witho
+    OK  (18,266 bytes)
     + [legal] Private life, public disclosure: Nvidia’s CEO crisis in Indian securities law
-    + [legal] West Bengal moves Supreme Court against Calcutta HC order barring KMC elections 
-    + [legal] Karnataka High Court grants bail to former Guru Raghavendra Sahakara Bank presid
-    + [legal] Kerala High Court sends plea challenging closure of vigilance probe against CM V
-    + [legal] Yes Bank, RBI seek review of Supreme Court verdict quashing ₹8,415 crore AT1 bon
-    + [legal] Supreme Court moots scrutiny of High Court judgments to identify objectionable r
-    + [legal] Rahul Gandhi moves Supreme Court to serve 48 interrogatories on Election Commiss
-    → 9 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    → 1 items: 1 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (188,673 bytes)
+    + [legal] Mark your calendar: Prof. Gary Born to deliver a live lecture on Quarter Century
+    + [legal] Arbitration Bar of India invites applications for international placement progra
+    + [legal] Orissa High Court quashes confiscation of vehicle despite liquor seizure; holds 
+    + [legal] MNLU Mumbai announces certificate course on trademark registration, prosecution,
+    + [legal] Bhakra-Beas power dispute: Supreme Court directs Punjab and Haryana to pay Himac
+    + [legal] Public AI tools and loss of legal privilege: Dubai Arbitration Week 2026 caution
+    + [legal] Seriousness of UAPA charges cannot justify a blanket bar on travel abroad: Delhi
+    → 10 items: 7 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (47,219 bytes)
+    OK  (46,417 bytes)
+    + [business] China and India help the Middle East's largest Arab economy keep oil exports flo
     + [business] Press Note Details: Press Information Bureau
     + [business] India’s ethanol drive has created a feed market no ministry is tracking
     + [business] Indian economy watch: WPI inflation rises, unemployment eases, foreign inflows l
+    + [business] Sensex Today: How India’s Stock Market Impacts the Economy and Businesses
     + [business] China's Economy Loses Steam: Will Foreign Investors Shift Money From China To In
-    + [business] India, Egypt explore local currency trade, FTA options
-    → 33 items: 5 accepted, 28 too old, 0 no-date
+    → 33 items: 6 accepted, 27 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (32,986 bytes)
-    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
-    + [business] WPI inflation, oil, FII trading activity may guide stock markets this week
-    + [business] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from IPO price
-    ↳ dual-tag [reliance] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from IPO price
-    → 19 items: 3 accepted, 6 too old, 0 no-date
-  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    HTTP 429 — skipping  https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
+  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (41,913 bytes)
+    + [business] Interest in Trump's meme coin dinner fades as $TRUMP sinks to record lows
+    + [business] Trump Media faces possible $1 billion debt repayment as stock nears record lows
+    → 50 items: 2 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (81,951 bytes)
-    + [reliance] Mukesh Ambani's Bombardier Global 7500 VT-ASR returns to Mumbai after Luton leg
-    + [reliance] Reliance to invest ₹1 lakh crore in Andhra Pradesh, plans 3 lakh job opportuniti
-    → 53 items: 2 accepted, 51 too old, 0 no-date
+    HTTP 429 — skipping  https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
   [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
     OK  (1,347 bytes)
     → 1 items: 0 accepted, 1 too old, 0 no-date
@@ -55,24 +54,26 @@ Cutoff: 2026-11-06 16:10 UTC  (MAX_AGE_HOURS=240)
     + [reliance] Crocs appoints Sandeep Pal as general manager for India
     + [reliance] Baazar Style Retail targets Rs 5,600 crore turnover, 600 stores by FY29
     + [reliance] Consumer spending on ITC-acquired brands Savlon, Nimyle to double in medium term
-    → 9 items: 5 accepted, 0 too old, 0 no-date
+    + [reliance] Urban Company shareholders approve Rs 2,500 cr raise
+    + [reliance] Indians look beyond gold and diamonds as coloured gemstone sales surge 40 pc
+    + [reliance] Ajinkya Rahane invests in Ember Cookware as brand plans expansion into new categ
+    → 9 items: 8 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (62,123 bytes)
-    + [retail] Beco, a sustainable home care brand, has targeted a presence in 25,000+ general 
-    + [retail] Top 10 Best Consumer Research Companies In India In 2027
-    → 35 items: 2 accepted, 33 too old, 0 no-date
+    HTTP 429 — skipping  https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (9,810 bytes)
-    + [retail] Urban Company shareholders approve Rs 2,500 cr raise
-    + [retail] Indians look beyond gold and diamonds as coloured gemstone sales surge 40 pc
-    + [retail] Ajinkya Rahane invests in Ember Cookware as brand plans expansion into new categ
     + [retail] Senco Gold H1 revenue rises 52 pc to Rs 5,115 crore; adds 14 showrooms
-    → 9 items: 4 accepted, 0 too old, 0 no-date
+    → 9 items: 1 accepted, 0 too old, 0 no-date
   [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (48,316 bytes)
+    OK  (48,286 bytes)
+    + [retail] Adani Green says Tarali project involves no forest land or protected areas
+    + [retail] India-Thailand trade grows 12.6% to $21.49 billion; UPI-PromptPay link discussed
+    + [retail] EU imposes up to 9.5% anti-dumping duties on Indian steelmakers
+    + [retail] Meganet Technologies Global files draft papers for ₹740-crore IPO
+    + [retail] US proposes tougher green card sponsorship rules for companies hiring foreign wo
+    + [retail] Sonia Gandhi reflects on love, loss and finding ‘Belonging’ in India at the laun
     + [retail] No exemption on listing, RBI tells Tata Sons
-    + [retail] Letters to the Editor dated November 17, 2026
-    → 60 items: 2 accepted, 0 too old, 0 no-date
+    → 60 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
     OK  (45,871 bytes)
@@ -92,18 +93,18 @@ Cutoff: 2026-11-06 16:10 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (47,662 bytes)
+    OK  (48,455 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,911 bytes)
+    OK  (14,904 bytes)
+    + [world] U.N. talks seek to rein in 'killer robots' as fears over AI weapons grow
     + [world] FAA ground stop still affecting thousands of flights. And, Trump meets Xi, Putin
     + [world] Chris Van Hollen says he can beat Chuck Schumer. Here's his case
     + [world] Trump heads to Asia to meet with Xi and Putin amid Nvidia fallout
     + [world] What to expect from Trump and Xi's upcoming meeting in China
-    + [world] Who makes Sydney Sweeney's American Eagle jeans — and under what conditions?
+    + [world] What's the real cost of fast fashion? Ask the people making your jeans
     + [world] Fuel crisis and protests pressure Chile's far-right president
     + [world] What's Trump's strategy now with Iran? To keep things as they are
-    + [world] Nvidia CEO steps down. And, Sen. Chris Van Hollen to run for majority leader
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -112,16 +113,16 @@ Cutoff: 2026-11-06 16:10 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (50,086 bytes)
+    OK  (50,644 bytes)
     + [sports] Will Gurnoor Brar make his debut in 1st NZ vs IND Test?
-    + [sports] Why is Matt Henry not playing 5th NZ vs IND ODI?
     + [sports] When will India next play ODI cricket?
+    + [sports] Why is Matt Henry not playing 5th NZ vs IND ODI?
     + [sports] Why is Shubman Gill not playing 5th NZ vs IND ODI?
-    + [sports] When will Rohit Sharma & Virat Kohli next play for India?
     + [sports] Why is Gurnoor Brar not playing 5th NZ vs IND ODI?
     + [sports] ‘Is Banton The Ideal Replacement For Buttler?’: Mukund On GT’s Options Ahead Of 
     + [sports] Brar added to India’s Test squad for NZ series, Kuldeep Yadav released
-    → 45 items: 8 accepted, 34 too old, 0 no-date
+    + [sports] Where to Watch Syed Mushtaq Ali Trophy 2026-27 Live Streaming Matches in India –
+    → 46 items: 8 accepted, 36 too old, 0 no-date
   [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -129,16 +130,15 @@ Cutoff: 2026-11-06 16:10 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (14,427 bytes)
-    + [opinion] India Still Does Not Know What Screens Are Doing to Its Children
-    → 11 items: 1 accepted, 10 too old, 0 no-date
+    HTTP 429 — skipping  https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (53,180 bytes)
+    OK  (53,347 bytes)
+    + [opinion] India's consumption story has a missing middle: The widening gap between growth 
     + [opinion] How can corporate governance evolve to better serve all stakeholders in India?
     + [opinion] India’s election calendar needs a reset. Is 'One Nation, One Election' the answe
     + [opinion] Sanatan and Children
@@ -146,102 +146,74 @@ Cutoff: 2026-11-06 16:10 UTC  (MAX_AGE_HOURS=240)
     + [opinion] Reimagining tax compliance through trust
     + [opinion] Brazil gives workers their lives back; India gives more work
     + [opinion] Huge inflows in small spaces
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    → 50 items: 8 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (40 stories, 8 workers) ─────────────────────────────
+── Page fetch (37 stories, 8 workers) ─────────────────────────────
+   ✗ [  business] China and India help the Middle East's largest Arab economy : HTTP 429
    ✗ [  business] Press Note Details: Press Information Bureau: no og:image/twitter:image tag found
-   ✗ [  business] India, Egypt explore local currency trade, FTA options: no og:image/twitter:image tag found
    ✗ [  business] India’s ethanol drive has created a feed market no ministry : no og:image/twitter:image tag found
-   ✗ [  business] WPI inflation, oil, FII trading activity may guide stock mar: no og:image/twitter:image tag found
+   ✓ [     legal] Arbitration Bar of India invites applications for internatio
+   ✓ [     legal] Mark your calendar: Prof. Gary Born to deliver a live lectur
+   ✓ [     legal] Public AI tools and loss of legal privilege: Dubai Arbitrati
+   ✓ [     legal] Orissa High Court quashes confiscation of vehicle despite li
    ✗ [  business] Indian economy watch: WPI inflation rises, unemployment ease: no og:image/twitter:image tag found
-   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
-   ✗ [  business] China's Economy Loses Steam: Will Foreign Investors Shift Mo: no og:image/twitter:image tag found
-   ✗ [  business] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from : no og:image/twitter:image tag found
-   ✓ [    retail] Letters to the Editor dated November 17, 2026
-   ✗ [  reliance] NSE stock market-cap crosses ₹5 trillion; scrip up 16% from : no og:image/twitter:image tag found
-   ✗ [    retail] Beco, a sustainable home care brand, has targeted a presence: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh Ambani's Bombardier Global 7500 VT-ASR returns to Mum: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance to invest ₹1 lakh crore in Andhra Pradesh, plans 3 : no og:image/twitter:image tag found
-   ✗ [    retail] Top 10 Best Consumer Research Companies In India In 2027: no og:image/twitter:image tag found
-   ✓ [     world] FAA ground stop still affecting thousands of flights. And, T
+   ✓ [     legal] MNLU Mumbai announces certificate course on trademark regist
+   ✗ [  business] Sensex Today: How India’s Stock Market Impacts the Economy a: HTTP 429
+   ✓ [     legal] Bhakra-Beas power dispute: Supreme Court directs Punjab and 
    ✓ [     world] Trump heads to Asia to meet with Xi and Putin amid Nvidia fa
+   ✓ [     world] FAA ground stop still affecting thousands of flights. And, T
+   ✓ [     world] Chris Van Hollen says he can beat Chuck Schumer. Here's his 
+   ✓ [     world] U.N. talks seek to rein in 'killer robots' as fears over AI 
+   ✗ [  business] China's Economy Loses Steam: Will Foreign Investors Shift Mo: no og:image/twitter:image tag found
+   ✓ [     world] What's the real cost of fast fashion? Ask the people making 
+   ✓ [     world] Fuel crisis and protests pressure Chile's far-right presiden
    ✓ [     world] What's Trump's strategy now with Iran? To keep things as the
    ✓ [     world] What to expect from Trump and Xi's upcoming meeting in China
-   ✓ [     world] Chris Van Hollen says he can beat Chuck Schumer. Here's his 
-   ✓ [     world] Who makes Sydney Sweeney's American Eagle jeans — and under 
-   ✓ [     world] Fuel crisis and protests pressure Chile's far-right presiden
-   ✓ [     world] Nvidia CEO steps down. And, Sen. Chris Van Hollen to run for
-   ✗ [    sports] Will Gurnoor Brar make his debut in 1st NZ vs IND Test?: no og:image/twitter:image tag found
-   ✗ [    sports] Why is Matt Henry not playing 5th NZ vs IND ODI?: no og:image/twitter:image tag found
-   ✗ [    sports] Why is Shubman Gill not playing 5th NZ vs IND ODI?: no og:image/twitter:image tag found
+   ✗ [    sports] Why is Matt Henry not playing 5th NZ vs IND ODI?: HTTP 429
+   ✗ [    sports] Will Gurnoor Brar make his debut in 1st NZ vs IND Test?: HTTP 429
    ✗ [    sports] When will India next play ODI cricket?: no og:image/twitter:image tag found
    ✗ [    sports] Why is Gurnoor Brar not playing 5th NZ vs IND ODI?: no og:image/twitter:image tag found
-   ✗ [    sports] When will Rohit Sharma & Virat Kohli next play for India?: no og:image/twitter:image tag found
+   ✗ [    sports] Why is Shubman Gill not playing 5th NZ vs IND ODI?: no og:image/twitter:image tag found
    ✗ [    sports] ‘Is Banton The Ideal Replacement For Buttler?’: Mukund On GT: no og:image/twitter:image tag found
    ✗ [    sports] Brar added to India’s Test squad for NZ series, Kuldeep Yada: no og:image/twitter:image tag found
-   ✗ [   opinion] India Still Does Not Know What Screens Are Doing to Its Chil: no og:image/twitter:image tag found
-   images: 9 found, 22 not found  |  page text: 12 stories
+   ✗ [    sports] Where to Watch Syed Mushtaq Ali Trophy 2026-27 Live Streamin: no og:image/twitter:image tag found
+   ✓ [     legal] Seriousness of UAPA charges cannot justify a blanket bar on 
+   images: 15 found, 14 not found  |  page text: 14 stories
 
-── AI notes (35 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Madras High Court bars Blinkit from using CSK fan Saravanan 
-   ✓ [groq] Private life, public disclosure: Nvidia’s CEO crisis in Indi
-   ✓ [groq] West Bengal moves Supreme Court against Calcutta HC order ba
-   ✓ [groq] Karnataka High Court grants bail to former Guru Raghavendra 
-   ✓ [groq] Kerala High Court sends plea challenging closure of vigilanc
-   ✓ [groq] Supreme Court moots scrutiny of High Court judgments to iden
-   ✓ [groq] Rahul Gandhi moves Supreme Court to serve 48 interrogatories
-   ~ [groq] Mukesh Ambani's Bombardier Global 7500 VT-ASR returns to Mum  (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-      [gemini] error: The read operation timed out
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
-      [anthropic] disabled for the rest of this run (out of quota/credit)
-   ~ [openai] Mukesh Ambani's Bombardier Global 7500 VT-ASR returns to Mum  (names no court, regulator or statute)
-   ✓ [groq] Air purifier sales surge as Delhi-NCR AQI continues to deter
-   ~ [groq] Bigbasket's pooja needs orders rise 150 pc during festive se  (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-      [gemini] error: The read operation timed out
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [openai] Bigbasket's pooja needs orders rise 150 pc during festive se
-   ✓ [groq] Crocs appoints Sandeep Pal as general manager for India
-   ✓ [groq] Baazar Style Retail targets Rs 5,600 crore turnover, 600 sto
-   ✓ [groq] Press Note Details: Press Information Bureau
-   ✓ [groq] India’s ethanol drive has created a feed market no ministry 
-   ✓ [groq] Indian economy watch: WPI inflation rises, unemployment ease
-   ✓ [groq] China's Economy Loses Steam: Will Foreign Investors Shift Mo
-   ✓ [groq] Top 10 Best Consumer Research Companies In India In 2027
+── AI notes (19 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Orissa High Court quashes confiscation of vehicle despite li
+   ✓ [groq] Bhakra-Beas power dispute: Supreme Court directs Punjab and 
+   ✓ [groq] Seriousness of UAPA charges cannot justify a blanket bar on 
    ✓ [groq] Urban Company shareholders approve Rs 2,500 cr raise
-   ✓ [groq] Indians look beyond gold and diamonds as coloured gemstone s
+   ~ [groq] Indians look beyond gold and diamonds as coloured gemstone s  (names no court, regulator or statute)
+   ✓ [gemini] Indians look beyond gold and diamonds as coloured gemstone s
    ✓ [groq] Ajinkya Rahane invests in Ember Cookware as brand plans expa
-   ✓ [groq] Senco Gold H1 revenue rises 52 pc to Rs 5,115 crore; adds 14
-   ✓ [groq] Fractal in talks with up to 25 AI startups for acquisitions,
-   ✓ [groq] IBM investing $3 billion annually in India, plans $10 billio
-   ✓ [groq] Mphasis says clients boost cybersecurity spending as AI-driv
-   ✓ [groq] SK Hynix to spend $1 billion over five years to support chip
-   ✓ [groq] Jordan blocks Telegram app over national security concerns
-   ✓ [groq] Intel sued by shareholders following 29% stock plunge
-   ✓ [groq] Europe hunts for Palantir alternatives as militaries seek to
-   ✓ [groq] Indonesian police raided Nvidia partner Megaspeed's local un
-   ✓ [groq] FAA ground stop still affecting thousands of flights. And, T
-   ✓ [groq] Chris Van Hollen says he can beat Chuck Schumer. Here's his 
-   ✓ [groq] Trump heads to Asia to meet with Xi and Putin amid Nvidia fa
-   ✓ [groq] India Still Does Not Know What Screens Are Doing to Its Chil
-   ✓ [groq] Letters to the Editor dated November 17, 2026
-   ✓ [groq] Huge inflows in small spaces
+   ✓ [groq] China and India help the Middle East's largest Arab economy 
+   ✓ [groq] Sensex Today: How India’s Stock Market Impacts the Economy a
+   ✓ [groq] Interest in Trump's meme coin dinner fades as $TRUMP sinks t
+   ✓ [groq] Trump Media faces possible $1 billion debt repayment as stoc
+   ✓ [groq] U.N. talks seek to rein in 'killer robots' as fears over AI 
+   ✓ [groq] What's the real cost of fast fashion? Ask the people making 
+   ✓ [groq] Adani Green says Tarali project involves no forest land or p
+   ✓ [groq] India-Thailand trade grows 12.6% to $21.49 billion; UPI-Prom
+   ✓ [groq] EU imposes up to 9.5% anti-dumping duties on Indian steelmak
+   ✓ [groq] Meganet Technologies Global files draft papers for ₹740-cror
+   ✓ [groq] US proposes tougher green card sponsorship rules for compani
+   ✓ [groq] Sonia Gandhi reflects on love, loss and finding ‘Belonging’ 
+   ✓ [groq] India's consumption story has a missing middle: The widening
 
-   Enrichment: 64 stories | reused 19 | native brief 2 | AI 35 (groq=34, openai=1; 37 calls) | kept stale 0 | key points 0 | no brief 0
-   ~49,700 tokens not spent vs. enriching every story with AI
-   Accuracy check: 37 provider answers | 0 rejected (invented figure, hedging or restated headline) | 3 accepted with a minor flaw after trying a stronger provider
-   Providers disabled this run: anthropic
+   Enrichment: 64 stories | reused 32 | native brief 5 | AI 19 (groq=18, gemini=1; 20 calls) | kept stale 0 | key points 0 | no brief 0
+   ~70,500 tokens not spent vs. enriching every story with AI
+   Accuracy check: 20 provider answers | 0 rejected (invented figure, hedging or restated headline) | 1 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   12 OK  /  8 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-16   Hero: legal-a9aebbf3
+Edition: 2026-11-17   Hero: legal-7b7a0d56
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 139 stories for 2026-11-16 | 7 stories continue an earlier one
+Archive: 64 stories for 2026-11-17 | 9 stories continue an earlier one
