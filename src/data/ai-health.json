@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-17T08:20:05+00:00",
+  "updatedAt": "2026-11-17T16:22:36+00:00",
   "stories": 64,
   "notes": {
-    "reused": 21,
-    "native_note": 0,
-    "ai_note": 35,
+    "reused": 24,
+    "native_note": 3,
+    "ai_note": 29,
     "stale": 0,
     "extract": 0,
     "no_note": 0
@@ -23,37 +23,37 @@
       "answered": 0,
       "rejected": 0,
       "minorFlaws": 0,
-      "errors": 1,
+      "errors": 2,
       "dead": null,
-      "lastError": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a",
+      "lastError": "The read operation timed out",
       "lastAnsweredAt": "2026-11-16T22:25:53+00:00"
     },
     "github": {
       "answered": 0,
       "rejected": 0,
       "minorFlaws": 0,
-      "errors": 1,
+      "errors": 2,
       "dead": null,
       "lastError": "non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\\r\\n'",
       "lastAnsweredAt": null
     },
     "groq": {
-      "answered": 35,
+      "answered": 29,
+      "rejected": 0,
+      "minorFlaws": 2,
+      "errors": 0,
+      "dead": null,
+      "lastError": null,
+      "lastAnsweredAt": "2026-11-17T16:22:36+00:00"
+    },
+    "openai": {
+      "answered": 2,
       "rejected": 0,
       "minorFlaws": 1,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-17T08:20:05+00:00"
-    },
-    "openai": {
-      "answered": 1,
-      "rejected": 0,
-      "minorFlaws": 0,
-      "errors": 0,
-      "dead": null,
-      "lastError": null,
-      "lastAnsweredAt": "2026-11-17T08:20:05+00:00"
+      "lastAnsweredAt": "2026-11-17T16:22:36+00:00"
     }
   }
 }
