@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-18T07:53:20+00:00",
+  "updatedAt": "2026-11-18T15:54:58+00:00",
   "stories": 64,
   "notes": {
-    "reused": 18,
+    "reused": 25,
     "native_note": 0,
-    "ai_note": 38,
+    "ai_note": 31,
     "stale": 0,
     "extract": 0,
     "no_note": 0
@@ -25,7 +25,7 @@
       "minorFlaws": 0,
       "errors": 1,
       "dead": null,
-      "lastError": "bad JSON: Unterminated string starting at: line 1 column 17 (char 16)",
+      "lastError": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a",
       "lastAnsweredAt": "2026-11-17T21:11:57+00:00"
     },
     "github": {
@@ -38,22 +38,22 @@
       "lastAnsweredAt": null
     },
     "groq": {
-      "answered": 38,
+      "answered": 31,
       "rejected": 0,
       "minorFlaws": 1,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-18T07:53:20+00:00"
+      "lastAnsweredAt": "2026-11-18T15:54:58+00:00"
     },
     "openai": {
       "answered": 1,
       "rejected": 0,
-      "minorFlaws": 0,
+      "minorFlaws": 1,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-18T07:53:20+00:00"
+      "lastAnsweredAt": "2026-11-18T15:54:58+00:00"
     }
   }
 }
