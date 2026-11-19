@@ -1,38 +1,40 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-09 20:51 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (170,346 bytes)
-    + [legal] Karnataka High Court quashes case against MedPlus over short supply of one table
-    + [legal] Kerala High Court quashes disproportionate assets case against minister KM Shaji
-    + [legal] Aadhaar card not conclusive proof of date of birth: Delhi High Court
-    + [legal] Cyril Amarchand Mangaldas tops RISE Legal India 2026 rankings; Khaitan & Co wins
-    + [legal] Allahabad High Court cautions against use of Gangsters Act against company emplo
-    + [legal] Delhi High Court refuses to entertain 10 more IP suits over lack of jurisdiction
-    + [legal] Calcutta High Court grants police protection to married interfaith couple amid t
-    + [legal] Call for Papers: International Journal of Transparency and Accountability in Gov
-    → 29 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (831 bytes)
+    → 0 items: 0 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (205,444 bytes)
+    + [legal] “Allottee cannot be compelled to accept a belated offer of possession”: NCDRC di
+    + [legal] Post-decree deposit cannot retrospectively revive right to defend summary suit u
+    + [legal] Top Legal Developments [9-15 Nov 2026]: Digital Arrest Scams, GST, AI Deepfakes 
+    + [legal] Law & Logic announces 1st Constitution Day Quiz Competition 2026; Registration o
+    + [legal] Appreciating the scope and dimensions of “surcharge” in taxation laws: Implicati
+    + [legal] Justice Rajesh Bindal, former Supreme Court Judge assumes office as NCLAT Chairp
+    + [legal] Dubai Arbitration Week 2026: Justice S. Ravindra Bhat and experts examine judici
+    + [legal] Cyril Amarchand Mangaldas advises Bajaj Finance Ltd. as its legal counsel as to 
+    → 10 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (45,350 bytes)
+    OK  (45,019 bytes)
     + [business] Modi urges Indian Inc to shed domestic-market comfort, step up manufacturing and
     + [business] India’s capital markets growing rapidly with economy: PM Modi
     + [business] 'Move Beyond Domestic Market, Focus On World-Class Quality': PM Modi To India In
     + [business] Tax Cuts Given, So Where Are The Salary Hikes? PM Modi’s Tough Question To India
     + [business] FTAs expand export opportunity, world is India's market now: FICCI President
-    → 32 items: 5 accepted, 27 too old, 0 no-date
+    + [business] India's IPO market set for bumper December as 6 firms prepare listings
+    → 32 items: 6 accepted, 26 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (24,048 bytes)
-    + [business] Pondy Oxides and Chemicals (NSE:POCL) Announces Analyst Meeting with SPARX Asset
-    + [business] Power Finance Corporation rises 2.49% in Thursday's session
-    + [business] NSE stock price rallies 5% on huge volume; zooms 35% from October low
-    → 18 items: 3 accepted, 8 too old, 0 no-date
+    OK  (31,858 bytes)
+    + [business] Sebi's next push: Making corporate bonds more liquid and tradable
+    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
+    → 23 items: 2 accepted, 1 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -40,10 +42,10 @@ Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (117,350 bytes)
+    OK  (117,396 bytes)
     + [reliance] Ambani's Reliance looks to build a 1,600-satellite network to rival Starlink in 
-    + [reliance] Ambani, Mittal Could Turbocharge India’s Space Ambitions
     + [reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India
+    + [reliance] Ambani, Mittal Could Turbocharge India’s Space Ambitions
     + [reliance] Ambani's Reliance Courts Local Manufacturers for 1,600-Satellite Push Against St
     + [reliance] Reliance seeks manufacturing partners for its 1,600-satellite network - Bloomber
     + [reliance] Ambani Seeks to Build Satellite Capacity for Starlink Challenge
@@ -53,7 +55,7 @@ Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (63,176 bytes)
+    OK  (61,776 bytes)
     + [retail] Beco, a sustainable home care brand, has targeted a presence in 25,000+ general 
     → 34 items: 1 accepted, 33 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
@@ -69,7 +71,7 @@ Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (48,139 bytes)
+    OK  (48,140 bytes)
     + [tech] Adhiraj Chauhan wins ‘Young AI Entrepreneur’ at the ET AI Awards 2026 for breakt
     + [tech] Intuit deepens its investment in India with the opening of its new Bengaluru cam
     + [tech] Meta looks to hire new India policy chief to repair frayed ties
@@ -86,11 +88,11 @@ Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (48,507 bytes)
+    OK  (47,963 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,750 bytes)
-    + [world] Top U.N. court rules Myanmar committed genocide against the Rohingya
+    OK  (13,759 bytes)
+    + [world] The U.N.'s top court rules Myanmar committed genocide against the Rohingya
     + [world] Anthropic raises more than $100B in IPO. And, Dems nominate Jeffries for House s
     + [world] Iran's attacks on ships in the Strait of Hormuz escalate
     + [world] Trump, Xi and Putin meet as global alliances hang in the balance
@@ -106,24 +108,26 @@ Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (72,265 bytes)
+    OK  (159,957 bytes)
+    + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
+    + [sports] Vaibhav Sooryavanshi
+    + [sports] 'IPL has changed cricket': Ex-NZ star on India's rise
     + [sports] India vs New Zealand Live Streaming Info: How to watch the 1st Test match?
     + [sports] NZ vs IND, 1st Test: When did India last win a Test match in New Zealand?
     + [sports] India vs New Zealand 1st Test 2026: Match preview, head-to-head record, telecast
-    + [sports] 'India Are Already Missing Him': Former India Opener Left 'Absolutely Shocked' O
-    + [sports] Henry Nicholls Ton, Glenn Phillips 94* Script New Zealand Fightback After Jaspri
-    + [sports] How has Jasprit Bumrah performed against New Zealand in Test matches? Full recor
-    + [sports] Why did Mohammed Siraj miss 1st NZ vs IND Test match?
-    + [sports] India face New Zealand in first Test with their WTC hopes hanging in the balance
-    → 52 items: 8 accepted, 33 too old, 0 no-date
-  [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+    → 100 items: 6 accepted, 94 too old, 0 no-date
+  [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+    OK  (89,569 bytes)
+    + [sports] Laura Harris' wins family battle with record-breaking 15-ball fifty
+    + [sports] Luc Benkenstein to follow in father's footsteps as he leaves Essex for Durham
+    → 100 items: 2 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (38,819 bytes)
+    OK  (39,164 bytes)
     + [opinion] Daily Editorial Analysis 19 November 2026
     + [opinion] Daily Editorial Analysis 18 November 2026
     → 33 items: 2 accepted, 31 too old, 0 no-date
@@ -133,104 +137,90 @@ Cutoff: 2026-11-09 15:55 UTC  (MAX_AGE_HOURS=240)
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (52,563 bytes)
+    OK  (52,824 bytes)
+    + [opinion] Selectors, play the long innings: Balancing India's cricketing legends with Gen 
+    + [opinion] C-urity had a black great October: AI exposes flaws in traditional cybersecurity
+    + [opinion] As US, China and Russia redraw the global order, India needs new strategic partn
     + [opinion] Bumrah's New Zealand challenge puts India's pace-bowling choices under the scann
     + [opinion] BRICS should focus less on remaking the world order and more on fixing its gaps
     + [opinion] The real test of investment protection is what happens after an election
-    + [opinion] Will a Shenzhen menu wok today?
-    + [opinion] Inner vigilance
-    + [opinion] Bohemian Currency: We shouldn’t stress about easy come-easy go, little high-litt
     → 50 items: 6 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
 ── Page fetch (44 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
+   ✓ [     legal] Dubai Arbitration Week 2026: Justice S. Ravindra Bhat and ex
+   ✓ [     legal] Law & Logic announces 1st Constitution Day Quiz Competition 
+   ✓ [     legal] Appreciating the scope and dimensions of “surcharge” in taxa
+   ✓ [     legal] Top Legal Developments [9-15 Nov 2026]: Digital Arrest Scams
+   ✓ [     legal] Justice Rajesh Bindal, former Supreme Court Judge assumes of
+   ✓ [     legal] Cyril Amarchand Mangaldas advises Bajaj Finance Ltd. as its 
    ✗ [  business] India’s capital markets growing rapidly with economy: PM Mod: no og:image/twitter:image tag found
+   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
    ✗ [  business] 'Move Beyond Domestic Market, Focus On World-Class Quality':: no og:image/twitter:image tag found
    ✗ [  business] Tax Cuts Given, So Where Are The Salary Hikes? PM Modi’s Tou: no og:image/twitter:image tag found
-   ✗ [  business] Power Finance Corporation rises 2.49% in Thursday's session: no og:image/twitter:image tag found
+   ✗ [  business] India's IPO market set for bumper December as 6 firms prepar: no og:image/twitter:image tag found
    ✗ [  business] FTAs expand export opportunity, world is India's market now:: no og:image/twitter:image tag found
-   ✗ [  business] NSE stock price rallies 5% on huge volume; zooms 35% from Oc: no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani, Mittal Could Turbocharge India’s Space Ambitions: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India: no og:image/twitter:image tag found
+   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
+   ✗ [  business] Sebi's next push: Making corporate bonds more liquid and tra: no og:image/twitter:image tag found
    ✗ [  reliance] Ambani's Reliance looks to build a 1,600-satellite network t: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani, Mittal Could Turbocharge India’s Space Ambitions: no og:image/twitter:image tag found
    ✗ [  reliance] Ambani's Reliance Courts Local Manufacturers for 1,600-Satel: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance seeks manufacturing partners for its 1,600-satellit: no og:image/twitter:image tag found
    ✗ [  reliance] Ambani Seeks to Build Satellite Capacity for Starlink Challe: no og:image/twitter:image tag found
    ✗ [  reliance] Ambani’s Reliance explores manufacturing partnerships for 1,: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance seeks manufacturing partners for its 1,600-satellit: no og:image/twitter:image tag found
-   ✗ [  business] Pondy Oxides and Chemicals (NSE:POCL) Announces Analyst Meet: no og:image/twitter:image tag found
-   ✗ [    retail] Beco, a sustainable home care brand, has targeted a presence: no og:image/twitter:image tag found
+   ✓ [     legal] Post-decree deposit cannot retrospectively revive right to d
    ✗ [  reliance] Jio plans 1,600 satellites to take on Elon Musk's Starlink: no og:image/twitter:image tag found
-   ✓ [     world] Trump, Xi and Putin meet as global alliances hang in the bal
-   ✓ [     world] Iran's attacks on ships in the Strait of Hormuz escalate
-   ✓ [     world] Top U.N. court rules Myanmar committed genocide against the 
+   ✗ [    retail] Beco, a sustainable home care brand, has targeted a presence: no og:image/twitter:image tag found
    ✓ [     world] Anthropic raises more than $100B in IPO. And, Dems nominate 
-   ✗ [    sports] India vs New Zealand Live Streaming Info: How to watch the 1: no og:image/twitter:image tag found
-   ✓ [     world] Former U.S. ambassador on Trump's joint summit with leaders 
-   ✗ [    sports] NZ vs IND, 1st Test: When did India last win a Test match in: no og:image/twitter:image tag found
-   ✗ [    sports] India vs New Zealand 1st Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
-   ✓ [     world] Mary Peltola flips Alaska's Senate seat. And, Nvidia won't r
-   ✗ [    sports] Henry Nicholls Ton, Glenn Phillips 94* Script New Zealand Fi: no og:image/twitter:image tag found
-   ✗ [    sports] How has Jasprit Bumrah performed against New Zealand in Test: no og:image/twitter:image tag found
-   ✗ [    sports] 'India Are Already Missing Him': Former India Opener Left 'A: no og:image/twitter:image tag found
-   ✓ [     world] Trump to meet with Russia's Putin and China's Xi for histori
+   ✓ [     world] The U.N.'s top court rules Myanmar committed genocide agains
+   ✓ [     world] Trump, Xi and Putin meet as global alliances hang in the bal
    ✓ [     world] Karl Kani dressed hip-hop royalty for decades. Now he's tell
-   ✗ [    sports] Why did Mohammed Siraj miss 1st NZ vs IND Test match?: no og:image/twitter:image tag found
+   ✓ [     legal] “Allottee cannot be compelled to accept a belated offer of p
+   ✓ [     world] Iran's attacks on ships in the Strait of Hormuz escalate
+   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
+   ✗ [    sports] Vaibhav Sooryavanshi: no og:image/twitter:image tag found
+   ✓ [     world] Mary Peltola flips Alaska's Senate seat. And, Nvidia won't r
+   ✓ [     world] Former U.S. ambassador on Trump's joint summit with leaders 
+   ✗ [    sports] India vs New Zealand Live Streaming Info: How to watch the 1: no og:image/twitter:image tag found
+   ✗ [    sports] NZ vs IND, 1st Test: When did India last win a Test match in: no og:image/twitter:image tag found
+   ✗ [    sports] 'IPL has changed cricket': Ex-NZ star on India's rise: no og:image/twitter:image tag found
+   ✓ [     world] Trump to meet with Russia's Putin and China's Xi for histori
+   ✗ [    sports] India vs New Zealand 1st Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 19 November 2026: no og:image/twitter:image tag found
-   ✗ [    sports] India face New Zealand in first Test with their WTC hopes ha: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 18 November 2026: no og:image/twitter:image tag found
-   images: 8 found, 27 not found  |  page text: 14 stories
+   images: 16 found, 25 not found  |  page text: 9 stories
 
-── AI notes (23 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Karnataka High Court quashes case against MedPlus over short
-   ✓ [groq] Kerala High Court quashes disproportionate assets case again
-   ✓ [groq] Aadhaar card not conclusive proof of date of birth: Delhi Hi
-   ~ [groq] Cyril Amarchand Mangaldas tops RISE Legal India 2026 ranking  (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-      [gemini] error: The read operation timed out
+── AI notes (11 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] “Allottee cannot be compelled to accept a belated offer of p
+   ✓ [groq] Post-decree deposit cannot retrospectively revive right to d
+   ~ [groq] Law & Logic announces 1st Constitution Day Quiz Competition   (names no court, regulator or statute)
+   ~ [gemini] Law & Logic announces 1st Constitution Day Quiz Competition   (names no court, regulator or statute)
       [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
       [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
       [anthropic] disabled for the rest of this run (out of quota/credit)
-   ~ [openai] Cyril Amarchand Mangaldas tops RISE Legal India 2026 ranking  (generic hedging language; names no court, regulator or statute)
-   ✓ [groq] Delhi High Court refuses to entertain 10 more IP suits over 
-   ✓ [groq] Calcutta High Court grants police protection to married inte
-   ~ [groq] Call for Papers: International Journal of Transparency and A  (names no court, regulator or statute)
-      [gemini] busy (HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "Th); retrying once
-      [gemini] error: The read operation timed out
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [openai] Call for Papers: International Journal of Transparency and A
-   ✓ [groq] Modi urges Indian Inc to shed domestic-market comfort, step 
-   ✓ [groq] Tax Cuts Given, So Where Are The Salary Hikes? PM Modi’s Tou
-   ✓ [groq] FTAs expand export opportunity, world is India's market now:
-   ✓ [groq] Visage Lines appoints former More Retail MD Vinod Nambiar as
-   ✓ [groq] Style Union raises Rs 485 crore in Series E funding led by V
-   ✓ [groq] Boba Bhai raises $18 million in Series B funding to expand s
-   ✓ [groq] Adhiraj Chauhan wins ‘Young AI Entrepreneur’ at the ET AI Aw
-   ✓ [groq] Intuit deepens its investment in India with the opening of i
-   ✓ [groq] Top U.N. court rules Myanmar committed genocide against the 
-   ✓ [groq] Anthropic raises more than $100B in IPO. And, Dems nominate 
-   ✓ [groq] Iran's attacks on ships in the Strait of Hormuz escalate
-   ✓ [groq] Trump, Xi and Putin meet as global alliances hang in the bal
-   ✓ [groq] Daily Editorial Analysis 19 November 2026
-   ✓ [groq] Daily Editorial Analysis 18 November 2026
-   ✓ [groq] Power Finance Corporation rises 2.49% in Thursday's session
-   ✓ [groq] NSE stock price rallies 5% on huge volume; zooms 35% from Oc
+   ~ [openai] Law & Logic announces 1st Constitution Day Quiz Competition   (names no court, regulator or statute)
+   ✓ [groq] Appreciating the scope and dimensions of “surcharge” in taxa
+   ✓ [groq] Cyril Amarchand Mangaldas advises Bajaj Finance Ltd. as its 
+   ✓ [groq] India's IPO market set for bumper December as 6 firms prepar
+   ✓ [groq] The U.N.'s top court rules Myanmar committed genocide agains
+   ✓ [groq] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
+   ✓ [groq] Selectors, play the long innings: Balancing India's cricketi
+   ✓ [groq] C-urity had a black great October: AI exposes flaws in tradi
+   ✓ [groq] As US, China and Russia redraw the global order, India needs
 
-   Enrichment: 64 stories | reused 32 | native brief 1 | AI 23 (groq=22, openai=1; 26 calls) | kept stale 0 | key points 0 | no brief 0
-   ~65,300 tokens not spent vs. enriching every story with AI
-   Accuracy check: 25 provider answers | 1 rejected (invented figure, hedging or restated headline) | 2 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 41 | native brief 4 | AI 11 (groq=11; 13 calls) | kept stale 0 | key points 0 | no brief 0
+   ~80,900 tokens not spent vs. enriching every story with AI
+   Accuracy check: 13 provider answers | 0 rejected (invented figure, hedging or restated headline) | 3 accepted with a minor flaw after trying a stronger provider
    Providers disabled this run: anthropic
 
 ────────────────────────────────────────────────────────────
-Feeds:   11 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-19   Hero: legal-9ddd40c9
+Edition: 2026-11-20   Hero: business-a7596f5c
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 122 stories for 2026-11-19 | 16 stories continue an earlier one
+Archive: 64 stories for 2026-11-20 | 21 stories continue an earlier one
