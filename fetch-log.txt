@@ -1,12 +1,11 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-12 14:45 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-12 19:53 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (5,961 bytes)
-    + [legal] Supreme Court granted final relief at interim stage in Deepam row: Tamil Nadu in
-    → 1 items: 1 accepted, 0 too old, 0 no-date
+    OK  (5,085 bytes)
+    → 1 items: 0 accepted, 1 too old, 0 no-date
   [     legal] fetching https://www.scconline.com/blog/feed/
     OK  (167,171 bytes)
     + [legal] 2026 SCC Vol. 9 Part 1: Key Supreme Court Case on online games
@@ -16,25 +15,26 @@ Cutoff: 2026-11-12 14:45 UTC  (MAX_AGE_HOURS=240)
     + [legal] “Daughter”, not “adopted daughter”: Kerala HC directs State to amend e-district 
     + [legal] Vivekananda Global University to host online faculty development programme on La
     + [legal] Patna HC holds Permanent Lok Adalat lacks jurisdiction to record land dispute co
-    → 10 items: 7 accepted, 0 too old, 0 no-date
+    + [legal] Shardul Amarchand Mangaldas & Co advises EAAA India Alternatives Limited on ₹1,0
+    → 10 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (44,538 bytes)
-    + [business] Modi urges Indian Inc to shed domestic-market comfort, step up manufacturing and
+    OK  (41,930 bytes)
     + [business] Capital markets must ‘serve’ the real economy, not ‘rule it’: CEA Nageswaran
     + [business] Tax Cuts Given, So Where Are The Salary Hikes? PM Modi’s Tough Question To India
     + [business] India’s Demographic Dividend: The Next Big Business Opportunity
-    + [business] FPI buying in Indian markets a structural shift away from AI-related stocks
     + [business] PM Modi Urges Indian Industry to Improve Quality, Reduce Imports and Expand Glob
-    → 33 items: 6 accepted, 27 too old, 0 no-date
+    + [business] FPI buying in Indian markets a structural shift away from AI-related stocks
+    → 32 items: 5 accepted, 27 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (41,521 bytes)
-    + [business] Sebi's next push: Making corporate bonds more liquid and tradable
-    + [business] India’s Record-Breaking Performance: A Fresh Wave of Global Investment Turns Tow
-    → 26 items: 2 accepted, 1 too old, 0 no-date
+    OK  (42,939 bytes)
+    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
+    + [business] NSE stock joins top five global exchanges by m-cap, overtakes Nasdaq
+    + [business] NSE shares jump 3% to fresh high; JM Financial sees MSCI entry in March
+    → 27 items: 3 accepted, 6 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -42,38 +42,33 @@ Cutoff: 2026-11-12 14:45 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    HTTP 429 — skipping  https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 1 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (11,659 bytes)
-    + [reliance] Change in Flipkart's festive sales timing drags Walmart's Q3 topline growth down
-    + [reliance] India's smartphone sales during festive season drop by 22 pc, Apple faces a doub
-    + [reliance] ChrysCap Among 3 PE Funds in Final Race to Buy Minority Stake in Hocco Ice Cream
-    + [reliance] 'GTA 6' generates USD 3.79 billion in pre-orders, first-day sales, sets new ente
-    + [reliance] FDA suspends 23 food business licences across Maharashtra, seizes stock worth Rs
-    + [reliance] Titan's Helios Luxe targets 40-50 stores in 3 years; eyes deeper play in Rs 13,0
-    + [reliance] Grover Zampa Vineyards enters imported spirits and wines segment, targets intern
-    + [reliance] NoBroker's home services business serves 2 lakh customers a month as festive tra
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (114,382 bytes)
+    + [reliance] Ambani's Reliance looks to build a 1,600-satellite network to rival Starlink in 
+    + [reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India
+    + [reliance] Ambani Seeks to Build Satellite Capacity for Starlink Challenge
+    + [reliance] Reliance seeks manufacturing partners for its 1,600-satellite network - Bloomber
+    + [reliance] Reliance explores satellite manufacturing partnerships to challenge Starlink: re
+    + [reliance] Ambani’s Reliance explores manufacturing partnerships for 1,600-satellite networ
+    + [reliance] Nvidia’s Jensen Huang fallout is a gift to billionaires Ambani and Adani
+    + [reliance] Indian billionaire Mukesh Ambani's family buys 426,000 Reliance shares as stock 
+    → 70 items: 8 accepted, 48 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (54,373 bytes)
+    OK  (53,268 bytes)
     + [retail] Beco, a sustainable home care brand, has targeted a presence in 25,000+ general 
     → 29 items: 1 accepted, 28 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (11,659 bytes)
-    + [retail] ABFRL’s luxury business to contribute 30-33 pc of revenue in 4-5 years, up from 
-    + [retail] Gold set for worst week since March as rate-hike expectations grow
-    → 10 items: 2 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (48,600 bytes)
-    + [retail] Kitchenware makers caught between rising costs and price-sensitive consumers
-    + [retail] Two schoolboys, one tiny computer, and a smarter way to keep daycares safe
-    + [retail] Every Indian today is a global Indian: PD Singh of Standard Chartered Bank
-    + [retail] Inside Cosmoserve’s dark room, where space is staged on the ground
-    + [retail] Nepal PM visit: India weighs $2-billion development package for Kathmandu
-    → 60 items: 5 accepted, 0 too old, 0 no-date
+    + [retail] Change in Flipkart's festive sales timing drags Walmart's Q3 topline growth down
+    + [retail] India's smartphone sales during festive season drop by 22 pc, Apple faces a doub
+    + [retail] ChrysCap Among 3 PE Funds in Final Race to Buy Minority Stake in Hocco Ice Cream
+    + [retail] 'GTA 6' generates USD 3.79 billion in pre-orders, first-day sales, sets new ente
+    + [retail] FDA suspends 23 food business licences across Maharashtra, seizes stock worth Rs
+    + [retail] Titan's Helios Luxe targets 40-50 stores in 3 years; eyes deeper play in Rs 13,0
+    + [retail] Grover Zampa Vineyards enters imported spirits and wines segment, targets intern
+    → 10 items: 7 accepted, 0 too old, 0 no-date
+  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
     OK  (48,852 bytes)
@@ -93,18 +88,18 @@ Cutoff: 2026-11-12 14:45 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (47,429 bytes)
+    OK  (48,448 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (13,903 bytes)
+    OK  (14,460 bytes)
+    + [world] Lebanese villagers return to wrecked homes as the Israeli army pulls back
+    + [world] Climate change talks fall apart in final hours over fossil fuels
     + [world] What did Xi Jinping get from the bear hug with Trump at the Shenzhen summit?
     + [world] Highlights and challenges from covering an historic month in South America
     + [world] A grieving family in Lebanon returns to their village
     + [world] Cartel leader captured in northern Mexico in a bloody firefight that left 11 dea
     + [world] Killer robots: U.N. talks fall short of hopes for legally binding rules
     + [world] Military analyst Phillips O'Brien on Ukraine and Europe being left out of Trump'
-    + [world] Anthropic worker claims to have solved a Holy Grail of math problems with the he
-    + [world] Nations at UN talks on AI killer robots agree to more talks but no firm commitme
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -113,16 +108,16 @@ Cutoff: 2026-11-12 14:45 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (62,055 bytes)
+    OK  (61,773 bytes)
+    + [sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor
+    + [sports] Live Cricket Match Predictions & Win Probability
+    + [sports] INDW vs ENGW, 11th Match, ICC Womens T20 World Cup Warm-up Matches 2026 - Commen
+    + [sports] Live Cricket Streaming & Match Updates
     + [sports] Are India Wasting Yashasvi Jaiswal in White-Ball Cricket Despite His Incredible 
     + [sports] Major update on Josh Hazlewood & Pat Cummins’ availability for IPL 2027
-    + [sports] NZ vs IND Live streaming details, where & how to watch 1st Test of India tour of
     + [sports] Shubman Gill Becomes First Indian To Breach 3,000-Run Mark In WTC
     + [sports] IND Vs NZ 1st Test: Pant's Record Ton Puts India In Command As New Zealand Trail
-    + [sports] KL Rahul To Virat Kohli: Full List Of Indian Cricketers To Score Test 100 In New
-    + [sports] Historic First In New Zealand: India's Top 5 Score 50-Plus In A Test Innings
-    + [sports] 9 Asian Cricketers To Score Test 100 In All Four SENA Countries
-    → 48 items: 8 accepted, 35 too old, 0 no-date
+    → 46 items: 8 accepted, 30 too old, 0 no-date
   [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -130,106 +125,113 @@ Cutoff: 2026-11-12 14:45 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (127,717 bytes)
+    OK  (41,635 bytes)
     + [opinion] Daily Editorial Analysis 16 November 2026
-    → 79 items: 1 accepted, 78 too old, 0 no-date
+    + [opinion] Daily Editorial Analysis 19 November 2026
+    + [opinion] Daily Editorial Analysis 21 November 2026
+    + [opinion] Why Indian Cities Are Built for Cars but Lived on Foot
+    → 34 items: 4 accepted, 30 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (11,891 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (52,158 bytes)
+    OK  (52,264 bytes)
+    + [opinion] Slavery reparations: The case for historical acknowledgement, not compensation
+    + [opinion] India's economic model needs a demand-side pivot, not another round of supply-si
     + [opinion] Pattinson, Robert Pattinson, no need to get so shaken and stirred
     + [opinion] Finding riveting beauty in caste-class chaos
-    + [opinion] The art of saying absolutely nothing
-    + [opinion] 50 crore out of poverty: How India laid the foundation of Viksit Bharat
-    + [opinion] Appearances deceive
-    + [opinion] With Anthropic’s seminal IPO, Wall St now has a handle on pricing AI, and how th
-    + [opinion] India: Less unequal than anyone else
-    → 50 items: 7 accepted, 0 too old, 0 no-date
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (40 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
+── Page fetch (45 stories, 8 workers) ─────────────────────────────
+   ✓ [     legal] 2026 SCC Vol. 9 Part 1: Key Supreme Court Case on online gam
+   ✓ [     legal] Shardul Amarchand Mangaldas & Co advises EAAA India Alternat
+   ✓ [     legal] Vivekananda Global University to host online faculty develop
+   ✓ [     legal] AI must empower, not replace, mediators: ICA-RICS symposium 
+   ✓ [     legal] Déjà vu Moment for IBC = From Synergies Dooray to Subhash Ch
    ✗ [  business] Capital markets must ‘serve’ the real economy, not ‘rule it’: no og:image/twitter:image tag found
    ✗ [  business] Tax Cuts Given, So Where Are The Salary Hikes? PM Modi’s Tou: no og:image/twitter:image tag found
    ✗ [  business] India’s Demographic Dividend: The Next Big Business Opportun: no og:image/twitter:image tag found
    ✗ [  business] FPI buying in Indian markets a structural shift away from AI: no og:image/twitter:image tag found
    ✗ [  business] PM Modi Urges Indian Industry to Improve Quality, Reduce Imp: no og:image/twitter:image tag found
-   ✗ [  business] Sebi's next push: Making corporate bonds more liquid and tra: no og:image/twitter:image tag found
-   ✗ [  business] India’s Record-Breaking Performance: A Fresh Wave of Global : no og:image/twitter:image tag found
-   ✓ [     legal] Vivekananda Global University to host online faculty develop
-   ✗ [    retail] Beco, a sustainable home care brand, has targeted a presence: no og:image/twitter:image tag found
-   ✓ [     legal] AI must empower, not replace, mediators: ICA-RICS symposium 
-   ✓ [     world] Highlights and challenges from covering an historic month in
-   ✓ [     world] What did Xi Jinping get from the bear hug with Trump at the 
-   ✓ [     world] A grieving family in Lebanon returns to their village
-   ✓ [     world] Cartel leader captured in northern Mexico in a bloody firefi
-   ✓ [     world] Killer robots: U.N. talks fall short of hopes for legally bi
-   ✓ [     world] Anthropic worker claims to have solved a Holy Grail of math 
-   ✓ [     world] Nations at UN talks on AI killer robots agree to more talks 
-   ✗ [    sports] Are India Wasting Yashasvi Jaiswal in White-Ball Cricket Des: no og:image/twitter:image tag found
-   ✗ [    sports] Major update on Josh Hazlewood & Pat Cummins’ availability f: no og:image/twitter:image tag found
-   ✗ [    sports] NZ vs IND Live streaming details, where & how to watch 1st T: no og:image/twitter:image tag found
-   ✗ [    sports] Shubman Gill Becomes First Indian To Breach 3,000-Run Mark I: no og:image/twitter:image tag found
-   ✗ [    sports] KL Rahul To Virat Kohli: Full List Of Indian Cricketers To S: no og:image/twitter:image tag found
-   ✗ [    sports] IND Vs NZ 1st Test: Pant's Record Ton Puts India In Command : no og:image/twitter:image tag found
-   ✓ [     legal] Déjà vu Moment for IBC = From Synergies Dooray to Subhash Ch
-   ✗ [    sports] 9 Asian Cricketers To Score Test 100 In All Four SENA Countr: no og:image/twitter:image tag found
-   ✗ [    sports] Historic First In New Zealand: India's Top 5 Score 50-Plus I: no og:image/twitter:image tag found
-   ✓ [     legal] 2026 SCC Vol. 9 Part 1: Key Supreme Court Case on online gam
-   ✗ [   opinion] Daily Editorial Analysis 16 November 2026: no og:image/twitter:image tag found
-   ✓ [     world] Military analyst Phillips O'Brien on Ukraine and Europe bein
-   ✓ [     legal] “Daughter”, not “adopted daughter”: Kerala HC directs State 
-   ✓ [     legal] State cannot renege on binding sale of Ballygunge land only 
+   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
    ✓ [     legal] Patna HC holds Permanent Lok Adalat lacks jurisdiction to re
-   images: 15 found, 18 not found  |  page text: 12 stories
+   ✗ [  business] NSE stock joins top five global exchanges by m-cap, overtake: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani's Reliance looks to build a 1,600-satellite network t: no og:image/twitter:image tag found
+   ✗ [  business] NSE shares jump 3% to fresh high; JM Financial sees MSCI ent: no og:image/twitter:image tag found
+   ✓ [     legal] State cannot renege on binding sale of Ballygunge land only 
+   ✓ [     legal] “Daughter”, not “adopted daughter”: Kerala HC directs State 
+   ✗ [  reliance] Ambani Seeks to Build Satellite Capacity for Starlink Challe: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance seeks manufacturing partners for its 1,600-satellit: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance explores satellite manufacturing partnerships to ch: no og:image/twitter:image tag found
+   ✓ [     world] Climate change talks fall apart in final hours over fossil f
+   ✗ [  reliance] Indian billionaire Mukesh Ambani's family buys 426,000 Relia: no og:image/twitter:image tag found
+   ✗ [    retail] Beco, a sustainable home care brand, has targeted a presence: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani’s Reliance explores manufacturing partnerships for 1,: no og:image/twitter:image tag found
+   ✗ [  reliance] Nvidia’s Jensen Huang fallout is a gift to billionaires Amba: no og:image/twitter:image tag found
+   ✓ [     world] What did Xi Jinping get from the bear hug with Trump at the 
+   ✓ [     world] Lebanese villagers return to wrecked homes as the Israeli ar
+   ✓ [     world] Highlights and challenges from covering an historic month in
+   ✓ [     world] Military analyst Phillips O'Brien on Ukraine and Europe bein
+   ✓ [     world] Killer robots: U.N. talks fall short of hopes for legally bi
+   ✓ [     world] A grieving family in Lebanon returns to their village
+   ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
+   ✗ [    sports] Live Cricket Match Predictions & Win Probability: no og:image/twitter:image tag found
+   ✓ [     world] Cartel leader captured in northern Mexico in a bloody firefi
+   ✗ [    sports] INDW vs ENGW, 11th Match, ICC Womens T20 World Cup Warm-up M: no og:image/twitter:image tag found
+   ✗ [    sports] Live Cricket Streaming & Match Updates: no og:image/twitter:image tag found
+   ✗ [    sports] Major update on Josh Hazlewood & Pat Cummins’ availability f: no og:image/twitter:image tag found
+   ✗ [    sports] Are India Wasting Yashasvi Jaiswal in White-Ball Cricket Des: no og:image/twitter:image tag found
+   ✗ [    sports] Shubman Gill Becomes First Indian To Breach 3,000-Run Mark I: no og:image/twitter:image tag found
+   ✗ [    sports] IND Vs NZ 1st Test: Pant's Record Ton Puts India In Command : no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 16 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 19 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 21 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Why Indian Cities Are Built for Cars but Lived on Foot: no og:image/twitter:image tag found
+   images: 16 found, 29 not found  |  page text: 5 stories
 
-── AI notes (22 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Supreme Court granted final relief at interim stage in Deepa
+── AI notes (26 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Ambani's Reliance looks to build a 1,600-satellite network t
+   ✓ [groq] Reliance 1,600 Satellites vs Starlink: Ambani Wins India
+   ✓ [groq] Ambani Seeks to Build Satellite Capacity for Starlink Challe
+   ✓ [groq] Reliance seeks manufacturing partners for its 1,600-satellit
+   ✓ [groq] Reliance explores satellite manufacturing partnerships to ch
+   ✓ [groq] Ambani’s Reliance explores manufacturing partnerships for 1,
+   ✓ [groq] Nvidia’s Jensen Huang fallout is a gift to billionaires Amba
+   ✓ [groq] Indian billionaire Mukesh Ambani's family buys 426,000 Relia
+   ✓ [groq] Shardul Amarchand Mangaldas & Co advises EAAA India Alternat
    ✓ [groq] Change in Flipkart's festive sales timing drags Walmart's Q3
    ✓ [groq] India's smartphone sales during festive season drop by 22 pc
    ✓ [groq] ChrysCap Among 3 PE Funds in Final Race to Buy Minority Stak
-   ~ [groq] 'GTA 6' generates USD 3.79 billion in pre-orders, first-day   (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-   ✓ [gemini] 'GTA 6' generates USD 3.79 billion in pre-orders, first-day 
+   ✓ [groq] 'GTA 6' generates USD 3.79 billion in pre-orders, first-day 
    ✓ [groq] FDA suspends 23 food business licences across Maharashtra, s
    ✓ [groq] Titan's Helios Luxe targets 40-50 stores in 3 years; eyes de
    ✓ [groq] Grover Zampa Vineyards enters imported spirits and wines seg
-   ~ [groq] NoBroker's home services business serves 2 lakh customers a   (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-      [gemini] error: The read operation timed out
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
-      [anthropic] disabled for the rest of this run (out of quota/credit)
-   ✓ [openai] NoBroker's home services business serves 2 lakh customers a 
-   ✓ [groq] ABFRL’s luxury business to contribute 30-33 pc of revenue in
-   ✓ [groq] Gold set for worst week since March as rate-hike expectation
-   ✓ [groq] Chinese national Li Ming charged in fraud case in Singapore 
-   ✓ [groq] Daily Editorial Analysis 16 November 2026
-   ✓ [groq] India’s Record-Breaking Performance: A Fresh Wave of Global 
-   ✓ [groq] Kitchenware makers caught between rising costs and price-sen
-   ✓ [groq] Two schoolboys, one tiny computer, and a smarter way to keep
-   ✓ [groq] Every Indian today is a global Indian: PD Singh of Standard 
-   ✓ [groq] Inside Cosmoserve’s dark room, where space is staged on the 
-   ✓ [groq] Nepal PM visit: India weighs $2-billion development package 
-   ✓ [groq] Appearances deceive
-   ✓ [groq] With Anthropic’s seminal IPO, Wall St now has a handle on pr
-   ✓ [groq] India: Less unequal than anyone else
+   ✓ [groq] Lebanese villagers return to wrecked homes as the Israeli ar
+   ✓ [groq] Climate change talks fall apart in final hours over fossil f
+   ✓ [groq] Daily Editorial Analysis 19 November 2026
+   ✓ [groq] Daily Editorial Analysis 21 November 2026
+   ✓ [groq] Why Indian Cities Are Built for Cars but Lived on Foot
+   ✓ [groq] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
+   ✓ [groq] NSE stock joins top five global exchanges by m-cap, overtake
+   ✓ [groq] NSE shares jump 3% to fresh high; JM Financial sees MSCI ent
+   ✓ [groq] Slavery reparations: The case for historical acknowledgement
+   ✓ [groq] India's economic model needs a demand-side pivot, not anothe
 
-   Enrichment: 64 stories | reused 31 | native brief 3 | AI 22 (groq=20, gemini=1, openai=1; 25 calls) | kept stale 0 | key points 0 | no brief 0
-   ~66,600 tokens not spent vs. enriching every story with AI
-   Accuracy check: 24 provider answers | 0 rejected (invented figure, hedging or restated headline) | 2 accepted with a minor flaw after trying a stronger provider
-   Providers disabled this run: anthropic
+   Enrichment: 64 stories | reused 28 | native brief 2 | AI 26 (groq=26; 28 calls) | kept stale 0 | key points 0 | no brief 0
+   ~61,400 tokens not spent vs. enriching every story with AI
+   Accuracy check: 26 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  5 failed
+Feeds:   12 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-22   Hero: legal-0a3089a4
+Edition: 2026-11-23   Hero: business-ebecf712
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 106 stories for 2026-11-22 | 8 stories continue an earlier one
+Archive: 64 stories for 2026-11-23 | 15 stories continue an earlier one
