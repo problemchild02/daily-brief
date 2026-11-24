@@ -1,14 +1,11 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-14 22:39 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (13,361 bytes)
-    + [legal] Supreme Court Collegium recommends Vibhu Bakhru as Jharkhand HC CJ, Ramachandra 
-    + [legal] Madras High Court imposes media gag in sexual harassment case against TVK MLA to
-    + [legal] NCDRC holds LIC liable for its agent's fraud after premium paid by customer dive
-    → 3 items: 3 accepted, 0 too old, 0 no-date
+    OK  (831 bytes)
+    → 0 items: 0 accepted, 0 too old, 0 no-date
   [     legal] fetching https://www.scconline.com/blog/feed/
     OK  (197,844 bytes)
     + [legal] Cyril Amarchand Mangaldas advises Nelnet Inc. on acquisition of 100% shareholdin
@@ -16,25 +13,28 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
     + [legal] Faculty of Law, University of Lucknow, organises departmental lecture on ‘An Int
     + [legal] ICA–SCC Arbitration Institute Conclave on “Bridging India and the EU: Arbitratio
     + [legal] Fair market value of ESOP shares constitutes cost of acquisition under Section 4
-    → 10 items: 5 accepted, 0 too old, 0 no-date
+    + [legal] Institutional trust, professional competence, and responsible innovation are key
+    + [legal] ESI wage ceiling fixed at ₹21,000 under Social Security Code; ₹25,000 limit reta
+    + [legal] Child’s right to know biological father outweighs privacy claim; Delhi HC uphold
+    → 10 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (208,942 bytes)
+    OK  (42,404 bytes)
+    + [business] Share Market Live, Share Market Today: Latest Share Market News, Share Market Li
     + [business] India's Job Market: More Businesses, Fewer Hired Jobs? What NSO's Survey Says
-    → 100 items: 1 accepted, 99 too old, 0 no-date
-  [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (40,476 bytes)
-    + [business] Digital Engineering Awards Turn Five; AI Takes Center Stage with New Engineering
-    + [business] Stock market holiday today: BSE, NSE to remain closed for Guru Nanak Jayanti
-    + [business] Finkurve Financial Services Advances its Phygital, Technology-led Gold Lending S
-    + [business] Dev Information Technology (NSE:DEVIT) Q2 FY27 Investor Presentation Highlights 
-    + [business] Crystal Crop Protection IPO allotment today; check status on BSE, NSE and regist
-    + [business] Finolex Industries (NSE:FINPIPE) Announces Special Window for Re-Lodging Physica
     + [business] Indian stock markets to remain closed for Guru Nanak Jayanti
-    → 24 items: 7 accepted, 10 too old, 0 no-date
+    → 32 items: 3 accepted, 29 too old, 0 no-date
+  [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
+    OK  (37,632 bytes)
+    + [business] Digital Engineering Awards Turn Five; AI Takes Center Stage with New Engineering
+    + [business] Finkurve Financial Services Advances its Phygital, Technology-led Gold Lending S
+    + [business] Stock market holiday today: BSE, NSE to remain closed for Guru Nanak Jayanti
+    + [business] Finolex Industries (NSE:FINPIPE) Announces Special Window for Re-Lodging Physica
+    + [business] Crystal Crop Protection IPO allotment today; check status on BSE, NSE and regist
+    → 24 items: 5 accepted, 9 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
@@ -42,7 +42,7 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (142,341 bytes)
+    OK  (142,212 bytes)
     + [reliance] #TIME100Next comes to India for the first time, and #Reliance is proud to partne
     + [reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India
     + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute, 23-nautical-mile M
@@ -59,7 +59,7 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
     + [reliance] EU-India FTA likely to be signed in December, may come into force by mid-2027: E
     → 10 items: 2 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (144,370 bytes)
+    OK  (144,733 bytes)
     → 77 items: 0 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,419 bytes)
@@ -92,14 +92,14 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (47,854 bytes)
+    OK  (48,204 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
     OK  (13,696 bytes)
     + [world] Who really owns the Albanian land Jared Kushner wants to turn into a 5-star reso
     + [world] Jensen Huang returns to Nvidia. And, Rep. Gomez resigns amid alleged sexual misc
-    + [world] Meet Colombia's fuzzy 'water guardians'
     + [world] The human cost of the electric vehicle boom is at the center of a lawsuit in Con
+    + [world] Meet Colombia's fuzzy 'water guardians'
     + [world] Fighting between Russia and Ukraine has expanded geographically, drawing concern
     + [world] Russian incursions into NATO territory are increasing
     + [world] Democrats win House by largest margin in 50 years. And, COP31 ends with no deal
@@ -112,7 +112,7 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (67,380 bytes)
+    OK  (65,597 bytes)
     + [sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor
     + [sports] Former England captain Stokes registers for 2027 IPL auction
     + [sports] INDW vs ENGW, 11th Match, ICC Womens T20 World Cup Warm-up Matches 2026 - Commen
@@ -120,8 +120,8 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
     + [sports] Ben Stokes, Cameron Bancroft among overseas players registered for IPL auction
     + [sports] 'Didn't See The Belief To Win': R Ashwin Slams India's 'Lack Of Urgency' In Well
     + [sports] Why Mohammed Siraj Was Not In India's Playing XI For 1st Test? Captain Shubman G
-    + [sports] IND Vs NZ 1st Test: Pant's Record Ton Puts India In Command As New Zealand Trail
-    → 48 items: 8 accepted, 30 too old, 0 no-date
+    + [sports] When Did India Last Play Consecutive Drawn Tests Before Colombo And Wellington?
+    → 47 items: 8 accepted, 29 too old, 0 no-date
   [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -129,107 +129,89 @@ Cutoff: 2026-11-14 17:59 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (42,444 bytes)
+    OK  (126,539 bytes)
     + [opinion] Daily Editorial Analysis 24 November 2026
-    + [opinion] Pooled Prevalence of Hypertension Among People Living With Human Immunodeficienc
     + [opinion] Daily Editorial Analysis 16 November 2026
     + [opinion] Farm Income in India: Wages, Livestock, Crops and the Debt Behind the Numbers
-    → 34 items: 4 accepted, 30 too old, 0 no-date
+    → 79 items: 3 accepted, 76 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (12,025 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (51,881 bytes)
+    OK  (51,769 bytes)
+    + [opinion] Read between the numbers: India's AI ambitions need better data
+    + [opinion] IRDAI's agent commission cap may hurt insurance growth
+    + [opinion] India Inc's glass ceiling starts with the gap in daughters' rise to the top
     + [opinion] Too big to ignore. The attacks on Sarvam are a compliment
     + [opinion] India's anti-FDI mindset persists despite economic growth
-    + [opinion] Nvidia's Huang comeback exposes the weakness of Big Tech governance
-    + [opinion] A new world order takes shape in Shenzhen, and India could have a seat at the to
-    → 50 items: 4 accepted, 0 too old, 0 no-date
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (43 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] Digital Engineering Awards Turn Five; AI Takes Center Stage : no og:image/twitter:image tag found
-   ✗ [  business] Stock market holiday today: BSE, NSE to remain closed for Gu: no og:image/twitter:image tag found
+── Page fetch (42 stories, 8 workers) ─────────────────────────────
+   ✓ [     legal] ESI wage ceiling fixed at ₹21,000 under Social Security Code
+   ✗ [  business] Share Market Live, Share Market Today: Latest Share Market N: no og:image/twitter:image tag found
    ✗ [  business] India's Job Market: More Businesses, Fewer Hired Jobs? What : no og:image/twitter:image tag found
-   ✗ [  business] Finkurve Financial Services Advances its Phygital, Technolog: no og:image/twitter:image tag found
-   ✗ [  business] Dev Information Technology (NSE:DEVIT) Q2 FY27 Investor Pres: no og:image/twitter:image tag found
-   ✗ [  business] Crystal Crop Protection IPO allotment today; check status on: no og:image/twitter:image tag found
-   ✗ [  business] Finolex Industries (NSE:FINPIPE) Announces Special Window fo: no og:image/twitter:image tag found
    ✗ [  business] Indian stock markets to remain closed for Guru Nanak Jayanti: no og:image/twitter:image tag found
+   ✗ [  business] Digital Engineering Awards Turn Five; AI Takes Center Stage : no og:image/twitter:image tag found
+   ✗ [  business] Finkurve Financial Services Advances its Phygital, Technolog: no og:image/twitter:image tag found
+   ✗ [  business] Stock market holiday today: BSE, NSE to remain closed for Gu: no og:image/twitter:image tag found
+   ✓ [     legal] Faculty of Law, University of Lucknow, organises departmenta
+   ✗ [  business] Finolex Industries (NSE:FINPIPE) Announces Special Window fo: no og:image/twitter:image tag found
+   ✗ [  business] Crystal Crop Protection IPO allotment today; check status on: no og:image/twitter:image tag found
+   ✓ [     legal] Institutional trust, professional competence, and responsibl
+   ✓ [     legal] ICA–SCC Arbitration Institute Conclave on “Bridging India an
    ✗ [  reliance] #TIME100Next comes to India for the first time, and #Relianc: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance 1,600 Satellites vs Starlink: Ambani Wins India: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute: no og:image/twitter:image tag found
    ✗ [  reliance] Reliance explores satellite manufacturing partnerships to ch: no og:image/twitter:image tag found
-   ✓ [     world] Who really owns the Albanian land Jared Kushner wants to tur
    ✗ [  reliance] Ambani’s Reliance explores manufacturing partnerships for 1,: no og:image/twitter:image tag found
    ✗ [  reliance] Nvidia’s Jensen Huang fallout is a gift to billionaires Amba: no og:image/twitter:image tag found
-   ✓ [     legal] Cyril Amarchand Mangaldas advises Nelnet Inc. on acquisition
-   ✓ [     world] Meet Colombia's fuzzy 'water guardians'
-   ✓ [     world] Jensen Huang returns to Nvidia. And, Rep. Gomez resigns amid
    ✓ [     world] The human cost of the electric vehicle boom is at the center
+   ✓ [     world] Meet Colombia's fuzzy 'water guardians'
+   ✓ [     world] Who really owns the Albanian land Jared Kushner wants to tur
+   ✓ [     world] Jensen Huang returns to Nvidia. And, Rep. Gomez resigns amid
+   ✓ [     legal] Cyril Amarchand Mangaldas advises Nelnet Inc. on acquisition
    ✓ [     world] Russian incursions into NATO territory are increasing
-   ✓ [     legal] ICA–SCC Arbitration Institute Conclave on “Bridging India an
    ✓ [     world] Democrats win House by largest margin in 50 years. And, COP3
-   ✓ [     legal] Fair market value of ESOP shares constitutes cost of acquisi
-   ✓ [     legal] Married, earning and living separately: Can a daughter still
    ✓ [     world] Zelenskyy hails Ukraine's attack on a Russian warship docked
    ✓ [     world] Fighting between Russia and Ukraine has expanded geographica
    ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
    ✗ [    sports] Former England captain Stokes registers for 2027 IPL auction: no og:image/twitter:image tag found
-   ✗ [    sports] India's WTC Final Hopes Dented As New Zealand Hold Firm For : no og:image/twitter:image tag found
    ✗ [    sports] INDW vs ENGW, 11th Match, ICC Womens T20 World Cup Warm-up M: no og:image/twitter:image tag found
-   ✓ [     legal] Faculty of Law, University of Lucknow, organises departmenta
    ✗ [    sports] Ben Stokes, Cameron Bancroft among overseas players register: no og:image/twitter:image tag found
+   ✗ [    sports] India's WTC Final Hopes Dented As New Zealand Hold Firm For : no og:image/twitter:image tag found
    ✗ [    sports] 'Didn't See The Belief To Win': R Ashwin Slams India's 'Lack: no og:image/twitter:image tag found
+   ✓ [     legal] Married, earning and living separately: Can a daughter still
    ✗ [    sports] Why Mohammed Siraj Was Not In India's Playing XI For 1st Tes: no og:image/twitter:image tag found
-   ✗ [    sports] IND Vs NZ 1st Test: Pant's Record Ton Puts India In Command : no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 24 November 2026: no og:image/twitter:image tag found
-   ✗ [   opinion] Pooled Prevalence of Hypertension Among People Living With H: no og:image/twitter:image tag found
+   ✗ [    sports] When Did India Last Play Consecutive Drawn Tests Before Colo: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 16 November 2026: no og:image/twitter:image tag found
+   ✓ [     legal] Child’s right to know biological father outweighs privacy cl
    ✗ [   opinion] Farm Income in India: Wages, Livestock, Crops and the Debt B: no og:image/twitter:image tag found
-   images: 13 found, 26 not found  |  page text: 8 stories
+   ✓ [     legal] Fair market value of ESOP shares constitutes cost of acquisi
+   images: 16 found, 25 not found  |  page text: 6 stories
 
-── AI notes (24 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Supreme Court Collegium recommends Vibhu Bakhru as Jharkhand
-   ✓ [groq] Madras High Court imposes media gag in sexual harassment cas
-   ✓ [groq] NCDRC holds LIC liable for its agent's fraud after premium p
-   ✓ [groq] #TIME100Next comes to India for the first time, and #Relianc
-   ✓ [groq] Cyril Amarchand Mangaldas advises Nelnet Inc. on acquisition
-   ✓ [groq] Married, earning and living separately: Can a daughter still
-   ~ [groq] Faculty of Law, University of Lucknow, organises departmenta  (names no court, regulator or statute)
-   ✓ [gemini] Faculty of Law, University of Lucknow, organises departmenta
-   ✓ [groq] IKEA India targets profitability by FY29; plans 30 stores, 5
-   ~ [groq] EU-India FTA likely to be signed in December, may come into   (names no court, regulator or statute)
-   ✓ [gemini] EU-India FTA likely to be signed in December, may come into 
-   ✓ [groq] India's Job Market: More Businesses, Fewer Hired Jobs? What 
-   ✓ [groq] Safari Industries signs 20-year licensing deal for Carlton, 
-   ✓ [groq] Trump's Nvidia intervention rips up Wall Street playbook: Mc
-   ✓ [groq] Nvidia's Huang returns to cheers in China, but political hur
-   ✓ [groq] Who really owns the Albanian land Jared Kushner wants to tur
-   ✓ [groq] Jensen Huang returns to Nvidia. And, Rep. Gomez resigns amid
-   ✓ [groq] The human cost of the electric vehicle boom is at the center
-   ✓ [groq] Pooled Prevalence of Hypertension Among People Living With H
-   ✓ [groq] Farm Income in India: Wages, Livestock, Crops and the Debt B
-   ✓ [groq] Digital Engineering Awards Turn Five; AI Takes Center Stage 
-   ✓ [groq] Stock market holiday today: BSE, NSE to remain closed for Gu
-   ✓ [groq] Finkurve Financial Services Advances its Phygital, Technolog
-   ✓ [groq] Dev Information Technology (NSE:DEVIT) Q2 FY27 Investor Pres
-   ✓ [groq] Crystal Crop Protection IPO allotment today; check status on
-   ✓ [groq] Indian stock markets to remain closed for Guru Nanak Jayanti
+── AI notes (6 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] ESI wage ceiling fixed at ₹21,000 under Social Security Code
+   ✓ [groq] Child’s right to know biological father outweighs privacy cl
+   ✓ [groq] Share Market Live, Share Market Today: Latest Share Market N
+   ✓ [groq] Read between the numbers: India's AI ambitions need better d
+   ✓ [groq] IRDAI's agent commission cap may hurt insurance growth
+   ✓ [groq] India Inc's glass ceiling starts with the gap in daughters' 
 
-   Enrichment: 64 stories | reused 28 | native brief 4 | AI 24 (groq=22, gemini=2; 27 calls) | kept stale 0 | key points 0 | no brief 0
-   ~64,000 tokens not spent vs. enriching every story with AI
-   Accuracy check: 26 provider answers | 0 rejected (invented figure, hedging or restated headline) | 2 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 45 | native brief 5 | AI 6 (groq=6; 7 calls) | kept stale 0 | key points 0 | no brief 0
+   ~87,400 tokens not spent vs. enriching every story with AI
+   Accuracy check: 6 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
 Feeds:   14 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-24   Hero: legal-3ff629c9
+Edition: 2026-11-25   Hero: business-d032d818
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 166 stories for 2026-11-24 | 11 stories continue an earlier one
+Archive: 64 stories for 2026-11-25 | 17 stories continue an earlier one
