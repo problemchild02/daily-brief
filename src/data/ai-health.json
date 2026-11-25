@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-25T17:31:53+00:00",
+  "updatedAt": "2026-11-25T21:55:32+00:00",
   "stories": 64,
   "notes": {
-    "reused": 28,
-    "native_note": 2,
-    "ai_note": 26,
+    "reused": 29,
+    "native_note": 5,
+    "ai_note": 22,
     "stale": 0,
     "extract": 0,
     "no_note": 0
@@ -20,12 +20,12 @@
       "lastAnsweredAt": null
     },
     "gemini": {
-      "answered": 1,
+      "answered": 0,
       "rejected": 0,
       "minorFlaws": 0,
       "errors": 1,
       "dead": null,
-      "lastError": "The read operation timed out",
+      "lastError": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a",
       "lastAnsweredAt": "2026-11-25T17:31:53+00:00"
     },
     "github": {
@@ -38,22 +38,22 @@
       "lastAnsweredAt": null
     },
     "groq": {
-      "answered": 26,
+      "answered": 22,
       "rejected": 0,
-      "minorFlaws": 2,
+      "minorFlaws": 1,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-25T17:31:53+00:00"
+      "lastAnsweredAt": "2026-11-25T21:55:32+00:00"
     },
     "openai": {
       "answered": 1,
-      "rejected": 1,
+      "rejected": 0,
       "minorFlaws": 0,
       "errors": 0,
       "dead": null,
       "lastError": null,
-      "lastAnsweredAt": "2026-11-25T17:31:53+00:00"
+      "lastAnsweredAt": "2026-11-25T21:55:32+00:00"
     }
   }
 }
