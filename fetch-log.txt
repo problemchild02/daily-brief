@@ -1,87 +1,83 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-15 21:52 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-16 08:44 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (831 bytes)
-    → 0 items: 0 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (103,179 bytes)
-    + [legal] “Reimagining the judiciary in the age of artificial intelligence”: Justice Joyma
-    + [legal] Interest on borrowed capital under S. 36(1)(iii) allowable for Tata Son’s group 
-    + [legal] Whether compelling disclosure of device passwords violate Article 20(3)? Supreme
-    + [legal] ICA to host IndiaSingapore Symposium on “From Shared Legal Foundations to the F
-    + [legal] Shardul Amarchand Mangaldas & Co. advises Morgan Stanley PE on the sale of its s
-    + [legal] Father and sisters of unmarried motor accident victim not dependents sans eviden
-    + [legal] Shardul Amarchand Mangaldas & Co. hosts high-level debate on the right to privac
-    + [legal] GNLU Student Law Review (GSLR) Invites Submissions for Volume VIII; Manuscript S
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (269,202 bytes)
+    + [legal] IRCTC scam: Delhi High Court rejects plea by Lalu Yadav, Rabri Devi, Tejashwi Ya
+    + [legal] Justice DY Chandrachud-led mediation between Rani Kapur and Priya Kapur fails; S
+    + [legal] Tata Trusts move Bombay High Court against resolution appointing N Chandrasekara
+    + [legal] Self-proclaimed journalists covering protests may not have same protection as ac
+    + [legal] Supreme Court asks Centre to consider setting up multiple Adjudicating Authoriti
+    + [legal] Warning labels on packaged food should disclose total sugar, fat; not just added
+    + [legal] Delhi High Court to examine whether AI can be recognised as author under Copyrig
+    + [legal] Supreme Court sets aside premature release of ex-MP Anand Mohan, directs him to 
+    → 47 items: 8 accepted, 0 too old, 0 no-date
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (208,020 bytes)
-    + [business] India’s Wedding Economy: Trends to Watch In Future
+    OK  (201,324 bytes)
     + [business] India's Job Market: More Businesses, Fewer Hired Jobs? What NSO's Survey Says
-    → 100 items: 2 accepted, 98 too old, 0 no-date
+    + [business] India’s Wedding Economy: Trends to Watch In Future
+    → 96 items: 2 accepted, 94 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (74,677 bytes)
-    → 47 items: 0 accepted, 47 too old, 0 no-date
-  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (39,217 bytes)
-    + [business] Fed survey shows continued growth and sticky inflation in recent weeks
-    + [business] Copper slumps to lowest in 11 months as investors flee
-    + [business] Carlyle pares 7.4% stake in Piramal Pharma for over Rs 2,211 crore
-    + [business] RBI raises share of domestically held gold reserves, data shows
-    + [business] Two in five Indian family offices, UHNIs have engaged with crypto amid regulator
-    + [business] RBI net buyer of dollars for fourth straight month in September, data shows
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (43,876 bytes)
+    + [business] NSE share price rallies 9% in two days; market capitalisation nears ₹6 trn
+    + [business] Digital Engineering Awards Turn Five; AI Takes Center Stage with New Engineering
+    + [business] Firstsource named a Leader in BFS Agentic Business Operations and a Major Conten
+    + [business] Foodlink F&B Holdings IPO Opens Today After Raising ₹162 Crore From Anchor Inves
+    + [business] Crystal Crop Protection shares debut at 3% premium over IPO price on BSE
+    + [business] Mahanadi Coalfields IPO Allotment Today: 4.95x QIB Demand, Zero GMP
+    → 25 items: 6 accepted, 9 too old, 0 no-date
+  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (89,770 bytes)
-    + [reliance] #TIME100Next comes to India for the first time, and #Reliance is proud to partne
+    OK  (90,670 bytes)
+    + [reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Ambani’s Retail Might
     + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute, 23-nautical-mile M
-    + [reliance] Nvidia's fallout is a gift to billionaires Ambani and Adani
-    + [reliance] Jio Financial Services vs Reliance vs Jio Platforms shares: Which Mukesh Ambani'
+    + [reliance] Nvidia’s Jensen Huang fallout is a gift to billionaires Ambani and Adani
     + [reliance] Ambani builds before the boom, pouring billions into an untapped market
     + [reliance] Mukesh Ambani plans $1.6bn biogas investment
     + [reliance] Mukesh Ambani’s next big bets for Reliance
+    + [reliance] Jio Financial Services vs Reliance vs Jio Platforms shares: Which Mukesh Ambani'
     + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV lands in Mumbai after 1-minute fligh
-    → 59 items: 8 accepted, 46 too old, 0 no-date
+    → 60 items: 8 accepted, 46 too old, 0 no-date
   [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
   [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (63,850 bytes)
+    OK  (63,167 bytes)
     → 34 items: 0 accepted, 34 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,943 bytes)
-    + [retail] Amazon records $27 billion in cumulative ecommerce exports from India
-    + [retail] Bikaji Foods enters premium bakery segment with European-inspired brand Mahè und
+    OK  (10,887 bytes)
+    + [retail] GIVA raises Rs 90 crore from BlackSoil to fund retail expansion
+    + [retail] LG Electronics Inc will divest 2 pc stake in LG Electronics India
+    + [retail] Ambani’s Reliance struggles to revive Shein’s India fortunes
+    + [retail] Uber ropes in former Zomato CEO Rakesh Ranjan as president for India, South Asia
+    + [retail] FSSAI tells states to step up sampling, enforcement against packaged water firms
     + [retail] Kalyan Krishnamurthy to leave Flipkart after more than 11 years
-    + [retail] Foxconn faces India insolvency lawsuit over unpaid vendor dues
     + [retail] PepsiCo Tamil Nadu Plant: PepsiCo invests over Rs 800 crore; creates jobs for wo
-    + [retail] Goldman Sachs, SocGen buy Rs 920 crore stake in Lenskart
-    + [retail] FSSAI prohibited sale of only one Goa batch, no stocks in market: Bisleri
-    + [retail] IKEA India targets profitability by FY29; plans 30 stores, 50 pc local sourcing 
+    + [retail] Amazon records $27 billion in cumulative ecommerce exports from India
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (47,721 bytes)
-    + [tech] Musk's SpaceX gets FCC nod for 1 million satellites to power orbital data centre
-    + [tech] Alice Huang-linked firms listed $270 million in AI servers in China, records sho
-    + [tech] AI spending slowdown could hit memory companies as Goldman Sachs flags 2028 risk
-    + [tech] AI helping cyber attackers find weaknesses faster than companies can fix them, w
-    + [tech] Tech outages are piling up, and AI is raising the stakes. Could this be the new 
-    + [tech] AI agents set to reshape Indian workplaces as 93% of leaders plan adoption: KPMG
-    + [tech] AI fails to deliver significant earnings gains for most banks despite productivi
-    + [tech] Fake gifts, real losses as AI ads proliferate
+    OK  (47,173 bytes)
+    + [tech] Data from Chinese AI firm MiniMax accessed by unidentified parties, researcher s
+    + [tech] Apple pulls MiniMax AI chatbot from App Store over child safety concerns
+    + [tech] Nvidia halts chip shipments to Southeast Asia: FT report
+    + [tech] Amusing or addictive? The algorithms powering our social feeds
+    + [tech] Elon Musk says every child in the US will get two SpaceX shares
+    + [tech] US-based firms with Chinese owners buying Nvidia's most advanced chips
+    + [tech] Anthropic chief Dario Amodei denies wanting humans to 'surrender' free will to A
+    + [tech] ElevenLabs in early talks for funding at $33 billion valuation
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -90,7 +86,7 @@ Cutoff: 2026-11-15 21:52 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (49,227 bytes)
+    OK  (49,226 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
     OK  (15,147 bytes)
@@ -110,18 +106,18 @@ Cutoff: 2026-11-15 21:52 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (163,707 bytes)
+    OK  (159,660 bytes)
     + [sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
     + [sports] India vs New Zealand Live Streaming Info: How to watch the 1st Test match?
-    + [sports] Vaibhav Sooryavanshi
+    + [sports] India vs New Zealand 1st Test 2026: Match preview, head-to-head record, telecast
     + [sports] NZ vs IND, 1st Test: When did India last win a Test match in New Zealand?
     → 100 items: 5 accepted, 94 too old, 0 no-date
   [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,924 bytes)
-    + [sports] Swepson outshines Lyon with 11 but New South Wales cling on
-    + [sports] Handscomb and Macdonald put Victoria in control
-    + [sports] T20 Blast features more double-headers - but no sponsor - for 2027
+    OK  (91,011 bytes)
+    + [sports] Banton 'pretty emotional' about England captaincy call-up
+    + [sports] England return to the Gabbatoir with onus on Australia to bounce back
+    + [sports] Latham: 'No magic answer' to returning to form
     → 100 items: 3 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -129,70 +125,81 @@ Cutoff: 2026-11-15 21:52 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (41,376 bytes)
+    OK  (41,643 bytes)
     + [opinion] Daily Editorial Analysis 24 November 2026
+    + [opinion] Daily Editorial Analysis 26 November 2026
     + [opinion] Daily Editorial Analysis 25 November 2026
     + [opinion] India’s 2024 Election Had Record Voters, Yet Turnout Fell. Here’s Why
-    → 34 items: 3 accepted, 31 too old, 0 no-date
+    → 34 items: 4 accepted, 30 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (12,119 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (52,273 bytes)
+    OK  (51,939 bytes)
+    + [opinion] The Chinese spy who never was — and the global money that always was
     + [opinion] Lengthening, widening wealth: India's growing fortunes are flowing into private 
     + [opinion] The CEO's new clothes: Who's paying for all that executive vanity?
     + [opinion] EPFO must remove the pay ceiling to move closer to universal social security
-    + [opinion] Read between the numbers: India's AI ambitions need better data
-    + [opinion] IRDAI's agent commission cap may hurt insurance growth
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (37 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] “Reimagining the judiciary in the age of artificial intellig
-   ✓ [     legal] Shardul Amarchand Mangaldas & Co. advises Morgan Stanley PE 
-   ✓ [     legal] GNLU Student Law Review (GSLR) Invites Submissions for Volum
-   ✗ [  business] India’s Wedding Economy: Trends to Watch In Future: no og:image/twitter:image tag found
-   ✓ [     legal] Shardul Amarchand Mangaldas & Co. hosts high-level debate on
-   ✓ [     legal] ICA to host IndiaSingapore Symposium on “From Shared Legal 
-   ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute: no og:image/twitter:image tag found
-   ✗ [  reliance] #TIME100Next comes to India for the first time, and #Relianc: no og:image/twitter:image tag found
+── Page fetch (48 stories, 8 workers) ─────────────────────────────
    ✗ [  business] India's Job Market: More Businesses, Fewer Hired Jobs? What : no og:image/twitter:image tag found
-   ✗ [  reliance] Nvidia's fallout is a gift to billionaires Ambani and Adani: no og:image/twitter:image tag found
-   ✗ [  reliance] Jio Financial Services vs Reliance vs Jio Platforms shares: : no og:image/twitter:image tag found
-   ✗ [  reliance] Ambani builds before the boom, pouring billions into an unta: no og:image/twitter:image tag found
+   ✗ [  business] India’s Wedding Economy: Trends to Watch In Future: no og:image/twitter:image tag found
+   ✗ [  business] Mahanadi Coalfields IPO Allotment Today: 4.95x QIB Demand, Z: no og:image/twitter:image tag found
+   ✗ [  business] Crystal Crop Protection shares debut at 3% premium over IPO : no og:image/twitter:image tag found
+   ✗ [  business] NSE share price rallies 9% in two days; market capitalisatio: no og:image/twitter:image tag found
+   ✗ [  business] Firstsource named a Leader in BFS Agentic Business Operation: no og:image/twitter:image tag found
+   ✗ [  business] Digital Engineering Awards Turn Five; AI Takes Center Stage : no og:image/twitter:image tag found
+   ✗ [  business] Foodlink F&B Holdings IPO Opens Today After Raising ₹162 Cro: no og:image/twitter:image tag found
+   ✗ [  reliance] Nvidia’s Jensen Huang fallout is a gift to billionaires Amba: no og:image/twitter:image tag found
+   ✗ [  reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani’s next big bets for Reliance: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani plans $1.6bn biogas investment: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani builds before the boom, pouring billions into an unta: no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV lands in Mumbai : no og:image/twitter:image tag found
-   ✓ [     world] Army to detonate tons of lead azide after delays. And, Abreg
+   ✗ [  reliance] Jio Financial Services vs Reliance vs Jio Platforms shares: : no og:image/twitter:image tag found
+   ✓ [     world] China investigates Politburo member and Shanghai party chief
    ✓ [     world] How American Thanksgiving took root -- and evolved -- in Lib
    ✓ [     world] Greetings from Mount Kilimanjaro, Africa's highest point in 
-   ✓ [     world] China investigates Politburo member and Shanghai party chief
-   ✓ [     world] Republican wants FBI and CIA answers before questioning Nvid
-   ✓ [     legal] Whether compelling disclosure of device passwords violate Ar
    ✓ [     world] Who really owns the Albanian land Jared Kushner wants to tur
-   ✓ [     world] Africa Cup title given back to Senegal after sports court ru
-   ✓ [     world] Jensen Huang returns to Nvidia. And, Rep. Gomez resigns amid
-   ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
-   ✓ [     legal] Interest on borrowed capital under S. 36(1)(iii) allowable f
+   ✓ [     world] Army to detonate tons of lead azide after delays. And, Abreg
+   ✓ [     world] Republican wants FBI and CIA answers before questioning Nvid
    ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [    sports] Vaibhav Sooryavanshi: no og:image/twitter:image tag found
+   ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
+   ✓ [     world] Jensen Huang returns to Nvidia. And, Rep. Gomez resigns amid
    ✗ [    sports] India vs New Zealand Live Streaming Info: How to watch the 1: no og:image/twitter:image tag found
+   ✓ [     world] Africa Cup title given back to Senegal after sports court ru
+   ✗ [    sports] India vs New Zealand 1st Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
    ✗ [    sports] NZ vs IND, 1st Test: When did India last win a Test match in: no og:image/twitter:image tag found
-   ✓ [     legal] Father and sisters of unmarried motor accident victim not de
    ✗ [   opinion] Daily Editorial Analysis 24 November 2026: no og:image/twitter:image tag found
-   ✗ [   opinion] Daily Editorial Analysis 25 November 2026: no og:image/twitter:image tag found
    ✗ [   opinion] India’s 2024 Election Had Record Voters, Yet Turnout Fell. H: no og:image/twitter:image tag found
-   images: 16 found, 18 not found  |  page text: 8 stories
+   ✗ [   opinion] Daily Editorial Analysis 25 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 26 November 2026: no og:image/twitter:image tag found
+   images: 8 found, 25 not found  |  page text: 15 stories
 
-── AI notes (22 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Jio Financial Services vs Reliance vs Jio Platforms shares: 
-   ✓ [groq] Ambani builds before the boom, pouring billions into an unta
-   ✓ [groq] Mukesh Ambani plans $1.6bn biogas investment
-   ~ [groq] Mukesh Ambani’s next big bets for Reliance  (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
+── AI notes (29 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] IRCTC scam: Delhi High Court rejects plea by Lalu Yadav, Rab
+   ✓ [groq] Justice DY Chandrachud-led mediation between Rani Kapur and 
+   ✓ [groq] Tata Trusts move Bombay High Court against resolution appoin
+   ✓ [groq] Self-proclaimed journalists covering protests may not have s
+   ✓ [groq] Warning labels on packaged food should disclose total sugar,
+   ✓ [groq] Delhi High Court to examine whether AI can be recognised as 
+   ✓ [groq] Supreme Court sets aside premature release of ex-MP Anand Mo
+   ✓ [groq] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb
+   ✓ [groq] Nvidia’s Jensen Huang fallout is a gift to billionaires Amba
+   ✓ [groq] GIVA raises Rs 90 crore from BlackSoil to fund retail expans
+   ✓ [groq] LG Electronics Inc will divest 2 pc stake in LG Electronics 
+   ✓ [groq] Ambani’s Reliance struggles to revive Shein’s India fortunes
+   ~ [groq] Uber ropes in former Zomato CEO Rakesh Ranjan as president f  (figures not in the article: 2 million)
+      [gemini] busy (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "Th); retrying once
       [gemini] error: HTTP 503: {
   "error": {
     "code": 503,
@@ -202,39 +209,34 @@ Cutoff: 2026-11-15 21:52 UTC  (MAX_AGE_HOURS=240)
 }
 
       [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
-      [anthropic] disabled for the rest of this run (out of quota/credit)
-   ✓ [openai] Mukesh Ambani’s next big bets for Reliance
-   ✓ [groq] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV lands in Mumbai 
-   ✓ [groq] “Reimagining the judiciary in the age of artificial intellig
-   ✓ [groq] Whether compelling disclosure of device passwords violate Ar
-   ✓ [groq] Shardul Amarchand Mangaldas & Co. advises Morgan Stanley PE 
-   ✓ [groq] Father and sisters of unmarried motor accident victim not de
-   ✓ [groq] Shardul Amarchand Mangaldas & Co. hosts high-level debate on
-   ✓ [groq] GNLU Student Law Review (GSLR) Invites Submissions for Volum
-   ✓ [groq] Fed survey shows continued growth and sticky inflation in re
-   ✓ [groq] Copper slumps to lowest in 11 months as investors flee
-   ✓ [groq] Carlyle pares 7.4% stake in Piramal Pharma for over Rs 2,211
-   ✓ [groq] Two in five Indian family offices, UHNIs have engaged with c
-   ✓ [groq] Amazon records $27 billion in cumulative ecommerce exports f
-   ✓ [groq] Bikaji Foods enters premium bakery segment with European-ins
-   ✓ [groq] Kalyan Krishnamurthy to leave Flipkart after more than 11 ye
-   ✓ [groq] Musk's SpaceX gets FCC nod for 1 million satellites to power
-   ✓ [groq] Lengthening, widening wealth: India's growing fortunes are f
-   ✓ [groq] The CEO's new clothes: Who's paying for all that executive v
-   ✓ [groq] EPFO must remove the pay ceiling to move closer to universal
+   ✓ [openai] Uber ropes in former Zomato CEO Rakesh Ranjan as president f
+   ✓ [groq] FSSAI tells states to step up sampling, enforcement against 
+   ✓ [groq] Data from Chinese AI firm MiniMax accessed by unidentified p
+   ✓ [groq] Apple pulls MiniMax AI chatbot from App Store over child saf
+   ✓ [groq] Nvidia halts chip shipments to Southeast Asia: FT report
+   ✓ [groq] Elon Musk says every child in the US will get two SpaceX sha
+   ✓ [groq] US-based firms with Chinese owners buying Nvidia's most adva
+   ✓ [groq] Anthropic chief Dario Amodei denies wanting humans to 'surre
+   ✓ [groq] ElevenLabs in early talks for funding at $33 billion valuati
+   ✓ [groq] Daily Editorial Analysis 26 November 2026
+   ✓ [groq] NSE share price rallies 9% in two days; market capitalisatio
+   ✓ [groq] Digital Engineering Awards Turn Five; AI Takes Center Stage 
+   ✓ [groq] Firstsource named a Leader in BFS Agentic Business Operation
+   ✓ [groq] Foodlink F&B Holdings IPO Opens Today After Raising ₹162 Cro
+   ✓ [groq] Crystal Crop Protection shares debut at 3% premium over IPO 
+   ✓ [groq] Mahanadi Coalfields IPO Allotment Today: 4.95x QIB Demand, Z
+   ✓ [groq] The Chinese spy who never was — and the global money that al
 
-   Enrichment: 64 stories | reused 29 | native brief 5 | AI 22 (groq=21, openai=1; 25 calls) | kept stale 0 | key points 0 | no brief 0
-   ~66,600 tokens not spent vs. enriching every story with AI
-   Accuracy check: 23 provider answers | 0 rejected (invented figure, hedging or restated headline) | 1 accepted with a minor flaw after trying a stronger provider
-   Providers disabled this run: anthropic
+   Enrichment: 64 stories | reused 25 | native brief 2 | AI 29 (groq=28, openai=1; 32 calls) | kept stale 0 | key points 0 | no brief 0
+   ~57,500 tokens not spent vs. enriching every story with AI
+   Accuracy check: 30 provider answers | 1 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   12 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-26   Hero: business-412e5358
+Edition: 2026-11-26   Hero: legal-2fb7ea09
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 64 stories for 2026-11-26 | 14 stories continue an earlier one
+Archive: 99 stories for 2026-11-26 | 16 stories continue an earlier one
