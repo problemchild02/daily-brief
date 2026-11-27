@@ -1,89 +1,91 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-16 21:47 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-17 08:54 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (831 bytes)
-    → 0 items: 0 accepted, 0 too old, 0 no-date
-  [     legal] fetching https://www.scconline.com/blog/feed/
-    OK  (160,922 bytes)
-    + [legal] Shardul Amarchand Mangaldas & Co advises Kia India Pvt. Ltd. on MoU with the Gov
-    + [legal] April 2026 directions for removal of National Highway encroachments cannot overr
-    + [legal] Khaitan & Co. and NATHEALTH launch whitepaper on the legal and regulatory landsc
-    + [legal] ILS Law College, Pune invites papers for Prof. S.P. Sathe International Conferen
-    + [legal] Delhi LG amends Delhi Prison Rules, 2018 to expand emergency parole and streamli
-    + [legal] Law Day and the Rule of Law: When Commercial Justice Meets Constitutional Princi
-    + [legal] Cyril Amarchand Mangaldas advises and assists Arkade Developers Limited in acqui
-    + [legal] Constitution Day 2026: CJI emphasises individual-centric constitutional governan
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (124,961 bytes)
+    + [legal] Can using public generative AI compromise attorney-client privilege and make con
+    + [legal] State free to replace its lawyers before their tenures expire: Kerala High Court
+    + [legal] ACB moves Delhi High Court against bail granted to AAP's Satyendar Jain in DJB c
+    + [legal] Mahadev betting app case: Supreme Court seeks ED response on Delhi lawyer's plea
+    + [legal] Punjab & Haryana High Court tells Centre it can't recommend new judges due to la
+    + [legal] Supreme Court dismisses plea to block videos of Italian politician's “Vote Chor,
+    + [legal] Delhi High Court rejects plea to bring Delhi High Court Bar Association under RT
+    + [legal] Use time saved by AI to train junior lawyers: Justice Tejas Karia urges law firm
+    → 22 items: 8 accepted, 0 too old, 0 no-date
+  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (44,607 bytes)
-    + [business] CII's Market Facilitation Services wins GoGlobal award for MSME development
-    + [business] India's semiconductor market projected to reach $100-110 billion by 2030: Report
-    + [business] The tables can turn for Indian stocks in 2027
-    → 33 items: 3 accepted, 30 too old, 0 no-date
+    OK  (203,162 bytes)
+    + [business] Modi urges Indian Inc to shed domestic-market comfort, step up manufacturing and
+    + [business] NDTV Profit Live TV: Watch Live Business News, Stock Market Live TV, Free Live N
+    + [business] India's Job Market: More Businesses, Fewer Hired Jobs? What NSO's Survey Says
+    → 98 items: 3 accepted, 95 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (41,283 bytes)
-    + [business] NSE - National Stock Exchange of India Ltd: Live Share/Stock Market News & Updat
-    + [business] NSE share price rallies 9% in two days; market capitalisation nears ₹6 trn
-    + [business] Zee Business. . Why are MCX, BSE and NSE witnessing strong action? Which AI and 
-    + [business] NSE receives RBI nod for introduction of corporate bond index futures; what inve
-    + [business] NSE becomes world's 3rd largest listed exchange, overtakes London Stock Exchange
-    → 25 items: 5 accepted, 10 too old, 0 no-date
-  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (78,448 bytes)
+    → 47 items: 0 accepted, 47 too old, 0 no-date
+  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (40,957 bytes)
+    + [business] Can SpaceX's AI ambitions drive further upside in its stock?
+    + [business] India bonds decline ahead of fresh debt sale as elevated oil prices fan inflatio
+    + [business] Nvidia stock plunges 35% from record high: Is it a buying opportunity?
+    + [business] ICICI Bank Share Price Live Updates: ICICI Bank Dividend Updates
+    + [business] HDFC Bank, SBI, 8 other stocks JPMorgan is bullish on as markets gear up to ente
+    → 50 items: 5 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (140,564 bytes)
-    + [reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years for India’s AI tran
+    OK  (139,065 bytes)
     + [reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Ambani’s Retail Might
-    + [reliance] #TIME100Next comes to India for the first time, and #Reliance is proud to partne
+    + [reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years for India’s AI tran
     + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute, 23-nautical-mile M
     + [reliance] Nvidia's fallout is a gift to billionaires Ambani and Adani
     + [reliance] Reports of Shah Rukh Khan suing over Anant Ambani video are false
-    → 100 items: 6 accepted, 94 too old, 0 no-date
+    → 100 items: 5 accepted, 95 too old, 0 no-date
   [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
     OK  (1,347 bytes)
     → 1 items: 0 accepted, 1 too old, 0 no-date
   [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,522 bytes)
-    + [reliance] ECCO India targets 50 stores by 2028, 65 pc CAGR through 2030
-    + [reliance] Urban Company enters air conditioner market with Native
-    → 10 items: 2 accepted, 0 too old, 0 no-date
+    OK  (10,767 bytes)
+    + [reliance] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes operations
+    + [reliance] Black Friday's new playbook: Early deals, essentials in carts and AI nudging cli
+    + [reliance] Retail CEOs more confident on growth, but supply chain risks remain: Report
+    → 10 items: 3 accepted, 0 too old, 0 no-date
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (142,326 bytes)
+    OK  (142,195 bytes)
     → 76 items: 0 accepted, 76 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,522 bytes)
-    + [retail] P&G Home FY'26 profit dips 2.7 pc to Rs 664.8 cr, revenue up 3.4 pc to Rs 9,359.
-    + [retail] Coca-Cola brings back Gold Spot, to be sold in cans on Q-Com channels
+    OK  (10,767 bytes)
+    + [retail] Supreme Court sets timer for FSSAI, companies to implement warning labels
+    + [retail] India's non-alcoholic beverage market to grow 13 pc annually to Rs 2.56 lakh cro
+    + [retail] ECCO India targets 50 stores by 2028, 65 pc CAGR through 2030
+    + [retail] Urban Company enters air conditioner market with Native
     + [retail] GIVA raises Rs 90 crore from BlackSoil to fund retail expansion
-    + [retail] LG Electronics Inc will divest 2 pc stake in LG Electronics India
     + [retail] Ambani’s Reliance struggles to revive Shein’s India fortunes
-    + [retail] Uber ropes in former Zomato CEO Rakesh Ranjan as president for India, South Asia
-    + [retail] FSSAI tells states to step up sampling, enforcement against packaged water firms
-    + [retail] Kalyan Krishnamurthy to leave Flipkart after more than 11 years
-    → 10 items: 8 accepted, 0 too old, 0 no-date
-  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
+    + [retail] P&G Home FY'26 profit dips 2.7 pc to Rs 664.8 cr, revenue up 3.4 pc to Rs 9,359.
+    → 10 items: 7 accepted, 0 too old, 0 no-date
+  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
+    OK  (48,098 bytes)
+    + [retail] Nykaa brings honey-led beauty brand Gisou to India
+    → 60 items: 1 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
-    OK  (47,260 bytes)
-    + [tech] Greaves Electric targets 2x sales volume for Ampere escooter in FY27
-    + [tech] Germany and Austria call for European ownership of TikTok
-    + [tech] Investors see rising risk of SoftBank default as pressure grows on AI bets
-    + [tech] Data from Chinese AI firm MiniMax accessed by unidentified parties, researcher s
-    + [tech] Apple pulls MiniMax AI chatbot from App Store over child safety concerns
-    + [tech] Nvidia halts chip shipments to Southeast Asia: FT report
-    + [tech] Amusing or addictive? The algorithms powering our social feeds
-    + [tech] Elon Musk says every child in the US will get two SpaceX shares
+    OK  (47,313 bytes)
+    + [tech] Japan's JERA enters talks with Anthropic, Meta to build data centres
+    + [tech] Women express frustration, concern over Nvidia boss Jensen Huang's return
+    + [tech] WhatsApp to let users buy travel eSIMs in app; Jio, Verizon among partners
+    + [tech] X introduces parental controls for teen users aged 13 to 17
+    + [tech] US rejects EU plans to tax Big Tech
+    + [tech] SAP weighs cutting at least 10,000 positions in AI restructuring
+    + [tech] 'King is back': Nvidia boss's return sparks fresh AI deepfake deluge
+    + [tech] AI may put 24 million knowledge-worker jobs at risk globally over five years: JP
     → 50 items: 8 accepted, 0 too old, 0 no-date
   [      tech] SKIP (section full) https://news.google.com/rss/search?q=India+tech+DPDP+MeitY+startup+AI+regulation&hl=en&gl=US&ceid=US:en
   [      tech] SKIP (section full) https://www.medianama.com/feed/
@@ -95,15 +97,15 @@ Cutoff: 2026-11-16 21:47 UTC  (MAX_AGE_HOURS=240)
     OK  (48,453 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (15,299 bytes)
+    OK  (15,062 bytes)
+    + [world] Strobe Talbott, former Time magazine reporter and deputy secretary of state, has
     + [world] Congo Ebola outbreak reaches 12,000 cases as some responders evacuate
     + [world] North Korea's Kim vows to build more nuclear weapons after ignoring Trump's over
     + [world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's free speech, judge s
-    + [world] How American Thanksgiving took root -- and evolved -- in Liberia
+    + [world] How American Thanksgiving took root — and evolved — in Liberia
     + [world] Army to detonate tons of lead azide after delays. And, Abrego Garcia leaves U.S.
     + [world] Republican wants FBI and CIA answers before questioning Nvidia chief
     + [world] Greetings from Mount Kilimanjaro, Africa's highest point in all its splendor
-    + [world] China investigates Politburo member and Shanghai party chief Chen Jining
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -112,114 +114,124 @@ Cutoff: 2026-11-16 21:47 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (67,224 bytes)
-    + [sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor
-    + [sports] India vs New Zealand 2nd Test 2026: Match preview, head-to-head record, telecast
-    + [sports] List of all India U19 stars registered for IPL 2027 auction
-    + [sports] How many Indian players have registered for IPL 2027 auction?
-    + [sports] Wiaan Mulder Scripts History Against Bangladesh, Achieves Feat Last Matched By I
-    + [sports] WTC 2025-27 Points Table Updated: South Africa Strengthen Top Spot After 2-0 Ban
-    + [sports] 'Unfair to Single Him Out': Morne Morkel Defends Anshul Kamboj Amid Pace Critici
-    + [sports] India Vs New Zealand 2nd Test Live Streaming: When And Where To Watch
-    → 50 items: 8 accepted, 32 too old, 0 no-date
-  [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+    HTTP 429 — skipping  https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
+  [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+    OK  (90,652 bytes)
+    + [sports] Latham, Blundell fifties give NZ advantage after hard-fought opening day
+    + [sports] England bowl, Owen and Stanlake come in for Australia
+    + [sports] PCB slashes women's central contracts from 20 to eight
+    + [sports] Lyon set to be dropped for first New Zealand Test in Perth
+    + [sports] CA announces sandpaper forum will be 'confidential', includes 2017-18 Ashes
+    + [sports] India bowl in Christchurch; Brar debuts in place of Prasidh
+    + [sports] SL A storm into final after Croospulle, Jayawardena tons
+    + [sports] Afridi, Abrar shine amid concerns over tight Quaid-e-Azam Trophy schedule
+    → 100 items: 8 accepted, 0 too old, 0 no-date
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (126,556 bytes)
+    OK  (41,812 bytes)
     + [opinion] Daily Editorial Analysis 24 November 2026
-    + [opinion] India’s 2024 Election Had Record Voters, Yet Turnout Fell. Here’s Why
+    + [opinion] Daily Editorial Analysis 27 November 2026
+    + [opinion] Daily Editorial Analysis 26 November 2026
     + [opinion] Constitution Day: When 53,000 Indians Watched Their Constitution Being Written
-    → 79 items: 3 accepted, 76 too old, 0 no-date
+    → 34 items: 4 accepted, 30 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (12,119 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (52,273 bytes)
+    OK  (52,499 bytes)
+    + [opinion] Whose company is it anyway? Gender, inheritance and entitlement at play.
     + [opinion] Four engines that could power India's next investment and economic growth cycle
     + [opinion] India's cheque-bounce law needs to draw a line between debt and fraud
     + [opinion] Careful of monopoly: Nvidia's Jensen Huang and the risks of one-man dominance
-    + [opinion] Indian Ocean emerges as a key hub for resilient global supply chains
-    + [opinion] The Chinese spy who never was — and the global money that always was
-    → 50 items: 5 accepted, 0 too old, 0 no-date
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (46 stories, 8 workers) ─────────────────────────────
-   ✓ [     legal] Khaitan & Co. and NATHEALTH launch whitepaper on the legal a
-   ✓ [     legal] Constitution Day 2026: CJI emphasises individual-centric con
-   ✓ [     legal] Law Day and the Rule of Law: When Commercial Justice Meets C
-   ✗ [  business] CII's Market Facilitation Services wins GoGlobal award for M: no og:image/twitter:image tag found
-   ✓ [     legal] Delhi LG amends Delhi Prison Rules, 2018 to expand emergency
-   ✓ [     legal] ILS Law College, Pune invites papers for Prof. S.P. Sathe In
-   ✓ [     legal] Cyril Amarchand Mangaldas advises and assists Arkade Develop
-   ✓ [     legal] Shardul Amarchand Mangaldas & Co advises Kia India Pvt. Ltd.
-   ✗ [  business] India's semiconductor market projected to reach $100-110 bil: no og:image/twitter:image tag found
-   ✗ [  business] The tables can turn for Indian stocks in 2027: no og:image/twitter:image tag found
-   ✗ [  business] NSE - National Stock Exchange of India Ltd: Live Share/Stock: no og:image/twitter:image tag found
-   ✗ [  business] NSE share price rallies 9% in two days; market capitalisatio: no og:image/twitter:image tag found
-   ✗ [  business] Zee Business. . Why are MCX, BSE and NSE witnessing strong a: no og:image/twitter:image tag found
-   ✗ [  business] NSE receives RBI nod for introduction of corporate bond inde: no og:image/twitter:image tag found
-   ✗ [  reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years: no og:image/twitter:image tag found
-   ✗ [  business] NSE becomes world's 3rd largest listed exchange, overtakes L: no og:image/twitter:image tag found
+── Page fetch (40 stories, 8 workers) ─────────────────────────────
    ✗ [  reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb: no og:image/twitter:image tag found
-   ✗ [  reliance] #TIME100Next comes to India for the first time, and #Relianc: no og:image/twitter:image tag found
+   ✗ [  reliance] Reliance and Jio to invest Rs 10 lakh crore over seven years: no og:image/twitter:image tag found
+   ✗ [  business] India's Job Market: More Businesses, Fewer Hired Jobs? What : no og:image/twitter:image tag found
+   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
    ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute: no og:image/twitter:image tag found
    ✗ [  reliance] Nvidia's fallout is a gift to billionaires Ambani and Adani: no og:image/twitter:image tag found
-   ✓ [     legal] April 2026 directions for removal of National Highway encroa
    ✗ [  reliance] Reports of Shah Rukh Khan suing over Anant Ambani video are : no og:image/twitter:image tag found
-   ✓ [     world] North Korea's Kim vows to build more nuclear weapons after i
+   ✓ [     world] Strobe Talbott, former Time magazine reporter and deputy sec
+   ✓ [     world] How American Thanksgiving took root — and evolved — in Liber
    ✓ [     world] Congo Ebola outbreak reaches 12,000 cases as some responders
-   ✓ [     world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's 
-   ✓ [     world] Republican wants FBI and CIA answers before questioning Nvid
    ✓ [     world] Greetings from Mount Kilimanjaro, Africa's highest point in 
-   ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
+   ✓ [     world] Republican wants FBI and CIA answers before questioning Nvid
+   ✓ [     world] North Korea's Kim vows to build more nuclear weapons after i
+   ✗ [  business] NDTV Profit Live TV: Watch Live Business News, Stock Market : HTTP 429
    ✓ [     world] Army to detonate tons of lead azide after delays. And, Abreg
-   ✗ [    sports] India vs New Zealand 2nd Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
-   ✗ [    sports] List of all India U19 stars registered for IPL 2027 auction: no og:image/twitter:image tag found
-   ✗ [    sports] How many Indian players have registered for IPL 2027 auction: no og:image/twitter:image tag found
-   ✗ [    sports] Wiaan Mulder Scripts History Against Bangladesh, Achieves Fe: no og:image/twitter:image tag found
-   ✗ [    sports] WTC 2025-27 Points Table Updated: South Africa Strengthen To: no og:image/twitter:image tag found
-   ✗ [    sports] 'Unfair to Single Him Out': Morne Morkel Defends Anshul Kamb: no og:image/twitter:image tag found
-   ✗ [   opinion] Daily Editorial Analysis 24 November 2026: no og:image/twitter:image tag found
-   ✗ [    sports] India Vs New Zealand 2nd Test Live Streaming: When And Where: no og:image/twitter:image tag found
-   ✗ [   opinion] India’s 2024 Election Had Record Voters, Yet Turnout Fell. H: no og:image/twitter:image tag found
-   ✓ [     world] China investigates Politburo member and Shanghai party chief
-   ✓ [     world] How American Thanksgiving took root -- and evolved -- in Lib
+   ✗ [   opinion] Daily Editorial Analysis 27 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 26 November 2026: no og:image/twitter:image tag found
+   ✓ [     world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's 
    ✗ [   opinion] Constitution Day: When 53,000 Indians Watched Their Constitu: no og:image/twitter:image tag found
-   images: 16 found, 25 not found  |  page text: 15 stories
+   ✗ [   opinion] Daily Editorial Analysis 24 November 2026: no og:image/twitter:image tag found
+   images: 8 found, 12 not found  |  page text: 18 stories
 
-── AI notes (14 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Shardul Amarchand Mangaldas & Co advises Kia India Pvt. Ltd.
-   ✓ [groq] April 2026 directions for removal of National Highway encroa
-   ✓ [groq] Khaitan & Co. and NATHEALTH launch whitepaper on the legal a
-   ✓ [groq] ILS Law College, Pune invites papers for Prof. S.P. Sathe In
-   ✓ [groq] Delhi LG amends Delhi Prison Rules, 2018 to expand emergency
-   ✓ [groq] Law Day and the Rule of Law: When Commercial Justice Meets C
-   ✓ [groq] Cyril Amarchand Mangaldas advises and assists Arkade Develop
-   ✓ [groq] Constitution Day 2026: CJI emphasises individual-centric con
-   ✓ [groq] The tables can turn for Indian stocks in 2027
-   ✓ [groq] NSE - National Stock Exchange of India Ltd: Live Share/Stock
-   ✓ [groq] Four engines that could power India's next investment and ec
-   ✓ [groq] India's cheque-bounce law needs to draw a line between debt 
-   ✓ [groq] Careful of monopoly: Nvidia's Jensen Huang and the risks of 
-   ✓ [groq] Indian Ocean emerges as a key hub for resilient global suppl
+── AI notes (37 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Can using public generative AI compromise attorney-client pr
+   ✓ [groq] State free to replace its lawyers before their tenures expir
+   ✓ [groq] ACB moves Delhi High Court against bail granted to AAP's Sat
+   ✓ [groq] Mahadev betting app case: Supreme Court seeks ED response on
+   ✓ [groq] Punjab & Haryana High Court tells Centre it can't recommend 
+   ✓ [groq] Supreme Court dismisses plea to block videos of Italian poli
+   ✓ [groq] Delhi High Court rejects plea to bring Delhi High Court Bar 
+   ~ [groq] Use time saved by AI to train junior lawyers: Justice Tejas   (names no court, regulator or statute)
+      [gemini] bad JSON: Unterminated string starting at: line 1 column 17 (char 16)
+      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
+      [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
+      [anthropic] disabled for the rest of this run (out of quota/credit)
+   ✓ [openai] Use time saved by AI to train junior lawyers: Justice Tejas 
+   ✓ [groq] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes o
+   ~ [groq] Black Friday's new playbook: Early deals, essentials in cart  (names no court, regulator or statute)
+   ✓ [gemini] Black Friday's new playbook: Early deals, essentials in cart
+   ✓ [groq] Retail CEOs more confident on growth, but supply chain risks
+   ✓ [groq] Modi urges Indian Inc to shed domestic-market comfort, step 
+   ✓ [groq] NDTV Profit Live TV: Watch Live Business News, Stock Market 
+   ✓ [groq] India's Job Market: More Businesses, Fewer Hired Jobs? What 
+   ✓ [groq] Can SpaceX's AI ambitions drive further upside in its stock?
+   ✓ [groq] India bonds decline ahead of fresh debt sale as elevated oil
+   ✓ [groq] Nvidia stock plunges 35% from record high: Is it a buying op
+   ✓ [groq] ICICI Bank Share Price Live Updates: ICICI Bank Dividend Upd
+   ✓ [groq] HDFC Bank, SBI, 8 other stocks JPMorgan is bullish on as mar
+   ✓ [groq] Supreme Court sets timer for FSSAI, companies to implement w
+   ✓ [groq] India's non-alcoholic beverage market to grow 13 pc annually
+   ✓ [groq] ECCO India targets 50 stores by 2028, 65 pc CAGR through 203
+   ✓ [groq] Urban Company enters air conditioner market with Native
+   ✓ [groq] Japan's JERA enters talks with Anthropic, Meta to build data
+   ✓ [groq] Women express frustration, concern over Nvidia boss Jensen H
+   ✓ [groq] WhatsApp to let users buy travel eSIMs in app; Jio, Verizon 
+   ✓ [groq] X introduces parental controls for teen users aged 13 to 17
+   ✓ [groq] US rejects EU plans to tax Big Tech
+   ✓ [groq] SAP weighs cutting at least 10,000 positions in AI restructu
+   ✓ [groq] 'King is back': Nvidia boss's return sparks fresh AI deepfak
+   ✓ [groq] AI may put 24 million knowledge-worker jobs at risk globally
+   ✓ [groq] Strobe Talbott, former Time magazine reporter and deputy sec
+   ✓ [groq] How American Thanksgiving took root — and evolved — in Liber
+   ✓ [groq] Daily Editorial Analysis 27 November 2026
+   ✓ [groq] Daily Editorial Analysis 26 November 2026
+   ✓ [groq] Nykaa brings honey-led beauty brand Gisou to India
+   ✓ [groq] Whose company is it anyway? Gender, inheritance and entitlem
 
-   Enrichment: 64 stories | reused 40 | native brief 2 | AI 14 (groq=14; 16 calls) | kept stale 0 | key points 0 | no brief 0
-   ~77,000 tokens not spent vs. enriching every story with AI
-   Accuracy check: 14 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
+   Enrichment: 64 stories | reused 19 | native brief 0 | AI 37 (groq=35, openai=1, gemini=1; 42 calls) | kept stale 0 | key points 0 | no brief 0
+   ~47,100 tokens not spent vs. enriching every story with AI
+   Accuracy check: 39 provider answers | 0 rejected (invented figure, hedging or restated headline) | 2 accepted with a minor flaw after trying a stronger provider
+   Providers disabled this run: anthropic
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   15 OK  /  5 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-27   Hero: business-b40778e6
+Edition: 2026-11-27   Hero: legal-f550ca39
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 64 stories for 2026-11-27 | 9 stories continue an earlier one
+Archive: 108 stories for 2026-11-27 | 9 stories continue an earlier one
