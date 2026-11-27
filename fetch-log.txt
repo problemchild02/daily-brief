@@ -1,26 +1,28 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-17 21:30 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (84,439 bytes)
-    + [legal] Former Calcutta High Court Justice Ranjit Kumar Bag passes away
-    + [legal] Plea before Delhi High Court challenges BCI circular barring internship for law 
-    + [legal] Is the Tribunal Reforms Act, 2026 calling for a seventh round of Madras Bar Asso
-    + [legal] Karnataka High Court rejects Congress candidate’s plea challenging BJP MLA Sathi
-    + [legal] In cricketer Abhishek Sharma’s case, Delhi High Court flags challenges in adjudi
-    + [legal] Horrendous judgment: Supreme Court slams MP High Court for reducing murder convi
-    + [legal] Technical expertise alone not enough to become a law firm partner: Pallavi Shrof
-    + [legal] P&H High Court quashes SC/ST case against man who told IAS officer she became Co
-    → 11 items: 8 accepted, 0 too old, 0 no-date
-  [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
+    OK  (831 bytes)
+    → 0 items: 0 accepted, 0 too old, 0 no-date
+  [     legal] fetching https://www.scconline.com/blog/feed/
+    OK  (129,587 bytes)
+    + [legal] ICA Symposium on India–Singapore: CJI calls for greater cooperation in instituti
+    + [legal] President appoints Justice Sujit Narayan Prasad as Acting Chief Justice of Jhark
+    + [legal] Supreme Court: Judicial member mandatory for final adjudication under PMLA; sing
+    + [legal] Lump-sum increase in compensation without indicating reasons amounts to guesswor
+    + [legal] UPSIFS Workshop 2026: AI and Quantum Readiness takes centre stage in discussions
+    + [legal] Cyril Amarchand Mangaldas welcomes Anshuman Bharadwaj as a Partner in its Corpor
+    + [legal] Supreme Court examines whether Corporate Debtor’s balance sheets constitute ackn
+    + [legal] Data privacy framework moves ahead as Consent Manager portal goes live
+    → 10 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (207,112 bytes)
+    OK  (205,422 bytes)
     + [business] Modi urges Indian Inc to shed domestic-market comfort, step up manufacturing and
     + [business] India's micro business credit market expands to Rs 29.6 lakh crore: Report
     + [business] India's Job Market: More Businesses, Fewer Hired Jobs? What NSO's Survey Says
@@ -28,34 +30,32 @@ Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
     ↳ dual-tag [reliance] India Needs 50 Trillion Market Cap to Support 30 Trillion Economy
     → 100 items: 4 accepted, 96 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (36,787 bytes)
-    + [business] BSE Index Services Secures SEBI Registration Under 2024 Index Provider Rules Fol
-    + [business] Airpro Technology India Ltd.
+    OK  (77,643 bytes)
     + [business] NSE Shares Rally 35% in a Month; RBI Clears Corporate Bond Index Futures
-    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
-    → 24 items: 4 accepted, 1 too old, 0 no-date
-  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    → 47 items: 1 accepted, 46 too old, 0 no-date
+  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+    OK  (36,188 bytes)
+    + [business] OPEC+ set to keep oil production targets steady: Report
+    + [business] Copper sweeps higher as China offers stock market support
+    + [business] Gold pares gains as Fed-hike risks linger, eyes first weekly rise in three weeks
+    → 50 items: 3 accepted, 0 too old, 0 no-date
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (140,868 bytes)
+    OK  (95,393 bytes)
     + [reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Ambani’s Retail Might
-    + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute, 23-nautical-mile M
-    → 100 items: 2 accepted, 98 too old, 0 no-date
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 1 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,878 bytes)
-    + [reliance] Sisley re-enters India with GSSBB, eyes India as its top 10 market in 10 years
-    + [reliance] Global brands shift hundreds of millions in orders from Bangladesh to India amid
-    + [reliance] Tata Sons Leadership Battle: The rules, the rift and what happens next
-    + [reliance] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes operations
-    + [reliance] Black Friday's new playbook: Early deals, essentials in carts and AI nudging cli
-    → 10 items: 5 accepted, 0 too old, 0 no-date
+    + [reliance] Reports of Shah Rukh Khan suing over Anant Ambani video are false
+    + [reliance] Indian billionaire Mukesh Ambani's family buys 426,000 Reliance shares as stock 
+    + [reliance] Mukesh Ambani plans $1.6bn biogas investment
+    + [reliance] Ambani builds before the boom, pouring billions into an untapped market
+    + [reliance] Jio Financial Services vs Reliance vs Jio Platforms shares: Which Mukesh Ambani'
+    + [reliance] Indian billionaire Mukesh Ambani's Shein India venture stalls as app installs dr
+    → 59 items: 7 accepted, 46 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
     OK  (60,425 bytes)
     + [retail] Urban India Records 13.1% FMCG Growth as Traditional Trade Holds 80% Market Shar
@@ -63,16 +63,14 @@ Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
     → 34 items: 2 accepted, 32 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,878 bytes)
+    + [retail] Sisley re-enters India with GSSBB, eyes India as its top 10 market in 10 years
+    + [retail] Global brands shift hundreds of millions in orders from Bangladesh to India amid
+    + [retail] Tata Sons Leadership Battle: The rules, the rift and what happens next
+    + [retail] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes operations
+    + [retail] Black Friday's new playbook: Early deals, essentials in carts and AI nudging cli
     + [retail] Retail CEOs more confident on growth, but supply chain risks remain: Report
-    + [retail] Supreme Court sets timer for FSSAI, companies to implement warning labels
-    + [retail] India's non-alcoholic beverage market to grow 13 pc annually to Rs 2.56 lakh cro
-    + [retail] ECCO India targets 50 stores by 2028, 65 pc CAGR through 2030
-    + [retail] Urban Company enters air conditioner market with Native
-    → 10 items: 5 accepted, 0 too old, 0 no-date
-  [    retail] fetching https://www.thehindubusinessline.com/feeder/default.rss
-    OK  (48,848 bytes)
-    + [retail] With no HC relief for Tata Trusts, Tata Sons board to meet on Monday
-    → 60 items: 1 accepted, 0 too old, 0 no-date
+    → 10 items: 6 accepted, 0 too old, 0 no-date
+  [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
     OK  (47,580 bytes)
@@ -92,7 +90,7 @@ Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (48,453 bytes)
+    OK  (49,436 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
     OK  (14,599 bytes)
@@ -112,7 +110,7 @@ Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (161,558 bytes)
+    OK  (161,107 bytes)
     + [sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor
     + [sports] Who is Vaibhav Sooryavanshi? The youngest player and centurion in the IPL
     + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
@@ -121,7 +119,7 @@ Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
     + [sports] India vs New Zealand Live Streaming Info: How to watch the 1st Test match?
     + [sports] India vs New Zealand 1st Test 2026: Match preview, head-to-head record, telecast
     + [sports] NZ vs IND, 1st Test: When did India last win a Test match in New Zealand?
-    → 100 items: 8 accepted, 13 too old, 0 no-date
+    → 100 items: 8 accepted, 16 too old, 0 no-date
   [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
@@ -129,112 +127,109 @@ Cutoff: 2026-11-17 16:52 UTC  (MAX_AGE_HOURS=240)
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (127,037 bytes)
+    OK  (41,406 bytes)
     + [opinion] Daily Editorial Analysis 24 November 2026
+    + [opinion] Daily Editorial Analysis 27 November 2026
+    + [opinion] Daily Editorial Analysis 26 November 2026
     + [opinion] Constitution Day: When 53,000 Indians Watched Their Constitution Being Written
-    → 80 items: 2 accepted, 78 too old, 0 no-date
+    → 34 items: 4 accepted, 30 too old, 0 no-date
   [   opinion] fetching https://scroll.in/rss
     HTTP 404 — skipping  https://scroll.in/rss
   [   opinion] fetching https://thewire.in/feed
     OK  (12,119 bytes)
   WARN parse: syntax error: line 1, column 0
   [   opinion] fetching https://economictimes.indiatimes.com/opinion/rssfeeds/897228639.cms
-    OK  (52,499 bytes)
-    + [opinion] Whose company is it anyway? Gender, inheritance and entitlement at play.
-    + [opinion] Four engines that could power India's next investment and economic growth cycle
-    + [opinion] India's cheque-bounce law needs to draw a line between debt and fraud
-    + [opinion] Careful of monopoly: Nvidia's Jensen Huang and the risks of one-man dominance
-    + [opinion] Indian Ocean emerges as a key hub for resilient global supply chains
-    + [opinion] The Chinese spy who never was — and the global money that always was
-    → 50 items: 6 accepted, 0 too old, 0 no-date
+    OK  (52,928 bytes)
+    + [opinion] CEO later, alligator
+    + [opinion] Pendulum of the mind
+    + [opinion] This isn't a swadeshi test: Sarvam using foreign AI models need not come at the 
+    + [opinion] AI's 'mathocalypse': Is artificial intelligence ending the era of human mathemat
+    → 50 items: 4 accepted, 0 too old, 0 no-date
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (43 stories, 8 workers) ─────────────────────────────
+── Page fetch (45 stories, 8 workers) ─────────────────────────────
+   ✓ [     legal] President appoints Justice Sujit Narayan Prasad as Acting Ch
+   ✓ [     legal] Cyril Amarchand Mangaldas welcomes Anshuman Bharadwaj as a P
+   ✓ [     legal] Data privacy framework moves ahead as Consent Manager portal
+   ✓ [     legal] ICA Symposium on India–Singapore: CJI calls for greater coop
+   ✓ [     legal] UPSIFS Workshop 2026: AI and Quantum Readiness takes centre 
+   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
+   ✗ [  business] India's micro business credit market expands to Rs 29.6 lakh: no og:image/twitter:image tag found
    ✗ [  business] India's Job Market: More Businesses, Fewer Hired Jobs? What : no og:image/twitter:image tag found
-   ✗ [  business] BSE Index Services Secures SEBI Registration Under 2024 Inde: no og:image/twitter:image tag found
    ✗ [  business] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec: no og:image/twitter:image tag found
    ✗ [  business] NSE Shares Rally 35% in a Month; RBI Clears Corporate Bond I: no og:image/twitter:image tag found
-   ✗ [  business] Airpro Technology India Ltd.: no og:image/twitter:image tag found
-   ✗ [  business] India's micro business credit market expands to Rs 29.6 lakh: no og:image/twitter:image tag found
-   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
-   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
-   ✗ [    retail] Urban India leads FMCG growth at 13.1%: Worldpanel: no og:image/twitter:image tag found
-   ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute: no og:image/twitter:image tag found
-   ✗ [  reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb: no og:image/twitter:image tag found
    ✗ [  reliance] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec: no og:image/twitter:image tag found
+   ✗ [  reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb: no og:image/twitter:image tag found
+   ✓ [     legal] Lump-sum increase in compensation without indicating reasons
+   ✗ [  reliance] Reports of Shah Rukh Khan suing over Anant Ambani video are : no og:image/twitter:image tag found
+   ✗ [  reliance] Indian billionaire Mukesh Ambani's family buys 426,000 Relia: no og:image/twitter:image tag found
+   ✓ [     legal] Supreme Court examines whether Corporate Debtor’s balance sh
+   ✓ [     legal] Supreme Court: Judicial member mandatory for final adjudicat
+   ✗ [  reliance] Mukesh Ambani plans $1.6bn biogas investment: no og:image/twitter:image tag found
+   ✗ [  reliance] Ambani builds before the boom, pouring billions into an unta: no og:image/twitter:image tag found
+   ✗ [  reliance] Jio Financial Services vs Reliance vs Jio Platforms shares: : no og:image/twitter:image tag found
    ✗ [    retail] Urban India Records 13.1% FMCG Growth as Traditional Trade H: no og:image/twitter:image tag found
    ✓ [     world] French cinema star Gérard Depardieu ordered to stand trial f
-   ✓ [     world] Strobe Talbott, former Time magazine reporter and deputy sec
-   ✓ [     world] Congo Ebola outbreak reaches 12,000 cases as some responders
-   ✓ [     world] North Korea's Kim vows to build more nuclear weapons after i
-   ✓ [     world] Army to detonate tons of lead azide after delays. And, Abreg
-   ✓ [     world] As UN Secretary General's last day approaches, search for hi
+   ✗ [    retail] Urban India leads FMCG growth at 13.1%: Worldpanel: no og:image/twitter:image tag found
+   ✗ [  reliance] Indian billionaire Mukesh Ambani's Shein India venture stall: no og:image/twitter:image tag found
    ✓ [     world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's 
-   ✗ [    sports] Who is Vaibhav Sooryavanshi? The youngest player and centuri: no og:image/twitter:image tag found
+   ✓ [     world] North Korea's Kim vows to build more nuclear weapons after i
+   ✓ [     world] Strobe Talbott, former Time magazine reporter and deputy sec
+   ✓ [     world] As UN Secretary General's last day approaches, search for hi
    ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
-   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
+   ✓ [     world] Congo Ebola outbreak reaches 12,000 cases as some responders
    ✓ [     world] How American Thanksgiving took root — and evolved — in Liber
+   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
+   ✗ [    sports] Who is Vaibhav Sooryavanshi? The youngest player and centuri: no og:image/twitter:image tag found
+   ✓ [     world] Army to detonate tons of lead azide after delays. And, Abreg
+   ✗ [    sports] India vs New Zealand Live Streaming Info: How to watch the 1: no og:image/twitter:image tag found
    ✗ [    sports] Vaibhav Sooryavanshi: no og:image/twitter:image tag found
    ✗ [    sports] India vs New Zealand 2nd Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
-   ✗ [    sports] India vs New Zealand Live Streaming Info: How to watch the 1: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 24 November 2026: no og:image/twitter:image tag found
    ✗ [    sports] India vs New Zealand 1st Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
-   ✗ [   opinion] Constitution Day: When 53,000 Indians Watched Their Constitu: no og:image/twitter:image tag found
    ✗ [    sports] NZ vs IND, 1st Test: When did India last win a Test match in: no og:image/twitter:image tag found
-   images: 8 found, 23 not found  |  page text: 16 stories
+   ✗ [   opinion] Daily Editorial Analysis 26 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Daily Editorial Analysis 27 November 2026: no og:image/twitter:image tag found
+   ✗ [   opinion] Constitution Day: When 53,000 Indians Watched Their Constitu: no og:image/twitter:image tag found
+   images: 16 found, 27 not found  |  page text: 11 stories
 
-── AI notes (25 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Former Calcutta High Court Justice Ranjit Kumar Bag passes a
-   ✓ [groq] Plea before Delhi High Court challenges BCI circular barring
-   ✓ [groq] Is the Tribunal Reforms Act, 2026 calling for a seventh roun
-   ✓ [groq] Karnataka High Court rejects Congress candidate’s plea chall
-   ✓ [groq] In cricketer Abhishek Sharma’s case, Delhi High Court flags 
-   ✓ [groq] Horrendous judgment: Supreme Court slams MP High Court for r
-   ~ [groq] Technical expertise alone not enough to become a law firm pa  (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-   ✓ [gemini] Technical expertise alone not enough to become a law firm pa
-   ✓ [groq] P&H High Court quashes SC/ST case against man who told IAS o
-   ~ [groq] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec  (names no court, regulator or statute)
-   ✓ [gemini] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec
-   ~ [groq] Sisley re-enters India with GSSBB, eyes India as its top 10   (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-      [gemini] error: The read operation timed out
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-      [anthropic] exhausted: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_i
-      [anthropic] disabled for the rest of this run (out of quota/credit)
-   ✓ [openai] Sisley re-enters India with GSSBB, eyes India as its top 10 
+── AI notes (24 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
+   ✓ [groq] Reports of Shah Rukh Khan suing over Anant Ambani video are 
+   ✓ [groq] Indian billionaire Mukesh Ambani's family buys 426,000 Relia
+   ✓ [groq] Mukesh Ambani plans $1.6bn biogas investment
+   ✓ [groq] Ambani builds before the boom, pouring billions into an unta
+   ✓ [groq] Jio Financial Services vs Reliance vs Jio Platforms shares: 
+   ✓ [groq] Indian billionaire Mukesh Ambani's Shein India venture stall
+   ✓ [groq] President appoints Justice Sujit Narayan Prasad as Acting Ch
+   ✓ [groq] Lump-sum increase in compensation without indicating reasons
+   ✓ [groq] UPSIFS Workshop 2026: AI and Quantum Readiness takes centre 
+   ✓ [groq] Cyril Amarchand Mangaldas welcomes Anshuman Bharadwaj as a P
+   ✓ [groq] OPEC+ set to keep oil production targets steady: Report
+   ✓ [groq] Copper sweeps higher as China offers stock market support
+   ✓ [groq] Gold pares gains as Fed-hike risks linger, eyes first weekly
+   ✓ [groq] Sisley re-enters India with GSSBB, eyes India as its top 10 
    ✓ [groq] Global brands shift hundreds of millions in orders from Bang
    ✓ [groq] Tata Sons Leadership Battle: The rules, the rift and what ha
-   ✓ [groq] India's micro business credit market expands to Rs 29.6 lakh
-   ✓ [groq] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec
-   ✓ [groq] Urban India Records 13.1% FMCG Growth as Traditional Trade H
-   ✓ [groq] Urban India leads FMCG growth at 13.1%: Worldpanel
-   ✓ [groq] Retail CEOs more confident on growth, but supply chain risks
-   ✓ [groq] Japan's JERA enters talks with Anthropic, Meta to build data
-   ✓ [groq] French cinema star Gérard Depardieu ordered to stand trial f
-   ✓ [groq] As UN Secretary General's last day approaches, search for hi
-   ~ [groq] Airpro Technology India Ltd.  (too short (28 words))
-      [gemini] busy (The read operation timed out); retrying once
-      [gemini] error: The read operation timed out
-      [github] error: non-JSON reply (HTTP 200, text/plain, 4 bytes): b'OK\r\n'
-   ✓ [openai] Airpro Technology India Ltd.
-   ✓ [groq] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
-   ✓ [groq] With no HC relief for Tata Trusts, Tata Sons board to meet o
-   ✓ [groq] Indian Ocean emerges as a key hub for resilient global suppl
-   ✓ [groq] The Chinese spy who never was — and the global money that al
+   ✓ [groq] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes o
+   ✓ [groq] Black Friday's new playbook: Early deals, essentials in cart
+   ✓ [groq] Daily Editorial Analysis 27 November 2026
+   ✓ [groq] Daily Editorial Analysis 26 November 2026
+   ✓ [groq] CEO later, alligator
+   ✓ [groq] Pendulum of the mind
+   ✓ [groq] This isn't a swadeshi test: Sarvam using foreign AI models n
+   ✓ [groq] AI's 'mathocalypse': Is artificial intelligence ending the e
 
-   Enrichment: 64 stories | reused 29 | native brief 2 | AI 25 (groq=21, gemini=2, openai=2; 30 calls) | kept stale 0 | key points 0 | no brief 0
-   ~62,700 tokens not spent vs. enriching every story with AI
-   Accuracy check: 29 provider answers | 0 rejected (invented figure, hedging or restated headline) | 4 accepted with a minor flaw after trying a stronger provider
-   Providers disabled this run: anthropic
+   Enrichment: 64 stories | reused 27 | native brief 5 | AI 24 (groq=24; 24 calls) | kept stale 0 | key points 0 | no brief 0
+   ~64,000 tokens not spent vs. enriching every story with AI
+   Accuracy check: 24 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   14 OK  /  4 failed
+Feeds:   13 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-27   Hero: legal-2df65a51
+Edition: 2026-11-28   Hero: business-810d03af
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 138 stories for 2026-11-27 | 13 stories continue an earlier one
+Archive: 64 stories for 2026-11-28 | 20 stories continue an earlier one
