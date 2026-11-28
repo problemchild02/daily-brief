@@ -1,77 +1,71 @@
 Daily Brief — RSS Fetcher
 
-Cutoff: 2026-11-18 08:15 UTC  (MAX_AGE_HOURS=240)
+Cutoff: 2026-11-18 15:43 UTC  (MAX_AGE_HOURS=240)
   [     legal] fetching https://www.livelaw.in/rss/top-stories
     HTTP 404 — skipping  https://www.livelaw.in/rss/top-stories
   [     legal] fetching https://www.barandbench.com/feed
-    OK  (86,972 bytes)
-    + [legal] Bar gave me a place, Bench gave me a purpose: Supreme Court Justice Satish Chand
-    + [legal] Beyond procedural technicalities: The scope of amendment under Order VI Rule 17 
-    + [legal] Punjab & Haryana High Court quashes Centre’s complaint against Amazon over sale 
-    + [legal] Supreme Court declines to entertain plea to reduce minimum age to contest electi
-    + [legal] CLAT: Fairness first
-    + [legal] Judges do not deserve praise for merely doing their duty: Jharkhand High Court J
-    + [legal] Buying data, inheriting liability: Cyber and data due diligence in Indian M&A
-    + [legal] Is the Tribunal Reforms Act, 2026 calling for a seventh round of Madras Bar Asso
-    → 10 items: 8 accepted, 0 too old, 0 no-date
+    OK  (58,309 bytes)
+    + [legal] Sonia Gandhi's name was included in voters' list before she became Indian citize
+    + [legal] How did IndianOil-Adani Gas access affidavit not part of court record? Delhi Hig
+    + [legal] Karnataka High Court introduces RFID-based case file tracking system
+    + [legal] Justice constrained to legal formality: Pushing citizens back to the law of Karm
+    + [legal] Karnataka High Court directs courts to accept digital copies of HC orders withou
+    + [legal] Bombay High Court recognises Mumbai traders’ rights over ‘Le Shark’ trademark, r
+    + [legal] RGNUL adopts 8rney’s Agentic Legal Workspace
+    + [legal] Judges do not deserve praise for merely doing their duty: Jharkhand High Court C
+    → 9 items: 8 accepted, 0 too old, 0 no-date
   [     legal] SKIP (section full) https://www.scconline.com/blog/feed/
   [     legal] SKIP (section full) https://feeds.feedburner.com/ndtvnews-law
   [     legal] SKIP (section full) https://theprint.in/category/judiciary/feed/
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=Supreme+Court+India+OR+High+Court+India&hl=en&gl=US&ceid=US:en
   [     legal] SKIP (section full) https://news.google.com/rss/search?q=India+law+legal+court+judgment&hl=en&gl=US&ceid=US:en
   [  business] fetching https://news.google.com/rss/search?q=India+business+economy+market&hl=en&gl=US&ceid=US:en
-    OK  (39,772 bytes)
-    + [business] NDTV Profit Live TV: Watch Live Business News, Stock Market Live TV, Free Live N
+    OK  (207,825 bytes)
+    + [business] Modi urges Indian Inc to shed domestic-market comfort, step up manufacturing and
+    + [business] India's Job Market: More Businesses, Fewer Hired Jobs? What NSO's Survey Says
     + [business] India's micro business credit market expands to Rs 29.6 lakh crore: Report
-    + [business] India Needs 50 Trillion Market Cap to Support 30 Trillion Economy
-    ↳ dual-tag [reliance] India Needs 50 Trillion Market Cap to Support 30 Trillion Economy
-    + [business] When Governance Fails.
-    + [business] FTA impact: India’s preferential access to global markets likely to reach $85 tr
-    ↳ dual-tag [reliance] FTA impact: India’s preferential access to global markets likely to re
-    → 32 items: 5 accepted, 27 too old, 0 no-date
+    → 100 items: 3 accepted, 97 too old, 0 no-date
   [  business] fetching https://news.google.com/rss/search?q=India+economy+finance+corporate+BSE+NSE&hl=en&gl=US&ceid=US:en
-    OK  (76,276 bytes)
+    OK  (39,091 bytes)
+    + [business] IRFC fined ₹10.38 lakh by BSE and NSE for board composition norms
+    + [business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today
+    + [business] GIC Re fined ₹11.92 lakh each by BSE and NSE for governance lapses
     + [business] NSE Shares Rally 35% in a Month; RBI Clears Corporate Bond Index Futures
-    + [business] Dubai-Based Anchor Investor In BSE Raises His Stake In NSE Too Arabian Post
-    → 46 items: 2 accepted, 44 too old, 0 no-date
-  [  business] fetching https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-    OK  (39,405 bytes)
-    + [business] Concurrent Gainers: 9 stocks that gain for 5 days in a row
-    → 50 items: 1 accepted, 0 too old, 0 no-date
+    + [business] NSE share price rallies 9% in two days; market capitalisation nears ₹6 trn
+    → 27 items: 5 accepted, 6 too old, 0 no-date
+  [  business] SKIP (section full) https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
   [  business] SKIP (section full) https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms
   [  business] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [  business] SKIP (section full) https://www.business-standard.com/rss/home_page_top_stories.rss
   [  business] SKIP (section full) https://www.livemint.com/rss/companies
   [  business] SKIP (section full) https://www.indiatoday.in/rss/1206514
   [  reliance] fetching https://news.google.com/rss/search?q=Reliance+Industries+OR+Jio+OR+Mukesh+Ambani&hl=en&gl=US&ceid=US:en
-    OK  (141,135 bytes)
+    OK  (105,614 bytes)
     + [reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Ambani’s Retail Might
+    + [reliance] #TIME100Next comes to India for the first time, and #Reliance is proud to partne
     + [reliance] Anant Ambani performs Govardhan Parikrama in Vrindavan, credits grandparents' bl
+    + [reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute, 23-nautical-mile M
     + [reliance] Asia's Premier News Agency - India News, Business & Political, National & Intern
-    → 100 items: 3 accepted, 97 too old, 0 no-date
-  [  reliance] fetching https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
-    OK  (1,347 bytes)
-    → 1 items: 0 accepted, 1 too old, 0 no-date
-  [  reliance] fetching https://retail.economictimes.indiatimes.com/rss/topstories
-    OK  (10,875 bytes)
-    + [reliance] TechnoSport on track to achieve Rs 1,000 crore revenue target in FY27; plans 130
-    + [reliance] Weekly expansion recap: Retail and consumer companies expand across stores, dist
-    + [reliance] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes operations
-    → 10 items: 3 accepted, 0 too old, 0 no-date
+    + [reliance] Reports of Shah Rukh Khan suing over Anant Ambani video are false
+    + [reliance] Mukesh Ambani's Bombardier Global 7500 VT-ASR flies 25 nm from Navi Mumbai to Mu
+    + [reliance] Mukesh Ambani plans $1.6bn biogas investment
+    → 66 items: 8 accepted, 46 too old, 0 no-date
+  [  reliance] SKIP (section full) https://economictimes.indiatimes.com/topic/reliance-industries/rssfeeds/52857114.cms
+  [  reliance] SKIP (section full) https://retail.economictimes.indiatimes.com/rss/topstories
   [    retail] fetching https://news.google.com/rss/search?q=India+retail+FMCG+ecommerce+consumer&hl=en&gl=US&ceid=US:en
-    OK  (60,425 bytes)
+    OK  (61,399 bytes)
     + [retail] Urban India Records 13.1% FMCG Growth as Traditional Trade Holds 80% Market Shar
-    + [retail] Urban India leads FMCG growth at 13.1%: Worldpanel
-    → 34 items: 2 accepted, 32 too old, 0 no-date
+    → 34 items: 1 accepted, 33 too old, 0 no-date
   [    retail] fetching https://retail.economictimes.indiatimes.com/rss/topstories
     OK  (10,875 bytes)
+    + [retail] TechnoSport on track to achieve Rs 1,000 crore revenue target in FY27; plans 130
+    + [retail] Weekly expansion recap: Retail and consumer companies expand across stores, dist
+    + [retail] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes operations
     + [retail] Sisley re-enters India with GSSBB, eyes India as its top 10 market in 10 years
     + [retail] Bisleri in fresh trouble: After Goa, FSSAI finds bacteria in West Bengal water s
     + [retail] Global brands shift hundreds of millions in orders from Bangladesh to India amid
     + [retail] Puneet Das resigns as chief marketing officer of Britannia Industries
-    + [retail] Tata Sons Leadership Battle: The rules, the rift and what happens next
-    + [retail] Black Friday's new playbook: Early deals, essentials in carts and AI nudging cli
-    → 10 items: 6 accepted, 0 too old, 0 no-date
+    → 10 items: 7 accepted, 0 too old, 0 no-date
   [    retail] SKIP (section full) https://www.thehindubusinessline.com/feeder/default.rss
   [    retail] SKIP (section full) https://www.livemint.com/rss/industry
   [      tech] fetching https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms
@@ -92,18 +86,18 @@ Cutoff: 2026-11-18 08:15 UTC  (MAX_AGE_HOURS=240)
   [      tech] SKIP (section full) https://techcrunch.com/feed/
   [      tech] SKIP (section full) https://www.ndtv.com/feed/tech-gadgets
   [     world] fetching https://feeds.voanews.com/rss/english/news
-    OK  (49,205 bytes)
+    OK  (49,204 bytes)
   WARN parse: not well-formed (invalid token): line 6, column 154
   [     world] fetching https://feeds.npr.org/1004/rss.xml
-    OK  (14,599 bytes)
+    OK  (14,320 bytes)
+    + [world] An explosion at a school in eastern Afghanistan kills 10, wounds 110
+    + [world] Sudan's lost generation: War is stealing the childhood of millions
     + [world] French cinema star Gérard Depardieu ordered to stand trial for rape and sexual a
     + [world] As UN Secretary General's last day approaches, search for his replacement contin
     + [world] Strobe Talbott, former Time magazine reporter and deputy secretary of state, has
     + [world] Congo Ebola outbreak reaches 12,000 cases as some responders evacuate
     + [world] North Korea's Kim vows to build more nuclear weapons after ignoring Trump's over
     + [world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's free speech, judge s
-    + [world] How American Thanksgiving took root — and evolved — in Liberia
-    + [world] Army to detonate tons of lead azide after delays. And, Abrego Garcia leaves U.S.
     → 10 items: 8 accepted, 0 too old, 0 no-date
   [     world] SKIP (section full) https://news.google.com/rss/search?q=India+world+news+international&hl=en&gl=US&ceid=US:en
   [     world] SKIP (section full) https://news.google.com/rss/search?q=world+news+geopolitics&hl=en&gl=US&ceid=US:en
@@ -112,26 +106,24 @@ Cutoff: 2026-11-18 08:15 UTC  (MAX_AGE_HOURS=240)
   [     world] SKIP (section full) https://feeds.reuters.com/reuters/topNews
   [     world] SKIP (section full) https://www.theguardian.com/world/rss
   [    sports] fetching https://news.google.com/rss/search?q=cricket+India+IPL+Test+match&hl=en&gl=US&ceid=US:en
-    OK  (156,724 bytes)
+    OK  (77,540 bytes)
     + [sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor
-    + [sports] Who is Vaibhav Sooryavanshi? The youngest player and centurion in the IPL
-    + [sports] Shubman Gill captaincy record in all formats - Tests, T20Is, ODIs, IPL and more
     + [sports] India vs New Zealand 2nd Test 2026: Match preview, head-to-head record, telecast
-    + [sports] Vaibhav Sooryavanshi
-    → 100 items: 5 accepted, 94 too old, 0 no-date
-  [    sports] fetching https://www.espncricinfo.com/rss/content/story/feeds/0.xml
-    OK  (90,354 bytes)
-    + [sports] New Zealand pacers run riot as India stumble on second day
-    + [sports] Kemp helps Perth Scorchers lock in top two finish
-    + [sports] Rohit Sharma: Mumbai Indians 'needs a direction' right now
-    → 100 items: 3 accepted, 0 too old, 0 no-date
+    + [sports] IND Vs NZ 2nd Test Day 2: Akash Deep's Five-For, India's Batting Struggles Leave
+    + [sports] ‘Heavy White-Ball Diet’: Jacob Duffy Explains Loss Of Rhythm In Wellington Test 
+    + [sports] Mushfiqur Rahim To Retire! Bangladesh Legend To Bid Goodbye To Test Cricket In F
+    + [sports] Dinesh Karthik Blames India’s Poor Catching As Follow-On Threat Looms In Christc
+    + [sports] Former Indian Captain Questions Mohammed Siraj Omission From XI During Test Seri
+    + [sports] IND Vs NZ 2nd Test: Akash Deep's Five-For, Dhruv Jurel's Resistance Shape Day 2 
+    → 51 items: 8 accepted, 29 too old, 0 no-date
+  [    sports] SKIP (section full) https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   [    sports] SKIP (section full) https://www.cricbuzz.com/rss-feeds/cricket-news
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=football+soccer+Premier+League+UEFA+Champions+League&hl=en&gl=IN&ceid=IN:en
   [    sports] SKIP (section full) https://news.google.com/rss/search?q=Indian+Super+League+ISL+Indian+football+soccer&hl=en&gl=US&ceid=US:en
   [    sports] SKIP (section full) https://feeds.bbci.co.uk/sport/football/rss.xml
   [    sports] SKIP (section full) https://timesofindia.indiatimes.com/rss/4719148.cms
   [   opinion] fetching https://news.google.com/rss/search?q=India+opinion+editorial+analysis&hl=en&gl=US&ceid=US:en
-    OK  (124,045 bytes)
+    OK  (123,983 bytes)
     + [opinion] Daily Editorial Analysis 24 November 2026
     + [opinion] Constitution Day: When 53,000 Indians Watched Their Constitution Being Written
     → 79 items: 2 accepted, 77 too old, 0 no-date
@@ -152,77 +144,79 @@ Cutoff: 2026-11-18 08:15 UTC  (MAX_AGE_HOURS=240)
   [   opinion] SKIP (section full) https://www.thehindu.com/opinion/feeder/default.rss
   [   opinion] SKIP (section full) https://theprint.in/category/opinion/feed/
 
-── Page fetch (44 stories, 8 workers) ─────────────────────────────
-   ✗ [  business] NDTV Profit Live TV: Watch Live Business News, Stock Market : no og:image/twitter:image tag found
-   ✗ [  business] NSE Shares Rally 35% in a Month; RBI Clears Corporate Bond I: no og:image/twitter:image tag found
-   ✗ [  business] Dubai-Based Anchor Investor In BSE Raises His Stake In NSE T: no og:image/twitter:image tag found
-   ✗ [  business] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec: no og:image/twitter:image tag found
+── Page fetch (45 stories, 8 workers) ─────────────────────────────
    ✗ [  business] India's micro business credit market expands to Rs 29.6 lakh: no og:image/twitter:image tag found
-   ✗ [  business] When Governance Fails.: no og:image/twitter:image tag found
-   ✗ [  business] FTA impact: India’s preferential access to global markets li: no og:image/twitter:image tag found
-   ✗ [  reliance] India Needs 50 Trillion Market Cap to Support 30 Trillion Ec: no og:image/twitter:image tag found
-   ✗ [  reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb: no og:image/twitter:image tag found
-   ✗ [    retail] Urban India Records 13.1% FMCG Growth as Traditional Trade H: no og:image/twitter:image tag found
-   ✗ [  reliance] Asia's Premier News Agency - India News, Business & Politica: no og:image/twitter:image tag found
+   ✗ [  business] IRFC fined ₹10.38 lakh by BSE and NSE for board composition : no og:image/twitter:image tag found
+   ✗ [  business] Modi urges Indian Inc to shed domestic-market comfort, step : no og:image/twitter:image tag found
+   ✗ [  business] India's Job Market: More Businesses, Fewer Hired Jobs? What : no og:image/twitter:image tag found
+   ✗ [  business] NSE Shares Rally 35% in a Month; RBI Clears Corporate Bond I: no og:image/twitter:image tag found
+   ✗ [  business] GIC Re fined ₹11.92 lakh each by BSE and NSE for governance : no og:image/twitter:image tag found
+   ✗ [  business] NSE share price rallies 9% in two days; market capitalisatio: no og:image/twitter:image tag found
+   ✗ [  business] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser: no og:image/twitter:image tag found
    ✗ [  reliance] Anant Ambani performs Govardhan Parikrama in Vrindavan, cred: no og:image/twitter:image tag found
-   ✗ [    retail] Urban India leads FMCG growth at 13.1%: Worldpanel: no og:image/twitter:image tag found
-   ✗ [  reliance] FTA impact: India’s preferential access to global markets li: no og:image/twitter:image tag found
-   ✓ [     world] Congo Ebola outbreak reaches 12,000 cases as some responders
+   ✗ [  reliance] Shein’s Slow India Start Lays Bare Limits of Billionaire Amb: no og:image/twitter:image tag found
+   ✗ [  reliance] Reports of Shah Rukh Khan suing over Anant Ambani video are : no og:image/twitter:image tag found
+   ✗ [  reliance] Asia's Premier News Agency - India News, Business & Politica: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani plans $1.6bn biogas investment: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute: no og:image/twitter:image tag found
+   ✗ [  reliance] #TIME100Next comes to India for the first time, and #Relianc: no og:image/twitter:image tag found
+   ✗ [  reliance] Mukesh Ambani's Bombardier Global 7500 VT-ASR flies 25 nm fr: no og:image/twitter:image tag found
+   ✓ [     world] An explosion at a school in eastern Afghanistan kills 10, wo
    ✓ [     world] As UN Secretary General's last day approaches, search for hi
+   ✓ [     world] Sudan's lost generation: War is stealing the childhood of mi
    ✓ [     world] Strobe Talbott, former Time magazine reporter and deputy sec
-   ✓ [     world] North Korea's Kim vows to build more nuclear weapons after i
-   ✓ [     world] French cinema star Gérard Depardieu ordered to stand trial f
-   ✓ [     world] How American Thanksgiving took root — and evolved — in Liber
-   ✓ [     world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's 
+   ✗ [    retail] Urban India Records 13.1% FMCG Growth as Traditional Trade H: no og:image/twitter:image tag found
    ✗ [    sports] IPL has fast-tracked New Zealand cricket’s rise: Ross Taylor: no og:image/twitter:image tag found
-   ✗ [    sports] Shubman Gill captaincy record in all formats - Tests, T20Is,: no og:image/twitter:image tag found
-   ✗ [    sports] Who is Vaibhav Sooryavanshi? The youngest player and centuri: no og:image/twitter:image tag found
-   ✓ [     world] Army to detonate tons of lead azide after delays. And, Abreg
    ✗ [    sports] India vs New Zealand 2nd Test 2026: Match preview, head-to-h: no og:image/twitter:image tag found
-   ✗ [    sports] Vaibhav Sooryavanshi: no og:image/twitter:image tag found
+   ✗ [    sports] IND Vs NZ 2nd Test Day 2: Akash Deep's Five-For, India's Bat: no og:image/twitter:image tag found
+   ✗ [    sports] ‘Heavy White-Ball Diet’: Jacob Duffy Explains Loss Of Rhythm: no og:image/twitter:image tag found
+   ✓ [     world] Congo Ebola outbreak reaches 12,000 cases as some responders
+   ✗ [    sports] Mushfiqur Rahim To Retire! Bangladesh Legend To Bid Goodbye : no og:image/twitter:image tag found
+   ✓ [     world] French cinema star Gérard Depardieu ordered to stand trial f
+   ✗ [    sports] Dinesh Karthik Blames India’s Poor Catching As Follow-On Thr: no og:image/twitter:image tag found
+   ✓ [     world] North Korea's Kim vows to build more nuclear weapons after i
+   ✗ [    sports] Former Indian Captain Questions Mohammed Siraj Omission From: no og:image/twitter:image tag found
+   ✗ [    sports] IND Vs NZ 2nd Test: Akash Deep's Five-For, Dhruv Jurel's Res: no og:image/twitter:image tag found
    ✗ [   opinion] Daily Editorial Analysis 24 November 2026: no og:image/twitter:image tag found
    ✗ [   opinion] Constitution Day: When 53,000 Indians Watched Their Constitu: no og:image/twitter:image tag found
-   images: 8 found, 21 not found  |  page text: 17 stories
+   ✓ [     world] Storms disrupt Thanksgiving travel. And, FCC violated ABC's 
+   images: 8 found, 27 not found  |  page text: 16 stories
 
 ── AI notes (23 stories without a native/reused brief; providers: anthropic, gemini, openai, github, groq; cap 80 calls) ──
-   ✓ [groq] Bar gave me a place, Bench gave me a purpose: Supreme Court 
-   ✓ [groq] Beyond procedural technicalities: The scope of amendment und
-   ✓ [groq] Punjab & Haryana High Court quashes Centre’s complaint again
-   ✓ [groq] Supreme Court declines to entertain plea to reduce minimum a
-   ~ [groq] CLAT: Fairness first  (names no court, regulator or statute)
-      [gemini] busy (The read operation timed out); retrying once
-   ✓ [gemini] CLAT: Fairness first
+   ✓ [groq] Sonia Gandhi's name was included in voters' list before she 
+   ✓ [groq] How did IndianOil-Adani Gas access affidavit not part of cou
+   ✓ [groq] Karnataka High Court introduces RFID-based case file trackin
+   ✓ [groq] Justice constrained to legal formality: Pushing citizens bac
+   ✓ [groq] Karnataka High Court directs courts to accept digital copies
+   ✓ [groq] RGNUL adopts 8rney’s Agentic Legal Workspace
    ✓ [groq] Judges do not deserve praise for merely doing their duty: Jh
-   ✓ [groq] Buying data, inheriting liability: Cyber and data due dilige
-   ✓ [groq] Is the Tribunal Reforms Act, 2026 calling for a seventh roun
-   ✓ [groq] FTA impact: India’s preferential access to global markets li
-   ~ [groq] Anant Ambani performs Govardhan Parikrama in Vrindavan, cred  (names no court, regulator or statute)
-   ✓ [gemini] Anant Ambani performs Govardhan Parikrama in Vrindavan, cred
-   ✓ [groq] Asia's Premier News Agency - India News, Business & Politica
+   ✓ [groq] #TIME100Next comes to India for the first time, and #Relianc
+   ✓ [groq] Mukesh Ambani's Boeing 737 MAX 9 BBJ VT-AKV makes one-minute
+   ✓ [groq] Reports of Shah Rukh Khan suing over Anant Ambani video are 
+   ✓ [groq] Mukesh Ambani's Bombardier Global 7500 VT-ASR flies 25 nm fr
+   ✓ [groq] Mukesh Ambani plans $1.6bn biogas investment
+   ✓ [groq] Modi urges Indian Inc to shed domestic-market comfort, step 
+   ✓ [groq] India's Job Market: More Businesses, Fewer Hired Jobs? What 
    ✓ [groq] TechnoSport on track to achieve Rs 1,000 crore revenue targe
    ✓ [groq] Weekly expansion recap: Retail and consumer companies expand
-   ~ [groq] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes o  (names no court, regulator or statute)
-   ✓ [gemini] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes o
-   ✓ [groq] NDTV Profit Live TV: Watch Live Business News, Stock Market 
-   ✓ [groq] When Governance Fails.
-   ✓ [groq] FTA impact: India’s preferential access to global markets li
-   ✓ [groq] Concurrent Gainers: 9 stocks that gain for 5 days in a row
-   ✓ [groq] Bisleri in fresh trouble: After Goa, FSSAI finds bacteria in
-   ✓ [groq] Puneet Das resigns as chief marketing officer of Britannia I
-   ✓ [groq] Dubai-Based Anchor Investor In BSE Raises His Stake In NSE T
-   ✓ [groq] How city-level data can improve urban governance and service
-   ✓ [groq] Whose company is it anyway? Gender, inheritance and entitlem
+   ✓ [groq] Swiggy's Instamart to cut 340 jobs as AI adoption reshapes o
+   ✓ [groq] An explosion at a school in eastern Afghanistan kills 10, wo
+   ✓ [groq] Sudan's lost generation: War is stealing the childhood of mi
+   ✓ [groq] IRFC fined ₹10.38 lakh by BSE and NSE for board composition 
+   ✓ [groq] Top Losers Today - NSE Top Losers Stocks Live, BSE Top Loser
+   ✓ [groq] GIC Re fined ₹11.92 lakh each by BSE and NSE for governance 
+   ✓ [groq] NSE share price rallies 9% in two days; market capitalisatio
 
-   Enrichment: 64 stories | reused 32 | native brief 1 | AI 23 (groq=20, gemini=3; 26 calls) | kept stale 0 | key points 0 | no brief 0
+   Enrichment: 64 stories | reused 31 | native brief 2 | AI 23 (groq=23; 23 calls) | kept stale 0 | key points 0 | no brief 0
    ~65,300 tokens not spent vs. enriching every story with AI
-   Accuracy check: 26 provider answers | 0 rejected (invented figure, hedging or restated headline) | 3 accepted with a minor flaw after trying a stronger provider
+   Accuracy check: 23 provider answers | 0 rejected (invented figure, hedging or restated headline) | 0 accepted with a minor flaw after trying a stronger provider
 
 ────────────────────────────────────────────────────────────
-Feeds:   15 OK  /  4 failed
+Feeds:   11 OK  /  4 failed
 Stories: 64 total  |  legal: 8, business: 8, reliance: 8, retail: 8, tech: 8, world: 8, sports: 8, opinion: 8
-Edition: 2026-11-28   Hero: legal-156e8574
+Edition: 2026-11-28   Hero: legal-a704863e
 ────────────────────────────────────────────────────────────
 
 Wrote stories.json  (64 stories) ✓
 Wrote stories.fallback.json ✓  (fallback updated)
-Archive: 90 stories for 2026-11-28 | 12 stories continue an earlier one
+Archive: 115 stories for 2026-11-28 | 11 stories continue an earlier one
